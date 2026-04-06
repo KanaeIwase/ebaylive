@@ -454,7 +454,7 @@ export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const tabs = lang==="en" ? ["Home","Product Knowledge","Selling Strategies","Professional Terms","Training"] : ["ホーム","商品知識","販売戦略","専門用語","トレーニング"];
+  const tabs = lang==="en" ? ["Home","Product Knowledge","Selling Strategies","Vocabulary Guide","Training"] : ["ホーム","商品知識","販売戦略","用語ガイド","トレーニング"];
   const icons = ["🏠","👜","📚","💬","🎯"];
 
   return (
@@ -706,27 +706,27 @@ function LiveP({ lang }) {
 
       {/* FRAMEWORK */}
       {view==="framework" && data.map((step, si) => (
-        <div key={si} style={{ marginBottom:8 }}>
-          <div onClick={()=>setOpenStep(openStep===si?null:si)} style={{ display:"flex", alignItems:"center", gap:10, background:openStep===si?`${step.color}0A`:"#141210", border:`1px solid ${openStep===si?`${step.color}44`:"#1E1E1E"}`, borderRadius:12, padding:"12px 14px", cursor:"pointer" }}>
-            <span style={{ fontSize:20 }}>{step.icon}</span>
+        <div key={si} style={{ marginBottom:12 }}>
+          <div onClick={()=>setOpenStep(openStep===si?null:si)} style={{ display:"flex", alignItems:"center", gap:12, background:"#FFFFFF", border:`2px solid ${openStep===si?step.color:"#F7F7F7"}`, borderRadius:12, padding:"16px 20px", cursor:"pointer", transition:"all 0.2s" }}>
+            <span style={{ fontSize:32 }}>{step.icon}</span>
             <div style={{ flex:1 }}>
-              <div style={{ fontSize:14, fontWeight:700, color:step.color }}>{step.step}</div>
-              <div style={{ fontSize:11, color:"#666" }}>{step.sub}</div>
+              <div style={{ fontSize:17, fontWeight:700, color:"#191919" }}>{step.step}</div>
+              <div style={{ fontSize:14, color:"#191919", fontWeight:400 }}>{step.sub}</div>
             </div>
-            <span style={{ fontSize:11, color:"#444" }}>{openStep===si?"▾":"▸"}</span>
+            <span style={{ fontSize:18, color:"#191919" }}>{openStep===si?"▼":"▶"}</span>
           </div>
           {openStep===si && (
-            <div style={{ padding:"4px 0 0 16px", borderLeft:`2px solid ${step.color}33`, marginLeft:20, animation:"fu 0.3s ease" }}>
+            <div style={{ padding:"12px 0 0 20px", borderLeft:`3px solid ${step.color}`, marginLeft:20, marginTop:12, animation:"fu 0.3s ease" }}>
               {step.sections.map((sec, sci) => (
-                <div key={sci} style={{ marginBottom:4 }}>
-                  <div onClick={()=>setOpenSec(openSec===`${si}-${sci}`?null:`${si}-${sci}`)} style={{ padding:"8px 12px", background:"#0D0D0D", borderRadius:8, cursor:"pointer", display:"flex", justifyContent:"space-between" }}>
-                    <span style={{ fontSize:13, fontWeight:600, color:openSec===`${si}-${sci}`?step.color:"#D4C9BE" }}>{sec.t}</span>
-                    <span style={{ fontSize:10, color:"#444" }}>{sec.items.length}</span>
+                <div key={sci} style={{ marginBottom:8 }}>
+                  <div onClick={()=>setOpenSec(openSec===`${si}-${sci}`?null:`${si}-${sci}`)} style={{ padding:"12px 16px", background:"#F7F7F7", borderRadius:8, cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                    <span style={{ fontSize:15, fontWeight:700, color:"#191919" }}>{sec.t}</span>
+                    <span style={{ fontSize:13, color:"#191919", background:step.color, padding:"4px 10px", borderRadius:6, fontWeight:700 }}>{sec.items.length}</span>
                   </div>
                   {openSec===`${si}-${sci}` && (
-                    <div style={{ padding:"6px 12px" }}>
+                    <div style={{ padding:"8px 16px" }}>
                       {sec.items.map((item, ii) => (
-                        <div key={ii} style={{ fontSize:12, color:"#999", lineHeight:1.7, paddingLeft:8, borderLeft:`2px solid ${step.color}22`, marginBottom:3 }}>{item}</div>
+                        <div key={ii} style={{ fontSize:14, color:"#191919", lineHeight:1.8, paddingLeft:12, borderLeft:`3px solid ${step.color}44`, marginBottom:6, fontWeight:400 }}>{item}</div>
                       ))}
                     </div>
                   )}
@@ -739,21 +739,21 @@ function LiveP({ lang }) {
 
       {/* PLATFORMS */}
       {view==="platforms" && LIVE_KB.platforms[lang].map((p,i) => (
-        <div key={i} style={{ background:"#141210", borderRadius:12, padding:"12px 14px", marginBottom:6, border:"1px solid #1E1E1E" }}>
-          <div style={{ fontSize:15, fontWeight:700 }}>{p.emoji} {p.name}</div>
-          <div style={{ marginTop:6 }}>
-            {p.points.map((pt,j)=><div key={j} style={{ fontSize:12, color:"#999", lineHeight:1.7, paddingLeft:8, borderLeft:"2px solid #333", marginBottom:2 }}>{pt}</div>)}
+        <div key={i} style={{ background:"#FFFFFF", borderRadius:12, padding:"20px 24px", marginBottom:12, border:"2px solid #F7F7F7" }}>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:12 }}>{p.emoji} {p.name}</div>
+          <div style={{ display:"grid", gap:8 }}>
+            {p.points.map((pt,j)=><div key={j} style={{ fontSize:15, color:"#191919", lineHeight:1.7, paddingLeft:16, borderLeft:"3px solid #4CE160", fontWeight:400 }}>{pt}</div>)}
           </div>
         </div>
       ))}
 
       {/* CONTENT TYPES */}
       {view==="content" && LIVE_KB.contentTypes[lang].map((ct,i) => (
-        <div key={i} style={{ background:"#141210", borderRadius:12, padding:"12px 14px", marginBottom:6, border:"1px solid #1E1E1E" }}>
-          <div style={{ fontSize:15, fontWeight:700 }}>{ct.icon} {ct.type}</div>
-          <div style={{ fontSize:12, color:"#999", marginTop:4, lineHeight:1.6 }}>{ct.desc}</div>
-          <div style={{ fontSize:11, color:"#5DAE5D", marginTop:4 }}>✓ {lang==="en"?"Best for":"向いてる人"}: {ct.best}</div>
-          <div style={{ fontSize:11, color:"#E8A87C", marginTop:2 }}>💡 {ct.tip}</div>
+        <div key={i} style={{ background:"#FFFFFF", borderRadius:12, padding:"20px 24px", marginBottom:12, border:"2px solid #F7F7F7" }}>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:8 }}>{ct.icon} {ct.type}</div>
+          <div style={{ fontSize:15, color:"#191919", marginTop:8, lineHeight:1.7, fontWeight:400 }}>{ct.desc}</div>
+          <div style={{ fontSize:14, color:"#191919", marginTop:12, background:"#F7F7F7", padding:"8px 12px", borderRadius:6, fontWeight:400 }}>✓ {lang==="en"?"Best for":"向いてる人"}: <strong style={{ fontWeight:700 }}>{ct.best}</strong></div>
+          <div style={{ fontSize:14, color:"#191919", marginTop:8, fontWeight:400 }}>💡 {ct.tip}</div>
         </div>
       ))}
     </div>
