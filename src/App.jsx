@@ -539,15 +539,22 @@ const VOCAB_CATS = [
     {e:"Fuchsia / Fuschia",j:"フューシャ",def:"Bright magenta-pink, bold statement color",defJp:"明るいマゼンタピンク、大胆なステートメントカラー"},
     {e:"Bordeaux / Burgundy",j:"ボルドー/バーガンディ",def:"Deep wine red, rich and elegant",defJp:"深いワインレッド、豊かでエレガント"}
   ]},
-  { cat:"Fashion Compliment Phrases", items:[
-    {e:"This shade is stunning on you",j:"この色はあなたにぴったり",def:"Compliment color choice",defJp:"カラー選択を褒める"},
+  { cat:"Selling Color & Style on Live Stream", items:[
+    {e:"This shade flatters every skin tone",j:"この色はどんな肌色にも似合います",def:"Universal appeal - works for all buyers",defJp:"万人向け - すべてのバイヤーに合う"},
     {e:"Such a rich, luxurious color",j:"豊かで贅沢な色",def:"Emphasize quality of color",defJp:"色の品質を強調"},
     {e:"This color never goes out of style",j:"この色は流行に左右されない",def:"Highlight timeless appeal",defJp:"時代を超えた魅力を強調"},
-    {e:"Perfectly versatile shade",j:"完璧に万能な色",def:"Point out wearability",defJp:"着こなしやすさを指摘"},
+    {e:"Perfectly versatile - pairs with anything",j:"完璧に万能 - 何にでも合う",def:"Easy styling for buyers to imagine",defJp:"バイヤーが想像しやすいスタイリング"},
     {e:"Rare, hard-to-find color",j:"レアで入手困難な色",def:"Create urgency with scarcity",defJp:"希少性で緊急性を作る"},
-    {e:"This color photographs beautifully",j:"この色は写真映えする",def:"Appeal to visual buyers",defJp:"視覚的なバイヤーにアピール"},
-    {e:"So flattering, works with everything",j:"とても似合う、何にでも合う",def:"Emphasize styling flexibility",defJp:"スタイリングの柔軟性を強調"},
-    {e:"A collector's favorite shade",j:"コレクターに人気の色",def:"Position as desirable",defJp:"望ましいものとして位置付ける"}
+    {e:"This shade photographs beautifully",j:"この色は写真映えする",def:"Appeal to visual/Instagram-conscious buyers",defJp:"視覚的/Instagram意識の高いバイヤーにアピール"},
+    {e:"You can dress it up or down",j:"フォーマルにもカジュアルにも",def:"Versatility for multiple occasions",defJp:"複数の場面での汎用性"},
+    {e:"A collector's favorite shade",j:"コレクターに人気の色",def:"Position as desirable, sought-after",defJp:"望ましい、人気のあるものとして位置付ける"},
+    {e:"Perfect for any season",j:"オールシーズン使える",def:"Year-round wearability",defJp:"一年中使える"},
+    {e:"This will elevate any outfit",j:"どんなコーデも格上げ",def:"Positioning as outfit enhancer",defJp:"コーディネートを向上させるアイテムとして"},
+    {e:"The leather feels incredible",j:"レザーの質感が素晴らしい",def:"Describe tactile quality viewers can't feel",defJp:"視聴者が触れない触感の品質を説明"},
+    {e:"Look at how it catches the light!",j:"光の当たり方を見て！",def:"Visual selling - show on camera",defJp:"視覚的販売 - カメラで見せる"},
+    {e:"Imagine this with your favorite jeans",j:"お気に入りのジーンズと合わせたら",def:"Help buyers visualize styling",defJp:"バイヤーがスタイリングを想像するのを助ける"},
+    {e:"This adds instant luxury to your closet",j:"クローゼットに即ラグジュアリーを追加",def:"Aspirational positioning",defJp:"憧れのポジショニング"},
+    {e:"Every fashionista needs this shade",j:"すべてのおしゃれさんに必要な色",def:"Create desire through social proof",defJp:"社会的証明で欲求を作る"}
   ]},
   { cat:"Authentication & Verification Terms", items:[
     {e:"Date code",j:"デートコード",def:"Manufacturer's code indicating production date/location",defJp:"製造日/場所を示すメーカーコード"},
