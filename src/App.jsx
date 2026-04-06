@@ -453,6 +453,7 @@ const VOCAB_CATS = [
 export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const tabs = lang==="en" ? ["Home","Brands","Live Streaming","Vocabulary","Practice"] : ["ホーム","ブランド","ライブ配信","用語集","練習"];
   const icons = ["🏠","👜","🎥","📖","🎯"];
 
@@ -463,16 +464,22 @@ export default function App() {
       <style>{`@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}*{box-sizing:border-box}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#555}`}</style>
 
       {/* Sidebar Navigation */}
-      <div style={{ width:280, background:"#FFFFFF", boxShadow:"2px 0 8px rgba(0,0,0,0.08)", display:"flex", flexDirection:"column", position:"sticky", top:0, height:"100vh" }}>
-        {/* Logo */}
-        <div style={{ padding:"32px 24px", borderBottom:"1px solid #F7F7F7" }}>
-          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
-            {lang==="en"?"eBay Live":"eBay Live"}
+      {sidebarOpen && (
+        <div style={{ width:280, background:"#FFFFFF", boxShadow:"2px 0 8px rgba(0,0,0,0.08)", display:"flex", flexDirection:"column", position:"sticky", top:0, height:"100vh" }}>
+          {/* Logo */}
+          <div style={{ padding:"32px 24px", borderBottom:"1px solid #F7F7F7", display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
+            <div onClick={()=>setPage(0)} style={{ cursor:"pointer" }}>
+              <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
+                {lang==="en"?"eBay Live":"eBay Live"}
+              </div>
+              <div style={{ fontSize:14, color:"#191919", fontWeight:400 }}>
+                {lang==="en"?"Academy":"アカデミー"}
+              </div>
+            </div>
+            <button onClick={()=>setSidebarOpen(false)} style={{ background:"none", border:"none", fontSize:20, cursor:"pointer", color:"#191919", padding:0 }}>
+              ✕
+            </button>
           </div>
-          <div style={{ fontSize:14, color:"#191919", fontWeight:400 }}>
-            {lang==="en"?"Academy":"アカデミー"}
-          </div>
-        </div>
 
         {/* Nav Items */}
         <div style={{ flex:1, padding:"16px 12px", overflowY:"auto" }}>
@@ -483,13 +490,19 @@ export default function App() {
             </button>
           ))}
         </div>
-
-      </div>
+        </div>
+      )}
 
       {/* Main Content */}
       <div style={{ flex:1, background:"#ffffff", overflowY:"auto" }}>
-        {/* Top Bar with Language Toggle */}
-        <div style={{ padding:"20px 48px", display:"flex", justifyContent:"flex-end", borderBottom:"1px solid #F7F7F7" }}>
+        {/* Top Bar with Menu + Language Toggle */}
+        <div style={{ padding:"20px 48px", display:"flex", justifyContent:"space-between", alignItems:"center", borderBottom:"1px solid #F7F7F7" }}>
+          {!sidebarOpen && (
+            <button onClick={()=>setSidebarOpen(true)} style={{ background:"#F7F7F7", border:"none", padding:"10px 16px", borderRadius:8, cursor:"pointer", fontSize:16, color:"#191919", fontWeight:700, display:"flex", alignItems:"center", gap:8 }}>
+              ☰ <span>{lang==="en"?"Menu":"メニュー"}</span>
+            </button>
+          )}
+          {sidebarOpen && <div></div>}
           <div onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ display:"flex", alignItems:"center", gap:10, cursor:"pointer", userSelect:"none", padding:"8px 12px", background:"#F7F7F7", borderRadius:6 }}>
             <span style={{ fontSize:14, color:lang==="en"?"#4CE160":"#191919", fontWeight:lang==="en"?700:400 }}>EN</span>
             <div style={{ width:42, height:22, borderRadius:20, background:lang==="jp"?"#4CE160":"#E0E0E0", position:"relative", transition:"all 0.3s" }}>
@@ -518,40 +531,60 @@ function HomeP({ lang, setPage }) {
       <div style={{ marginBottom:48 }}>
         <div style={{ fontSize:56, marginBottom:16 }}>🎯</div>
         <h1 style={{ fontSize:42, fontWeight:700, marginBottom:16, color:"#191919", lineHeight:1.2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
-          {lang==="en"?"Master eBay Live Selling":"eBay Live販売をマスター"}
+          {lang==="en"?"Welcome to eBay Live Academy":"eBay Liveアカデミーへようこそ"}
         </h1>
-        <p style={{ fontSize:18, color:"#191919", lineHeight:1.7, maxWidth:700, fontWeight:400 }}>
+        <p style={{ fontSize:18, color:"#191919", lineHeight:1.7, maxWidth:800, fontWeight:400, marginBottom:24 }}>
           {lang==="en"
-            ?"Learn luxury fashion expertise, live streaming strategies, and professional vocabulary to succeed as an eBay Live seller targeting B2B resellers."
-            :"B2Bリセラーを対象としたeBay Liveセラーとして成功するための高級ファッション知識、ライブ配信戦略、専門用語を学習。"}
+            ?"Your complete training platform for becoming a successful eBay Live seller. Master luxury fashion knowledge, live streaming techniques, and professional vocabulary to engage B2B reseller buyers."
+            :"成功するeBay Liveセラーになるための完全なトレーニングプラットフォーム。高級ファッション知識、ライブ配信テクニック、プロフェッショナルな用語を習得し、B2Bリセラーバイヤーを惹きつけます。"}
         </p>
       </div>
 
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:20, marginBottom:48 }}>
-        {[
-          { icon:"👜", title:lang==="en"?"Luxury Brands":"高級ブランド", desc:lang==="en"?"Rarity, conditions, and value points for eBay Authenticity Guarantee brands":"eBay認証保証ブランドの希少性、状態、価値ポイント", page:1, color:"#F02D2D" },
-          { icon:"🎥", title:lang==="en"?"Live Streaming":"ライブ配信", desc:lang==="en"?"Proven 6-step framework to engage viewers and drive sales":"視聴者を引き付けて売上を上げる実証済み6ステップ", page:2, color:"#0968F6" },
-          { icon:"📖", title:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Auction lingo, condition terms, and luxury fashion showroom language":"オークション用語、状態用語、高級ファッション業界用語", page:3, color:"#FFBD14" },
-          { icon:"🎯", title:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills for buyer names, product descriptions, and Q&A":"バイヤー名、商品説明、Q&Aのインタラクティブ練習", page:4, color:"#92C821" },
-        ].map((card,i)=>(
-          <div key={i} onClick={()=>setPage(card.page)} style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"28px 24px", cursor:"pointer", transition:"all 0.2s", boxShadow:"0 2px 4px rgba(0,0,0,0.06)" }}
-            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor=card.color; e.currentTarget.style.boxShadow="0 8px 16px rgba(0,0,0,0.12)"}}
-            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#F7F7F7"; e.currentTarget.style.boxShadow="0 2px 4px rgba(0,0,0,0.06)"}}>
-            <div style={{ width:56, height:56, borderRadius:12, background:card.color, display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, marginBottom:16 }}>{card.icon}</div>
-            <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:8 }}>{card.title}</div>
-            <div style={{ fontSize:15, color:"#191919", lineHeight:1.6, fontWeight:400 }}>{card.desc}</div>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24, marginBottom:48 }}>
+        <div style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"32px 28px" }}>
+          <div style={{ fontSize:40, marginBottom:16 }}>👥</div>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:12 }}>
+            {lang==="en"?"Who This Is For":"対象者"}
           </div>
-        ))}
+          <div style={{ fontSize:15, color:"#191919", lineHeight:1.8, fontWeight:400 }}>
+            {lang==="en"
+              ?"eBay Live sellers targeting professional resellers who buy luxury fashion items in Japan to resell in the US market. Focus on B2B communication and product expertise."
+              :"日本で高級ファッションアイテムを購入し米国市場で転売するプロのリセラーを対象としたeBay Liveセラー。B2Bコミュニケーションと商品知識に焦点。"}
+          </div>
+        </div>
+
+        <div style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"32px 28px" }}>
+          <div style={{ fontSize:40, marginBottom:16 }}>📚</div>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:12 }}>
+            {lang==="en"?"What You'll Learn":"学べること"}
+          </div>
+          <div style={{ fontSize:15, color:"#191919", lineHeight:1.8, fontWeight:400 }}>
+            {lang==="en"
+              ?"Brand value points, rarity factors, condition assessment for eBay Authenticity Guarantee items. Live streaming engagement strategies, auction vocabulary, and showroom language."
+              :"eBay認証保証アイテムのブランド価値、希少性要因、状態評価。ライブ配信エンゲージメント戦略、オークション用語、ショールーム言語。"}
+          </div>
+        </div>
       </div>
 
-      <div style={{ background:"#3B1FC6", borderRadius:12, padding:"32px 36px", color:"#FFFFFF" }}>
+      <div style={{ background:"#3B1FC6", borderRadius:12, padding:"32px 36px", color:"#FFFFFF", marginBottom:32 }}>
         <div style={{ fontSize:20, fontWeight:700, marginBottom:12 }}>
-          💡 {lang==="en"?"How to Use This Platform":"このプラットフォームの使い方"}
+          💡 {lang==="en"?"How to Navigate":"ナビゲーション方法"}
         </div>
         <div style={{ fontSize:16, lineHeight:1.8, fontWeight:400 }}>
           {lang==="en"
-            ?"Use the sidebar to navigate between sections. Each module contains actionable knowledge for eBay Live sellers targeting professional resellers. Focus on product expertise, condition assessment, and live engagement techniques."
-            :"サイドバーでセクション間を移動します。各モジュールには、プロのリセラーを対象としたeBay Liveセラーのための実用的な知識が含まれています。商品知識、状態評価、ライブエンゲージメント技術に焦点を当てています。"}
+            ?"Use the sidebar on the left to explore different modules. Start with Luxury Brands to learn product knowledge, then move to Live Streaming for engagement techniques. The Vocabulary section provides essential terminology for professional communication."
+            :"左のサイドバーで各モジュールを探索。まず高級ブランドで商品知識を学び、次にライブ配信でエンゲージメントテクニックへ。用語集セクションはプロフェッショナルなコミュニケーションに必須の用語を提供。"}
+        </div>
+      </div>
+
+      <div style={{ background:"#F7F7F7", borderRadius:12, padding:"24px 28px", border:"1px solid #E0E0E0" }}>
+        <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          🚀 {lang==="en"?"Ready to Start?":"始める準備はできましたか？"}
+        </div>
+        <div style={{ fontSize:15, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
+          {lang==="en"
+            ?"Select a module from the sidebar to begin your training journey."
+            :"サイドバーからモジュールを選択してトレーニングを開始しましょう。"}
         </div>
       </div>
     </div>
@@ -626,15 +659,15 @@ function FashionP({ lang }) {
 
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(320px, 1fr))", gap:20 }}>
         {BRANDS.map((b,i)=>(
-          <div key={i} onClick={()=>setSel(i)} style={{ background:"#ffffff", border:"1px solid #e5e7eb", borderRadius:16, padding:"24px", cursor:"pointer", transition:"all 0.3s", boxShadow:"0 2px 4px rgba(0,0,0,0.04)" }}
-            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.boxShadow="0 12px 24px rgba(102,126,234,0.15)"}}
-            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="0 2px 4px rgba(0,0,0,0.04)"}}>
-            <div style={{ fontSize:24, fontWeight:700, color:"#1a1a2e", marginBottom:6 }}>{b.brand}</div>
-            <div style={{ fontSize:14, color:"#9ca3af", marginBottom:16 }}>{b.c} Est. {b.yr}</div>
-            <div style={{ fontSize:13, color:"#6b7280", marginBottom:12 }}>
-              <strong>{lang==="en"?"Models":"モデル"}:</strong> {b.models.slice(0,3).join(", ")}...
+          <div key={i} onClick={()=>setSel(i)} style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"24px", cursor:"pointer", transition:"all 0.2s", boxShadow:"0 2px 4px rgba(0,0,0,0.05)" }}
+            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3B1FC6"; e.currentTarget.style.boxShadow="0 8px 16px rgba(59,31,198,0.15)"}}
+            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#F7F7F7"; e.currentTarget.style.boxShadow="0 2px 4px rgba(0,0,0,0.05)"}}>
+            <div style={{ fontSize:24, fontWeight:700, color:"#191919", marginBottom:6 }}>{b.brand}</div>
+            <div style={{ fontSize:14, color:"#191919", marginBottom:16, fontWeight:400 }}>{b.c} Est. {b.yr}</div>
+            <div style={{ fontSize:14, color:"#191919", marginBottom:12, fontWeight:400 }}>
+              <strong style={{ fontWeight:700 }}>{lang==="en"?"Models":"モデル"}:</strong> {b.models.slice(0,3).join(", ")}...
             </div>
-            <div style={{ fontSize:13, color:"#667eea", fontWeight:600 }}>
+            <div style={{ fontSize:14, color:"#3B1FC6", fontWeight:700 }}>
               {lang==="en"?"View Details →":"詳細を見る →"}
             </div>
           </div>
@@ -726,21 +759,40 @@ function EnglishP({ lang }) {
   const [open, setOpen] = useState(null);
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
-      <h2 style={h2}>{lang==="en"?"English Vocabulary":"英語ボキャブラリー"}</h2>
-      {VOCAB_CATS.map((cat,ci)=>(
-        <div key={ci} style={{ marginBottom:6 }}>
-          <div onClick={()=>setOpen(open===ci?null:ci)} style={{ ...row, borderColor:open===ci?"#5DAE5D44":"#1E1E1E" }}>
-            <span style={{ fontSize:13, fontWeight:600, color:open===ci?"#5DAE5D":"#D4C9BE" }}>{cat.cat}</span>
-            <span style={{ fontSize:11, color:"#555" }}>{cat.items.length} {open===ci?"▾":"▸"}</span>
-          </div>
-          {open===ci && cat.items.map((x,i)=>(
-            <div key={i} style={{ display:"flex", justifyContent:"space-between", padding:"7px 14px", background:"#0D0D0D", borderRadius:8, marginTop:3 }}>
-              <span style={{ fontSize:13, color:"#D4C9BE", flex:1 }}>{x.e}</span>
-              <span style={{ fontSize:12, color:"#888", textAlign:"right", maxWidth:"45%" }}>{x.j}</span>
+      <div style={{ marginBottom:32 }}>
+        <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang==="en"?"Professional Vocabulary":"プロフェッショナル用語集"}
+        </h1>
+        <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
+          {lang==="en"
+            ?"Master the language of luxury fashion live selling. Essential terms for describing conditions, running auctions, and communicating with B2B buyers."
+            :"高級ファッションライブ販売の言語をマスター。状態説明、オークション運営、B2Bバイヤーとのコミュニケーションに必須の用語。"}
+        </p>
+      </div>
+
+      <div style={{ display:"grid", gap:16 }}>
+        {VOCAB_CATS.map((cat,ci)=>(
+          <div key={ci} style={{ background:"#FFFFFF", border:"1px solid #F7F7F7", borderRadius:12, overflow:"hidden" }}>
+            <div onClick={()=>setOpen(open===ci?null:ci)} style={{ padding:"18px 24px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", background:open===ci?"#F7F7F7":"#FFFFFF", transition:"all 0.2s" }}>
+              <span style={{ fontSize:17, fontWeight:700, color:"#191919" }}>{cat.cat}</span>
+              <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                <span style={{ fontSize:13, color:"#191919", background:"#4CE160", padding:"4px 12px", borderRadius:6, fontWeight:700 }}>{cat.items.length}</span>
+                <span style={{ fontSize:16, color:"#191919" }}>{open===ci?"▼":"▶"}</span>
+              </div>
             </div>
-          ))}
-        </div>
-      ))}
+            {open===ci && (
+              <div style={{ padding:"8px 0" }}>
+                {cat.items.map((x,i)=>(
+                  <div key={i} style={{ display:"flex", justifyContent:"space-between", padding:"14px 24px", borderTop:i===0?"1px solid #F7F7F7":"none", background:i%2===0?"#FAFAFA":"#FFFFFF" }}>
+                    <span style={{ fontSize:15, color:"#191919", flex:1, fontWeight:500 }}>{x.e}</span>
+                    <span style={{ fontSize:14, color:"#191919", textAlign:"right", maxWidth:"45%", fontWeight:400 }}>{x.j}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
