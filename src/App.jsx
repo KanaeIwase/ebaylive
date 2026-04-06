@@ -514,8 +514,8 @@ export default function App() {
     return hash ? parseInt(hash) : 0;
   });
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const tabs = lang==="en" ? ["Home","Product Knowledge","Selling Strategies","Vocabulary Guide","Training"] : ["ホーム","商品知識","販売戦略","用語ガイド","トレーニング"];
-  const icons = ["🏠","👜","📚","💬","🎯"];
+  const tabs = lang==="en" ? ["Home","Brand Knowledge","Live Streaming","Vocab","Practice"] : ["ホーム","ブランド知識","ライブ配信","用語集","練習"];
+  const icons = ["🏠","👜","📺","💬","🎯"];
 
   useEffect(() => {
     window.location.hash = page;
@@ -531,34 +531,38 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ minHeight:"100vh", background:"#F7F7F7", fontFamily:"'Market Sans','Noto Sans JP',sans-serif", color:"#191919", display:"flex" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-      <link href="https://use.typekit.net/ivu7epf.css" rel="stylesheet"/>
+    <div style={{ minHeight:"100vh", background:"#F7F7F7", fontFamily:"'Inter','Noto Sans JP',sans-serif", color:"#191919", display:"flex" }}>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
       <style>{`@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}*{box-sizing:border-box}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#555}`}</style>
+
+      {/* Overlay when sidebar open */}
+      {sidebarOpen && (
+        <div onClick={()=>setSidebarOpen(false)} style={{ position:"fixed", top:0, left:0, right:0, bottom:0, background:"rgba(0,0,0,0.3)", zIndex:40 }} />
+      )}
 
       {/* Sidebar Navigation */}
       {sidebarOpen && (
-        <div style={{ width:280, background:"#FFFFFF", boxShadow:"2px 0 8px rgba(0,0,0,0.08)", display:"flex", flexDirection:"column", position:"sticky", top:0, height:"100vh" }}>
+        <div style={{ width:280, background:"#FFFFFF", boxShadow:"2px 0 8px rgba(0,0,0,0.08)", display:"flex", flexDirection:"column", position:"fixed", top:0, left:0, height:"100vh", zIndex:50 }}>
           {/* Logo */}
-          <div style={{ padding:"32px 24px", borderBottom:"1px solid #F7F7F7", display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
+          <div style={{ padding:"24px 20px", borderBottom:"1px solid #F7F7F7", display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
             <div onClick={()=>setPage(0)} style={{ cursor:"pointer" }}>
-              <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
+              <div style={{ fontSize:20, fontWeight:700, color:"#0968F6", marginBottom:2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
                 {lang==="en"?"eBay Live":"eBay Live"}
               </div>
               <div style={{ fontSize:14, color:"#191919", fontWeight:400 }}>
                 {lang==="en"?"Academy":"アカデミー"}
               </div>
             </div>
-            <button onClick={()=>setSidebarOpen(false)} style={{ background:"transparent", border:"none", fontSize:20, cursor:"pointer", color:"#191919", padding:"4px" }}>
-              ◀
+            <button onClick={()=>setSidebarOpen(false)} style={{ background:"#F7F7F7", border:"none", fontSize:16, cursor:"pointer", color:"#191919", padding:"8px 12px", borderRadius:6, fontWeight:600 }}>
+              ◀ {lang==="en"?"Close":"閉じる"}
             </button>
           </div>
 
         {/* Nav Items */}
-        <div style={{ flex:1, padding:"16px 12px", overflowY:"auto" }}>
+        <div style={{ flex:1, padding:"12px", overflowY:"auto" }}>
           {tabs.map((tab,i) => (
-            <button key={i} onClick={()=>setPage(i)} style={{ width:"100%", padding:"14px 16px", marginBottom:4, borderRadius:8, background:page===i?"#3B1FC6":"transparent", border:"none", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:page===i?700:400, display:"flex", alignItems:"center", gap:12, color:page===i?"#FFFFFF":"#191919", transition:"all 0.2s", textAlign:"left" }}>
-              <span style={{ fontSize:20 }}>{icons[i]}</span>
+            <button key={i} onClick={()=>setPage(i)} style={{ width:"100%", minHeight:48, padding:"14px 16px", marginBottom:6, borderRadius:10, background:page===i?"#3665F3":"transparent", border:"none", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:page===i?600:500, display:"flex", alignItems:"center", gap:12, color:page===i?"#FFFFFF":"#191919", transition:"all 0.2s", textAlign:"left" }}>
+              <span style={{ fontSize:22 }}>{icons[i]}</span>
               <span>{tab}</span>
             </button>
           ))}
@@ -568,20 +572,26 @@ export default function App() {
 
       {/* Main Content */}
       <div style={{ flex:1, background:"#ffffff", overflowY:"auto" }}>
-        {/* Top Bar with Menu + Language Toggle */}
-        <div style={{ padding:"20px 48px", display:"flex", justifyContent:"space-between", alignItems:"center", borderBottom:"1px solid #F7F7F7" }}>
-          {!sidebarOpen && (
-            <button onClick={()=>setSidebarOpen(true)} style={{ background:"#F7F7F7", border:"none", padding:"10px 16px", borderRadius:8, cursor:"pointer", fontSize:16, color:"#191919", fontWeight:700, display:"flex", alignItems:"center", gap:8 }}>
-              ☰ <span>{lang==="en"?"Menu":"メニュー"}</span>
-            </button>
-          )}
-          {sidebarOpen && <div></div>}
-          <div onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ display:"flex", alignItems:"center", gap:10, cursor:"pointer", userSelect:"none", padding:"8px 12px", background:"#F7F7F7", borderRadius:6 }}>
-            <span style={{ fontSize:14, color:lang==="en"?"#4CE160":"#191919", fontWeight:lang==="en"?700:400 }}>EN</span>
-            <div style={{ width:42, height:22, borderRadius:20, background:lang==="jp"?"#4CE160":"#E0E0E0", position:"relative", transition:"all 0.3s" }}>
-              <div style={{ width:16, height:16, borderRadius:"50%", background:"#FFF", position:"absolute", top:3, left:lang==="jp"?23:3, transition:"all 0.3s", boxShadow:"0 1px 3px rgba(0,0,0,0.2)" }}></div>
+        {/* Sticky Header */}
+        <div style={{ position:"sticky", top:0, zIndex:30, background:"#FFFFFF", borderBottom:"1px solid #E5E7EB", boxShadow:"0 1px 3px rgba(0,0,0,0.05)" }}>
+          <div style={{ padding:"16px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", maxWidth:1200, margin:"0 auto" }}>
+            <div style={{ display:"flex", alignItems:"center", gap:16 }}>
+              {!sidebarOpen && (
+                <button onClick={()=>setSidebarOpen(true)} style={{ background:"#3665F3", color:"#FFFFFF", border:"none", padding:"10px 16px", borderRadius:8, cursor:"pointer", fontSize:15, fontWeight:600, display:"flex", alignItems:"center", gap:8, minHeight:44 }}>
+                  ☰ <span>{lang==="en"?"Menu":"メニュー"}</span>
+                </button>
+              )}
+              <div style={{ fontSize:18, fontWeight:700, color:"#3665F3" }}>
+                {lang==="en"?"eBay Live Academy":"eBay Liveアカデミー"}
+              </div>
             </div>
-            <span style={{ fontSize:14, color:lang==="jp"?"#4CE160":"#191919", fontWeight:lang==="jp"?700:400 }}>JP</span>
+            <div onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ display:"flex", alignItems:"center", gap:10, cursor:"pointer", userSelect:"none", padding:"8px 14px", background:"#F7F7F7", borderRadius:8, minHeight:44 }}>
+              <span style={{ fontSize:14, color:lang==="en"?"#3665F3":"#191919", fontWeight:lang==="en"?700:500 }}>EN</span>
+              <div style={{ width:42, height:22, borderRadius:20, background:lang==="jp"?"#3665F3":"#D1D5DB", position:"relative", transition:"all 0.2s" }}>
+                <div style={{ width:16, height:16, borderRadius:"50%", background:"#FFF", position:"absolute", top:3, left:lang==="jp"?23:3, transition:"all 0.2s", boxShadow:"0 1px 3px rgba(0,0,0,0.2)" }}></div>
+              </div>
+              <span style={{ fontSize:14, color:lang==="jp"?"#3665F3":"#191919", fontWeight:lang==="jp"?700:500 }}>JP</span>
+            </div>
           </div>
         </div>
 
@@ -601,16 +611,19 @@ export default function App() {
 function HomeP({ lang, setPage }) {
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
-      <div style={{ marginBottom:48 }}>
-        <div style={{ fontSize:56, marginBottom:16 }}>🎯</div>
-        <h1 style={{ fontSize:42, fontWeight:700, marginBottom:16, color:"#191919", lineHeight:1.2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
-          {lang==="en"?"Welcome to eBay Live Academy":"eBay Liveアカデミーへようこそ"}
+      <div style={{ marginBottom:40, textAlign:"center", padding:"40px 20px", background:"linear-gradient(135deg, #0968F6 0%, #F02D2D 100%)", borderRadius:16, color:"#FFFFFF" }}>
+        <div style={{ fontSize:48, marginBottom:12 }}>🎯</div>
+        <h1 style={{ fontSize:36, fontWeight:700, marginBottom:12, lineHeight:1.2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
+          {lang==="en"?"Master eBay Live Selling":"eBay Live販売をマスター"}
         </h1>
-        <p style={{ fontSize:18, color:"#191919", lineHeight:1.7, maxWidth:800, fontWeight:400, marginBottom:24 }}>
+        <p style={{ fontSize:18, lineHeight:1.6, maxWidth:600, margin:"0 auto 24px", opacity:0.95 }}>
           {lang==="en"
-            ?"Your complete training platform for becoming a successful eBay Live seller. Master luxury fashion knowledge, live streaming techniques, and professional vocabulary to engage B2B reseller buyers."
-            :"成功するeBay Liveセラーになるための完全なトレーニングプラットフォーム。高級ファッション知識、ライブ配信テクニック、プロフェッショナルな用語を習得し、B2Bリセラーバイヤーを惹きつけます。"}
+            ?"Learn luxury fashion, live streaming, and professional vocabulary for B2B success."
+            :"高級ファッション、ライブ配信、プロ用語でB2B成功を実現。"}
         </p>
+        <button onClick={()=>setPage(1)} style={{ background:"#FFFFFF", color:"#0968F6", border:"none", padding:"14px 32px", borderRadius:8, fontSize:16, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 12px rgba(0,0,0,0.15)", fontFamily:"inherit", minHeight:48 }}>
+          {lang==="en"?"Start Learning →":"学習を始める →"}
+        </button>
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24, marginBottom:48 }}>
@@ -849,25 +862,22 @@ function EnglishP({ lang }) {
         </p>
       </div>
 
-      <div style={{ display:"grid", gap:16 }}>
+      <div style={{ display:"grid", gap:12 }}>
         {VOCAB_CATS.map((cat,ci)=>(
-          <div key={ci} style={{ background:"#FFFFFF", border:"1px solid #F7F7F7", borderRadius:12, overflow:"hidden" }}>
-            <div onClick={()=>setOpen(open===ci?null:ci)} style={{ padding:"18px 24px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", background:open===ci?"#F7F7F7":"#FFFFFF", transition:"all 0.2s" }}>
-              <span style={{ fontSize:17, fontWeight:700, color:"#191919" }}>{cat.cat}</span>
-              <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-                <span style={{ fontSize:13, color:"#191919", background:"#4CE160", padding:"4px 12px", borderRadius:6, fontWeight:700 }}>{cat.items.length}</span>
-                <span style={{ fontSize:16, color:"#191919" }}>{open===ci?"▼":"▶"}</span>
-              </div>
+          <div key={ci} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, overflow:"hidden", transition:"all 0.2s" }}>
+            <div onClick={()=>setOpen(open===ci?null:ci)} style={{ padding:"18px 24px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", background:open===ci?"#EFF6FF":"#FFFFFF", transition:"all 0.2s", minHeight:60 }}>
+              <span style={{ fontSize:18, fontWeight:600, color:"#191919" }}>{cat.cat}</span>
+              <span style={{ fontSize:18, color:"#3665F3" }}>{open===ci?"▼":"▶"}</span>
             </div>
             {open===ci && (
-              <div style={{ padding:"8px 0" }}>
+              <div style={{ padding:"8px 0", animation:"fu 0.2s ease" }}>
                 {cat.items.map((x,i)=>(
-                  <div key={i} style={{ padding:"16px 24px", borderTop:i===0?"1px solid #F7F7F7":"none", background:i%2===0?"#FAFAFA":"#FFFFFF" }}>
-                    <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
-                      <span style={{ fontSize:16, color:"#191919", fontWeight:700 }}>{x.e}</span>
-                      <span style={{ fontSize:14, color:"#191919", fontWeight:400, background:"#4CE160", padding:"4px 12px", borderRadius:6 }}>{x.j}</span>
+                  <div key={i} style={{ padding:"16px 24px", borderTop:"1px solid #F7F7F7", background:"#FFFFFF" }}>
+                    <div style={{ display:"flex", justifyContent:"space-between", marginBottom:10, flexWrap:"wrap", gap:8 }}>
+                      <span style={{ fontSize:17, color:"#191919", fontWeight:600 }}>{x.e}</span>
+                      <span style={{ fontSize:15, color:"#FFFFFF", fontWeight:500, background:"#86B817", padding:"6px 14px", borderRadius:8 }}>{x.j}</span>
                     </div>
-                    <div style={{ fontSize:14, color:"#191919", lineHeight:1.7, fontWeight:400, paddingLeft:12, borderLeft:"3px solid #F7F7F7" }}>
+                    <div style={{ fontSize:15, color:"#4B5563", lineHeight:1.7, fontWeight:400, paddingLeft:12, borderLeft:"3px solid #3665F3" }}>
                       {lang==="en"?x.def:x.defJp}
                     </div>
                   </div>
