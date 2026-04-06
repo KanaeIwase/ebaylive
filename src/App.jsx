@@ -454,8 +454,8 @@ export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const tabs = lang==="en" ? ["Home","Brands","Live Streaming","Vocabulary","Practice"] : ["ホーム","ブランド","ライブ配信","用語集","練習"];
-  const icons = ["🏠","👜","🎥","📖","🎯"];
+  const tabs = lang==="en" ? ["Home","Product Knowledge","Selling Strategies","Professional Terms","Training"] : ["ホーム","商品知識","販売戦略","専門用語","トレーニング"];
+  const icons = ["🏠","👜","📚","💬","🎯"];
 
   return (
     <div style={{ minHeight:"100vh", background:"#F7F7F7", fontFamily:"'Market Sans','Noto Sans JP',sans-serif", color:"#191919", display:"flex" }}>
@@ -476,7 +476,7 @@ export default function App() {
                 {lang==="en"?"Academy":"アカデミー"}
               </div>
             </div>
-            <button onClick={()=>setSidebarOpen(false)} style={{ background:"#F7F7F7", border:"none", fontSize:18, cursor:"pointer", color:"#191919", padding:"8px 10px", borderRadius:6 }}>
+            <button onClick={()=>setSidebarOpen(false)} style={{ background:"transparent", border:"none", fontSize:20, cursor:"pointer", color:"#191919", padding:"4px" }}>
               ◀
             </button>
           </div>
@@ -686,15 +686,21 @@ function LiveP({ lang }) {
 
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
-      <h2 style={h2}>{lang==="en"?"Live Streaming Knowledge":"ライブ配信の知識"}</h2>
-      <p style={{ fontSize:11, color:"#666", marginBottom:10 }}>
-        {lang==="en"?"Based on TikTok Creator Hub + live commerce best practices":"TikTok Creator Hub + ライブコマースのベストプラクティス"}
-      </p>
+      <div style={{ marginBottom:32 }}>
+        <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang==="en"?"Live Selling Strategies":"ライブ販売戦略"}
+        </h1>
+        <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
+          {lang==="en"
+            ?"Master live streaming techniques to engage viewers and drive sales. Based on proven frameworks from TikTok Creator Hub and live commerce best practices."
+            :"視聴者を惹きつけ売上を上げるライブ配信テクニックをマスター。TikTok Creator Hubとライブコマースのベストプラクティスに基づく実証済みフレームワーク。"}
+        </p>
+      </div>
 
       {/* Sub-nav */}
-      <div style={{ display:"flex", gap:5, marginBottom:14 }}>
-        {[["framework",lang==="en"?"6-Step Framework":"6ステップ"],["platforms",lang==="en"?"Platforms":"プラットフォーム"],["content",lang==="en"?"Content Types":"配信ジャンル"]].map(([k,l])=>(
-          <button key={k} onClick={()=>setView(k)} style={{ flex:1, padding:"6px", borderRadius:10, background:view===k?"#E8A87C18":"#141210", color:view===k?"#E8A87C":"#555", border:`1px solid ${view===k?"#E8A87C33":"#1E1E1E"}`, cursor:"pointer", fontFamily:"inherit", fontSize:11 }}>{l}</button>
+      <div style={{ display:"flex", gap:12, marginBottom:24, borderBottom:"2px solid #F7F7F7", paddingBottom:4 }}>
+        {[["framework",lang==="en"?"6-Step Framework":"6ステップ"],["platforms",lang==="en"?"Platform Comparison":"プラットフォーム比較"],["content",lang==="en"?"Stream Types":"配信タイプ"]].map(([k,l])=>(
+          <button key={k} onClick={()=>setView(k)} style={{ padding:"10px 20px", borderRadius:0, background:"none", color:view===k?"#3B1FC6":"#191919", borderBottom:view===k?"3px solid #3B1FC6":"3px solid transparent", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:view===k?700:400, border:"none", transition:"all 0.2s" }}>{l}</button>
         ))}
       </div>
 
