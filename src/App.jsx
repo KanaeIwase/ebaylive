@@ -431,35 +431,41 @@ export default function App() {
   const icons = ["👜","🎥","🔤","🎯"];
 
   return (
-    <div style={{ minHeight:"100vh", background:"#0A0A0A", fontFamily:"'Noto Sans JP','Helvetica Neue',sans-serif", color:"#F0EBE3", paddingBottom:68, maxWidth:480, margin:"0 auto" }}>
+    <div style={{ minHeight:"100vh", background:"#0A0A0A", fontFamily:"'Noto Sans JP','Helvetica Neue',sans-serif", color:"#F0EBE3", maxWidth:"100%", margin:"0 auto", padding:"0 20px" }}>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
       <style>{`@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}*{box-sizing:border-box}::-webkit-scrollbar{display:none}`}</style>
 
-      {/* Top */}
-      <div style={{ padding:"14px 16px 0", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+      {/* Top Bar */}
+      <div style={{ padding:"14px 16px", display:"flex", justifyContent:"space-between", alignItems:"center", borderBottom:"1px solid #222" }}>
         <div style={{ fontFamily:"'Playfair Display',serif", fontSize:17, fontWeight:700 }}>
           {lang==="en"?"Live Selling Academy":"ライブセリング アカデミー"}
         </div>
-        <button onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ padding:"4px 12px", borderRadius:20, background:"#E8A87C22", border:"1px solid #E8A87C44", color:"#E8A87C", fontSize:12, cursor:"pointer", fontFamily:"inherit", fontWeight:600 }}>
-          {lang==="en"?"🇯🇵 JP":"🇺🇸 EN"}
-        </button>
+
+        {/* Language Toggle Switch */}
+        <div onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ display:"flex", alignItems:"center", gap:8, cursor:"pointer", userSelect:"none" }}>
+          <span style={{ fontSize:11, color:lang==="en"?"#E8A87C":"#666", fontWeight:lang==="en"?600:400 }}>EN</span>
+          <div style={{ width:40, height:20, borderRadius:20, background:lang==="jp"?"#E8A87C":"#333", position:"relative", transition:"all 0.3s" }}>
+            <div style={{ width:16, height:16, borderRadius:"50%", background:"#FFF", position:"absolute", top:2, left:lang==="jp"?22:2, transition:"all 0.3s" }}></div>
+          </div>
+          <span style={{ fontSize:11, color:lang==="jp"?"#E8A87C":"#666", fontWeight:lang==="jp"?600:400 }}>JP</span>
+        </div>
       </div>
 
-      <div style={{ padding:"14px 16px" }} key={`${page}-${lang}`}>
+      {/* Tab Navigation */}
+      <div style={{ display:"flex", gap:8, padding:"12px 16px", background:"#0A0A0A", position:"sticky", top:0, zIndex:100, borderBottom:"1px solid #1E1E1E" }}>
+        {tabs.map((tab,i) => (
+          <button key={i} onClick={()=>setPage(i)} style={{ flex:1, padding:"10px", borderRadius:10, background:page===i?"#E8A87C22":"#141210", border:`1px solid ${page===i?"#E8A87C44":"#1E1E1E"}`, color:page===i?"#E8A87C":"#666", cursor:"pointer", fontFamily:"inherit", fontSize:13, fontWeight:page===i?600:400, display:"flex", alignItems:"center", justifyContent:"center", gap:6 }}>
+            <span style={{ fontSize:16 }}>{icons[i]}</span>
+            <span>{tab}</span>
+          </button>
+        ))}
+      </div>
+
+      <div style={{ padding:"20px 16px" }} key={`${page}-${lang}`}>
         {page===0 && <FashionP lang={lang} />}
         {page===1 && <LiveP lang={lang} />}
         {page===2 && <EnglishP lang={lang} />}
         {page===3 && <PracticeP lang={lang} />}
-      </div>
-
-      {/* Bottom nav */}
-      <div style={{ position:"fixed", bottom:0, left:"50%", transform:"translateX(-50%)", width:"100%", maxWidth:480, background:"#111", borderTop:"1px solid #222", display:"flex", padding:"6px 0 10px", zIndex:100 }}>
-        {tabs.map((tab,i) => (
-          <button key={i} onClick={()=>setPage(i)} style={{ flex:1, background:"none", border:"none", cursor:"pointer", fontFamily:"inherit", display:"flex", flexDirection:"column", alignItems:"center", gap:1 }}>
-            <span style={{ fontSize:17, opacity:page===i?1:0.35 }}>{icons[i]}</span>
-            <span style={{ fontSize:9, color:page===i?"#E8A87C":"#555", fontWeight:page===i?600:400 }}>{tab}</span>
-          </button>
-        ))}
       </div>
     </div>
   );
