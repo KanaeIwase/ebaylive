@@ -146,31 +146,31 @@ const LIVE_KB = {
             "Example: Setsuna (450K) greets in 4 languages → international growth",
           ]},
         ]},
-      { step:"6. Monetization", icon:"💰", color:"#D76FA0", sub:"Turn fans into revenue",
+      { step:"6. Sales Conversion", icon:"💰", color:"#D76FA0", sub:"Drive auction results",
         sections:[
-          { t:"Gift Strategy", items:[
-            "Priority communication: Gifters → New viewers → Others",
-            "React to EVERY gift — show genuine excitement",
-            "Longer watch time = deeper emotional connection = more gifts",
-            "Core fans who watch long are most likely to gift",
+          { t:"Bidder Engagement", items:[
+            "Acknowledge every bid immediately by buyer name",
+            "Create urgency: 'Only 10 seconds left!'",
+            "Highlight value: 'This retails for $3,000, currently at $800'",
+            "Encourage competition: 'Two bidders fighting for this!'",
           ]},
-          { t:"Subscriptions", items:[
-            "Key: attractive exclusive perks",
-            "Ideas: priority replies, exclusive chat, limited LIVE, group invite",
-            "Discord integration for automatic subscriber management",
-            "Match perks to your content type",
+          { t:"Product Presentation", items:[
+            "Show item from multiple angles during bidding",
+            "Emphasize unique selling points and rarity",
+            "Address condition honestly to prevent INAD",
+            "Compare to retail or market prices",
           ]},
-          { t:"Events", items:[
-            "Events = KPI improvement opportunities",
-            "Share your event goals with viewers — they want to help",
-            "Choose events that match your level",
-            "Post-event: thank participants, share results",
+          { t:"Closing Techniques", items:[
+            "Build excitement in final seconds",
+            "Congratulate winner by name",
+            "Tease next item to keep viewers engaged",
+            "Thank all participants, not just winner",
           ]},
-          { t:"Content Repurposing", items:[
-            "Clip best moments → TikTok, Reels, Shorts",
-            "Short videos bring new viewers to your next LIVE",
-            "Plan short video content deliberately — not random",
-            "Set a character/concept and be consistent",
+          { t:"Post-Stream Follow-up", items:[
+            "Announce stream schedule for next time",
+            "Encourage following for notifications",
+            "Share highlights on social media",
+            "Review performance: conversion rate, average sale price",
           ]},
         ]},
     ],
@@ -317,31 +317,31 @@ const LIVE_KB = {
             "実例：せつなさん（45万） — 4言語で挨拶 → 海外フォロワー急増",
           ]},
         ]},
-      { step:"6. マネタイズ", icon:"💰", color:"#D76FA0", sub:"収益化する",
+      { step:"6. 販売成約", icon:"💰", color:"#D76FA0", sub:"オークション成果を上げる",
         sections:[
-          { t:"ギフト戦略", items:[
-            "優先順位：ギフター → 新規 → その他",
-            "全てのギフトにリアクション — 本物の喜びを見せる",
-            "長い視聴時間 = 深い感情的つながり = より多くのギフト",
-            "コアファンが最もギフトを送りやすい",
+          { t:"入札者エンゲージメント", items:[
+            "すべての入札を即座に名前で認識",
+            "緊迫感を作る：「残り10秒！」",
+            "価値を強調：「定価$3,000、現在$800」",
+            "競争を促す：「2人のバイヤーが競り合い中！」",
           ]},
-          { t:"サブスクリプション", items:[
-            "ポイント：魅力的な限定特典",
-            "例：優先返信、限定チャット、限定LIVE、グループ招待",
-            "Discord連携で自動管理",
-            "配信ジャンルに合わせた特典設計",
+          { t:"商品プレゼンテーション", items:[
+            "入札中は複数角度から商品を見せる",
+            "ユニークなセールスポイントと希少性を強調",
+            "INAD防止のため状態を正直に説明",
+            "定価や市場価格と比較",
           ]},
-          { t:"イベント", items:[
-            "イベント = KPI改善のチャンス",
-            "目標を視聴者と共有 — 彼らは応援したい",
-            "自分のレベルに合ったイベントを選ぶ",
-            "終了後：参加者に感謝、結果を共有",
+          { t:"クロージングテクニック", items:[
+            "最後の数秒で盛り上げる",
+            "落札者を名前で祝福",
+            "次のアイテムを予告して視聴者を維持",
+            "落札者だけでなく全参加者に感謝",
           ]},
-          { t:"コンテンツ再利用", items:[
-            "ベストモーメントをクリップ → TikTok、Reels、Shorts",
-            "ショート動画が次のLIVEへの新規流入を作る",
-            "計画的にショート動画を作る — ランダムではなく",
-            "キャラクター設定を決めて一貫性を持つ",
+          { t:"配信後フォローアップ", items:[
+            "次回の配信スケジュールを告知",
+            "通知のためのフォローを促す",
+            "ソーシャルメディアでハイライトをシェア",
+            "パフォーマンスレビュー：成約率、平均販売価格",
           ]},
         ]},
     ],
@@ -440,13 +440,70 @@ const BRANDS = [
     conditionJp:"ロゴなし（ステルス・ウェルス）。イントレチャート織りの品質=真贋の鍵。レザーはバター状に柔らかい。内側'Bottega Veneta'スタンプ。" }
 ];
 
-/* ═══ KEY ENGLISH VOCAB ═══ */
+/* ═══ PROFESSIONAL VOCABULARY ═══ */
 const VOCAB_CATS = [
-  { cat:"Condition ★★", items:[{e:"Brand new / NWT",j:"新品・タグ付き"},{e:"Like new",j:"ほぼ新品"},{e:"Excellent / Very good",j:"非常に良い"},{e:"Good / Fair",j:"良い・使用感あり"},{e:"Scratches / Scuffs",j:"傷・スレ"},{e:"Corner wear",j:"角スレ"},{e:"Stains / Discoloration",j:"シミ・変色"},{e:"Peeling / Cracking",j:"剥がれ・ひび"},{e:"Piping / Glazing",j:"パイピング・コバ塗り"},{e:"Patina",j:"経年変化"},{e:"Odor",j:"匂い"}]},
-  { cat:"Auction ★★", items:[{e:"5 seconds on the clock!",j:"残り5秒！"},{e:"Going once, going twice, SOLD!",j:"1回、2回、落札！"},{e:"Starting at $1!",j:"1ドルスタート！"},{e:"Steal of a lifetime!",j:"一生に一度のお買い得！"},{e:"No way, WAY too low!",j:"安すぎる！"},{e:"Can I get [amount]?",j:"[金額]ある？"},{e:"Bidding war!",j:"競り合い！"},{e:"Put in your max bid!",j:"最高額を入れて！"}]},
-  { cat:"Buyer Q&A", items:[{e:"Is it authentic? → 100% authentic.",j:"本物？→はい"},{e:"Any flaws? → Minor scratches, very good overall.",j:"ダメージ？→軽い傷、全体的に良い"},{e:"Can you do $X? → That's the best I can do.",j:"値下げ？→これが精一杯"},{e:"What size? → PM, about 9 inches.",j:"サイズ？→PM、約9インチ"},{e:"Can I see closer? → Sure!",j:"もっと見せて？→もちろん"}]},
-  { cat:"eBay UI", items:[{e:"Tap screen to hide chat",j:"タップでチャット非表示"},{e:"Item pinned at bottom",j:"下部にアイテム固定"},{e:"Set your max bid",j:"最高額を設定"},{e:"Swipe up for all items",j:"上スワイプで全品"}]},
-  { cat:"Styling", items:[{e:"Perfect for a night out",j:"夜のお出かけに"},{e:"Great for everyday carry",j:"毎日使いに"},{e:"Dress it up or down",j:"フォーマルにもカジュアルにも"},{e:"Statement piece / Timeless",j:"主役アイテム・定番"},{e:"Goes with everything",j:"何にでも合う"}]},
+  { cat:"Condition Assessment", items:[
+    {e:"Brand new / NWT",j:"新品・タグ付き",def:"Unworn item with original tags still attached",defJp:"未使用でオリジナルタグが付いた状態"},
+    {e:"Like new",j:"ほぼ新品",def:"Minimal to no signs of wear, appears unused",defJp:"使用感がほとんどなく、未使用に見える状態"},
+    {e:"Excellent",j:"極美品",def:"Very light use, no significant flaws visible",defJp:"使用感が非常に軽く、目立つダメージなし"},
+    {e:"Very good",j:"美品",def:"Light wear, minor imperfections may exist",defJp:"軽い使用感、軽微なダメージがある可能性"},
+    {e:"Good",j:"良品",def:"Moderate wear, still fully functional and attractive",defJp:"中程度の使用感、機能的で魅力的"},
+    {e:"Fair",j:"使用感あり",def:"Obvious wear and use, but no major damage",defJp:"明らかな使用感があるが、大きなダメージなし"},
+    {e:"Scratches / Scuffs",j:"傷・スレ",def:"Surface marks from normal use or contact",defJp:"通常使用や接触による表面の跡"},
+    {e:"Corner wear",j:"角スレ",def:"Damage to bag corners from setting down or use",defJp:"置いたり使用したりすることによる角の損傷"},
+    {e:"Piping wear",j:"パイピング劣化",def:"Leather trim along edges showing damage or color loss",defJp:"縁のレザートリムに損傷や色落ちが見られる"},
+    {e:"Patina",j:"経年変化",def:"Natural darkening of leather over time, adds character",defJp:"時間経過による革の自然な色の変化、味が出る"},
+    {e:"Hardware tarnish",j:"金具の変色",def:"Metal parts showing oxidation or discoloration",defJp:"金属部分の酸化や変色"},
+    {e:"Interior staining",j:"内側の汚れ",def:"Marks or discoloration inside the bag",defJp:"バッグ内側の跡や変色"}
+  ]},
+  { cat:"Auction Language", items:[
+    {e:"Starting at $1!",j:"1ドルスタート！",def:"Opening bid is one dollar to create excitement",defJp:"盛り上げるため1ドルから入札開始"},
+    {e:"5 seconds left!",j:"残り5秒！",def:"Urgency call when auction is about to close",defJp:"オークション終了間近の緊急コール"},
+    {e:"Going once, going twice, SOLD!",j:"1回、2回、落札！",def:"Traditional auction closing phrase",defJp:"伝統的なオークション終了フレーズ"},
+    {e:"Bidding war!",j:"競り合い！",def:"Multiple buyers competing, driving price up",defJp:"複数バイヤーが競い合い価格上昇中"},
+    {e:"Put in your max bid!",j:"最高額を入れて！",def:"Encourage buyers to enter their highest amount",defJp:"バイヤーに最高額の入力を促す"},
+    {e:"This won't last!",j:"すぐ終わります！",def:"Create urgency by implying item will sell quickly",defJp:"すぐ売れることを示唆し緊迫感を作る"},
+    {e:"No reserve!",j:"最低落札価格なし！",def:"Item will sell regardless of final bid amount",defJp:"最終入札額に関わらず販売"},
+    {e:"Steal of a lifetime!",j:"一生に一度のお買い得！",def:"Emphasize exceptional value",defJp:"格別な価値を強調"}
+  ]},
+  { cat:"Luxury Fashion Terms", items:[
+    {e:"Investment piece",j:"投資アイテム",def:"High-quality item that retains or increases in value",defJp:"価値を保持または上昇する高品質アイテム"},
+    {e:"Limited edition",j:"限定版",def:"Produced in small quantities, not widely available",defJp:"少量生産で広く入手不可"},
+    {e:"Runway piece",j:"ランウェイピース",def:"Item featured in designer's fashion show",defJp:"デザイナーのファッションショーで紹介されたアイテム"},
+    {e:"Archive collection",j:"アーカイブコレクション",def:"Historical pieces from past seasons, highly collectible",defJp:"過去シーズンの歴史的ピース、高コレクタブル"},
+    {e:"Grail",j:"聖杯",def:"Extremely rare, highly sought-after item",defJp:"極めて希少で非常に求められているアイテム"},
+    {e:"Deadstock",j:"デッドストック",def:"Never-sold vintage inventory, still new condition",defJp:"未販売のヴィンテージ在庫、新品状態"},
+    {e:"Made to order",j:"受注生産",def:"Custom-made upon request, not mass-produced",defJp:"リクエストに応じてカスタムメイド、大量生産なし"},
+    {e:"Signature piece",j:"シグネチャーピース",def:"Iconic design that defines the brand",defJp:"ブランドを定義する象徴的デザイン"}
+  ]},
+  { cat:"Showroom Language", items:[
+    {e:"Craftsmanship",j:"職人技",def:"Skill and quality in making luxury goods",defJp:"高級品製造における技術と品質"},
+    {e:"Heritage",j:"伝統",def:"Brand's history and legacy",defJp:"ブランドの歴史と遺産"},
+    {e:"Provenance",j:"来歴",def:"Item's ownership history and authenticity documentation",defJp:"アイテムの所有履歴と真贋証明"},
+    {e:"Exquisite details",j:"精巧なディテール",def:"Fine, carefully crafted elements",defJp:"繊細で丁寧に作られた要素"},
+    {e:"Timeless design",j:"タイムレスデザイン",def:"Classic style that never goes out of fashion",defJp:"流行に左右されないクラシックスタイル"},
+    {e:"Coveted",j:"垂涎の",def:"Highly desired and sought after",defJp:"非常に望まれ求められている"},
+    {e:"Impeccable condition",j:"完璧な状態",def:"Flawless, perfect state",defJp:"欠陥のない完璧な状態"},
+    {e:"Curated selection",j:"厳選セレクション",def:"Carefully chosen collection",defJp:"慎重に選ばれたコレクション"}
+  ]},
+  { cat:"Buyer Communication", items:[
+    {e:"Is it authentic?",j:"本物ですか？",def:"Question about item's genuineness",defJp:"アイテムの真正性についての質問"},
+    {e:"100% authentic, guaranteed",j:"100%本物、保証付き",def:"Assurance of authenticity with backing",defJp:"裏付けのある真贋保証"},
+    {e:"Any flaws?",j:"ダメージは？",def:"Inquiry about condition issues",defJp:"状態問題についての問い合わせ"},
+    {e:"What's included?",j:"付属品は？",def:"Question about accessories and extras",defJp:"アクセサリーと追加品についての質問"},
+    {e:"Can you show closer?",j:"もっと近くで見せて",def:"Request for detailed view",defJp:"詳細表示のリクエスト"},
+    {e:"Comes with box, dust bag, card",j:"箱・保存袋・カード付き",def:"Complete set of original accessories",defJp:"オリジナル付属品の完全セット"},
+    {e:"Final sale, no returns",j:"最終販売、返品不可",def:"Transaction is binding, cannot be reversed",defJp:"取引は拘束力あり、取り消し不可"},
+    {e:"Ships next business day",j:"翌営業日発送",def:"Item will be sent the following workday",defJp:"翌営業日にアイテム発送"}
+  ]},
+  { cat:"eBay Live Interface", items:[
+    {e:"Tap to hide chat",j:"タップでチャット非表示",def:"Touch screen to minimize comment section",defJp:"画面タッチでコメントセクション最小化"},
+    {e:"Item pinned at bottom",j:"下部にアイテム固定",def:"Product information stays visible at screen bottom",defJp:"商品情報が画面下部に表示され続ける"},
+    {e:"Set your max bid",j:"最高額を設定",def:"Enter the highest amount you're willing to pay",defJp:"支払う意思のある最高額を入力"},
+    {e:"Swipe up for catalog",j:"上スワイプでカタログ",def:"Gesture to see all available items",defJp:"すべての利用可能アイテムを見るジェスチャー"},
+    {e:"Follow this seller",j:"セラーをフォロー",def:"Subscribe to get notifications about this seller's streams",defJp:"このセラーの配信通知を受け取る"},
+    {e:"Share this stream",j:"配信をシェア",def:"Send stream link to others",defJp:"配信リンクを他の人に送る"}
+  ]}
 ];
 
 /* ═══ APP ═══ */
@@ -805,9 +862,14 @@ function EnglishP({ lang }) {
             {open===ci && (
               <div style={{ padding:"8px 0" }}>
                 {cat.items.map((x,i)=>(
-                  <div key={i} style={{ display:"flex", justifyContent:"space-between", padding:"14px 24px", borderTop:i===0?"1px solid #F7F7F7":"none", background:i%2===0?"#FAFAFA":"#FFFFFF" }}>
-                    <span style={{ fontSize:15, color:"#191919", flex:1, fontWeight:500 }}>{x.e}</span>
-                    <span style={{ fontSize:14, color:"#191919", textAlign:"right", maxWidth:"45%", fontWeight:400 }}>{x.j}</span>
+                  <div key={i} style={{ padding:"16px 24px", borderTop:i===0?"1px solid #F7F7F7":"none", background:i%2===0?"#FAFAFA":"#FFFFFF" }}>
+                    <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
+                      <span style={{ fontSize:16, color:"#191919", fontWeight:700 }}>{x.e}</span>
+                      <span style={{ fontSize:14, color:"#191919", fontWeight:400, background:"#4CE160", padding:"4px 12px", borderRadius:6 }}>{x.j}</span>
+                    </div>
+                    <div style={{ fontSize:14, color:"#191919", lineHeight:1.7, fontWeight:400, paddingLeft:12, borderLeft:"3px solid #F7F7F7" }}>
+                      {lang==="en"?x.def:x.defJp}
+                    </div>
                   </div>
                 ))}
               </div>
