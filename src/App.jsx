@@ -381,14 +381,68 @@ const LIVE_KB = {
 };
 
 /* ═══ BRAND DATA (eBay Authenticity Guarantee Brands) ═══ */
-const BRANDS = [
-  { brand:"Louis Vuitton", yr:1854, c:"🇫🇷", models:["Speedy","Neverfull","Alma","Keepall","Pochette","Papillon","Noé","Onthego"],
-    value:"Monogram canvas NEVER goes on sale. Vernis limited colors command premium. Collaborations (Takashi Murakami, Supreme, Yayoi Kusama) 2-3x retail.",
-    valueJp:"モノグラムキャンバスは絶対にセールしない。ヴェルニ限定色はプレミアム。コラボ（村上隆、Supreme、草間彌生）は定価の2-3倍。",
-    rare:"Multicolor discontinued 2015. Vernis Pomme d'Amour, Rose Indien rare. Limited edition trunks can reach $50K+.",
-    rareJp:"マルチカラー2015年廃番。ヴェルニのポムダムール、ローズアンディアンは希少。限定トランクは$50K+も。",
-    condition:"Canvas should NEVER crack or peel (if it does = fake). Vachetta leather darkens (patina) over time. Hardware should be heavy, branded.",
-    conditionJp:"キャンバスは絶対にひび割れ・剥離しない（すれば偽物）。ヴァシェットレザーは経年で濃くなる（パティーナ）。金具は重く刻印あり。" },
+/* ═══ BRAND KNOWLEDGE DATA (with model details) ═══ */
+const BRAND_DATA = {
+  lv: {
+    name:"Louis Vuitton", year:1854, country:"France",
+    auth:"Date codes (pre-2021) → heat stamps with microchip (2021+). Canvas should NEVER peel. Stitching always even.",
+    authJp:"デートコード（2021年以前）→ ヒートスタンプ+マイクロチップ（2021年以降）。キャンバスは剥離しない。ステッチは均一。",
+    rare:"Multicolor line (Murakami collab) discontinued. Vernis in certain rare colors. Older date code pieces. LV NEVER goes on sale at retail.",
+    rareJp:"マルチカラーライン（村上コラボ）廃番。特定のヴェルニ色。古いデートコード品。LVは定価でセールしない。",
+    tip:"LV never goes on sale. So any pre-loved LV at this price is already a steal.",
+    tipJp:"LVはセールしない。だから中古でこの価格は既にお買い得。",
+    models:[
+      { name:"Speedy", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",
+        desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
+        descJp:"1930年以来の最も象徴的なLVバッグ。柔らかくたるむバレル型、ロール レザーハンドル付き。",
+        shape:"Barrel/cylindrical with zip-top closure. Slouches when not stuffed.",
+        shapeJp:"バレル/円筒形でジップトップ閉鎖。詰めないとたるむ。",
+        sizes:[
+          {name:"Nano (16cm)", dim:"6.3\"W × 4.3\"H × 3.5\"D"},
+          {name:"BB (20cm)", dim:"7.9\"W × 5.9\"H × 4.7\"D"},
+          {name:"25", dim:"9.8\"W × 7.5\"H × 5.9\"D"},
+          {name:"30", dim:"11.8\"W × 8.3\"H × 6.7\"D - MOST POPULAR"},
+          {name:"35", dim:"13.8\"W × 9.1\"H × 7.1\"D"},
+          {name:"40", dim:"15.7\"W × 9.8\"H × 7.5\"D"}
+        ],
+        rare:"Multicolor (Murakami), Cerises (cherry print), Graffiti, Stephen Sprouse collab. Vernis in rare colors like Pomme d'Amour.",
+        rareJp:"マルチカラー（村上）、チェリーズ、グラフィティ、スティーブン・スプラウスコラボ。ポムダムールなど希少ヴェルニ色。",
+        tip:"The 30 is the original Audrey Hepburn size. That's history in your hands.",
+        tipJp:"30サイズはオードリー・ヘップバーンのオリジナルサイズ。あなたの手の中の歴史。"
+      },
+      { name:"Neverfull", brief:"Tote bag - spacious, open-top", briefJp:"トートバッグ - 広々、オープントップ",
+        desc:"Open-top tote with side laces for adjustable width. The ultimate everyday bag.",
+        descJp:"調節可能な幅のサイドレース付きオープントップトート。究極のデイリーバッグ。",
+        shape:"Rectangular tote, open-top, side laces cinch/expand width.",
+        shapeJp:"長方形トート、オープントップ、サイドレースで幅調節。",
+        sizes:[
+          {name:"PM", dim:"11.4\"W × 8.7\"H × 5.1\"D"},
+          {name:"MM", dim:"12.6\"W × 11.4\"H × 6.7\"D - MOST POPULAR"},
+          {name:"GM", dim:"15.7\"W × 13\"H × 7.9\"D"}
+        ],
+        rare:"Limited edition interior prints (Damier Azur Tahitienne). Discontinued colors.",
+        rareJp:"限定版内側プリント（ダミエ アズール タヒチエンヌ）。廃番カラー。",
+        tip:"This is THE work bag. Fits a laptop, documents, everything. Buyers know this.",
+        tipJp:"これがTHE仕事バッグ。ノートPC、書類、全部入る。バイヤーは知ってる。"
+      },
+      { name:"Keepall", brief:"Weekender duffel - travel essential", briefJp:"週末ダッフル - 旅行必需品",
+        desc:"Soft-sided duffel, the quintessential travel bag since 1930. Folds flat when empty.",
+        descJp:"1930年以来の典型的な旅行バッグ。空の時は平らに折りたためるソフトサイドダッフル。",
+        shape:"Cylindrical duffel with rounded ends, double zip closure.",
+        shapeJp:"丸い端の円筒形ダッフル、ダブルジップ閉鎖。",
+        sizes:[
+          {name:"45", dim:"17.7\"W × 10.6\"H × 7.9\"D - Carry-on size"},
+          {name:"50", dim:"19.7\"W × 11.4\"H × 8.7\"D"},
+          {name:"55", dim:"21.7\"W × 12.2\"H × 9.4\"D - MOST POPULAR"},
+          {name:"60", dim:"23.6\"W × 13\"H × 10.2\"D - Check-in size"}
+        ],
+        rare:"Keepall Bandoulière (with strap) more valuable. Epi leather, Damier Graphite rare. Collaborations.",
+        rareJp:"バンドリエール（ストラップ付き）がより価値。エピレザー、ダミエ グラフィット希少。コラボ。",
+        tip:"The Keepall is your perfect weekend bag. Fits overhead. Folds flat. Iconic.",
+        tipJp:"Keepallは完璧な週末バッグ。機内持込可。平らに折りたためる。象徴的。"
+      }
+    ]
+  },
   { brand:"Chanel", yr:1910, c:"🇫🇷", models:["Classic Flap","Boy","2.55 Reissue","WOC","19","Gabrielle","Coco Handle"],
     value:"Price increases 2-3x/year. Classic Flap Medium: $2,800(2010)→$10,200(2024). Caviar leather holds value better than lambskin.",
     valueJp:"年2-3回値上げ。クラシックフラップM: $2,800(2010)→$10,200(2024)。キャビアレザーはラムスキンより価値維持。",
@@ -1053,52 +1107,132 @@ function HomeP({ lang, setPage, playerData }) {
 
 /* ═══ FASHION ═══ */
 function FashionP({ lang }) {
-  const [sel, setSel] = useState(null);
-  if (sel!==null) {
-    const b = BRANDS[sel];
+  const [selBrand, setSelBrand] = useState(null);
+  const [selModel, setSelModel] = useState(null);
+
+  // Model detail view
+  if (selBrand !== null && selModel !== null) {
+    const brand = BRAND_DATA[selBrand];
+    const model = brand.models[selModel];
     return (
       <div style={{ animation:"fu 0.3s ease" }}>
-        <button onClick={()=>setSel(null)} style={{background:"#f3f4f6",border:"none",padding:"10px 20px",borderRadius:10,cursor:"pointer",fontSize:15,fontWeight:600,color:"#4b5563",marginBottom:24}}>
-          ← {lang==="en"?"Back":"戻る"}
+        <button onClick={()=>setSelModel(null)} style={{background:"#f3f4f6",border:"none",padding:"10px 20px",borderRadius:10,cursor:"pointer",fontSize:15,fontWeight:600,color:"#4b5563",marginBottom:24}}>
+          ← {lang==="en"?"Back to Models":"モデル一覧に戻る"}
         </button>
+
+        {/* Model Header */}
         <div style={{ marginBottom:32 }}>
-          <div style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:4 }}>{b.brand}</div>
-          <div style={{ fontSize:16, color:"#6b7280" }}>{b.c} Est. {b.yr}</div>
-        </div>
-
-        <div style={{ marginBottom:24 }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#667eea", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
-            {lang==="en"?"ICONIC MODELS":"定番モデル"}
-          </div>
-          <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
-            {b.models.map((m,i)=><span key={i} style={{ fontSize:14, padding:"8px 16px", borderRadius:10, background:"linear-gradient(135deg, #667eea 0%, #764ba2 100%)", color:"#fff", fontWeight:500 }}>{m}</span>)}
+          <div style={{ fontSize:14, color:"#6b7280", marginBottom:4 }}>{brand.name}</div>
+          <div style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:12 }}>{model.name}</div>
+          <div style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:16 }}>
+            {lang==="en"?model.desc:model.descJp}
           </div>
         </div>
 
-        <div style={{ marginBottom:24 }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#f093fb", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
-            {lang==="en"?"VALUE & INVESTMENT":"価値と投資"}
+        {/* Shape */}
+        <div style={{ marginBottom:24, background:"#F7F7F7", padding:"20px", borderRadius:12 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#3665F3", marginBottom:8, textTransform:"uppercase" }}>
+            {lang==="en"?"SHAPE & STYLE":"形状とスタイル"}
           </div>
-          <p style={{ fontSize:16, color:"#1a1a2e", lineHeight:1.8, background:"#fef3f2", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #f093fb" }}>
-            {lang==="en"?b.value:b.valueJp}
+          <div style={{ fontSize:15, color:"#191919" }}>
+            {lang==="en"?model.shape:model.shapeJp}
+          </div>
+        </div>
+
+        {/* Sizes */}
+        <div style={{ marginBottom:24 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#86B817", marginBottom:12, textTransform:"uppercase" }}>
+            {lang==="en"?"SIZES":"サイズ"}
+          </div>
+          <div style={{ display:"grid", gap:8 }}>
+            {model.sizes.map((s,i)=>(
+              <div key={i} style={{ background:"#ECFDF5", padding:"12px 16px", borderRadius:8, borderLeft:"3px solid #86B817" }}>
+                <div style={{ fontSize:15, fontWeight:600, color:"#191919", marginBottom:4 }}>{s.name}</div>
+                <div style={{ fontSize:14, color:"#4B5563" }}>{s.dim}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Rare/Collectible */}
+        <div style={{ marginBottom:24 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#F5AF02", marginBottom:12, textTransform:"uppercase" }}>
+            {lang==="en"?"RARE & COLLECTIBLE":"レア・コレクティブル"}
+          </div>
+          <p style={{ fontSize:15, color:"#191919", lineHeight:1.8, background:"#FFFBEB", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #F5AF02" }}>
+            {lang==="en"?model.rare:model.rareJp}
           </p>
         </div>
 
-        <div style={{ marginBottom:24 }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#fa709a", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
-            {lang==="en"?"RARITY & COLLECTIBILITY":"希少性とコレクタビリティ"}
+        {/* Selling Tip */}
+        <div style={{ background:"#EFF6FF", padding:"20px", borderRadius:12, borderLeft:"4px solid #3665F3" }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#3665F3", marginBottom:8 }}>
+            💡 {lang==="en"?"PRO SELLING TIP":"プロの販売テクニック"}
           </div>
-          <p style={{ fontSize:16, color:"#1a1a2e", lineHeight:1.8, background:"#fff7ed", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #fa709a" }}>
-            {lang==="en"?b.rare:b.rareJp}
+          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0, fontStyle:"italic" }}>
+            "{lang==="en"?model.tip:model.tipJp}"
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Brand model list view
+  if (selBrand !== null) {
+    const brand = BRAND_DATA[selBrand];
+    return (
+      <div style={{ animation:"fu 0.3s ease" }}>
+        <button onClick={()=>setSelBrand(null)} style={{background:"#f3f4f6",border:"none",padding:"10px 20px",borderRadius:10,cursor:"pointer",fontSize:15,fontWeight:600,color:"#4b5563",marginBottom:24}}>
+          ← {lang==="en"?"Back to Brands":"ブランド一覧に戻る"}
+        </button>
+
+        <div style={{ marginBottom:32 }}>
+          <div style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:4 }}>{brand.name}</div>
+          <div style={{ fontSize:16, color:"#6b7280" }}>Founded {brand.year}, {brand.country}</div>
+        </div>
+
+        {/* Auth Info */}
+        <div style={{ marginBottom:32, background:"#ECFDF5", padding:"20px", borderRadius:12, borderLeft:"4px solid #86B817" }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#86B817", marginBottom:8 }}>
+            ✓ {lang==="en"?"AUTHENTICATION":"真贋確認"}
+          </div>
+          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0 }}>
+            {lang==="en"?brand.auth:brand.authJp}
           </p>
         </div>
 
-        <div>
-          <div style={{ fontSize:14, fontWeight:700, color:"#43e97b", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
-            {lang==="en"?"CONDITION ASSESSMENT":"状態評価"}
+        {/* Models */}
+        <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
+          {lang==="en"?"Classic Models":"クラシックモデル"}
+        </div>
+        <div style={{ display:"grid", gap:12 }}>
+          {brand.models.map((m,i)=>(
+            <button key={i} onClick={()=>setSelModel(i)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", cursor:"pointer", textAlign:"left", transition:"all 0.2s", fontFamily:"inherit" }}
+              onMouseEnter={e=>e.target.style.borderColor="#3665F3"}
+              onMouseLeave={e=>e.target.style.borderColor="#E5E7EB"}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{m.name}</div>
+              <div style={{ fontSize:14, color:"#4B5563" }}>{lang==="en"?m.brief:m.briefJp}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Rare Items */}
+        <div style={{ marginTop:32, background:"#FEF3C7", padding:"20px", borderRadius:12, borderLeft:"4px solid #F5AF02" }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#F5AF02", marginBottom:8 }}>
+            ⭐ {lang==="en"?"RARE & DISCONTINUED":"レア・廃盤"}
           </div>
-          <p style={{ fontSize:16, color:"#1a1a2e", lineHeight:1.8, background:"#f0fdf4", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #43e97b" }}>
-            {lang==="en"?b.condition:b.conditionJp}
+          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0 }}>
+            {lang==="en"?brand.rare:brand.rareJp}
+          </p>
+        </div>
+
+        {/* Selling Tip */}
+        <div style={{ marginTop:24, background:"#EFF6FF", padding:"20px", borderRadius:12, borderLeft:"4px solid #3665F3" }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#3665F3", marginBottom:8 }}>
+            💡 {lang==="en"?"PRO SELLING TIP":"プロの販売テクニック"}
+          </div>
+          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0, fontStyle:"italic" }}>
+            "{lang==="en"?brand.tip:brand.tipJp}"
           </p>
         </div>
       </div>
