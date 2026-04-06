@@ -698,6 +698,42 @@ const VOCAB_CATS = [
     {e:"Final price / All-in price",j:"最終価格",def:"Price including shipping and fees",defJp:"送料と手数料を含む価格"},
     {e:"Bundle deal",j:"バンドル価格",def:"Discount for buying multiple items together",defJp:"複数アイテムをまとめて購入する割引"},
     {e:"Flash sale",j:"フラッシュセール",def:"Limited-time discount offer",defJp:"期間限定の割引オファー"}
+  ]},
+  { cat:"Bag Shapes & Patterns", items:[
+    {e:"Monogram canvas",j:"モノグラムキャンバス",def:"LV's iconic brown canvas with LV logo pattern - 'The classic. You know it, you love it.'",defJp:"LVの象徴的な茶色のキャンバスとLVロゴパターン - クラシック"},
+    {e:"Damier Ebene",j:"ダミエ エベヌ",def:"LV's brown checkered pattern - 'Great if you want LV without the big logos.'",defJp:"LVの茶色のチェッカー柄 - 大きなロゴなしでLVが欲しい人向け"},
+    {e:"Damier Azur",j:"ダミエ アズール",def:"LV's light cream/blue checkered pattern - 'Light and fresh. Perfect for summer.'",defJp:"LVの明るいクリーム/ブルーのチェッカー柄 - 夏に完璧"},
+    {e:"GG Supreme canvas",j:"GGスプリームキャンバス",def:"Gucci's beige/brown canvas with double G pattern",defJp:"グッチのベージュ/茶色のキャンバスとダブルGパターン"},
+    {e:"Oblique canvas",j:"オブリークキャンバス",def:"Diagonal pattern (Dior, Goyard) - slanted logo design",defJp:"斜めパターン（ディオール、ゴヤール） - 斜めロゴデザイン"},
+    {e:"Epi leather",j:"エピレザー",def:"LV's textured leather with linear grain pattern - modern, subtle",defJp:"LVの線状粒模様の質感レザー - モダンで控えめ"},
+    {e:"Quilted / Matelassé",j:"キルティング",def:"Padded diamond or chevron stitching (Chanel signature)",defJp:"パッド入りダイヤモンドまたはシェブロンステッチ（シャネルのシグネチャー）"},
+    {e:"Chevron pattern",j:"シェブロン柄",def:"V-shaped zigzag quilting (Chanel Boy Bag)",defJp:"V字型ジグザグキルティング（シャネル ボーイバッグ）"},
+    {e:"Tote shape",j:"トートバッグ型",def:"Open-top bag with parallel handles (LV Neverfull, Goyard St. Louis)",defJp:"平行ハンドルのオープントップバッグ（LV ネヴァーフル、ゴヤール サンルイ）"},
+    {e:"Satchel",j:"サッチェル",def:"Structured bag with top handle + shoulder strap (LV Alma, Prada Galleria)",defJp:"トップハンドル+ショルダーストラップの構造的バッグ（LV アルマ、プラダ ガレリア）"},
+    {e:"Hobo bag",j:"ホーボーバッグ",def:"Slouchy crescent-shaped bag (Gucci Jackie)",defJp:"たるんだ三日月型バッグ（グッチ ジャッキー）"},
+    {e:"Bucket bag",j:"バケツ型バッグ",def:"Cylindrical drawstring bag (LV Noé, Mansur Gavriel Bucket)",defJp:"円筒形の巾着バッグ（LV ノエ、マンサー ガブリエル バケット）"},
+    {e:"Saddle bag",j:"サドルバッグ",def:"Curved, saddle-shaped (Dior Saddle)",defJp:"曲がったサドル型（ディオール サドル）"},
+    {e:"Baguette",j:"バゲット型",def:"Compact underarm bag (Fendi Baguette)",defJp:"コンパクトな脇下バッグ（フェンディ バゲット）"},
+    {e:"Crossbody / Messenger",j:"クロスボディ",def:"Long strap worn across body",defJp:"体を横切って着用する長いストラップ"},
+    {e:"Clutch",j:"クラッチ",def:"No strap, handheld evening bag",defJp:"ストラップなし、手持ちイブニングバッグ"}
+  ]},
+  { cat:"Maintenance & Repair Advice (Pro Tips)", items:[
+    {e:"Minor hardware scratches",j:"金具の小傷",def:"Can be buffed with a microfiber cloth. For deeper scratches, jeweler's polishing cloth works.",defJp:"マイクロファイバークロスで磨けます。深い傷には宝石用研磨布が効果的。"},
+    {e:"Vachetta patina",j:"ヌメ革の経年変化",def:"Normal and many consider it desirable. Can be lightened with saddle soap but not fully reversed.",defJp:"正常で多くの人が望ましいと考える。サドルソープで薄くできるが完全には戻らない。"},
+    {e:"Water stains on vachetta",j:"ヌメ革の水シミ",def:"Can be minimized with leather conditioner. Apply evenly to blend the stain.",defJp:"レザーコンディショナーで最小化できる。均一に塗ってシミを馴染ませる。"},
+    {e:"Corner wear",j:"角スレ",def:"Cosmetic only - doesn't affect structure. Professional leather service can re-color and seal.",defJp:"見た目だけ - 構造に影響なし。プロのレザーサービスで再着色と保護できる。"},
+    {e:"Pen marks inside",j:"内側のペン跡",def:"Sometimes respond to leather erasers (Mr. Clean Magic Eraser). Test in hidden area first.",defJp:"レザー消しゴム（メラミンスポンジ）で対応できることも。まず隠れた部分でテスト。"},
+    {e:"Sticky interior pockets",j:"内ポケットのべたつき",def:"Common in vintage bags. Professional cleaning recommended - home fixes can make it worse.",defJp:"ヴィンテージバッグでよくある。プロのクリーニング推奨 - 自己対処で悪化する可能性。"},
+    {e:"Loose stitching",j:"縫い目のほつれ",def:"Minor loose threads can be carefully trimmed. Structural issues need professional repair.",defJp:"軽い糸のほつれは慎重にカット可能。構造的問題はプロの修理が必要。"},
+    {e:"Tarnished hardware",j:"変色した金具",def:"Brass polish (like Brasso) works for severe tarnish. Available at Home Depot/hardware stores.",defJp:"ひどい変色には真鍮磨き（Brasso）が効果的。ホームデポ/金物店で入手可。"},
+    {e:"Dry leather",j:"乾燥したレザー",def:"Apply leather conditioner (Leather Honey, Cadillac). Restores moisture and flexibility.",defJp:"レザーコンディショナー（Leather Honey、Cadillac）を塗る。水分と柔軟性を回復。"},
+    {e:"Musty odor",j:"カビ臭",def:"Air out for 48 hours. Place baking soda sachet inside. Activated charcoal also works.",defJp:"48時間風通し。中に重曹袋を入れる。活性炭も効果的。"},
+    {e:"Color transfer",j:"色移り",def:"Leather cleaner + gentle rubbing. Light colors are more prone - recommend protective sprays.",defJp:"レザークリーナー+優しく擦る。明るい色は移りやすい - 保護スプレー推奨。"},
+    {e:"Zipper issues",j:"ジッパー不具合",def:"Graphite pencil on teeth helps stuck zippers. Broken pull tab? Replacement available online.",defJp:"詰まったジッパーには歯に鉛筆の芯を塗る。引き手が壊れた？オンラインで交換部品入手可。"},
+    {e:"Canvas peeling",j:"キャンバスの剥がれ",def:"SHOULD NOT happen on authentic LV - canvas is coated fabric, not glued. If peeling, authentication concern.",defJp:"本物のLVでは起きない - キャンバスはコーティング布、接着ではない。剥がれたら真贋に懸念。"},
+    {e:"Storage tips",j:"保管のコツ",def:"Stuff with tissue, store in dust bag, cool dry place, away from sunlight. Prevents sagging.",defJp:"ティッシュで詰め、保存袋に入れ、涼しく乾燥した場所、日光を避ける。たるみ防止。"},
+    {e:"Hardware protective film",j:"金具の保護フィルム",def:"NWT bags often have this. 'You can remove it or keep it - some buyers prefer it pristine.'",defJp:"新品タグ付きによくある。「取るも残すも自由 - 未使用を好むバイヤーもいる」"},
+    {e:"Professional leather spa",j:"プロのレザースパ",def:"Services like Leather Spa, Rago Brothers, or local cobblers. For major restoration.",defJp:"Leather Spa、Rago Brothers、地元の靴修理店など。大規模修復用。"}
   ]}
 ];
 
