@@ -380,38 +380,64 @@ const LIVE_KB = {
   },
 };
 
-/* ═══ SIMPLE BRAND DATA ═══ */
+/* ═══ BRAND DATA (eBay Authenticity Guarantee Brands) ═══ */
 const BRANDS = [
-  { brand:"Louis Vuitton", yr:1854, c:"🇫🇷", models:["Speedy","Neverfull","Alma","Keepall","Pochette","Papillon"],
-    rare:"Multicolor (Murakami) discontinued. LV NEVER goes on sale. Vernis rare colors.",
-    rareJp:"マルチカラー（村上隆コラボ）廃番。LVは絶対にセールしない。ヴェルニの希少色。",
-    auth:"Date codes (pre-2021) → microchip (2021+). Canvas never peels on authentic.",
-    authJp:"デートコード（2021年以前）→マイクロチップ。本物のキャンバスは剥がれない。" },
-  { brand:"Chanel", yr:1910, c:"🇫🇷", models:["Classic Flap","Boy","2.55 Reissue","WOC","GST","Gabrielle"],
-    rare:"Price increases 2-3x/year. Classic Flap: $2,800 (2010) → $10,000+ now.",
-    rareJp:"年2-3回値上げ。Classic Flap: $2,800(2010)→$10,000+(現在)。",
-    auth:"Serial sticker + auth card (pre-2021) → microchip. Quilting aligns at seams.",
-    authJp:"シリアルステッカー+認証カード→マイクロチップ。キルティングは縫い目で合う。" },
-  { brand:"Hermès", yr:1837, c:"🇫🇷", models:["Birkin","Kelly","Constance","Evelyne","Garden Party","Picotin"],
-    rare:"Birkins NOT sold online. Need SA purchase history. Exotic leathers.",
-    rareJp:"バーキンはオンライン不可。SA（販売員）との購入歴が必要。エキゾチックレザー。",
-    auth:"Craftsman stamp, year letter. Hand-stitched saddle stitch (angled).",
-    authJp:"職人スタンプ、年号レター。手縫いサドルステッチ（斜め）。" },
-  { brand:"Gucci", yr:1921, c:"🇮🇹", models:["Marmont","Dionysus","Jackie","Bamboo","Ophidia","Horsebit"],
-    rare:"Tom Ford era (1994-2004). Vintage bamboo. Alessandro Michele era ended.",
-    rareJp:"トム・フォード時代。ヴィンテージバンブー。ミケーレ時代終了。",
-    auth:"Serial tag (2 rows of numbers). Controllato card. Even stitching.",
-    authJp:"シリアルタグ（2行の数字）。コントロラートカード。均一なステッチ。" },
-  { brand:"Prada", yr:1913, c:"🇮🇹", models:["Re-Nylon","Galleria","Cleo","Cahier","Re-Edition","Triangle"],
-    rare:"90s nylon pieces. Re-Nylon = recycled ocean plastic.",
-    rareJp:"90年代ナイロン。Re-Nylon = 海洋プラスチック再生素材。",
-    auth:"White auth card. 'PRADA' on hardware must be crisp.",
-    authJp:"白い認証カード。金具の'PRADA'はクリアで鮮明。" },
-  { brand:"Dior", yr:1946, c:"🇫🇷", models:["Lady Dior","Saddle","Book Tote","30 Montaigne","Bobby"],
-    rare:"Lady Dior created for Princess Diana (1995). Galliano-era Saddles.",
-    rareJp:"レディディオールはダイアナ妃のために1995年作成。ガリアーノ時代のサドル。",
-    auth:"'Made in Italy' stamp. Date code. 'CD' charms heavy and precise.",
-    authJp:"'Made in Italy'スタンプ。デートコード。'CD'チャームは重く精巧。" },
+  { brand:"Louis Vuitton", yr:1854, c:"🇫🇷", models:["Speedy","Neverfull","Alma","Keepall","Pochette","Papillon","Noé","Onthego"],
+    value:"Monogram canvas NEVER goes on sale. Vernis limited colors command premium. Collaborations (Takashi Murakami, Supreme, Yayoi Kusama) 2-3x retail.",
+    valueJp:"モノグラムキャンバスは絶対にセールしない。ヴェルニ限定色はプレミアム。コラボ（村上隆、Supreme、草間彌生）は定価の2-3倍。",
+    rare:"Multicolor discontinued 2015. Vernis Pomme d'Amour, Rose Indien rare. Limited edition trunks can reach $50K+.",
+    rareJp:"マルチカラー2015年廃番。ヴェルニのポムダムール、ローズアンディアンは希少。限定トランクは$50K+も。",
+    condition:"Canvas should NEVER crack or peel (if it does = fake). Vachetta leather darkens (patina) over time. Hardware should be heavy, branded.",
+    conditionJp:"キャンバスは絶対にひび割れ・剥離しない（すれば偽物）。ヴァシェットレザーは経年で濃くなる（パティーナ）。金具は重く刻印あり。" },
+  { brand:"Chanel", yr:1910, c:"🇫🇷", models:["Classic Flap","Boy","2.55 Reissue","WOC","19","Gabrielle","Coco Handle"],
+    value:"Price increases 2-3x/year. Classic Flap Medium: $2,800(2010)→$10,200(2024). Caviar leather holds value better than lambskin.",
+    valueJp:"年2-3回値上げ。クラシックフラップM: $2,800(2010)→$10,200(2024)。キャビアレザーはラムスキンより価値維持。",
+    rare:"Vintage pieces from Karl Lagerfeld's first years. Seasonal limited editions (cruise, métiers d'art). Chanel 19 in iridescent calfskin.",
+    rareJp:"カール・ラガーフェルド初期のヴィンテージ。シーズン限定（クルーズ、メティエダール）。シャネル19のイリデセントカーフスキン。",
+    condition:"Quilting MUST align at seams. Chain weight = authenticity indicator. Lambskin scratches easily (mention in LIVE). Caviar = durable.",
+    conditionJp:"キルティングは縫い目で合う必須。チェーンの重さ=真贋指標。ラムスキンは傷つきやすい（配信で言及）。キャビア=耐久性。" },
+  { brand:"Hermès", yr:1837, c:"🇫🇷", models:["Birkin","Kelly","Constance","Evelyne","Garden Party","Picotin","Lindy"],
+    value:"Birkin 25/30 most sought after. Exotic skins (crocodile, alligator, ostrich) start at $30K. Color affects value: neutral > bright. Condition is EVERYTHING.",
+    valueJp:"バーキン25/30が最人気。エキゾチックスキン（クロコダイル、アリゲーター、オーストリッチ）は$30K~。色で価値変動：ニュートラル>明るい色。状態が全て。",
+    rare:"Himalaya Birkin (white to grey gradient) = $100K-$500K. Kelly Cut, Roulis rare. Limited edition colors from each season.",
+    rareJp:"ヒマラヤバーキン（白からグレーのグラデーション）= $100K-$500K。ケリーカット、ルリは希少。シーズン限定色。",
+    condition:"Craftsman stamp + year letter inside. Saddle stitch (angled, hand-sewn). Hardware should never tarnish. Scratches lower value significantly on exotics.",
+    conditionJp:"職人スタンプ+年号レター内側。サドルステッチ（斜め、手縫い）。金具は変色しない。エキゾチックレザーは傷で大幅価値減。" },
+  { brand:"Gucci", yr:1921, c:"🇮🇹", models:["Marmont","Dionysus","Jackie 1961","Bamboo 1947","Ophidia","Horsebit 1955","Soho"],
+    value:"Tom Ford era (1994-2004) vintage pieces command premium. Bamboo handles original 1940s design. Alessandro Michele era (2015-2022) maximalist styles.",
+    valueJp:"トム・フォード時代(1994-2004)ヴィンテージはプレミアム。バンブーハンドルは1940年代オリジナルデザイン。ミケーレ時代(2015-2022)マキシマリストスタイル。",
+    rare:"Vintage bamboo top-handle bags. GG Supreme canvas with rare embroidery. Limited edition Dionysus with hand-painted details.",
+    rareJp:"ヴィンテージバンブートップハンドルバッグ。GGスプリームキャンバスの希少刺繍。手描きディテールの限定ディオニュソス。",
+    condition:"Serial number inside (2 rows, 10-13 digits). 'Controllato' card. Hardware should be heavy. Canvas edges should be clean, not fraying.",
+    conditionJp:"内側シリアル番号（2行、10-13桁）。コントロラートカード。金具は重い。キャンバスの縁はきれい、ほつれなし。" },
+  { brand:"Prada", yr:1913, c:"🇮🇹", models:["Galleria","Re-Edition 2005","Cleo","Cahier","Re-Nylon","Sidonie","Hobo"],
+    value:"90s nylon pieces highly collectible. Re-Edition 2005: Y2K revival drove prices up. Saffiano leather = signature, holds value well.",
+    valueJp:"90年代ナイロンは高コレクタブル。Re-Edition 2005: Y2K復興で価格上昇。サフィアーノレザー=シグネチャー、価値維持良好。",
+    rare:"Vintage nylon mini backpacks. Re-Nylon line (recycled ocean plastic = eco appeal). Limited runway pieces with unique hardware.",
+    rareJp:"ヴィンテージナイロンミニバックパック。Re-Nylonライン（海洋プラスチック再生=エコ訴求）。ユニーク金具の限定ランウェイピース。",
+    condition:"Authenticity card (white with Prada logo). Triangle logo must be crisp, centered. Saffiano leather = crosshatch pattern should be consistent.",
+    conditionJp:"認証カード（白、Pradaロゴ）。三角ロゴはクリア、中央配置。サフィアーノレザー=クロスハッチパターンは均一。" },
+  { brand:"Dior", yr:1946, c:"🇫🇷", models:["Lady Dior","Saddle","Book Tote","30 Montaigne","Bobby","Diorama","Diorissimo"],
+    value:"Lady Dior: Princess Diana effect = iconic status. Book Tote trendy for personalization. 30 Montaigne = minimalist, investment piece.",
+    valueJp:"レディディオール：ダイアナ妃効果=アイコニックステータス。ブックトートはパーソナライズでトレンド。30モンテーニュ=ミニマリスト、投資品。",
+    rare:"Lady Dior from 1995 launch. John Galliano-era Saddle bags (late 90s-early 2000s). Limited edition cannage patterns.",
+    rareJp:"1995年発売のレディディオール。ジョン・ガリアーノ時代のサドルバッグ（90年代後半~2000年代初頭）。限定カナージュパターン。",
+    condition:"'Made in Italy' stamp. Date code format varies by year. 'DIOR' charms should be heavy, perfectly aligned. Cannage stitching must be precise.",
+    conditionJp:"'Made in Italy'スタンプ。デートコードは年で形式異なる。'DIOR'チャームは重く、完璧整列。カナージュステッチは精密。" },
+  { brand:"Fendi", yr:1925, c:"🇮🇹", models:["Baguette","Peekaboo","By The Way","Kan I","Mon Tresor","First"],
+    value:"Baguette = Carrie Bradshaw effect (Sex and the City). Peekaboo versatile, professional. Limited embroidered/beaded Baguettes = collector items.",
+    valueJp:"バゲット=キャリー・ブラッドショー効果（セックス・アンド・ザ・シティ）。ピーカブーは多用途、プロフェッショナル。限定刺繍/ビーズバゲット=コレクターアイテム。",
+    rare:"Vintage Baguette from 1997 launch. Karl Lagerfeld-era pieces. FF logo Zucca canvas (discontinued then revived).",
+    rareJp:"1997年発売のヴィンテージバゲット。カール・ラガーフェルド時代。FFロゴズッカキャンバス（廃番後復活）。",
+    condition:"Hologram tag inside. Serial number format: year + sequential. Hardware 'FENDI' engraving should be deep, clear. Leather should smell natural.",
+    conditionJp:"内側ホログラムタグ。シリアル番号形式：年+連番。金具'FENDI'刻印は深く鮮明。レザーは自然な匂い。" },
+  { brand:"Bottega Veneta", yr:1966, c:"🇮🇹", models:["Cassette","Jodie","Arco","Pouch","Knot","Intrecciato Tote"],
+    value:"'Intrecciato' weave = signature (takes 8+ hours to make one bag). Daniel Lee era (2018-2021) revived brand, prices surged.",
+    valueJp:"'イントレチャート'織り=シグネチャー（1バッグ制作に8時間以上）。ダニエル・リー時代(2018-2021)でブランド復興、価格急上昇。",
+    rare:"Vintage woven clutches. Neon colors from Daniel Lee era. The Pouch in rare leathers (crocodile, python).",
+    rareJp:"ヴィンテージ織りクラッチ。ダニエル・リー時代のネオンカラー。希少レザーのポーチ（クロコダイル、パイソン）。",
+    condition:"No visible logo (stealth wealth). Quality of intrecciato weave = authenticity key. Leather should be butter-soft. Interior 'Bottega Veneta' stamp.",
+    conditionJp:"ロゴなし（ステルス・ウェルス）。イントレチャート織りの品質=真贋の鍵。レザーはバター状に柔らかい。内側'Bottega Veneta'スタンプ。" }
 ];
 
 /* ═══ KEY ENGLISH VOCAB ═══ */
@@ -426,47 +452,60 @@ const VOCAB_CATS = [
 /* ═══ APP ═══ */
 export default function App() {
   const [lang, setLang] = useState("en");
-  const [page, setPage] = useState(-1);
-  const tabs = lang==="en" ? ["Home","Fashion","Live Tips","English","Practice"] : ["ホーム","ファッション","ライブ配信","英語","練習"];
-  const icons = ["🏠","👜","🎥","🔤","🎯"];
+  const [page, setPage] = useState(0);
+  const tabs = lang==="en" ? ["Home","Brands","Live Streaming","Vocabulary","Practice"] : ["ホーム","ブランド","ライブ配信","用語集","練習"];
+  const icons = ["🏠","👜","🎥","📖","🎯"];
 
   return (
-    <div style={{ minHeight:"100vh", background:"#0A0A0A", fontFamily:"'Noto Sans JP','Helvetica Neue',sans-serif", color:"#F0EBE3", maxWidth:"100%", margin:"0 auto", padding:"0 20px" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
-      <style>{`@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}*{box-sizing:border-box}::-webkit-scrollbar{display:none}`}</style>
+    <div style={{ minHeight:"100vh", background:"#F7F7F7", fontFamily:"'Market Sans','Noto Sans JP',sans-serif", color:"#191919", display:"flex" }}>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+      <link href="https://use.typekit.net/ivu7epf.css" rel="stylesheet"/>
+      <style>{`@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}*{box-sizing:border-box}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#555}`}</style>
 
-      {/* Top Bar */}
-      <div style={{ padding:"14px 16px", display:"flex", justifyContent:"space-between", alignItems:"center", borderBottom:"1px solid #222" }}>
-        <div style={{ fontFamily:"'Playfair Display',serif", fontSize:17, fontWeight:700 }}>
-          {lang==="en"?"Live Selling Academy":"ライブセリング アカデミー"}
-        </div>
-
-        {/* Language Toggle Switch */}
-        <div onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ display:"flex", alignItems:"center", gap:8, cursor:"pointer", userSelect:"none" }}>
-          <span style={{ fontSize:11, color:lang==="en"?"#E8A87C":"#666", fontWeight:lang==="en"?600:400 }}>EN</span>
-          <div style={{ width:40, height:20, borderRadius:20, background:lang==="jp"?"#E8A87C":"#333", position:"relative", transition:"all 0.3s" }}>
-            <div style={{ width:16, height:16, borderRadius:"50%", background:"#FFF", position:"absolute", top:2, left:lang==="jp"?22:2, transition:"all 0.3s" }}></div>
+      {/* Sidebar Navigation */}
+      <div style={{ width:280, background:"#FFFFFF", boxShadow:"2px 0 8px rgba(0,0,0,0.08)", display:"flex", flexDirection:"column", position:"sticky", top:0, height:"100vh" }}>
+        {/* Logo */}
+        <div style={{ padding:"32px 24px", borderBottom:"1px solid #F7F7F7" }}>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
+            {lang==="en"?"eBay Live":"eBay Live"}
           </div>
-          <span style={{ fontSize:11, color:lang==="jp"?"#E8A87C":"#666", fontWeight:lang==="jp"?600:400 }}>JP</span>
+          <div style={{ fontSize:14, color:"#191919", fontWeight:400 }}>
+            {lang==="en"?"Academy":"アカデミー"}
+          </div>
         </div>
+
+        {/* Nav Items */}
+        <div style={{ flex:1, padding:"16px 12px", overflowY:"auto" }}>
+          {tabs.map((tab,i) => (
+            <button key={i} onClick={()=>setPage(i)} style={{ width:"100%", padding:"14px 16px", marginBottom:4, borderRadius:8, background:page===i?"#3B1FC6":"transparent", border:"none", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:page===i?700:400, display:"flex", alignItems:"center", gap:12, color:page===i?"#FFFFFF":"#191919", transition:"all 0.2s", textAlign:"left" }}>
+              <span style={{ fontSize:20 }}>{icons[i]}</span>
+              <span>{tab}</span>
+            </button>
+          ))}
+        </div>
+
       </div>
 
-      {/* Tab Navigation */}
-      <div style={{ display:"flex", gap:8, padding:"12px 16px", background:"#0A0A0A", position:"sticky", top:0, zIndex:100, borderBottom:"1px solid #1E1E1E" }}>
-        {tabs.map((tab,i) => (
-          <button key={i} onClick={()=>setPage(i)} style={{ flex:1, padding:"10px", borderRadius:10, background:page===i?"#E8A87C22":"#141210", border:`1px solid ${page===i?"#E8A87C44":"#1E1E1E"}`, color:page===i?"#E8A87C":"#666", cursor:"pointer", fontFamily:"inherit", fontSize:13, fontWeight:page===i?600:400, display:"flex", alignItems:"center", justifyContent:"center", gap:6 }}>
-            <span style={{ fontSize:16 }}>{icons[i]}</span>
-            <span>{tab}</span>
-          </button>
-        ))}
-      </div>
+      {/* Main Content */}
+      <div style={{ flex:1, background:"#ffffff", overflowY:"auto" }}>
+        {/* Top Bar with Language Toggle */}
+        <div style={{ padding:"20px 48px", display:"flex", justifyContent:"flex-end", borderBottom:"1px solid #F7F7F7" }}>
+          <div onClick={()=>setLang(lang==="en"?"jp":"en")} style={{ display:"flex", alignItems:"center", gap:10, cursor:"pointer", userSelect:"none", padding:"8px 12px", background:"#F7F7F7", borderRadius:6 }}>
+            <span style={{ fontSize:14, color:lang==="en"?"#4CE160":"#191919", fontWeight:lang==="en"?700:400 }}>EN</span>
+            <div style={{ width:42, height:22, borderRadius:20, background:lang==="jp"?"#4CE160":"#E0E0E0", position:"relative", transition:"all 0.3s" }}>
+              <div style={{ width:16, height:16, borderRadius:"50%", background:"#FFF", position:"absolute", top:3, left:lang==="jp"?23:3, transition:"all 0.3s", boxShadow:"0 1px 3px rgba(0,0,0,0.2)" }}></div>
+            </div>
+            <span style={{ fontSize:14, color:lang==="jp"?"#4CE160":"#191919", fontWeight:lang==="jp"?700:400 }}>JP</span>
+          </div>
+        </div>
 
-      <div style={{ padding:"20px 16px" }} key={`${page}-${lang}`}>
-        {page===-1 && <HomeP lang={lang} setPage={setPage} />}
-        {page===0 && <FashionP lang={lang} />}
-        {page===1 && <LiveP lang={lang} />}
-        {page===2 && <EnglishP lang={lang} />}
-        {page===3 && <PracticeP lang={lang} />}
+        <div style={{ maxWidth:1200, margin:"0 auto", padding:"40px 48px" }} key={`${page}-${lang}`}>
+          {page===0 && <HomeP lang={lang} setPage={setPage} />}
+          {page===1 && <FashionP lang={lang} />}
+          {page===2 && <LiveP lang={lang} />}
+          {page===3 && <EnglishP lang={lang} />}
+          {page===4 && <PracticeP lang={lang} />}
+        </div>
       </div>
     </div>
   );
@@ -475,42 +514,44 @@ export default function App() {
 /* ═══ HOME ═══ */
 function HomeP({ lang, setPage }) {
   return (
-    <div style={{ animation:"fu 0.4s ease", maxWidth:900, margin:"0 auto", textAlign:"center" }}>
-      <div style={{ fontSize:48, marginBottom:20 }}>🎯</div>
-      <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:32, fontWeight:700, marginBottom:12 }}>
-        {lang==="en"?"Live Selling Academy":"ライブセリング アカデミー"}
-      </h1>
-      <p style={{ fontSize:16, color:"#999", lineHeight:1.8, marginBottom:40, maxWidth:600, margin:"0 auto 40px" }}>
-        {lang==="en"
-          ?"Master eBay Live selling with luxury fashion knowledge, live streaming strategies, and English vocabulary for international buyers."
-          :"eBay Liveでラグジュアリーファッションを販売するための知識、ライブ配信戦略、英語ボキャブラリーを習得。"}
-      </p>
+    <div style={{ animation:"fu 0.4s ease" }}>
+      <div style={{ marginBottom:48 }}>
+        <div style={{ fontSize:56, marginBottom:16 }}>🎯</div>
+        <h1 style={{ fontSize:42, fontWeight:700, marginBottom:16, color:"#191919", lineHeight:1.2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
+          {lang==="en"?"Master eBay Live Selling":"eBay Live販売をマスター"}
+        </h1>
+        <p style={{ fontSize:18, color:"#191919", lineHeight:1.7, maxWidth:700, fontWeight:400 }}>
+          {lang==="en"
+            ?"Learn luxury fashion expertise, live streaming strategies, and professional vocabulary to succeed as an eBay Live seller targeting B2B resellers."
+            :"B2Bリセラーを対象としたeBay Liveセラーとして成功するための高級ファッション知識、ライブ配信戦略、専門用語を学習。"}
+        </p>
+      </div>
 
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:16, marginBottom:40 }}>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:20, marginBottom:48 }}>
         {[
-          { icon:"👜", title:lang==="en"?"Fashion & Brands":"ファッション", desc:lang==="en"?"Louis Vuitton, Chanel, Hermès knowledge":"LV・シャネル・エルメスの知識", page:0, color:"#D7C46F" },
-          { icon:"🎥", title:lang==="en"?"Live Streaming":"ライブ配信", desc:lang==="en"?"6-step framework from TikTok experts":"TikTok専門家の6ステップ", page:1, color:"#E8A87C" },
-          { icon:"🔤", title:lang==="en"?"English Vocab":"英語", desc:lang==="en"?"Auction phrases, conditions, buyer Q&A":"オークション・コンディション・Q&A", page:2, color:"#5DAE5D" },
-          { icon:"🎯", title:lang==="en"?"Practice":"練習", desc:lang==="en"?"Drills for names, colors, conditions":"名前・色・コンディション練習", page:3, color:"#5D8AE8" },
+          { icon:"👜", title:lang==="en"?"Luxury Brands":"高級ブランド", desc:lang==="en"?"Rarity, conditions, and value points for eBay Authenticity Guarantee brands":"eBay認証保証ブランドの希少性、状態、価値ポイント", page:1, color:"#F02D2D" },
+          { icon:"🎥", title:lang==="en"?"Live Streaming":"ライブ配信", desc:lang==="en"?"Proven 6-step framework to engage viewers and drive sales":"視聴者を引き付けて売上を上げる実証済み6ステップ", page:2, color:"#0968F6" },
+          { icon:"📖", title:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Auction lingo, condition terms, and luxury fashion showroom language":"オークション用語、状態用語、高級ファッション業界用語", page:3, color:"#FFBD14" },
+          { icon:"🎯", title:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills for buyer names, product descriptions, and Q&A":"バイヤー名、商品説明、Q&Aのインタラクティブ練習", page:4, color:"#92C821" },
         ].map((card,i)=>(
-          <div key={i} onClick={()=>setPage(card.page)} style={{ background:"#141210", border:`1px solid ${card.color}33`, borderRadius:16, padding:"24px 20px", cursor:"pointer", transition:"all 0.3s", textAlign:"left" }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = `${card.color}88`}
-            onMouseLeave={e => e.currentTarget.style.borderColor = `${card.color}33`}>
-            <div style={{ fontSize:32, marginBottom:12 }}>{card.icon}</div>
-            <div style={{ fontSize:16, fontWeight:700, color:card.color, marginBottom:6 }}>{card.title}</div>
-            <div style={{ fontSize:13, color:"#777", lineHeight:1.6 }}>{card.desc}</div>
+          <div key={i} onClick={()=>setPage(card.page)} style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"28px 24px", cursor:"pointer", transition:"all 0.2s", boxShadow:"0 2px 4px rgba(0,0,0,0.06)" }}
+            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor=card.color; e.currentTarget.style.boxShadow="0 8px 16px rgba(0,0,0,0.12)"}}
+            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#F7F7F7"; e.currentTarget.style.boxShadow="0 2px 4px rgba(0,0,0,0.06)"}}>
+            <div style={{ width:56, height:56, borderRadius:12, background:card.color, display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, marginBottom:16 }}>{card.icon}</div>
+            <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:8 }}>{card.title}</div>
+            <div style={{ fontSize:15, color:"#191919", lineHeight:1.6, fontWeight:400 }}>{card.desc}</div>
           </div>
         ))}
       </div>
 
-      <div style={{ background:"#141210", borderRadius:12, padding:"20px 24px", border:"1px solid #1E1E1E", textAlign:"left" }}>
-        <div style={{ fontSize:14, fontWeight:700, marginBottom:8, color:"#E8A87C" }}>
-          {lang==="en"?"💡 How to Use":"💡 使い方"}
+      <div style={{ background:"#3B1FC6", borderRadius:12, padding:"32px 36px", color:"#FFFFFF" }}>
+        <div style={{ fontSize:20, fontWeight:700, marginBottom:12 }}>
+          💡 {lang==="en"?"How to Use This Platform":"このプラットフォームの使い方"}
         </div>
-        <div style={{ fontSize:13, color:"#999", lineHeight:1.8 }}>
+        <div style={{ fontSize:16, lineHeight:1.8, fontWeight:400 }}>
           {lang==="en"
-            ?"Navigate using the tabs above. Each section contains practical knowledge you can use during your eBay Live streams. Practice modules are available in separate training apps."
-            :"上のタブでナビゲート。各セクションにはeBay Liveで使える実践的な知識があります。練習モジュールは別のトレーニングアプリで利用可能。"}
+            ?"Use the sidebar to navigate between sections. Each module contains actionable knowledge for eBay Live sellers targeting professional resellers. Focus on product expertise, condition assessment, and live engagement techniques."
+            :"サイドバーでセクション間を移動します。各モジュールには、プロのリセラーを対象としたeBay Liveセラーのための実用的な知識が含まれています。商品知識、状態評価、ライブエンゲージメント技術に焦点を当てています。"}
         </div>
       </div>
     </div>
@@ -524,31 +565,81 @@ function FashionP({ lang }) {
     const b = BRANDS[sel];
     return (
       <div style={{ animation:"fu 0.3s ease" }}>
-        <button onClick={()=>setSel(null)} style={bk}>{lang==="en"?"← Back":"← 戻る"}</button>
-        <div style={{ fontFamily:"'Playfair Display',serif", fontSize:20, fontWeight:700 }}>{b.brand}</div>
-        <div style={{ fontSize:12, color:"#888" }}>{b.c} Est. {b.yr}</div>
-        <Sec t={lang==="en"?"Classics":"定番"} c="#D7C46F">
-          <div style={{ display:"flex", flexWrap:"wrap", gap:4 }}>
-            {b.models.map((m,i)=><span key={i} style={{ fontSize:11, padding:"3px 8px", borderRadius:8, background:"#D7C46F15", color:"#D7C46F", border:"1px solid #D7C46F33" }}>{m}</span>)}
+        <button onClick={()=>setSel(null)} style={{background:"#f3f4f6",border:"none",padding:"10px 20px",borderRadius:10,cursor:"pointer",fontSize:15,fontWeight:600,color:"#4b5563",marginBottom:24}}>
+          ← {lang==="en"?"Back":"戻る"}
+        </button>
+        <div style={{ marginBottom:32 }}>
+          <div style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:4 }}>{b.brand}</div>
+          <div style={{ fontSize:16, color:"#6b7280" }}>{b.c} Est. {b.yr}</div>
+        </div>
+
+        <div style={{ marginBottom:24 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#667eea", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
+            {lang==="en"?"ICONIC MODELS":"定番モデル"}
           </div>
-        </Sec>
-        <Sec t={lang==="en"?"Rare/Discontinued":"レア・廃番"} c="#E85D5D"><p style={p14}>{lang==="en"?b.rare:b.rareJp}</p></Sec>
-        <Sec t={lang==="en"?"Authentication":"真贋"} c="#5DAE5D"><p style={p14}>{lang==="en"?b.auth:b.authJp}</p></Sec>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+            {b.models.map((m,i)=><span key={i} style={{ fontSize:14, padding:"8px 16px", borderRadius:10, background:"linear-gradient(135deg, #667eea 0%, #764ba2 100%)", color:"#fff", fontWeight:500 }}>{m}</span>)}
+          </div>
+        </div>
+
+        <div style={{ marginBottom:24 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#f093fb", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
+            {lang==="en"?"VALUE & INVESTMENT":"価値と投資"}
+          </div>
+          <p style={{ fontSize:16, color:"#1a1a2e", lineHeight:1.8, background:"#fef3f2", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #f093fb" }}>
+            {lang==="en"?b.value:b.valueJp}
+          </p>
+        </div>
+
+        <div style={{ marginBottom:24 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#fa709a", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
+            {lang==="en"?"RARITY & COLLECTIBILITY":"希少性とコレクタビリティ"}
+          </div>
+          <p style={{ fontSize:16, color:"#1a1a2e", lineHeight:1.8, background:"#fff7ed", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #fa709a" }}>
+            {lang==="en"?b.rare:b.rareJp}
+          </p>
+        </div>
+
+        <div>
+          <div style={{ fontSize:14, fontWeight:700, color:"#43e97b", marginBottom:12, textTransform:"uppercase", letterSpacing:1 }}>
+            {lang==="en"?"CONDITION ASSESSMENT":"状態評価"}
+          </div>
+          <p style={{ fontSize:16, color:"#1a1a2e", lineHeight:1.8, background:"#f0fdf4", padding:"16px 20px", borderRadius:12, borderLeft:"4px solid #43e97b" }}>
+            {lang==="en"?b.condition:b.conditionJp}
+          </p>
+        </div>
       </div>
     );
   }
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
-      <h2 style={h2}>{lang==="en"?"Fashion & Brand Knowledge":"ファッション＆ブランド知識"}</h2>
-      {BRANDS.map((b,i)=>(
-        <div key={i} onClick={()=>setSel(i)} style={row}>
-          <div style={{ flex:1 }}>
-            <div style={{ fontSize:14, fontWeight:600 }}>{b.brand}</div>
-            <div style={{ fontSize:11, color:"#666" }}>{b.c} {b.yr} — {b.models.slice(0,3).join(", ")}</div>
+      <div style={{ marginBottom:32 }}>
+        <h1 style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:8 }}>
+          {lang==="en"?"Luxury Brand Knowledge":"高級ブランド知識"}
+        </h1>
+        <p style={{ fontSize:16, color:"#6b7280", lineHeight:1.6 }}>
+          {lang==="en"
+            ?"eBay Authenticity Guarantee brands. Learn value points, rarity factors, and condition assessment for B2B reseller buyers."
+            :"eBay認証保証ブランド。B2Bリセラーバイヤー向けの価値ポイント、希少性要因、状態評価を学習。"}
+        </p>
+      </div>
+
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(320px, 1fr))", gap:20 }}>
+        {BRANDS.map((b,i)=>(
+          <div key={i} onClick={()=>setSel(i)} style={{ background:"#ffffff", border:"1px solid #e5e7eb", borderRadius:16, padding:"24px", cursor:"pointer", transition:"all 0.3s", boxShadow:"0 2px 4px rgba(0,0,0,0.04)" }}
+            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.boxShadow="0 12px 24px rgba(102,126,234,0.15)"}}
+            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="0 2px 4px rgba(0,0,0,0.04)"}}>
+            <div style={{ fontSize:24, fontWeight:700, color:"#1a1a2e", marginBottom:6 }}>{b.brand}</div>
+            <div style={{ fontSize:14, color:"#9ca3af", marginBottom:16 }}>{b.c} Est. {b.yr}</div>
+            <div style={{ fontSize:13, color:"#6b7280", marginBottom:12 }}>
+              <strong>{lang==="en"?"Models":"モデル"}:</strong> {b.models.slice(0,3).join(", ")}...
+            </div>
+            <div style={{ fontSize:13, color:"#667eea", fontWeight:600 }}>
+              {lang==="en"?"View Details →":"詳細を見る →"}
+            </div>
           </div>
-          <span style={{ color:"#333" }}>→</span>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
