@@ -426,9 +426,9 @@ const VOCAB_CATS = [
 /* ═══ APP ═══ */
 export default function App() {
   const [lang, setLang] = useState("en");
-  const [page, setPage] = useState(0);
-  const tabs = lang==="en" ? ["Fashion","Live Tips","English","Practice"] : ["ファッション","ライブ配信","英語","練習"];
-  const icons = ["👜","🎥","🔤","🎯"];
+  const [page, setPage] = useState(-1);
+  const tabs = lang==="en" ? ["Home","Fashion","Live Tips","English","Practice"] : ["ホーム","ファッション","ライブ配信","英語","練習"];
+  const icons = ["🏠","👜","🎥","🔤","🎯"];
 
   return (
     <div style={{ minHeight:"100vh", background:"#0A0A0A", fontFamily:"'Noto Sans JP','Helvetica Neue',sans-serif", color:"#F0EBE3", maxWidth:"100%", margin:"0 auto", padding:"0 20px" }}>
@@ -462,10 +462,56 @@ export default function App() {
       </div>
 
       <div style={{ padding:"20px 16px" }} key={`${page}-${lang}`}>
+        {page===-1 && <HomeP lang={lang} setPage={setPage} />}
         {page===0 && <FashionP lang={lang} />}
         {page===1 && <LiveP lang={lang} />}
         {page===2 && <EnglishP lang={lang} />}
         {page===3 && <PracticeP lang={lang} />}
+      </div>
+    </div>
+  );
+}
+
+/* ═══ HOME ═══ */
+function HomeP({ lang, setPage }) {
+  return (
+    <div style={{ animation:"fu 0.4s ease", maxWidth:900, margin:"0 auto", textAlign:"center" }}>
+      <div style={{ fontSize:48, marginBottom:20 }}>🎯</div>
+      <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:32, fontWeight:700, marginBottom:12 }}>
+        {lang==="en"?"Live Selling Academy":"ライブセリング アカデミー"}
+      </h1>
+      <p style={{ fontSize:16, color:"#999", lineHeight:1.8, marginBottom:40, maxWidth:600, margin:"0 auto 40px" }}>
+        {lang==="en"
+          ?"Master eBay Live selling with luxury fashion knowledge, live streaming strategies, and English vocabulary for international buyers."
+          :"eBay Liveでラグジュアリーファッションを販売するための知識、ライブ配信戦略、英語ボキャブラリーを習得。"}
+      </p>
+
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:16, marginBottom:40 }}>
+        {[
+          { icon:"👜", title:lang==="en"?"Fashion & Brands":"ファッション", desc:lang==="en"?"Louis Vuitton, Chanel, Hermès knowledge":"LV・シャネル・エルメスの知識", page:0, color:"#D7C46F" },
+          { icon:"🎥", title:lang==="en"?"Live Streaming":"ライブ配信", desc:lang==="en"?"6-step framework from TikTok experts":"TikTok専門家の6ステップ", page:1, color:"#E8A87C" },
+          { icon:"🔤", title:lang==="en"?"English Vocab":"英語", desc:lang==="en"?"Auction phrases, conditions, buyer Q&A":"オークション・コンディション・Q&A", page:2, color:"#5DAE5D" },
+          { icon:"🎯", title:lang==="en"?"Practice":"練習", desc:lang==="en"?"Drills for names, colors, conditions":"名前・色・コンディション練習", page:3, color:"#5D8AE8" },
+        ].map((card,i)=>(
+          <div key={i} onClick={()=>setPage(card.page)} style={{ background:"#141210", border:`1px solid ${card.color}33`, borderRadius:16, padding:"24px 20px", cursor:"pointer", transition:"all 0.3s", textAlign:"left" }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = `${card.color}88`}
+            onMouseLeave={e => e.currentTarget.style.borderColor = `${card.color}33`}>
+            <div style={{ fontSize:32, marginBottom:12 }}>{card.icon}</div>
+            <div style={{ fontSize:16, fontWeight:700, color:card.color, marginBottom:6 }}>{card.title}</div>
+            <div style={{ fontSize:13, color:"#777", lineHeight:1.6 }}>{card.desc}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ background:"#141210", borderRadius:12, padding:"20px 24px", border:"1px solid #1E1E1E", textAlign:"left" }}>
+        <div style={{ fontSize:14, fontWeight:700, marginBottom:8, color:"#E8A87C" }}>
+          {lang==="en"?"💡 How to Use":"💡 使い方"}
+        </div>
+        <div style={{ fontSize:13, color:"#999", lineHeight:1.8 }}>
+          {lang==="en"
+            ?"Navigate using the tabs above. Each section contains practical knowledge you can use during your eBay Live streams. Practice modules are available in separate training apps."
+            :"上のタブでナビゲート。各セクションにはeBay Liveで使える実践的な知識があります。練習モジュールは別のトレーニングアプリで利用可能。"}
+        </div>
       </div>
     </div>
   );
