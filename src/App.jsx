@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 /* ═══ LIVE STREAMING KNOWLEDGE (from TikTok Creator Hub) ═══ */
 const LIVE_KB = {
@@ -452,10 +452,26 @@ const VOCAB_CATS = [
 /* ═══ APP ═══ */
 export default function App() {
   const [lang, setLang] = useState("en");
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(() => {
+    const hash = window.location.hash.slice(1);
+    return hash ? parseInt(hash) : 0;
+  });
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const tabs = lang==="en" ? ["Home","Product Knowledge","Selling Strategies","Vocabulary Guide","Training"] : ["ホーム","商品知識","販売戦略","用語ガイド","トレーニング"];
   const icons = ["🏠","👜","📚","💬","🎯"];
+
+  useEffect(() => {
+    window.location.hash = page;
+  }, [page]);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) setPage(parseInt(hash));
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   return (
     <div style={{ minHeight:"100vh", background:"#F7F7F7", fontFamily:"'Market Sans','Noto Sans JP',sans-serif", color:"#191919", display:"flex" }}>
