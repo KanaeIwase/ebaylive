@@ -442,19 +442,23 @@ const BRANDS = [
 
 /* ═══ PROFESSIONAL VOCABULARY ═══ */
 const VOCAB_CATS = [
-  { cat:"Condition Assessment", items:[
+  { cat:"Condition Grading", items:[
     {e:"Brand new / NWT",j:"新品・タグ付き",def:"Unworn item with original tags still attached",defJp:"未使用でオリジナルタグが付いた状態"},
     {e:"Like new",j:"ほぼ新品",def:"Minimal to no signs of wear, appears unused",defJp:"使用感がほとんどなく、未使用に見える状態"},
     {e:"Excellent",j:"極美品",def:"Very light use, no significant flaws visible",defJp:"使用感が非常に軽く、目立つダメージなし"},
     {e:"Very good",j:"美品",def:"Light wear, minor imperfections may exist",defJp:"軽い使用感、軽微なダメージがある可能性"},
     {e:"Good",j:"良品",def:"Moderate wear, still fully functional and attractive",defJp:"中程度の使用感、機能的で魅力的"},
-    {e:"Fair",j:"使用感あり",def:"Obvious wear and use, but no major damage",defJp:"明らかな使用感があるが、大きなダメージなし"},
-    {e:"Scratches / Scuffs",j:"傷・スレ",def:"Surface marks from normal use or contact",defJp:"通常使用や接触による表面の跡"},
+    {e:"Fair",j:"使用感あり",def:"Obvious wear and use, but no major damage",defJp:"明らかな使用感があるが、大きなダメージなし"}
+  ]},
+  { cat:"Handbag Structure & Wear", items:[
     {e:"Corner wear",j:"角スレ",def:"Damage to bag corners from setting down or use",defJp:"置いたり使用したりすることによる角の損傷"},
-    {e:"Piping wear",j:"パイピング劣化",def:"Leather trim along edges showing damage or color loss",defJp:"縁のレザートリムに損傷や色落ちが見られる"},
+    {e:"Piping",j:"パイピング",def:"Leather trim along bag edges",defJp:"バッグの縁に沿ったレザートリム"},
     {e:"Patina",j:"経年変化",def:"Natural darkening of leather over time, adds character",defJp:"時間経過による革の自然な色の変化、味が出る"},
     {e:"Hardware tarnish",j:"金具の変色",def:"Metal parts showing oxidation or discoloration",defJp:"金属部分の酸化や変色"},
-    {e:"Interior staining",j:"内側の汚れ",def:"Marks or discoloration inside the bag",defJp:"バッグ内側の跡や変色"}
+    {e:"Interior staining",j:"内側の汚れ",def:"Marks or discoloration inside the bag",defJp:"バッグ内側の跡や変色"},
+    {e:"Scratches / Scuffs",j:"傷・スレ",def:"Surface marks from normal use or contact",defJp:"通常使用や接触による表面の跡"},
+    {e:"Stitching",j:"ステッチ",def:"Thread work holding bag together",defJp:"バッグを保持する糸の仕事"},
+    {e:"Lining",j:"内装",def:"Interior fabric or leather",defJp:"内側の生地またはレザー"}
   ]},
   { cat:"Auction Language", items:[
     {e:"Starting at $1!",j:"1ドルスタート！",def:"Opening bid is one dollar to create excitement",defJp:"盛り上げるため1ドルから入札開始"},
@@ -496,13 +500,29 @@ const VOCAB_CATS = [
     {e:"Final sale, no returns",j:"最終販売、返品不可",def:"Transaction is binding, cannot be reversed",defJp:"取引は拘束力あり、取り消し不可"},
     {e:"Ships next business day",j:"翌営業日発送",def:"Item will be sent the following workday",defJp:"翌営業日にアイテム発送"}
   ]},
-  { cat:"eBay Live Interface", items:[
-    {e:"Tap to hide chat",j:"タップでチャット非表示",def:"Touch screen to minimize comment section",defJp:"画面タッチでコメントセクション最小化"},
-    {e:"Item pinned at bottom",j:"下部にアイテム固定",def:"Product information stays visible at screen bottom",defJp:"商品情報が画面下部に表示され続ける"},
-    {e:"Set your max bid",j:"最高額を設定",def:"Enter the highest amount you're willing to pay",defJp:"支払う意思のある最高額を入力"},
-    {e:"Swipe up for catalog",j:"上スワイプでカタログ",def:"Gesture to see all available items",defJp:"すべての利用可能アイテムを見るジェスチャー"},
-    {e:"Follow this seller",j:"セラーをフォロー",def:"Subscribe to get notifications about this seller's streams",defJp:"このセラーの配信通知を受け取る"},
-    {e:"Share this stream",j:"配信をシェア",def:"Send stream link to others",defJp:"配信リンクを他の人に送る"}
+  { cat:"Luxury Fashion Color Names", items:[
+    {e:"Black",j:"ブラック",def:"Basic black, Noir (French)",defJp:"ベーシックブラック、ノワール（フランス語）"},
+    {e:"Rouge / Red",j:"ルージュ/レッド",def:"Classic red - Rouge Hermès, Chanel Red",defJp:"クラシックレッド - ルージュ・エルメス、シャネルレッド"},
+    {e:"Etoupe",j:"エトゥープ",def:"Hermès signature taupe-grey, versatile neutral",defJp:"エルメスのシグネチャー トープグレー、万能ニュートラル"},
+    {e:"Gold",j:"ゴールド",def:"Tan/camel leather, not metallic - warm brown tone",defJp:"タン/キャメルレザー、メタリックではなく温かいブラウントーン"},
+    {e:"Bleu / Blue",j:"ブルー",def:"Blue family - Navy, Royal Blue, Bleu de France",defJp:"ブルーファミリー - ネイビー、ロイヤルブルー、ブルー・ド・フランス"},
+    {e:"Rose",j:"ローズ",def:"Pink tones - Rose Sakura, Rose Confetti, Rose Dragée",defJp:"ピンクトーン - ローズサクラ、ローズコンフェッティ、ローズドラジェ"},
+    {e:"Vert / Green",j:"ヴェール/グリーン",def:"Green - Vert Olive, Vert Anglais, Bamboo Green",defJp:"グリーン - ヴェール・オリーブ、ヴェール・アングレ、バンブーグリーン"},
+    {e:"Gris / Grey",j:"グリ/グレー",def:"Grey family - Gris Perle (pearl grey), Gris Tourterelle (dove grey)",defJp:"グレーファミリー - グリ・ペール（パールグレー）、グリ・トゥルトレル（鳩グレー）"},
+    {e:"Blanc / White",j:"ブラン/ホワイト",def:"White/Cream - Craie (chalk), Blanc Naturel",defJp:"ホワイト/クリーム - クレ（チョーク）、ブラン・ナチュレル"},
+    {e:"Vermillion",j:"ヴァーミリオン",def:"Bright red-orange, highly sought Hermès color",defJp:"明るい赤オレンジ、エルメスの人気カラー"},
+    {e:"Fuchsia / Fuschia",j:"フューシャ",def:"Bright magenta-pink, bold statement color",defJp:"明るいマゼンタピンク、大胆なステートメントカラー"},
+    {e:"Bordeaux / Burgundy",j:"ボルドー/バーガンディ",def:"Deep wine red, rich and elegant",defJp:"深いワインレッド、豊かでエレガント"}
+  ]},
+  { cat:"Fashion Compliment Phrases", items:[
+    {e:"This shade is stunning on you",j:"この色はあなたにぴったり",def:"Compliment color choice",defJp:"カラー選択を褒める"},
+    {e:"Such a rich, luxurious color",j:"豊かで贅沢な色",def:"Emphasize quality of color",defJp:"色の品質を強調"},
+    {e:"This color never goes out of style",j:"この色は流行に左右されない",def:"Highlight timeless appeal",defJp:"時代を超えた魅力を強調"},
+    {e:"Perfectly versatile shade",j:"完璧に万能な色",def:"Point out wearability",defJp:"着こなしやすさを指摘"},
+    {e:"Rare, hard-to-find color",j:"レアで入手困難な色",def:"Create urgency with scarcity",defJp:"希少性で緊急性を作る"},
+    {e:"This color photographs beautifully",j:"この色は写真映えする",def:"Appeal to visual buyers",defJp:"視覚的なバイヤーにアピール"},
+    {e:"So flattering, works with everything",j:"とても似合う、何にでも合う",def:"Emphasize styling flexibility",defJp:"スタイリングの柔軟性を強調"},
+    {e:"A collector's favorite shade",j:"コレクターに人気の色",def:"Position as desirable",defJp:"望ましいものとして位置付ける"}
   ]}
 ];
 
@@ -514,8 +534,34 @@ export default function App() {
     return hash ? parseInt(hash) : 0;
   });
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const tabs = lang==="en" ? ["Home","Brand Knowledge","Live Streaming","Vocab","Practice"] : ["ホーム","ブランド知識","ライブ配信","用語集","練習"];
-  const icons = ["🏠","👜","📺","💬","🎯"];
+  const [playerData, setPlayerData] = useState(() => {
+    const saved = localStorage.getItem('ebay-live-player');
+    return saved ? JSON.parse(saved) : { xp: 0, level: 1, streak: 0, lastVisit: new Date().toDateString(), modulesCompleted: { brands: 0, live: 0, vocab: 0, practice: 0 } };
+  });
+  const tabs = lang==="en" ? ["Home","Brands","Framework","Platforms","Content Types","Vocab","Practice"] : ["ホーム","ブランド","フレームワーク","プラットフォーム","コンテンツ","用語集","練習"];
+  const icons = ["🏠","👜","📡","🌐","🎬","💬","🎯"];
+
+  // Update streak on visit
+  // XP earning handler
+  const handleXpEarned = (amount) => {
+    const newXp = playerData.xp + amount;
+    const newLevel = Math.floor(newXp / 100) + 1;
+    const updated = { ...playerData, xp: newXp, level: newLevel };
+    setPlayerData(updated);
+    localStorage.setItem('ebay-live-player', JSON.stringify(updated));
+  };
+
+  // Update streak on visit
+  useEffect(() => {
+    const today = new Date().toDateString();
+    if (playerData.lastVisit !== today) {
+      const yesterday = new Date(Date.now() - 86400000).toDateString();
+      const newStreak = playerData.lastVisit === yesterday ? playerData.streak + 1 : 1;
+      const updated = { ...playerData, streak: newStreak, lastVisit: today };
+      setPlayerData(updated);
+      localStorage.setItem('ebay-live-player', JSON.stringify(updated));
+    }
+  }, []);
 
   useEffect(() => {
     window.location.hash = page;
@@ -533,7 +579,43 @@ export default function App() {
   return (
     <div style={{ minHeight:"100vh", background:"#F7F7F7", fontFamily:"'Inter','Noto Sans JP',sans-serif", color:"#191919", display:"flex" }}>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-      <style>{`@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}*{box-sizing:border-box}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#555}`}</style>
+      <style>{`
+        @keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        *{box-sizing:border-box}
+        ::-webkit-scrollbar{width:8px}
+        ::-webkit-scrollbar-track{background:#f1f1f1}
+        ::-webkit-scrollbar-thumb{background:#888;border-radius:4px}
+        ::-webkit-scrollbar-thumb:hover{background:#555}
+
+        /* eBay Responsive Grid System */
+        .ebay-content {
+          /* Small screens: 16px margins */
+          padding: 40px 16px;
+        }
+
+        @media (min-width: 512px) {
+          /* Medium screens: 32px margins */
+          .ebay-content {
+            padding: 40px 32px;
+          }
+        }
+
+        @media (min-width: 1280px) {
+          /* Large screens: 48px margins */
+          .ebay-content {
+            padding: 40px 48px;
+          }
+        }
+
+        @media (min-width: 1680px) {
+          /* X-large screens: centered with max width 1584px */
+          .ebay-content {
+            max-width: 1584px;
+            margin: 0 auto;
+            padding: 40px 0;
+          }
+        }
+      `}</style>
 
       {/* Overlay when sidebar open */}
       {sidebarOpen && (
@@ -571,9 +653,9 @@ export default function App() {
       )}
 
       {/* Main Content */}
-      <div style={{ flex:1, background:"#ffffff", overflowY:"auto" }}>
+      <div style={{ flex:1, background:"#F7F7F7", overflowY:"auto" }}>
         {/* Sticky Header */}
-        <div style={{ position:"sticky", top:0, zIndex:30, background:"#FFFFFF", borderBottom:"1px solid #E5E7EB", boxShadow:"0 1px 3px rgba(0,0,0,0.05)" }}>
+        <div style={{ position:"sticky", top:0, zIndex:30, background:"#FFFFFF", borderBottom:"1px solid #E5E7EB", boxShadow:"0 2px 4px rgba(0,0,0,0.08)" }}>
           <div style={{ padding:"16px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", maxWidth:1200, margin:"0 auto" }}>
             <div style={{ display:"flex", alignItems:"center", gap:16 }}>
               {!sidebarOpen && (
@@ -595,12 +677,14 @@ export default function App() {
           </div>
         </div>
 
-        <div style={{ maxWidth:1200, margin:"0 auto", padding:"40px 48px" }} key={`${page}-${lang}`}>
-          {page===0 && <HomeP lang={lang} setPage={setPage} />}
+        <div className="ebay-content" key={`${page}-${lang}`}>
+          {page===0 && <HomeP lang={lang} setPage={setPage} playerData={playerData} />}
           {page===1 && <FashionP lang={lang} />}
-          {page===2 && <LiveP lang={lang} />}
-          {page===3 && <EnglishP lang={lang} />}
-          {page===4 && <PracticeP lang={lang} />}
+          {page===2 && <LiveFrameworkP lang={lang} />}
+          {page===3 && <LivePlatformsP lang={lang} />}
+          {page===4 && <LiveContentTypesP lang={lang} />}
+          {page===5 && <EnglishP lang={lang} />}
+          {page===6 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
         </div>
       </div>
     </div>
@@ -608,22 +692,101 @@ export default function App() {
 }
 
 /* ═══ HOME ═══ */
-function HomeP({ lang, setPage }) {
+function HomeP({ lang, setPage, playerData }) {
+  const xpToNextLevel = 100;
+  const xpProgress = (playerData.xp % xpToNextLevel) / xpToNextLevel * 100;
+  const totalModules = 4;
+  const completedCount = Object.values(playerData.modulesCompleted).filter(v => v >= 100).length;
+
+  const dailyChallenges = [
+    { en: "Practice 5 condition descriptions in under 30 seconds", jp: "30秒以内に5つのコンディション説明を練習" },
+    { en: "Read 10 buyer names without hesitation", jp: "10人のバイヤー名を迷わず読む" },
+    { en: "Master 5 new vocabulary terms", jp: "5つの新しい用語をマスター" },
+    { en: "Complete a mock live simulation", jp: "模擬ライブシミュレーションを完了" }
+  ];
+  const todayChallenge = dailyChallenges[new Date().getDay() % dailyChallenges.length];
+
+  const readyChecklist = [
+    { en: "Describe 5 conditions fluently", jp: "5つのコンディションを流暢に説明", done: playerData.modulesCompleted.vocab >= 20 },
+    { en: "Greet buyers within 3 seconds", jp: "3秒以内にバイヤーに挨拶", done: playerData.modulesCompleted.practice >= 10 },
+    { en: "Answer 10 common questions", jp: "10の一般的な質問に回答", done: playerData.modulesCompleted.vocab >= 50 },
+    { en: "Know 3+ luxury brands", jp: "3つ以上の高級ブランドを知る", done: playerData.modulesCompleted.brands >= 30 }
+  ];
+
   return (
-    <div style={{ animation:"fu 0.4s ease" }}>
-      <div style={{ marginBottom:40, textAlign:"center", padding:"40px 20px", background:"linear-gradient(135deg, #0968F6 0%, #F02D2D 100%)", borderRadius:16, color:"#FFFFFF" }}>
-        <div style={{ fontSize:48, marginBottom:12 }}>🎯</div>
-        <h1 style={{ fontSize:36, fontWeight:700, marginBottom:12, lineHeight:1.2, fontFamily:"'Market Sans','Noto Sans JP',sans-serif" }}>
-          {lang==="en"?"Master eBay Live Selling":"eBay Live販売をマスター"}
-        </h1>
-        <p style={{ fontSize:18, lineHeight:1.6, maxWidth:600, margin:"0 auto 24px", opacity:0.95 }}>
-          {lang==="en"
-            ?"Learn luxury fashion, live streaming, and professional vocabulary for B2B success."
-            :"高級ファッション、ライブ配信、プロ用語でB2B成功を実現。"}
-        </p>
-        <button onClick={()=>setPage(1)} style={{ background:"#FFFFFF", color:"#0968F6", border:"none", padding:"14px 32px", borderRadius:8, fontSize:16, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 12px rgba(0,0,0,0.15)", fontFamily:"inherit", minHeight:48 }}>
-          {lang==="en"?"Start Learning →":"学習を始める →"}
+    <div style={{ animation:"fu 0.4s ease", maxWidth:900, margin:"0 auto" }}>
+      {/* Player Stats Bar */}
+      <div style={{ background:"linear-gradient(135deg, #3665F3 0%, #E53238 100%)", borderRadius:12, padding:"20px 24px", marginBottom:24, color:"#FFFFFF" }}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:16 }}>
+          <div>
+            <div style={{ fontSize:14, opacity:0.9, marginBottom:4 }}>{lang==="en"?"Level":"レベル"}</div>
+            <div style={{ fontSize:28, fontWeight:700 }}>{playerData.level}</div>
+          </div>
+          <div style={{ flex:1, minWidth:200 }}>
+            <div style={{ fontSize:14, opacity:0.9, marginBottom:6 }}>{playerData.xp % xpToNextLevel} / {xpToNextLevel} XP</div>
+            <div style={{ background:"rgba(255,255,255,0.3)", borderRadius:20, height:12, overflow:"hidden" }}>
+              <div style={{ background:"#F5AF02", height:"100%", width:`${xpProgress}%`, transition:"width 0.5s" }}></div>
+            </div>
+          </div>
+          <div style={{ textAlign:"center" }}>
+            <div style={{ fontSize:14, opacity:0.9, marginBottom:4 }}>{lang==="en"?"Streak":"連続"}</div>
+            <div style={{ fontSize:24, fontWeight:700 }}>🔥 {playerData.streak}</div>
+          </div>
+          <div style={{ textAlign:"center" }}>
+            <div style={{ fontSize:14, opacity:0.9, marginBottom:4 }}>{lang==="en"?"Completed":"完了"}</div>
+            <div style={{ fontSize:24, fontWeight:700 }}>{completedCount}/{totalModules}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Today's Challenge */}
+      <div style={{ background:"#FFFFFF", border:"2px solid #3665F3", borderRadius:12, padding:"24px", marginBottom:24 }}>
+        <div style={{ fontSize:14, color:"#3665F3", fontWeight:600, marginBottom:8, textTransform:"uppercase" }}>
+          {lang==="en"?"🎯 Today's Challenge":"🎯 今日のチャレンジ"}
+        </div>
+        <div style={{ fontSize:18, fontWeight:600, color:"#191919", marginBottom:16 }}>
+          {lang==="en"?todayChallenge.en:todayChallenge.jp}
+        </div>
+        <button onClick={()=>setPage(4)} style={{ background:"#3665F3", color:"#FFFFFF", border:"none", padding:"12px 28px", borderRadius:8, fontSize:16, fontWeight:600, cursor:"pointer", minHeight:48, fontFamily:"inherit" }}>
+          {lang==="en"?"Start Challenge":"チャレンジ開始"}
         </button>
+      </div>
+
+      {/* Module Grid */}
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(250px, 1fr))", gap:16, marginBottom:24 }}>
+        {[
+          { icon:"👜", name:lang==="en"?"Brand Knowledge":"ブランド知識", desc:lang==="en"?"Learn luxury brand value points":"高級ブランドの価値を学ぶ", page:1, progress:playerData.modulesCompleted.brands || 0 },
+          { icon:"📺", name:lang==="en"?"Live Streaming":"ライブ配信", desc:lang==="en"?"Master engagement strategies":"エンゲージメント戦略をマスター", page:2, progress:playerData.modulesCompleted.live || 0 },
+          { icon:"💬", name:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Professional terms & phrases":"専門用語とフレーズ", page:3, progress:playerData.modulesCompleted.vocab || 0 },
+          { icon:"🎯", name:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills":"インタラクティブドリル", page:4, progress:playerData.modulesCompleted.practice || 0 }
+        ].map((mod,i)=>(
+          <div key={i} onClick={()=>setPage(mod.page)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"20px", cursor:"pointer", transition:"all 0.2s" }}
+            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.boxShadow="0 8px 16px rgba(54,101,243,0.15)"}}
+            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#E5E7EB"; e.currentTarget.style.boxShadow="none"}}>
+            <div style={{ fontSize:40, marginBottom:12 }}>{mod.icon}</div>
+            <div style={{ fontSize:18, fontWeight:600, color:"#191919", marginBottom:6 }}>{mod.name}</div>
+            <div style={{ fontSize:14, color:"#6B7280", marginBottom:12 }}>{mod.desc}</div>
+            <div style={{ background:"#F3F4F6", borderRadius:20, height:8, overflow:"hidden", marginBottom:6 }}>
+              <div style={{ background:"#86B817", height:"100%", width:`${mod.progress}%`, transition:"width 0.5s" }}></div>
+            </div>
+            <div style={{ fontSize:13, color:"#6B7280", fontWeight:500 }}>{mod.progress}% {lang==="en"?"complete":"完了"}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Ready to Go Live Checklist */}
+      <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"24px" }}>
+        <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
+          🚀 {lang==="en"?"Ready to Go Live?":"ライブ配信の準備はOK？"}
+        </div>
+        {readyChecklist.map((item,i)=>(
+          <div key={i} style={{ display:"flex", alignItems:"center", gap:12, padding:"12px 0", borderBottom:i<readyChecklist.length-1?"1px solid #F3F4F6":"none" }}>
+            <div style={{ fontSize:24 }}>{item.done?"✅":"⬜"}</div>
+            <div style={{ fontSize:16, color:item.done?"#86B817":"#6B7280", fontWeight:item.done?600:400 }}>
+              {lang==="en"?item.en:item.jp}
+            </div>
+          </div>
+        ))}
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24, marginBottom:48 }}>
@@ -867,7 +1030,7 @@ function EnglishP({ lang }) {
           <div key={ci} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, overflow:"hidden", transition:"all 0.2s" }}>
             <div onClick={()=>setOpen(open===ci?null:ci)} style={{ padding:"18px 24px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", background:open===ci?"#EFF6FF":"#FFFFFF", transition:"all 0.2s", minHeight:60 }}>
               <span style={{ fontSize:18, fontWeight:600, color:"#191919" }}>{cat.cat}</span>
-              <span style={{ fontSize:18, color:"#3665F3" }}>{open===ci?"▼":"▶"}</span>
+              <span style={{ fontSize:24, color:"#3665F3", fontWeight:300 }}>{open===ci?"−":"+"}</span>
             </div>
             {open===ci && (
               <div style={{ padding:"8px 0", animation:"fu 0.2s ease" }}>
@@ -891,37 +1054,1771 @@ function EnglishP({ lang }) {
   );
 }
 
-/* ═══ PRACTICE ═══ */
-function PracticeP({ lang }) {
+/* ═══ BUYER NAMES FOR NAME BLAST ═══ */
+const BUYER_NAMES = [
+  "vintage_hunter_23", "chanel_collector_NYC", "luxury_resale_pro", "bagaholic_LA",
+  "designer_vault", "preloved_curator", "fashion_archive_jp", "hermes_hunter",
+  "lvoe_since_99", "gucci_gang_buyer", "prada_princess", "dior_addict",
+  "saint_laurent_sam", "balenciaga_bae", "fendi_fanatic", "bottega_lover",
+  "cartier_collector", "rolex_reseller", "vintage_vuitton", "chanel_classic",
+  "birkin_hunter", "kelly_collector", "speedy_squad", "neverfull_nation",
+  "luxury_lifestyle", "boutique_buyer", "fashion_forward", "style_curator",
+  "handbag_heaven", "designer_dreams", "luxury_legacy", "timeless_treasures",
+  "authenticate_first", "condition_matters", "investment_pieces", "collector_grade",
+];
+
+/* ═══ CONDITION ASSESSMENT ITEMS ═══ */
+const CONDITION_ITEMS = {
+  en: [
+    {
+      item: "Louis Vuitton Speedy 30",
+      image: "👜",
+      issues: ["Corner wear on all four corners", "Light patina on handles", "Interior clean, no stains", "Hardware shows minor tarnish"],
+      correctCondition: "Very Good",
+      description: "Corner wear on all four corners, light patina on vachetta handles, interior clean with no stains, hardware shows minor tarnish. Fully functional with no structural issues.",
+      feedback: {
+        excellent: "Perfect description! You mentioned all key points: corner wear, patina, interior condition, and hardware. This prevents INAD returns.",
+        good: "Good start! Make sure to mention ALL visible wear - corner wear, patina level, interior condition, and hardware state.",
+        needsWork: "Remember to be specific! Describe: corners, handle patina, interior condition, and hardware. Vague descriptions lead to returns."
+      }
+    },
+    {
+      item: "Chanel Classic Flap",
+      image: "👛",
+      issues: ["Quilting intact, no sagging", "Chain shows light scratches", "Turnlock slightly loose", "Minor scuffing on back"],
+      correctCondition: "Good",
+      description: "Quilting intact with no sagging, chain shows light surface scratches, turnlock functions but slightly loose, minor scuffing visible on back panel. No interior stains.",
+      feedback: {
+        excellent: "Excellent! You covered structure, hardware functionality, and cosmetic issues. Buyers know exactly what they're getting.",
+        good: "Nice work! Don't forget to mention if hardware is fully functional - loose turnlocks are important to note.",
+        needsWork: "Be more thorough! Mention quilting condition, chain state, turnlock function, and any scuffing. Details matter in luxury resale."
+      }
+    },
+    {
+      item: "Hermès Birkin 35",
+      image: "💼",
+      issues: ["Pristine clemence leather", "Hardware unscratched", "Sangles (straps) never used", "Comes with clochette, lock, keys"],
+      correctCondition: "Excellent",
+      description: "Pristine clemence leather with no scratches or wear, hardware completely unscratched, sangles appear never used, includes clochette with lock and keys. Exceptional condition.",
+      feedback: {
+        excellent: "Flawless description! For high-value items like Birkin, noting accessories (clochette, lock, keys) and strap condition is crucial.",
+        good: "Great detail! For Birkin specifically, always mention if sangles are unused and all accessories are included.",
+        needsWork: "High-end items need detailed descriptions. Mention leather condition, hardware, strap usage, and all included accessories."
+      }
+    },
+    {
+      item: "Gucci Dionysus",
+      image: "👝",
+      issues: ["Tiger head closure functional", "Suede lining shows wear", "Chain strap has kinks", "GG Supreme canvas clean"],
+      correctCondition: "Good",
+      description: "Tiger head closure fully functional, suede lining shows moderate wear from use, chain strap has some kinks but usable, GG Supreme canvas clean with no stains or tears.",
+      feedback: {
+        excellent: "Perfect! You addressed functionality, lining condition, strap state, and exterior. Complete and honest.",
+        good: "Good description! Always note if signature hardware (like the tiger head) works properly - it's a selling point.",
+        needsWork: "Don't skip the details! Mention closure function, lining wear, strap condition, and canvas state. Each affects value."
+      }
+    },
+    {
+      item: "Prada Galleria",
+      image: "💼",
+      issues: ["Saffiano leather pristine", "Interior pen mark on pocket", "Corners sharp, no rounding", "All zippers smooth"],
+      correctCondition: "Very Good",
+      description: "Saffiano leather pristine with signature crosshatch intact, small pen mark visible inside zip pocket, corners remain sharp with no rounding, all zippers function smoothly.",
+      feedback: {
+        excellent: "Excellent honesty! You disclosed the pen mark while highlighting the pristine exterior. Builds trust with buyers.",
+        good: "Nice work! Always disclose interior flaws even if exterior is perfect - it prevents disputes.",
+        needsWork: "Never hide interior issues! Mention the pen mark, leather condition, corner shape, and zipper function. Honesty = fewer returns."
+      }
+    }
+  ],
+  jp: [
+    {
+      item: "ルイ・ヴィトン スピーディ30",
+      image: "👜",
+      issues: ["4つ角すべてにスレあり", "ハンドルに軽いパティーナ", "内側きれい、シミなし", "金具に軽い変色"],
+      correctCondition: "Very Good",
+      description: "4つ角すべてにスレあり、ヌメ革ハンドルに軽いパティーナ、内側はきれいでシミなし、金具に軽い変色あり。機能的に問題なし。",
+      feedback: {
+        excellent: "完璧な説明！角スレ、パティーナ、内側状態、金具について言及。INAD返品を防ぎます。",
+        good: "いいスタート！すべての使用感を記載 - 角スレ、パティーナレベル、内側状態、金具の状態。",
+        needsWork: "具体的に！角、ハンドルのパティーナ、内側状態、金具を説明。曖昧な説明は返品につながります。"
+      }
+    },
+    {
+      item: "シャネル クラシックフラップ",
+      image: "👛",
+      issues: ["キルティング形状保持", "チェーンに軽い傷", "ターンロック少し緩い", "背面に軽いスレ"],
+      correctCondition: "Good",
+      description: "キルティングは形状保持、チェーンに軽い表面傷、ターンロックは機能するが少し緩い、背面パネルに軽いスレあり。内側シミなし。",
+      feedback: {
+        excellent: "素晴らしい！構造、金具の機能性、外観の問題をカバー。バイヤーは正確に理解できます。",
+        good: "良い説明！金具が完全に機能するか必ず記載 - ターンロックの緩みは重要。",
+        needsWork: "もっと詳しく！キルティング状態、チェーン状態、ターンロック機能、スレを言及。高級品転売では詳細が重要。"
+      }
+    },
+    {
+      item: "エルメス バーキン35",
+      image: "💼",
+      issues: ["クレマンスレザー完璧", "金具に傷なし", "サングル（ストラップ）未使用", "クロシェット、鍵、錠前付き"],
+      correctCondition: "Excellent",
+      description: "クレマンスレザー完璧で傷や使用感なし、金具は完全に無傷、サングルは未使用状態、クロシェット・錠前・鍵付き。極上コンディション。",
+      feedback: {
+        excellent: "完璧な説明！バーキンのような高額品では付属品（クロシェット、錠前、鍵）とストラップ状態が重要。",
+        good: "素晴らしいディテール！バーキンは必ずサングル未使用かと全付属品を記載。",
+        needsWork: "高級品には詳細説明が必要。レザー状態、金具、ストラップ使用、全付属品を言及。"
+      }
+    },
+    {
+      item: "グッチ ディオニュソス",
+      image: "👝",
+      issues: ["タイガーヘッド開閉正常", "スエード内装に使用感", "チェーンストラップに折れ癖", "GGスプリームキャンバスきれい"],
+      correctCondition: "Good",
+      description: "タイガーヘッド開閉完全に機能、スエード内装に中程度の使用感、チェーンストラップに折れ癖あるが使用可能、GGスプリームキャンバスはきれいでシミや破れなし。",
+      feedback: {
+        excellent: "完璧！機能性、内装状態、ストラップ状態、外装に対処。完全で正直。",
+        good: "良い説明！シグネチャー金具（タイガーヘッド）が正常動作するか必ず記載 - セールスポイント。",
+        needsWork: "詳細を飛ばさない！開閉機能、内装の傷み、ストラップ状態、キャンバス状態を言及。それぞれが価値に影響。"
+      }
+    },
+    {
+      item: "プラダ ガレリア",
+      image: "💼",
+      issues: ["サフィアーノレザー完璧", "内側ポケットにペン跡", "角がシャープ、丸みなし", "全ジッパースムーズ"],
+      correctCondition: "Very Good",
+      description: "サフィアーノレザー完璧でクロスハッチ保持、内側ジップポケットに小さなペン跡あり、角はシャープで丸みなし、全ジッパースムーズに機能。",
+      feedback: {
+        excellent: "素晴らしい正直さ！外装の完璧さを強調しつつペン跡を開示。バイヤーとの信頼構築。",
+        good: "良い仕事！外装が完璧でも内側の欠陥は必ず開示 - 紛争を防ぎます。",
+        needsWork: "内側の問題を隠さない！ペン跡、レザー状態、角の形、ジッパー機能を言及。正直さ=返品減少。"
+      }
+    }
+  ]
+};
+
+/* ═══ BUYER SCENARIOS ═══ */
+const BUYER_SCENARIOS = {
+  en: [
+    {
+      situation: "Buyer: 'The bag in your photo looks darker than the one on the official website. Is this authentic?'",
+      options: [
+        { text: "I'm so sorry! I'll give you 20% off!", feedback: "Too apologetic - sounds like you're admitting it might be fake. Stay confident!", type: "bad" },
+        { text: "Yes, 100% authentic. Lighting affects color. I can show the serial number and card.", feedback: "Perfect! Acknowledged concern, explained reason, offered proof. Confident and pro!", type: "good" },
+        { text: "Of course it's real. Why question that?", feedback: "Too defensive - makes buyers uncomfortable. Stay friendly even with tough questions.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I see a small scratch on the corner. Can you knock $50 off the price?'",
+      options: [
+        { text: "Price is firm. Take it or leave it.", feedback: "Too aggressive - you might lose the sale. Find middle ground professionally.", type: "bad" },
+        { text: "I mentioned corner wear in description and priced accordingly. How about free express shipping?", feedback: "Excellent! Stood firm but offered alternative. Values business while maintaining margin.", type: "good" },
+        { text: "Sure, I'll drop it to $50 off!", feedback: "Too eager - buyers will keep negotiating. Show value first, then smaller concessions.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'My friend bought the same bag for $200 less last week. Why is yours so expensive?'",
+      options: [
+        { text: "Your friend probably got a fake.", feedback: "Never insult sellers or imply they sell fakes. Focus on YOUR value instead.", type: "bad" },
+        { text: "Mine has box, dust bag, card, and receipt - complete set. Rare 2019 color, excellent condition.", feedback: "Perfect! Explained value difference without putting down competitors. Facts speak!", type: "good" },
+        { text: "I'll match that price right now!", feedback: "Don't race to bottom. Your items have unique value - highlight what's special.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'How do I know this isn't a replica from China?'",
+      options: [
+        { text: "That's kind of rude to ask...", feedback: "Don't take it personally - B2B buyers must verify. Answer professionally.", type: "bad" },
+        { text: "Great question! Serial matches this year's format, perfect leather and stitching, original card, plus money-back if authenticated.", feedback: "Excellent! Welcomed concern, provided proof points, showed confidence with guarantee. Builds trust.", type: "good" },
+        { text: "Trust me, I've been selling for years.", feedback: "Vague and defensive. Buyers need concrete proof, not just your word. Show details!", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'The leather looks dry in your photo. Has this been sitting in storage for years?'",
+      options: [
+        { text: "It's vintage! Supposed to look like that.", feedback: "Half-truth - vintage items can be reconditioned. Acknowledge and offer solution.", type: "bad" },
+        { text: "Good eye! Natural aging. Easily conditioned with leather cream. Collectors prefer this - fakes don't age naturally.", feedback: "Great! Validated observation, explained it's fixable, reframed aging as authentication proof.", type: "good" },
+        { text: "That's just lighting. Perfect in person.", feedback: "Don't dismiss what they see. If dryness is visible, address honestly with solution.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I'm interested but I need to think about it. Can you hold it for me for a week?'",
+      options: [
+        { text: "Sure! I'll hold it as long as needed.", feedback: "Too accommodating - might lose other buyers while they 'think'. Create gentle urgency.", type: "bad" },
+        { text: "I can hold 24 hours, but getting lots of interest. Secure with a deposit?", feedback: "Perfect! Valued their interest, created urgency, offered commitment path (deposit).", type: "good" },
+        { text: "No holds. Buy now or someone else will.", feedback: "Too harsh - you'll lose potential buyers. Be firm but friendly.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'Can you ship this internationally to Australia?'",
+      options: [
+        { text: "No, sorry. Domestic only.", feedback: "Missed opportunity! International shipping opens huge markets. Offer solutions.", type: "bad" },
+        { text: "Yes! I use FedEx for reliable tracking. Takes 5-7 days. Happy to include insurance.", feedback: "Great! Showed capability, gave timeline, offered security. Expands your market!", type: "good" },
+        { text: "I can try but can't guarantee anything.", feedback: "Too uncertain - buyers want confidence. Research shipping options and give clear answers.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'Do you accept returns if I don't like it?'",
+      options: [
+        { text: "All sales final. No returns.", feedback: "Too rigid - buyers want security. Offer reasonable return policy to build trust.", type: "bad" },
+        { text: "Yes, 7-day return policy if unworn with tags. Buyer covers return shipping.", feedback: "Perfect! Clear policy that protects both parties. Builds buyer confidence!", type: "good" },
+        { text: "Sure, you can return anytime for any reason!", feedback: "Too lenient - could be exploited. Set clear timeframes and conditions.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'The stitching looks uneven in photo 3. Is there a defect?'",
+      options: [
+        { text: "I don't see anything wrong with it.", feedback: "Dismissive! If they see it, address it. Examine closely and respond honestly.", type: "bad" },
+        { text: "Let me check... That's actually the authentic hand-stitching pattern for this model. Machine fakes have perfectly even stitching.", feedback: "Excellent! Investigated, explained it's an authenticity feature. Turned concern into proof!", type: "good" },
+        { text: "Oh yeah, small defect. Want 10% off?", feedback: "Don't rush to discount. Determine if it's truly a defect or a feature first.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I saw someone wearing a fake of this exact bag. How can I be sure yours is real?'",
+      options: [
+        { text: "Because I'm a trusted seller.", feedback: "Not enough evidence. Provide concrete authentication points they can verify.", type: "bad" },
+        { text: "I understand the concern! Check these: weight (fakes are lighter), zipper quality, date code format, and I'll include authentication receipt.", feedback: "Perfect! Gave specific verification points and backed with documentation. Very reassuring!", type: "good" },
+        { text: "If you don't trust me, shop elsewhere.", feedback: "Hostile! Their concern is valid. Answer professionally and build confidence.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'Your price is $100 higher than another seller. Can you match theirs?'",
+      options: [
+        { text: "Fine, I'll match it.", feedback: "Gave up too easily! Explain your value difference before considering price changes.", type: "bad" },
+        { text: "Mine includes the full original packaging, card, and receipt. Also recently authenticated. What's included with theirs?", feedback: "Smart! Highlighted extras and asked about competitor. Shows value difference professionally.", type: "good" },
+        { text: "That seller is probably scamming you.", feedback: "Never attack competitors! Focus on your own value proposition instead.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'Can I see more close-up photos of the hardware?'",
+      options: [
+        { text: "The photos I posted are enough.", feedback: "Unhelpful! More photos = more confidence = more sales. Always accommodate.", type: "bad" },
+        { text: "Absolutely! I'll take close-ups of all hardware and DM them to you in 10 minutes.", feedback: "Excellent! Quick, helpful, specific timeline. Shows you're serious and accommodating!", type: "good" },
+        { text: "I can later, maybe tomorrow.", feedback: "Too vague. Buyers shop fast - competitors will respond quicker. Act now!", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I'm a reseller. Do you offer bulk discounts if I buy 5 bags?'",
+      options: [
+        { text: "No discounts, same price for everyone.", feedback: "Missed B2B opportunity! Bulk buyers are valuable. Consider volume pricing.", type: "bad" },
+        { text: "Yes! For 5+ items I can offer 15% off and free shipping. Let's discuss which pieces interest you.", feedback: "Perfect! Welcomed bulk business, gave clear discount, invited conversation. Great B2B approach!", type: "good" },
+        { text: "Maybe, what's your budget?", feedback: "Too vague. State clear bulk terms to sound professional and prepared.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I found the same bag on another site for half your price. Why should I buy from you?'",
+      options: [
+        { text: "That site is definitely selling fakes.", feedback: "Don't attack without proof! Focus on why YOUR item is authentic and valuable.", type: "bad" },
+        { text: "If it's half price, verify authenticity carefully. Mine has serial, card, receipt, original packaging. I stake my reputation on it.", feedback: "Great! Warned them professionally, listed your authentication proof, showed confidence.", type: "good" },
+        { text: "Okay, I'll cut my price in half too!", feedback: "Never! If genuine bags go for X, don't undercut yourself. Trust your value.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'What payment methods do you accept?'",
+      options: [
+        { text: "Cash only when we meet up.", feedback: "Limited and unsafe! Use secure platforms with buyer/seller protection.", type: "bad" },
+        { text: "I accept PayPal, credit cards, and bank transfer through Stripe for security.", feedback: "Perfect! Multiple secure options with protection for both parties. Very professional!", type: "good" },
+        { text: "Whatever works for you!", feedback: "Too vague. State clear, secure payment methods to seem legitimate and organized.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'The bag has a musty smell in your description. Can that be removed?'",
+      options: [
+        { text: "It's vintage, it's supposed to smell old.", feedback: "Dismissive! Address the concern and offer solution - this is fixable!", type: "bad" },
+        { text: "Yes, easily! Air it out for 2 days or use leather cleaner. Many buyers prefer I don't clean so they can do it their way.", feedback: "Excellent! Gave solution, explained why you didn't do it. Turned negative into positive!", type: "good" },
+        { text: "I didn't notice any smell.", feedback: "If you mentioned it in description, don't contradict yourself. Be honest and helpful.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I'm worried about buying online. What if it's not as described?'",
+      options: [
+        { text: "Well, that's the risk of online shopping.", feedback: "Not reassuring! Offer guarantees and protections to reduce their perceived risk.", type: "bad" },
+        { text: "Totally understand! I offer: detailed photos, video walkthrough, 7-day returns, and PayPal protection. You're covered.", feedback: "Perfect! Acknowledged fear, then listed multiple safety nets. Very confidence-building!", type: "good" },
+        { text: "Don't worry, I'm trustworthy!", feedback: "Actions speak louder than words. Provide concrete protections, not just assurances.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'Can you send me a video of the bag before I commit to buying?'",
+      options: [
+        { text: "No, too much work. Buy or don't.", feedback: "Lost sale! Quick video = more trust = higher conversion. Worth 5 minutes!", type: "bad" },
+        { text: "Happy to! I'll record a 360° walkthrough showing all angles and hardware. Send in 30 min.", feedback: "Excellent! Quick, thorough, specific timing. Shows you're professional and confident!", type: "good" },
+        { text: "I can send tomorrow maybe.", feedback: "Too slow! Buyers shop multiple sellers. Competitors responding faster will win.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'Do you have the original receipt to prove authenticity?'",
+      options: [
+        { text: "No, I lost it years ago.", feedback: "Weakens your case! If true, offer other authentication proof instead.", type: "bad" },
+        { text: "Yes! I have the original receipt from 2018. I'll include it with the bag and can send a photo now.", feedback: "Perfect! Strong authentication proof, you'll include it, offering to share immediately. Builds trust!", type: "good" },
+        { text: "Why does that even matter?", feedback: "Receipts are major authentication proof! Never dismiss legitimate verification requests.", type: "bad" }
+      ]
+    },
+    {
+      situation: "Buyer: 'I live nearby. Can I come see it in person before buying?'",
+      options: [
+        { text: "No, online sales only for safety.", feedback: "Reasonable boundary! If you prefer no meetups, suggest video call as alternative.", type: "bad" },
+        { text: "Sure! I can meet at a public place like a coffee shop. When works for you?", feedback: "Great! Public meeting is safe, and in-person viewing often closes the deal!", type: "good" },
+        { text: "Come to my house anytime!", feedback: "Safety risk! Always meet in public places when doing in-person transactions.", type: "bad" }
+      ]
+    }
+  ],
+  jp: [
+    {
+      situation: "バイヤー: 「写真のバッグは公式サイトより暗く見えます。本物ですか？」",
+      options: [
+        { text: "申し訳ございません！20%オフにします！", feedback: "謝りすぎ - 偽物かもと認めているように聞こえます。自信を持ちましょう！", type: "bad" },
+        { text: "はい、100%本物です。照明で色が変わります。シリアル番号とカード見せます。", feedback: "完璧！懸念を認め、理由説明、証明提供。自信があってプロ！", type: "good" },
+        { text: "もちろん本物です。なぜ質問するの？", feedback: "防御的すぎ - バイヤーが不快に。厳しい質問でも親切で理解ある対応を。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「角に小さな傷が見えます。50ドル値引きできますか？」",
+      options: [
+        { text: "価格は固定です。買うか買わないか。", feedback: "攻撃的すぎ - 販売機会を失うかも。プロフェッショナルに中間点を探しましょう。", type: "bad" },
+        { text: "角のスレは説明済みで価格反映済み。代わりに送料無料の特急配送は？", feedback: "素晴らしい！価格は守りつつ代替案。マージン維持しつつビジネス大切に。", type: "good" },
+        { text: "もちろん！50ドル引きにします！", feedback: "すぐに譲りすぎ - さらに交渉続きます。まず価値を示してから小さな譲歩を。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「友人が先週同じバッグを200ドル安く買いました。なぜそんなに高いの？」",
+      options: [
+        { text: "友人は偽物を買ったんでしょうね。", feedback: "セラーを侮辱したり偽物売ってると示唆しない。自分の価値に焦点を。", type: "bad" },
+        { text: "私のは元箱、保存袋、カード、レシート完全セット。希少2019年カラー、状態も素晴らしい。", feedback: "完璧！競合を貶めず価値の違いを説明。事実に語らせる。", type: "good" },
+        { text: "わかりました、その価格に合わせます！", feedback: "価格競争に走らない。あなたのアイテムには独自価値 - 特別な点を強調。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「これが中国からのレプリカじゃないってどうやってわかる？」",
+      options: [
+        { text: "それは失礼な質問では...", feedback: "個人的に受け取らない - B2Bバイヤーは真贋確認が必須。プロに答える。", type: "bad" },
+        { text: "良い質問です！シリアルが年式と一致、完璧なレザーとステッチ、カード付き、返金保証あり。", feedback: "素晴らしい！懸念を歓迎、証拠提供、保証で自信を示した。信頼を構築。", type: "good" },
+        { text: "信じてください、何年も販売しています。", feedback: "曖昧で防御的。具体的な証拠が必要、あなたの言葉だけでなく。詳細を見せる！", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「写真ではレザーが乾燥して見えます。何年も保管されていたの？」",
+      options: [
+        { text: "ヴィンテージです！こういう見た目が正しい。", feedback: "半分本当 - ヴィンテージは手入れできます。懸念を認め解決策を提示。", type: "bad" },
+        { text: "よくお気づき！自然な経年変化。レザークリームで簡単に回復。コレクターはこれを好む - 偽物は自然に経年しないので。", feedback: "素晴らしい！観察を認め、修復可能と説明、経年を真贋確認のポジティブポイントに。", type: "good" },
+        { text: "それは照明のせい。実物は完璧です。", feedback: "見えるものを否定しない。乾燥が見えるなら正直に対処し解決策を説明。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「興味ありますが考えさせてください。1週間取り置きできますか？」",
+      options: [
+        { text: "もちろん！必要なだけお取り置きします。", feedback: "譲りすぎ - 考えている間に他のバイヤーを失うかも。優しく緊迫感を作る。", type: "bad" },
+        { text: "24時間はお取り置き可。でも多くの関心あり。本気ならデポジットで確保を。", feedback: "完璧！関心を大切にしつつ緊迫感を作り、コミットメントの道筋（デポジット）を提示。", type: "good" },
+        { text: "取り置きなし。今買うか他の人が買うか。", feedback: "厳しすぎ - 潜在バイヤーを失います。断固としつつも親切に。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「オーストラリアへの国際配送は可能ですか？」",
+      options: [
+        { text: "いいえ、国内のみです。", feedback: "機会損失！国際配送は巨大市場を開く。解決策を提供しましょう。", type: "bad" },
+        { text: "はい！FedEx使用で追跡可能。5-7日で到着。保険付けます。", feedback: "素晴らしい！能力を示し、タイムライン提供、安全性も。市場拡大！", type: "good" },
+        { text: "試せますが保証はできません。", feedback: "不確実すぎ - バイヤーは自信を求める。配送オプション調べて明確に答える。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「気に入らなかったら返品できますか？」",
+      options: [
+        { text: "すべて最終売り切り。返品なし。", feedback: "硬直的すぎ - バイヤーは安心を求める。妥当な返品ポリシーで信頼を構築。", type: "bad" },
+        { text: "はい、タグ付き未使用なら7日間返品可。返送料はバイヤー負担。", feedback: "完璧！両者を保護する明確なポリシー。バイヤーの自信を構築！", type: "good" },
+        { text: "もちろん、いつでも理由問わず返品可！", feedback: "寛大すぎ - 悪用される可能性。明確な期限と条件を設定。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「写真3のステッチが不均一に見えます。欠陥ですか？」",
+      options: [
+        { text: "何も問題は見当たりません。", feedback: "無視しすぎ！彼らが見えるなら対処を。よく調べて正直に答える。", type: "bad" },
+        { text: "確認します...実はこのモデルの本物のハンドステッチパターンです。機械の偽物は完全に均一です。", feedback: "素晴らしい！調査し、真贋の特徴と説明。懸念を証明に変えた！", type: "good" },
+        { text: "ああ、小さな欠陥ですね。10%オフは？", feedback: "値引きを急がない。本当の欠陥か特徴かを先に判断。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「誰かが同じバッグの偽物を持っているのを見ました。本物って確信できる？」",
+      options: [
+        { text: "私は信頼できるセラーだからです。", feedback: "証拠不足。彼らが確認できる具体的な真贋ポイントを提供。", type: "bad" },
+        { text: "懸念理解します！確認点：重さ（偽物は軽い）、ジッパー品質、日付コード形式、真贋鑑定書付き。", feedback: "完璧！具体的な確認ポイントを提供し文書で裏付け。非常に安心！", type: "good" },
+        { text: "信用しないなら他で買って。", feedback: "敵対的！彼らの懸念は正当。プロフェッショナルに答えて自信を構築。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「あなたの価格は他のセラーより100ドル高い。合わせられますか？」",
+      options: [
+        { text: "わかりました、合わせます。", feedback: "簡単に諦めすぎ！価格変更前に価値の違いを説明。", type: "bad" },
+        { text: "私のは完全なオリジナル梱包、カード、レシート付き。最近真贋鑑定済み。そちらは何が含まれる？", feedback: "賢い！付加価値を強調し競合について質問。価値の違いをプロフェッショナルに示す。", type: "good" },
+        { text: "そのセラーは詐欺かも。", feedback: "競合を攻撃しない！自分の価値提案に集中。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「金具のクローズアップ写真をもっと見せてもらえますか？」",
+      options: [
+        { text: "投稿した写真で十分です。", feedback: "役に立たない！多くの写真 = より多くの自信 = より多くの売上。常に対応。", type: "bad" },
+        { text: "もちろん！全金具のクローズアップを撮影し10分でDMします。", feedback: "素晴らしい！迅速、親切、具体的なタイムライン。真剣で柔軟な姿勢を示す！", type: "good" },
+        { text: "後でできます、たぶん明日。", feedback: "曖昧すぎ。バイヤーは素早く買い物 - 競合がより早く反応。今行動！", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「私は再販業者です。5個買ったらバルク割引は？」",
+      options: [
+        { text: "割引なし、全員同じ価格。", feedback: "B2B機会損失！バルクバイヤーは貴重。ボリューム価格を検討。", type: "bad" },
+        { text: "はい！5個以上で15%オフと送料無料。どれに興味があるか話しましょう。", feedback: "完璧！バルクビジネスを歓迎、明確な割引提示、会話を招待。素晴らしいB2Bアプローチ！", type: "good" },
+        { text: "多分、予算は？", feedback: "曖昧すぎ。明確なバルク条件を述べてプロで準備万端に見せる。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「他サイトで同じバッグが半額でした。なぜあなたから買うべき？」",
+      options: [
+        { text: "そのサイトは絶対偽物売ってる。", feedback: "証拠なしに攻撃しない！なぜあなたの商品が本物で価値あるかに焦点を。", type: "bad" },
+        { text: "半額なら真贋を注意深く確認を。私のはシリアル、カード、レシート、オリジナル梱包付き。評判をかけます。", feedback: "素晴らしい！プロフェッショナルに警告、真贋証明をリスト、自信を示した。", type: "good" },
+        { text: "わかりました、私も半額にします！", feedback: "絶対にダメ！本物のバッグがXなら、自分を過小評価しない。価値を信じる。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「どの支払い方法を受け付けていますか？」",
+      options: [
+        { text: "会ったときに現金のみ。", feedback: "限定的で危険！バイヤー/セラー保護付きの安全なプラットフォームを使用。", type: "bad" },
+        { text: "PayPal、クレジットカード、Stripe経由の銀行振込を受け付けます。", feedback: "完璧！両者保護付きの複数の安全なオプション。非常にプロフェッショナル！", type: "good" },
+        { text: "何でもいいです！", feedback: "曖昧すぎ。正当で組織的に見えるよう明確で安全な支払い方法を述べる。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「説明文にカビ臭いとあります。取り除けますか？」",
+      options: [
+        { text: "ヴィンテージだから、古い匂いが普通。", feedback: "無視しすぎ！懸念に対処し解決策を提供 - これは修復可能！", type: "bad" },
+        { text: "はい、簡単に！2日間風通し良くするかレザークリーナー使用。多くのバイヤーは自分のやり方でやりたいので私はクリーニングしません。", feedback: "素晴らしい！解決策を提供、なぜやらなかったかを説明。ネガティブをポジティブに！", type: "good" },
+        { text: "匂いには気づきませんでした。", feedback: "説明文に書いたなら自己矛盾しない。正直で親切に。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「オンライン購入が心配です。説明と違ったら？」",
+      options: [
+        { text: "それがオンラインショッピングのリスクです。", feedback: "安心しない！保証と保護を提供して認識リスクを減らす。", type: "bad" },
+        { text: "完全に理解します！提供：詳細写真、動画ウォークスルー、7日間返品、PayPal保護。カバーされてます。", feedback: "完璧！恐怖を認め、複数のセーフティネットをリスト。非常に自信構築！", type: "good" },
+        { text: "心配しないで、信頼できるから！", feedback: "行動は言葉より雄弁。ただの保証でなく具体的な保護を提供。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「購入決定前にバッグの動画を送ってもらえますか？」",
+      options: [
+        { text: "いいえ、大変すぎます。買うか買わないか。", feedback: "販売損失！簡単な動画 = より多くの信頼 = より高い転換率。5分の価値あり！", type: "bad" },
+        { text: "喜んで！全角度と金具を見せる360°ウォークスルーを録画。30分で送ります。", feedback: "素晴らしい！迅速、徹底的、具体的なタイミング。プロフェッショナルで自信を示す！", type: "good" },
+        { text: "明日送れるかも。", feedback: "遅すぎ！バイヤーは複数セラーを見る。早く反応する競合が勝つ。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「真贋を証明するオリジナルレシートはありますか？」",
+      options: [
+        { text: "いいえ、何年も前になくしました。", feedback: "あなたの主張を弱める！本当なら、代わりに他の真贋証明を提供。", type: "bad" },
+        { text: "はい！2018年のオリジナルレシートあり。バッグに同梱し、今すぐ写真送れます。", feedback: "完璧！強力な真贋証明、含めます、すぐに共有できる。信頼を構築！", type: "good" },
+        { text: "なぜそれが重要なの？", feedback: "レシートは主要な真贋証明！正当な確認リクエストを無視しない。", type: "bad" }
+      ]
+    },
+    {
+      situation: "バイヤー: 「近くに住んでいます。購入前に実物を見れますか？」",
+      options: [
+        { text: "いいえ、安全のためオンラインのみ。", feedback: "妥当な境界！対面不可なら、代替としてビデオ通話を提案。", type: "bad" },
+        { text: "もちろん！カフェなど公共の場で会えます。いつがいいですか？", feedback: "素晴らしい！公共での会合は安全、対面で見ると成約しやすい！", type: "good" },
+        { text: "いつでも家に来て！", feedback: "安全リスク！対面取引は常に公共の場で。", type: "bad" }
+      ]
+    }
+  ]
+};
+
+/* ═══ DAILY WARM-UP ═══ */
+function DailyWarmUp({ lang, onComplete }) {
+  const [phase, setPhase] = useState("ready"); // ready, name, condition, question, complete
+  const [timeLeft, setTimeLeft] = useState(180); // 3 minutes
+  const [currentName, setCurrentName] = useState("");
+  const [currentCondition, setCurrentCondition] = useState("");
+  const [currentQuestion, setCurrentQuestion] = useState("");
+  const [completedTasks, setCompletedTasks] = useState({ name: false, condition: false, question: false });
+
+  useEffect(() => {
+    if (phase !== "ready" && phase !== "complete" && timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (timeLeft === 0 && phase !== "complete") {
+      setPhase("complete");
+      if (onComplete) onComplete(Object.values(completedTasks).filter(v => v).length);
+    }
+  }, [timeLeft, phase, completedTasks, onComplete]);
+
+  const startWarmUp = () => {
+    const randomName = BUYER_NAMES[Math.floor(Math.random() * BUYER_NAMES.length)];
+    const randomConditionItem = CONDITION_ITEMS[lang][Math.floor(Math.random() * CONDITION_ITEMS[lang].length)];
+    const randomScenario = BUYER_SCENARIOS[lang][Math.floor(Math.random() * BUYER_SCENARIOS[lang].length)];
+
+    setCurrentName(randomName);
+    setCurrentCondition(randomConditionItem.item + " - " + randomConditionItem.issues[0]);
+    setCurrentQuestion(randomScenario.situation);
+    setPhase("name");
+    setTimeLeft(180);
+  };
+
+  const completeTask = (task) => {
+    setCompletedTasks({ ...completedTasks, [task]: true });
+    if (task === "name") setPhase("condition");
+    else if (task === "condition") setPhase("question");
+    else if (task === "question") setPhase("complete");
+  };
+
+  if (phase === "ready") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>⚡</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "Daily 3-Minute Warm-Up" : "デイリー3分ウォームアップ"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:400, margin:"0 auto 24px" }}>
+          {lang === "en"
+            ? "A quick pre-stream ritual to calm nerves and build confidence. Practice one name, one condition, and one buyer question."
+            : "配信前の緊張をほぐし自信を築くクイックルーティン。1つの名前、1つのコンディション、1つのバイヤー質問を練習。"}
+        </p>
+        <button
+          onClick={startWarmUp}
+          style={{
+            background:"#86B817",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 32px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+          onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+        >
+          {lang === "en" ? "Start Warm-Up" : "ウォームアップ開始"}
+        </button>
+      </div>
+    );
+  }
+
+  if (phase === "complete") {
+    const tasksCompleted = Object.values(completedTasks).filter(v => v).length;
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>🎯</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "You're Ready!" : "準備完了！"}
+        </h2>
+        <div style={{ fontSize:48, fontWeight:700, color:"#86B817", marginBottom:8 }}>
+          {tasksCompleted} / 3
+        </div>
+        <p style={{ fontSize:18, color:"#4B5563", marginBottom:24 }}>
+          {lang === "en" ? "skills warmed up" : "スキルをウォームアップ"}
+        </p>
+
+        <div style={{
+          background: tasksCompleted === 3 ? "#ECFDF5" : "#FEF3C7",
+          padding:"20px 24px",
+          borderRadius:12,
+          marginBottom:24,
+          border:`2px solid ${tasksCompleted === 3 ? "#86B817" : "#F5AF02"}`
+        }}>
+          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0, lineHeight:1.6 }}>
+            {tasksCompleted === 3
+              ? (lang === "en"
+                ? "💪 Perfect warm-up! Your voice is ready, your mind is sharp. Go live with confidence!"
+                : "💪 完璧なウォームアップ！声は準備OK、頭は冴えてます。自信を持って配信しよう！")
+              : (lang === "en"
+                ? "👍 Good effort! Try to complete all three tasks next time for maximum confidence boost."
+                : "👍 よく頑張りました！次回は3つすべて完了して最大の自信アップを。")}
+          </p>
+        </div>
+
+        <button
+          onClick={() => { setPhase("ready"); setCompletedTasks({ name: false, condition: false, question: false }); }}
+          style={{
+            background:"#86B817",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 32px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+          onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+        >
+          {lang === "en" ? "🔄 Warm Up Again" : "🔄 再度ウォームアップ"}
+        </button>
+      </div>
+    );
+  }
+
+  // Active phases
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
   return (
-    <div style={{ animation:"fu 0.4s ease" }}>
-      <h2 style={h2}>{lang==="en"?"Practice & Drills":"練習＆ドリル"}</h2>
-      <p style={{ fontSize:12, color:"#888", marginTop:4, lineHeight:1.7 }}>
-        {lang==="en"
-          ? "Practice modules are available in the separate training apps. Use the Color Selling Guide for color phrases, and the main Stage Presence trainer for name drills, condition practice, and Q&A simulation."
-          : "練習モジュールは別のトレーニングアプリで利用できます。色のフレーズはColor Selling Guide、名前読み・コンディション練習・Q&Aシミュレーションはメインの Stage Presenceトレーナーをご利用ください。"}
-      </p>
-      <div style={{ marginTop:14 }}>
-        {[
-          { icon:"🎙️", t:lang==="en"?"Name Reading":"名前読み", d:lang==="en"?"Read buyer IDs fast":"バイヤー名速読", c:"#E85D5D" },
-          { icon:"🔍", t:lang==="en"?"Condition Description":"コンディション説明", d:lang==="en"?"Prevent INAD returns":"INAD防止", c:"#E8A87C" },
-          { icon:"🎨", t:lang==="en"?"Color Phrases":"色の説明フレーズ", d:lang==="en"?"Compliment colors naturally":"自然に色を褒める", c:"#C4A7D7" },
-          { icon:"💬", t:lang==="en"?"Buyer Q&A":"バイヤーQ&A", d:lang==="en"?"Answer common questions":"よくある質問に答える", c:"#5D8AE8" },
-          { icon:"📐", t:lang==="en"?"Size Converter":"サイズ変換", d:lang==="en"?"inch↔cm, lb↔kg, 5'2\"=157cm":"インチ↔cm、ポンド↔kg", c:"#D7C46F" },
-        ].map((m,i)=>(
-          <div key={i} style={{ ...row, borderColor:`${m.c}33` }}>
-            <span style={{ fontSize:20, marginRight:8 }}>{m.icon}</span>
-            <div style={{ flex:1 }}>
-              <div style={{ fontSize:14, fontWeight:600, color:m.c }}>{m.t}</div>
-              <div style={{ fontSize:11, color:"#666" }}>{m.d}</div>
+    <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+      {/* Timer */}
+      <div style={{ marginBottom:24, textAlign:"center" }}>
+        <div style={{
+          fontSize:48,
+          fontWeight:700,
+          color: timeLeft <= 30 ? "#E53238" : "#86B817",
+          marginBottom:8
+        }}>
+          {formatTime(timeLeft)}
+        </div>
+        <div style={{ fontSize:14, color:"#9CA3AF" }}>
+          {lang === "en" ? "Time Remaining" : "残り時間"}
+        </div>
+      </div>
+
+      {/* Progress Checklist */}
+      <div style={{ marginBottom:24, background:"#F7F7F7", padding:"16px 20px", borderRadius:8 }}>
+        <div style={{ display:"flex", gap:12, flexWrap:"wrap", justifyContent:"center" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:6 }}>
+            <span style={{ fontSize:20 }}>{completedTasks.name ? "✅" : "⬜"}</span>
+            <span style={{ fontSize:14, color: completedTasks.name ? "#86B817" : "#9CA3AF", fontWeight:600 }}>
+              {lang === "en" ? "Name" : "名前"}
+            </span>
+          </div>
+          <div style={{ display:"flex", alignItems:"center", gap:6 }}>
+            <span style={{ fontSize:20 }}>{completedTasks.condition ? "✅" : "⬜"}</span>
+            <span style={{ fontSize:14, color: completedTasks.condition ? "#86B817" : "#9CA3AF", fontWeight:600 }}>
+              {lang === "en" ? "Condition" : "コンディション"}
+            </span>
+          </div>
+          <div style={{ display:"flex", alignItems:"center", gap:6 }}>
+            <span style={{ fontSize:20 }}>{completedTasks.question ? "✅" : "⬜"}</span>
+            <span style={{ fontSize:14, color: completedTasks.question ? "#86B817" : "#9CA3AF", fontWeight:600 }}>
+              {lang === "en" ? "Question" : "質問"}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Current Task */}
+      {phase === "name" && (
+        <div style={{ animation:"fu 0.3s ease" }}>
+          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600, textAlign:"center" }}>
+            {lang === "en" ? "Task 1: Read This Name Aloud" : "タスク1：この名前を声に出して読む"}
+          </div>
+          <div style={{
+            background:"linear-gradient(135deg, #E53238 0%, #F5AF02 100%)",
+            borderRadius:12,
+            padding:"40px 24px",
+            textAlign:"center",
+            color:"#FFFFFF",
+            marginBottom:24
+          }}>
+            <div style={{ fontSize:28, fontWeight:700, fontFamily:"'Courier New', monospace", wordBreak:"break-all", lineHeight:1.4 }}>
+              {currentName}
             </div>
           </div>
-        ))}
+          <button
+            onClick={() => completeTask("name")}
+            style={{
+              width:"100%",
+              background:"#86B817",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer"
+            }}
+          >
+            {lang === "en" ? "✓ Done, Next Task" : "✓ 完了、次へ"}
+          </button>
+        </div>
+      )}
+
+      {phase === "condition" && (
+        <div style={{ animation:"fu 0.3s ease" }}>
+          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600, textAlign:"center" }}>
+            {lang === "en" ? "Task 2: Describe This Condition Aloud" : "タスク2：この状態を声に出して説明"}
+          </div>
+          <div style={{
+            background:"linear-gradient(135deg, #F5AF02 0%, #E8A87C 100%)",
+            borderRadius:12,
+            padding:"32px 24px",
+            textAlign:"center",
+            color:"#FFFFFF",
+            marginBottom:24
+          }}>
+            <div style={{ fontSize:20, fontWeight:700, marginBottom:16 }}>{currentCondition}</div>
+            <div style={{ fontSize:14, opacity:0.9 }}>
+              {lang === "en" ? "Speak as if you're live: 'This item has...'" : "ライブ配信のように：「このアイテムは...」"}
+            </div>
+          </div>
+          <button
+            onClick={() => completeTask("condition")}
+            style={{
+              width:"100%",
+              background:"#86B817",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer"
+            }}
+          >
+            {lang === "en" ? "✓ Done, Next Task" : "✓ 完了、次へ"}
+          </button>
+        </div>
+      )}
+
+      {phase === "question" && (
+        <div style={{ animation:"fu 0.3s ease" }}>
+          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600, textAlign:"center" }}>
+            {lang === "en" ? "Task 3: Answer This Question Aloud" : "タスク3：この質問に声で答える"}
+          </div>
+          <div style={{
+            background:"linear-gradient(135deg, #3665F3 0%, #5D8AE8 100%)",
+            borderRadius:12,
+            padding:"32px 24px",
+            color:"#FFFFFF",
+            marginBottom:24
+          }}>
+            <div style={{ fontSize:16, lineHeight:1.6 }}>{currentQuestion}</div>
+          </div>
+          <button
+            onClick={() => completeTask("question")}
+            style={{
+              width:"100%",
+              background:"#86B817",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer"
+            }}
+          >
+            {lang === "en" ? "✓ Complete Warm-Up" : "✓ ウォームアップ完了"}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ═══ CONDITION DESCRIPTION CHALLENGE ═══ */
+function ConditionChallenge({ lang, onComplete }) {
+  const [currentItem, setCurrentItem] = useState(0);
+  const [userDescription, setUserDescription] = useState("");
+  const [selectedCondition, setSelectedCondition] = useState("");
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [score, setScore] = useState(0);
+  const [completed, setCompleted] = useState(false);
+
+  const items = CONDITION_ITEMS[lang];
+  const item = items[currentItem];
+
+  const conditionOptions = ["Excellent", "Very Good", "Good", "Fair"];
+
+  const handleSubmit = () => {
+    setShowFeedback(true);
+    const wordCount = userDescription.trim().split(/\s+/).length;
+    const mentionedIssues = item.issues.filter(issue =>
+      userDescription.toLowerCase().includes(issue.toLowerCase().split(' ')[0])
+    ).length;
+
+    const isGoodDescription = wordCount >= 15 && mentionedIssues >= 2 && selectedCondition === item.correctCondition;
+    if (isGoodDescription) {
+      setScore(score + 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentItem < items.length - 1) {
+      setCurrentItem(currentItem + 1);
+      setUserDescription("");
+      setSelectedCondition("");
+      setShowFeedback(false);
+    } else {
+      setCompleted(true);
+      if (onComplete) onComplete(score);
+    }
+  };
+
+  const getFeedbackLevel = () => {
+    const wordCount = userDescription.trim().split(/\s+/).length;
+    const mentionedIssues = item.issues.filter(issue =>
+      userDescription.toLowerCase().includes(issue.toLowerCase().split(' ')[0])
+    ).length;
+
+    if (wordCount >= 15 && mentionedIssues >= 3 && selectedCondition === item.correctCondition) {
+      return "excellent";
+    } else if (wordCount >= 10 && mentionedIssues >= 2) {
+      return "good";
+    }
+    return "needsWork";
+  };
+
+  if (completed) {
+    const percentage = Math.round((score / items.length) * 100);
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>
+          {percentage >= 80 ? "🌟" : percentage >= 60 ? "💪" : "👍"}
+        </div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "Challenge Complete!" : "チャレンジ完了！"}
+        </h2>
+        <div style={{ fontSize:48, fontWeight:700, color:"#F5AF02", marginBottom:8 }}>
+          {score} / {items.length}
+        </div>
+        <p style={{ fontSize:18, color:"#4B5563", marginBottom:24 }}>
+          {lang === "en" ? "accurate descriptions" : "正確な説明"}
+        </p>
+
+        <div style={{
+          background: percentage >= 80 ? "#ECFDF5" : percentage >= 60 ? "#EFF6FF" : "#FEF3C7",
+          padding:"20px 24px",
+          borderRadius:12,
+          marginBottom:24,
+          border:`2px solid ${percentage >= 80 ? "#86B817" : percentage >= 60 ? "#3665F3" : "#F5AF02"}`
+        }}>
+          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0, lineHeight:1.6 }}>
+            {percentage >= 80
+              ? (lang === "en"
+                ? "🌟 Outstanding! Your descriptions are detailed and honest. This prevents INAD returns and builds buyer trust!"
+                : "🌟 素晴らしい！説明が詳細で正直です。INAD返品を防ぎバイヤーの信頼を築きます！")
+              : percentage >= 60
+              ? (lang === "en"
+                ? "💪 Good progress! Remember: mention ALL visible issues, be specific about condition, and assess accurately."
+                : "💪 良い進歩！覚えて：すべての見える問題を言及、状態を具体的に、正確に評価。")
+              : (lang === "en"
+                ? "👍 Keep practicing! The more details you include, the fewer returns you'll get. Be thorough and honest!"
+                : "👍 練習を続けて！詳細を含むほど返品が減ります。徹底的に正直に！")}
+          </p>
+        </div>
+
+        <button
+          onClick={() => { setCurrentItem(0); setScore(0); setCompleted(false); setUserDescription(""); setSelectedCondition(""); setShowFeedback(false); }}
+          style={{
+            background:"#F5AF02",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 32px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+          onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+        >
+          {lang === "en" ? "🔄 Try Again" : "🔄 もう一度"}
+        </button>
       </div>
-      <div style={{ marginTop:14, padding:"10px 14px", background:"#141210", borderRadius:10, fontSize:12, color:"#777", lineHeight:1.7 }}>
-        {lang==="en"
-          ? "💡 These practice modules are in the other artifacts we built together. This app focuses on the knowledge base — brands, live streaming strategy, and vocabulary reference."
-          : "💡 練習モジュールは一緒に作った別のアプリにあります。このアプリはナレッジベースに集中 — ブランド知識、ライブ配信戦略、ボキャブラリーリファレンス。"}
+    );
+  }
+
+  return (
+    <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+      {/* Progress */}
+      <div style={{ marginBottom:24 }}>
+        <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
+          <span style={{ fontSize:14, color:"#9CA3AF", fontWeight:600 }}>
+            {lang === "en" ? "Item" : "アイテム"} {currentItem + 1} / {items.length}
+          </span>
+          <span style={{ fontSize:14, color:"#F5AF02", fontWeight:700 }}>
+            {lang === "en" ? "Score:" : "スコア:"} {score}
+          </span>
+        </div>
+        <div style={{ background:"#E5E7EB", height:8, borderRadius:8, overflow:"hidden" }}>
+          <div style={{
+            background:"linear-gradient(90deg, #F5AF02, #E53238)",
+            height:"100%",
+            width:`${((currentItem + 1) / items.length) * 100}%`,
+            transition:"width 0.3s ease"
+          }}></div>
+        </div>
+      </div>
+
+      {/* Item Card */}
+      <div style={{
+        background:"linear-gradient(135deg, #F5AF02 0%, #E8A87C 100%)",
+        borderRadius:12,
+        padding:"32px",
+        marginBottom:24,
+        textAlign:"center",
+        color:"#FFFFFF"
+      }}>
+        <div style={{ fontSize:72, marginBottom:12 }}>{item.image}</div>
+        <div style={{ fontSize:22, fontWeight:700, marginBottom:8 }}>{item.item}</div>
+        <div style={{ fontSize:14, opacity:0.95, textTransform:"uppercase", letterSpacing:1 }}>
+          {lang === "en" ? "Describe this item's condition" : "このアイテムの状態を説明"}
+        </div>
+      </div>
+
+      {/* Visible Issues */}
+      <div style={{ marginBottom:24, background:"#F7F7F7", padding:"16px 20px", borderRadius:8 }}>
+        <div style={{ fontSize:14, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang === "en" ? "👀 What you can see:" : "👀 見える状態："}
+        </div>
+        <div style={{ display:"grid", gap:6 }}>
+          {item.issues.map((issue, i) => (
+            <div key={i} style={{ fontSize:14, color:"#4B5563", paddingLeft:12, borderLeft:"3px solid #F5AF02" }}>
+              • {issue}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Condition Assessment */}
+      <div style={{ marginBottom:20 }}>
+        <label style={{ fontSize:15, fontWeight:700, color:"#191919", display:"block", marginBottom:12 }}>
+          {lang === "en" ? "Overall Condition:" : "総合コンディション："}
+        </label>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:8 }}>
+          {conditionOptions.map(cond => (
+            <button
+              key={cond}
+              onClick={() => !showFeedback && setSelectedCondition(cond)}
+              disabled={showFeedback}
+              style={{
+                padding:"12px 16px",
+                borderRadius:8,
+                border:`2px solid ${selectedCondition === cond ? "#F5AF02" : "#E5E7EB"}`,
+                background: selectedCondition === cond ? "#FEF3C7" : "#FFFFFF",
+                color:"#191919",
+                fontSize:14,
+                fontWeight:600,
+                cursor: showFeedback ? "default" : "pointer",
+                transition:"all 0.2s"
+              }}
+            >
+              {cond}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Description Input */}
+      <div style={{ marginBottom:20 }}>
+        <label style={{ fontSize:15, fontWeight:700, color:"#191919", display:"block", marginBottom:12 }}>
+          {lang === "en" ? "Your Description (be specific!):" : "あなたの説明（具体的に！）："}
+        </label>
+        <textarea
+          value={userDescription}
+          onChange={(e) => !showFeedback && setUserDescription(e.target.value)}
+          disabled={showFeedback}
+          placeholder={lang === "en"
+            ? "Example: Corner wear on all four corners, light patina on vachetta handles..."
+            : "例：4つ角すべてにスレあり、ヌメ革ハンドルに軽いパティーナ..."}
+          style={{
+            width:"100%",
+            minHeight:120,
+            padding:"12px 16px",
+            borderRadius:8,
+            border:"2px solid #E5E7EB",
+            fontSize:14,
+            fontFamily:"inherit",
+            resize:"vertical",
+            lineHeight:1.6
+          }}
+        />
+        <div style={{ fontSize:12, color:"#9CA3AF", marginTop:6 }}>
+          {userDescription.trim().split(/\s+/).filter(w => w).length} {lang === "en" ? "words" : "単語"}
+          {" • "}
+          {lang === "en" ? "Aim for 15+ words" : "15単語以上を目指して"}
+        </div>
+      </div>
+
+      {/* Submit/Next Button */}
+      {!showFeedback ? (
+        <button
+          onClick={handleSubmit}
+          disabled={!selectedCondition || userDescription.trim().length < 10}
+          style={{
+            width:"100%",
+            background: (!selectedCondition || userDescription.trim().length < 10) ? "#E5E7EB" : "#F5AF02",
+            color: (!selectedCondition || userDescription.trim().length < 10) ? "#9CA3AF" : "#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px",
+            fontSize:18,
+            fontWeight:700,
+            cursor: (!selectedCondition || userDescription.trim().length < 10) ? "not-allowed" : "pointer",
+            transition:"all 0.2s"
+          }}
+        >
+          {lang === "en" ? "Submit Description" : "説明を提出"}
+        </button>
+      ) : (
+        <div style={{ animation:"fu 0.3s ease" }}>
+          {/* Feedback */}
+          <div style={{
+            background: getFeedbackLevel() === "excellent" ? "#ECFDF5" : getFeedbackLevel() === "good" ? "#EFF6FF" : "#FEF3C7",
+            padding:"20px 24px",
+            borderRadius:12,
+            marginBottom:16,
+            borderLeft:`4px solid ${getFeedbackLevel() === "excellent" ? "#86B817" : getFeedbackLevel() === "good" ? "#3665F3" : "#F5AF02"}`
+          }}>
+            <div style={{ fontSize:15, color:"#191919", fontWeight:600, marginBottom:12 }}>
+              {getFeedbackLevel() === "excellent" ? "✨ " : getFeedbackLevel() === "good" ? "💪 " : "💡 "}
+              {item.feedback[getFeedbackLevel()]}
+            </div>
+            <div style={{ fontSize:14, color:"#4B5563", lineHeight:1.7, paddingTop:12, borderTop:"1px solid #E5E7EB" }}>
+              <strong>{lang === "en" ? "Model description:" : "モデル説明："}</strong><br/>
+              {item.description}
+            </div>
+          </div>
+
+          <button
+            onClick={handleNext}
+            style={{
+              width:"100%",
+              background:"#F5AF02",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+            onMouseLeave={e => e.target.style.transform = "scale(1)"}
+          >
+            {currentItem < items.length - 1
+              ? (lang === "en" ? "Next Item →" : "次のアイテム →")
+              : (lang === "en" ? "See Results →" : "結果を見る →")}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ═══ SCENARIO TRAINER ═══ */
+function ScenarioTrainer({ lang, onComplete }) {
+  const [currentScenario, setCurrentScenario] = useState(0);
+  const [score, setScore] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [completed, setCompleted] = useState(false);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+
+  const scenarios = BUYER_SCENARIOS[lang];
+
+  // Shuffle options when scenario changes
+  useEffect(() => {
+    const scenario = scenarios[currentScenario];
+    const optionsWithIndex = scenario.options.map((opt, i) => ({ ...opt, originalIndex: i }));
+    const shuffled = [...optionsWithIndex].sort(() => Math.random() - 0.5);
+    setShuffledOptions(shuffled);
+  }, [currentScenario, scenarios]);
+
+  const handleSelect = (optionIndex) => {
+    setSelectedOption(optionIndex);
+    setShowFeedback(true);
+    // Use the original index to check if it's the correct answer
+    const selectedOriginalIndex = shuffledOptions[optionIndex].originalIndex;
+    if (scenarios[currentScenario].options[selectedOriginalIndex].type === "good") {
+      setScore(score + 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentScenario < scenarios.length - 1) {
+      setCurrentScenario(currentScenario + 1);
+      setSelectedOption(null);
+      setShowFeedback(false);
+    } else {
+      setCompleted(true);
+      if (onComplete) onComplete(score + (scenarios[currentScenario].options[selectedOption]?.type === "good" ? 1 : 0));
+    }
+  };
+
+  const handleRestart = () => {
+    setCurrentScenario(0);
+    setScore(0);
+    setSelectedOption(null);
+    setShowFeedback(false);
+    setCompleted(false);
+  };
+
+  if (completed) {
+    const finalScore = score;
+    const total = scenarios.length;
+    const percentage = Math.round((finalScore / total) * 100);
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>
+          {percentage >= 80 ? "🌟" : percentage >= 60 ? "💪" : "👍"}
+        </div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "Scenarios Complete!" : "シナリオ完了！"}
+        </h2>
+        <div style={{ fontSize:48, fontWeight:700, color:"#3665F3", marginBottom:8 }}>
+          {finalScore} / {total}
+        </div>
+        <p style={{ fontSize:18, color:"#4B5563", marginBottom:24 }}>
+          {lang === "en" ? "professional responses" : "プロフェッショナルな対応"}
+        </p>
+
+        {/* Encouraging Feedback */}
+        <div style={{
+          background: percentage >= 80 ? "#ECFDF5" : percentage >= 60 ? "#EFF6FF" : "#FEF3C7",
+          padding:"20px 24px",
+          borderRadius:12,
+          marginBottom:24,
+          border:`2px solid ${percentage >= 80 ? "#86B817" : percentage >= 60 ? "#3665F3" : "#F5AF02"}`
+        }}>
+          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0, lineHeight:1.6 }}>
+            {percentage >= 80
+              ? (lang === "en"
+                ? "🌟 Outstanding! You handled these buyer situations like a pro. Your confidence will shine on live streams!"
+                : "🌟 素晴らしい！プロのようにバイヤーシチュエーションを処理しました。ライブ配信で自信が輝くでしょう！")
+              : percentage >= 60
+              ? (lang === "en"
+                ? "💪 Great progress! You're building the right instincts. Practice these scenarios a few more times to lock them in."
+                : "💪 素晴らしい進歩！正しい直感を築いています。もう数回練習してマスターしましょう。")
+              : (lang === "en"
+                ? "👍 Good start! Remember: stay confident, acknowledge concerns, and show value. Try again to see how different approaches feel!"
+                : "👍 いいスタート！覚えておいて：自信を持ち、懸念を認め、価値を示す。もう一度試して違うアプローチを体感しよう！")}
+          </p>
+        </div>
+
+        {/* Key Lessons */}
+        <div style={{ textAlign:"left", background:"#F7F7F7", padding:"20px 24px", borderRadius:12, marginBottom:24 }}>
+          <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:12 }}>
+            {lang === "en" ? "🎯 Key Lessons:" : "🎯 重要なレッスン："}
+          </div>
+          <div style={{ fontSize:14, color:"#4B5563", lineHeight:1.8 }}>
+            {lang === "en" ? (
+              <>
+                • Never apologize for item authenticity - show confidence<br/>
+                • Address concerns with facts and proof, not emotion<br/>
+                • Create value before making price concessions<br/>
+                • Turn objections into opportunities to showcase expertise
+              </>
+            ) : (
+              <>
+                • 商品の真贋性について謝らない - 自信を示す<br/>
+                • 感情でなく事実と証拠で懸念に対処<br/>
+                • 価格譲歩の前に価値を作る<br/>
+                • 反対意見を専門知識を示す機会に変える
+              </>
+            )}
+          </div>
+        </div>
+
+        <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
+          <button
+            onClick={handleRestart}
+            style={{
+              background:"#3665F3",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+          >
+            {lang === "en" ? "🔄 Try Again" : "🔄 もう一度"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const scenario = scenarios[currentScenario];
+
+  return (
+    <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+      {/* Progress Bar */}
+      <div style={{ marginBottom:24 }}>
+        <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
+          <span style={{ fontSize:14, color:"#9CA3AF", fontWeight:600 }}>
+            {lang === "en" ? "Scenario" : "シナリオ"} {currentScenario + 1} / {scenarios.length}
+          </span>
+          <span style={{ fontSize:14, color:"#86B817", fontWeight:700 }}>
+            {lang === "en" ? "Score:" : "スコア:"} {score}
+          </span>
+        </div>
+        <div style={{ background:"#E5E7EB", height:8, borderRadius:8, overflow:"hidden" }}>
+          <div style={{
+            background:"linear-gradient(90deg, #3665F3, #86B817)",
+            height:"100%",
+            width:`${((currentScenario + 1) / scenarios.length) * 100}%`,
+            transition:"width 0.3s ease"
+          }}></div>
+        </div>
+      </div>
+
+      {/* Scenario */}
+      <div style={{
+        background:"#F7F7F7",
+        borderLeft:"4px solid #E53238",
+        padding:"20px 24px",
+        borderRadius:8,
+        marginBottom:24
+      }}>
+        <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:600 }}>
+          {lang === "en" ? "Live Stream Situation" : "ライブ配信シチュエーション"}
+        </div>
+        <div style={{ fontSize:16, color:"#191919", lineHeight:1.7, fontWeight:500 }}>
+          {scenario.situation}
+        </div>
+      </div>
+
+      {/* Options */}
+      <div style={{ marginBottom:24 }}>
+        <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:16 }}>
+          {lang === "en" ? "How would you respond?" : "どう対応しますか？"}
+        </div>
+        <div style={{ display:"grid", gap:12 }}>
+          {shuffledOptions.map((option, i) => {
+            const isSelected = selectedOption === i;
+            const showResult = showFeedback && isSelected;
+            const isGood = option.type === "good";
+
+            return (
+              <div key={i}>
+                <button
+                  onClick={() => !showFeedback && handleSelect(i)}
+                  disabled={showFeedback}
+                  style={{
+                    width:"100%",
+                    background: showResult
+                      ? (isGood ? "#ECFDF5" : "#FEF2F2")
+                      : (isSelected ? "#EFF6FF" : "#FFFFFF"),
+                    border: showResult
+                      ? `2px solid ${isGood ? "#86B817" : "#F5AF02"}`
+                      : `2px solid ${isSelected ? "#3665F3" : "#E5E7EB"}`,
+                    borderRadius:12,
+                    padding:"16px 20px",
+                    textAlign:"left",
+                    cursor: showFeedback ? "default" : "pointer",
+                    transition:"all 0.2s",
+                    opacity: (showFeedback && !isSelected) ? 0.5 : 1
+                  }}
+                  onMouseEnter={e => !showFeedback && (e.target.style.borderColor = "#3665F3")}
+                  onMouseLeave={e => !showFeedback && !isSelected && (e.target.style.borderColor = "#E5E7EB")}
+                >
+                  <div style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
+                    <div style={{
+                      minWidth:28,
+                      height:28,
+                      borderRadius:"50%",
+                      background: showResult
+                        ? (isGood ? "#86B817" : "#F5AF02")
+                        : (isSelected ? "#3665F3" : "#E5E7EB"),
+                      color:"#FFFFFF",
+                      display:"flex",
+                      alignItems:"center",
+                      justifyContent:"center",
+                      fontWeight:700,
+                      fontSize:14,
+                      flexShrink:0
+                    }}>
+                      {showResult ? (isGood ? "✓" : "!") : String.fromCharCode(65 + i)}
+                    </div>
+                    <div style={{ flex:1, fontSize:15, color:"#191919", lineHeight:1.6 }}>
+                      {option.text}
+                    </div>
+                  </div>
+                </button>
+
+                {/* Feedback */}
+                {showResult && (
+                  <div style={{
+                    marginTop:12,
+                    padding:"16px 20px",
+                    background: isGood ? "#ECFDF5" : "#FFFBEB",
+                    borderRadius:8,
+                    borderLeft:`4px solid ${isGood ? "#86B817" : "#F5AF02"}`,
+                    animation:"fu 0.3s ease"
+                  }}>
+                    <div style={{ fontSize:14, color:"#191919", lineHeight:1.7, fontWeight:500 }}>
+                      {isGood ? "✨ " : "💡 "}{option.feedback}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Next Button */}
+      {showFeedback && (
+        <button
+          onClick={handleNext}
+          style={{
+            width:"100%",
+            background:"#3665F3",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s",
+            animation:"fu 0.3s ease"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {currentScenario < scenarios.length - 1
+            ? (lang === "en" ? "Next Scenario →" : "次のシナリオ →")
+            : (lang === "en" ? "See Results →" : "結果を見る →")}
+        </button>
+      )}
+    </div>
+  );
+}
+
+/* ═══ NAME BLAST GAME ═══ */
+function NameBlastGame({ lang, onComplete }) {
+  const [gameState, setGameState] = useState("ready"); // ready, playing, finished
+  const [currentNameIndex, setCurrentNameIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [shuffledNames, setShuffledNames] = useState([]);
+
+  useEffect(() => {
+    if (gameState === "playing" && timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (timeLeft === 0 && gameState === "playing") {
+      setGameState("finished");
+      if (onComplete) onComplete(score);
+    }
+  }, [timeLeft, gameState, score, onComplete]);
+
+  const startGame = () => {
+    const shuffled = [...BUYER_NAMES].sort(() => Math.random() - 0.5);
+    setShuffledNames(shuffled);
+    setCurrentNameIndex(0);
+    setScore(0);
+    setTimeLeft(60);
+    setGameState("playing");
+  };
+
+  const handleNext = () => {
+    if (currentNameIndex < shuffledNames.length - 1) {
+      setCurrentNameIndex(currentNameIndex + 1);
+      setScore(score + 1);
+    }
+  };
+
+  const handleRestart = () => {
+    startGame();
+  };
+
+  if (gameState === "ready") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>🎙️</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "Name Blast" : "名前読みブラスト"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:400, margin:"0 auto 24px" }}>
+          {lang === "en"
+            ? "Buyer usernames will flash on screen. Read each one out loud, then tap Next. How many can you read in 60 seconds?"
+            : "バイヤーのユーザーネームが画面に表示されます。声に出して読んだら「次へ」をタップ。60秒で何個読めるかな？"}
+        </p>
+        <button
+          onClick={startGame}
+          style={{
+            background:"#3665F3",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 32px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+          onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+        >
+          {lang === "en" ? "Start Game" : "ゲームスタート"}
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === "playing") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB" }}>
+        {/* Timer and Score Bar */}
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:32, padding:"16px 24px", background:"#F7F7F7", borderRadius:12 }}>
+          <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+            <span style={{ fontSize:24 }}>⏱️</span>
+            <span style={{ fontSize:32, fontWeight:700, color:timeLeft <= 10 ? "#E53238" : "#191919" }}>
+              {timeLeft}s
+            </span>
+          </div>
+          <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+            <span style={{ fontSize:24 }}>🎯</span>
+            <span style={{ fontSize:32, fontWeight:700, color:"#86B817" }}>{score}</span>
+          </div>
+        </div>
+
+        {/* Current Name Display */}
+        <div style={{
+          background:"linear-gradient(135deg, #3665F3 0%, #5D8AE8 100%)",
+          borderRadius:16,
+          padding:"48px 32px",
+          textAlign:"center",
+          marginBottom:24,
+          minHeight:200,
+          display:"flex",
+          flexDirection:"column",
+          justifyContent:"center",
+          alignItems:"center"
+        }}>
+          <div style={{ fontSize:14, color:"#FFFFFF", opacity:0.9, marginBottom:12, textTransform:"uppercase", letterSpacing:2 }}>
+            {lang === "en" ? "Read this name aloud" : "声に出して読んでください"}
+          </div>
+          <div style={{
+            fontSize:36,
+            fontWeight:700,
+            color:"#FFFFFF",
+            fontFamily:"'Courier New', monospace",
+            wordBreak:"break-all",
+            lineHeight:1.4
+          }}>
+            {shuffledNames[currentNameIndex]}
+          </div>
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNext}
+          style={{
+            width:"100%",
+            background:"#86B817",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"20px",
+            fontSize:20,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "✓ Next Name" : "✓ 次へ"}
+        </button>
+
+        <div style={{ textAlign:"center", marginTop:16, fontSize:14, color:"#9CA3AF" }}>
+          {currentNameIndex + 1} / {shuffledNames.length} names
+        </div>
+      </div>
+    );
+  }
+
+  // Finished state
+  return (
+    <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+      <div style={{ fontSize:64, marginBottom:16 }}>🎉</div>
+      <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+        {lang === "en" ? "Great job!" : "お疲れさまでした！"}
+      </h2>
+      <div style={{ fontSize:48, fontWeight:700, color:"#3665F3", marginBottom:8 }}>{score}</div>
+      <p style={{ fontSize:18, color:"#4B5563", marginBottom:24 }}>
+        {lang === "en" ? "names read in 60 seconds" : "個の名前を60秒で読みました"}
+      </p>
+
+      {/* Encouraging Feedback */}
+      <div style={{
+        background:score >= 30 ? "#ECFDF5" : score >= 20 ? "#EFF6FF" : "#FEF3C7",
+        padding:"16px 24px",
+        borderRadius:12,
+        marginBottom:24,
+        border:`2px solid ${score >= 30 ? "#86B817" : score >= 20 ? "#3665F3" : "#F5AF02"}`
+      }}>
+        <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0 }}>
+          {score >= 30
+            ? (lang === "en" ? "🌟 Excellent! You're reading at pro speed!" : "🌟 素晴らしい！プロレベルの速度です！")
+            : score >= 20
+            ? (lang === "en" ? "💪 Nice work! Keep practicing to get even faster!" : "💪 いい感じ！練習を続けてさらに速く！")
+            : (lang === "en" ? "👍 Good start! The more you practice, the easier it gets!" : "👍 いいスタート！練習するほど簡単になります！")}
+        </p>
+      </div>
+
+      <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
+        <button
+          onClick={handleRestart}
+          style={{
+            background:"#3665F3",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 32px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+          onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+        >
+          {lang === "en" ? "🔄 Play Again" : "🔄 もう一度"}
+        </button>
+        <button
+          onClick={() => setGameState("ready")}
+          style={{
+            background:"#F7F7F7",
+            color:"#191919",
+            border:"2px solid #E5E7EB",
+            borderRadius:12,
+            padding:"16px 32px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.background = "#E5E7EB"}
+          onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+        >
+          {lang === "en" ? "← Back" : "← 戻る"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ═══ PRACTICE ═══ */
+function PracticeP({ lang, onXpEarned }) {
+  const [activeGame, setActiveGame] = useState(null);
+
+  const handleGameComplete = (score, gameType) => {
+    let xpEarned = 0;
+    if (gameType === "nameBlast") {
+      xpEarned = Math.floor(score / 2); // 1 XP per 2 names read
+    } else if (gameType === "scenarios") {
+      xpEarned = score * 10; // 10 XP per correct scenario
+    } else if (gameType === "condition") {
+      xpEarned = score * 15; // 15 XP per accurate condition description
+    } else if (gameType === "warmup") {
+      xpEarned = score * 20; // 20 XP per completed warm-up task
+    }
+    if (onXpEarned) onXpEarned(xpEarned);
+  };
+
+  if (activeGame === "nameBlast") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <NameBlastGame lang={lang} onComplete={(score) => handleGameComplete(score, "nameBlast")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "scenarios") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <ScenarioTrainer lang={lang} onComplete={(score) => handleGameComplete(score, "scenarios")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "condition") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <ConditionChallenge lang={lang} onComplete={(score) => handleGameComplete(score, "condition")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "warmup") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <DailyWarmUp lang={lang} onComplete={(score) => handleGameComplete(score, "warmup")} />
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ animation:"fu 0.4s ease" }}>
+      <div style={{ marginBottom:32 }}>
+        <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang==="en"?"Practice & Drills":"練習＆ドリル"}
+        </h1>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, fontWeight:400 }}>
+          {lang==="en"
+            ?"Build confidence through interactive practice. Each drill focuses on a specific skill you'll use in live streams."
+            :"インタラクティブな練習で自信を築きましょう。各ドリルはライブ配信で使う特定のスキルに焦点を当てています。"}
+        </p>
+      </div>
+
+      <div style={{ display:"grid", gap:12 }}>
+        {[
+          {
+            icon:"🎙️",
+            t:lang==="en"?"Name Blast":"名前読みブラスト",
+            d:lang==="en"?"Read buyer names as fast as you can - 60 second challenge":"バイヤー名を速読 - 60秒チャレンジ",
+            c:"#E53238",
+            game:"nameBlast",
+            available:true
+          },
+          {
+            icon:"🔍",
+            t:lang==="en"?"Condition Description":"コンディション説明",
+            d:lang==="en"?"Describe luxury item conditions accurately":"高級品の状態を正確に説明",
+            c:"#F5AF02",
+            game:"condition",
+            available:true
+          },
+          {
+            icon:"💬",
+            t:lang==="en"?"What Would You Say?":"どう答える？",
+            d:lang==="en"?"Practice responding to buyer scenarios":"バイヤーシナリオへの対応を練習",
+            c:"#3665F3",
+            game:"scenarios",
+            available:true
+          },
+          {
+            icon:"⚡",
+            t:lang==="en"?"Daily Warm-Up":"デイリーウォームアップ",
+            d:lang==="en"?"3-minute pre-stream confidence booster":"配信前3分間の自信ブースター",
+            c:"#86B817",
+            game:"warmup",
+            available:true
+          },
+        ].map((m,i)=>(
+          <div
+            key={i}
+            onClick={() => m.available && setActiveGame(m.game)}
+            style={{
+              background:"#FFFFFF",
+              border:`2px solid ${m.available ? m.c + "33" : "#E5E7EB"}`,
+              borderRadius:12,
+              padding:"20px 24px",
+              cursor:m.available ? "pointer" : "not-allowed",
+              transition:"all 0.2s",
+              opacity:m.available ? 1 : 0.6,
+              display:"flex",
+              alignItems:"center",
+              gap:16
+            }}
+            onMouseEnter={e => m.available && (e.target.style.transform = "translateY(-2px)", e.target.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)")}
+            onMouseLeave={e => m.available && (e.target.style.transform = "translateY(0)", e.target.style.boxShadow = "none")}
+          >
+            <span style={{ fontSize:40 }}>{m.icon}</span>
+            <div style={{ flex:1 }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{m.t}</div>
+              <div style={{ fontSize:14, color:"#4B5563", lineHeight:1.5 }}>{m.d}</div>
+            </div>
+            {m.available ? (
+              <div style={{
+                background:m.c,
+                color:"#FFFFFF",
+                padding:"8px 16px",
+                borderRadius:8,
+                fontSize:14,
+                fontWeight:700
+              }}>
+                {lang === "en" ? "Play" : "プレイ"}
+              </div>
+            ) : (
+              <div style={{
+                background:"#F7F7F7",
+                color:"#9CA3AF",
+                padding:"8px 16px",
+                borderRadius:8,
+                fontSize:14,
+                fontWeight:700
+              }}>
+                {lang === "en" ? "Soon" : "近日公開"}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
