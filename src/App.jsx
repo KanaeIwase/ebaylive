@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-/* ═══ LIVE STREAMING KNOWLEDGE (from TikTok Creator Hub) ═══ */
+/* ═══ LIVE STREAMING KNOWLEDGE (eBay Live Best Practices) ═══ */
 const LIVE_KB = {
   framework: {
     en: [
@@ -346,36 +346,36 @@ const LIVE_KB = {
         ]},
     ],
   },
-  // Platform comparison
-  platforms: {
+  // eBay Live Policy & Compliance
+  policy: {
     en: [
-      { name:"eBay Live", emoji:"🏷️", points:["$1 auction format","Authenticity Guarantee for luxury","Professional reseller buyers","Bidding UI — explain it to viewers","Fashion/collectibles focused"] },
-      { name:"TikTok Shop", emoji:"🎵", points:["Younger audience, fast-paced","Need 1K followers to go live","Algorithm-driven discovery","Pin products on screen","High engagement = more distribution"] },
-      { name:"YouTube Live", emoji:"📺", points:["Longer format OK","Good for detailed demos","Searchable after stream ends","Existing subscriber base helps","Good for educational content"] },
-      { name:"Instagram Live", emoji:"📸", points:["Best for existing followers","Fashion/beauty strong","DM-based purchasing","Story promotion effective","Collab feature built-in"] },
+      { name:"🚫 Prohibited Content", emoji:"🚫", points:["No profanity, nudity, or offensive language","No alcohol/drug use or smoking on camera","No hate speech or threatening behavior","No off-platform sales (sharing email, phone, external sites)","No misleading claims about authenticity or rarity"] },
+      { name:"📸 Camera Requirements", emoji:"📸", points:["Keep products in frame at all times","Show all angles and close-ups clearly","Display condition and features before moving item","Match what's in listing - no substitutions","Host must be visible and actively speaking"] },
+      { name:"⚖️ Sales Compliance", emoji:"⚖️", points:["No shill bidding (related parties can't bid)","Accurately describe condition and authenticity","Follow manufacturer street dates","No simulcasting on other live-commerce platforms","Buyers' bids are binding - auto-charged at auction end"] },
+      { name:"🎵 Content Rights", emoji:"🎵", points:["Only use music/sounds you own rights to","Get written consent for third-party content","No counterfeit products or IP infringement","Unauthorized content = stream/listing removal","eBay may contact emergency services for threats"] },
     ],
     jp: [
-      { name:"eBay Live", emoji:"🏷️", points:["$1オークション形式","高級品は認証保証","プロのリセラーが多い","入札UIの説明が必要","ファッション/コレクティブル中心"] },
-      { name:"TikTok Shop", emoji:"🎵", points:["若い視聴者、テンポ速い","1Kフォロワーで配信可能","アルゴリズム主導の発見","商品をPinで固定表示","高エンゲージメント = より多くの配信露出"] },
-      { name:"YouTube Live", emoji:"📺", points:["長時間フォーマットOK","詳細デモ向き","配信後も検索される","既存登録者が強み","教育コンテンツに最適"] },
-      { name:"Instagram Live", emoji:"📸", points:["既存フォロワー向け","ファッション/ビューティーに強い","DM購入方式","ストーリー告知が効果的","コラボ機能あり"] },
+      { name:"🚫 禁止事項", emoji:"🚫", points:["卑猥、ヌード、攻撃的言語禁止","アルコール/薬物使用、喫煙禁止","ヘイトスピーチや脅迫行為禁止","プラットフォーム外販売禁止（メール、電話、外部サイト共有）","真贋や希少性の虚偽表示禁止"] },
+      { name:"📸 カメラ要件", emoji:"📸", points:["商品を常にフレーム内に","全角度とクローズアップを明確に表示","アイテム移動前に状態と特徴を表示","リスティングと一致 - 代替品禁止","ホストは常に見え、積極的に話す"] },
+      { name:"⚖️ 販売コンプライアンス", emoji:"⚖️", points:["サクラ入札禁止（関係者の入札不可）","状態と真贋を正確に説明","メーカーのストリートデートに従う","他のライブコマースプラットフォームでの同時配信禁止","バイヤーの入札は拘束力あり - オークション終了時に自動請求"] },
+      { name:"🎵 コンテンツ権利", emoji:"🎵", points:["権利を所有する音楽/サウンドのみ使用","第三者コンテンツは書面同意が必要","偽造品やIP侵害禁止","無許可コンテンツ = 配信/リスティング削除","eBayは脅迫時に緊急サービスに連絡可能"] },
     ],
   },
-  // Content types
+  // eBay Live Stream Formats
   contentTypes: {
     en: [
-      { type:"Chat Stream", icon:"💬", desc:"Main content = responding to comments. Most communication-heavy.", best:"People who love talking", tip:"Differentiation is key — many creators do this" },
-      { type:"Performance", icon:"🎭", desc:"Singing, dancing, magic, art. THE core of TikTok LIVE.", best:"Creators with a skill to show", tip:"Never just perform — mix in conversation" },
-      { type:"While-Doing", icon:"🍳", desc:"Cooking, drawing, skincare while chatting.", best:"Relaxed personalities, busy people", tip:"Think of yourself as a small bar owner chatting with guests" },
-      { type:"Outdoor", icon:"🌳", desc:"Streaming from outside — scenery, locations.", best:"Travel/lifestyle creators", tip:"Be mindful of other people's privacy" },
-      { type:"Education", icon:"📚", desc:"Teaching, seminars, knowledge sharing.", best:"Subject matter experts", tip:"High prep cost but strong business potential" },
+      { type:"Auction Stream", icon:"🔨", desc:"Fast-paced $1 auction format. Show item, describe quickly, let bidding drive energy.", best:"High-volume sellers", tip:"Keep products in frame, explain bidding UI to new viewers" },
+      { type:"Showcase Stream", icon:"👜", desc:"Premium items with detailed presentation. Luxury bags, authenticated collectibles.", best:"Luxury/designer sellers", tip:"Show serial numbers, authenticity cards, all angles clearly" },
+      { type:"Unboxing Stream", icon:"📦", desc:"Open cases, boxes, mystery lots live. Build excitement around reveals.", best:"Collectibles, trading cards", tip:"Keep item in frame during entire opening process per policy" },
+      { type:"Q&A Stream", icon:"💬", desc:"Answer buyer questions live. Build trust through transparency.", best:"Sellers building reputation", tip:"Address authenticity concerns confidently with proof" },
+      { type:"Education Stream", icon:"📚", desc:"Teach authentication, condition grading, market trends.", best:"Subject matter experts", tip:"High value for building authority and repeat customers" },
     ],
     jp: [
-      { type:"おしゃべり配信", icon:"💬", desc:"コメント返しがメイン。最もコミュニケーション重視。", best:"おしゃべり好きな方", tip:"差別化が鍵 — 多くのクリエイターがやっている" },
-      { type:"パフォーマンス配信", icon:"🎭", desc:"歌、ダンス、マジック、アート。TikTok LIVEの核。", best:"特技がある方", tip:"パフォーマンスだけはNG — 会話を混ぜる" },
-      { type:"ながら配信", icon:"🍳", desc:"料理、お絵描き、スキンケアをしながらトーク。", best:"リラックスして話したい方", tip:"小さな居酒屋のオーナーのイメージで" },
-      { type:"外配信", icon:"🌳", desc:"外から配信。風景や場所がメイン。", best:"旅行/ライフスタイル系", tip:"他人のプライバシーに配慮する" },
-      { type:"教育・知識系", icon:"📚", desc:"教える、セミナー、知識共有。", best:"専門知識がある方", tip:"準備コスト高いがビジネスに繋がる" },
+      { type:"オークション配信", icon:"🔨", desc:"テンポの速い$1オークション形式。商品を見せ、素早く説明、入札がエネルギーを生む。", best:"大量出品セラー", tip:"商品をフレーム内に、新規視聴者に入札UIを説明" },
+      { type:"ショーケース配信", icon:"👜", desc:"プレミアム商品の詳細プレゼン。高級バッグ、認証済みコレクティブル。", best:"高級/デザイナー品セラー", tip:"シリアル番号、認証カード、全角度を明確に表示" },
+      { type:"開封配信", icon:"📦", desc:"ケース、ボックス、ミステリーロットをライブで開封。リビールで興奮を構築。", best:"コレクティブル、トレカ", tip:"ポリシー遵守のため開封中アイテムをフレーム内に" },
+      { type:"Q&A配信", icon:"💬", desc:"バイヤーの質問にライブで回答。透明性で信頼を構築。", best:"評判構築中のセラー", tip:"証拠と共に真贋懸念に自信を持って対処" },
+      { type:"教育配信", icon:"📚", desc:"真贋鑑定、コンディショングレード、市場トレンドを教える。", best:"専門知識を持つ方", tip:"権威構築とリピーター獲得に高い価値" },
     ],
   },
 };
@@ -538,7 +538,7 @@ export default function App() {
     const saved = localStorage.getItem('ebay-live-player');
     return saved ? JSON.parse(saved) : { xp: 0, level: 1, streak: 0, lastVisit: new Date().toDateString(), modulesCompleted: { brands: 0, live: 0, vocab: 0, practice: 0 } };
   });
-  const tabs = lang==="en" ? ["Home","Brands","Framework","Platforms","Content Types","Vocab","Practice"] : ["ホーム","ブランド","フレームワーク","プラットフォーム","コンテンツ","用語集","練習"];
+  const tabs = lang==="en" ? ["Home","Brands","Framework","Policy","Content Types","Vocab","Practice"] : ["ホーム","ブランド","フレームワーク","ポリシー","コンテンツ","用語集","練習"];
   const icons = ["🏠","👜","📡","🌐","🎬","💬","🎯"];
 
   // Update streak on visit
@@ -681,7 +681,7 @@ export default function App() {
           {page===0 && <HomeP lang={lang} setPage={setPage} playerData={playerData} />}
           {page===1 && <FashionP lang={lang} />}
           {page===2 && <LiveFrameworkP lang={lang} />}
-          {page===3 && <LivePlatformsP lang={lang} />}
+          {page===3 && <LivePolicyP lang={lang} />}
           {page===4 && <LiveContentTypesP lang={lang} />}
           {page===5 && <EnglishP lang={lang} />}
           {page===6 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
@@ -927,8 +927,8 @@ function FashionP({ lang }) {
 }
 
 /* ═══ LIVE TIPS (MAIN CONTENT) ═══ */
-function LiveP({ lang }) {
-  const [view, setView] = useState("framework"); // framework, platforms, content
+function LiveP({ lang, initialView = "framework" }) {
+  const [view, setView] = useState(initialView); // framework, platforms, content
   const [openStep, setOpenStep] = useState(0);
   const [openSec, setOpenSec] = useState(null);
   const data = LIVE_KB.framework[lang];
@@ -941,14 +941,14 @@ function LiveP({ lang }) {
         </h1>
         <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
           {lang==="en"
-            ?"Master live streaming techniques to engage viewers and drive sales. Based on proven frameworks from TikTok Creator Hub and live commerce best practices."
-            :"視聴者を惹きつけ売上を上げるライブ配信テクニックをマスター。TikTok Creator Hubとライブコマースのベストプラクティスに基づく実証済みフレームワーク。"}
+            ?"Master eBay Live streaming techniques to engage buyers and drive sales. Build confidence with buyer interactions, product presentation, and compliance with eBay Live policies."
+            :"eBayライブ配信テクニックをマスターしてバイヤーを惹きつけ売上を上げる。バイヤー対応、商品プレゼンテーション、eBay Liveポリシー遵守で自信を構築。"}
         </p>
       </div>
 
       {/* Sub-nav */}
       <div style={{ display:"flex", gap:12, marginBottom:24, borderBottom:"2px solid #F7F7F7", paddingBottom:4 }}>
-        {[["framework",lang==="en"?"6-Step Framework":"6ステップ"],["platforms",lang==="en"?"Platform Comparison":"プラットフォーム比較"],["content",lang==="en"?"Stream Types":"配信タイプ"]].map(([k,l])=>(
+        {[["framework",lang==="en"?"6-Step Framework":"6ステップ"],["platforms",lang==="en"?"eBay Live Policy":"eBay Liveポリシー"],["content",lang==="en"?"Stream Formats":"配信形式"]].map(([k,l])=>(
           <button key={k} onClick={()=>setView(k)} style={{ padding:"10px 20px", borderRadius:0, background:"none", color:view===k?"#3B1FC6":"#191919", borderBottom:view===k?"3px solid #3B1FC6":"3px solid transparent", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:view===k?700:400, border:"none", transition:"all 0.2s" }}>{l}</button>
         ))}
       </div>
@@ -986,12 +986,12 @@ function LiveP({ lang }) {
         </div>
       ))}
 
-      {/* PLATFORMS */}
-      {view==="platforms" && LIVE_KB.platforms[lang].map((p,i) => (
+      {/* POLICY & COMPLIANCE */}
+      {view==="platforms" && LIVE_KB.policy[lang].map((p,i) => (
         <div key={i} style={{ background:"#FFFFFF", borderRadius:12, padding:"20px 24px", marginBottom:12, border:"2px solid #F7F7F7" }}>
           <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:12 }}>{p.emoji} {p.name}</div>
           <div style={{ display:"grid", gap:8 }}>
-            {p.points.map((pt,j)=><div key={j} style={{ fontSize:15, color:"#191919", lineHeight:1.7, paddingLeft:16, borderLeft:"3px solid #4CE160", fontWeight:400 }}>{pt}</div>)}
+            {p.points.map((pt,j)=><div key={j} style={{ fontSize:15, color:"#191919", lineHeight:1.7, paddingLeft:16, borderLeft:"3px solid #E53238", fontWeight:400 }}>{pt}</div>)}
           </div>
         </div>
       ))}
@@ -1007,6 +1007,21 @@ function LiveP({ lang }) {
       ))}
     </div>
   );
+}
+
+/* ═══ LIVE FRAMEWORK WRAPPER ═══ */
+function LiveFrameworkP({ lang }) {
+  return <LiveP lang={lang} initialView="framework" />;
+}
+
+/* ═══ LIVE POLICY WRAPPER ═══ */
+function LivePolicyP({ lang }) {
+  return <LiveP lang={lang} initialView="platforms" />;
+}
+
+/* ═══ LIVE CONTENT TYPES WRAPPER ═══ */
+function LiveContentTypesP({ lang }) {
+  return <LiveP lang={lang} initialView="content" />;
 }
 
 /* ═══ ENGLISH ═══ */
