@@ -476,8 +476,8 @@ export default function App() {
                 {lang==="en"?"Academy":"アカデミー"}
               </div>
             </div>
-            <button onClick={()=>setSidebarOpen(false)} style={{ background:"none", border:"none", fontSize:20, cursor:"pointer", color:"#191919", padding:0 }}>
-              ✕
+            <button onClick={()=>setSidebarOpen(false)} style={{ background:"#F7F7F7", border:"none", fontSize:18, cursor:"pointer", color:"#191919", padding:"8px 10px", borderRadius:6 }}>
+              ◀
             </button>
           </div>
 
