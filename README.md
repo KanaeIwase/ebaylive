@@ -1,138 +1,317 @@
-# 🎮 Live Selling Academy
+# 🎯 eBay Live Academy
 
-**Interactive game-based learning platform for mastering live commerce**
+**Interactive learning platform for mastering eBay Live luxury fashion sales**
 
-Learn how to become a successful live seller through an engaging, game-like experience. Built for fashion sellers on eBay Live and live commerce platforms worldwide.
-
----
-
-## 🎯 What is this?
-
-Live Selling Academy is an interactive web-based training tool that teaches you how to:
-
-- 🎥 Perform confidently on camera during live streams
-- 💼 Sell luxury fashion items professionally
-- 🗣️ Engage with buyers in real-time
-- 📈 Build a loyal viewer base
-- ⚡ Handle live Q&A about authentication, condition, and shipping
-
-**No coding knowledge required to use** — just open the website and start learning!
+Game-based training for Japanese sellers targeting professional reseller buyers. Build confidence in live streaming, product expertise, and B2B communication.
 
 ---
 
-## 👥 Who is this for?
+## ✨ Features
 
-### Primary Users
-- Japanese sellers entering US live commerce (especially those with language/cultural barriers)
-- eBay Live sellers focusing on fashion and collectibles
-- Sellers who need to learn "performing" skills for live streaming
+### 📚 **Core Knowledge Base**
+- **Luxury Brand Knowledge** — Deep-dive into Louis Vuitton, Chanel, Hermès, Gucci models with sizes, authentication markers, and rare items
+- **Live Selling Strategies** — 6-step framework for exposure, retention, and engagement
+- **eBay Live Policy** — Compliance guidelines and best practices
+- **Professional Vocabulary** — 100+ essential terms with spoken examples
 
-### Secondary Users
-- New live sellers on any platform (TikTok, Instagram, YouTube)
-- Anyone learning live commerce fundamentals
+### 🎮 **7 Interactive Practice Games**
+1. **Name Blast** — Read buyer usernames at speed (60-second challenge)
+2. **Speed Auction** — Describe items and announce bids in 30 seconds
+3. **Condition Description** — Accurately assess luxury item conditions
+4. **What Would You Say?** — Respond to buyer scenarios
+5. **Flashcard Mode** — Memorize conditions, brands, and materials
+6. **Matching Game** — Connect brands, conditions, and colors
+7. **Daily Warm-Up** — 3-minute pre-stream confidence booster
 
-### Tertiary Users
-- Brands and agencies training live selling teams (B2B use case)
+### 🤖 **AI-Powered Features** (Claude Integration)
+1. **AI Live Stream Simulator** — Practice with realistic AI buyers in real-time
+2. **AI Condition Evaluator** — Get feedback on your condition descriptions
+3. **AI Conversation Partner** — Free-form chat practice with AI buyer
+4. **AI Phrase Translator** — Japanese → English with 3 style options (formal/casual/confident)
+
+### 🏆 **Gamification & Progress Tracking**
+- **XP System** — Earn points and level up
+- **Achievement Badges** — 10 unlockable achievements
+- **Streak Tracking** — Daily practice rewards
+- **Confidence Tracker** — Weekly self-rating with trend analysis
+- **Improvement Analytics** — See your growth over time
+- **Ready to Go Live Checklist** — Dynamic readiness percentage
+
+### 📱 **Modern UX Features**
+- **Progressive Web App** — Install on mobile like a native app
+- **Offline Support** — Works without internet after first load
+- **Voice Input Mode** — Hands-free practice with Web Speech API
+- **Keyboard Shortcuts** — Power user navigation (Space/Enter)
+- **Sound Effects** — Audio feedback for achievements and interactions
+- **Data Export/Import** — Backup and restore your progress
+- **Fully Bilingual** — Switch between English and Japanese
 
 ---
 
-## ✨ Key Features
+## 🚀 Quick Start
 
-- **Game-Based Learning**: Interactive scenarios and practice exercises
-- **Real-World Knowledge**: Based on actual eBay Live sessions and TikTok Creator Hub best practices
-- **Bilingual Support**: Japanese explanations with English speaking examples
-- **Focus on Fashion**: Specialized content for luxury bags, watches, and collectibles
-- **Buyer Insights**: Learn what professional resellers ask about
+### For Users (No coding needed)
 
----
+**Option 1: Web Browser**
+1. Open http://localhost:3000/ (or deployed URL)
+2. Switch language (EN/JP) in top right
+3. Start learning!
 
-## 📁 Project Files
-
-- **`live-selling-academy.jsx`** — Interactive React-based learning game
-- **`HANDOFF.md`** — Complete project documentation and context
-- **`CLAUDE.md`** — Instructions for AI assistants working on this project
-
----
-
-## 🚀 How to Use
-
-### For Learners (No coding needed)
-1. Wait for the hosted version (coming soon!)
-2. Open the website in your browser
-3. Start learning through interactive scenarios
+**Option 2: Install as App (Mobile/Desktop)**
+1. Open the site in your browser
+2. Look for "Add to Home Screen" or "Install App"
+3. Launch from your home screen like any other app
 
 ### For Developers
-```bash
-# Clone the repository
-git clone https://github.com/KanaeIwase/ebaylive.git
 
-# Install dependencies (React required)
+```bash
+# Clone repository
+git clone https://github.com/yourusername/ebay-live-game.git
+cd ebay-live-game
+
+# Install dependencies
 npm install
 
-# Run locally
-npm start
+# Add API key for AI features (optional)
+cp .env.example .env
+# Edit .env and add your Anthropic API key
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+**Requirements:**
+- Node.js 18+
+- Anthropic API key (for AI features only)
+
+---
+
+## 📦 What's Included
+
+```
+ebay-live-game/
+├── src/
+│   ├── App.jsx              # Main application (6,500+ lines)
+│   ├── main.jsx             # Entry point with service worker registration
+│   ├── services/
+│   │   └── anthropic.js     # Claude API integration
+│   └── utils/
+│       └── sounds.js        # Web Audio API sound effects
+├── public/
+│   ├── manifest.json        # PWA manifest
+│   ├── sw.js               # Service worker for offline support
+│   └── icon.svg            # App icon
+├── index.html              # HTML with PWA meta tags
+├── .env.example            # Environment variable template
+├── DEPLOYMENT.md           # Production deployment guide
+└── README.md               # This file
 ```
 
 ---
 
-## 🎓 What You'll Learn
+## 🎓 Learning Path
 
-Based on proven frameworks from top live commerce creators:
+### For Beginners:
+1. **Start with Luxury Brands** → Learn product knowledge
+2. **Read Live Selling Strategies** → Understand the framework
+3. **Practice with Name Blast** → Build confidence
+4. **Try AI Simulator** → Experience realistic interactions
 
-1. **📡 Exposure** — Get discovered through smart scheduling and promotion
-2. **👁️ First Impression** — Make viewers want to stay in the first 3 minutes
-3. **⏱️ Retention** — Keep viewers watching with structure and energy
-4. **💬 Engagement** — Drive comments and participation
-5. **💎 Monetization** — Convert viewers into buyers
-6. **🔁 Return** — Build a loyal community that comes back
+### For Intermediate:
+1. **Complete all 7 practice games** → Master core skills
+2. **Use AI Condition Evaluator** → Improve descriptions
+3. **Track your confidence weekly** → Monitor growth
+4. **Aim for 100% readiness** → Complete all checklist items
 
----
-
-## 🌟 Unique Approach
-
-Unlike generic "how to sell online" courses, this platform:
-
-- Uses **AI analysis** of actual live selling videos to identify patterns
-- Focuses on **luxury fashion** selling (authentication, condition checks, INAD prevention)
-- Addresses **bilingual challenges** (Japanese sellers → English-speaking buyers)
-- Teaches **performing skills** for introverts
-- Includes **buyer psychology** from professional resellers
+### For Advanced:
+1. **Use voice mode** → Simulate real live streams
+2. **Practice daily warm-ups** → Maintain skills
+3. **Export your data** → Track long-term progress
+4. **Compete for high scores** → Speed and accuracy
 
 ---
 
-## 📝 About the Creator
+## 🌟 Unique Value
 
-**Kanae Iwase** — Content creator, data analyst, and seller educator at eBay Japan
+**Unlike generic live selling courses**, eBay Live Academy:
 
-- Creates training materials for Japanese sellers shipping to the US
-- Performs on eBay Live selling luxury fashion
-- No coding background but building AI fluency
-- Built this project with AI collaboration (Claude)
+✅ **Specialized for luxury fashion** — Authentication, condition assessment, INAD prevention  
+✅ **B2B focused** — Professional reseller buyers, not consumer shoppers  
+✅ **Bilingual by design** — Japanese sellers → English-speaking market  
+✅ **AI-powered practice** — Real-time simulation, not just videos  
+✅ **Gamified learning** — Engaging, measurable progress  
+✅ **Production-ready** — PWA, offline support, mobile-optimized
+
+---
+
+## 🔧 Technical Stack
+
+- **Framework**: React 18 with hooks
+- **Build Tool**: Vite 5
+- **AI Integration**: Anthropic Claude 3.5 Sonnet API
+- **Speech**: Web Speech API (voice input)
+- **Audio**: Web Audio API (sound effects)
+- **Storage**: LocalStorage (player progress)
+- **PWA**: Service Worker + Manifest
+- **Styling**: Inline React styles (no CSS files)
+- **Deployment**: Static site (Vercel/Netlify ready)
+
+**Bundle Size**: ~360KB (~123KB gzipped)
+
+---
+
+## 📊 Project Stats
+
+- **Total Components**: 35+ interactive components
+- **Lines of Code**: 6,500+ (main App.jsx)
+- **Languages**: Fully bilingual (EN/JP)
+- **Games**: 7 interactive practice drills
+- **AI Features**: 4 Claude-powered tools
+- **Badges**: 10 unlockable achievements
+- **Vocabulary Terms**: 100+ professional terms
+- **Brand Models**: 20+ luxury models with detailed specs
+
+---
+
+## 🔐 Environment Setup
+
+### Required Environment Variables:
+
+```bash
+# .env file (for local development)
+VITE_ANTHROPIC_API_KEY=your_anthropic_api_key_here
+```
+
+**Get an API key**: https://console.anthropic.com/
+
+**For production deployment**, add the same variable to your hosting service's environment settings (Vercel, Netlify, etc.).
+
+**Note**: AI features will show an error if the API key is not configured, but all other features work without it.
+
+---
+
+## 🚢 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment guide including:
+
+- Vercel deployment (recommended)
+- Netlify deployment
+- Docker deployment
+- AWS S3 + CloudFront
+- Environment variable configuration
+- PWA testing checklist
+- Performance optimization
+- Security considerations
+- Cost estimates
+
+**Quick Deploy to Vercel:**
+```bash
+npm install -g vercel
+vercel
+```
+
+---
+
+## 🎯 Roadmap
+
+### ✅ Completed (Phases 1-6)
+- Core knowledge base
+- 7 interactive practice games
+- AI integration with Claude
+- Gamification (XP, badges, streaks)
+- PWA with offline support
+- Voice input mode
+- Keyboard shortcuts
+- Sound effects
+- Data export/import
+
+### 🔮 Future Enhancements (Optional)
+- [ ] Cloud sync for cross-device progress
+- [ ] Leaderboard and community features
+- [ ] Video analysis tools
+- [ ] More AI practice scenarios
+- [ ] Multi-language support (Korean, Chinese)
+- [ ] Admin dashboard for educators
+- [ ] Integration with eBay Live API
 
 ---
 
 ## 🤝 Contributing
 
-This is a public repository! If you'd like to contribute:
+Contributions welcome! Here's how to help:
 
-- Report bugs or suggest features via [Issues](https://github.com/KanaeIwase/ebaylive/issues)
-- Share your live selling experiences and insights
-- Help translate content into other languages
+1. **Report bugs** → Open an issue with details
+2. **Suggest features** → Describe use case and benefit
+3. **Add content** → More brands, scenarios, vocabulary
+4. **Translate** → Help expand to more languages
+5. **Improve AI prompts** → Better training scenarios
+
+**Code contributions:**
+```bash
+# Fork the repo
+# Create a branch
+git checkout -b feature/your-feature
+
+# Make changes and commit
+git commit -m "Add your feature"
+
+# Push and create PR
+git push origin feature/your-feature
+```
+
+---
+
+## 📝 About
+
+**Created by**: Kanae Iwase  
+**Purpose**: Train Japanese eBay Live sellers for US luxury fashion market  
+**Built with**: Claude Code (AI pair programming)  
+**License**: Open source for educational and commercial use
+
+**Target Users**:
+- eBay Live sellers (Japan → US market)
+- Luxury fashion live commerce professionals
+- B2B reseller-focused sellers
+- Live streaming educators and trainers
+
+---
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/yourusername/ebay-live-game/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/ebay-live-game/discussions)
+- **Documentation**: See [DEPLOYMENT.md](./DEPLOYMENT.md)
+- **API Docs**: [Anthropic Documentation](https://docs.anthropic.com/)
 
 ---
 
 ## 📄 License
 
-Open for educational and commercial use. If you use this for training your team, attribution is appreciated but not required.
+MIT License - Free for educational and commercial use.
+
+Attribution appreciated but not required. If you use this to train your team or build a similar product, consider:
+- Starring the repo ⭐
+- Sharing your improvements via PR
+- Linking back to this project
 
 ---
 
-## 🔗 Links
+## 🙏 Acknowledgments
 
-- **Project Repository**: https://github.com/KanaeIwase/ebaylive
-- **eBay Live**: https://live.ebay.com
-- **eBay Japan**: https://www.ebay.co.jp
+- **eBay Japan** — For supporting seller education
+- **Anthropic** — For Claude AI API
+- **Live commerce community** — For insights and feedback
+- **React team** — For amazing framework
+- **Vite team** — For fast build tooling
 
 ---
 
-**Built with ❤️ and AI collaboration**
+**Built with ❤️, AI collaboration, and real-world live selling experience**
+
+🎯 **Ready to master eBay Live?** → `npm run dev`
