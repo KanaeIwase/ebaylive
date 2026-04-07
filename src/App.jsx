@@ -850,17 +850,110 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [playerData, setPlayerData] = useState(() => {
     const saved = localStorage.getItem('ebay-live-player');
-    return saved ? JSON.parse(saved) : { xp: 0, level: 1, streak: 0, lastVisit: new Date().toDateString(), modulesCompleted: { brands: 0, live: 0, vocab: 0, practice: 0 } };
+    return saved ? JSON.parse(saved) : {
+      xp: 0,
+      level: 1,
+      streak: 0,
+      lastVisit: new Date().toDateString(),
+      modulesCompleted: { brands: 0, live: 0, vocab: 0, practice: 0 },
+      badges: [],
+      stats: {
+        namesRead: 0,
+        conditionsDescribed: 0,
+        conversationsCompleted: 0,
+        itemsSold: 0,
+        practiceMinutes: 0,
+        gamesPlayed: 0
+      },
+      confidenceRatings: [],
+      achievements: []
+    };
   });
+
+  // Badge definitions
+  const BADGES = {
+    en: [
+      { id: "first_practice", icon: "🎯", name: "First Steps", desc: "Complete your first practice game", check: (p) => p.stats.gamesPlayed >= 1 },
+      { id: "name_master", icon: "🎙️", name: "Name Master", desc: "Read 100 buyer names", check: (p) => p.stats.namesRead >= 100 },
+      { id: "speed_demon", icon: "⚡", name: "Speed Demon", desc: "Score 400+ in Speed Auction", check: (p) => p.achievements.includes("speed_400") },
+      { id: "condition_pro", icon: "🔍", name: "Condition Pro", desc: "Describe 30 items accurately", check: (p) => p.stats.conditionsDescribed >= 30 },
+      { id: "ai_graduate", icon: "🤖", name: "AI Graduate", desc: "Complete all 4 AI training modes", check: (p) => p.achievements.includes("ai_all_complete") },
+      { id: "week_warrior", icon: "🔥", name: "Week Warrior", desc: "Maintain 7-day streak", check: (p) => p.streak >= 7 },
+      { id: "seller_pro", icon: "💼", name: "Seller Pro", desc: "Sell 20+ items in simulations", check: (p) => p.stats.itemsSold >= 20 },
+      { id: "level_10", icon: "⭐", name: "Rising Star", desc: "Reach Level 10", check: (p) => p.level >= 10 },
+      { id: "conversation_ace", icon: "💬", name: "Conversation Ace", desc: "Complete 10 AI conversations", check: (p) => p.stats.conversationsCompleted >= 10 },
+      { id: "dedication", icon: "🏆", name: "Dedicated Learner", desc: "Practice for 60+ minutes total", check: (p) => p.stats.practiceMinutes >= 60 },
+    ],
+    jp: [
+      { id: "first_practice", icon: "🎯", name: "最初の一歩", desc: "最初の練習ゲームを完了", check: (p) => p.stats.gamesPlayed >= 1 },
+      { id: "name_master", icon: "🎙️", name: "名前マスター", desc: "100個のバイヤー名を読む", check: (p) => p.stats.namesRead >= 100 },
+      { id: "speed_demon", icon: "⚡", name: "スピードデーモン", desc: "スピードオークションで400+スコア", check: (p) => p.achievements.includes("speed_400") },
+      { id: "condition_pro", icon: "🔍", name: "コンディションプロ", desc: "30個のアイテムを正確に説明", check: (p) => p.stats.conditionsDescribed >= 30 },
+      { id: "ai_graduate", icon: "🤖", name: "AI卒業生", desc: "4つのAIトレーニングモードすべて完了", check: (p) => p.achievements.includes("ai_all_complete") },
+      { id: "week_warrior", icon: "🔥", name: "週間ウォリアー", desc: "7日間ストリーク維持", check: (p) => p.streak >= 7 },
+      { id: "seller_pro", icon: "💼", name: "セラープロ", desc: "シミュレーションで20+アイテム販売", check: (p) => p.stats.itemsSold >= 20 },
+      { id: "level_10", icon: "⭐", name: "ライジングスター", desc: "レベル10到達", check: (p) => p.level >= 10 },
+      { id: "conversation_ace", icon: "💬", name: "会話エース", desc: "AI会話を10回完了", check: (p) => p.stats.conversationsCompleted >= 10 },
+      { id: "dedication", icon: "🏆", name: "献身的な学習者", desc: "合計60分以上練習", check: (p) => p.stats.practiceMinutes >= 60 },
+    ]
+  };
+
   const tabs = lang==="en" ? ["Home","Brands","Framework","Policy","Content Types","Vocab","Practice"] : ["ホーム","ブランド","フレームワーク","ポリシー","コンテンツ","用語集","練習"];
   const icons = ["🏠","👜","📡","🌐","🎬","💬","🎯"];
 
+  // Check for newly earned badges
+  const checkBadges = (updatedPlayerData) => {
+    const badges = BADGES[lang];
+    const earnedBadges = badges.filter(b => b.check(updatedPlayerData) && !updatedPlayerData.badges.includes(b.id));
+
+    if (earnedBadges.length > 0) {
+      const newBadgeIds = earnedBadges.map(b => b.id);
+      const updated = {
+        ...updatedPlayerData,
+        badges: [...updatedPlayerData.badges, ...newBadgeIds]
+      };
+      setPlayerData(updated);
+      localStorage.setItem('ebay-live-player', JSON.stringify(updated));
+
+      // Show badge notification
+      earnedBadges.forEach(badge => {
+        setTimeout(() => {
+          alert(`🎉 ${lang === "en" ? "Badge Earned!" : "バッジ獲得！"}\n\n${badge.icon} ${badge.name}\n${badge.desc}`);
+        }, 500);
+      });
+
+      return updated;
+    }
+    return updatedPlayerData;
+  };
+
   // Update streak on visit
   // XP earning handler
-  const handleXpEarned = (amount) => {
+  const handleXpEarned = (amount, statUpdates = {}) => {
     const newXp = playerData.xp + amount;
     const newLevel = Math.floor(newXp / 100) + 1;
-    const updated = { ...playerData, xp: newXp, level: newLevel };
+    const newStats = { ...playerData.stats };
+
+    // Update stats if provided
+    Object.keys(statUpdates).forEach(key => {
+      if (newStats[key] !== undefined) {
+        newStats[key] += statUpdates[key];
+      }
+    });
+
+    // Always increment games played
+    newStats.gamesPlayed += 1;
+
+    let updated = {
+      ...playerData,
+      xp: newXp,
+      level: newLevel,
+      stats: newStats
+    };
+
+    // Check for newly earned badges
+    updated = checkBadges(updated);
+
     setPlayerData(updated);
     localStorage.setItem('ebay-live-player', JSON.stringify(updated));
   };
@@ -1013,6 +1106,37 @@ function HomeP({ lang, setPage, playerData }) {
   const totalModules = 4;
   const completedCount = Object.values(playerData.modulesCompleted).filter(v => v >= 100).length;
 
+  // Get badge data
+  const BADGES = {
+    en: [
+      { id: "first_practice", icon: "🎯", name: "First Steps", desc: "Complete your first practice game" },
+      { id: "name_master", icon: "🎙️", name: "Name Master", desc: "Read 100 buyer names" },
+      { id: "speed_demon", icon: "⚡", name: "Speed Demon", desc: "Score 400+ in Speed Auction" },
+      { id: "condition_pro", icon: "🔍", name: "Condition Pro", desc: "Describe 30 items accurately" },
+      { id: "ai_graduate", icon: "🤖", name: "AI Graduate", desc: "Complete all 4 AI modes" },
+      { id: "week_warrior", icon: "🔥", name: "Week Warrior", desc: "7-day streak" },
+      { id: "seller_pro", icon: "💼", name: "Seller Pro", desc: "Sell 20+ items" },
+      { id: "level_10", icon: "⭐", name: "Rising Star", desc: "Reach Level 10" },
+      { id: "conversation_ace", icon: "💬", name: "Conversation Ace", desc: "10 AI conversations" },
+      { id: "dedication", icon: "🏆", name: "Dedicated", desc: "60+ min practice" },
+    ],
+    jp: [
+      { id: "first_practice", icon: "🎯", name: "最初の一歩", desc: "最初の練習完了" },
+      { id: "name_master", icon: "🎙️", name: "名前マスター", desc: "100個の名前を読む" },
+      { id: "speed_demon", icon: "⚡", name: "スピードデーモン", desc: "400+スコア" },
+      { id: "condition_pro", icon: "🔍", name: "コンディションプロ", desc: "30個正確説明" },
+      { id: "ai_graduate", icon: "🤖", name: "AI卒業生", desc: "AI4モード完了" },
+      { id: "week_warrior", icon: "🔥", name: "週間ウォリアー", desc: "7日連続" },
+      { id: "seller_pro", icon: "💼", name: "セラープロ", desc: "20+販売" },
+      { id: "level_10", icon: "⭐", name: "ライジングスター", desc: "レベル10" },
+      { id: "conversation_ace", icon: "💬", name: "会話エース", desc: "10回会話" },
+      { id: "dedication", icon: "🏆", name: "献身的", desc: "60分以上" },
+    ]
+  };
+
+  const earnedBadges = BADGES[lang].filter(b => (playerData.badges || []).includes(b.id));
+  const availableBadges = BADGES[lang].filter(b => !(playerData.badges || []).includes(b.id));
+
   const dailyChallenges = [
     { en: "Practice 5 condition descriptions in under 30 seconds", jp: "30秒以内に5つのコンディション説明を練習" },
     { en: "Read 10 buyer names without hesitation", jp: "10人のバイヤー名を迷わず読む" },
@@ -1053,6 +1177,72 @@ function HomeP({ lang, setPage, playerData }) {
           </div>
         </div>
       </div>
+
+      {/* Badges Section */}
+      {earnedBadges.length > 0 && (
+        <div style={{ background:"#FFFFFF", border:"2px solid #86B817", borderRadius:12, padding:"24px", marginBottom:24 }}>
+          <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:16 }}>
+            🏆 {lang==="en"?"Your Badges":"あなたのバッジ"} ({earnedBadges.length}/{BADGES[lang].length})
+          </div>
+          <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+            {earnedBadges.map((badge, i) => (
+              <div
+                key={i}
+                title={badge.desc}
+                style={{
+                  background:"linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%)",
+                  border:"2px solid #86B817",
+                  borderRadius:12,
+                  padding:"12px 16px",
+                  display:"flex",
+                  alignItems:"center",
+                  gap:8,
+                  cursor:"help"
+                }}
+              >
+                <span style={{ fontSize:24 }}>{badge.icon}</span>
+                <div>
+                  <div style={{ fontSize:14, fontWeight:700, color:"#191919" }}>{badge.name}</div>
+                  <div style={{ fontSize:12, color:"#6B7280" }}>{badge.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Stats Overview */}
+      {playerData.stats && (
+        <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"24px", marginBottom:24 }}>
+          <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:16 }}>
+            📊 {lang==="en"?"Your Progress":"あなたの進捗"}
+          </div>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(150px, 1fr))", gap:12 }}>
+            {[
+              { icon: "🎮", label: lang==="en"?"Games Played":"ゲームプレイ", value: playerData.stats.gamesPlayed || 0 },
+              { icon: "🎙️", label: lang==="en"?"Names Read":"名前読み", value: playerData.stats.namesRead || 0 },
+              { icon: "🔍", label: lang==="en"?"Items Described":"説明済み", value: playerData.stats.conditionsDescribed || 0 },
+              { icon: "💬", label: lang==="en"?"Conversations":"会話回数", value: playerData.stats.conversationsCompleted || 0 },
+              { icon: "💼", label: lang==="en"?"Items Sold":"販売済み", value: playerData.stats.itemsSold || 0 },
+              { icon: "⏱️", label: lang==="en"?"Minutes":"分", value: playerData.stats.practiceMinutes || 0 },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                style={{
+                  background:"#F7F7F7",
+                  borderRadius:8,
+                  padding:"12px",
+                  textAlign:"center"
+                }}
+              >
+                <div style={{ fontSize:24, marginBottom:4 }}>{stat.icon}</div>
+                <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:2 }}>{stat.value}</div>
+                <div style={{ fontSize:12, color:"#6B7280" }}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Today's Challenge */}
       <div style={{ background:"#FFFFFF", border:"2px solid #3665F3", borderRadius:12, padding:"24px", marginBottom:24 }}>
