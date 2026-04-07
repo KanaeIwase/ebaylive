@@ -826,11 +826,18 @@ export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState(() => {
     const hash = window.location.hash.slice(1);
-    // Support both old numeric pages and new string-based pages
-    if (!hash || hash === "" || hash === "NaN") return 0;
+    // If hash is invalid, clear it and return 0
+    if (!hash || hash === "" || hash === "NaN" || hash === "null" || hash === "undefined") {
+      window.location.hash = "";
+      return 0;
+    }
     // Try to parse as number for old numeric routes
     const num = parseInt(hash, 10);
-    return isNaN(num) ? hash : num;
+    if (isNaN(num)) {
+      // It's a string page ID like "brand-lv"
+      return hash;
+    }
+    return num;
   });
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [expandedSections, setExpandedSections] = useState({ knowledge: true, practice: false, ai: false, progress: false });
@@ -1175,8 +1182,19 @@ export default function App() {
 
   // Update URL hash when page changes
   useEffect(() => {
-    if (page !== null && page !== undefined && !(typeof page === 'number' && isNaN(page))) {
-      window.location.hash = String(page);
+    // Only update hash if page is valid
+    if (page === null || page === undefined) {
+      window.location.hash = "0";
+      return;
+    }
+    if (typeof page === 'number' && isNaN(page)) {
+      window.location.hash = "0";
+      return;
+    }
+    // Valid page - update hash
+    const hashValue = page === 0 ? "" : String(page);
+    if (window.location.hash.slice(1) !== hashValue) {
+      window.location.hash = hashValue;
     }
   }, [page]);
 
@@ -1199,7 +1217,13 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (hash) setPage(parseInt(hash));
+      if (!hash || hash === "" || hash === "NaN" || hash === "null") {
+        setPage(0);
+        return;
+      }
+      // Try to parse as number, otherwise use as string
+      const num = parseInt(hash, 10);
+      setPage(isNaN(num) ? hash : num);
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
