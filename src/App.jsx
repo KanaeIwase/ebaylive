@@ -827,9 +827,9 @@ export default function App() {
   const [page, setPage] = useState(() => {
     const hash = window.location.hash.slice(1);
     // Support both old numeric pages and new string-based pages
-    if (!hash || hash === "") return 0;
+    if (!hash || hash === "" || hash === "NaN") return 0;
     // Try to parse as number for old numeric routes
-    const num = parseInt(hash);
+    const num = parseInt(hash, 10);
     return isNaN(num) ? hash : num;
   });
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -1175,8 +1175,8 @@ export default function App() {
 
   // Update URL hash when page changes
   useEffect(() => {
-    if (page !== null && page !== undefined) {
-      window.location.hash = page;
+    if (page !== null && page !== undefined && !(typeof page === 'number' && isNaN(page))) {
+      window.location.hash = String(page);
     }
   }, [page]);
 
@@ -1502,9 +1502,9 @@ export default function App() {
           {(() => {
             console.log("Current page:", page, "Type:", typeof page);
 
-            // Handle null/undefined - default to home
-            if (page === null || page === undefined) {
-              console.log("Rendering Home (null/undefined)");
+            // Handle null/undefined/NaN - default to home
+            if (page === null || page === undefined || (typeof page === 'number' && isNaN(page))) {
+              console.log("Rendering Home (null/undefined/NaN)");
               return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
             }
 
