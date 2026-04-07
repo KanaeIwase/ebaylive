@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { simulateLiveStreamBuyer, isAPIConfigured, evaluateConditionDescription, chatAsBuyer, rephraseJapaneseToEnglish } from "./services/anthropic";
 
 /* ═══ LIVE STREAMING KNOWLEDGE (eBay Live Best Practices) ═══ */
 const LIVE_KB = {
@@ -4258,6 +4259,1237 @@ function DragDropMatching({ lang, onComplete }) {
   }
 }
 
+/* ═══ AI LIVE STREAM SIMULATOR ═══ */
+function AILiveStreamSimulator({ lang, onComplete }) {
+  const [gameState, setGameState] = useState("setup"); // setup, streaming, results
+  const [currentItem, setCurrentItem] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [inputText, setInputText] = useState("");
+  const [isAITyping, setIsAITyping] = useState(false);
+  const [score, setScore] = useState(0);
+  const [buyerInterest, setBuyerInterest] = useState(50); // 0-100
+  const messagesEndRef = useRef(null);
+
+  const liveItems = {
+    en: [
+      { name: "Louis Vuitton Speedy 30", condition: "Very Good", issues: ["Corner wear", "Light patina"], price: "$400", image: "👜" },
+      { name: "Chanel Classic Flap", condition: "Excellent", issues: ["Minor hardware scratches"], price: "$3,500", image: "👛" },
+      { name: "Hermès Birkin 35", condition: "Excellent", issues: ["Pristine"], price: "$8,000", image: "💼" },
+    ],
+    jp: [
+      { name: "ルイ・ヴィトン スピーディ30", condition: "Very Good", issues: ["角スレ", "軽いパティーナ"], price: "$400", image: "👜" },
+      { name: "シャネル クラシックフラップ", condition: "Excellent", issues: ["金具に軽い傷"], price: "$3,500", image: "👛" },
+      { name: "エルメス バーキン35", condition: "Excellent", issues: ["美品"], price: "$8,000", image: "💼" },
+    ]
+  };
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const startSimulation = () => {
+    if (!isAPIConfigured()) {
+      alert(lang === "en"
+        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
+        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
+      return;
+    }
+
+    const items = liveItems[lang];
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    setCurrentItem(randomItem);
+    setMessages([
+      {
+        role: "system",
+        content: lang === "en"
+          ? `🎥 Stream started! You're selling: ${randomItem.name}. Welcome buyers and start describing the item!`
+          : `🎥 配信開始！販売中: ${randomItem.name}。バイヤーを歓迎してアイテムの説明を始めましょう！`,
+        timestamp: new Date().toLocaleTimeString()
+      }
+    ]);
+    setBuyerInterest(50);
+    setScore(0);
+    setGameState("streaming");
+
+    // AI sends first buyer message after 2 seconds
+    setTimeout(() => {
+      sendAIBuyerMessage(randomItem, []);
+    }, 2000);
+  };
+
+  const sendAIBuyerMessage = async (item, conversationHistory) => {
+    setIsAITyping(true);
+
+    const context = {
+      messages: [
+        {
+          role: "user",
+          content: `You are a buyer in an eBay Live stream. The seller is showing: ${item.name} (${item.condition} condition).
+
+Issues visible: ${item.issues.join(", ")}
+Price: ${item.price}
+
+Conversation so far:
+${conversationHistory.map(m => `${m.role}: ${m.content}`).join("\n")}
+
+Send a SHORT buyer message (1-2 sentences). Ask about condition, price, authenticity, or show interest if seller answered well.`
+        }
+      ]
+    };
+
+    try {
+      let aiMessage = "";
+      await simulateLiveStreamBuyer(context, (chunk) => {
+        aiMessage += chunk;
+      });
+
+      setIsAITyping(false);
+
+      const newMessage = {
+        role: "buyer",
+        name: ["luxury_hunter", "chanel_collector", "resale_pro", "bagaholic"][Math.floor(Math.random() * 4)],
+        content: aiMessage,
+        timestamp: new Date().toLocaleTimeString()
+      };
+
+      setMessages(prev => [...prev, newMessage]);
+
+      // Update buyer interest based on message sentiment
+      if (aiMessage.toLowerCase().includes("sold") || aiMessage.toLowerCase().includes("love")) {
+        setBuyerInterest(prev => Math.min(100, prev + 15));
+        setScore(prev => prev + 20);
+      }
+
+    } catch (error) {
+      setIsAITyping(false);
+      console.error("AI buyer error:", error);
+      setMessages(prev => [...prev, {
+        role: "system",
+        content: "⚠️ " + (lang === "en" ? "AI buyer disconnected" : "AIバイヤー切断"),
+        timestamp: new Date().toLocaleTimeString()
+      }]);
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (!inputText.trim() || isAITyping) return;
+
+    const newMessage = {
+      role: "seller",
+      content: inputText,
+      timestamp: new Date().toLocaleTimeString()
+    };
+
+    setMessages(prev => [...prev, newMessage]);
+    setInputText("");
+
+    // Evaluate seller's message
+    const lowerMessage = inputText.toLowerCase();
+    if (lowerMessage.includes("corner") || lowerMessage.includes("patina") || lowerMessage.includes("scratch")) {
+      setBuyerInterest(prev => Math.min(100, prev + 10));
+      setScore(prev => prev + 10);
+    }
+
+    // AI responds after short delay
+    setTimeout(() => {
+      sendAIBuyerMessage(currentItem, [...messages, newMessage]);
+    }, 1500);
+  };
+
+  const handleEndStream = () => {
+    setGameState("results");
+    if (onComplete) onComplete(score);
+  };
+
+  if (!isAPIConfigured() && gameState === "setup") {
+    return (
+      <div style={{ background:"#FEF2F2", borderRadius:16, padding:32, border:"2px solid #E53238" }}>
+        <div style={{ fontSize:48, marginBottom:16, textAlign:"center" }}>⚠️</div>
+        <h3 style={{ fontSize:20, fontWeight:700, color:"#E53238", marginBottom:12, textAlign:"center" }}>
+          {lang === "en" ? "API Key Required" : "APIキーが必要"}
+        </h3>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, textAlign:"center", marginBottom:16 }}>
+          {lang === "en"
+            ? "This AI feature requires an Anthropic API key. Please add VITE_ANTHROPIC_API_KEY to your .env file."
+            : "このAI機能にはAnthropic APIキーが必要です。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。"}
+        </p>
+        <div style={{ background:"#FFFFFF", borderRadius:8, padding:16, fontSize:14, fontFamily:"monospace", color:"#191919" }}>
+          VITE_ANTHROPIC_API_KEY=sk-ant-...
+        </div>
+      </div>
+    );
+  }
+
+  if (gameState === "setup") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>🎥</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "AI Live Stream Simulator" : "AIライブ配信シミュレーター"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
+          {lang === "en"
+            ? "Practice a REAL live stream! AI simulates actual buyers asking questions. Describe the item, answer questions, and make the sale. This is as close to the real thing as it gets!"
+            : "リアルなライブ配信を練習！AIが実際のバイヤーを模擬して質問します。アイテムを説明し、質問に答え、販売しましょう。本物に最も近い体験！"}
+        </p>
+        <div style={{
+          background:"#F7F7F7",
+          borderRadius:12,
+          padding:20,
+          marginBottom:24,
+          maxWidth:450,
+          margin:"0 auto 24px"
+        }}>
+          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600 }}>
+            {lang === "en" ? "You'll Practice:" : "練習内容："}
+          </div>
+          <div style={{ fontSize:14, color:"#191919", lineHeight:1.8, textAlign:"left" }}>
+            ✓ {lang === "en" ? "Greeting buyers naturally" : "バイヤーへの自然な挨拶"}<br />
+            ✓ {lang === "en" ? "Describing condition accurately" : "状態の正確な説明"}<br />
+            ✓ {lang === "en" ? "Answering tough questions" : "難しい質問への回答"}<br />
+            ✓ {lang === "en" ? "Building buyer confidence" : "バイヤーの信頼構築"}<br />
+            ✓ {lang === "en" ? "Closing the sale" : "販売のクロージング"}
+          </div>
+        </div>
+        <button
+          onClick={startSimulation}
+          style={{
+            background:"#E53238",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 48px",
+            fontSize:20,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "🔴 Go Live!" : "🔴 配信開始！"}
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === "streaming") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:24, border:"2px solid #E5E7EB", animation:"fu 0.4s ease", maxWidth:800, margin:"0 auto" }}>
+        {/* Header */}
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:16, paddingBottom:16, borderBottom:"2px solid #E5E7EB" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+            <div style={{
+              width:12,
+              height:12,
+              borderRadius:"50%",
+              background:"#E53238",
+              animation:"pulse 1s infinite"
+            }}></div>
+            <span style={{ fontSize:16, fontWeight:700, color:"#191919" }}>
+              {lang === "en" ? "🔴 LIVE" : "🔴 配信中"}
+            </span>
+          </div>
+          <div style={{ display:"flex", gap:16, alignItems:"center" }}>
+            <div style={{ fontSize:14, color:"#9CA3AF" }}>
+              {lang === "en" ? "Interest:" : "興味度:"} <span style={{ color: buyerInterest > 70 ? "#86B817" : buyerInterest > 40 ? "#F5AF02" : "#E53238", fontWeight:700 }}>{buyerInterest}%</span>
+            </div>
+            <div style={{ fontSize:14, color:"#9CA3AF" }}>
+              {lang === "en" ? "Score:" : "スコア:"} <span style={{ color:"#3665F3", fontWeight:700 }}>{score}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Item Display */}
+        {currentItem && (
+          <div style={{
+            background:"#F7F7F7",
+            borderRadius:12,
+            padding:16,
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:16
+          }}>
+            <div style={{ fontSize:48 }}>{currentItem.image}</div>
+            <div style={{ flex:1 }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>
+                {currentItem.name}
+              </div>
+              <div style={{ fontSize:14, color:"#9CA3AF" }}>
+                {currentItem.condition} • {currentItem.price}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Chat Messages */}
+        <div style={{
+          background:"#F7F7F7",
+          borderRadius:12,
+          padding:16,
+          height:350,
+          overflowY:"auto",
+          marginBottom:16
+        }}>
+          {messages.map((msg, i) => (
+            <div key={i} style={{
+              marginBottom:12,
+              display:"flex",
+              flexDirection:"column",
+              alignItems: msg.role === "seller" ? "flex-end" : "flex-start"
+            }}>
+              {msg.role === "system" ? (
+                <div style={{
+                  background:"#EFF6FF",
+                  border:"1px solid #3665F3",
+                  borderRadius:8,
+                  padding:"8px 12px",
+                  fontSize:14,
+                  color:"#3665F3",
+                  fontStyle:"italic",
+                  maxWidth:"90%",
+                  textAlign:"center",
+                  margin:"0 auto"
+                }}>
+                  {msg.content}
+                </div>
+              ) : (
+                <div style={{
+                  maxWidth:"75%",
+                  display:"flex",
+                  flexDirection:"column",
+                  alignItems: msg.role === "seller" ? "flex-end" : "flex-start"
+                }}>
+                  {msg.name && (
+                    <div style={{ fontSize:12, color:"#9CA3AF", marginBottom:4, fontWeight:600 }}>
+                      {msg.name}
+                    </div>
+                  )}
+                  <div style={{
+                    background: msg.role === "seller" ? "#3665F3" : "#FFFFFF",
+                    color: msg.role === "seller" ? "#FFFFFF" : "#191919",
+                    borderRadius:12,
+                    padding:"10px 14px",
+                    fontSize:15,
+                    lineHeight:1.5,
+                    border: msg.role === "buyer" ? "1px solid #E5E7EB" : "none"
+                  }}>
+                    {msg.content}
+                  </div>
+                  <div style={{ fontSize:11, color:"#9CA3AF", marginTop:4 }}>
+                    {msg.timestamp}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+          {isAITyping && (
+            <div style={{
+              background:"#FFFFFF",
+              border:"1px solid #E5E7EB",
+              borderRadius:12,
+              padding:"10px 14px",
+              fontSize:15,
+              maxWidth:"75%",
+              color:"#9CA3AF",
+              fontStyle:"italic"
+            }}>
+              {lang === "en" ? "Buyer is typing..." : "バイヤーが入力中..."}
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Input */}
+        <div style={{ display:"flex", gap:12, marginBottom:12 }}>
+          <input
+            type="text"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+            placeholder={lang === "en" ? "Type your message to buyers..." : "バイヤーへのメッセージを入力..."}
+            disabled={isAITyping}
+            style={{
+              flex:1,
+              padding:"12px 16px",
+              borderRadius:12,
+              border:"2px solid #E5E7EB",
+              fontSize:15,
+              outline:"none",
+              fontFamily:"inherit"
+            }}
+          />
+          <button
+            onClick={handleSendMessage}
+            disabled={!inputText.trim() || isAITyping}
+            style={{
+              background: !inputText.trim() || isAITyping ? "#E5E7EB" : "#3665F3",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"12px 24px",
+              fontSize:16,
+              fontWeight:700,
+              cursor: !inputText.trim() || isAITyping ? "not-allowed" : "pointer",
+              transition:"all 0.2s"
+            }}
+          >
+            {lang === "en" ? "Send" : "送信"}
+          </button>
+        </div>
+
+        <button
+          onClick={handleEndStream}
+          style={{
+            width:"100%",
+            background:"#F7F7F7",
+            color:"#E53238",
+            border:"2px solid #E53238",
+            borderRadius:12,
+            padding:"12px",
+            fontSize:16,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.background = "#FEF2F2"}
+          onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+        >
+          {lang === "en" ? "⏹️ End Stream" : "⏹️ 配信終了"}
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === "results") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>
+          {buyerInterest >= 70 ? "🎉" : buyerInterest >= 40 ? "💪" : "📚"}
+        </div>
+        <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang === "en" ? "Stream Ended!" : "配信終了！"}
+        </h2>
+
+        <div style={{
+          background:"linear-gradient(135deg, #E53238 0%, #F5AF02 100%)",
+          borderRadius:12,
+          padding:24,
+          marginBottom:24,
+          color:"#FFFFFF"
+        }}>
+          <div style={{ fontSize:16, marginBottom:8, opacity:0.9 }}>
+            {lang === "en" ? "Final Score" : "最終スコア"}
+          </div>
+          <div style={{ fontSize:48, fontWeight:700 }}>{score}</div>
+          <div style={{ fontSize:14, marginTop:8, opacity:0.8 }}>
+            {lang === "en" ? "Buyer Interest:" : "バイヤー興味度:"} {buyerInterest}%
+          </div>
+        </div>
+
+        <div style={{
+          background: buyerInterest >= 70 ? "#ECFDF5" : buyerInterest >= 40 ? "#EFF6FF" : "#FEF3C7",
+          padding:"16px 24px",
+          borderRadius:12,
+          marginBottom:24,
+          border:`2px solid ${buyerInterest >= 70 ? "#86B817" : buyerInterest >= 40 ? "#3665F3" : "#F5AF02"}`
+        }}>
+          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0 }}>
+            {buyerInterest >= 70
+              ? (lang === "en" ? "🌟 Excellent! Buyers were engaged and interested!" : "🌟 素晴らしい！バイヤーは関心を持ちました！")
+              : buyerInterest >= 40
+              ? (lang === "en" ? "💪 Good work! Keep practicing detailed descriptions!" : "💪 よくできました！詳細な説明を練習し続けて！")
+              : (lang === "en" ? "📚 Keep practicing! Focus on being specific about condition!" : "📚 練習を続けよう！状態の具体的な説明に集中！")}
+          </p>
+        </div>
+
+        <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
+          <button
+            onClick={startSimulation}
+            style={{
+              background:"#E53238",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+          >
+            {lang === "en" ? "🔄 Stream Again" : "🔄 もう一度配信"}
+          </button>
+          <button
+            onClick={() => setGameState("setup")}
+            style={{
+              background:"#F7F7F7",
+              color:"#191919",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
+            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+          >
+            {lang === "en" ? "← Back" : "← 戻る"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+/* ═══ AI CONDITION DESCRIBER ═══ */
+function AIConditionDescriber({ lang, onComplete }) {
+  const [gameState, setGameState] = useState("ready");
+  const [currentItem, setCurrentItem] = useState(null);
+  const [userDescription, setUserDescription] = useState("");
+  const [evaluation, setEvaluation] = useState(null);
+  const [isEvaluating, setIsEvaluating] = useState(false);
+
+  const practiceItems = {
+    en: [
+      {
+        item: "Louis Vuitton Speedy 30",
+        image: "👜",
+        issues: ["Corner wear on all four corners", "Light patina on handles", "Interior clean", "Hardware shows minor tarnish"],
+        correctCondition: "Very Good"
+      },
+      {
+        item: "Chanel Classic Flap",
+        image: "👛",
+        issues: ["Quilting intact", "Chain shows light scratches", "Turnlock slightly loose", "Minor scuffing on back"],
+        correctCondition: "Good"
+      },
+      {
+        item: "Hermès Birkin 35",
+        image: "💼",
+        issues: ["Pristine clemence leather", "Hardware unscratched", "Sangles never used", "Includes clochette, lock, keys"],
+        correctCondition: "Excellent"
+      }
+    ],
+    jp: [
+      {
+        item: "ルイ・ヴィトン スピーディ30",
+        image: "👜",
+        issues: ["4つ角すべてにスレ", "ハンドルに軽いパティーナ", "内側きれい", "金具に軽い変色"],
+        correctCondition: "Very Good"
+      },
+      {
+        item: "シャネル クラシックフラップ",
+        image: "👛",
+        issues: ["キルティング正常", "チェーンに軽い傷", "ターンロック少し緩い", "背面に軽いスレ"],
+        correctCondition: "Good"
+      },
+      {
+        item: "エルメス バーキン35",
+        image: "💼",
+        issues: ["美品クレマンスレザー", "金具無傷", "サングル未使用", "クロシェット・鍵付き"],
+        correctCondition: "Excellent"
+      }
+    ]
+  };
+
+  const startPractice = () => {
+    if (!isAPIConfigured()) {
+      alert(lang === "en"
+        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
+        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
+      return;
+    }
+
+    const items = practiceItems[lang];
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    setCurrentItem(randomItem);
+    setUserDescription("");
+    setEvaluation(null);
+    setGameState("describing");
+  };
+
+  const handleEvaluate = async () => {
+    if (!userDescription.trim()) return;
+
+    setIsEvaluating(true);
+
+    try {
+      const result = await evaluateConditionDescription(currentItem, userDescription);
+      setEvaluation(result);
+      setGameState("results");
+
+      // Award XP based on score
+      const xp = result.score === "Excellent" ? 50 : result.score === "Good" ? 30 : 15;
+      if (onComplete) onComplete(xp);
+
+    } catch (error) {
+      console.error("Evaluation error:", error);
+      alert(lang === "en"
+        ? "AI evaluation failed. Please try again."
+        : "AI評価に失敗しました。もう一度お試しください。");
+    } finally {
+      setIsEvaluating(false);
+    }
+  };
+
+  if (gameState === "ready") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>🔍</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "AI Condition Describer" : "AIコンディション説明評価"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
+          {lang === "en"
+            ? "You'll see a luxury item with visible issues. Describe its condition in English as if you're on a live stream. AI will evaluate if your description is detailed enough to prevent INAD returns!"
+            : "目に見える問題のある高級品が表示されます。ライブ配信で話すように英語で状態を説明してください。AIがINAD返品を防ぐのに十分詳細かどうかを評価します！"}
+        </p>
+        <button
+          onClick={startPractice}
+          style={{
+            background:"#F5AF02",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 48px",
+            fontSize:20,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "📝 Start Practice" : "📝 練習開始"}
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === "describing") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <h3 style={{ fontSize:22, fontWeight:700, color:"#191919", marginBottom:20 }}>
+          {lang === "en" ? "Describe This Item" : "このアイテムを説明"}
+        </h3>
+
+        {/* Item Card */}
+        <div style={{
+          background:"#F7F7F7",
+          borderRadius:12,
+          padding:24,
+          marginBottom:24,
+          border:"2px solid #E5E7EB"
+        }}>
+          <div style={{ fontSize:64, textAlign:"center", marginBottom:16 }}>{currentItem.image}</div>
+          <h4 style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16, textAlign:"center" }}>
+            {currentItem.item}
+          </h4>
+
+          <div style={{
+            background:"#FFFFFF",
+            borderRadius:8,
+            padding:16,
+            marginBottom:12
+          }}>
+            <div style={{ fontSize:14, color:"#E53238", fontWeight:700, marginBottom:8, textTransform:"uppercase", letterSpacing:1 }}>
+              {lang === "en" ? "Visible Issues:" : "目に見える問題："}
+            </div>
+            <ul style={{ margin:0, paddingLeft:20, fontSize:15, lineHeight:1.8, color:"#191919" }}>
+              {currentItem.issues.map((issue, i) => (
+                <li key={i}>{issue}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div style={{
+            background:"#EFF6FF",
+            border:"1px solid #3665F3",
+            borderRadius:8,
+            padding:12,
+            fontSize:14,
+            color:"#3665F3"
+          }}>
+            <strong>{lang === "en" ? "Correct Condition:" : "正しい状態："}</strong> {currentItem.correctCondition}
+          </div>
+        </div>
+
+        {/* Description Input */}
+        <div style={{ marginBottom:24 }}>
+          <label style={{ display:"block", fontSize:16, fontWeight:700, color:"#191919", marginBottom:8 }}>
+            {lang === "en" ? "Your Description (in English):" : "あなたの説明（英語で）："}
+          </label>
+          <textarea
+            value={userDescription}
+            onChange={(e) => setUserDescription(e.target.value)}
+            placeholder={lang === "en"
+              ? "Example: This Louis Vuitton Speedy 30 is in very good condition. All four corners show wear from use. The vachetta handles have light patina. The interior is clean with no stains. Hardware shows minor tarnish but fully functional."
+              : "例：This Louis Vuitton Speedy 30 is in very good condition. All four corners show wear from use. The vachetta handles have light patina. The interior is clean with no stains. Hardware shows minor tarnish but fully functional."}
+            disabled={isEvaluating}
+            style={{
+              width:"100%",
+              minHeight:150,
+              padding:"12px 16px",
+              borderRadius:12,
+              border:"2px solid #E5E7EB",
+              fontSize:15,
+              lineHeight:1.6,
+              outline:"none",
+              fontFamily:"inherit",
+              resize:"vertical"
+            }}
+          />
+        </div>
+
+        <button
+          onClick={handleEvaluate}
+          disabled={!userDescription.trim() || isEvaluating}
+          style={{
+            width:"100%",
+            background: !userDescription.trim() || isEvaluating ? "#E5E7EB" : "#F5AF02",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px",
+            fontSize:18,
+            fontWeight:700,
+            cursor: !userDescription.trim() || isEvaluating ? "not-allowed" : "pointer",
+            transition:"all 0.2s"
+          }}
+        >
+          {isEvaluating
+            ? (lang === "en" ? "🤖 AI is evaluating..." : "🤖 AI評価中...")
+            : (lang === "en" ? "✨ Get AI Feedback" : "✨ AIフィードバック取得")}
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === "results" && evaluation) {
+    const scoreColor = evaluation.score === "Excellent" ? "#86B817" : evaluation.score === "Good" ? "#3665F3" : "#F5AF02";
+    const scoreBg = evaluation.score === "Excellent" ? "#ECFDF5" : evaluation.score === "Good" ? "#EFF6FF" : "#FEF3C7";
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ textAlign:"center", marginBottom:24 }}>
+          <div style={{ fontSize:64, marginBottom:12 }}>
+            {evaluation.score === "Excellent" ? "🌟" : evaluation.score === "Good" ? "💪" : "📚"}
+          </div>
+          <div style={{
+            background:scoreBg,
+            border:`2px solid ${scoreColor}`,
+            borderRadius:12,
+            padding:"12px 24px",
+            display:"inline-block",
+            fontSize:20,
+            fontWeight:700,
+            color:scoreColor
+          }}>
+            {lang === "en" ? "Score:" : "スコア:"} {evaluation.score}
+          </div>
+        </div>
+
+        {/* Feedback */}
+        <div style={{
+          background:"#F7F7F7",
+          borderRadius:12,
+          padding:20,
+          marginBottom:16
+        }}>
+          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:600 }}>
+            {lang === "en" ? "AI Feedback:" : "AIフィードバック："}
+          </div>
+          <p style={{ fontSize:16, color:"#191919", lineHeight:1.7, margin:0 }}>
+            {evaluation.feedback}
+          </p>
+        </div>
+
+        {/* Missed Issues */}
+        {evaluation.missed && evaluation.missed.length > 0 && (
+          <div style={{
+            background:"#FEF3C7",
+            border:"2px solid #F5AF02",
+            borderRadius:12,
+            padding:20,
+            marginBottom:16
+          }}>
+            <div style={{ fontSize:14, color:"#F5AF02", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:700 }}>
+              ⚠️ {lang === "en" ? "You Missed:" : "見落とし："}
+            </div>
+            <ul style={{ margin:0, paddingLeft:20, fontSize:15, lineHeight:1.7, color:"#191919" }}>
+              {evaluation.missed.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Model Answer */}
+        {evaluation.modelAnswer && (
+          <div style={{
+            background:"#ECFDF5",
+            border:"2px solid #86B817",
+            borderRadius:12,
+            padding:20,
+            marginBottom:24
+          }}>
+            <div style={{ fontSize:14, color:"#86B817", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:700 }}>
+              ✓ {lang === "en" ? "Model Answer:" : "模範解答："}
+            </div>
+            <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0, fontStyle:"italic" }}>
+              "{evaluation.modelAnswer}"
+            </p>
+          </div>
+        )}
+
+        <div style={{ display:"flex", gap:12 }}>
+          <button
+            onClick={startPractice}
+            style={{
+              flex:1,
+              background:"#F5AF02",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+          >
+            {lang === "en" ? "🔄 Try Another" : "🔄 もう一つ"}
+          </button>
+          <button
+            onClick={() => setGameState("ready")}
+            style={{
+              flex:1,
+              background:"#F7F7F7",
+              color:"#191919",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"16px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
+            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+          >
+            {lang === "en" ? "← Back" : "← 戻る"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+/* ═══ AI CONVERSATION PARTNER ═══ */
+function AIConversationPartner({ lang, onComplete }) {
+  const [conversationHistory, setConversationHistory] = useState([]);
+  const [inputText, setInputText] = useState("");
+  const [isAITyping, setIsAITyping] = useState(false);
+  const [conversationEnded, setConversationEnded] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [conversationHistory]);
+
+  const startConversation = () => {
+    if (!isAPIConfigured()) {
+      alert(lang === "en"
+        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
+        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
+      return;
+    }
+
+    setConversationHistory([
+      {
+        role: "assistant",
+        content: lang === "en"
+          ? "Hi! I'm interested in luxury bags. Do you have anything good today?"
+          : "Hi! I'm interested in luxury bags. Do you have anything good today?",
+        timestamp: new Date().toLocaleTimeString()
+      }
+    ]);
+    setConversationEnded(false);
+  };
+
+  const handleSendMessage = async () => {
+    if (!inputText.trim() || isAITyping) return;
+
+    const userMessage = {
+      role: "user",
+      content: inputText,
+      timestamp: new Date().toLocaleTimeString()
+    };
+
+    const newHistory = [...conversationHistory, userMessage];
+    setConversationHistory(newHistory);
+    setInputText("");
+    setIsAITyping(true);
+
+    try {
+      const messages = newHistory.map(msg => ({
+        role: msg.role,
+        content: msg.content
+      }));
+
+      let aiResponse = "";
+      await chatAsBuyer(messages, (chunk) => {
+        aiResponse += chunk;
+      });
+
+      setIsAITyping(false);
+
+      const aiMessage = {
+        role: "assistant",
+        content: aiResponse,
+        timestamp: new Date().toLocaleTimeString()
+      };
+
+      setConversationHistory(prev => [...prev, aiMessage]);
+
+      // Check if conversation should end (AI gives coaching feedback)
+      if (newHistory.length >= 10 || aiResponse.toLowerCase().includes("coaching") || aiResponse.toLowerCase().includes("feedback")) {
+        setConversationEnded(true);
+        if (onComplete) onComplete(30);
+      }
+
+    } catch (error) {
+      setIsAITyping(false);
+      console.error("AI chat error:", error);
+      alert(lang === "en"
+        ? "AI response failed. Please try again."
+        : "AI応答に失敗しました。もう一度お試しください。");
+    }
+  };
+
+  if (conversationHistory.length === 0) {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>💬</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "AI Conversation Partner" : "AI会話パートナー"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
+          {lang === "en"
+            ? "Practice free-form conversations with an AI buyer! Talk about products, answer questions, handle objections. AI will give you gentle coaching feedback after the conversation."
+            : "AIバイヤーと自由形式の会話を練習！商品について話し、質問に答え、異議に対処。会話後にAIが優しいコーチングフィードバックを提供します。"}
+        </p>
+        <button
+          onClick={startConversation}
+          style={{
+            background:"#3665F3",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 48px",
+            fontSize:20,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "💬 Start Chat" : "💬 チャット開始"}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ background:"#FFFFFF", borderRadius:16, padding:24, border:"2px solid #E5E7EB", animation:"fu 0.4s ease", maxWidth:700, margin:"0 auto" }}>
+      <div style={{ marginBottom:16, paddingBottom:16, borderBottom:"2px solid #E5E7EB" }}>
+        <h3 style={{ fontSize:20, fontWeight:700, color:"#191919", margin:0 }}>
+          {lang === "en" ? "💬 Practice Conversation" : "💬 会話練習"}
+        </h3>
+      </div>
+
+      {/* Chat Messages */}
+      <div style={{
+        background:"#F7F7F7",
+        borderRadius:12,
+        padding:16,
+        height:400,
+        overflowY:"auto",
+        marginBottom:16
+      }}>
+        {conversationHistory.map((msg, i) => (
+          <div key={i} style={{
+            marginBottom:12,
+            display:"flex",
+            flexDirection:"column",
+            alignItems: msg.role === "user" ? "flex-end" : "flex-start"
+          }}>
+            <div style={{
+              maxWidth:"75%",
+              background: msg.role === "user" ? "#3665F3" : "#FFFFFF",
+              color: msg.role === "user" ? "#FFFFFF" : "#191919",
+              borderRadius:12,
+              padding:"10px 14px",
+              fontSize:15,
+              lineHeight:1.5,
+              border: msg.role === "assistant" ? "1px solid #E5E7EB" : "none"
+            }}>
+              {msg.content}
+            </div>
+            <div style={{ fontSize:11, color:"#9CA3AF", marginTop:4 }}>
+              {msg.timestamp}
+            </div>
+          </div>
+        ))}
+        {isAITyping && (
+          <div style={{
+            background:"#FFFFFF",
+            border:"1px solid #E5E7EB",
+            borderRadius:12,
+            padding:"10px 14px",
+            fontSize:15,
+            maxWidth:"75%",
+            color:"#9CA3AF",
+            fontStyle:"italic"
+          }}>
+            {lang === "en" ? "AI is typing..." : "AIが入力中..."}
+          </div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Input */}
+      {!conversationEnded ? (
+        <div style={{ display:"flex", gap:12 }}>
+          <input
+            type="text"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+            placeholder={lang === "en" ? "Type your response..." : "返信を入力..."}
+            disabled={isAITyping}
+            style={{
+              flex:1,
+              padding:"12px 16px",
+              borderRadius:12,
+              border:"2px solid #E5E7EB",
+              fontSize:15,
+              outline:"none",
+              fontFamily:"inherit"
+            }}
+          />
+          <button
+            onClick={handleSendMessage}
+            disabled={!inputText.trim() || isAITyping}
+            style={{
+              background: !inputText.trim() || isAITyping ? "#E5E7EB" : "#3665F3",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"12px 24px",
+              fontSize:16,
+              fontWeight:700,
+              cursor: !inputText.trim() || isAITyping ? "not-allowed" : "pointer"
+            }}
+          >
+            {lang === "en" ? "Send" : "送信"}
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => setConversationHistory([])}
+          style={{
+            width:"100%",
+            background:"#3665F3",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px",
+            fontSize:18,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "🔄 Start New Conversation" : "🔄 新しい会話を開始"}
+        </button>
+      )}
+    </div>
+  );
+}
+
+/* ═══ AI PHRASE REPHRASER ═══ */
+function AIPhraseRephraser({ lang, onComplete }) {
+  const [japaneseInput, setJapaneseInput] = useState("");
+  const [englishVersions, setEnglishVersions] = useState(null);
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [selectedVersion, setSelectedVersion] = useState(null);
+
+  const handleRephrase = async () => {
+    if (!japaneseInput.trim()) return;
+
+    if (!isAPIConfigured()) {
+      alert(lang === "en"
+        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
+        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
+      return;
+    }
+
+    setIsTranslating(true);
+
+    try {
+      const versions = await rephraseJapaneseToEnglish(japaneseInput);
+      setEnglishVersions(versions);
+      setSelectedVersion(null);
+    } catch (error) {
+      console.error("Rephrase error:", error);
+      alert(lang === "en"
+        ? "AI translation failed. Please try again."
+        : "AI翻訳に失敗しました。もう一度お試しください。");
+    } finally {
+      setIsTranslating(false);
+    }
+  };
+
+  const handleSelectVersion = (version) => {
+    setSelectedVersion(version);
+    if (onComplete) onComplete(10);
+  };
+
+  return (
+    <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", maxWidth:700, margin:"0 auto" }}>
+      <div style={{ textAlign:"center", marginBottom:24 }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>🌐</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "AI Phrase Rephraser" : "AIフレーズ変換"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6 }}>
+          {lang === "en"
+            ? "Think in Japanese, speak in English! Type what you want to say in Japanese, and AI will give you 3 natural English versions: formal, casual, and confident."
+            : "日本語で考え、英語で話す！日本語で言いたいことを入力すると、AIが3つの自然な英語バージョンを提供：フォーマル、カジュアル、自信満々。"}
+        </p>
+      </div>
+
+      {/* Japanese Input */}
+      <div style={{ marginBottom:24 }}>
+        <label style={{ display:"block", fontSize:16, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang === "en" ? "What do you want to say? (in Japanese)" : "何を言いたいですか？（日本語で）"}
+        </label>
+        <textarea
+          value={japaneseInput}
+          onChange={(e) => setJapaneseInput(e.target.value)}
+          placeholder={lang === "en"
+            ? "例：このバッグは本当に状態が良いです。角にスレはありますが、全体的にとてもきれいです。"
+            : "例：このバッグは本当に状態が良いです。角にスレはありますが、全体的にとてもきれいです。"}
+          disabled={isTranslating}
+          style={{
+            width:"100%",
+            minHeight:100,
+            padding:"12px 16px",
+            borderRadius:12,
+            border:"2px solid #E5E7EB",
+            fontSize:15,
+            lineHeight:1.6,
+            outline:"none",
+            fontFamily:"inherit",
+            resize:"vertical"
+          }}
+        />
+      </div>
+
+      <button
+        onClick={handleRephrase}
+        disabled={!japaneseInput.trim() || isTranslating}
+        style={{
+          width:"100%",
+          background: !japaneseInput.trim() || isTranslating ? "#E5E7EB" : "#86B817",
+          color:"#FFFFFF",
+          border:"none",
+          borderRadius:12,
+          padding:"16px",
+          fontSize:18,
+          fontWeight:700,
+          cursor: !japaneseInput.trim() || isTranslating ? "not-allowed" : "pointer",
+          marginBottom:24,
+          transition:"all 0.2s"
+        }}
+      >
+        {isTranslating
+          ? (lang === "en" ? "🤖 AI is translating..." : "🤖 AI翻訳中...")
+          : (lang === "en" ? "✨ Get English Versions" : "✨ 英語バージョン取得")}
+      </button>
+
+      {/* English Versions */}
+      {englishVersions && (
+        <div style={{ animation:"fu 0.4s ease" }}>
+          <h3 style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:16 }}>
+            {lang === "en" ? "Choose Your Style:" : "スタイルを選択："}
+          </h3>
+
+          {[
+            { type: "formal", icon: "👔", label: lang === "en" ? "Formal / Professional" : "フォーマル / プロフェッショナル", color: "#3665F3" },
+            { type: "casual", icon: "😊", label: lang === "en" ? "Casual / Friendly" : "カジュアル / フレンドリー", color: "#F5AF02" },
+            { type: "confident", icon: "💪", label: lang === "en" ? "Confident / Salesy" : "自信満々 / セールス", color: "#86B817" }
+          ].map((style) => (
+            <div
+              key={style.type}
+              onClick={() => handleSelectVersion(style.type)}
+              style={{
+                background: selectedVersion === style.type ? `${style.color}15` : "#F7F7F7",
+                border: `2px solid ${selectedVersion === style.type ? style.color : "#E5E7EB"}`,
+                borderRadius:12,
+                padding:20,
+                marginBottom:12,
+                cursor:"pointer",
+                transition:"all 0.2s"
+              }}
+              onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+              onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+            >
+              <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8 }}>
+                <span style={{ fontSize:24 }}>{style.icon}</span>
+                <span style={{ fontSize:16, fontWeight:700, color:style.color }}>{style.label}</span>
+                {selectedVersion === style.type && <span style={{ marginLeft:"auto", fontSize:20 }}>✓</span>}
+              </div>
+              <p style={{ fontSize:15, color:"#191919", lineHeight:1.6, margin:0, fontStyle:"italic" }}>
+                "{englishVersions[style.type]}"
+              </p>
+            </div>
+          ))}
+
+          {selectedVersion && (
+            <div style={{
+              background:"#ECFDF5",
+              border:"2px solid #86B817",
+              borderRadius:12,
+              padding:16,
+              marginTop:16,
+              textAlign:"center"
+            }}>
+              <p style={{ fontSize:16, color:"#86B817", fontWeight:700, margin:0 }}>
+                ✓ {lang === "en"
+                  ? "Great! Now practice saying it out loud 3 times!"
+                  : "素晴らしい！今度は声に出して3回練習しましょう！"}
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ═══ PRACTICE ═══ */
 function PracticeP({ lang, onXpEarned }) {
   const [activeGame, setActiveGame] = useState(null);
@@ -4278,6 +5510,14 @@ function PracticeP({ lang, onXpEarned }) {
       xpEarned = score * 5; // 5 XP per card known
     } else if (gameType === "matching") {
       xpEarned = score * 12; // 12 XP per correct match
+    } else if (gameType === "aiLiveStream") {
+      xpEarned = score; // Direct score from AI simulation
+    } else if (gameType === "aiCondition") {
+      xpEarned = score; // AI assigns XP based on quality
+    } else if (gameType === "aiConversation") {
+      xpEarned = score; // 30 XP for completing conversation
+    } else if (gameType === "aiRephrase") {
+      xpEarned = score; // 10 XP per phrase rephrased
     }
     if (onXpEarned) onXpEarned(xpEarned);
   };
@@ -4457,6 +5697,106 @@ function PracticeP({ lang, onXpEarned }) {
     );
   }
 
+  if (activeGame === "aiLiveStream") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <AILiveStreamSimulator lang={lang} onComplete={(score) => handleGameComplete(score, "aiLiveStream")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "aiCondition") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <AIConditionDescriber lang={lang} onComplete={(score) => handleGameComplete(score, "aiCondition")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "aiConversation") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <AIConversationPartner lang={lang} onComplete={(score) => handleGameComplete(score, "aiConversation")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "aiRephrase") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <AIPhraseRephraser lang={lang} onComplete={(score) => handleGameComplete(score, "aiRephrase")} />
+      </div>
+    );
+  }
+
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
       <div style={{ marginBottom:32 }}>
@@ -4526,6 +5866,38 @@ function PracticeP({ lang, onXpEarned }) {
             d:lang==="en"?"3-minute pre-stream confidence booster":"配信前3分間の自信ブースター",
             c:"#86B817",
             game:"warmup",
+            available:true
+          },
+          {
+            icon:"🤖",
+            t:lang==="en"?"🎥 AI Live Stream Simulator":"🎥 AIライブ配信シミュレーター",
+            d:lang==="en"?"Practice with AI buyers in REAL-TIME - the ultimate training":"AIバイヤーとリアルタイムで練習 - 究極のトレーニング",
+            c:"#E53238",
+            game:"aiLiveStream",
+            available:true
+          },
+          {
+            icon:"🤖",
+            t:lang==="en"?"AI Condition Evaluator":"AIコンディション評価",
+            d:lang==="en"?"Get AI feedback on your condition descriptions":"コンディション説明にAIフィードバック",
+            c:"#F5AF02",
+            game:"aiCondition",
+            available:true
+          },
+          {
+            icon:"🤖",
+            t:lang==="en"?"AI Conversation Partner":"AI会話パートナー",
+            d:lang==="en"?"Free-form chat practice with AI buyer":"AIバイヤーと自由形式チャット練習",
+            c:"#3665F3",
+            game:"aiConversation",
+            available:true
+          },
+          {
+            icon:"🤖",
+            t:lang==="en"?"AI Phrase Translator":"AIフレーズ翻訳",
+            d:lang==="en"?"Japanese → English with 3 style options":"日本語→英語 3スタイルオプション付き",
+            c:"#86B817",
+            game:"aiRephrase",
             available:true
           },
         ].map((m,i)=>(
