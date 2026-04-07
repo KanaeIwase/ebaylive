@@ -826,9 +826,11 @@ export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState(() => {
     const hash = window.location.hash.slice(1);
-    return hash ? parseInt(hash) : 0;
+    // Support both old numeric pages and new string-based pages
+    return hash || 0;
   });
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [expandedSections, setExpandedSections] = useState({ knowledge: true, practice: false, ai: false, progress: false });
   const [playerData, setPlayerData] = useState(() => {
     const saved = localStorage.getItem('ebay-live-player');
     return saved ? JSON.parse(saved) : {
@@ -877,6 +879,118 @@ export default function App() {
       { id: "conversation_ace", icon: "💬", name: "会話エース", desc: "AI会話を10回完了", check: (p) => p.stats.conversationsCompleted >= 10 },
       { id: "dedication", icon: "🏆", name: "献身的な学習者", desc: "合計60分以上練習", check: (p) => p.stats.practiceMinutes >= 60 },
     ]
+  };
+
+  // 3-Layer Navigation Structure
+  const NAV_STRUCTURE = {
+    en: [
+      {
+        id: "home",
+        icon: "🏠",
+        label: "Home",
+        page: 0
+      },
+      {
+        id: "knowledge",
+        icon: "📚",
+        label: "Knowledge Base",
+        children: [
+          {
+            id: "brands",
+            icon: "👜",
+            label: "Brand Knowledge",
+            children: [
+              { label: "Louis Vuitton", page: "brand-lv" },
+              { label: "Chanel", page: "brand-chanel" },
+              { label: "Hermès", page: "brand-hermes" },
+              { label: "Gucci", page: "brand-gucci" },
+              { label: "Prada", page: "brand-prada" },
+              { label: "Dior", page: "brand-dior" },
+              { label: "Cartier", page: "brand-cartier" },
+              { label: "Bulgari", page: "brand-bulgari" }
+            ]
+          },
+          {
+            id: "live",
+            icon: "🎬",
+            label: "Live Selling",
+            children: [
+              { label: "Step 1: Exposure", page: "live-step1" },
+              { label: "Step 2: First Impression", page: "live-step2" },
+              { label: "Step 3: Retention", page: "live-step3" },
+              { label: "Step 4: Engagement", page: "live-step4" },
+              { label: "Step 5: Conversion", page: "live-step5" },
+              { label: "Step 6: Follow-Up", page: "live-step6" }
+            ]
+          },
+          {
+            id: "policy",
+            icon: "📋",
+            label: "eBay Policy",
+            page: "policy"
+          },
+          {
+            id: "vocab",
+            icon: "📖",
+            label: "Vocabulary",
+            children: [
+              { label: "Condition Grading", page: "vocab-0" },
+              { label: "Handbag Structure & Wear", page: "vocab-1" },
+              { label: "Auction Language", page: "vocab-2" },
+              { label: "Luxury Fashion Terms", page: "vocab-3" },
+              { label: "Styling & Presentation", page: "vocab-4" },
+              { label: "Buyer Communication", page: "vocab-5" },
+              { label: "Selling Color & Style", page: "vocab-6" },
+              { label: "Live Commerce Abbreviations", page: "vocab-7" },
+              { label: "Authentication & Verification", page: "vocab-8" },
+              { label: "Luxury Leather Types", page: "vocab-9" },
+              { label: "Bag Anatomy & Parts", page: "vocab-10" },
+              { label: "Live Streaming Energy", page: "vocab-11" },
+              { label: "Damage & Flaw Descriptions", page: "vocab-12" },
+              { label: "Pricing & Negotiation", page: "vocab-13" },
+              { label: "Bag Shapes & Patterns", page: "vocab-14" },
+              { label: "Maintenance & Repair", page: "vocab-15" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "practice",
+        icon: "🎮",
+        label: "Practice Games",
+        children: [
+          { label: "Name Blast", page: "game-nameblast" },
+          { label: "Speed Auction", page: "game-speedauction" },
+          { label: "Condition Description", page: "game-condition" },
+          { label: "Scenario Response", page: "game-scenario" },
+          { label: "Flashcard Mode", page: "game-flashcard" },
+          { label: "Matching Game", page: "game-matching" },
+          { label: "Daily Warm-Up", page: "game-warmup" }
+        ]
+      },
+      {
+        id: "ai",
+        icon: "🤖",
+        label: "AI Practice",
+        children: [
+          { label: "Live Stream Simulator", page: "ai-simulator" },
+          { label: "Condition Evaluator", page: "ai-condition" },
+          { label: "Conversation Partner", page: "ai-conversation" },
+          { label: "Phrase Translator", page: "ai-translator" }
+        ]
+      },
+      {
+        id: "progress",
+        icon: "📊",
+        label: "Progress",
+        children: [
+          { label: "Your Stats", page: "progress-stats" },
+          { label: "Achievements", page: "progress-achievements" },
+          { label: "Confidence Tracker", page: "progress-confidence" }
+        ]
+      }
+    ],
+    jp: [] // Will add Japanese labels later
   };
 
   const tabs = lang==="en" ? ["Home","Brands","6-Step Framework","Stream Formats","eBay Policy","Vocab","Practice"] : ["ホーム","ブランド","6ステップ","配信形式","ポリシー","用語集","練習"];
@@ -1054,13 +1168,174 @@ export default function App() {
             </button>
           </div>
 
-        {/* Nav Items */}
+        {/* Nav Items - 3 Layer Collapsible */}
         <div style={{ flex:1, padding:"12px", overflowY:"auto" }}>
-          {tabs.map((tab,i) => (
-            <button key={i} onClick={()=>setPage(i)} style={{ width:"100%", minHeight:48, padding:"14px 16px", marginBottom:6, borderRadius:10, background:page===i?"#3665F3":"transparent", border:"none", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:page===i?600:500, display:"flex", alignItems:"center", gap:12, color:page===i?"#FFFFFF":"#191919", transition:"all 0.2s", textAlign:"left" }}>
-              <span style={{ fontSize:22 }}>{icons[i]}</span>
-              <span>{tab}</span>
-            </button>
+          {NAV_STRUCTURE.en.map((section) => (
+            <div key={section.id} style={{ marginBottom:8 }}>
+              {/* Level 1: Main Section */}
+              {section.page !== undefined ? (
+                // Simple link (like Home)
+                <button
+                  onClick={() => setPage(section.page)}
+                  style={{
+                    width:"100%",
+                    minHeight:48,
+                    padding:"14px 16px",
+                    borderRadius:10,
+                    background: page===section.page ? "#3665F3" : "transparent",
+                    border:"none",
+                    cursor:"pointer",
+                    fontFamily:"inherit",
+                    fontSize:15,
+                    fontWeight: page===section.page ? 600 : 500,
+                    display:"flex",
+                    alignItems:"center",
+                    gap:12,
+                    color: page===section.page ? "#FFFFFF" : "#191919",
+                    transition:"all 0.2s",
+                    textAlign:"left"
+                  }}
+                >
+                  <span style={{ fontSize:22 }}>{section.icon}</span>
+                  <span>{section.label}</span>
+                </button>
+              ) : (
+                // Collapsible section
+                <>
+                  <button
+                    onClick={() => setExpandedSections({...expandedSections, [section.id]: !expandedSections[section.id]})}
+                    style={{
+                      width:"100%",
+                      minHeight:48,
+                      padding:"14px 16px",
+                      borderRadius:10,
+                      background:"transparent",
+                      border:"none",
+                      cursor:"pointer",
+                      fontFamily:"inherit",
+                      fontSize:15,
+                      fontWeight:600,
+                      display:"flex",
+                      alignItems:"center",
+                      justifyContent:"space-between",
+                      color:"#191919",
+                      transition:"all 0.2s",
+                      textAlign:"left"
+                    }}
+                  >
+                    <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                      <span style={{ fontSize:22 }}>{section.icon}</span>
+                      <span>{section.label}</span>
+                    </div>
+                    <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                      ▶
+                    </span>
+                  </button>
+
+                  {/* Level 2: Sub-sections */}
+                  {expandedSections[section.id] && section.children && (
+                    <div style={{ paddingLeft:12, marginTop:4 }}>
+                      {section.children.map((sub) => (
+                        <div key={sub.id || sub.label} style={{ marginBottom:4 }}>
+                          {sub.page !== undefined ? (
+                            // Simple sub-link
+                            <button
+                              onClick={() => setPage(sub.page)}
+                              style={{
+                                width:"100%",
+                                minHeight:40,
+                                padding:"10px 14px",
+                                borderRadius:8,
+                                background: page===sub.page ? "#EFF6FF" : "transparent",
+                                border: page===sub.page ? "1px solid #3665F3" : "none",
+                                cursor:"pointer",
+                                fontFamily:"inherit",
+                                fontSize:14,
+                                fontWeight: page===sub.page ? 600 : 400,
+                                display:"flex",
+                                alignItems:"center",
+                                gap:10,
+                                color: page===sub.page ? "#3665F3" : "#4B5563",
+                                transition:"all 0.2s",
+                                textAlign:"left"
+                              }}
+                            >
+                              {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
+                              <span>{sub.label}</span>
+                            </button>
+                          ) : (
+                            // Collapsible sub-section (Level 3)
+                            <>
+                              <button
+                                onClick={() => setExpandedSections({...expandedSections, [sub.id]: !expandedSections[sub.id]})}
+                                style={{
+                                  width:"100%",
+                                  minHeight:40,
+                                  padding:"10px 14px",
+                                  borderRadius:8,
+                                  background:"transparent",
+                                  border:"none",
+                                  cursor:"pointer",
+                                  fontFamily:"inherit",
+                                  fontSize:14,
+                                  fontWeight:500,
+                                  display:"flex",
+                                  alignItems:"center",
+                                  justifyContent:"space-between",
+                                  color:"#4B5563",
+                                  transition:"all 0.2s",
+                                  textAlign:"left"
+                                }}
+                              >
+                                <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+                                  {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
+                                  <span>{sub.label}</span>
+                                </div>
+                                <span style={{ fontSize:12, color:"#9CA3AF", transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                                  ▶
+                                </span>
+                              </button>
+
+                              {/* Level 3: Items */}
+                              {expandedSections[sub.id] && sub.children && (
+                                <div style={{ paddingLeft:12, marginTop:4 }}>
+                                  {sub.children.map((item, idx) => (
+                                    <button
+                                      key={idx}
+                                      onClick={() => setPage(item.page)}
+                                      style={{
+                                        width:"100%",
+                                        minHeight:36,
+                                        padding:"8px 12px",
+                                        marginBottom:2,
+                                        borderRadius:6,
+                                        background: page===item.page ? "#EFF6FF" : "transparent",
+                                        border: page===item.page ? "1px solid #3665F3" : "none",
+                                        cursor:"pointer",
+                                        fontFamily:"inherit",
+                                        fontSize:13,
+                                        fontWeight: page===item.page ? 600 : 400,
+                                        display:"flex",
+                                        alignItems:"center",
+                                        color: page===item.page ? "#3665F3" : "#6B7280",
+                                        transition:"all 0.2s",
+                                        textAlign:"left"
+                                      }}
+                                    >
+                                      {item.label}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
           ))}
         </div>
         </div>
@@ -1092,13 +1367,29 @@ export default function App() {
         </div>
 
         <div className="ebay-content" key={`${page}-${lang}`}>
+          {/* Home */}
           {page===0 && <HomeP lang={lang} setPage={setPage} playerData={playerData} />}
-          {page===1 && <FashionP lang={lang} />}
-          {page===2 && <LiveFrameworkP lang={lang} />}
-          {page===3 && <LiveContentTypesP lang={lang} />}
-          {page===4 && <PolicyP lang={lang} />}
-          {page===5 && <EnglishP lang={lang} />}
-          {page===6 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
+
+          {/* Brand Knowledge - All brands go to brand selector for now */}
+          {(page===1 || page==="brand-lv" || page==="brand-chanel" || page==="brand-hermes" || page==="brand-gucci" || page==="brand-prada" || page==="brand-dior" || page==="brand-cartier" || page==="brand-bulgari") && <FashionP lang={lang} />}
+
+          {/* Live Selling - 6 Steps */}
+          {(page===2 || page==="live-step1" || page==="live-step2" || page==="live-step3" || page==="live-step4" || page==="live-step5" || page==="live-step6") && <LiveP lang={lang} />}
+
+          {/* eBay Policy */}
+          {(page===4 || page==="policy") && <PolicyP lang={lang} />}
+
+          {/* Vocabulary - Show category view */}
+          {(page===5 || page?.startsWith?.("vocab-")) && <EnglishP lang={lang} />}
+
+          {/* Practice Games - Show all games */}
+          {(page===6 || page?.startsWith?.("game-")) && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
+
+          {/* AI Practice */}
+          {page?.startsWith?.("ai-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>AI Practice features coming soon...</div>}
+
+          {/* Progress */}
+          {page?.startsWith?.("progress-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>Progress pages coming soon...</div>}
         </div>
       </div>
     </div>
