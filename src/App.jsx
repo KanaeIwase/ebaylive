@@ -1672,9 +1672,76 @@ function LiveFrameworkP({ lang }) {
   return <LiveP lang={lang} initialView="framework" />;
 }
 
-/* ═══ LIVE POLICY WRAPPER ═══ */
+/* ═══ LIVE POLICY (STANDALONE) ═══ */
 function LivePolicyP({ lang }) {
-  return <LiveP lang={lang} initialView="platforms" />;
+  return (
+    <div style={{ animation:"fu 0.4s ease" }}>
+      <div style={{ marginBottom:32 }}>
+        <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang==="en"?"eBay Live Policy & Compliance":"eBay Liveポリシー＆コンプライアンス"}
+        </h1>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, fontWeight:400 }}>
+          {lang==="en"
+            ?"Essential rules and guidelines for eBay Live streaming. Follow these policies to maintain your selling privileges and build trust with buyers."
+            :"eBayライブ配信の必須ルールとガイドライン。販売特権を維持しバイヤーとの信頼を構築するためにこれらのポリシーに従ってください。"}
+        </p>
+      </div>
+
+      {/* Policy Sections */}
+      {LIVE_KB.policy[lang].map((p,i) => (
+        <div key={i} style={{
+          background:"#FFFFFF",
+          borderRadius:12,
+          padding:"24px 28px",
+          marginBottom:16,
+          border:"2px solid #E5E7EB",
+          transition:"all 0.2s"
+        }}
+        onMouseEnter={e => e.currentTarget.style.borderColor = "#E53238"}
+        onMouseLeave={e => e.currentTarget.style.borderColor = "#E5E7EB"}>
+          <div style={{ fontSize:22, fontWeight:700, color:"#191919", marginBottom:16, display:"flex", alignItems:"center", gap:12 }}>
+            <span style={{ fontSize:32 }}>{p.emoji}</span>
+            <span>{p.name}</span>
+          </div>
+          <div style={{ display:"grid", gap:12 }}>
+            {p.points.map((pt,j)=>(
+              <div key={j} style={{
+                fontSize:15,
+                color:"#191919",
+                lineHeight:1.8,
+                paddingLeft:16,
+                borderLeft:"4px solid #E53238",
+                fontWeight:400,
+                background:"#FEF2F2",
+                padding:"12px 16px",
+                borderRadius:8
+              }}>
+                {pt}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* Important Notice */}
+      <div style={{
+        background:"linear-gradient(135deg, #E53238 0%, #F5AF02 100%)",
+        borderRadius:12,
+        padding:"24px 28px",
+        color:"#FFFFFF",
+        marginTop:24
+      }}>
+        <div style={{ fontSize:20, fontWeight:700, marginBottom:12 }}>
+          ⚠️ {lang==="en"?"Important Reminder":"重要な注意事項"}
+        </div>
+        <div style={{ fontSize:15, lineHeight:1.8 }}>
+          {lang==="en"
+            ?"Violating eBay Live policies can result in suspension of live selling privileges or account restrictions. Always prioritize transparency, accuracy, and buyer safety. When in doubt, disclose more rather than less."
+            :"eBay Liveポリシー違反はライブ販売特権の停止またはアカウント制限につながる可能性があります。常に透明性、正確性、バイヤーの安全を優先してください。疑わしい場合は、少なく開示するよりも多く開示してください。"}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 /* ═══ LIVE CONTENT TYPES WRAPPER ═══ */
