@@ -1333,7 +1333,7 @@ export default function App() {
                       <span style={{ fontSize:22 }}>{section.icon}</span>
                       <span>{section.label}</span>
                     </div>
-                    <span style={{ fontSize:16, color:"#9CA3AF", fontWeight:600, transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                    <span style={{ fontSize:18, color:"#6B7280", fontWeight:700, transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
                       ▸
                     </span>
                   </button>
@@ -1356,17 +1356,17 @@ export default function App() {
                                 border: page===sub.page ? "1px solid #3665F3" : "none",
                                 cursor:"pointer",
                                 fontFamily:"inherit",
-                                fontSize:14,
-                                fontWeight: page===sub.page ? 600 : 400,
+                                fontSize:15,
+                                fontWeight: page===sub.page ? 600 : 500,
                                 display:"flex",
                                 alignItems:"center",
                                 gap:10,
-                                color: page===sub.page ? "#3665F3" : "#4B5563",
+                                color: page===sub.page ? "#3665F3" : "#191919",
                                 transition:"all 0.2s",
                                 textAlign:"left"
                               }}
                             >
-                              {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
+                              {sub.icon && <span style={{ fontSize:20 }}>{sub.icon}</span>}
                               <span>{sub.label}</span>
                             </button>
                           ) : (
@@ -1383,21 +1383,21 @@ export default function App() {
                                   border:"none",
                                   cursor:"pointer",
                                   fontFamily:"inherit",
-                                  fontSize:14,
+                                  fontSize:15,
                                   fontWeight:500,
                                   display:"flex",
                                   alignItems:"center",
                                   justifyContent:"space-between",
-                                  color:"#4B5563",
+                                  color:"#191919",
                                   transition:"all 0.2s",
                                   textAlign:"left"
                                 }}
                               >
                                 <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-                                  {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
+                                  {sub.icon && <span style={{ fontSize:20 }}>{sub.icon}</span>}
                                   <span>{sub.label}</span>
                                 </div>
-                                <span style={{ fontSize:14, color:"#9CA3AF", fontWeight:600, transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                                <span style={{ fontSize:18, color:"#6B7280", fontWeight:700, transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
                                   ▸
                                 </span>
                               </button>
@@ -1411,19 +1411,19 @@ export default function App() {
                                       onClick={() => setPage(item.page)}
                                       style={{
                                         width:"100%",
-                                        minHeight:36,
-                                        padding:"8px 12px",
+                                        minHeight:38,
+                                        padding:"9px 12px",
                                         marginBottom:2,
                                         borderRadius:6,
                                         background: page===item.page ? "#EFF6FF" : "transparent",
                                         border: page===item.page ? "1px solid #3665F3" : "none",
                                         cursor:"pointer",
                                         fontFamily:"inherit",
-                                        fontSize:13,
-                                        fontWeight: page===item.page ? 600 : 400,
+                                        fontSize:14,
+                                        fontWeight: page===item.page ? 600 : 500,
                                         display:"flex",
                                         alignItems:"center",
-                                        color: page===item.page ? "#3665F3" : "#6B7280",
+                                        color: page===item.page ? "#3665F3" : "#191919",
                                         transition:"all 0.2s",
                                         textAlign:"left"
                                       }}
