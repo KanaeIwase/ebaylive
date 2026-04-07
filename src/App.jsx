@@ -1170,6 +1170,11 @@ export default function App() {
     localStorage.setItem('ebay-live-player', JSON.stringify(updated));
   };
 
+  // Update URL hash when page changes
+  useEffect(() => {
+    window.location.hash = page;
+  }, [page]);
+
   // Update streak on visit
   useEffect(() => {
     const today = new Date().toDateString();
@@ -1335,14 +1340,14 @@ export default function App() {
                       <span style={{ fontSize:20 }}>{section.icon}</span>
                       <span>{section.label}</span>
                     </div>
-                    <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                      ▶
+                    <span style={{ fontSize:16, color:"#6B7280", fontWeight:700, transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                      ›
                     </span>
                   </button>
 
                   {/* Level 2: Sub-sections */}
                   {expandedSections[section.id] && section.children && (
-                    <div style={{ paddingLeft:8, marginTop:6 }}>
+                    <div style={{ paddingLeft:20, marginTop:6 }}>
                       {section.children.map((sub) => (
                         <div key={sub.id || sub.label} style={{ marginBottom:4 }}>
                           {sub.page !== undefined ? (
@@ -1405,14 +1410,14 @@ export default function App() {
                                   {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
                                   <span>{sub.label}</span>
                                 </div>
-                                <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                                  ▶
+                                <span style={{ fontSize:16, color:"#6B7280", fontWeight:700, transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                                  ›
                                 </span>
                               </button>
 
                               {/* Level 3: Items */}
                               {expandedSections[sub.id] && sub.children && (
-                                <div style={{ paddingLeft:8, marginTop:6 }}>
+                                <div style={{ paddingLeft:20, marginTop:6 }}>
                                   {sub.children.map((item, idx) => (
                                     <button
                                       key={idx}
