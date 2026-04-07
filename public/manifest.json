@@ -1,0 +1,22 @@
+{
+  "name": "eBay Live Academy - ライブセリング学習プラットフォーム",
+  "short_name": "eBay Live Academy",
+  "description": "eBay Liveでラグジュアリーファッションを販売するスキルを学ぶ、インタラクティブな学習プラットフォーム",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#3665F3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business"],
+  "lang": "ja",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}

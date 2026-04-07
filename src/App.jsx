@@ -1022,6 +1022,20 @@ export default function App() {
             margin: 0 auto;
             padding: 40px 0;
           }
+
+          /* Mobile Responsive Adjustments */
+          @media (max-width: 768px) {
+            .ebay-content {
+              padding: 20px 16px !important;
+            }
+          }
+
+          /* Touch-friendly button sizes */
+          @media (max-width: 768px) {
+            button {
+              min-height: 44px !important;
+            }
+          }
         }
       `}</style>
 
@@ -3489,6 +3503,9 @@ function NameBlastGame({ lang, onComplete }) {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
   const [shuffledNames, setShuffledNames] = useState([]);
+  const [voiceMode, setVoiceMode] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef(null);
 
   useEffect(() => {
     if (gameState === "playing" && timeLeft > 0) {
@@ -3507,6 +3524,39 @@ function NameBlastGame({ lang, onComplete }) {
     setScore(0);
     setTimeLeft(60);
     setGameState("playing");
+
+    // Initialize voice recognition if voice mode enabled
+    if (voiceMode && 'webkitSpeechRecognition' in window) {
+      const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = false;
+      recognition.lang = 'en-US';
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+        console.log('Heard:', transcript);
+        // If user speaks, automatically move to next (we can't verify accuracy, so trust them)
+        if (transcript.length > 0) {
+          handleNext();
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        if (gameState === "playing" && voiceMode) {
+          recognition.start(); // Keep listening
+        }
+      };
+
+      recognition.start();
+      setIsListening(true);
+      recognitionRef.current = recognition;
+    }
   };
 
   const handleNext = () => {
@@ -3517,8 +3567,22 @@ function NameBlastGame({ lang, onComplete }) {
   };
 
   const handleRestart = () => {
+    // Stop any existing recognition
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
     startGame();
   };
+
+  // Cleanup voice recognition when game ends
+  useEffect(() => {
+    if (gameState === "finished" && recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+      setIsListening(false);
+    }
+  }, [gameState]);
 
   if (gameState === "ready") {
     return (
@@ -3532,6 +3596,51 @@ function NameBlastGame({ lang, onComplete }) {
             ? "Buyer usernames will flash on screen. Read each one out loud, then tap Next. How many can you read in 60 seconds?"
             : "バイヤーのユーザーネームが画面に表示されます。声に出して読んだら「次へ」をタップ。60秒で何個読めるかな？"}
         </p>
+
+        {/* Voice Mode Toggle */}
+        {'webkitSpeechRecognition' in window && (
+          <div style={{
+            background:"#F7F7F7",
+            borderRadius:12,
+            padding:"16px 20px",
+            marginBottom:24,
+            display:"inline-flex",
+            alignItems:"center",
+            gap:12,
+            cursor:"pointer"
+          }}
+          onClick={() => setVoiceMode(!voiceMode)}>
+            <div style={{
+              width:50,
+              height:28,
+              borderRadius:20,
+              background: voiceMode ? "#3665F3" : "#D1D5DB",
+              position:"relative",
+              transition:"all 0.2s"
+            }}>
+              <div style={{
+                width:22,
+                height:22,
+                borderRadius:"50%",
+                background:"#FFFFFF",
+                position:"absolute",
+                top:3,
+                left: voiceMode ? 25 : 3,
+                transition:"all 0.2s",
+                boxShadow:"0 1px 3px rgba(0,0,0,0.2)"
+              }}></div>
+            </div>
+            <div>
+              <div style={{ fontSize:15, fontWeight:700, color:"#191919", marginBottom:2 }}>
+                🎤 {lang === "en" ? "Voice Mode" : "音声モード"}
+              </div>
+              <div style={{ fontSize:13, color:"#6B7280" }}>
+                {lang === "en" ? "Auto-advance when you speak" : "音声で自動的に次へ"}
+              </div>
+            </div>
+          </div>
+        )}
+
         <button
           onClick={startGame}
           style={{
@@ -3571,6 +3680,26 @@ function NameBlastGame({ lang, onComplete }) {
           </div>
         </div>
 
+        {/* Voice Mode Indicator */}
+        {voiceMode && isListening && (
+          <div style={{
+            background:"#86B817",
+            color:"#FFFFFF",
+            padding:"12px 20px",
+            borderRadius:12,
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            justifyContent:"center",
+            gap:8,
+            fontSize:14,
+            fontWeight:600
+          }}>
+            <span style={{ fontSize:20, animation:"pulse 1.5s infinite" }}>🎤</span>
+            {lang === "en" ? "Voice Mode Active - Speak to continue" : "音声モード有効 - 話すと次へ"}
+          </div>
+        )}
+
         {/* Current Name Display */}
         <div style={{
           background:"linear-gradient(135deg, #3665F3 0%, #5D8AE8 100%)",
@@ -3599,26 +3728,28 @@ function NameBlastGame({ lang, onComplete }) {
           </div>
         </div>
 
-        {/* Next Button */}
-        <button
-          onClick={handleNext}
-          style={{
-            width:"100%",
-            background:"#86B817",
-            color:"#FFFFFF",
-            border:"none",
-            borderRadius:12,
-            padding:"20px",
-            fontSize:20,
-            fontWeight:700,
-            cursor:"pointer",
-            transition:"all 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
-          onMouseLeave={e => e.target.style.transform = "scale(1)"}
-        >
-          {lang === "en" ? "✓ Next Name" : "✓ 次へ"}
-        </button>
+        {/* Next Button - hide in voice mode */}
+        {!voiceMode && (
+          <button
+            onClick={handleNext}
+            style={{
+              width:"100%",
+              background:"#86B817",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"20px",
+              fontSize:20,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+            onMouseLeave={e => e.target.style.transform = "scale(1)"}
+          >
+            {lang === "en" ? "✓ Next Name" : "✓ 次へ"}
+          </button>
+        )}
 
         <div style={{ textAlign:"center", marginTop:16, fontSize:14, color:"#9CA3AF" }}>
           {currentNameIndex + 1} / {shuffledNames.length} names
