@@ -387,12 +387,25 @@ const LIVE_KB = {
 const BRAND_DATA = {
   lv: {
     name:"Louis Vuitton", year:1854, country:"France",
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Louis_Vuitton_logo_and_wordmark.svg/512px-Louis_Vuitton_logo_and_wordmark.svg.png",
     auth:"Date codes (pre-2021) → heat stamps with microchip (2021+). Canvas should NEVER peel. Stitching always even.",
     authJp:"デートコード（2021年以前）→ ヒートスタンプ+マイクロチップ（2021年以降）。キャンバスは剥離しない。ステッチは均一。",
     rare:"Multicolor line (Murakami collab) discontinued. Vernis in certain rare colors. Older date code pieces. LV NEVER goes on sale at retail.",
     rareJp:"マルチカラーライン（村上コラボ）廃番。特定のヴェルニ色。古いデートコード品。LVは定価でセールしない。",
     tip:"LV never goes on sale. So any pre-loved LV at this price is already a steal.",
     tipJp:"LVはセールしない。だから中古でこの価格は既にお買い得。",
+    colors:[
+      {name:"Sweet Orange", hex:"#E8833A", nameJp:"スウィートオレンジ", desc:"Beautiful warm orange — very signature Louis Vuitton.", descJp:"美しい温かいオレンジ — とてもLVらしい色。"},
+      {name:"Rose Ballerine", hex:"#F4C2C2", nameJp:"ローズバレリーヌ", desc:"The prettiest soft pink. So feminine.", descJp:"最も可愛い柔らかいピンク。とてもフェミニン。"},
+      {name:"Monogram Brown", hex:"#6B4226", nameJp:"モノグラムブラウン", desc:"The classic. You know it, you love it.", descJp:"クラシック。誰もが知ってる、愛してる。"},
+      {name:"Damier Ebene", hex:"#3B2F2F", nameJp:"ダミエ エベヌ", desc:"Beautiful dark brown. Very classic, very subtle.", descJp:"美しいダークブラウン。クラシックで控えめ。"},
+      {name:"Damier Azur", hex:"#D6CFC7", nameJp:"ダミエ アズール", desc:"Light and fresh. Perfect for summer.", descJp:"明るくて爽やか。夏にぴったり。"},
+      {name:"Fuchsia", hex:"#C4346C", nameJp:"フューシャ", desc:"Bold, beautiful hot pink. It pops.", descJp:"大胆で美しいホットピンク。目立つ。"},
+      {name:"Pivoine", hex:"#D4577B", nameJp:"ピヴォワンヌ", desc:"Gorgeous rosy pink. Very flattering.", descJp:"美しいローズピンク。とても似合う。"},
+      {name:"Cherry Berry", hex:"#8B0A1A", nameJp:"チェリーベリー", desc:"Deep, rich berry red. Very luxurious.", descJp:"深く豊かなベリーレッド。とても高級。"},
+      {name:"Marine Rouge", hex:"#1C2951", nameJp:"マリンルージュ", desc:"Beautiful deep navy. Very refined.", descJp:"美しい深いネイビー。とても洗練。"},
+      {name:"Noir", hex:"#1A1A1A", nameJp:"ノワール", desc:"Classic black. Can't go wrong.", descJp:"クラシックブラック。間違いなし。"}
+    ],
     models:[
       { name:"Speedy", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",
         desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
@@ -447,12 +460,21 @@ const BRAND_DATA = {
   },
   chanel: {
     name:"Chanel", year:1910, country:"France",
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chanel_logo_interlocking_cs.svg/512px-Chanel_logo_interlocking_cs.svg.png",
     auth:"Serial sticker + card (pre-2021). Microchip (post-2021). Quilting must align at seams.",
     authJp:"シリアルステッカー+カード（2021年以前）。マイクロチップ（2021年以降）。キルティングは縫い目で合う必須。",
     rare:"Prices increase 2-3x per year. Classic Flap was ~$2,800 in 2010, now over $10,000. GST and PST discontinued.",
     rareJp:"年2-3回値上げ。クラシックフラップは2010年~$2,800、今は$10,000以上。GSTとPST廃番。",
     tip:"Chanel increases prices every year. Whatever you pay today, it'll be worth more tomorrow.",
     tipJp:"シャネルは毎年値上げ。今日払う価格、明日にはもっと価値がある。",
+    colors:[
+      {name:"Caviar Black", hex:"#000000", nameJp:"キャビアブラック", desc:"Nothing more classic than black Chanel.", descJp:"ブラックシャネルほどクラシックなものはない。"},
+      {name:"Beige Clair", hex:"#E8D5B7", nameJp:"ベージュクレール", desc:"Chanel's signature neutral. Very chic.", descJp:"シャネルのシグネチャーニュートラル。とてもシック。"},
+      {name:"Navy", hex:"#1B2A4A", nameJp:"ネイビー", desc:"Deep, elegant navy. Very Parisian.", descJp:"深くエレガントなネイビー。とてもパリジャン。"},
+      {name:"Burgundy", hex:"#6B1C23", nameJp:"バーガンディ", desc:"One of the best Chanel colors, honestly.", descJp:"正直、最高のシャネルカラーの一つ。"},
+      {name:"Red", hex:"#CC0000", nameJp:"レッド", desc:"Chanel red is just perfect.", descJp:"シャネルレッドは完璧。"},
+      {name:"Light Pink", hex:"#F8C8DC", nameJp:"ライトピンク", desc:"Very feminine and lovely.", descJp:"とてもフェミニンで素敵。"}
+    ],
     models:[
       { name:"Classic Flap", brief:"Iconic quilted bag - investment piece", briefJp:"象徴的なキルティングバッグ - 投資品",
         desc:"The most iconic Chanel bag. Diamond quilted pattern with chain-leather strap and CC turnlock.",
@@ -490,10 +512,20 @@ const BRAND_DATA = {
   },
   hermes: {
     name:"Hermès", year:1837, country:"France",
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Herm%C3%A8s_Logo.svg/512px-Herm%C3%A8s_Logo.svg.png",
     auth:"Craftsman stamp with ID, year letter, blind stamp. Hand-stitched saddle stitch (angled, not straight).",
     authJp:"職人スタンプ+ID、年号レター、ブラインドスタンプ。手縫いサドルステッチ（斜め、直線ではない）。",
     rare:"Exotic leathers (croc, ostrich). Special orders (HSS). Limited colorways each season. Birkins NOT sold online — need SA relationship.",
     rareJp:"エキゾチックレザー（クロコ、オーストリッチ）。スペシャルオーダー（HSS）。シーズン限定カラー。バーキンはオンライン販売なし — SA関係必要。",
+    colors:[
+      {name:"Etoupe", hex:"#8B7D6B", nameJp:"エトゥープ", desc:"Hermès signature taupe-grey. Such a versatile color.", descJp:"エルメスのシグネチャー トープグレー。とても万能。"},
+      {name:"Gold", hex:"#C19A6B", nameJp:"ゴールド", desc:"Tan/camel leather (NOT metallic). This brown just looks expensive.", descJp:"タン/キャメルレザー（メタリックではない）。この茶色は高そうに見える。"},
+      {name:"Orange", hex:"#FF6600", nameJp:"オレンジ", desc:"THE Hermès color. Instantly recognizable.", descJp:"エルメスカラー。すぐわかる。"},
+      {name:"Rouge H", hex:"#8B0000", nameJp:"ルージュ H", desc:"Beautiful deep red. So rich.", descJp:"美しい深紅。とても豊か。"},
+      {name:"Bleu de France", hex:"#318CE7", nameJp:"ブルー・ド・フランス", desc:"Gorgeous bright blue. Very eye-catching.", descJp:"美しい明るいブルー。とても目を引く。"},
+      {name:"Rose Sakura", hex:"#F8C8DC", nameJp:"ローズサクラ", desc:"Soft cherry blossom pink. So pretty.", descJp:"柔らかい桜ピンク。とても綺麗。"},
+      {name:"Vert Olive", hex:"#556B2F", nameJp:"ヴェール・オリーブ", desc:"Love olive. It goes with so much.", descJp:"オリーブ大好き。何にでも合う。"}
+    ],
     tip:"You can't just walk in and buy a Birkin. The fact that we have one here tonight is special.",
     tipJp:"バーキンは歩いて入って買えない。今夜ここにあるのは特別。",
     models:[
@@ -628,58 +660,6 @@ const VOCAB_CATS = [
     {e:"Comes with box, dust bag, card",j:"箱・保存袋・カード付き",def:"Complete set of original accessories",defJp:"オリジナル付属品の完全セット"},
     {e:"Final sale, no returns",j:"最終販売、返品不可",def:"Transaction is binding, cannot be reversed",defJp:"取引は拘束力あり、取り消し不可"},
     {e:"Ships next business day",j:"翌営業日発送",def:"Item will be sent the following workday",defJp:"翌営業日にアイテム発送"}
-  ]},
-  { cat:"🎨 Louis Vuitton Signature Colors", items:[
-    {e:"Sweet Orange (#E8833A)",j:"スウィートオレンジ",def:"Beautiful warm orange — very signature Louis Vuitton.",defJp:"美しい温かいオレンジ — とてもLVらしい色。"},
-    {e:"Rose Ballerine (#F4C2C2)",j:"ローズバレリーヌ",def:"The prettiest soft pink. So feminine.",defJp:"最も可愛い柔らかいピンク。とてもフェミニン。"},
-    {e:"Monogram Brown (#6B4226)",j:"モノグラムブラウン",def:"The classic. You know it, you love it.",defJp:"クラシック。誰もが知ってる、愛してる。"},
-    {e:"Damier Ebene (#3B2F2F)",j:"ダミエ エベヌ",def:"Beautiful dark brown. Very classic, very subtle.",defJp:"美しいダークブラウン。クラシックで控えめ。"},
-    {e:"Damier Azur (#D6CFC7)",j:"ダミエ アズール",def:"Light and fresh. Perfect for summer.",defJp:"明るくて爽やか。夏にぴったり。"},
-    {e:"Fuchsia (#C4346C)",j:"フューシャ",def:"Bold, beautiful hot pink. It pops.",defJp:"大胆で美しいホットピンク。目立つ。"},
-    {e:"Pivoine (#D4577B)",j:"ピヴォワンヌ",def:"Gorgeous rosy pink. Very flattering.",defJp:"美しいローズピンク。とても似合う。"},
-    {e:"Cherry Berry (#8B0A1A)",j:"チェリーベリー",def:"Deep, rich berry red. Very luxurious.",defJp:"深く豊かなベリーレッド。とても高級。"},
-    {e:"Marine Rouge (#1C2951)",j:"マリンルージュ",def:"Beautiful deep navy. Very refined.",defJp:"美しい深いネイビー。とても洗練。"},
-    {e:"Noir (#1A1A1A)",j:"ノワール",def:"Classic black. Can't go wrong.",defJp:"クラシックブラック。間違いなし。"}
-  ]},
-  { cat:"🎨 Chanel Signature Colors", items:[
-    {e:"Caviar Black (#000000)",j:"キャビアブラック",def:"Nothing more classic than black Chanel.",defJp:"ブラックシャネルほどクラシックなものはない。"},
-    {e:"Beige Clair (#E8D5B7)",j:"ベージュクレール",def:"Chanel's signature neutral. Very chic.",defJp:"シャネルのシグネチャーニュートラル。とてもシック。"},
-    {e:"Navy (#1B2A4A)",j:"ネイビー",def:"Deep, elegant navy. Very Parisian.",defJp:"深くエレガントなネイビー。とてもパリジャン。"},
-    {e:"Burgundy (#6B1C23)",j:"バーガンディ",def:"One of the best Chanel colors, honestly.",defJp:"正直、最高のシャネルカラーの一つ。"},
-    {e:"Red (#CC0000)",j:"レッド",def:"Chanel red is just perfect.",defJp:"シャネルレッドは完璧。"},
-    {e:"Light Pink (#F8C8DC)",j:"ライトピンク",def:"Very feminine and lovely.",defJp:"とてもフェミニンで素敵。"}
-  ]},
-  { cat:"🎨 Hermès Iconic Colors", items:[
-    {e:"Etoupe (#8B7D6B)",j:"エトゥープ",def:"Hermès signature taupe-grey. Such a versatile color.",defJp:"エルメスのシグネチャー トープグレー。とても万能。"},
-    {e:"Gold (#C19A6B)",j:"ゴールド",def:"Tan/camel leather (NOT metallic). This brown just looks expensive.",defJp:"タン/キャメルレザー（メタリックではない）。この茶色は高そうに見える。"},
-    {e:"Orange (#FF6600)",j:"オレンジ",def:"THE Hermès color. Instantly recognizable.",defJp:"エルメスカラー。すぐわかる。"},
-    {e:"Rouge H (#8B0000)",j:"ルージュ H",def:"Beautiful deep red. So rich.",defJp:"美しい深紅。とても豊か。"},
-    {e:"Bleu de France (#318CE7)",j:"ブルー・ド・フランス",def:"Gorgeous bright blue. Very eye-catching.",defJp:"美しい明るいブルー。とても目を引く。"},
-    {e:"Rose Sakura (#F8C8DC)",j:"ローズサクラ",def:"Soft cherry blossom pink. So pretty.",defJp:"柔らかい桜ピンク。とても綺麗。"},
-    {e:"Vert Olive (#556B2F)",j:"ヴェール・オリーブ",def:"Love olive. It goes with so much.",defJp:"オリーブ大好き。何にでも合う。"}
-  ]},
-  { cat:"🎨 Universal Luxury Colors", items:[
-    {e:"Cognac (#9A4E1C)",j:"コニャック",def:"Rich, warm brown. This brown just looks expensive.",defJp:"豊かで温かいブラウン。この茶色は高そうに見える。"},
-    {e:"Tan (#D2B48C)",j:"タン",def:"Clean, natural tone. Goes with everything.",defJp:"清潔で自然なトーン。何にでも合う。"},
-    {e:"Camel (#C19A6B)",j:"キャメル",def:"Very 'quiet luxury.' Great taste.",defJp:"とても'静かな贅沢'。良いセンス。"},
-    {e:"Taupe (#8B7D6B)",j:"トープ",def:"Taupe is so underrated. Love it.",defJp:"トープは過小評価されてる。大好き。"},
-    {e:"Ivory (#FFFFF0)",j:"アイボリー",def:"Softer than white. So pretty.",defJp:"白より柔らかい。とても綺麗。"},
-    {e:"Blush (#DE5D83)",j:"ブラッシュ",def:"Gorgeous rosy pink. So flattering.",defJp:"美しいローズピンク。とても似合う。"},
-    {e:"Coral (#FF7F50)",j:"コーラル",def:"Such a cheerful color. Very fresh.",defJp:"とても明るい色。とても爽やか。"},
-    {e:"Teal (#008080)",j:"ティール",def:"Love teal. It's bold but still classy.",defJp:"ティール大好き。大胆だけど上品。"},
-    {e:"Olive (#556B2F)",j:"オリーブ",def:"Nice earthy green. Very trendy right now.",defJp:"いい感じのアースグリーン。今とてもトレンド。"},
-    {e:"Oxblood (#4A0000)",j:"オックスブラッド",def:"Gorgeous oxblood. So rich.",defJp:"美しいオックスブラッド。とても豊か。"},
-    {e:"Mauve (#E0B0FF)",j:"モーヴ",def:"Soft, dusty purple. Very romantic.",defJp:"柔らかいダスティパープル。とてもロマンティック。"},
-    {e:"Nude (#E3BC9A)",j:"ヌード",def:"So versatile. You'll use this every day.",defJp:"とても万能。毎日使う。"},
-    {e:"Slate (#708090)",j:"スレート",def:"Love this gray. It's more interesting than plain gray.",defJp:"このグレー大好き。普通のグレーより面白い。"},
-    {e:"Chartreuse (#7FFF00)",j:"シャルトルーズ",def:"Not for everyone, but if you like bold — this is it.",defJp:"万人向けじゃないけど、大胆好きなら — これ。"}
-  ]},
-  { cat:"🎨 Hardware Colors (金具の色)", items:[
-    {e:"Gold Hardware (GHW)",j:"ゴールド金具",def:"Warm, classic. Most popular with caviar and lambskin.",defJp:"温かくクラシック。キャビアとラムスキンで最も人気。"},
-    {e:"Silver Hardware (SHW)",j:"シルバー金具",def:"Cool, modern. Great with black and navy.",defJp:"クールでモダン。ブラックとネイビーに最適。"},
-    {e:"Ruthenium Hardware (RHW)",j:"ルテニウム金具",def:"Dark gunmetal. Very edgy and cool.",defJp:"ダークガンメタル。とてもエッジーでクール。"},
-    {e:"Champagne Gold Hardware",j:"シャンパンゴールド金具",def:"Lighter, softer gold. Very elegant.",defJp:"明るく柔らかいゴールド。とてもエレガント。"},
-    {e:"Rose Gold Hardware",j:"ローズゴールド金具",def:"Pink-toned gold. Very feminine, very trendy.",defJp:"ピンクトーンのゴールド。とてもフェミニン、トレンド。"}
   ]},
   { cat:"Selling Color & Style on Live Stream", items:[
     {e:"This shade flatters every skin tone",j:"この色はどんな肌色にも似合います",def:"Universal appeal - works for all buyers",defJp:"万人向け - すべてのバイヤーに合う"},
@@ -899,8 +879,8 @@ export default function App() {
     ]
   };
 
-  const tabs = lang==="en" ? ["Home","Brands","6-Step Framework","Stream Formats","Vocab","Practice"] : ["ホーム","ブランド","6ステップ","配信形式","用語集","練習"];
-  const icons = ["🏠","👜","📡","🎬","💬","🎯"];
+  const tabs = lang==="en" ? ["Home","Brands","6-Step Framework","Stream Formats","eBay Policy","Vocab","Practice"] : ["ホーム","ブランド","6ステップ","配信形式","ポリシー","用語集","練習"];
+  const icons = ["🏠","👜","📡","🎬","📋","💬","🎯"];
 
   // Check for newly earned badges
   const checkBadges = (updatedPlayerData) => {
@@ -1116,8 +1096,9 @@ export default function App() {
           {page===1 && <FashionP lang={lang} />}
           {page===2 && <LiveFrameworkP lang={lang} />}
           {page===3 && <LiveContentTypesP lang={lang} />}
-          {page===4 && <EnglishP lang={lang} />}
-          {page===5 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
+          {page===4 && <PolicyP lang={lang} />}
+          {page===5 && <EnglishP lang={lang} />}
+          {page===6 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
         </div>
       </div>
     </div>
@@ -2017,6 +1998,38 @@ function FashionP({ lang }) {
           ))}
         </div>
 
+        {/* Signature Colors */}
+        {brand.colors && brand.colors.length > 0 && (
+          <div style={{ marginTop:32 }}>
+            <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
+              🎨 {lang==="en"?"Signature Colors":"シグネチャーカラー"}
+            </div>
+            <div style={{ display:"grid", gap:12 }}>
+              {brand.colors.map((color,i)=>(
+                <div key={i} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", display:"flex", alignItems:"center", gap:16 }}>
+                  <div style={{
+                    width:48,
+                    height:48,
+                    borderRadius:8,
+                    background:color.hex,
+                    border:"2px solid #E5E7EB",
+                    boxShadow:"0 2px 4px rgba(0,0,0,0.1)",
+                    flexShrink:0
+                  }} title={color.hex}></div>
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:4 }}>
+                      {color.name} {lang==="jp" && `(${color.nameJp})`}
+                    </div>
+                    <div style={{ fontSize:14, color:"#6B7280", lineHeight:1.6 }}>
+                      {lang==="en"?color.desc:color.descJp}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Rare Items */}
         <div style={{ marginTop:32, background:"#FEF3C7", padding:"20px", borderRadius:12, borderLeft:"4px solid #F5AF02" }}>
           <div style={{ fontSize:14, fontWeight:700, color:"#F5AF02", marginBottom:8 }}>
@@ -2059,6 +2072,11 @@ function FashionP({ lang }) {
             <button key={key} onClick={()=>setSelBrand(key)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"24px", cursor:"pointer", transition:"all 0.2s", textAlign:"left", fontFamily:"inherit", width:"100%" }}
               onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.boxShadow="0 8px 16px rgba(54,101,243,0.15)"}}
               onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#E5E7EB"; e.currentTarget.style.boxShadow="none"}}>
+              {b.imageUrl && (
+                <div style={{ marginBottom:16, display:"flex", justifyContent:"center", alignItems:"center", height:60 }}>
+                  <img src={b.imageUrl} alt={b.name} style={{ maxHeight:"100%", maxWidth:"100%", objectFit:"contain" }} />
+                </div>
+              )}
               <div style={{ fontSize:24, fontWeight:700, color:"#191919", marginBottom:6 }}>{b.name}</div>
               <div style={{ fontSize:14, color:"#6b7280", marginBottom:16, fontWeight:400 }}>Founded {b.year}, {b.country}</div>
               <div style={{ fontSize:14, color:"#4B5563", marginBottom:12, fontWeight:400 }}>
@@ -2075,9 +2093,13 @@ function FashionP({ lang }) {
   );
 }
 
-/* ═══ LIVE TIPS (MAIN CONTENT) ═══ */
-function LiveP({ lang, initialView = "framework" }) {
-  const [view, setView] = useState(initialView); // framework, platforms, content
+/* ═══ LIVE FRAMEWORK WRAPPER ═══ */
+function LiveFrameworkP({ lang }) {
+  return <LiveP lang={lang} />;
+}
+
+/* ═══ 6-STEP FRAMEWORK ═══ */
+function LiveP({ lang }) {
   const [openStep, setOpenStep] = useState(0);
   const [openSec, setOpenSec] = useState(null);
   const data = LIVE_KB.framework[lang];
@@ -2086,24 +2108,16 @@ function LiveP({ lang, initialView = "framework" }) {
     <div style={{ animation:"fu 0.4s ease" }}>
       <div style={{ marginBottom:32 }}>
         <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
-          {lang==="en"?"Live Selling Strategies":"ライブ販売戦略"}
+          {lang==="en"?"6-Step Framework":"6ステップフレームワーク"}
         </h1>
         <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
           {lang==="en"
-            ?"Master eBay Live streaming techniques to engage buyers and drive sales. Build confidence with buyer interactions, product presentation, and compliance with eBay Live policies."
-            :"eBayライブ配信テクニックをマスターしてバイヤーを惹きつけ売上を上げる。バイヤー対応、商品プレゼンテーション、eBay Liveポリシー遵守で自信を構築。"}
+            ?"Master eBay Live streaming with this proven 6-step framework. Each step builds on the last to maximize viewer engagement and drive sales."
+            :"この実証済み6ステップフレームワークでeBayライブ配信をマスター。各ステップが次のステップの土台となり視聴者エンゲージメントを最大化し売上を促進。"}
         </p>
       </div>
 
-      {/* Sub-nav */}
-      <div style={{ display:"flex", gap:12, marginBottom:24, borderBottom:"2px solid #F7F7F7", paddingBottom:4 }}>
-        {[["framework",lang==="en"?"6-Step Framework":"6ステップフレームワーク"],["content",lang==="en"?"Stream Formats":"配信形式"]].map(([k,l])=>(
-          <button key={k} onClick={()=>setView(k)} style={{ padding:"10px 20px", borderRadius:0, background:"none", color:view===k?"#3B1FC6":"#191919", borderBottom:view===k?"3px solid #3B1FC6":"3px solid transparent", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:view===k?700:400, border:"none", transition:"all 0.2s" }}>{l}</button>
-        ))}
-      </div>
-
-      {/* FRAMEWORK */}
-      {view==="framework" && data.map((step, si) => (
+      {data.map((step, si) => (
         <div key={si} style={{ marginBottom:16 }}>
           <div
             onClick={()=>setOpenStep(openStep===si?null:si)}
@@ -2198,9 +2212,9 @@ function LiveP({ lang, initialView = "framework" }) {
   );
 }
 
-/* ═══ LIVE FRAMEWORK WRAPPER ═══ */
-function LiveFrameworkP({ lang }) {
-  return <LiveP lang={lang} initialView="framework" />;
+/* ═══ POLICY PAGE ═══ */
+function PolicyP({ lang }) {
+  return <LivePolicyP lang={lang} />;
 }
 
 /* ═══ LIVE POLICY (STANDALONE) ═══ */
@@ -2277,7 +2291,68 @@ function LivePolicyP({ lang }) {
 
 /* ═══ LIVE CONTENT TYPES WRAPPER ═══ */
 function LiveContentTypesP({ lang }) {
-  return <LiveP lang={lang} initialView="content" />;
+  const [openType, setOpenType] = useState(null);
+  const data = LIVE_KB.content[lang];
+
+  return (
+    <div style={{ animation:"fu 0.4s ease" }}>
+      <div style={{ marginBottom:32 }}>
+        <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang==="en"?"Stream Formats":"配信形式"}
+        </h1>
+        <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
+          {lang==="en"
+            ?"Choose the right streaming format for your audience and products. Each format serves different selling scenarios and buyer engagement strategies."
+            :"視聴者と商品に最適な配信形式を選択。各形式は異なる販売シナリオとバイヤーエンゲージメント戦略に対応。"}
+        </p>
+      </div>
+
+      {data.map((type, ti) => (
+        <div key={ti} style={{ marginBottom:16 }}>
+          <div
+            onClick={()=>setOpenType(openType===ti?null:ti)}
+            style={{
+              background:"#FFFFFF",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"20px 24px",
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = "#3665F3"}
+            onMouseLeave={e => e.currentTarget.style.borderColor = "#E5E7EB"}
+          >
+            <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+              <div style={{ display:"flex", alignItems:"center", gap:16 }}>
+                <span style={{ fontSize:40, lineHeight:1 }}>{type.icon}</span>
+                <div>
+                  <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:4 }}>{type.name}</div>
+                  <div style={{ fontSize:14, color:"#6B7280" }}>{type.desc}</div>
+                </div>
+              </div>
+              <span style={{ fontSize:28, color:"#3665F3", fontWeight:300 }}>{openType===ti?"−":"+"}</span>
+            </div>
+
+            {openType===ti && (
+              <div style={{ marginTop:20, paddingTop:20, borderTop:"2px solid #F7F7F7" }}>
+                <div style={{ fontSize:15, color:"#191919", lineHeight:1.8, marginBottom:16 }}>
+                  {type.detail}
+                </div>
+                <div style={{ background:"#EFF6FF", padding:"16px 20px", borderRadius:8, borderLeft:"4px solid #3665F3" }}>
+                  <div style={{ fontSize:14, fontWeight:700, color:"#3665F3", marginBottom:8 }}>
+                    💡 {lang==="en"?"Best for":"最適な用途"}
+                  </div>
+                  <div style={{ fontSize:14, color:"#191919", lineHeight:1.7 }}>
+                    {type.bestFor}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 /* ═══ ENGLISH ═══ */
