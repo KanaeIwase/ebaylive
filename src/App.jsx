@@ -1089,7 +1089,7 @@ export default function App() {
       {/* Main Content */}
       <div style={{ flex:1, background:"#F7F7F7", overflowY:"auto" }}>
         {/* Sticky Header */}
-        <div style={{ position:"sticky", top:0, zIndex:30, background:"#FFFFFF", borderBottom:"1px solid #E5E7EB", boxShadow:"0 2px 4px rgba(0,0,0,0.08)" }}>
+        <div style={{ position:"sticky", top:0, zIndex:999, background:"#FFFFFF", borderBottom:"1px solid #E5E7EB", boxShadow:"0 2px 4px rgba(0,0,0,0.08)" }}>
           <div style={{ padding:"16px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", maxWidth:1200, margin:"0 auto" }}>
             <div style={{ display:"flex", alignItems:"center", gap:16 }}>
               {!sidebarOpen && (
