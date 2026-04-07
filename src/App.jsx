@@ -578,27 +578,6 @@ const BRAND_DATA = {
 
 /* ═══ PROFESSIONAL VOCABULARY ═══ */
 const VOCAB_CATS = [
-  { cat:"Live Commerce Abbreviations (MUST KNOW!)", items:[
-    {e:"NWT",j:"NWT",def:"New With Tags - Brand new, unworn, original tags still attached",defJp:"新品タグ付き - 未使用、オリジナルタグが付いた状態",category:"ecommerce",emoji:"🏷️"},
-    {e:"NWOT",j:"NWOT",def:"New Without Tags - Brand new but tags removed or missing",defJp:"新品タグなし - 未使用だがタグが外されているか欠品",category:"ecommerce",emoji:"📦"},
-    {e:"BNIB",j:"BNIB",def:"Brand New In Box - Unopened or mint condition with original box",defJp:"箱入り新品 - 未開封またはオリジナル箱付きミント状態",category:"ecommerce",emoji:"📦"},
-    {e:"EUC",j:"EUC",def:"Excellent Used Condition - Minimal wear, looks almost new",defJp:"極美品中古 - 最小限の使用感、ほぼ新品に見える",category:"ecommerce",emoji:"⭐"},
-    {e:"VGUC",j:"VGUC",def:"Very Good Used Condition - Light wear, still great shape",defJp:"美品中古 - 軽い使用感、まだ素晴らしい状態",category:"ecommerce",emoji:"✨"},
-    {e:"GUC",j:"GUC",def:"Good Used Condition - Normal wear, fully functional",defJp:"良品中古 - 通常の使用感、完全に機能",category:"ecommerce",emoji:"👍"},
-    {e:"INAD",j:"INAD",def:"Item Not As Described - eBay case when item doesn't match listing",defJp:"説明と異なる - リスティングと一致しない場合のeBayケース",category:"ebay",emoji:"⚠️"},
-    {e:"NIB",j:"NIB",def:"New In Box - Unused item with original packaging",defJp:"箱入り新品 - オリジナル梱包付き未使用品",category:"ecommerce",emoji:"📦"},
-    {e:"NOS",j:"NOS",def:"New Old Stock - Vintage item that was never sold, still new",defJp:"新古品 - 未販売のヴィンテージ品、まだ新品",category:"ecommerce",emoji:"🕰️"},
-    {e:"ISO",j:"ISO",def:"In Search Of - Buyer looking for specific item",defJp:"探しています - 特定アイテムを探しているバイヤー",category:"ecommerce",emoji:"🔍"},
-    {e:"OBO",j:"OBO",def:"Or Best Offer - Open to negotiate price",defJp:"価格交渉可 - 価格交渉に応じる",category:"ebay",emoji:"💰"},
-    {e:"BIN",j:"BIN",def:"Buy It Now - Fixed price, purchase immediately",defJp:"即決価格 - 固定価格、即購入",category:"ebay",emoji:"🛒"},
-    {e:"FS/FT",j:"FS/FT",def:"For Sale / For Trade - Available to sell or trade",defJp:"販売/交換可 - 販売または交換可能",category:"ecommerce",emoji:"🔄"},
-    {e:"HTF",j:"HTF",def:"Hard To Find - Rare, difficult to locate item",defJp:"入手困難 - 希少で見つけにくいアイテム",category:"ecommerce",emoji:"💎"},
-    {e:"VHTF",j:"VHTF",def:"Very Hard To Find - Extremely rare item",defJp:"非常に入手困難 - 極めて希少なアイテム",category:"ecommerce",emoji:"💎"},
-    {e:"RARE",j:"RARE",def:"Scarce item, not commonly available",defJp:"希少 - 一般的に入手不可",category:"ecommerce",emoji:"⭐"},
-    {e:"DS",j:"DS",def:"Deadstock - Never worn/used, original packaging, no flaws",defJp:"デッドストック - 未使用、オリジナル梱包、傷なし",category:"ecommerce",emoji:"📦"},
-    {e:"POSH",j:"POSH",def:"Selling on Poshmark platform (cross-platform reference)",defJp:"Poshmark販売 - Poshmarkプラットフォームでの販売",category:"ecommerce",emoji:"🏪"},
-    {e:"PM",j:"PM",def:"Private Message / Direct Message for inquiries",defJp:"プライベートメッセージ - 問い合わせ用のDM",category:"ecommerce",emoji:"💬"}
-  ]},
   { cat:"Condition Grading (Essential Terms)", items:[
     {e:"Mint",j:"ミント",def:"Perfect, flawless condition - appears never used or touched",defJp:"完璧、傷なし状態 - 未使用または未触に見える",category:"ecommerce",emoji:"💎"},
     {e:"Brand new / NWT",j:"新品・タグ付き",def:"Unworn item with original tags still attached",defJp:"未使用でオリジナルタグが付いた状態",category:"ecommerce",emoji:"🏷️"},
@@ -677,6 +656,27 @@ const VOCAB_CATS = [
     {e:"Imagine this with your favorite jeans",j:"お気に入りのジーンズと合わせたら",def:"Help buyers visualize styling",defJp:"バイヤーがスタイリングを想像するのを助ける",category:"live",emoji:"👖"},
     {e:"This adds instant luxury to your closet",j:"クローゼットに即ラグジュアリーを追加",def:"Aspirational positioning",defJp:"憧れのポジショニング",category:"live",emoji:"💼"},
     {e:"Every fashionista needs this shade",j:"すべてのおしゃれさんに必要な色",def:"Create desire through social proof",defJp:"社会的証明で欲求を作る",category:"live",emoji:"👑"}
+  ]},
+  { cat:"Live Commerce Abbreviations", catJp:"ライブコマース略語", icon:"📝", items:[
+    {e:"NWT",j:"NWT",def:"New With Tags - Brand new, unworn, original tags still attached",defJp:"新品タグ付き - 未使用、オリジナルタグが付いた状態",category:"ecommerce",emoji:"🏷️"},
+    {e:"NWOT",j:"NWOT",def:"New Without Tags - Brand new but tags removed or missing",defJp:"新品タグなし - 未使用だがタグが外されているか欠品",category:"ecommerce",emoji:"📦"},
+    {e:"BNIB",j:"BNIB",def:"Brand New In Box - Unopened or mint condition with original box",defJp:"箱入り新品 - 未開封またはオリジナル箱付きミント状態",category:"ecommerce",emoji:"📦"},
+    {e:"EUC",j:"EUC",def:"Excellent Used Condition - Minimal wear, looks almost new",defJp:"極美品中古 - 最小限の使用感、ほぼ新品に見える",category:"ecommerce",emoji:"⭐"},
+    {e:"VGUC",j:"VGUC",def:"Very Good Used Condition - Light wear, still great shape",defJp:"美品中古 - 軽い使用感、まだ素晴らしい状態",category:"ecommerce",emoji:"✨"},
+    {e:"GUC",j:"GUC",def:"Good Used Condition - Normal wear, fully functional",defJp:"良品中古 - 通常の使用感、完全に機能",category:"ecommerce",emoji:"👍"},
+    {e:"INAD",j:"INAD",def:"Item Not As Described - eBay case when item doesn't match listing",defJp:"説明と異なる - リスティングと一致しない場合のeBayケース",category:"ebay",emoji:"⚠️"},
+    {e:"NIB",j:"NIB",def:"New In Box - Unused item with original packaging",defJp:"箱入り新品 - オリジナル梱包付き未使用品",category:"ecommerce",emoji:"📦"},
+    {e:"NOS",j:"NOS",def:"New Old Stock - Vintage item that was never sold, still new",defJp:"新古品 - 未販売のヴィンテージ品、まだ新品",category:"ecommerce",emoji:"🕰️"},
+    {e:"ISO",j:"ISO",def:"In Search Of - Buyer looking for specific item",defJp:"探しています - 特定アイテムを探しているバイヤー",category:"ecommerce",emoji:"🔍"},
+    {e:"OBO",j:"OBO",def:"Or Best Offer - Open to negotiate price",defJp:"価格交渉可 - 価格交渉に応じる",category:"ebay",emoji:"💰"},
+    {e:"BIN",j:"BIN",def:"Buy It Now - Fixed price, purchase immediately",defJp:"即決価格 - 固定価格、即購入",category:"ebay",emoji:"🛒"},
+    {e:"FS/FT",j:"FS/FT",def:"For Sale / For Trade - Available to sell or trade",defJp:"販売/交換可 - 販売または交換可能",category:"ecommerce",emoji:"🔄"},
+    {e:"HTF",j:"HTF",def:"Hard To Find - Rare, difficult to locate item",defJp:"入手困難 - 希少で見つけにくいアイテム",category:"ecommerce",emoji:"💎"},
+    {e:"VHTF",j:"VHTF",def:"Very Hard To Find - Extremely rare item",defJp:"非常に入手困難 - 極めて希少なアイテム",category:"ecommerce",emoji:"💎"},
+    {e:"RARE",j:"RARE",def:"Scarce item, not commonly available",defJp:"希少 - 一般的に入手不可",category:"ecommerce",emoji:"⭐"},
+    {e:"DS",j:"DS",def:"Deadstock - Never worn/used, original packaging, no flaws",defJp:"デッドストック - 未使用、オリジナル梱包、傷なし",category:"ecommerce",emoji:"📦"},
+    {e:"POSH",j:"POSH",def:"Selling on Poshmark platform (cross-platform reference)",defJp:"Poshmark販売 - Poshmarkプラットフォームでの販売",category:"ecommerce",emoji:"🏪"},
+    {e:"PM",j:"PM",def:"Private Message / Direct Message for inquiries",defJp:"プライベートメッセージ - 問い合わせ用のDM",category:"ecommerce",emoji:"💬"}
   ]},
   { cat:"Authentication & Verification Terms", items:[
     {e:"Date code",j:"デートコード",def:"Manufacturer's code indicating production date/location",defJp:"製造日/場所を示すメーカーコード",category:"ecommerce",emoji:"📅"},
