@@ -1434,7 +1434,7 @@ export default function App() {
                                         border:"none",
                                         cursor:"pointer",
                                         fontFamily:"inherit",
-                                        fontSize:13,
+                                        fontSize:14,
                                         fontWeight:500,
                                         display:"flex",
                                         alignItems:"center",
