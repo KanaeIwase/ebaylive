@@ -1099,12 +1099,229 @@ export default function App() {
   );
 }
 
+/* ═══ CONFIDENCE TRACKER COMPONENT ═══ */
+function ConfidenceTracker({ lang, playerData, onRatingSubmit }) {
+  const [showRating, setShowRating] = useState(false);
+  const [selectedRating, setSelectedRating] = useState(null);
+
+  const ratings = playerData.confidenceRatings || [];
+  const lastRating = ratings.length > 0 ? ratings[ratings.length - 1] : null;
+  const daysSinceLastRating = lastRating ? Math.floor((Date.now() - new Date(lastRating.date).getTime()) / (1000 * 60 * 60 * 24)) : 999;
+  const shouldShowPrompt = daysSinceLastRating >= 7; // Weekly check-in
+
+  const handleSubmit = () => {
+    if (selectedRating) {
+      onRatingSubmit(selectedRating);
+      setShowRating(false);
+      setSelectedRating(null);
+    }
+  };
+
+  if (showRating) {
+    return (
+      <div style={{
+        background:"linear-gradient(135deg, #3665F3 0%, #E53238 100%)",
+        borderRadius:12,
+        padding:24,
+        marginBottom:24,
+        color:"#FFFFFF"
+      }}>
+        <h3 style={{ fontSize:20, fontWeight:700, marginBottom:12 }}>
+          💭 {lang === "en" ? "How confident do you feel about going live?" : "ライブ配信にどれくらい自信がありますか？"}
+        </h3>
+        <p style={{ fontSize:14, opacity:0.9, marginBottom:20 }}>
+          {lang === "en"
+            ? "Rate your confidence from 1 (nervous) to 5 (ready!). We'll track your growth over time."
+            : "1（緊張）から5（準備万端！）で自信度を評価してください。時間経過とともに成長を追跡します。"}
+        </p>
+
+        <div style={{ display:"flex", gap:12, marginBottom:20, justifyContent:"center" }}>
+          {[1, 2, 3, 4, 5].map(rating => (
+            <button
+              key={rating}
+              onClick={() => setSelectedRating(rating)}
+              style={{
+                width:60,
+                height:60,
+                borderRadius:12,
+                border: selectedRating === rating ? "3px solid #F5AF02" : "2px solid rgba(255,255,255,0.3)",
+                background: selectedRating === rating ? "#F5AF02" : "rgba(255,255,255,0.1)",
+                color:"#FFFFFF",
+                fontSize:24,
+                fontWeight:700,
+                cursor:"pointer",
+                transition:"all 0.2s"
+              }}
+              onMouseEnter={e => e.target.style.transform = "scale(1.1)"}
+              onMouseLeave={e => e.target.style.transform = "scale(1)"}
+            >
+              {rating}
+            </button>
+          ))}
+        </div>
+
+        <div style={{ display:"flex", gap:12 }}>
+          <button
+            onClick={handleSubmit}
+            disabled={!selectedRating}
+            style={{
+              flex:1,
+              background: selectedRating ? "#F5AF02" : "rgba(255,255,255,0.2)",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:8,
+              padding:"12px",
+              fontSize:16,
+              fontWeight:700,
+              cursor: selectedRating ? "pointer" : "not-allowed"
+            }}
+          >
+            {lang === "en" ? "Submit Rating" : "評価を送信"}
+          </button>
+          <button
+            onClick={() => setShowRating(false)}
+            style={{
+              background:"rgba(255,255,255,0.1)",
+              color:"#FFFFFF",
+              border:"1px solid rgba(255,255,255,0.3)",
+              borderRadius:8,
+              padding:"12px 24px",
+              fontSize:16,
+              fontWeight:700,
+              cursor:"pointer"
+            }}
+          >
+            {lang === "en" ? "Skip" : "スキップ"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (shouldShowPrompt && !showRating) {
+    return (
+      <div style={{
+        background:"#EFF6FF",
+        border:"2px solid #3665F3",
+        borderRadius:12,
+        padding:20,
+        marginBottom:24,
+        display:"flex",
+        justifyContent:"space-between",
+        alignItems:"center",
+        gap:16
+      }}>
+        <div>
+          <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:4 }}>
+            💭 {lang === "en" ? "Weekly Confidence Check" : "週間自信度チェック"}
+          </div>
+          <div style={{ fontSize:14, color:"#4B5563" }}>
+            {lang === "en"
+              ? "How are you feeling this week? Rate your confidence!"
+              : "今週の気分はどうですか？自信度を評価しましょう！"}
+          </div>
+        </div>
+        <button
+          onClick={() => setShowRating(true)}
+          style={{
+            background:"#3665F3",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:8,
+            padding:"12px 24px",
+            fontSize:15,
+            fontWeight:700,
+            cursor:"pointer",
+            whiteSpace:"nowrap"
+          }}
+        >
+          {lang === "en" ? "Rate Now" : "今すぐ評価"}
+        </button>
+      </div>
+    );
+  }
+
+  // Show confidence trend if we have ratings
+  if (ratings.length > 0) {
+    const avgConfidence = ratings.reduce((sum, r) => sum + r.rating, 0) / ratings.length;
+    const trend = ratings.length >= 2
+      ? ratings[ratings.length - 1].rating - ratings[ratings.length - 2].rating
+      : 0;
+
+    return (
+      <div style={{
+        background:"#FFFFFF",
+        border:"2px solid #E5E7EB",
+        borderRadius:12,
+        padding:20,
+        marginBottom:24
+      }}>
+        <h3 style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:16 }}>
+          💭 {lang === "en" ? "Your Confidence Journey" : "あなたの自信の旅"}
+        </h3>
+
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(120px, 1fr))", gap:12, marginBottom:16 }}>
+          <div style={{ textAlign:"center", background:"#F7F7F7", borderRadius:8, padding:12 }}>
+            <div style={{ fontSize:24, fontWeight:700, color:"#3665F3" }}>
+              {lastRating.rating}/5
+            </div>
+            <div style={{ fontSize:12, color:"#6B7280" }}>
+              {lang === "en" ? "Latest" : "最新"}
+            </div>
+          </div>
+          <div style={{ textAlign:"center", background:"#F7F7F7", borderRadius:8, padding:12 }}>
+            <div style={{ fontSize:24, fontWeight:700, color:"#86B817" }}>
+              {avgConfidence.toFixed(1)}
+            </div>
+            <div style={{ fontSize:12, color:"#6B7280" }}>
+              {lang === "en" ? "Average" : "平均"}
+            </div>
+          </div>
+          <div style={{ textAlign:"center", background:"#F7F7F7", borderRadius:8, padding:12 }}>
+            <div style={{ fontSize:24, fontWeight:700, color: trend > 0 ? "#86B817" : trend < 0 ? "#E53238" : "#9CA3AF" }}>
+              {trend > 0 ? "↑" : trend < 0 ? "↓" : "→"} {Math.abs(trend)}
+            </div>
+            <div style={{ fontSize:12, color:"#6B7280" }}>
+              {lang === "en" ? "Trend" : "傾向"}
+            </div>
+          </div>
+        </div>
+
+        {trend > 0 && (
+          <div style={{ background:"#ECFDF5", border:"1px solid #86B817", borderRadius:8, padding:12, fontSize:14, color:"#191919" }}>
+            🎉 {lang === "en"
+              ? "Great progress! Your confidence is growing!"
+              : "素晴らしい進歩！自信が育っています！"}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return null;
+}
+
 /* ═══ HOME ═══ */
 function HomeP({ lang, setPage, playerData }) {
   const xpToNextLevel = 100;
   const xpProgress = (playerData.xp % xpToNextLevel) / xpToNextLevel * 100;
   const totalModules = 4;
   const completedCount = Object.values(playerData.modulesCompleted).filter(v => v >= 100).length;
+
+  const handleConfidenceRating = (rating) => {
+    const newRating = {
+      rating,
+      date: new Date().toISOString(),
+      level: playerData.level,
+      xp: playerData.xp
+    };
+    const updated = {
+      ...playerData,
+      confidenceRatings: [...(playerData.confidenceRatings || []), newRating]
+    };
+    localStorage.setItem('ebay-live-player', JSON.stringify(updated));
+    window.location.reload(); // Refresh to show new rating
+  };
 
   // Get badge data
   const BADGES = {
