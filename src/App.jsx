@@ -2105,14 +2105,54 @@ function LiveP({ lang, initialView = "framework" }) {
 
       {/* FRAMEWORK */}
       {view==="framework" && data.map((step, si) => (
-        <div key={si} style={{ marginBottom:12 }}>
-          <div onClick={()=>setOpenStep(openStep===si?null:si)} style={{ display:"flex", alignItems:"center", gap:12, background:"#FFFFFF", border:`2px solid ${openStep===si?step.color:"#F7F7F7"}`, borderRadius:12, padding:"16px 20px", cursor:"pointer", transition:"all 0.2s" }}>
-            <span style={{ fontSize:32 }}>{step.icon}</span>
+        <div key={si} style={{ marginBottom:16 }}>
+          <div
+            onClick={()=>setOpenStep(openStep===si?null:si)}
+            style={{
+              display:"flex",
+              alignItems:"flex-start",
+              gap:16,
+              background:"#FFFFFF",
+              border:`2px solid ${openStep===si?step.color:"#E5E7EB"}`,
+              borderRadius:12,
+              padding:"20px 24px",
+              cursor:"pointer",
+              transition:"all 0.2s",
+              boxShadow: openStep===si ? `0 4px 12px ${step.color}33` : "none"
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform="translateY(-2px)"}
+            onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}
+          >
+            <span style={{ fontSize:40, lineHeight:1 }}>{step.icon}</span>
             <div style={{ flex:1 }}>
-              <div style={{ fontSize:17, fontWeight:700, color:"#191919" }}>{step.step}</div>
-              <div style={{ fontSize:14, color:"#191919", fontWeight:400 }}>{step.sub}</div>
+              <div style={{ fontSize:19, fontWeight:700, color:"#191919", marginBottom:6 }}>{step.step}</div>
+              <div style={{ fontSize:15, color:"#6B7280", marginBottom:12, lineHeight:1.5 }}>{step.sub}</div>
+
+              {/* Show section preview */}
+              <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:8 }}>
+                {step.sections.map((sec, idx) => (
+                  <span
+                    key={idx}
+                    style={{
+                      fontSize:13,
+                      color:step.color,
+                      background:`${step.color}15`,
+                      padding:"4px 10px",
+                      borderRadius:6,
+                      fontWeight:600
+                    }}
+                  >
+                    {sec.t}
+                  </span>
+                ))}
+              </div>
+
+              <div style={{ fontSize:13, color:step.color, fontWeight:700, marginTop:4 }}>
+                {openStep===si
+                  ? (lang==="en"?"▼ Hide Details":"▼ 詳細を隠す")
+                  : (lang==="en"?"▶ Explore Framework":"▶ フレームワークを見る")}
+              </div>
             </div>
-            <span style={{ fontSize:18, color:"#191919" }}>{openStep===si?"▼":"▶"}</span>
           </div>
           {openStep===si && (
             <div style={{ padding:"12px 0 0 20px", borderLeft:`3px solid ${step.color}`, marginLeft:20, marginTop:12, animation:"fu 0.3s ease" }}>
