@@ -827,7 +827,10 @@ export default function App() {
   const [page, setPage] = useState(() => {
     const hash = window.location.hash.slice(1);
     // Support both old numeric pages and new string-based pages
-    return hash || 0;
+    if (!hash || hash === "") return 0;
+    // Try to parse as number for old numeric routes
+    const num = parseInt(hash);
+    return isNaN(num) ? hash : num;
   });
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [expandedSections, setExpandedSections] = useState({ knowledge: true, practice: false, ai: false, progress: false });
@@ -1172,7 +1175,9 @@ export default function App() {
 
   // Update URL hash when page changes
   useEffect(() => {
-    window.location.hash = page;
+    if (page !== null && page !== undefined) {
+      window.location.hash = page;
+    }
   }, [page]);
 
   // Update streak on visit
@@ -1490,6 +1495,9 @@ export default function App() {
         <div className="ebay-content" key={`${page}-${lang}`}>
           {/* Render based on page value */}
           {(() => {
+            // Handle null/undefined - default to home
+            if (page === null || page === undefined) return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
+
             const pageStr = String(page);
 
             // Home
