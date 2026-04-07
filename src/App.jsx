@@ -443,56 +443,104 @@ const BRAND_DATA = {
       }
     ]
   },
-  { brand:"Chanel", yr:1910, c:"🇫🇷", models:["Classic Flap","Boy","2.55 Reissue","WOC","19","Gabrielle","Coco Handle"],
-    value:"Price increases 2-3x/year. Classic Flap Medium: $2,800(2010)→$10,200(2024). Caviar leather holds value better than lambskin.",
-    valueJp:"年2-3回値上げ。クラシックフラップM: $2,800(2010)→$10,200(2024)。キャビアレザーはラムスキンより価値維持。",
-    rare:"Vintage pieces from Karl Lagerfeld's first years. Seasonal limited editions (cruise, métiers d'art). Chanel 19 in iridescent calfskin.",
-    rareJp:"カール・ラガーフェルド初期のヴィンテージ。シーズン限定（クルーズ、メティエダール）。シャネル19のイリデセントカーフスキン。",
-    condition:"Quilting MUST align at seams. Chain weight = authenticity indicator. Lambskin scratches easily (mention in LIVE). Caviar = durable.",
-    conditionJp:"キルティングは縫い目で合う必須。チェーンの重さ=真贋指標。ラムスキンは傷つきやすい（配信で言及）。キャビア=耐久性。" },
-  { brand:"Hermès", yr:1837, c:"🇫🇷", models:["Birkin","Kelly","Constance","Evelyne","Garden Party","Picotin","Lindy"],
-    value:"Birkin 25/30 most sought after. Exotic skins (crocodile, alligator, ostrich) start at $30K. Color affects value: neutral > bright. Condition is EVERYTHING.",
-    valueJp:"バーキン25/30が最人気。エキゾチックスキン（クロコダイル、アリゲーター、オーストリッチ）は$30K~。色で価値変動：ニュートラル>明るい色。状態が全て。",
-    rare:"Himalaya Birkin (white to grey gradient) = $100K-$500K. Kelly Cut, Roulis rare. Limited edition colors from each season.",
-    rareJp:"ヒマラヤバーキン（白からグレーのグラデーション）= $100K-$500K。ケリーカット、ルリは希少。シーズン限定色。",
-    condition:"Craftsman stamp + year letter inside. Saddle stitch (angled, hand-sewn). Hardware should never tarnish. Scratches lower value significantly on exotics.",
-    conditionJp:"職人スタンプ+年号レター内側。サドルステッチ（斜め、手縫い）。金具は変色しない。エキゾチックレザーは傷で大幅価値減。" },
-  { brand:"Gucci", yr:1921, c:"🇮🇹", models:["Marmont","Dionysus","Jackie 1961","Bamboo 1947","Ophidia","Horsebit 1955","Soho"],
-    value:"Tom Ford era (1994-2004) vintage pieces command premium. Bamboo handles original 1940s design. Alessandro Michele era (2015-2022) maximalist styles.",
-    valueJp:"トム・フォード時代(1994-2004)ヴィンテージはプレミアム。バンブーハンドルは1940年代オリジナルデザイン。ミケーレ時代(2015-2022)マキシマリストスタイル。",
-    rare:"Vintage bamboo top-handle bags. GG Supreme canvas with rare embroidery. Limited edition Dionysus with hand-painted details.",
-    rareJp:"ヴィンテージバンブートップハンドルバッグ。GGスプリームキャンバスの希少刺繍。手描きディテールの限定ディオニュソス。",
-    condition:"Serial number inside (2 rows, 10-13 digits). 'Controllato' card. Hardware should be heavy. Canvas edges should be clean, not fraying.",
-    conditionJp:"内側シリアル番号（2行、10-13桁）。コントロラートカード。金具は重い。キャンバスの縁はきれい、ほつれなし。" },
-  { brand:"Prada", yr:1913, c:"🇮🇹", models:["Galleria","Re-Edition 2005","Cleo","Cahier","Re-Nylon","Sidonie","Hobo"],
-    value:"90s nylon pieces highly collectible. Re-Edition 2005: Y2K revival drove prices up. Saffiano leather = signature, holds value well.",
-    valueJp:"90年代ナイロンは高コレクタブル。Re-Edition 2005: Y2K復興で価格上昇。サフィアーノレザー=シグネチャー、価値維持良好。",
-    rare:"Vintage nylon mini backpacks. Re-Nylon line (recycled ocean plastic = eco appeal). Limited runway pieces with unique hardware.",
-    rareJp:"ヴィンテージナイロンミニバックパック。Re-Nylonライン（海洋プラスチック再生=エコ訴求）。ユニーク金具の限定ランウェイピース。",
-    condition:"Authenticity card (white with Prada logo). Triangle logo must be crisp, centered. Saffiano leather = crosshatch pattern should be consistent.",
-    conditionJp:"認証カード（白、Pradaロゴ）。三角ロゴはクリア、中央配置。サフィアーノレザー=クロスハッチパターンは均一。" },
-  { brand:"Dior", yr:1946, c:"🇫🇷", models:["Lady Dior","Saddle","Book Tote","30 Montaigne","Bobby","Diorama","Diorissimo"],
-    value:"Lady Dior: Princess Diana effect = iconic status. Book Tote trendy for personalization. 30 Montaigne = minimalist, investment piece.",
-    valueJp:"レディディオール：ダイアナ妃効果=アイコニックステータス。ブックトートはパーソナライズでトレンド。30モンテーニュ=ミニマリスト、投資品。",
-    rare:"Lady Dior from 1995 launch. John Galliano-era Saddle bags (late 90s-early 2000s). Limited edition cannage patterns.",
-    rareJp:"1995年発売のレディディオール。ジョン・ガリアーノ時代のサドルバッグ（90年代後半~2000年代初頭）。限定カナージュパターン。",
-    condition:"'Made in Italy' stamp. Date code format varies by year. 'DIOR' charms should be heavy, perfectly aligned. Cannage stitching must be precise.",
-    conditionJp:"'Made in Italy'スタンプ。デートコードは年で形式異なる。'DIOR'チャームは重く、完璧整列。カナージュステッチは精密。" },
-  { brand:"Fendi", yr:1925, c:"🇮🇹", models:["Baguette","Peekaboo","By The Way","Kan I","Mon Tresor","First"],
-    value:"Baguette = Carrie Bradshaw effect (Sex and the City). Peekaboo versatile, professional. Limited embroidered/beaded Baguettes = collector items.",
-    valueJp:"バゲット=キャリー・ブラッドショー効果（セックス・アンド・ザ・シティ）。ピーカブーは多用途、プロフェッショナル。限定刺繍/ビーズバゲット=コレクターアイテム。",
-    rare:"Vintage Baguette from 1997 launch. Karl Lagerfeld-era pieces. FF logo Zucca canvas (discontinued then revived).",
-    rareJp:"1997年発売のヴィンテージバゲット。カール・ラガーフェルド時代。FFロゴズッカキャンバス（廃番後復活）。",
-    condition:"Hologram tag inside. Serial number format: year + sequential. Hardware 'FENDI' engraving should be deep, clear. Leather should smell natural.",
-    conditionJp:"内側ホログラムタグ。シリアル番号形式：年+連番。金具'FENDI'刻印は深く鮮明。レザーは自然な匂い。" },
-  { brand:"Bottega Veneta", yr:1966, c:"🇮🇹", models:["Cassette","Jodie","Arco","Pouch","Knot","Intrecciato Tote"],
-    value:"'Intrecciato' weave = signature (takes 8+ hours to make one bag). Daniel Lee era (2018-2021) revived brand, prices surged.",
-    valueJp:"'イントレチャート'織り=シグネチャー（1バッグ制作に8時間以上）。ダニエル・リー時代(2018-2021)でブランド復興、価格急上昇。",
-    rare:"Vintage woven clutches. Neon colors from Daniel Lee era. The Pouch in rare leathers (crocodile, python).",
-    rareJp:"ヴィンテージ織りクラッチ。ダニエル・リー時代のネオンカラー。希少レザーのポーチ（クロコダイル、パイソン）。",
-    condition:"No visible logo (stealth wealth). Quality of intrecciato weave = authenticity key. Leather should be butter-soft. Interior 'Bottega Veneta' stamp.",
-    conditionJp:"ロゴなし（ステルス・ウェルス）。イントレチャート織りの品質=真贋の鍵。レザーはバター状に柔らかい。内側'Bottega Veneta'スタンプ。" }
-];
+  chanel: {
+    name:"Chanel", year:1910, country:"France",
+    auth:"Serial sticker + card (pre-2021). Microchip (post-2021). Quilting must align at seams.",
+    authJp:"シリアルステッカー+カード（2021年以前）。マイクロチップ（2021年以降）。キルティングは縫い目で合う必須。",
+    rare:"Prices increase 2-3x per year. Classic Flap was ~$2,800 in 2010, now over $10,000. GST and PST discontinued.",
+    rareJp:"年2-3回値上げ。クラシックフラップは2010年~$2,800、今は$10,000以上。GSTとPST廃番。",
+    tip:"Chanel increases prices every year. Whatever you pay today, it'll be worth more tomorrow.",
+    tipJp:"シャネルは毎年値上げ。今日払う価格、明日にはもっと価値がある。",
+    models:[
+      { name:"Classic Flap", brief:"Iconic quilted bag - investment piece", briefJp:"象徴的なキルティングバッグ - 投資品",
+        desc:"The most iconic Chanel bag. Diamond quilted pattern with chain-leather strap and CC turnlock.",
+        descJp:"最も象徴的なシャネルバッグ。ダイヤモンドキルティングパターン、チェーンレザーストラップ、CCターンロック付き。",
+        shape:"Rectangular flap bag with signature diamond quilting (matelassé). Chain strap interwoven with leather.",
+        shapeJp:"シグネチャーダイヤモンドキルティング（マトラッセ）の長方形フラップバッグ。レザーと組み合わせたチェーンストラップ。",
+        sizes:[
+          {name:"Mini (17cm)", dim:"6.7\"W × 5.1\"H × 3.1\"D"},
+          {name:"Small (23cm)", dim:"9\"W × 5.5\"H × 2.8\"D"},
+          {name:"Medium (25.5cm)", dim:"10\"W × 6.3\"H × 2.8\"D - MOST POPULAR"},
+          {name:"Jumbo (30cm)", dim:"12\"W × 7.9\"H × 3.5\"D"},
+          {name:"Maxi (33cm)", dim:"13\"W × 9\"H × 4\"D"}
+        ],
+        rare:"Seasonal limited editions (cruise, métiers d'art). Iridescent calfskin. Vintage from Karl's early years.",
+        rareJp:"シーズン限定版（クルーズ、メティエダール）。イリデセントカーフスキン。カール初期のヴィンテージ。",
+        tip:"Classic Flap Medium was $2,800 in 2010. Now over $10,000. That's why pre-loved is smart.",
+        tipJp:"クラシックフラップMは2010年$2,800。今は$10,000以上。だから中古が賢い。"
+      },
+      { name:"Boy Bag", brief:"Modern, edgy - structured shape", briefJp:"モダンでエッジー - 構造的形状",
+        desc:"Masculine-inspired bag with bold hardware. More structured than Classic Flap.",
+        descJp:"大胆な金具のマスキュリンなインスピレーションバッグ。クラシックフラップより構造的。",
+        shape:"Rectangular with chevron or diamond quilting. Chunky chain strap. Push-lock closure.",
+        shapeJp:"シェブロンまたはダイヤモンドキルティングの長方形。太いチェーンストラップ。プッシュロック閉鎖。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 5\"H × 3\"D"},
+          {name:"Medium", dim:"10\"W × 6\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Large", dim:"12\"W × 7.5\"H × 4\"D"}
+        ],
+        rare:"Chevron quilting more sought after than diamond. Limited edition leathers and colors.",
+        rareJp:"シェブロンキルティングはダイヤモンドより人気。限定版レザーと色。",
+        tip:"Boy Bag is for buyers who want Chanel but something edgier. It's bolder.",
+        tipJp:"ボーイバッグはシャネルが欲しいけどエッジーなものを求めるバイヤー向け。より大胆。"
+      }
+    ]
+  },
+  hermes: {
+    name:"Hermès", year:1837, country:"France",
+    auth:"Craftsman stamp with ID, year letter, blind stamp. Hand-stitched saddle stitch (angled, not straight).",
+    authJp:"職人スタンプ+ID、年号レター、ブラインドスタンプ。手縫いサドルステッチ（斜め、直線ではない）。",
+    rare:"Exotic leathers (croc, ostrich). Special orders (HSS). Limited colorways each season. Birkins NOT sold online — need SA relationship.",
+    rareJp:"エキゾチックレザー（クロコ、オーストリッチ）。スペシャルオーダー（HSS）。シーズン限定カラー。バーキンはオンライン販売なし — SA関係必要。",
+    tip:"You can't just walk in and buy a Birkin. The fact that we have one here tonight is special.",
+    tipJp:"バーキンは歩いて入って買えない。今夜ここにあるのは特別。",
+    models:[
+      { name:"Birkin", brief:"Holy grail - most coveted bag", briefJp:"聖杯 - 最も切望されるバッグ",
+        desc:"The most sought-after handbag in the world. Named after Jane Birkin. Not available online.",
+        descJp:"世界で最も求められているハンドバッグ。ジェーン・バーキンにちなんで命名。オンライン販売なし。",
+        shape:"Rectangular tote with flap, two handles, turnlock closure. Structured with feet.",
+        shapeJp:"フラップ付き長方形トート、2つのハンドル、ターンロック閉鎖。足付きで構造的。",
+        sizes:[
+          {name:"Birkin 25", dim:"9.8\"W × 7.9\"H × 5.1\"D - MOST SOUGHT AFTER"},
+          {name:"Birkin 30", dim:"11.8\"W × 8.7\"H × 6.3\"D - MOST POPULAR"},
+          {name:"Birkin 35", dim:"13.8\"W × 10.6\"H × 7.1\"D"},
+          {name:"Birkin 40", dim:"15.7\"W × 11.8\"H × 8.7\"D - Travel size"}
+        ],
+        rare:"Himalaya Birkin ($100K-$500K). Exotic leathers. Limited seasonal colors. HSS (Special Order).",
+        rareJp:"ヒマラヤバーキン（$100K-$500K）。エキゾチックレザー。シーズン限定色。HSS（スペシャルオーダー）。",
+        tip:"Birkin 25 and 30 are the most sought after. You need purchase history to even buy one retail.",
+        tipJp:"バーキン25と30が最も求められている。定価で買うにも購入履歴が必要。"
+      }
+    ]
+  },
+  gucci: {
+    name:"Gucci", year:1921, country:"Italy",
+    auth:"Serial number tag inside (2 rows, 10-13 digits). Controllato card. Clean hardware.",
+    authJp:"内側シリアル番号タグ（2行、10-13桁）。コントロラートカード。きれいな金具。",
+    rare:"Tom Ford era (1994-2004) vintage premium. Vintage bamboo handles. Alessandro Michele era (2015-2022).",
+    rareJp:"トム・フォード時代（1994-2004）ヴィンテージプレミアム。ヴィンテージバンブーハンドル。ミケーレ時代（2015-2022）。",
+    tip:"Gucci goes through creative eras. Tom Ford pieces from the 90s? Highly collectible.",
+    tipJp:"グッチはクリエイティブ時代を経る。90年代のトム・フォード作品？高コレクティブル。",
+    models:[
+      { name:"GG Marmont", brief:"Quilted chevron - modern classic", briefJp:"キルティングシェブロン - モダンクラシック",
+        desc:"Matelassé chevron leather with signature GG logo. Launched 2016, instantly iconic.",
+        descJp:"シグネチャーGGロゴ付きマトラッセシェブロンレザー。2016年発売、即座に象徴的に。",
+        shape:"Soft quilted bag with chevron pattern. Double G hardware. Chain strap.",
+        shapeJp:"シェブロンパターンの柔らかいキルティングバッグ。ダブルG金具。チェーンストラップ。",
+        sizes:[
+          {name:"Super Mini", dim:"7.1\"W × 4.3\"H × 2\"D"},
+          {name:"Mini", dim:"8.5\"W × 5\"H × 2.5\"D"},
+          {name:"Small", dim:"9.5\"W × 5.7\"H × 3\"D - MOST POPULAR"},
+          {name:"Medium", dim:"12\"W × 7\"H × 3.5\"D"}
+        ],
+        rare:"Limited edition colors and embellishments. Velvet versions.",
+        rareJp:"限定版カラーと装飾。ベルベットバージョン。",
+        tip:"Marmont is Gucci's answer to Chanel. Buyers know this style. Very popular.",
+        tipJp:"マーモントはグッチのシャネルへの回答。バイヤーはこのスタイルを知ってる。とても人気。"
+      }
+    ]
+  }
+};
 
 /* ═══ PROFESSIONAL VOCABULARY ═══ */
 const VOCAB_CATS = [
@@ -846,6 +894,7 @@ export default function App() {
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
       <style>{`
         @keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
         *{box-sizing:border-box}
         ::-webkit-scrollbar{width:8px}
         ::-webkit-scrollbar-track{background:#f1f1f1}
@@ -1252,20 +1301,23 @@ function FashionP({ lang }) {
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(320px, 1fr))", gap:20 }}>
-        {BRANDS.map((b,i)=>(
-          <div key={i} onClick={()=>setSel(i)} style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"24px", cursor:"pointer", transition:"all 0.2s", boxShadow:"0 2px 4px rgba(0,0,0,0.05)" }}
-            onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3B1FC6"; e.currentTarget.style.boxShadow="0 8px 16px rgba(59,31,198,0.15)"}}
-            onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#F7F7F7"; e.currentTarget.style.boxShadow="0 2px 4px rgba(0,0,0,0.05)"}}>
-            <div style={{ fontSize:24, fontWeight:700, color:"#191919", marginBottom:6 }}>{b.brand}</div>
-            <div style={{ fontSize:14, color:"#191919", marginBottom:16, fontWeight:400 }}>{b.c} Est. {b.yr}</div>
-            <div style={{ fontSize:14, color:"#191919", marginBottom:12, fontWeight:400 }}>
-              <strong style={{ fontWeight:700 }}>{lang==="en"?"Models":"モデル"}:</strong> {b.models.slice(0,3).join(", ")}...
-            </div>
-            <div style={{ fontSize:14, color:"#3B1FC6", fontWeight:700 }}>
-              {lang==="en"?"View Details →":"詳細を見る →"}
-            </div>
-          </div>
-        ))}
+        {Object.keys(BRAND_DATA).map((key)=>{
+          const b = BRAND_DATA[key];
+          return (
+            <button key={key} onClick={()=>setSelBrand(key)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"24px", cursor:"pointer", transition:"all 0.2s", textAlign:"left", fontFamily:"inherit", width:"100%" }}
+              onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.boxShadow="0 8px 16px rgba(54,101,243,0.15)"}}
+              onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#E5E7EB"; e.currentTarget.style.boxShadow="none"}}>
+              <div style={{ fontSize:24, fontWeight:700, color:"#191919", marginBottom:6 }}>{b.name}</div>
+              <div style={{ fontSize:14, color:"#6b7280", marginBottom:16, fontWeight:400 }}>Founded {b.year}, {b.country}</div>
+              <div style={{ fontSize:14, color:"#4B5563", marginBottom:12, fontWeight:400 }}>
+                <strong style={{ fontWeight:700 }}>{lang==="en"?"Models":"モデル"}:</strong> {b.models.length} {lang==="en"?"classic models":"クラシックモデル"}
+              </div>
+              <div style={{ fontSize:14, color:"#3665F3", fontWeight:700 }}>
+                {lang==="en"?"Explore Models →":"モデルを見る →"}
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -2965,6 +3017,1247 @@ function NameBlastGame({ lang, onComplete }) {
   );
 }
 
+/* ═══ SPEED AUCTION GAME ═══ */
+function SpeedAuctionGame({ lang, onComplete }) {
+  const [gameState, setGameState] = useState("ready"); // ready, playing, results
+  const [currentItem, setCurrentItem] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [itemsCompleted, setItemsCompleted] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
+  const [currentRound, setCurrentRound] = useState(0);
+  const totalRounds = 5;
+
+  const auctionItems = {
+    en: [
+      { name: "Louis Vuitton Speedy 30", color: "Monogram Brown", condition: "Very Good", issues: ["Corner wear", "Light patina"], startBid: "$400", image: "👜" },
+      { name: "Chanel Classic Flap Medium", color: "Black Caviar", condition: "Excellent", issues: ["Minor hardware scratches"], startBid: "$3,500", image: "👛" },
+      { name: "Hermès Birkin 35", color: "Gold Clemence", condition: "Excellent", issues: ["Pristine condition"], startBid: "$8,000", image: "💼" },
+      { name: "Gucci Marmont Small", color: "Red Matelassé", condition: "Good", issues: ["Chain kinks", "Minor scuffs"], startBid: "$600", image: "👝" },
+      { name: "Prada Galleria Saffiano", color: "Black", condition: "Very Good", issues: ["Interior pen mark"], startBid: "$900", image: "💼" },
+      { name: "Dior Lady Dior Medium", color: "Rose Ballerine", condition: "Excellent", issues: ["Light corner wear"], startBid: "$2,800", image: "👜" },
+      { name: "Bottega Veneta Intrecciato", color: "Tan", condition: "Good", issues: ["Handle creasing", "Light stains"], startBid: "$550", image: "👝" },
+      { name: "Fendi Baguette", color: "Zucca Canvas", condition: "Fair", issues: ["Visible wear", "Lining tears"], startBid: "$350", image: "👛" },
+    ],
+    jp: [
+      { name: "ルイ・ヴィトン スピーディ30", color: "モノグラムブラウン", condition: "Very Good", issues: ["角スレ", "軽いパティーナ"], startBid: "$400", image: "👜" },
+      { name: "シャネル クラシックフラップ M", color: "ブラックキャビア", condition: "Excellent", issues: ["金具に軽い傷"], startBid: "$3,500", image: "👛" },
+      { name: "エルメス バーキン35", color: "ゴールドクレマンス", condition: "Excellent", issues: ["美品"], startBid: "$8,000", image: "💼" },
+      { name: "グッチ マーモント スモール", color: "レッドマトラッセ", condition: "Good", issues: ["チェーンに歪み", "軽いスレ"], startBid: "$600", image: "👝" },
+      { name: "プラダ ガレリア サフィアーノ", color: "ブラック", condition: "Very Good", issues: ["内側にペン跡"], startBid: "$900", image: "💼" },
+      { name: "ディオール レディディオール M", color: "ローズバレリーヌ", condition: "Excellent", issues: ["軽い角スレ"], startBid: "$2,800", image: "👜" },
+      { name: "ボッテガ・ヴェネタ イントレチャート", color: "タン", condition: "Good", issues: ["ハンドルにシワ", "軽いシミ"], startBid: "$550", image: "👝" },
+      { name: "フェンディ バゲット", color: "ズッカキャンバス", condition: "Fair", issues: ["使用感あり", "裏地破れ"], startBid: "$350", image: "👛" },
+    ]
+  };
+
+  useEffect(() => {
+    if (gameState === "playing" && timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (timeLeft === 0 && gameState === "playing") {
+      handleTimeUp();
+    }
+  }, [timeLeft, gameState]);
+
+  const startGame = () => {
+    const items = auctionItems[lang];
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    setCurrentItem(randomItem);
+    setCurrentRound(0);
+    setItemsCompleted(0);
+    setTotalScore(0);
+    setTimeLeft(30);
+    setGameState("playing");
+  };
+
+  const handleTimeUp = () => {
+    // Partial credit for time spent
+    const timeUsed = 30 - timeLeft;
+    const points = Math.max(10, 30 - timeUsed); // Less time = more points
+    setTotalScore(totalScore + points);
+    setItemsCompleted(itemsCompleted + 1);
+
+    if (currentRound < totalRounds - 1) {
+      // Next round
+      const items = auctionItems[lang];
+      const randomItem = items[Math.floor(Math.random() * items.length)];
+      setCurrentItem(randomItem);
+      setCurrentRound(currentRound + 1);
+      setTimeLeft(30);
+    } else {
+      // Game over
+      setGameState("results");
+      if (onComplete) onComplete(itemsCompleted);
+    }
+  };
+
+  const handleComplete = () => {
+    const points = Math.max(50, 100 - (30 - timeLeft) * 2); // Faster = better score
+    setTotalScore(totalScore + points);
+    setItemsCompleted(itemsCompleted + 1);
+
+    if (currentRound < totalRounds - 1) {
+      // Next round
+      const items = auctionItems[lang];
+      const randomItem = items[Math.floor(Math.random() * items.length)];
+      setCurrentItem(randomItem);
+      setCurrentRound(currentRound + 1);
+      setTimeLeft(30);
+    } else {
+      // Game over
+      setGameState("results");
+      if (onComplete) onComplete(itemsCompleted);
+    }
+  };
+
+  const handleRestart = () => {
+    startGame();
+  };
+
+  if (gameState === "ready") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>⚡</div>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          {lang === "en" ? "Speed Auction" : "スピードオークション"}
+        </h2>
+        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
+          {lang === "en"
+            ? "A luxury item appears with details. You have 30 seconds to announce the starting bid, describe the condition, and highlight key features OUT LOUD. Tap 'Done' when finished. Fast + complete = high score!"
+            : "高級品が詳細と共に表示されます。30秒以内に開始価格を発表し、状態を説明し、重要な特徴を声に出して言いましょう。完了したら「完了」をタップ。速く完全に = 高得点！"}
+        </p>
+        <div style={{
+          background:"#F7F7F7",
+          borderRadius:12,
+          padding:20,
+          marginBottom:24,
+          maxWidth:450,
+          margin:"0 auto 24px"
+        }}>
+          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600 }}>
+            {lang === "en" ? "What To Say:" : "何を言うか："}
+          </div>
+          <div style={{ fontSize:14, color:"#191919", lineHeight:1.8, textAlign:"left" }}>
+            1. {lang === "en" ? "Starting bid amount" : "開始価格"}<br />
+            2. {lang === "en" ? "Item name & brand" : "アイテム名とブランド"}<br />
+            3. {lang === "en" ? "Color & material" : "色と素材"}<br />
+            4. {lang === "en" ? "Condition level" : "コンディションレベル"}<br />
+            5. {lang === "en" ? "ALL visible issues" : "すべての見える問題"}<br />
+            6. {lang === "en" ? "Closing phrase (\"Going once, going twice...\")" : "締めのフレーズ"}
+          </div>
+        </div>
+        <button
+          onClick={startGame}
+          style={{
+            background:"#F5AF02",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"16px 48px",
+            fontSize:20,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "🎯 Start Auction" : "🎯 オークション開始"}
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === "playing" && currentItem) {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        {/* Header */}
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+          <div style={{ fontSize:16, color:"#9CA3AF", fontWeight:600 }}>
+            {lang === "en" ? "Round" : "ラウンド"} {currentRound + 1} / {totalRounds}
+          </div>
+          <div style={{
+            background: timeLeft <= 10 ? "#FEF2F2" : "#EFF6FF",
+            border: `2px solid ${timeLeft <= 10 ? "#E53238" : "#3665F3"}`,
+            borderRadius:12,
+            padding:"8px 20px",
+            fontSize:24,
+            fontWeight:700,
+            color: timeLeft <= 10 ? "#E53238" : "#3665F3",
+            minWidth:80,
+            textAlign:"center",
+            animation: timeLeft <= 5 ? "pulse 0.5s infinite" : "none"
+          }}>
+            {timeLeft}s
+          </div>
+        </div>
+
+        {/* Item Card */}
+        <div style={{
+          background:"#F7F7F7",
+          borderRadius:12,
+          padding:24,
+          marginBottom:24,
+          border:"2px solid #E5E7EB"
+        }}>
+          <div style={{ fontSize:64, textAlign:"center", marginBottom:16 }}>{currentItem.image}</div>
+          <h3 style={{ fontSize:24, fontWeight:700, color:"#191919", marginBottom:16, textAlign:"center" }}>
+            {currentItem.name}
+          </h3>
+
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:16 }}>
+            <div>
+              <div style={{ fontSize:12, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>
+                {lang === "en" ? "Color" : "色"}
+              </div>
+              <div style={{ fontSize:16, fontWeight:600, color:"#191919" }}>{currentItem.color}</div>
+            </div>
+            <div>
+              <div style={{ fontSize:12, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>
+                {lang === "en" ? "Condition" : "状態"}
+              </div>
+              <div style={{ fontSize:16, fontWeight:600, color:"#191919" }}>{currentItem.condition}</div>
+            </div>
+          </div>
+
+          <div>
+            <div style={{ fontSize:12, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:8 }}>
+              {lang === "en" ? "Issues to Mention" : "言及すべき問題"}
+            </div>
+            <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+              {currentItem.issues.map((issue, i) => (
+                <span key={i} style={{
+                  background:"#FFFFFF",
+                  border:"1px solid #E5E7EB",
+                  borderRadius:8,
+                  padding:"6px 12px",
+                  fontSize:14,
+                  color:"#191919"
+                }}>
+                  {issue}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div style={{
+            marginTop:16,
+            padding:16,
+            background:"#ECFDF5",
+            borderRadius:8,
+            border:"2px solid #86B817"
+          }}>
+            <div style={{ fontSize:12, color:"#86B817", fontWeight:700, marginBottom:4 }}>
+              {lang === "en" ? "STARTING BID" : "開始価格"}
+            </div>
+            <div style={{ fontSize:28, fontWeight:700, color:"#191919" }}>{currentItem.startBid}</div>
+          </div>
+        </div>
+
+        {/* Action Button */}
+        <button
+          onClick={handleComplete}
+          style={{
+            width:"100%",
+            background:"#86B817",
+            color:"#FFFFFF",
+            border:"none",
+            borderRadius:12,
+            padding:"20px",
+            fontSize:20,
+            fontWeight:700,
+            cursor:"pointer",
+            transition:"all 0.2s"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          {lang === "en" ? "✓ I Described Everything!" : "✓ すべて説明しました！"}
+        </button>
+
+        <div style={{ textAlign:"center", marginTop:16, fontSize:14, color:"#9CA3AF" }}>
+          {lang === "en"
+            ? "Say it all out loud, then tap the button!"
+            : "声に出して言ったら、ボタンをタップ！"}
+        </div>
+      </div>
+    );
+  }
+
+  if (gameState === "results") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>🎉</div>
+        <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang === "en" ? "Auction Complete!" : "オークション完了！"}
+        </h2>
+
+        <div style={{
+          background:"linear-gradient(135deg, #F5AF02 0%, #E53238 100%)",
+          borderRadius:12,
+          padding:24,
+          marginBottom:24,
+          color:"#FFFFFF"
+        }}>
+          <div style={{ fontSize:16, marginBottom:8, opacity:0.9 }}>
+            {lang === "en" ? "Total Score" : "合計スコア"}
+          </div>
+          <div style={{ fontSize:48, fontWeight:700 }}>{totalScore}</div>
+          <div style={{ fontSize:14, marginTop:8, opacity:0.8 }}>
+            {itemsCompleted} {lang === "en" ? "items sold" : "アイテム販売"}
+          </div>
+        </div>
+
+        <div style={{
+          background: totalScore >= 400 ? "#ECFDF5" : totalScore >= 300 ? "#EFF6FF" : "#FEF3C7",
+          padding:"16px 24px",
+          borderRadius:12,
+          marginBottom:24,
+          border:`2px solid ${totalScore >= 400 ? "#86B817" : totalScore >= 300 ? "#3665F3" : "#F5AF02"}`
+        }}>
+          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0 }}>
+            {totalScore >= 400
+              ? (lang === "en" ? "🌟 Pro Auctioneer! Fast and thorough!" : "🌟 プロオークショニア！速くて丁寧！")
+              : totalScore >= 300
+              ? (lang === "en" ? "💪 Great pace! Keep practicing completeness!" : "💪 いいペース！完全性を練習し続けて！")
+              : (lang === "en" ? "👍 Good start! Focus on speed + mentioning all issues!" : "👍 いいスタート！速度と全問題への言及に集中！")}
+          </p>
+        </div>
+
+        <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
+          <button
+            onClick={handleRestart}
+            style={{
+              background:"#F5AF02",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+          >
+            {lang === "en" ? "🔄 Sell More" : "🔄 もっと販売"}
+          </button>
+          <button
+            onClick={() => setGameState("ready")}
+            style={{
+              background:"#F7F7F7",
+              color:"#191919",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
+            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+          >
+            {lang === "en" ? "← Back" : "← 戻る"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+/* ═══ FLASHCARD MODE ═══ */
+function FlashcardMode({ lang, onComplete }) {
+  const [gameState, setGameState] = useState("ready");
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [knownCards, setKnownCards] = useState([]);
+  const [unknownCards, setUnknownCards] = useState([]);
+  const [deck, setDeck] = useState([]);
+  const [deckType, setDeckType] = useState(null);
+
+  const flashcardDecks = {
+    en: {
+      conditions: [
+        { q: "Brand new", a: "新品", type: "condition" },
+        { q: "NWT - New With Tags", a: "タグ付き新品", type: "condition" },
+        { q: "Unused", a: "未使用", type: "condition" },
+        { q: "Like new", a: "ほぼ新品", type: "condition" },
+        { q: "Excellent condition", a: "非常に良い", type: "condition" },
+        { q: "Very good condition", a: "とても良い", type: "condition" },
+        { q: "Good condition", a: "良い", type: "condition" },
+        { q: "Fair condition", a: "使用感あり", type: "condition" },
+        { q: "Pre-loved", a: "プリラブド", type: "condition" },
+        { q: "Minor scratches", a: "軽い傷", type: "damage" },
+        { q: "Scuffs", a: "スレ傷", type: "damage" },
+        { q: "Corner wear", a: "角スレ", type: "damage" },
+        { q: "Stains", a: "シミ", type: "damage" },
+        { q: "Fading", a: "色あせ", type: "damage" },
+        { q: "Peeling", a: "剥がれ", type: "damage" },
+        { q: "Cracks/Cracking", a: "ひび", type: "damage" },
+        { q: "Odor", a: "匂い", type: "damage" },
+        { q: "Patina", a: "経年変化（ヌメ革）", type: "damage" },
+        { q: "Tarnishing", a: "金具のくすみ", type: "damage" },
+        { q: "Loose stitching", a: "ほつれ", type: "damage" },
+      ],
+      brands: [
+        { q: "Louis Vuitton", a: "ルイ・ヴィトン", type: "brand" },
+        { q: "Chanel", a: "シャネル", type: "brand" },
+        { q: "Hermès", a: "エルメス", type: "brand" },
+        { q: "Gucci", a: "グッチ", type: "brand" },
+        { q: "Prada", a: "プラダ", type: "brand" },
+        { q: "Dior", a: "ディオール", type: "brand" },
+        { q: "Fendi", a: "フェンディ", type: "brand" },
+        { q: "Bottega Veneta", a: "ボッテガ・ヴェネタ", type: "brand" },
+        { q: "Speedy", a: "スピーディ", type: "model" },
+        { q: "Neverfull", a: "ネヴァーフル", type: "model" },
+        { q: "Birkin", a: "バーキン", type: "model" },
+        { q: "Kelly", a: "ケリー", type: "model" },
+        { q: "Classic Flap", a: "クラシックフラップ", type: "model" },
+        { q: "Boy Bag", a: "ボーイバッグ", type: "model" },
+      ],
+      materials: [
+        { q: "Monogram Canvas", a: "モノグラムキャンバス", type: "material" },
+        { q: "Damier Ebene", a: "ダミエ エベヌ", type: "material" },
+        { q: "Damier Azur", a: "ダミエ アズール", type: "material" },
+        { q: "Calfskin", a: "カーフスキン", type: "material" },
+        { q: "Lambskin", a: "ラムレザー", type: "material" },
+        { q: "Caviar Leather", a: "キャビアレザー", type: "material" },
+        { q: "Epi Leather", a: "エピレザー", type: "material" },
+        { q: "Vachetta", a: "ヌメ革", type: "material" },
+        { q: "Saffiano", a: "サフィアーノ", type: "material" },
+        { q: "Patent Leather", a: "エナメル", type: "material" },
+      ]
+    },
+    jp: {
+      conditions: [
+        { q: "新品", a: "Brand new", type: "condition" },
+        { q: "タグ付き新品", a: "NWT - New With Tags", type: "condition" },
+        { q: "未使用", a: "Unused", type: "condition" },
+        { q: "ほぼ新品", a: "Like new", type: "condition" },
+        { q: "非常に良い", a: "Excellent condition", type: "condition" },
+        { q: "とても良い", a: "Very good condition", type: "condition" },
+        { q: "良い", a: "Good condition", type: "condition" },
+        { q: "使用感あり", a: "Fair condition", type: "condition" },
+        { q: "プリラブド", a: "Pre-loved", type: "condition" },
+        { q: "軽い傷", a: "Minor scratches", type: "damage" },
+        { q: "スレ傷", a: "Scuffs", type: "damage" },
+        { q: "角スレ", a: "Corner wear", type: "damage" },
+        { q: "シミ", a: "Stains", type: "damage" },
+        { q: "色あせ", a: "Fading", type: "damage" },
+        { q: "剥がれ", a: "Peeling", type: "damage" },
+        { q: "ひび", a: "Cracks/Cracking", type: "damage" },
+        { q: "匂い", a: "Odor", type: "damage" },
+        { q: "経年変化（ヌメ革）", a: "Patina", type: "damage" },
+        { q: "金具のくすみ", a: "Tarnishing", type: "damage" },
+        { q: "ほつれ", a: "Loose stitching", type: "damage" },
+      ],
+      brands: [
+        { q: "ルイ・ヴィトン", a: "Louis Vuitton", type: "brand" },
+        { q: "シャネル", a: "Chanel", type: "brand" },
+        { q: "エルメス", a: "Hermès", type: "brand" },
+        { q: "グッチ", a: "Gucci", type: "brand" },
+        { q: "プラダ", a: "Prada", type: "brand" },
+        { q: "ディオール", a: "Dior", type: "brand" },
+        { q: "フェンディ", a: "Fendi", type: "brand" },
+        { q: "ボッテガ・ヴェネタ", a: "Bottega Veneta", type: "brand" },
+        { q: "スピーディ", a: "Speedy", type: "model" },
+        { q: "ネヴァーフル", a: "Neverfull", type: "model" },
+        { q: "バーキン", a: "Birkin", type: "model" },
+        { q: "ケリー", a: "Kelly", type: "model" },
+        { q: "クラシックフラップ", a: "Classic Flap", type: "model" },
+        { q: "ボーイバッグ", a: "Boy Bag", type: "model" },
+      ],
+      materials: [
+        { q: "モノグラムキャンバス", a: "Monogram Canvas", type: "material" },
+        { q: "ダミエ エベヌ", a: "Damier Ebene", type: "material" },
+        { q: "ダミエ アズール", a: "Damier Azur", type: "material" },
+        { q: "カーフスキン", a: "Calfskin", type: "material" },
+        { q: "ラムレザー", a: "Lambskin", type: "material" },
+        { q: "キャビアレザー", a: "Caviar Leather", type: "material" },
+        { q: "エピレザー", a: "Epi Leather", type: "material" },
+        { q: "ヌメ革", a: "Vachetta", type: "material" },
+        { q: "サフィアーノ", a: "Saffiano", type: "material" },
+        { q: "エナメル", a: "Patent Leather", type: "material" },
+      ]
+    }
+  };
+
+  const startDeck = (type) => {
+    const selectedDeck = [...flashcardDecks[lang][type]].sort(() => Math.random() - 0.5);
+    setDeck(selectedDeck);
+    setDeckType(type);
+    setCurrentCardIndex(0);
+    setShowAnswer(false);
+    setKnownCards([]);
+    setUnknownCards([]);
+    setGameState("playing");
+  };
+
+  const handleFlip = () => {
+    setShowAnswer(!showAnswer);
+  };
+
+  const handleKnow = () => {
+    setKnownCards([...knownCards, deck[currentCardIndex]]);
+    nextCard();
+  };
+
+  const handleDontKnow = () => {
+    setUnknownCards([...unknownCards, deck[currentCardIndex]]);
+    nextCard();
+  };
+
+  const nextCard = () => {
+    setShowAnswer(false);
+    if (currentCardIndex < deck.length - 1) {
+      setCurrentCardIndex(currentCardIndex + 1);
+    } else {
+      setGameState("results");
+      if (onComplete) onComplete(knownCards.length);
+    }
+  };
+
+  const handleRestart = () => {
+    setGameState("ready");
+    setDeckType(null);
+  };
+
+  if (gameState === "ready") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB" }}>
+        <div style={{ textAlign:"center", marginBottom:32 }}>
+          <div style={{ fontSize:48, marginBottom:16 }}>🎴</div>
+          <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+            {lang === "en" ? "Flashcard Mode" : "フラッシュカードモード"}
+          </h2>
+          <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, maxWidth:500, margin:"0 auto" }}>
+            {lang === "en"
+              ? "Test your vocabulary! See a term, guess the meaning, flip to check. Swipe right if you know it, left if you need to practice more."
+              : "語彙をテスト！用語を見て、意味を推測し、フリップして確認。知っていたら右、もっと練習が必要なら左にスワイプ。"}
+          </p>
+        </div>
+
+        <div style={{ display:"grid", gap:12, maxWidth:600, margin:"0 auto" }}>
+          {[
+            { type: "conditions", icon: "✅", name: lang === "en" ? "Condition Terms" : "コンディション用語", count: flashcardDecks[lang].conditions.length },
+            { type: "brands", icon: "👜", name: lang === "en" ? "Brands & Models" : "ブランド＆モデル", count: flashcardDecks[lang].brands.length },
+            { type: "materials", icon: "🧵", name: lang === "en" ? "Materials" : "素材", count: flashcardDecks[lang].materials.length },
+          ].map((deck, i) => (
+            <button
+              key={i}
+              onClick={() => startDeck(deck.type)}
+              style={{
+                background:"#FFFFFF",
+                border:"2px solid #E5E7EB",
+                borderRadius:12,
+                padding:"20px 24px",
+                cursor:"pointer",
+                transition:"all 0.2s",
+                textAlign:"left",
+                display:"flex",
+                alignItems:"center",
+                gap:16
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                e.currentTarget.style.borderColor = "#3665F3";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "#E5E7EB";
+              }}
+            >
+              <span style={{ fontSize:32 }}>{deck.icon}</span>
+              <div style={{ flex:1 }}>
+                <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>
+                  {deck.name}
+                </div>
+                <div style={{ fontSize:14, color:"#9CA3AF" }}>
+                  {deck.count} {lang === "en" ? "cards" : "カード"}
+                </div>
+              </div>
+              <div style={{
+                background:"#3665F3",
+                color:"#FFFFFF",
+                padding:"8px 16px",
+                borderRadius:8,
+                fontSize:14,
+                fontWeight:700
+              }}>
+                {lang === "en" ? "Start" : "開始"}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (gameState === "playing") {
+    const currentCard = deck[currentCardIndex];
+    const progress = ((currentCardIndex + 1) / deck.length) * 100;
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        {/* Progress */}
+        <div style={{ marginBottom:24 }}>
+          <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
+            <span style={{ fontSize:14, color:"#9CA3AF", fontWeight:600 }}>
+              {currentCardIndex + 1} / {deck.length}
+            </span>
+            <span style={{ fontSize:14, color:"#86B817", fontWeight:700 }}>
+              {knownCards.length} {lang === "en" ? "known" : "既知"}
+            </span>
+          </div>
+          <div style={{ background:"#E5E7EB", height:8, borderRadius:8, overflow:"hidden" }}>
+            <div style={{
+              background:"linear-gradient(90deg, #3665F3, #86B817)",
+              height:"100%",
+              width:`${progress}%`,
+              transition:"width 0.3s ease"
+            }}></div>
+          </div>
+        </div>
+
+        {/* Card */}
+        <div
+          onClick={handleFlip}
+          style={{
+            background: showAnswer ? "#ECFDF5" : "#EFF6FF",
+            border: `3px solid ${showAnswer ? "#86B817" : "#3665F3"}`,
+            borderRadius:16,
+            padding:64,
+            textAlign:"center",
+            cursor:"pointer",
+            transition:"all 0.3s ease",
+            marginBottom:24,
+            minHeight:250,
+            display:"flex",
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center"
+          }}
+          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >
+          <div style={{
+            fontSize:12,
+            color: showAnswer ? "#86B817" : "#3665F3",
+            textTransform:"uppercase",
+            letterSpacing:2,
+            fontWeight:700,
+            marginBottom:16
+          }}>
+            {showAnswer ? (lang === "en" ? "Answer" : "答え") : (lang === "en" ? "Question" : "質問")}
+          </div>
+          <div style={{
+            fontSize:36,
+            fontWeight:700,
+            color:"#191919",
+            lineHeight:1.4
+          }}>
+            {showAnswer ? currentCard.a : currentCard.q}
+          </div>
+          {!showAnswer && (
+            <div style={{
+              fontSize:14,
+              color:"#9CA3AF",
+              marginTop:24
+            }}>
+              {lang === "en" ? "Tap to reveal" : "タップして表示"}
+            </div>
+          )}
+        </div>
+
+        {/* Actions */}
+        {showAnswer ? (
+          <div style={{ display:"flex", gap:12 }}>
+            <button
+              onClick={handleDontKnow}
+              style={{
+                flex:1,
+                background:"#FEF2F2",
+                border:"2px solid #E53238",
+                borderRadius:12,
+                padding:"16px",
+                fontSize:18,
+                fontWeight:700,
+                color:"#E53238",
+                cursor:"pointer",
+                transition:"all 0.2s"
+              }}
+              onMouseEnter={e => e.target.style.background = "#FEE2E2"}
+              onMouseLeave={e => e.target.style.background = "#FEF2F2"}
+            >
+              ← {lang === "en" ? "Need Practice" : "要練習"}
+            </button>
+            <button
+              onClick={handleKnow}
+              style={{
+                flex:1,
+                background:"#86B817",
+                border:"2px solid #86B817",
+                borderRadius:12,
+                padding:"16px",
+                fontSize:18,
+                fontWeight:700,
+                color:"#FFFFFF",
+                cursor:"pointer",
+                transition:"all 0.2s"
+              }}
+              onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
+              onMouseLeave={e => e.target.style.transform = "scale(1)"}
+            >
+              {lang === "en" ? "I Know It" : "知ってる"} →
+            </button>
+          </div>
+        ) : (
+          <div style={{ textAlign:"center", color:"#9CA3AF", fontSize:14 }}>
+            {lang === "en" ? "Think of the answer, then tap the card" : "答えを考えたら、カードをタップ"}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (gameState === "results") {
+    const accuracy = Math.round((knownCards.length / deck.length) * 100);
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>
+          {accuracy >= 80 ? "🎉" : accuracy >= 60 ? "💪" : "📚"}
+        </div>
+        <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang === "en" ? "Deck Complete!" : "デッキ完了！"}
+        </h2>
+
+        <div style={{
+          background:"linear-gradient(135deg, #3665F3 0%, #86B817 100%)",
+          borderRadius:12,
+          padding:24,
+          marginBottom:24,
+          color:"#FFFFFF"
+        }}>
+          <div style={{ fontSize:16, marginBottom:8, opacity:0.9 }}>
+            {lang === "en" ? "Accuracy" : "正確性"}
+          </div>
+          <div style={{ fontSize:48, fontWeight:700 }}>{accuracy}%</div>
+          <div style={{ fontSize:14, marginTop:8, opacity:0.8 }}>
+            {knownCards.length} / {deck.length} {lang === "en" ? "correct" : "正解"}
+          </div>
+        </div>
+
+        {unknownCards.length > 0 && (
+          <div style={{
+            background:"#FFFBEB",
+            border:"2px solid #F5AF02",
+            borderRadius:12,
+            padding:20,
+            marginBottom:24,
+            textAlign:"left"
+          }}>
+            <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:12 }}>
+              {lang === "en" ? "📝 Review These:" : "📝 復習が必要："}
+            </div>
+            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+              {unknownCards.slice(0, 5).map((card, i) => (
+                <div key={i} style={{
+                  background:"#FFFFFF",
+                  borderRadius:8,
+                  padding:"12px 16px",
+                  fontSize:14,
+                  display:"flex",
+                  justifyContent:"space-between",
+                  alignItems:"center"
+                }}>
+                  <span style={{ fontWeight:600, color:"#191919" }}>{card.q}</span>
+                  <span style={{ color:"#9CA3AF" }}>→ {card.a}</span>
+                </div>
+              ))}
+              {unknownCards.length > 5 && (
+                <div style={{ fontSize:14, color:"#9CA3AF", textAlign:"center", marginTop:8 }}>
+                  {lang === "en"
+                    ? `+ ${unknownCards.length - 5} more to review`
+                    : `+ ${unknownCards.length - 5}個の復習が必要`}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
+          <button
+            onClick={() => startDeck(deckType)}
+            style={{
+              background:"#3665F3",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+          >
+            {lang === "en" ? "🔄 Try Again" : "🔄 もう一度"}
+          </button>
+          <button
+            onClick={handleRestart}
+            style={{
+              background:"#F7F7F7",
+              color:"#191919",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
+            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+          >
+            {lang === "en" ? "← Choose Deck" : "← デッキ選択"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+/* ═══ DRAG AND DROP MATCHING ═══ */
+function DragDropMatching({ lang, onComplete }) {
+  const [gameState, setGameState] = useState("ready");
+  const [gameType, setGameType] = useState(null);
+  const [matches, setMatches] = useState([]);
+  const [selectedLeft, setSelectedLeft] = useState(null);
+  const [selectedRight, setSelectedRight] = useState(null);
+  const [correctMatches, setCorrectMatches] = useState([]);
+  const [wrongAttempts, setWrongAttempts] = useState(0);
+  const [leftItems, setLeftItems] = useState([]);
+  const [rightItems, setRightItems] = useState([]);
+
+  const matchingGames = {
+    en: {
+      brands: {
+        title: "Match Brands to Their Signature Items",
+        pairs: [
+          { left: "Louis Vuitton", right: "Speedy, Neverfull, Keepall", id: 1 },
+          { left: "Chanel", right: "Classic Flap, Boy Bag, WOC", id: 2 },
+          { left: "Hermès", right: "Birkin, Kelly, Constance", id: 3 },
+          { left: "Gucci", right: "GG Marmont, Dionysus, Jackie", id: 4 },
+          { left: "Prada", right: "Galleria, Re-Nylon, Cahier", id: 5 },
+          { left: "Dior", right: "Lady Dior, Saddle, Book Tote", id: 6 },
+        ]
+      },
+      conditions: {
+        title: "Match Condition to Description",
+        pairs: [
+          { left: "Excellent", right: "Minimal wear, like new appearance", id: 1 },
+          { left: "Very Good", right: "Light wear, fully functional", id: 2 },
+          { left: "Good", right: "Moderate wear, some visible issues", id: 3 },
+          { left: "Fair", right: "Heavy wear, needs repair consideration", id: 4 },
+          { left: "Corner wear", right: "Edges show scuffing or darkening", id: 5 },
+          { left: "Patina", right: "Natural aging of vachetta leather", id: 6 },
+        ]
+      },
+      colors: {
+        title: "Match Color Names to Shades",
+        pairs: [
+          { left: "Cognac", right: "Rich warm brown, honey tones", id: 1 },
+          { left: "Taupe", right: "Gray-brown neutral, sophisticated", id: 2 },
+          { left: "Oxblood", right: "Deep dark red, wine color", id: 3 },
+          { left: "Teal", right: "Blue-green, bold and fresh", id: 4 },
+          { left: "Blush", right: "Rosy pink, soft and feminine", id: 5 },
+          { left: "Chartreuse", right: "Yellow-green, bold statement", id: 6 },
+        ]
+      }
+    },
+    jp: {
+      brands: {
+        title: "ブランドと代表的なアイテムをマッチ",
+        pairs: [
+          { left: "ルイ・ヴィトン", right: "スピーディ, ネヴァーフル, キーポル", id: 1 },
+          { left: "シャネル", right: "クラシックフラップ, ボーイバッグ, WOC", id: 2 },
+          { left: "エルメス", right: "バーキン, ケリー, コンスタンス", id: 3 },
+          { left: "グッチ", right: "GGマーモント, ディオニュソス, ジャッキー", id: 4 },
+          { left: "プラダ", right: "ガレリア, Re-ナイロン, カイエ", id: 5 },
+          { left: "ディオール", right: "レディディオール, サドル, ブックトート", id: 6 },
+        ]
+      },
+      conditions: {
+        title: "コンディションと説明をマッチ",
+        pairs: [
+          { left: "Excellent", right: "最小限の使用感、ほぼ新品", id: 1 },
+          { left: "Very Good", right: "軽い使用感、完全機能", id: 2 },
+          { left: "Good", right: "中程度の使用感、目立つ問題あり", id: 3 },
+          { left: "Fair", right: "大きな使用感、修理検討必要", id: 4 },
+          { left: "角スレ", right: "エッジにスレや黒ずみ", id: 5 },
+          { left: "パティーナ", right: "ヌメ革の自然な経年変化", id: 6 },
+        ]
+      },
+      colors: {
+        title: "カラー名と色合いをマッチ",
+        pairs: [
+          { left: "コニャック", right: "豊かな暖かいブラウン、ハニートーン", id: 1 },
+          { left: "トープ", right: "グレーブラウンニュートラル、洗練", id: 2 },
+          { left: "オックスブラッド", right: "深いダークレッド、ワイン色", id: 3 },
+          { left: "ティール", right: "青緑、大胆でフレッシュ", id: 4 },
+          { left: "ブラッシュ", right: "ロージーピンク、柔らかく女性的", id: 5 },
+          { left: "シャルトルーズ", right: "黄緑、大胆なステートメント", id: 6 },
+        ]
+      }
+    }
+  };
+
+  const startGame = (type) => {
+    const game = matchingGames[lang][type];
+    const shuffledPairs = [...game.pairs].sort(() => Math.random() - 0.5);
+    const left = shuffledPairs.map(p => ({ text: p.left, id: p.id }));
+    const right = [...shuffledPairs].sort(() => Math.random() - 0.5).map(p => ({ text: p.right, id: p.id }));
+
+    setGameType(type);
+    setMatches(game.pairs);
+    setLeftItems(left);
+    setRightItems(right);
+    setCorrectMatches([]);
+    setWrongAttempts(0);
+    setSelectedLeft(null);
+    setSelectedRight(null);
+    setGameState("playing");
+  };
+
+  const handleLeftClick = (index) => {
+    if (correctMatches.includes(leftItems[index].id)) return;
+    setSelectedLeft(index);
+    if (selectedRight !== null) {
+      checkMatch(index, selectedRight);
+    }
+  };
+
+  const handleRightClick = (index) => {
+    if (correctMatches.includes(rightItems[index].id)) return;
+    setSelectedRight(index);
+    if (selectedLeft !== null) {
+      checkMatch(selectedLeft, index);
+    }
+  };
+
+  const checkMatch = (leftIdx, rightIdx) => {
+    const leftId = leftItems[leftIdx].id;
+    const rightId = rightItems[rightIdx].id;
+
+    if (leftId === rightId) {
+      // Correct match!
+      setCorrectMatches([...correctMatches, leftId]);
+      setSelectedLeft(null);
+      setSelectedRight(null);
+
+      // Check if game complete
+      if (correctMatches.length + 1 === matches.length) {
+        setTimeout(() => {
+          setGameState("results");
+          if (onComplete) onComplete(matches.length - wrongAttempts);
+        }, 500);
+      }
+    } else {
+      // Wrong match
+      setWrongAttempts(wrongAttempts + 1);
+      setTimeout(() => {
+        setSelectedLeft(null);
+        setSelectedRight(null);
+      }, 800);
+    }
+  };
+
+  const handleRestart = () => {
+    setGameState("ready");
+    setGameType(null);
+  };
+
+  if (gameState === "ready") {
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB" }}>
+        <div style={{ textAlign:"center", marginBottom:32 }}>
+          <div style={{ fontSize:48, marginBottom:16 }}>🔗</div>
+          <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
+            {lang === "en" ? "Matching Game" : "マッチングゲーム"}
+          </h2>
+          <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, maxWidth:500, margin:"0 auto" }}>
+            {lang === "en"
+              ? "Test your knowledge by matching items from the left column to their correct pairs on the right. Click one from each side to make a match!"
+              : "左列のアイテムを右側の正しいペアとマッチさせて知識をテスト。各側から1つクリックしてマッチを作ろう！"}
+          </p>
+        </div>
+
+        <div style={{ display:"grid", gap:12, maxWidth:600, margin:"0 auto" }}>
+          {[
+            { type: "brands", icon: "👜", name: matchingGames[lang].brands.title },
+            { type: "conditions", icon: "✅", name: matchingGames[lang].conditions.title },
+            { type: "colors", icon: "🎨", name: matchingGames[lang].colors.title },
+          ].map((game, i) => (
+            <button
+              key={i}
+              onClick={() => startGame(game.type)}
+              style={{
+                background:"#FFFFFF",
+                border:"2px solid #E5E7EB",
+                borderRadius:12,
+                padding:"20px 24px",
+                cursor:"pointer",
+                transition:"all 0.2s",
+                textAlign:"left",
+                display:"flex",
+                alignItems:"center",
+                gap:16
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.1)";
+                e.currentTarget.style.borderColor = "#3665F3";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "#E5E7EB";
+              }}
+            >
+              <span style={{ fontSize:32 }}>{game.icon}</span>
+              <div style={{ flex:1 }}>
+                <div style={{ fontSize:16, fontWeight:700, color:"#191919" }}>
+                  {game.name}
+                </div>
+              </div>
+              <div style={{
+                background:"#3665F3",
+                color:"#FFFFFF",
+                padding:"8px 16px",
+                borderRadius:8,
+                fontSize:14,
+                fontWeight:700
+              }}>
+                {lang === "en" ? "Play" : "プレイ"}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (gameState === "playing") {
+    const progress = (correctMatches.length / matches.length) * 100;
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        {/* Header */}
+        <div style={{ marginBottom:24 }}>
+          <h3 style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
+            {matchingGames[lang][gameType].title}
+          </h3>
+          <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
+            <span style={{ fontSize:14, color:"#9CA3AF", fontWeight:600 }}>
+              {correctMatches.length} / {matches.length} {lang === "en" ? "matched" : "マッチ"}
+            </span>
+            <span style={{ fontSize:14, color:"#E53238", fontWeight:600 }}>
+              {wrongAttempts} {lang === "en" ? "wrong" : "間違い"}
+            </span>
+          </div>
+          <div style={{ background:"#E5E7EB", height:8, borderRadius:8, overflow:"hidden" }}>
+            <div style={{
+              background:"linear-gradient(90deg, #3665F3, #86B817)",
+              height:"100%",
+              width:`${progress}%`,
+              transition:"width 0.3s ease"
+            }}></div>
+          </div>
+        </div>
+
+        {/* Matching Grid */}
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16 }}>
+          {/* Left Column */}
+          <div>
+            <div style={{ fontSize:12, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600 }}>
+              {lang === "en" ? "Select Item" : "アイテム選択"}
+            </div>
+            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+              {leftItems.map((item, i) => {
+                const isMatched = correctMatches.includes(item.id);
+                const isSelected = selectedLeft === i;
+                const isWrong = isSelected && selectedRight !== null && leftItems[selectedLeft].id !== rightItems[selectedRight].id;
+
+                return (
+                  <button
+                    key={i}
+                    onClick={() => handleLeftClick(i)}
+                    disabled={isMatched}
+                    style={{
+                      background: isMatched ? "#ECFDF5" : isWrong ? "#FEF2F2" : isSelected ? "#EFF6FF" : "#FFFFFF",
+                      border: `2px solid ${isMatched ? "#86B817" : isWrong ? "#E53238" : isSelected ? "#3665F3" : "#E5E7EB"}`,
+                      borderRadius:12,
+                      padding:"14px 16px",
+                      fontSize:14,
+                      fontWeight:600,
+                      color:"#191919",
+                      cursor: isMatched ? "default" : "pointer",
+                      transition:"all 0.2s",
+                      textAlign:"left",
+                      opacity: isMatched ? 0.6 : 1
+                    }}
+                    onMouseEnter={e => !isMatched && (e.target.style.borderColor = "#3665F3")}
+                    onMouseLeave={e => !isMatched && !isSelected && (e.target.style.borderColor = "#E5E7EB")}
+                  >
+                    {isMatched && "✓ "}{item.text}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div>
+            <div style={{ fontSize:12, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600 }}>
+              {lang === "en" ? "Match With" : "マッチする"}
+            </div>
+            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+              {rightItems.map((item, i) => {
+                const isMatched = correctMatches.includes(item.id);
+                const isSelected = selectedRight === i;
+                const isWrong = isSelected && selectedLeft !== null && leftItems[selectedLeft].id !== rightItems[selectedRight].id;
+
+                return (
+                  <button
+                    key={i}
+                    onClick={() => handleRightClick(i)}
+                    disabled={isMatched}
+                    style={{
+                      background: isMatched ? "#ECFDF5" : isWrong ? "#FEF2F2" : isSelected ? "#EFF6FF" : "#FFFFFF",
+                      border: `2px solid ${isMatched ? "#86B817" : isWrong ? "#E53238" : isSelected ? "#3665F3" : "#E5E7EB"}`,
+                      borderRadius:12,
+                      padding:"14px 16px",
+                      fontSize:14,
+                      fontWeight:600,
+                      color:"#191919",
+                      cursor: isMatched ? "default" : "pointer",
+                      transition:"all 0.2s",
+                      textAlign:"left",
+                      opacity: isMatched ? 0.6 : 1
+                    }}
+                    onMouseEnter={e => !isMatched && (e.target.style.borderColor = "#3665F3")}
+                    onMouseLeave={e => !isMatched && !isSelected && (e.target.style.borderColor = "#E5E7EB")}
+                  >
+                    {isMatched && "✓ "}{item.text}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div style={{ textAlign:"center", fontSize:14, color:"#9CA3AF" }}>
+          {lang === "en"
+            ? "Click one item from each column to match them"
+            : "各列から1つのアイテムをクリックしてマッチさせよう"}
+        </div>
+      </div>
+    );
+  }
+
+  if (gameState === "results") {
+    const accuracy = Math.round(((matches.length) / (matches.length + wrongAttempts)) * 100);
+
+    return (
+      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
+        <div style={{ fontSize:64, marginBottom:16 }}>
+          {wrongAttempts === 0 ? "🏆" : accuracy >= 80 ? "🎉" : "💪"}
+        </div>
+        <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", marginBottom:8 }}>
+          {lang === "en" ? "All Matched!" : "全マッチ完了！"}
+        </h2>
+
+        <div style={{
+          background:"linear-gradient(135deg, #3665F3 0%, #86B817 100%)",
+          borderRadius:12,
+          padding:24,
+          marginBottom:24,
+          color:"#FFFFFF"
+        }}>
+          <div style={{ fontSize:16, marginBottom:8, opacity:0.9 }}>
+            {lang === "en" ? "Accuracy" : "正確性"}
+          </div>
+          <div style={{ fontSize:48, fontWeight:700 }}>{accuracy}%</div>
+          <div style={{ fontSize:14, marginTop:8, opacity:0.8 }}>
+            {wrongAttempts} {lang === "en" ? "wrong attempts" : "間違い"}
+          </div>
+        </div>
+
+        <div style={{
+          background: wrongAttempts === 0 ? "#ECFDF5" : accuracy >= 80 ? "#EFF6FF" : "#FEF3C7",
+          padding:"16px 24px",
+          borderRadius:12,
+          marginBottom:24,
+          border:`2px solid ${wrongAttempts === 0 ? "#86B817" : accuracy >= 80 ? "#3665F3" : "#F5AF02"}`
+        }}>
+          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0 }}>
+            {wrongAttempts === 0
+              ? (lang === "en" ? "🏆 Perfect! No mistakes!" : "🏆 完璧！ミスなし！")
+              : accuracy >= 80
+              ? (lang === "en" ? "🎉 Excellent work! You know your stuff!" : "🎉 素晴らしい！よく知ってる！")
+              : (lang === "en" ? "💪 Good effort! Keep practicing!" : "💪 いい努力！練習を続けよう！")}
+          </p>
+        </div>
+
+        <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
+          <button
+            onClick={() => startGame(gameType)}
+            style={{
+              background:"#3665F3",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
+            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
+          >
+            {lang === "en" ? "🔄 Play Again" : "🔄 もう一度"}
+          </button>
+          <button
+            onClick={handleRestart}
+            style={{
+              background:"#F7F7F7",
+              color:"#191919",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"16px 32px",
+              fontSize:18,
+              fontWeight:700,
+              cursor:"pointer",
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
+            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
+          >
+            {lang === "en" ? "← Choose Game" : "← ゲーム選択"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
 /* ═══ PRACTICE ═══ */
 function PracticeP({ lang, onXpEarned }) {
   const [activeGame, setActiveGame] = useState(null);
@@ -2979,6 +4272,12 @@ function PracticeP({ lang, onXpEarned }) {
       xpEarned = score * 15; // 15 XP per accurate condition description
     } else if (gameType === "warmup") {
       xpEarned = score * 20; // 20 XP per completed warm-up task
+    } else if (gameType === "speedAuction") {
+      xpEarned = score * 25; // 25 XP per item sold
+    } else if (gameType === "flashcard") {
+      xpEarned = score * 5; // 5 XP per card known
+    } else if (gameType === "matching") {
+      xpEarned = score * 12; // 12 XP per correct match
     }
     if (onXpEarned) onXpEarned(xpEarned);
   };
@@ -3083,6 +4382,81 @@ function PracticeP({ lang, onXpEarned }) {
     );
   }
 
+  if (activeGame === "speedAuction") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <SpeedAuctionGame lang={lang} onComplete={(score) => handleGameComplete(score, "speedAuction")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "flashcard") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <FlashcardMode lang={lang} onComplete={(score) => handleGameComplete(score, "flashcard")} />
+      </div>
+    );
+  }
+
+  if (activeGame === "matching") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <DragDropMatching lang={lang} onComplete={(score) => handleGameComplete(score, "matching")} />
+      </div>
+    );
+  }
+
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
       <div style={{ marginBottom:32 }}>
@@ -3107,6 +4481,14 @@ function PracticeP({ lang, onXpEarned }) {
             available:true
           },
           {
+            icon:"⚡",
+            t:lang==="en"?"Speed Auction":"スピードオークション",
+            d:lang==="en"?"Describe items and announce bids in 30 seconds - auction practice":"30秒でアイテム説明と価格発表 - オークション練習",
+            c:"#F5AF02",
+            game:"speedAuction",
+            available:true
+          },
+          {
             icon:"🔍",
             t:lang==="en"?"Condition Description":"コンディション説明",
             d:lang==="en"?"Describe luxury item conditions accurately":"高級品の状態を正確に説明",
@@ -3123,7 +4505,23 @@ function PracticeP({ lang, onXpEarned }) {
             available:true
           },
           {
-            icon:"⚡",
+            icon:"🎴",
+            t:lang==="en"?"Flashcard Mode":"フラッシュカードモード",
+            d:lang==="en"?"Test vocabulary with swipeable flashcards":"スワイプ可能なフラッシュカードで語彙テスト",
+            c:"#3665F3",
+            game:"flashcard",
+            available:true
+          },
+          {
+            icon:"🔗",
+            t:lang==="en"?"Matching Game":"マッチングゲーム",
+            d:lang==="en"?"Match brands, conditions, and colors - build connections":"ブランド、状態、色をマッチ - 繋がりを作る",
+            c:"#86B817",
+            game:"matching",
+            available:true
+          },
+          {
+            icon:"☀️",
             t:lang==="en"?"Daily Warm-Up":"デイリーウォームアップ",
             d:lang==="en"?"3-minute pre-stream confidence booster":"配信前3分間の自信ブースター",
             c:"#86B817",
