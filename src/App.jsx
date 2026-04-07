@@ -1310,12 +1310,14 @@ export default function App() {
                 <>
                   <button
                     onClick={() => setExpandedSections({...expandedSections, [section.id]: !expandedSections[section.id]})}
+                    onMouseEnter={e => e.currentTarget.style.background = "#F7F7F7"}
+                    onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                     style={{
                       width:"100%",
                       minHeight:44,
                       padding:"12px 14px",
                       borderRadius:8,
-                      background:"#F7F7F7",
+                      background:"transparent",
                       border:"none",
                       cursor:"pointer",
                       fontFamily:"inherit",
@@ -1333,8 +1335,8 @@ export default function App() {
                       <span style={{ fontSize:20 }}>{section.icon}</span>
                       <span>{section.label}</span>
                     </div>
-                    <span style={{ fontSize:12, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(180deg)" : "rotate(0deg)" }}>
-                      ∨
+                    <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                      ▶
                     </span>
                   </button>
 
@@ -1347,12 +1349,14 @@ export default function App() {
                             // Simple sub-link
                             <button
                               onClick={() => setPage(sub.page)}
+                              onMouseEnter={e => {if(page!==sub.page) e.currentTarget.style.background = "#F7F7F7"}}
+                              onMouseLeave={e => {if(page!==sub.page) e.currentTarget.style.background = "transparent"}}
                               style={{
                                 width:"100%",
                                 minHeight:38,
                                 padding:"10px 12px",
                                 borderRadius:6,
-                                background: page===sub.page ? "#191919" : "#F7F7F7",
+                                background: page===sub.page ? "#191919" : "transparent",
                                 border:"none",
                                 cursor:"pointer",
                                 fontFamily:"inherit",
@@ -1375,12 +1379,14 @@ export default function App() {
                             <>
                               <button
                                 onClick={() => setExpandedSections({...expandedSections, [sub.id]: !expandedSections[sub.id]})}
+                                onMouseEnter={e => e.currentTarget.style.background = "#F7F7F7"}
+                                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                                 style={{
                                   width:"100%",
                                   minHeight:38,
                                   padding:"10px 12px",
                                   borderRadius:6,
-                                  background:"#F7F7F7",
+                                  background:"transparent",
                                   border:"none",
                                   cursor:"pointer",
                                   fontFamily:"inherit",
@@ -1399,8 +1405,8 @@ export default function App() {
                                   {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
                                   <span>{sub.label}</span>
                                 </div>
-                                <span style={{ fontSize:12, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(180deg)" : "rotate(0deg)" }}>
-                                  ∨
+                                <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                                  ▶
                                 </span>
                               </button>
 
@@ -1411,13 +1417,15 @@ export default function App() {
                                     <button
                                       key={idx}
                                       onClick={() => setPage(item.page)}
+                                      onMouseEnter={e => {if(page!==item.page) e.currentTarget.style.background = "#F7F7F7"}}
+                                      onMouseLeave={e => {if(page!==item.page) e.currentTarget.style.background = "transparent"}}
                                       style={{
                                         width:"100%",
                                         minHeight:36,
                                         padding:"9px 12px",
                                         marginBottom:3,
                                         borderRadius:6,
-                                        background: page===item.page ? "#191919" : "#F7F7F7",
+                                        background: page===item.page ? "#191919" : "transparent",
                                         border:"none",
                                         cursor:"pointer",
                                         fontFamily:"inherit",
