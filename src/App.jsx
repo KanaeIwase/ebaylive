@@ -990,7 +990,113 @@ export default function App() {
         ]
       }
     ],
-    jp: [] // Will add Japanese labels later
+    jp: [
+      {
+        id: "home",
+        icon: "🏠",
+        label: "ホーム",
+        page: 0
+      },
+      {
+        id: "knowledge",
+        icon: "📚",
+        label: "知識ベース",
+        children: [
+          {
+            id: "brands",
+            icon: "👜",
+            label: "ブランド知識",
+            children: [
+              { label: "ルイ・ヴィトン", page: "brand-lv" },
+              { label: "シャネル", page: "brand-chanel" },
+              { label: "エルメス", page: "brand-hermes" },
+              { label: "グッチ", page: "brand-gucci" },
+              { label: "プラダ", page: "brand-prada" },
+              { label: "ディオール", page: "brand-dior" },
+              { label: "カルティエ", page: "brand-cartier" },
+              { label: "ブルガリ", page: "brand-bulgari" }
+            ]
+          },
+          {
+            id: "live",
+            icon: "🎬",
+            label: "ライブ販売",
+            children: [
+              { label: "ステップ1: 露出", page: "live-step1" },
+              { label: "ステップ2: 第一印象", page: "live-step2" },
+              { label: "ステップ3: 定着", page: "live-step3" },
+              { label: "ステップ4: エンゲージメント", page: "live-step4" },
+              { label: "ステップ5: コンバージョン", page: "live-step5" },
+              { label: "ステップ6: フォローアップ", page: "live-step6" }
+            ]
+          },
+          {
+            id: "policy",
+            icon: "📋",
+            label: "eBayポリシー",
+            page: "policy"
+          },
+          {
+            id: "vocab",
+            icon: "📖",
+            label: "用語集",
+            children: [
+              { label: "状態グレーディング", page: "vocab-0" },
+              { label: "バッグ構造＆摩耗", page: "vocab-1" },
+              { label: "オークション用語", page: "vocab-2" },
+              { label: "高級ファッション用語", page: "vocab-3" },
+              { label: "スタイリング＆プレゼン", page: "vocab-4" },
+              { label: "バイヤーコミュニケーション", page: "vocab-5" },
+              { label: "色＆スタイル販売", page: "vocab-6" },
+              { label: "ライブコマース略語", page: "vocab-7" },
+              { label: "認証＆検証", page: "vocab-8" },
+              { label: "高級レザータイプ", page: "vocab-9" },
+              { label: "バッグパーツ", page: "vocab-10" },
+              { label: "ライブ配信エネルギー", page: "vocab-11" },
+              { label: "ダメージ＆欠陥説明", page: "vocab-12" },
+              { label: "価格＆交渉", page: "vocab-13" },
+              { label: "バッグ形状＆パターン", page: "vocab-14" },
+              { label: "メンテナンス＆修理", page: "vocab-15" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "practice",
+        icon: "🎮",
+        label: "練習ゲーム",
+        children: [
+          { label: "名前ブラスト", page: "game-nameblast" },
+          { label: "スピードオークション", page: "game-speedauction" },
+          { label: "状態説明", page: "game-condition" },
+          { label: "シナリオ対応", page: "game-scenario" },
+          { label: "フラッシュカード", page: "game-flashcard" },
+          { label: "マッチングゲーム", page: "game-matching" },
+          { label: "デイリーウォームアップ", page: "game-warmup" }
+        ]
+      },
+      {
+        id: "ai",
+        icon: "🤖",
+        label: "AI練習",
+        children: [
+          { label: "ライブ配信シミュレーター", page: "ai-simulator" },
+          { label: "状態評価者", page: "ai-condition" },
+          { label: "会話パートナー", page: "ai-conversation" },
+          { label: "フレーズ翻訳", page: "ai-translator" }
+        ]
+      },
+      {
+        id: "progress",
+        icon: "📊",
+        label: "進捗",
+        children: [
+          { label: "統計", page: "progress-stats" },
+          { label: "実績", page: "progress-achievements" },
+          { label: "自信トラッカー", page: "progress-confidence" }
+        ]
+      }
+    ]
   };
 
   const tabs = lang==="en" ? ["Home","Brands","6-Step Framework","Stream Formats","eBay Policy","Vocab","Practice"] : ["ホーム","ブランド","6ステップ","配信形式","ポリシー","用語集","練習"];
@@ -1170,7 +1276,7 @@ export default function App() {
 
         {/* Nav Items - 3 Layer Collapsible */}
         <div style={{ flex:1, padding:"12px", overflowY:"auto" }}>
-          {NAV_STRUCTURE.en.map((section) => (
+          {NAV_STRUCTURE[lang].map((section) => (
             <div key={section.id} style={{ marginBottom:8 }}>
               {/* Level 1: Main Section */}
               {section.page !== undefined ? (
@@ -1227,8 +1333,8 @@ export default function App() {
                       <span style={{ fontSize:22 }}>{section.icon}</span>
                       <span>{section.label}</span>
                     </div>
-                    <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                      &gt;
+                    <span style={{ fontSize:16, color:"#9CA3AF", fontWeight:600, transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                      ▸
                     </span>
                   </button>
 
@@ -1291,8 +1397,8 @@ export default function App() {
                                   {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
                                   <span>{sub.label}</span>
                                 </div>
-                                <span style={{ fontSize:12, color:"#9CA3AF", transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                                  ▶
+                                <span style={{ fontSize:14, color:"#9CA3AF", fontWeight:600, transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
+                                  ▸
                                 </span>
                               </button>
 
