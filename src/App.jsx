@@ -1097,7 +1097,7 @@ export default function App() {
                   ☰ <span>{lang==="en"?"Menu":"メニュー"}</span>
                 </button>
               )}
-              <div onClick={()=>setPage(0)} style={{ fontSize:18, fontWeight:700, color:"#3665F3", cursor:"pointer" }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#3665F3" }}>
                 {lang==="en"?"eBay Live Academy":"eBay Liveアカデミー"}
               </div>
             </div>
@@ -1646,9 +1646,9 @@ function HomeP({ lang, setPage, playerData }) {
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(250px, 1fr))", gap:16, marginBottom:24 }}>
         {[
           { icon:"👜", name:lang==="en"?"Brand Knowledge":"ブランド知識", desc:lang==="en"?"Learn luxury brand value points":"高級ブランドの価値を学ぶ", page:1, progress:playerData.modulesCompleted.brands || 0 },
-          { icon:"📡", name:lang==="en"?"Live Strategies":"ライブ戦略", desc:lang==="en"?"6-step framework & formats":"6ステップ＆配信形式", page:2, progress:playerData.modulesCompleted.live || 0 },
-          { icon:"💬", name:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Professional terms & phrases":"専門用語とフレーズ", page:5, progress:playerData.modulesCompleted.vocab || 0 },
-          { icon:"🎯", name:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills":"インタラクティブドリル", page:6, progress:playerData.modulesCompleted.practice || 0 }
+          { icon:"📺", name:lang==="en"?"Live Streaming":"ライブ配信", desc:lang==="en"?"Master engagement strategies":"エンゲージメント戦略をマスター", page:2, progress:playerData.modulesCompleted.live || 0 },
+          { icon:"💬", name:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Professional terms & phrases":"専門用語とフレーズ", page:3, progress:playerData.modulesCompleted.vocab || 0 },
+          { icon:"🎯", name:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills":"インタラクティブドリル", page:4, progress:playerData.modulesCompleted.practice || 0 }
         ].map((mod,i)=>(
           <div key={i} onClick={()=>setPage(mod.page)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"20px", cursor:"pointer", transition:"all 0.2s" }}
             onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.boxShadow="0 8px 16px rgba(54,101,243,0.15)"}}
@@ -2078,7 +2078,7 @@ function FashionP({ lang }) {
 
 /* ═══ LIVE TIPS (MAIN CONTENT) ═══ */
 function LiveP({ lang, initialView = "framework" }) {
-  const [view, setView] = useState(initialView); // framework, content
+  const [view, setView] = useState(initialView); // framework, platforms, content
   const [openStep, setOpenStep] = useState(0);
   const [openSec, setOpenSec] = useState(null);
   const data = LIVE_KB.framework[lang];
@@ -2091,14 +2091,14 @@ function LiveP({ lang, initialView = "framework" }) {
         </h1>
         <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
           {lang==="en"
-            ?"Master eBay Live streaming techniques to engage buyers and drive sales. Learn the proven 6-step framework and different stream formats to maximize your success."
-            :"eBayライブ配信テクニックをマスターしてバイヤーを惹きつけ売上を上げる。実証済みの6ステップフレームワークと様々な配信形式を学んで成功を最大化。"}
+            ?"Master eBay Live streaming techniques to engage buyers and drive sales. Build confidence with buyer interactions, product presentation, and compliance with eBay Live policies."
+            :"eBayライブ配信テクニックをマスターしてバイヤーを惹きつけ売上を上げる。バイヤー対応、商品プレゼンテーション、eBay Liveポリシー遵守で自信を構築。"}
         </p>
       </div>
 
       {/* Sub-nav */}
       <div style={{ display:"flex", gap:12, marginBottom:24, borderBottom:"2px solid #F7F7F7", paddingBottom:4 }}>
-        {[["framework",lang==="en"?"6-Step Framework":"6ステップフレームワーク"],["content",lang==="en"?"Stream Formats":"配信形式"]].map(([k,l])=>(
+        {[["framework",lang==="en"?"6-Step Framework":"6ステップ"],["platforms",lang==="en"?"eBay Live Policy":"eBay Liveポリシー"],["content",lang==="en"?"Stream Formats":"配信形式"]].map(([k,l])=>(
           <button key={k} onClick={()=>setView(k)} style={{ padding:"10px 20px", borderRadius:0, background:"none", color:view===k?"#3B1FC6":"#191919", borderBottom:view===k?"3px solid #3B1FC6":"3px solid transparent", cursor:"pointer", fontFamily:"inherit", fontSize:15, fontWeight:view===k?700:400, border:"none", transition:"all 0.2s" }}>{l}</button>
         ))}
       </div>
@@ -2173,6 +2173,16 @@ function LiveP({ lang, initialView = "framework" }) {
               ))}
             </div>
           )}
+        </div>
+      ))}
+
+      {/* POLICY & COMPLIANCE */}
+      {view==="platforms" && LIVE_KB.policy[lang].map((p,i) => (
+        <div key={i} style={{ background:"#FFFFFF", borderRadius:12, padding:"20px 24px", marginBottom:12, border:"2px solid #F7F7F7" }}>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:12 }}>{p.emoji} {p.name}</div>
+          <div style={{ display:"grid", gap:8 }}>
+            {p.points.map((pt,j)=><div key={j} style={{ fontSize:15, color:"#191919", lineHeight:1.7, paddingLeft:16, borderLeft:"3px solid #E53238", fontWeight:400 }}>{pt}</div>)}
+          </div>
         </div>
       ))}
 
