@@ -2188,26 +2188,6 @@ function LiveP({ lang }) {
           )}
         </div>
       ))}
-
-      {/* POLICY & COMPLIANCE */}
-      {view==="platforms" && LIVE_KB.policy[lang].map((p,i) => (
-        <div key={i} style={{ background:"#FFFFFF", borderRadius:12, padding:"20px 24px", marginBottom:12, border:"2px solid #F7F7F7" }}>
-          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:12 }}>{p.emoji} {p.name}</div>
-          <div style={{ display:"grid", gap:8 }}>
-            {p.points.map((pt,j)=><div key={j} style={{ fontSize:15, color:"#191919", lineHeight:1.7, paddingLeft:16, borderLeft:"3px solid #E53238", fontWeight:400 }}>{pt}</div>)}
-          </div>
-        </div>
-      ))}
-
-      {/* CONTENT TYPES */}
-      {view==="content" && LIVE_KB.contentTypes[lang].map((ct,i) => (
-        <div key={i} style={{ background:"#FFFFFF", borderRadius:12, padding:"20px 24px", marginBottom:12, border:"2px solid #F7F7F7" }}>
-          <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:8 }}>{ct.icon} {ct.type}</div>
-          <div style={{ fontSize:15, color:"#191919", marginTop:8, lineHeight:1.7, fontWeight:400 }}>{ct.desc}</div>
-          <div style={{ fontSize:14, color:"#191919", marginTop:12, background:"#F7F7F7", padding:"8px 12px", borderRadius:6, fontWeight:400 }}>✓ {lang==="en"?"Best for":"向いてる人"}: <strong style={{ fontWeight:700 }}>{ct.best}</strong></div>
-          <div style={{ fontSize:14, color:"#191919", marginTop:8, fontWeight:400 }}>💡 {ct.tip}</div>
-        </div>
-      ))}
     </div>
   );
 }
@@ -2379,359 +2359,121 @@ function stopSpeaking() {
 
 /* ═══ ENGLISH / VOCABULARY & PRONUNCIATION ═══ */
 function EnglishP({ lang }) {
-  const [expandedCard, setExpandedCard] = useState(null);
-  const [filter, setFilter] = useState('all');
-  const [speed, setSpeed] = useState(1.0);
-  const [playingIndex, setPlayingIndex] = useState(null);
-  const [isPlayingAll, setIsPlayingAll] = useState(false);
+  const [open, setOpen] = useState(null);
 
-  // Flatten all vocab items with index
-  const allItems = VOCAB_CATS.flatMap(cat => cat.items.map(item => ({...item, catName: cat.cat})));
-
-  // Filter by category
-  const filteredItems = filter === 'all'
-    ? allItems
-    : allItems.filter(item => item.category === filter);
-
-  // Count items by category
-  const counts = {
-    all: allItems.length,
-    ebay: allItems.filter(i => i.category === 'ebay').length,
-    live: allItems.filter(i => i.category === 'live').length,
-    ecommerce: allItems.filter(i => i.category === 'ecommerce').length
-  };
-
-  // Play All function
-  const playAll = async () => {
-    setIsPlayingAll(true);
-    for (let i = 0; i < filteredItems.length; i++) {
-      if (!isPlayingAll) break; // Allow stopping
-      setPlayingIndex(i);
-      speakWord(filteredItems[i].e, speed);
-      await new Promise(resolve => setTimeout(resolve, 2500)); // Wait between words
-    }
-    setPlayingIndex(null);
-    setIsPlayingAll(false);
-  };
-
-  const stopPlayAll = () => {
-    stopSpeaking();
-    setIsPlayingAll(false);
-    setPlayingIndex(null);
-  };
-
-  // Expanded card view
-  if (expandedCard !== null) {
-    const item = filteredItems[expandedCard];
-    return (
-      <div style={{ animation:"fu 0.3s ease", maxWidth:600, margin:"0 auto" }}>
-        <button
-          onClick={() => setExpandedCard(null)}
-          style={{
-            background:"#F7F7F7",
-            border:"none",
-            padding:"10px 20px",
-            borderRadius:10,
-            cursor:"pointer",
-            fontSize:15,
-            fontWeight:600,
-            color:"#4b5563",
-            marginBottom:24,
-            display:"flex",
-            alignItems:"center",
-            gap:8
-          }}
-        >
-          ← {lang==="en"?"Back":"戻る"}
-        </button>
-
-        <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:16, padding:"32px", textAlign:"center" }}>
-          {/* Large Image */}
-          {item.imageUrl ? (
-            <img
-              src={item.imageUrl}
-              alt={item.e}
-              style={{
-                width:"100%",
-                maxHeight:250,
-                objectFit:"cover",
-                borderRadius:12,
-                marginBottom:24
-              }}
-              onError={(e) => {
-                // Fallback to emoji background if image fails to load
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'flex';
-              }}
-            />
-          ) : null}
-          <div style={{
-            display: item.imageUrl ? "none" : "flex",
-            width:"100%",
-            height:250,
-            background:"linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            borderRadius:12,
-            marginBottom:24,
-            alignItems:"center",
-            justifyContent:"center",
-            fontSize:120
-          }}>
-            {item.emoji || "📚"}
-          </div>
-
-          {/* Word + Speaker */}
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16, marginBottom:12 }}>
-            <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", margin:0 }}>{item.e}</h2>
-            <button
-              onClick={() => speakWord(item.e, speed)}
-              style={{
-                background:"#3665F3",
-                border:"none",
-                borderRadius:999,
-                width:48,
-                height:48,
-                cursor:"pointer",
-                fontSize:24,
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                flexShrink:0
-              }}
-            >
-              🔊
-            </button>
-          </div>
-
-          {/* Japanese */}
-          <div style={{ fontSize:20, color:"#FFFFFF", fontWeight:600, background:"#86B817", padding:"8px 16px", borderRadius:8, display:"inline-block", marginBottom:24 }}>
-            {item.j}
-          </div>
-
-          {/* Definition */}
-          <div style={{
-            fontSize:17,
-            color:"#191919",
-            lineHeight:1.8,
-            background:"#F7F7F7",
-            padding:"20px 24px",
-            borderRadius:12,
-            textAlign:"left",
-            marginBottom:16
-          }}>
-            {lang==="en"?item.def:item.defJp}
-          </div>
-
-          {/* Category badge */}
-          <div style={{ fontSize:13, color:"#6B7280", fontWeight:600, textTransform:"uppercase", letterSpacing:1 }}>
-            {item.category === 'ebay' && '🏷️ eBay'}
-            {item.category === 'live' && '🎬 Live Selling'}
-            {item.category === 'ecommerce' && '🛒 E-commerce'}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Grid view
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
       {/* Header */}
       <div style={{ marginBottom:32 }}>
         <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
-          {lang==="en"?"Vocabulary & Pronunciation":"単語＆発音"}
+          {lang==="en"?"Professional Vocabulary":"プロフェッショナル用語集"}
         </h1>
         <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
           {lang==="en"
-            ?"Master essential English terms for eBay Live selling. Click any word to see details and hear pronunciation."
-            :"eBayライブ販売に必須の英語用語をマスター。単語をクリックして詳細と発音を確認。"}
+            ?"Essential English terms for eBay Live selling. Click the speaker icon to hear pronunciation."
+            :"eBayライブ販売に必須の英語用語。スピーカーアイコンをクリックして発音を聞く。"}
         </p>
       </div>
 
-      {/* Controls */}
-      <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"20px 24px", marginBottom:24 }}>
-        {/* Speed Controls */}
-        <div style={{ marginBottom:20 }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#4B5563", marginBottom:12, textTransform:"uppercase" }}>
-            {lang==="en"?"Playback Speed":"再生速度"}
-          </div>
-          <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
-            {[
-              {value: 0.5, label: lang==="en"?"Slow":"ゆっくり"},
-              {value: 1.0, label: lang==="en"?"Normal":"標準"},
-              {value: 1.5, label: lang==="en"?"Fast":"速い"}
-            ].map(s => (
-              <button
-                key={s.value}
-                onClick={() => setSpeed(s.value)}
-                style={{
-                  background: speed === s.value ? "#3665F3" : "#F7F7F7",
-                  color: speed === s.value ? "#FFFFFF" : "#191919",
-                  border:"none",
-                  borderRadius:8,
-                  padding:"10px 20px",
-                  fontSize:15,
-                  fontWeight:600,
-                  cursor:"pointer",
-                  transition:"all 0.2s"
-                }}
-              >
-                {s.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Category Filters */}
-        <div style={{ marginBottom:20 }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#4B5563", marginBottom:12, textTransform:"uppercase" }}>
-            {lang==="en"?"Category Filter":"カテゴリーフィルター"}
-          </div>
-          <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
-            {[
-              {value: 'all', label: lang==="en"?`All (${counts.all})`:`すべて (${counts.all})`, color:"#6B7280"},
-              {value: 'ebay', label: lang==="en"?`eBay (${counts.ebay})`:`eBay (${counts.ebay})`, color:"#3665F3"},
-              {value: 'live', label: lang==="en"?`Live Selling (${counts.live})`:`ライブ販売 (${counts.live})`, color:"#E53238"},
-              {value: 'ecommerce', label: lang==="en"?`E-commerce (${counts.ecommerce})`:`EC (${counts.ecommerce})`, color:"#86B817"}
-            ].map(f => (
-              <button
-                key={f.value}
-                onClick={() => {setFilter(f.value); setExpandedCard(null);}}
-                style={{
-                  background: filter === f.value ? f.color : "#F7F7F7",
-                  color: filter === f.value ? "#FFFFFF" : "#191919",
-                  border:"none",
-                  borderRadius:8,
-                  padding:"10px 16px",
-                  fontSize:14,
-                  fontWeight:600,
-                  cursor:"pointer",
-                  transition:"all 0.2s"
-                }}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Play All Button */}
-        <div>
-          <button
-            onClick={isPlayingAll ? stopPlayAll : playAll}
-            style={{
-              background: isPlayingAll ? "#E53238" : "#86B817",
-              color:"#FFFFFF",
-              border:"none",
-              borderRadius:8,
-              padding:"12px 24px",
-              fontSize:15,
-              fontWeight:700,
-              cursor:"pointer",
-              display:"flex",
-              alignItems:"center",
-              gap:8,
-              width:"100%",
-              justifyContent:"center"
-            }}
-          >
-            {isPlayingAll ? "⏹️" : "▶️"}
-            {isPlayingAll
-              ? (lang==="en"?"Stop":"停止")
-              : (lang==="en"?`Play All (${filteredItems.length} words)`:`すべて再生 (${filteredItems.length}語)`)}
-          </button>
-        </div>
-      </div>
-
-      {/* Vocab Grid */}
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:16 }}>
-        {filteredItems.map((item, i) => (
+      {/* Category Accordion */}
+      {VOCAB_CATS.map((cat, catIdx) => (
+        <div key={catIdx} style={{ marginBottom:16 }}>
           <div
-            key={i}
-            onClick={() => setExpandedCard(i)}
+            onClick={() => setOpen(open === catIdx ? null : catIdx)}
             style={{
-              background: playingIndex === i ? "#FEF3C7" : "#FFFFFF",
-              border: playingIndex === i ? "2px solid #F5AF02" : "2px solid #E5E7EB",
+              background:"#FFFFFF",
+              border:`2px solid ${open === catIdx ? "#3665F3" : "#E5E7EB"}`,
               borderRadius:12,
-              padding:"16px",
+              padding:"16px 20px",
               cursor:"pointer",
-              transition:"all 0.2s",
-              position:"relative",
-              animation: playingIndex === i ? "pulse 1s infinite" : "none"
-            }}
-            onMouseEnter={e => {if (playingIndex !== i) e.currentTarget.style.transform="translateY(-4px)"}}
-            onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}
-          >
-            {/* Mini Image/Emoji */}
-            <div style={{
-              width:60,
-              height:60,
-              background: item.imageUrl ? `url(${item.imageUrl})` : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-              backgroundSize:"cover",
-              backgroundPosition:"center",
-              borderRadius:8,
-              marginBottom:12,
               display:"flex",
+              justifyContent:"space-between",
               alignItems:"center",
-              justifyContent:"center",
-              fontSize:32,
-              flexShrink:0
-            }}>
-              {!item.imageUrl && (item.emoji || "📚")}
-            </div>
-
-            {/* Word + Speaker */}
-            <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:8 }}>
-              <div style={{ flex:1 }}>
-                <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{item.e}</div>
-                <div style={{ fontSize:14, color:"#FFFFFF", fontWeight:600, background:"#86B817", padding:"4px 10px", borderRadius:6, display:"inline-block" }}>
-                  {item.j}
+              transition:"all 0.2s"
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = "translateY(-1px)"}
+            onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}
+          >
+            <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+              <span style={{ fontSize:28 }}>{cat.icon}</span>
+              <div>
+                <div style={{ fontSize:18, fontWeight:700, color:"#191919" }}>
+                  {lang==="en" ? cat.cat : cat.catJp}
+                </div>
+                <div style={{ fontSize:13, color:"#6B7280", marginTop:2 }}>
+                  {cat.items.length} {lang==="en"?"terms":"用語"}
                 </div>
               </div>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent card expansion
-                  speakWord(item.e, speed);
-                }}
-                style={{
-                  background:"#3665F3",
-                  border:"none",
-                  borderRadius:999,
-                  width:36,
-                  height:36,
-                  cursor:"pointer",
-                  fontSize:18,
-                  display:"flex",
-                  alignItems:"center",
-                  justifyContent:"center",
-                  flexShrink:0
-                }}
-              >
-                🔊
-              </button>
             </div>
-
-            {/* Category badge */}
-            <div style={{ fontSize:11, color:"#6B7280", fontWeight:600, textTransform:"uppercase" }}>
-              {item.category === 'ebay' && '🏷️ eBay'}
-              {item.category === 'live' && '🎬 Live'}
-              {item.category === 'ecommerce' && '🛒 E-commerce'}
-            </div>
+            <span style={{ fontSize:20, color:"#3665F3", fontWeight:700 }}>
+              {open === catIdx ? "▼" : "▶"}
+            </span>
           </div>
-        ))}
-      </div>
 
-      {filteredItems.length === 0 && (
-        <div style={{ textAlign:"center", padding:"60px 20px", color:"#6B7280" }}>
-          {lang==="en"?"No vocabulary found in this category.":"このカテゴリーに単語がありません。"}
+          {/* Expanded vocabulary list */}
+          {open === catIdx && (
+            <div style={{
+              background:"#F7F7F7",
+              border:"2px solid #E5E7EB",
+              borderTop:"none",
+              borderRadius:"0 0 12px 12px",
+              padding:"16px 20px",
+              marginTop:-8,
+              animation:"fu 0.3s ease"
+            }}>
+              {cat.items.map((item, itemIdx) => (
+                <div
+                  key={itemIdx}
+                  style={{
+                    background:"#FFFFFF",
+                    borderRadius:8,
+                    padding:"12px 16px",
+                    marginBottom:8,
+                    border:"1px solid #E5E7EB",
+                    display:"flex",
+                    alignItems:"flex-start",
+                    justifyContent:"space-between",
+                    gap:12
+                  }}
+                >
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:4 }}>
+                      {item.e}
+                    </div>
+                    <div style={{ fontSize:14, color:"#FFFFFF", fontWeight:600, background:"#86B817", padding:"4px 10px", borderRadius:6, display:"inline-block", marginBottom:8 }}>
+                      {item.j}
+                    </div>
+                    <div style={{ fontSize:14, color:"#4B5563", lineHeight:1.6 }}>
+                      {lang==="en" ? item.def : item.defJp}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => speakWord(item.e, 1.0)}
+                    style={{
+                      background:"#3665F3",
+                      border:"none",
+                      borderRadius:999,
+                      width:40,
+                      height:40,
+                      cursor:"pointer",
+                      fontSize:20,
+                      display:"flex",
+                      alignItems:"center",
+                      justifyContent:"center",
+                      flexShrink:0,
+                      transition:"all 0.2s"
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
+                    onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                  >
+                    🔊
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
-
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(245, 175, 2, 0.7); }
-          50% { box-shadow: 0 0 0 10px rgba(245, 175, 2, 0); }
-        }
-      `}</style>
+      ))}
     </div>
   );
 }
