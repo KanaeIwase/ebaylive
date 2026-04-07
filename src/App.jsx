@@ -1099,6 +1099,136 @@ export default function App() {
   );
 }
 
+/* ═══ IMPROVEMENT ANALYTICS DASHBOARD ═══ */
+function ImprovementAnalytics({ lang, playerData }) {
+  // Calculate improvements based on historical data
+  const stats = playerData.stats || {};
+  const ratings = playerData.confidenceRatings || [];
+
+  const improvements = [];
+
+  // Confidence improvement
+  if (ratings.length >= 2) {
+    const first = ratings[0].rating;
+    const latest = ratings[ratings.length - 1].rating;
+    const change = latest - first;
+    if (change > 0) {
+      improvements.push({
+        icon: "📈",
+        title: lang === "en" ? "Confidence Growing" : "自信が成長",
+        before: lang === "en" ? `Started at ${first}/5` : `開始時${first}/5`,
+        after: lang === "en" ? `Now ${latest}/5` : `現在${latest}/5`,
+        change: `+${change}`,
+        positive: true
+      });
+    }
+  }
+
+  // Level progression
+  if (playerData.level >= 5) {
+    improvements.push({
+      icon: "⭐",
+      title: lang === "en" ? "Level Progress" : "レベル進行",
+      before: lang === "en" ? "Started at Level 1" : "レベル1から開始",
+      after: lang === "en" ? `Now Level ${playerData.level}` : `現在レベル${playerData.level}`,
+      change: `+${playerData.level - 1}`,
+      positive: true
+    });
+  }
+
+  // Practice consistency (streak)
+  if (playerData.streak >= 3) {
+    improvements.push({
+      icon: "🔥",
+      title: lang === "en" ? "Building Consistency" : "一貫性構築",
+      before: lang === "en" ? "Practicing occasionally" : "たまに練習",
+      after: lang === "en" ? `${playerData.streak}-day streak` : `${playerData.streak}日連続`,
+      change: lang === "en" ? "Daily habit!" : "毎日の習慣！",
+      positive: true
+    });
+  }
+
+  // Skills mastery
+  const totalSkills = (stats.namesRead || 0) + (stats.conditionsDescribed || 0) + (stats.conversationsCompleted || 0);
+  if (totalSkills >= 50) {
+    improvements.push({
+      icon: "🎯",
+      title: lang === "en" ? "Skills Mastery" : "スキル習得",
+      before: lang === "en" ? "Beginner" : "初心者",
+      after: lang === "en" ? `${totalSkills} skills practiced` : `${totalSkills}スキル練習`,
+      change: lang === "en" ? "Advancing!" : "上達中！",
+      positive: true
+    });
+  }
+
+  // No improvements yet
+  if (improvements.length === 0) {
+    return null;
+  }
+
+  return (
+    <div style={{
+      background:"#FFFFFF",
+      border:"2px solid #E5E7EB",
+      borderRadius:12,
+      padding:"24px",
+      marginBottom:24
+    }}>
+      <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
+        💪 {lang === "en" ? "Your Improvement Journey" : "あなたの改善の旅"}
+      </div>
+      <div style={{ display:"grid", gap:16 }}>
+        {improvements.map((item, i) => (
+          <div
+            key={i}
+            style={{
+              background:"linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%)",
+              border:"2px solid #3665F3",
+              borderRadius:12,
+              padding:"16px",
+              display:"flex",
+              alignItems:"center",
+              gap:16
+            }}
+          >
+            <div style={{ fontSize:40 }}>{item.icon}</div>
+            <div style={{ flex:1 }}>
+              <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:6 }}>
+                {item.title}
+              </div>
+              <div style={{ fontSize:14, color:"#6B7280", marginBottom:4 }}>
+                {item.before} → {item.after}
+              </div>
+              <div style={{
+                fontSize:14,
+                fontWeight:700,
+                color: item.positive ? "#86B817" : "#E53238"
+              }}>
+                {item.change}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Encouragement */}
+      <div style={{
+        marginTop:16,
+        padding:16,
+        background:"#F7F7F7",
+        borderRadius:8,
+        textAlign:"center"
+      }}>
+        <p style={{ fontSize:15, color:"#191919", margin:0, lineHeight:1.6 }}>
+          {lang === "en"
+            ? "🌟 You're making real progress! Keep practicing to unlock more achievements."
+            : "🌟 本当に進歩しています！練習を続けてもっと達成を解除しましょう。"}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ═══ CONFIDENCE TRACKER COMPONENT ═══ */
 function ConfidenceTracker({ lang, playerData, onRatingSubmit }) {
   const [showRating, setShowRating] = useState(false);
@@ -1466,6 +1596,12 @@ function HomeP({ lang, setPage, playerData }) {
           </div>
         </div>
       )}
+
+      {/* Confidence Tracker */}
+      <ConfidenceTracker lang={lang} playerData={playerData} onRatingSubmit={handleConfidenceRating} />
+
+      {/* Improvement Analytics */}
+      <ImprovementAnalytics lang={lang} playerData={playerData} />
 
       {/* Today's Challenge */}
       <div style={{ background:"#FFFFFF", border:"2px solid #3665F3", borderRadius:12, padding:"24px", marginBottom:24 }}>
