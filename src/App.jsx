@@ -2292,7 +2292,7 @@ function LivePolicyP({ lang }) {
 /* ═══ LIVE CONTENT TYPES WRAPPER ═══ */
 function LiveContentTypesP({ lang }) {
   const [openType, setOpenType] = useState(null);
-  const data = LIVE_KB.content[lang];
+  const data = LIVE_KB.contentTypes[lang];
 
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
@@ -2307,7 +2307,7 @@ function LiveContentTypesP({ lang }) {
         </p>
       </div>
 
-      {data.map((type, ti) => (
+      {data.map((item, ti) => (
         <div key={ti} style={{ marginBottom:16 }}>
           <div
             onClick={()=>setOpenType(openType===ti?null:ti)}
@@ -2324,10 +2324,10 @@ function LiveContentTypesP({ lang }) {
           >
             <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
               <div style={{ display:"flex", alignItems:"center", gap:16 }}>
-                <span style={{ fontSize:40, lineHeight:1 }}>{type.icon}</span>
+                <span style={{ fontSize:40, lineHeight:1 }}>{item.icon}</span>
                 <div>
-                  <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:4 }}>{type.name}</div>
-                  <div style={{ fontSize:14, color:"#6B7280" }}>{type.desc}</div>
+                  <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:4 }}>{item.type}</div>
+                  <div style={{ fontSize:14, color:"#6B7280" }}>{item.desc}</div>
                 </div>
               </div>
               <span style={{ fontSize:28, color:"#3665F3", fontWeight:300 }}>{openType===ti?"−":"+"}</span>
@@ -2335,15 +2335,20 @@ function LiveContentTypesP({ lang }) {
 
             {openType===ti && (
               <div style={{ marginTop:20, paddingTop:20, borderTop:"2px solid #F7F7F7" }}>
-                <div style={{ fontSize:15, color:"#191919", lineHeight:1.8, marginBottom:16 }}>
-                  {type.detail}
-                </div>
-                <div style={{ background:"#EFF6FF", padding:"16px 20px", borderRadius:8, borderLeft:"4px solid #3665F3" }}>
+                <div style={{ background:"#EFF6FF", padding:"16px 20px", borderRadius:8, borderLeft:"4px solid #3665F3", marginBottom:12 }}>
                   <div style={{ fontSize:14, fontWeight:700, color:"#3665F3", marginBottom:8 }}>
                     💡 {lang==="en"?"Best for":"最適な用途"}
                   </div>
                   <div style={{ fontSize:14, color:"#191919", lineHeight:1.7 }}>
-                    {type.bestFor}
+                    {item.best}
+                  </div>
+                </div>
+                <div style={{ background:"#FEF3C7", padding:"16px 20px", borderRadius:8, borderLeft:"4px solid #F5AF02" }}>
+                  <div style={{ fontSize:14, fontWeight:700, color:"#F5AF02", marginBottom:8 }}>
+                    ⭐ {lang==="en"?"Pro Tip":"プロのヒント"}
+                  </div>
+                  <div style={{ fontSize:14, color:"#191919", lineHeight:1.7 }}>
+                    {item.tip}
                   </div>
                 </div>
               </div>
