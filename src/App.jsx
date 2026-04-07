@@ -2395,10 +2395,10 @@ function EnglishP({ lang }) {
             onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}
           >
             <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-              <span style={{ fontSize:28 }}>{cat.icon}</span>
+              {cat.icon && <span style={{ fontSize:28 }}>{cat.icon}</span>}
               <div>
                 <div style={{ fontSize:18, fontWeight:700, color:"#191919" }}>
-                  {lang==="en" ? cat.cat : cat.catJp}
+                  {cat.cat}
                 </div>
                 <div style={{ fontSize:13, color:"#6B7280", marginTop:2 }}>
                   {cat.items.length} {lang==="en"?"terms":"用語"}
