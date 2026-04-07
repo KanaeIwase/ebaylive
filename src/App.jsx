@@ -1433,7 +1433,7 @@ export default function App() {
                                         fontWeight:500,
                                         display:"flex",
                                         alignItems:"center",
-                                        color: page===item.page ? "#FFFFFF" : "#6B7280",
+                                        color: page===item.page ? "#FFFFFF" : "#191919",
                                         transition:"all 0.2s",
                                         textAlign:"left"
                                       }}
