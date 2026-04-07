@@ -1312,15 +1312,15 @@ export default function App() {
                     onClick={() => setExpandedSections({...expandedSections, [section.id]: !expandedSections[section.id]})}
                     style={{
                       width:"100%",
-                      minHeight:48,
-                      padding:"14px 16px",
-                      borderRadius:10,
-                      background:"transparent",
+                      minHeight:44,
+                      padding:"12px 14px",
+                      borderRadius:8,
+                      background:"#F7F7F7",
                       border:"none",
                       cursor:"pointer",
                       fontFamily:"inherit",
-                      fontSize:15,
-                      fontWeight:600,
+                      fontSize:14,
+                      fontWeight:500,
                       display:"flex",
                       alignItems:"center",
                       justifyContent:"space-between",
@@ -1329,18 +1329,18 @@ export default function App() {
                       textAlign:"left"
                     }}
                   >
-                    <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-                      <span style={{ fontSize:22 }}>{section.icon}</span>
+                    <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+                      <span style={{ fontSize:20 }}>{section.icon}</span>
                       <span>{section.label}</span>
                     </div>
-                    <span style={{ fontSize:18, color:"#6B7280", fontWeight:700, transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                      ▸
+                    <span style={{ fontSize:12, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(180deg)" : "rotate(0deg)" }}>
+                      ∨
                     </span>
                   </button>
 
                   {/* Level 2: Sub-sections */}
                   {expandedSections[section.id] && section.children && (
-                    <div style={{ paddingLeft:12, marginTop:4 }}>
+                    <div style={{ paddingLeft:8, marginTop:6 }}>
                       {section.children.map((sub) => (
                         <div key={sub.id || sub.label} style={{ marginBottom:4 }}>
                           {sub.page !== undefined ? (
@@ -1349,24 +1349,25 @@ export default function App() {
                               onClick={() => setPage(sub.page)}
                               style={{
                                 width:"100%",
-                                minHeight:40,
-                                padding:"10px 14px",
-                                borderRadius:8,
-                                background: page===sub.page ? "#EFF6FF" : "transparent",
-                                border: page===sub.page ? "1px solid #3665F3" : "none",
+                                minHeight:38,
+                                padding:"10px 12px",
+                                borderRadius:6,
+                                background: page===sub.page ? "#191919" : "#F7F7F7",
+                                border:"none",
                                 cursor:"pointer",
                                 fontFamily:"inherit",
-                                fontSize:15,
-                                fontWeight: page===sub.page ? 600 : 500,
+                                fontSize:14,
+                                fontWeight:500,
                                 display:"flex",
                                 alignItems:"center",
-                                gap:10,
-                                color: page===sub.page ? "#3665F3" : "#191919",
+                                gap:8,
+                                color: page===sub.page ? "#FFFFFF" : "#191919",
                                 transition:"all 0.2s",
-                                textAlign:"left"
+                                textAlign:"left",
+                                marginBottom:4
                               }}
                             >
-                              {sub.icon && <span style={{ fontSize:20 }}>{sub.icon}</span>}
+                              {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
                               <span>{sub.label}</span>
                             </button>
                           ) : (
@@ -1376,54 +1377,55 @@ export default function App() {
                                 onClick={() => setExpandedSections({...expandedSections, [sub.id]: !expandedSections[sub.id]})}
                                 style={{
                                   width:"100%",
-                                  minHeight:40,
-                                  padding:"10px 14px",
-                                  borderRadius:8,
-                                  background:"transparent",
+                                  minHeight:38,
+                                  padding:"10px 12px",
+                                  borderRadius:6,
+                                  background:"#F7F7F7",
                                   border:"none",
                                   cursor:"pointer",
                                   fontFamily:"inherit",
-                                  fontSize:15,
+                                  fontSize:14,
                                   fontWeight:500,
                                   display:"flex",
                                   alignItems:"center",
                                   justifyContent:"space-between",
                                   color:"#191919",
                                   transition:"all 0.2s",
-                                  textAlign:"left"
+                                  textAlign:"left",
+                                  marginBottom:4
                                 }}
                               >
-                                <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-                                  {sub.icon && <span style={{ fontSize:20 }}>{sub.icon}</span>}
+                                <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+                                  {sub.icon && <span style={{ fontSize:18 }}>{sub.icon}</span>}
                                   <span>{sub.label}</span>
                                 </div>
-                                <span style={{ fontSize:18, color:"#6B7280", fontWeight:700, transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                                  ▸
+                                <span style={{ fontSize:12, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[sub.id] ? "rotate(180deg)" : "rotate(0deg)" }}>
+                                  ∨
                                 </span>
                               </button>
 
                               {/* Level 3: Items */}
                               {expandedSections[sub.id] && sub.children && (
-                                <div style={{ paddingLeft:12, marginTop:4 }}>
+                                <div style={{ paddingLeft:8, marginTop:6 }}>
                                   {sub.children.map((item, idx) => (
                                     <button
                                       key={idx}
                                       onClick={() => setPage(item.page)}
                                       style={{
                                         width:"100%",
-                                        minHeight:38,
+                                        minHeight:36,
                                         padding:"9px 12px",
-                                        marginBottom:2,
+                                        marginBottom:3,
                                         borderRadius:6,
-                                        background: page===item.page ? "#EFF6FF" : "transparent",
-                                        border: page===item.page ? "1px solid #3665F3" : "none",
+                                        background: page===item.page ? "#191919" : "#F7F7F7",
+                                        border:"none",
                                         cursor:"pointer",
                                         fontFamily:"inherit",
-                                        fontSize:14,
-                                        fontWeight: page===item.page ? 600 : 500,
+                                        fontSize:13,
+                                        fontWeight:500,
                                         display:"flex",
                                         alignItems:"center",
-                                        color: page===item.page ? "#3665F3" : "#191919",
+                                        color: page===item.page ? "#FFFFFF" : "#6B7280",
                                         transition:"all 0.2s",
                                         textAlign:"left"
                                       }}
@@ -1476,26 +1478,26 @@ export default function App() {
           {/* Home */}
           {page===0 && <HomeP lang={lang} setPage={setPage} playerData={playerData} />}
 
-          {/* Brand Knowledge - All brands go to brand selector for now */}
-          {(page===1 || page==="brand-lv" || page==="brand-chanel" || page==="brand-hermes" || page==="brand-gucci" || page==="brand-prada" || page==="brand-dior" || page==="brand-cartier" || page==="brand-bulgari") && <FashionP lang={lang} />}
+          {/* Brand Knowledge */}
+          {(page===1 || String(page).startsWith("brand-")) && <FashionP lang={lang} />}
 
           {/* Live Selling - 6 Steps */}
-          {(page===2 || page==="live-step1" || page==="live-step2" || page==="live-step3" || page==="live-step4" || page==="live-step5" || page==="live-step6") && <LiveP lang={lang} />}
+          {(page===2 || String(page).startsWith("live-step")) && <LiveP lang={lang} />}
 
           {/* eBay Policy */}
           {(page===4 || page==="policy") && <PolicyP lang={lang} />}
 
-          {/* Vocabulary - Show category view */}
-          {(page===5 || page?.startsWith?.("vocab-")) && <EnglishP lang={lang} />}
+          {/* Vocabulary */}
+          {(page===5 || String(page).startsWith("vocab-")) && <EnglishP lang={lang} />}
 
-          {/* Practice Games - Show all games */}
-          {(page===6 || page?.startsWith?.("game-")) && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
+          {/* Practice Games */}
+          {(page===6 || String(page).startsWith("game-")) && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
 
           {/* AI Practice */}
-          {page?.startsWith?.("ai-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>AI Practice features coming soon...</div>}
+          {String(page).startsWith("ai-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>AI Practice features coming soon...</div>}
 
           {/* Progress */}
-          {page?.startsWith?.("progress-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>Progress pages coming soon...</div>}
+          {String(page).startsWith("progress-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>Progress pages coming soon...</div>}
         </div>
       </div>
     </div>
