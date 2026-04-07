@@ -1228,7 +1228,7 @@ export default function App() {
                       <span>{section.label}</span>
                     </div>
                     <span style={{ fontSize:14, color:"#6B7280", transition:"transform 0.2s", transform: expandedSections[section.id] ? "rotate(90deg)" : "rotate(0deg)" }}>
-                      ▶
+                      &gt;
                     </span>
                   </button>
 
