@@ -1439,6 +1439,7 @@ function ConfidenceTracker({ lang, playerData, onRatingSubmit }) {
 
 /* ═══ HOME ═══ */
 function HomeP({ lang, setPage, playerData }) {
+  const [showProgressDetails, setShowProgressDetails] = useState(false);
   const xpToNextLevel = 100;
   const xpProgress = (playerData.xp % xpToNextLevel) / xpToNextLevel * 100;
   const totalModules = 4;
@@ -1576,9 +1577,9 @@ function HomeP({ lang, setPage, playerData }) {
           <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:16 }}>
             📊 {lang==="en"?"Your Progress":"あなたの進捗"}
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(150px, 1fr))", gap:12 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(150px, 1fr))", gap:12, marginBottom: showProgressDetails ? 16 : 0 }}>
             {[
-              { icon: "🎮", label: lang==="en"?"Games Played":"ゲームプレイ", value: playerData.stats.gamesPlayed || 0 },
+              { icon: "🎮", label: lang==="en"?"Games Played":"ゲームプレイ", value: playerData.stats.gamesPlayed || 0, clickable: true },
               { icon: "🎙️", label: lang==="en"?"Names Read":"名前読み", value: playerData.stats.namesRead || 0 },
               { icon: "🔍", label: lang==="en"?"Items Described":"説明済み", value: playerData.stats.conditionsDescribed || 0 },
               { icon: "💬", label: lang==="en"?"Conversations":"会話回数", value: playerData.stats.conversationsCompleted || 0 },
@@ -1587,19 +1588,77 @@ function HomeP({ lang, setPage, playerData }) {
             ].map((stat, i) => (
               <div
                 key={i}
+                onClick={stat.clickable ? () => setShowProgressDetails(!showProgressDetails) : undefined}
                 style={{
-                  background:"#F7F7F7",
+                  background: stat.clickable ? "#EFF6FF" : "#F7F7F7",
                   borderRadius:8,
                   padding:"12px",
-                  textAlign:"center"
+                  textAlign:"center",
+                  cursor: stat.clickable ? "pointer" : "default",
+                  border: stat.clickable ? "2px solid #3665F3" : "none",
+                  transition: "all 0.2s"
                 }}
+                onMouseEnter={e => stat.clickable && (e.currentTarget.style.transform = "translateY(-2px)")}
+                onMouseLeave={e => stat.clickable && (e.currentTarget.style.transform = "translateY(0)")}
               >
                 <div style={{ fontSize:24, marginBottom:4 }}>{stat.icon}</div>
                 <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:2 }}>{stat.value}</div>
-                <div style={{ fontSize:12, color:"#6B7280" }}>{stat.label}</div>
+                <div style={{ fontSize:12, color: stat.clickable ? "#3665F3" : "#6B7280", fontWeight: stat.clickable ? 600 : 400 }}>
+                  {stat.label} {stat.clickable && "▼"}
+                </div>
               </div>
             ))}
           </div>
+
+          {/* Progress Details Dropdown */}
+          {showProgressDetails && (
+            <div style={{
+              background:"#F7F7F7",
+              borderRadius:8,
+              padding:"16px 20px",
+              animation:"fu 0.3s ease"
+            }}>
+              <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:12 }}>
+                {lang==="en"?"Practice Games Completed":"完了した練習ゲーム"}
+              </div>
+              <div style={{ display:"grid", gap:8 }}>
+                {[
+                  { name: lang==="en"?"Name Blast":"名前ブラスト", completed: (playerData.stats.namesRead || 0) > 0 },
+                  { name: lang==="en"?"Speed Auction":"スピードオークション", completed: (playerData.stats.itemsSold || 0) > 0 },
+                  { name: lang==="en"?"Condition Description":"状態説明", completed: (playerData.stats.conditionsDescribed || 0) > 0 },
+                  { name: lang==="en"?"Scenario Response":"シナリオ対応", completed: (playerData.stats.scenariosCompleted || 0) > 0 },
+                  { name: lang==="en"?"Flashcard Mode":"フラッシュカード", completed: (playerData.stats.flashcardsReviewed || 0) > 0 },
+                  { name: lang==="en"?"Matching Game":"マッチングゲーム", completed: (playerData.stats.matchingCompleted || 0) > 0 },
+                  { name: lang==="en"?"Daily Warm-Up":"デイリーウォームアップ", completed: (playerData.stats.warmUpsCompleted || 0) > 0 },
+                ].map((game, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      display:"flex",
+                      alignItems:"center",
+                      justifyContent:"space-between",
+                      padding:"10px 12px",
+                      background:"#FFFFFF",
+                      borderRadius:6,
+                      border: game.completed ? "1px solid #86B817" : "1px solid #E5E7EB"
+                    }}
+                  >
+                    <span style={{ fontSize:14, color:"#191919", fontWeight:game.completed ? 600 : 400 }}>
+                      {game.name}
+                    </span>
+                    <span style={{ fontSize:16 }}>
+                      {game.completed ? "✅" : "⭕"}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize:13, color:"#6B7280", marginTop:12, fontStyle:"italic" }}>
+                {lang==="en"
+                  ? "Complete all 7 games to become a Live Selling Pro!"
+                  : "全7ゲームを完了してライブセリングプロになろう！"}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -1723,118 +1782,6 @@ function HomeP({ lang, setPage, playerData }) {
         )}
       </div>
 
-      {/* Data Export/Import */}
-      <div style={{
-        background:"#FFFFFF",
-        border:"2px solid #E5E7EB",
-        borderRadius:12,
-        padding:"24px",
-        marginBottom:24
-      }}>
-        <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:12 }}>
-          💾 {lang==="en"?"Backup & Restore":"バックアップ＆復元"}
-        </div>
-        <p style={{ fontSize:14, color:"#6B7280", marginBottom:16, lineHeight:1.6 }}>
-          {lang==="en"
-            ?"Save your progress data to a file or restore from a previous backup. Your XP, badges, stats, and confidence ratings will be preserved."
-            :"進捗データをファイルに保存したり、以前のバックアップから復元できます。XP、バッジ、統計、自信評価が保持されます。"}
-        </p>
-        <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
-          <button
-            onClick={() => {
-              const dataStr = JSON.stringify(playerData, null, 2);
-              const blob = new Blob([dataStr], { type: 'application/json' });
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url;
-              a.download = `ebay-live-backup-${new Date().toISOString().split('T')[0]}.json`;
-              a.click();
-              URL.revokeObjectURL(url);
-            }}
-            style={{
-              background:"#3665F3",
-              color:"#FFFFFF",
-              border:"none",
-              borderRadius:8,
-              padding:"12px 20px",
-              fontSize:15,
-              fontWeight:600,
-              cursor:"pointer",
-              display:"flex",
-              alignItems:"center",
-              gap:8
-            }}
-          >
-            📥 {lang==="en"?"Export Data":"データをエクスポート"}
-          </button>
-          <label style={{
-            background:"#F7F7F7",
-            color:"#191919",
-            border:"2px solid #E5E7EB",
-            borderRadius:8,
-            padding:"12px 20px",
-            fontSize:15,
-            fontWeight:600,
-            cursor:"pointer",
-            display:"flex",
-            alignItems:"center",
-            gap:8
-          }}>
-            📤 {lang==="en"?"Import Data":"データをインポート"}
-            <input
-              type="file"
-              accept=".json"
-              style={{ display:"none" }}
-              onChange={(e) => {
-                const file = e.target.files[0];
-                if (file) {
-                  const reader = new FileReader();
-                  reader.onload = (event) => {
-                    try {
-                      const importedData = JSON.parse(event.target.result);
-                      // Validate data structure
-                      if (importedData && typeof importedData.xp === 'number') {
-                        localStorage.setItem('ebay-live-player', JSON.stringify(importedData));
-                        window.location.reload();
-                      } else {
-                        alert(lang==="en"?"Invalid backup file":"無効なバックアップファイル");
-                      }
-                    } catch (err) {
-                      alert(lang==="en"?"Error reading file":"ファイル読み込みエラー");
-                    }
-                  };
-                  reader.readAsText(file);
-                }
-              }}
-            />
-          </label>
-          <button
-            onClick={() => {
-              if (confirm(lang==="en"
-                ?"Are you sure you want to reset all progress? This cannot be undone."
-                :"すべての進捗をリセットしてもよろしいですか？この操作は元に戻せません。")) {
-                localStorage.removeItem('ebay-live-player');
-                window.location.reload();
-              }
-            }}
-            style={{
-              background:"#FEF3C7",
-              color:"#D97706",
-              border:"2px solid #F59E0B",
-              borderRadius:8,
-              padding:"12px 20px",
-              fontSize:15,
-              fontWeight:600,
-              cursor:"pointer",
-              display:"flex",
-              alignItems:"center",
-              gap:8
-            }}
-          >
-            🔄 {lang==="en"?"Reset Progress":"進捗をリセット"}
-          </button>
-        </div>
-      </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24, marginBottom:48 }}>
         <div style={{ background:"#FFFFFF", border:"2px solid #F7F7F7", borderRadius:12, padding:"32px 28px" }}>
