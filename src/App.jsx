@@ -1145,12 +1145,18 @@ function HomeP({ lang, setPage, playerData }) {
   ];
   const todayChallenge = dailyChallenges[new Date().getDay() % dailyChallenges.length];
 
+  const stats = playerData.stats || {};
   const readyChecklist = [
-    { en: "Describe 5 conditions fluently", jp: "5つのコンディションを流暢に説明", done: playerData.modulesCompleted.vocab >= 20 },
-    { en: "Greet buyers within 3 seconds", jp: "3秒以内にバイヤーに挨拶", done: playerData.modulesCompleted.practice >= 10 },
-    { en: "Answer 10 common questions", jp: "10の一般的な質問に回答", done: playerData.modulesCompleted.vocab >= 50 },
-    { en: "Know 3+ luxury brands", jp: "3つ以上の高級ブランドを知る", done: playerData.modulesCompleted.brands >= 30 }
+    { en: "✓ Greeted 50+ buyers confidently", jp: "✓ 50人以上のバイヤーに自信を持って挨拶", done: (stats.namesRead || 0) >= 50 },
+    { en: "✓ Described 30+ conditions accurately", jp: "✓ 30個以上のコンディションを正確に説明", done: (stats.conditionsDescribed || 0) >= 30 },
+    { en: "✓ Answered 20+ tough questions", jp: "✓ 20個以上の難しい質問に回答", done: (stats.conversationsCompleted || 0) >= 5 },
+    { en: "✓ Completed 3-day practice streak", jp: "✓ 3日間の練習ストリーク達成", done: playerData.streak >= 3 },
+    { en: "✓ Reached Level 5", jp: "✓ レベル5到達", done: playerData.level >= 5 },
+    { en: "✓ Practiced with AI buyers", jp: "✓ AIバイヤーと練習", done: (stats.conversationsCompleted || 0) >= 1 }
   ];
+
+  const checklistComplete = readyChecklist.filter(item => item.done).length;
+  const readinessPercent = Math.round((checklistComplete / readyChecklist.length) * 100);
 
   return (
     <div style={{ animation:"fu 0.4s ease", maxWidth:900, margin:"0 auto" }}>
@@ -1280,18 +1286,82 @@ function HomeP({ lang, setPage, playerData }) {
       </div>
 
       {/* Ready to Go Live Checklist */}
-      <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"24px" }}>
-        <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
-          🚀 {lang==="en"?"Ready to Go Live?":"ライブ配信の準備はOK？"}
+      <div style={{
+        background: readinessPercent === 100 ? "linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%)" : "#FFFFFF",
+        border: `2px solid ${readinessPercent === 100 ? "#86B817" : "#E5E7EB"}`,
+        borderRadius:12,
+        padding:"24px",
+        marginBottom:24
+      }}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:16 }}>
+          <div style={{ fontSize:20, fontWeight:700, color:"#191919" }}>
+            🚀 {lang==="en"?"Ready to Go Live?":"ライブ配信の準備はOK？"}
+          </div>
+          <div style={{
+            background: readinessPercent === 100 ? "#86B817" : readinessPercent >= 50 ? "#F5AF02" : "#E5E7EB",
+            color:"#FFFFFF",
+            padding:"6px 16px",
+            borderRadius:20,
+            fontSize:14,
+            fontWeight:700
+          }}>
+            {readinessPercent}% {lang==="en"?"Ready":"準備完了"}
+          </div>
         </div>
+
+        {/* Progress Bar */}
+        <div style={{ background:"#E5E7EB", height:8, borderRadius:8, marginBottom:20, overflow:"hidden" }}>
+          <div style={{
+            background: readinessPercent === 100 ? "#86B817" : "linear-gradient(90deg, #3665F3, #F5AF02)",
+            height:"100%",
+            width:`${readinessPercent}%`,
+            transition:"width 0.5s"
+          }}></div>
+        </div>
+
+        {/* Checklist Items */}
         {readyChecklist.map((item,i)=>(
-          <div key={i} style={{ display:"flex", alignItems:"center", gap:12, padding:"12px 0", borderBottom:i<readyChecklist.length-1?"1px solid #F3F4F6":"none" }}>
+          <div key={i} style={{
+            display:"flex",
+            alignItems:"center",
+            gap:12,
+            padding:"12px 0",
+            borderBottom:i<readyChecklist.length-1?"1px solid #F3F4F6":"none"
+          }}>
             <div style={{ fontSize:24 }}>{item.done?"✅":"⬜"}</div>
-            <div style={{ fontSize:16, color:item.done?"#86B817":"#6B7280", fontWeight:item.done?600:400 }}>
+            <div style={{
+              fontSize:16,
+              color:item.done?"#86B817":"#6B7280",
+              fontWeight:item.done?600:400,
+              textDecoration:item.done?"line-through":"none"
+            }}>
               {lang==="en"?item.en:item.jp}
             </div>
           </div>
         ))}
+
+        {/* Celebration Message */}
+        {readinessPercent === 100 && (
+          <div style={{
+            marginTop:20,
+            padding:16,
+            background:"#86B817",
+            borderRadius:8,
+            textAlign:"center",
+            color:"#FFFFFF",
+            animation:"fu 0.5s ease"
+          }}>
+            <div style={{ fontSize:32, marginBottom:8 }}>🎉</div>
+            <div style={{ fontSize:18, fontWeight:700, marginBottom:4 }}>
+              {lang==="en"?"You're Ready to Go Live!":"ライブ配信の準備完了！"}
+            </div>
+            <div style={{ fontSize:14 }}>
+              {lang==="en"
+                ?"You've mastered all the essentials. Time to shine on eBay Live!"
+                :"すべての基本をマスターしました。eBay Liveで輝く時です！"}
+            </div>
+          </div>
+        )}
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24, marginBottom:48 }}>
