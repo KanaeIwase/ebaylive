@@ -579,245 +579,245 @@ const BRAND_DATA = {
 /* ═══ PROFESSIONAL VOCABULARY ═══ */
 const VOCAB_CATS = [
   { cat:"Live Commerce Abbreviations (MUST KNOW!)", items:[
-    {e:"NWT",j:"NWT",def:"New With Tags - Brand new, unworn, original tags still attached",defJp:"新品タグ付き - 未使用、オリジナルタグが付いた状態"},
-    {e:"NWOT",j:"NWOT",def:"New Without Tags - Brand new but tags removed or missing",defJp:"新品タグなし - 未使用だがタグが外されているか欠品"},
-    {e:"BNIB",j:"BNIB",def:"Brand New In Box - Unopened or mint condition with original box",defJp:"箱入り新品 - 未開封またはオリジナル箱付きミント状態"},
-    {e:"EUC",j:"EUC",def:"Excellent Used Condition - Minimal wear, looks almost new",defJp:"極美品中古 - 最小限の使用感、ほぼ新品に見える"},
-    {e:"VGUC",j:"VGUC",def:"Very Good Used Condition - Light wear, still great shape",defJp:"美品中古 - 軽い使用感、まだ素晴らしい状態"},
-    {e:"GUC",j:"GUC",def:"Good Used Condition - Normal wear, fully functional",defJp:"良品中古 - 通常の使用感、完全に機能"},
-    {e:"INAD",j:"INAD",def:"Item Not As Described - eBay case when item doesn't match listing",defJp:"説明と異なる - リスティングと一致しない場合のeBayケース"},
-    {e:"NIB",j:"NIB",def:"New In Box - Unused item with original packaging",defJp:"箱入り新品 - オリジナル梱包付き未使用品"},
-    {e:"NOS",j:"NOS",def:"New Old Stock - Vintage item that was never sold, still new",defJp:"新古品 - 未販売のヴィンテージ品、まだ新品"},
-    {e:"ISO",j:"ISO",def:"In Search Of - Buyer looking for specific item",defJp:"探しています - 特定アイテムを探しているバイヤー"},
-    {e:"OBO",j:"OBO",def:"Or Best Offer - Open to negotiate price",defJp:"価格交渉可 - 価格交渉に応じる"},
-    {e:"BIN",j:"BIN",def:"Buy It Now - Fixed price, purchase immediately",defJp:"即決価格 - 固定価格、即購入"},
-    {e:"FS/FT",j:"FS/FT",def:"For Sale / For Trade - Available to sell or trade",defJp:"販売/交換可 - 販売または交換可能"},
-    {e:"HTF",j:"HTF",def:"Hard To Find - Rare, difficult to locate item",defJp:"入手困難 - 希少で見つけにくいアイテム"},
-    {e:"VHTF",j:"VHTF",def:"Very Hard To Find - Extremely rare item",defJp:"非常に入手困難 - 極めて希少なアイテム"},
-    {e:"RARE",j:"RARE",def:"Scarce item, not commonly available",defJp:"希少 - 一般的に入手不可"},
-    {e:"DS",j:"DS",def:"Deadstock - Never worn/used, original packaging, no flaws",defJp:"デッドストック - 未使用、オリジナル梱包、傷なし"},
-    {e:"POSH",j:"POSH",def:"Selling on Poshmark platform (cross-platform reference)",defJp:"Poshmark販売 - Poshmarkプラットフォームでの販売"},
-    {e:"PM",j:"PM",def:"Private Message / Direct Message for inquiries",defJp:"プライベートメッセージ - 問い合わせ用のDM"}
+    {e:"NWT",j:"NWT",def:"New With Tags - Brand new, unworn, original tags still attached",defJp:"新品タグ付き - 未使用、オリジナルタグが付いた状態",category:"ecommerce",emoji:"🏷️"},
+    {e:"NWOT",j:"NWOT",def:"New Without Tags - Brand new but tags removed or missing",defJp:"新品タグなし - 未使用だがタグが外されているか欠品",category:"ecommerce",emoji:"📦"},
+    {e:"BNIB",j:"BNIB",def:"Brand New In Box - Unopened or mint condition with original box",defJp:"箱入り新品 - 未開封またはオリジナル箱付きミント状態",category:"ecommerce",emoji:"📦"},
+    {e:"EUC",j:"EUC",def:"Excellent Used Condition - Minimal wear, looks almost new",defJp:"極美品中古 - 最小限の使用感、ほぼ新品に見える",category:"ecommerce",emoji:"⭐"},
+    {e:"VGUC",j:"VGUC",def:"Very Good Used Condition - Light wear, still great shape",defJp:"美品中古 - 軽い使用感、まだ素晴らしい状態",category:"ecommerce",emoji:"✨"},
+    {e:"GUC",j:"GUC",def:"Good Used Condition - Normal wear, fully functional",defJp:"良品中古 - 通常の使用感、完全に機能",category:"ecommerce",emoji:"👍"},
+    {e:"INAD",j:"INAD",def:"Item Not As Described - eBay case when item doesn't match listing",defJp:"説明と異なる - リスティングと一致しない場合のeBayケース",category:"ebay",emoji:"⚠️"},
+    {e:"NIB",j:"NIB",def:"New In Box - Unused item with original packaging",defJp:"箱入り新品 - オリジナル梱包付き未使用品",category:"ecommerce",emoji:"📦"},
+    {e:"NOS",j:"NOS",def:"New Old Stock - Vintage item that was never sold, still new",defJp:"新古品 - 未販売のヴィンテージ品、まだ新品",category:"ecommerce",emoji:"🕰️"},
+    {e:"ISO",j:"ISO",def:"In Search Of - Buyer looking for specific item",defJp:"探しています - 特定アイテムを探しているバイヤー",category:"ecommerce",emoji:"🔍"},
+    {e:"OBO",j:"OBO",def:"Or Best Offer - Open to negotiate price",defJp:"価格交渉可 - 価格交渉に応じる",category:"ebay",emoji:"💰"},
+    {e:"BIN",j:"BIN",def:"Buy It Now - Fixed price, purchase immediately",defJp:"即決価格 - 固定価格、即購入",category:"ebay",emoji:"🛒"},
+    {e:"FS/FT",j:"FS/FT",def:"For Sale / For Trade - Available to sell or trade",defJp:"販売/交換可 - 販売または交換可能",category:"ecommerce",emoji:"🔄"},
+    {e:"HTF",j:"HTF",def:"Hard To Find - Rare, difficult to locate item",defJp:"入手困難 - 希少で見つけにくいアイテム",category:"ecommerce",emoji:"💎"},
+    {e:"VHTF",j:"VHTF",def:"Very Hard To Find - Extremely rare item",defJp:"非常に入手困難 - 極めて希少なアイテム",category:"ecommerce",emoji:"💎"},
+    {e:"RARE",j:"RARE",def:"Scarce item, not commonly available",defJp:"希少 - 一般的に入手不可",category:"ecommerce",emoji:"⭐"},
+    {e:"DS",j:"DS",def:"Deadstock - Never worn/used, original packaging, no flaws",defJp:"デッドストック - 未使用、オリジナル梱包、傷なし",category:"ecommerce",emoji:"📦"},
+    {e:"POSH",j:"POSH",def:"Selling on Poshmark platform (cross-platform reference)",defJp:"Poshmark販売 - Poshmarkプラットフォームでの販売",category:"ecommerce",emoji:"🏪"},
+    {e:"PM",j:"PM",def:"Private Message / Direct Message for inquiries",defJp:"プライベートメッセージ - 問い合わせ用のDM",category:"ecommerce",emoji:"💬"}
   ]},
   { cat:"Condition Grading (Essential Terms)", items:[
-    {e:"Mint",j:"ミント",def:"Perfect, flawless condition - appears never used or touched",defJp:"完璧、傷なし状態 - 未使用または未触に見える"},
-    {e:"Brand new / NWT",j:"新品・タグ付き",def:"Unworn item with original tags still attached",defJp:"未使用でオリジナルタグが付いた状態"},
-    {e:"Like new / NWOT",j:"ほぼ新品",def:"Minimal to no signs of wear, appears unused, tags may be removed",defJp:"使用感がほとんどなく、未使用に見える、タグ外れの可能性"},
-    {e:"Excellent / EUC",j:"極美品",def:"Very light use, no significant flaws visible",defJp:"使用感が非常に軽く、目立つダメージなし"},
-    {e:"Very good / VGUC",j:"美品",def:"Light wear, minor imperfections may exist",defJp:"軽い使用感、軽微なダメージがある可能性"},
-    {e:"Good / GUC",j:"良品",def:"Moderate wear, still fully functional and attractive",defJp:"中程度の使用感、機能的で魅力的"},
-    {e:"Fair",j:"使用感あり",def:"Obvious wear and use, but no major damage",defJp:"明らかな使用感があるが、大きなダメージなし"},
-    {e:"Poor / For parts",j:"ジャンク品",def:"Heavy damage, may not be functional, sold as-is",defJp:"重度のダメージ、機能しない可能性、現状渡し"},
-    {e:"Preloved",j:"愛用品",def:"Gently used, previously owned with care",defJp:"大切に使用された中古品"},
-    {e:"Vintage",j:"ヴィンテージ",def:"20+ years old, classic/collectible due to age",defJp:"20年以上前、年代物のクラシック/コレクティブル"}
+    {e:"Mint",j:"ミント",def:"Perfect, flawless condition - appears never used or touched",defJp:"完璧、傷なし状態 - 未使用または未触に見える",category:"ecommerce",emoji:"💎"},
+    {e:"Brand new / NWT",j:"新品・タグ付き",def:"Unworn item with original tags still attached",defJp:"未使用でオリジナルタグが付いた状態",category:"ecommerce",emoji:"🏷️"},
+    {e:"Like new / NWOT",j:"ほぼ新品",def:"Minimal to no signs of wear, appears unused, tags may be removed",defJp:"使用感がほとんどなく、未使用に見える、タグ外れの可能性",category:"ecommerce",emoji:"✨"},
+    {e:"Excellent / EUC",j:"極美品",def:"Very light use, no significant flaws visible",defJp:"使用感が非常に軽く、目立つダメージなし",category:"ecommerce",emoji:"⭐"},
+    {e:"Very good / VGUC",j:"美品",def:"Light wear, minor imperfections may exist",defJp:"軽い使用感、軽微なダメージがある可能性",category:"ecommerce",emoji:"👍"},
+    {e:"Good / GUC",j:"良品",def:"Moderate wear, still fully functional and attractive",defJp:"中程度の使用感、機能的で魅力的",category:"ecommerce",emoji:"👌"},
+    {e:"Fair",j:"使用感あり",def:"Obvious wear and use, but no major damage",defJp:"明らかな使用感があるが、大きなダメージなし",category:"ecommerce",emoji:"📋"},
+    {e:"Poor / For parts",j:"ジャンク品",def:"Heavy damage, may not be functional, sold as-is",defJp:"重度のダメージ、機能しない可能性、現状渡し",category:"ecommerce",emoji:"🔧"},
+    {e:"Preloved",j:"愛用品",def:"Gently used, previously owned with care",defJp:"大切に使用された中古品",category:"ecommerce",emoji:"💝"},
+    {e:"Vintage",j:"ヴィンテージ",def:"20+ years old, classic/collectible due to age",defJp:"20年以上前、年代物のクラシック/コレクティブル",category:"ecommerce",emoji:"🕰️"}
   ]},
   { cat:"Handbag Structure & Wear", items:[
-    {e:"Corner wear",j:"角スレ",def:"Damage to bag corners from setting down or use",defJp:"置いたり使用したりすることによる角の損傷"},
-    {e:"Piping",j:"パイピング",def:"Leather trim along bag edges",defJp:"バッグの縁に沿ったレザートリム"},
-    {e:"Patina",j:"経年変化",def:"Natural darkening of leather over time, adds character",defJp:"時間経過による革の自然な色の変化、味が出る"},
-    {e:"Hardware tarnish",j:"金具の変色",def:"Metal parts showing oxidation or discoloration",defJp:"金属部分の酸化や変色"},
-    {e:"Interior staining",j:"内側の汚れ",def:"Marks or discoloration inside the bag",defJp:"バッグ内側の跡や変色"},
-    {e:"Scratches / Scuffs",j:"傷・スレ",def:"Surface marks from normal use or contact",defJp:"通常使用や接触による表面の跡"},
-    {e:"Stitching",j:"ステッチ",def:"Thread work holding bag together",defJp:"バッグを保持する糸の仕事"},
-    {e:"Lining",j:"内装",def:"Interior fabric or leather",defJp:"内側の生地またはレザー"}
+    {e:"Corner wear",j:"角スレ",def:"Damage to bag corners from setting down or use",defJp:"置いたり使用したりすることによる角の損傷",category:"ecommerce",emoji:"👜"},
+    {e:"Piping",j:"パイピング",def:"Leather trim along bag edges",defJp:"バッグの縁に沿ったレザートリム",category:"ecommerce",emoji:"✂️"},
+    {e:"Patina",j:"経年変化",def:"Natural darkening of leather over time, adds character",defJp:"時間経過による革の自然な色の変化、味が出る",category:"ecommerce",emoji:"🎨"},
+    {e:"Hardware tarnish",j:"金具の変色",def:"Metal parts showing oxidation or discoloration",defJp:"金属部分の酸化や変色",category:"ecommerce",emoji:"🔩"},
+    {e:"Interior staining",j:"内側の汚れ",def:"Marks or discoloration inside the bag",defJp:"バッグ内側の跡や変色",category:"ecommerce",emoji:"🧽"},
+    {e:"Scratches / Scuffs",j:"傷・スレ",def:"Surface marks from normal use or contact",defJp:"通常使用や接触による表面の跡",category:"ecommerce",emoji:"📏"},
+    {e:"Stitching",j:"ステッチ",def:"Thread work holding bag together",defJp:"バッグを保持する糸の仕事",category:"ecommerce",emoji:"🧵"},
+    {e:"Lining",j:"内装",def:"Interior fabric or leather",defJp:"内側の生地またはレザー",category:"ecommerce",emoji:"👜"}
   ]},
   { cat:"Auction Language", items:[
-    {e:"Starting at $1!",j:"1ドルスタート！",def:"Opening bid is one dollar to create excitement",defJp:"盛り上げるため1ドルから入札開始"},
-    {e:"5 seconds left!",j:"残り5秒！",def:"Urgency call when auction is about to close",defJp:"オークション終了間近の緊急コール"},
-    {e:"Going once, going twice, SOLD!",j:"1回、2回、落札！",def:"Traditional auction closing phrase",defJp:"伝統的なオークション終了フレーズ"},
-    {e:"Bidding war!",j:"競り合い！",def:"Multiple buyers competing, driving price up",defJp:"複数バイヤーが競い合い価格上昇中"},
-    {e:"Put in your max bid!",j:"最高額を入れて！",def:"Encourage buyers to enter their highest amount",defJp:"バイヤーに最高額の入力を促す"},
-    {e:"This won't last!",j:"すぐ終わります！",def:"Create urgency by implying item will sell quickly",defJp:"すぐ売れることを示唆し緊迫感を作る"},
-    {e:"No reserve!",j:"最低落札価格なし！",def:"Item will sell regardless of final bid amount",defJp:"最終入札額に関わらず販売"},
-    {e:"Steal of a lifetime!",j:"一生に一度のお買い得！",def:"Emphasize exceptional value",defJp:"格別な価値を強調"}
+    {e:"Starting at $1!",j:"1ドルスタート！",def:"Opening bid is one dollar to create excitement",defJp:"盛り上げるため1ドルから入札開始",category:"live",emoji:"🔨"},
+    {e:"5 seconds left!",j:"残り5秒！",def:"Urgency call when auction is about to close",defJp:"オークション終了間近の緊急コール",category:"live",emoji:"⏱️"},
+    {e:"Going once, going twice, SOLD!",j:"1回、2回、落札！",def:"Traditional auction closing phrase",defJp:"伝統的なオークション終了フレーズ",category:"live",emoji:"🔨"},
+    {e:"Bidding war!",j:"競り合い！",def:"Multiple buyers competing, driving price up",defJp:"複数バイヤーが競い合い価格上昇中",category:"live",emoji:"⚔️"},
+    {e:"Put in your max bid!",j:"最高額を入れて！",def:"Encourage buyers to enter their highest amount",defJp:"バイヤーに最高額の入力を促す",category:"live",emoji:"💰"},
+    {e:"This won't last!",j:"すぐ終わります！",def:"Create urgency by implying item will sell quickly",defJp:"すぐ売れることを示唆し緊迫感を作る",category:"live",emoji:"⚡"},
+    {e:"No reserve!",j:"最低落札価格なし！",def:"Item will sell regardless of final bid amount",defJp:"最終入札額に関わらず販売",category:"live",emoji:"🎯"},
+    {e:"Steal of a lifetime!",j:"一生に一度のお買い得！",def:"Emphasize exceptional value",defJp:"格別な価値を強調",category:"live",emoji:"💎"}
   ]},
   { cat:"Luxury Fashion Terms", items:[
-    {e:"Investment piece",j:"投資アイテム",def:"High-quality item that retains or increases in value",defJp:"価値を保持または上昇する高品質アイテム"},
-    {e:"Limited edition",j:"限定版",def:"Produced in small quantities, not widely available",defJp:"少量生産で広く入手不可"},
-    {e:"Runway piece",j:"ランウェイピース",def:"Item featured in designer's fashion show",defJp:"デザイナーのファッションショーで紹介されたアイテム"},
-    {e:"Archive collection",j:"アーカイブコレクション",def:"Historical pieces from past seasons, highly collectible",defJp:"過去シーズンの歴史的ピース、高コレクタブル"},
-    {e:"Grail",j:"聖杯",def:"Extremely rare, highly sought-after item",defJp:"極めて希少で非常に求められているアイテム"},
-    {e:"Deadstock",j:"デッドストック",def:"Never-sold vintage inventory, still new condition",defJp:"未販売のヴィンテージ在庫、新品状態"},
-    {e:"Made to order",j:"受注生産",def:"Custom-made upon request, not mass-produced",defJp:"リクエストに応じてカスタムメイド、大量生産なし"},
-    {e:"Signature piece",j:"シグネチャーピース",def:"Iconic design that defines the brand",defJp:"ブランドを定義する象徴的デザイン"}
+    {e:"Investment piece",j:"投資アイテム",def:"High-quality item that retains or increases in value",defJp:"価値を保持または上昇する高品質アイテム",category:"ecommerce",emoji:"💎"},
+    {e:"Limited edition",j:"限定版",def:"Produced in small quantities, not widely available",defJp:"少量生産で広く入手不可",category:"ecommerce",emoji:"✨"},
+    {e:"Runway piece",j:"ランウェイピース",def:"Item featured in designer's fashion show",defJp:"デザイナーのファッションショーで紹介されたアイテム",category:"ecommerce",emoji:"👗"},
+    {e:"Archive collection",j:"アーカイブコレクション",def:"Historical pieces from past seasons, highly collectible",defJp:"過去シーズンの歴史的ピース、高コレクタブル",category:"ecommerce",emoji:"📚"},
+    {e:"Grail",j:"聖杯",def:"Extremely rare, highly sought-after item",defJp:"極めて希少で非常に求められているアイテム",category:"ecommerce",emoji:"🏆"},
+    {e:"Deadstock",j:"デッドストック",def:"Never-sold vintage inventory, still new condition",defJp:"未販売のヴィンテージ在庫、新品状態",category:"ecommerce",emoji:"📦"},
+    {e:"Made to order",j:"受注生産",def:"Custom-made upon request, not mass-produced",defJp:"リクエストに応じてカスタムメイド、大量生産なし",category:"ecommerce",emoji:"✂️"},
+    {e:"Signature piece",j:"シグネチャーピース",def:"Iconic design that defines the brand",defJp:"ブランドを定義する象徴的デザイン",category:"ecommerce",emoji:"⭐"}
   ]},
   { cat:"Styling & Presentation Language", items:[
-    {e:"Craftsmanship",j:"職人技",def:"Skill and quality in making luxury goods",defJp:"高級品製造における技術と品質"},
-    {e:"Heritage",j:"伝統",def:"Brand's history and legacy",defJp:"ブランドの歴史と遺産"},
-    {e:"Provenance",j:"来歴",def:"Item's ownership history and authenticity documentation",defJp:"アイテムの所有履歴と真贋証明"},
-    {e:"Exquisite details",j:"精巧なディテール",def:"Fine, carefully crafted elements",defJp:"繊細で丁寧に作られた要素"},
-    {e:"Timeless design",j:"タイムレスデザイン",def:"Classic style that never goes out of fashion",defJp:"流行に左右されないクラシックスタイル"},
-    {e:"Coveted",j:"垂涎の",def:"Highly desired and sought after",defJp:"非常に望まれ求められている"},
-    {e:"Impeccable condition",j:"完璧な状態",def:"Flawless, perfect state",defJp:"欠陥のない完璧な状態"},
-    {e:"Curated selection",j:"厳選セレクション",def:"Carefully chosen collection",defJp:"慎重に選ばれたコレクション"}
+    {e:"Craftsmanship",j:"職人技",def:"Skill and quality in making luxury goods",defJp:"高級品製造における技術と品質",category:"ecommerce",emoji:"🔨"},
+    {e:"Heritage",j:"伝統",def:"Brand's history and legacy",defJp:"ブランドの歴史と遺産",category:"ecommerce",emoji:"🏛️"},
+    {e:"Provenance",j:"来歴",def:"Item's ownership history and authenticity documentation",defJp:"アイテムの所有履歴と真贋証明",category:"ecommerce",emoji:"📜"},
+    {e:"Exquisite details",j:"精巧なディテール",def:"Fine, carefully crafted elements",defJp:"繊細で丁寧に作られた要素",category:"ecommerce",emoji:"✨"},
+    {e:"Timeless design",j:"タイムレスデザイン",def:"Classic style that never goes out of fashion",defJp:"流行に左右されないクラシックスタイル",category:"ecommerce",emoji:"⏳"},
+    {e:"Coveted",j:"垂涎の",def:"Highly desired and sought after",defJp:"非常に望まれ求められている",category:"ecommerce",emoji:"😍"},
+    {e:"Impeccable condition",j:"完璧な状態",def:"Flawless, perfect state",defJp:"欠陥のない完璧な状態",category:"ecommerce",emoji:"💯"},
+    {e:"Curated selection",j:"厳選セレクション",def:"Carefully chosen collection",defJp:"慎重に選ばれたコレクション",category:"ecommerce",emoji:"🎯"}
   ]},
   { cat:"Buyer Communication", items:[
-    {e:"Is it authentic?",j:"本物ですか？",def:"Question about item's genuineness",defJp:"アイテムの真正性についての質問"},
-    {e:"100% authentic, guaranteed",j:"100%本物、保証付き",def:"Assurance of authenticity with backing",defJp:"裏付けのある真贋保証"},
-    {e:"Any flaws?",j:"ダメージは？",def:"Inquiry about condition issues",defJp:"状態問題についての問い合わせ"},
-    {e:"What's included?",j:"付属品は？",def:"Question about accessories and extras",defJp:"アクセサリーと追加品についての質問"},
-    {e:"Can you show closer?",j:"もっと近くで見せて",def:"Request for detailed view",defJp:"詳細表示のリクエスト"},
-    {e:"Comes with box, dust bag, card",j:"箱・保存袋・カード付き",def:"Complete set of original accessories",defJp:"オリジナル付属品の完全セット"},
-    {e:"Final sale, no returns",j:"最終販売、返品不可",def:"Transaction is binding, cannot be reversed",defJp:"取引は拘束力あり、取り消し不可"},
-    {e:"Ships next business day",j:"翌営業日発送",def:"Item will be sent the following workday",defJp:"翌営業日にアイテム発送"}
+    {e:"Is it authentic?",j:"本物ですか？",def:"Question about item's genuineness",defJp:"アイテムの真正性についての質問",category:"ecommerce",emoji:"❓"},
+    {e:"100% authentic, guaranteed",j:"100%本物、保証付き",def:"Assurance of authenticity with backing",defJp:"裏付けのある真贋保証",category:"ecommerce",emoji:"✅"},
+    {e:"Any flaws?",j:"ダメージは？",def:"Inquiry about condition issues",defJp:"状態問題についての問い合わせ",category:"ecommerce",emoji:"🔍"},
+    {e:"What's included?",j:"付属品は？",def:"Question about accessories and extras",defJp:"アクセサリーと追加品についての質問",category:"ecommerce",emoji:"📦"},
+    {e:"Can you show closer?",j:"もっと近くで見せて",def:"Request for detailed view",defJp:"詳細表示のリクエスト",category:"live",emoji:"🔎"},
+    {e:"Comes with box, dust bag, card",j:"箱・保存袋・カード付き",def:"Complete set of original accessories",defJp:"オリジナル付属品の完全セット",category:"ecommerce",emoji:"🎁"},
+    {e:"Final sale, no returns",j:"最終販売、返品不可",def:"Transaction is binding, cannot be reversed",defJp:"取引は拘束力あり、取り消し不可",category:"ecommerce",emoji:"🚫"},
+    {e:"Ships next business day",j:"翌営業日発送",def:"Item will be sent the following workday",defJp:"翌営業日にアイテム発送",category:"ecommerce",emoji:"📮"}
   ]},
   { cat:"Selling Color & Style on Live Stream", items:[
-    {e:"This shade flatters every skin tone",j:"この色はどんな肌色にも似合います",def:"Universal appeal - works for all buyers",defJp:"万人向け - すべてのバイヤーに合う"},
-    {e:"Such a rich, luxurious color",j:"豊かで贅沢な色",def:"Emphasize quality of color",defJp:"色の品質を強調"},
-    {e:"This color never goes out of style",j:"この色は流行に左右されない",def:"Highlight timeless appeal",defJp:"時代を超えた魅力を強調"},
-    {e:"Perfectly versatile - pairs with anything",j:"完璧に万能 - 何にでも合う",def:"Easy styling for buyers to imagine",defJp:"バイヤーが想像しやすいスタイリング"},
-    {e:"Rare, hard-to-find color",j:"レアで入手困難な色",def:"Create urgency with scarcity",defJp:"希少性で緊急性を作る"},
-    {e:"This shade photographs beautifully",j:"この色は写真映えする",def:"Appeal to visual/Instagram-conscious buyers",defJp:"視覚的/Instagram意識の高いバイヤーにアピール"},
-    {e:"You can dress it up or down",j:"フォーマルにもカジュアルにも",def:"Versatility for multiple occasions",defJp:"複数の場面での汎用性"},
-    {e:"A collector's favorite shade",j:"コレクターに人気の色",def:"Position as desirable, sought-after",defJp:"望ましい、人気のあるものとして位置付ける"},
-    {e:"Perfect for any season",j:"オールシーズン使える",def:"Year-round wearability",defJp:"一年中使える"},
-    {e:"This will elevate any outfit",j:"どんなコーデも格上げ",def:"Positioning as outfit enhancer",defJp:"コーディネートを向上させるアイテムとして"},
-    {e:"The leather feels incredible",j:"レザーの質感が素晴らしい",def:"Describe tactile quality viewers can't feel",defJp:"視聴者が触れない触感の品質を説明"},
-    {e:"Look at how it catches the light!",j:"光の当たり方を見て！",def:"Visual selling - show on camera",defJp:"視覚的販売 - カメラで見せる"},
-    {e:"Imagine this with your favorite jeans",j:"お気に入りのジーンズと合わせたら",def:"Help buyers visualize styling",defJp:"バイヤーがスタイリングを想像するのを助ける"},
-    {e:"This adds instant luxury to your closet",j:"クローゼットに即ラグジュアリーを追加",def:"Aspirational positioning",defJp:"憧れのポジショニング"},
-    {e:"Every fashionista needs this shade",j:"すべてのおしゃれさんに必要な色",def:"Create desire through social proof",defJp:"社会的証明で欲求を作る"}
+    {e:"This shade flatters every skin tone",j:"この色はどんな肌色にも似合います",def:"Universal appeal - works for all buyers",defJp:"万人向け - すべてのバイヤーに合う",category:"live",emoji:"🎨"},
+    {e:"Such a rich, luxurious color",j:"豊かで贅沢な色",def:"Emphasize quality of color",defJp:"色の品質を強調",category:"live",emoji:"✨"},
+    {e:"This color never goes out of style",j:"この色は流行に左右されない",def:"Highlight timeless appeal",defJp:"時代を超えた魅力を強調",category:"live",emoji:"⏳"},
+    {e:"Perfectly versatile - pairs with anything",j:"完璧に万能 - 何にでも合う",def:"Easy styling for buyers to imagine",defJp:"バイヤーが想像しやすいスタイリング",category:"live",emoji:"👗"},
+    {e:"Rare, hard-to-find color",j:"レアで入手困難な色",def:"Create urgency with scarcity",defJp:"希少性で緊急性を作る",category:"live",emoji:"💎"},
+    {e:"This shade photographs beautifully",j:"この色は写真映えする",def:"Appeal to visual/Instagram-conscious buyers",defJp:"視覚的/Instagram意識の高いバイヤーにアピール",category:"live",emoji:"📸"},
+    {e:"You can dress it up or down",j:"フォーマルにもカジュアルにも",def:"Versatility for multiple occasions",defJp:"複数の場面での汎用性",category:"live",emoji:"👔"},
+    {e:"A collector's favorite shade",j:"コレクターに人気の色",def:"Position as desirable, sought-after",defJp:"望ましい、人気のあるものとして位置付ける",category:"live",emoji:"🏆"},
+    {e:"Perfect for any season",j:"オールシーズン使える",def:"Year-round wearability",defJp:"一年中使える",category:"live",emoji:"🌸"},
+    {e:"This will elevate any outfit",j:"どんなコーデも格上げ",def:"Positioning as outfit enhancer",defJp:"コーディネートを向上させるアイテムとして",category:"live",emoji:"⬆️"},
+    {e:"The leather feels incredible",j:"レザーの質感が素晴らしい",def:"Describe tactile quality viewers can't feel",defJp:"視聴者が触れない触感の品質を説明",category:"live",emoji:"🤲"},
+    {e:"Look at how it catches the light!",j:"光の当たり方を見て！",def:"Visual selling - show on camera",defJp:"視覚的販売 - カメラで見せる",category:"live",emoji:"💡"},
+    {e:"Imagine this with your favorite jeans",j:"お気に入りのジーンズと合わせたら",def:"Help buyers visualize styling",defJp:"バイヤーがスタイリングを想像するのを助ける",category:"live",emoji:"👖"},
+    {e:"This adds instant luxury to your closet",j:"クローゼットに即ラグジュアリーを追加",def:"Aspirational positioning",defJp:"憧れのポジショニング",category:"live",emoji:"💼"},
+    {e:"Every fashionista needs this shade",j:"すべてのおしゃれさんに必要な色",def:"Create desire through social proof",defJp:"社会的証明で欲求を作る",category:"live",emoji:"👑"}
   ]},
   { cat:"Authentication & Verification Terms", items:[
-    {e:"Date code",j:"デートコード",def:"Manufacturer's code indicating production date/location",defJp:"製造日/場所を示すメーカーコード"},
-    {e:"Serial number",j:"シリアルナンバー",def:"Unique number assigned to each item for tracking",defJp:"追跡用に各アイテムに割り当てられた固有番号"},
-    {e:"Authenticity card",j:"真贋カード",def:"Certificate from brand confirming item is genuine",defJp:"アイテムが本物であることを確認するブランドの証明書"},
-    {e:"Heat stamp / Blind stamp",j:"刻印",def:"Brand logo or date pressed into leather without ink",defJp:"インクなしでレザーに押された ブランドロゴまたは日付"},
-    {e:"Hologram",j:"ホログラム",def:"3D security sticker used by some brands (Prada, Gucci)",defJp:"一部ブランド（プラダ、グッチ）が使用する3Dセキュリティステッカー"},
-    {e:"Controllato card",j:"コントロラートカード",def:"Gucci's quality control card with serial number",defJp:"シリアル番号付きグッチの品質管理カード"},
-    {e:"Made in France / Italy / Spain",j:"フランス/イタリア/スペイン製",def:"Country of manufacture - important for authentication",defJp:"製造国 - 真贋確認に重要"},
-    {e:"Microchip",j:"マイクロチップ",def:"Embedded electronic tag (used by Louis Vuitton since 2021)",defJp:"埋め込まれた電子タグ（ルイ・ヴィトンが2021年から使用）"},
-    {e:"Clochette",j:"クロシェット",def:"Leather key holder for Hermès lock and keys",defJp:"エルメスの鍵とロック用レザーキーホルダー"},
-    {e:"Dust bag / Pouch",j:"保存袋",def:"Protective fabric bag item comes in",defJp:"アイテムが入っている保護布バッグ"},
-    {e:"Original receipt",j:"オリジナルレシート",def:"Purchase proof from authorized retailer",defJp:"正規小売店からの購入証明"},
-    {e:"Certificate of Authenticity (COA)",j:"真贋証明書",def:"Third-party authentication documentation",defJp:"第三者認証文書"},
-    {e:"Entrupy",j:"Entrupy",def:"AI-powered authentication service for luxury goods",defJp:"高級品のAI認証サービス"},
-    {e:"Authenticate First / Real Authentication",j:"Authenticate First",def:"Professional authentication services",defJp:"プロフェッショナル認証サービス"}
+    {e:"Date code",j:"デートコード",def:"Manufacturer's code indicating production date/location",defJp:"製造日/場所を示すメーカーコード",category:"ecommerce",emoji:"📅"},
+    {e:"Serial number",j:"シリアルナンバー",def:"Unique number assigned to each item for tracking",defJp:"追跡用に各アイテムに割り当てられた固有番号",category:"ecommerce",emoji:"🔢"},
+    {e:"Authenticity card",j:"真贋カード",def:"Certificate from brand confirming item is genuine",defJp:"アイテムが本物であることを確認するブランドの証明書",category:"ecommerce",emoji:"💳"},
+    {e:"Heat stamp / Blind stamp",j:"刻印",def:"Brand logo or date pressed into leather without ink",defJp:"インクなしでレザーに押された ブランドロゴまたは日付",category:"ecommerce",emoji:"🔖"},
+    {e:"Hologram",j:"ホログラム",def:"3D security sticker used by some brands (Prada, Gucci)",defJp:"一部ブランド（プラダ、グッチ）が使用する3Dセキュリティステッカー",category:"ecommerce",emoji:"✨"},
+    {e:"Controllato card",j:"コントロラートカード",def:"Gucci's quality control card with serial number",defJp:"シリアル番号付きグッチの品質管理カード",category:"ecommerce",emoji:"📇"},
+    {e:"Made in France / Italy / Spain",j:"フランス/イタリア/スペイン製",def:"Country of manufacture - important for authentication",defJp:"製造国 - 真贋確認に重要",category:"ecommerce",emoji:"🌍"},
+    {e:"Microchip",j:"マイクロチップ",def:"Embedded electronic tag (used by Louis Vuitton since 2021)",defJp:"埋め込まれた電子タグ（ルイ・ヴィトンが2021年から使用）",category:"ecommerce",emoji:"💾"},
+    {e:"Clochette",j:"クロシェット",def:"Leather key holder for Hermès lock and keys",defJp:"エルメスの鍵とロック用レザーキーホルダー",category:"ecommerce",emoji:"🔑"},
+    {e:"Dust bag / Pouch",j:"保存袋",def:"Protective fabric bag item comes in",defJp:"アイテムが入っている保護布バッグ",category:"ecommerce",emoji:"👝"},
+    {e:"Original receipt",j:"オリジナルレシート",def:"Purchase proof from authorized retailer",defJp:"正規小売店からの購入証明",category:"ecommerce",emoji:"🧾"},
+    {e:"Certificate of Authenticity (COA)",j:"真贋証明書",def:"Third-party authentication documentation",defJp:"第三者認証文書",category:"ecommerce",emoji:"📜"},
+    {e:"Entrupy",j:"Entrupy",def:"AI-powered authentication service for luxury goods",defJp:"高級品のAI認証サービス",category:"ecommerce",emoji:"🤖"},
+    {e:"Authenticate First / Real Authentication",j:"Authenticate First",def:"Professional authentication services",defJp:"プロフェッショナル認証サービス",category:"ecommerce",emoji:"✅"}
   ]},
   { cat:"Luxury Leather Types", items:[
-    {e:"Caviar leather",j:"キャビアレザー",def:"Chanel's textured, pebbled leather - durable, scratch-resistant",defJp:"シャネルの質感のあるペブルレザー - 耐久性、耐傷性"},
-    {e:"Lambskin",j:"ラムスキン",def:"Soft, buttery leather - luxurious but delicate",defJp:"柔らかいバターのようなレザー - 豪華だが繊細"},
-    {e:"Calfskin",j:"カーフスキン",def:"Smooth leather from young cow - refined finish",defJp:"若い牛からの滑らかなレザー - 洗練された仕上げ"},
-    {e:"Vachetta leather",j:"ヌメ革",def:"Untreated leather that darkens (patina) over time - Louis Vuitton",defJp:"未処理のレザーで時間とともに暗くなる（経年変化） - ルイ・ヴィトン"},
-    {e:"Epi leather",j:"エピレザー",def:"Louis Vuitton's textured leather with linear grain pattern",defJp:"線状の粒模様を持つルイ・ヴィトンの質感レザー"},
-    {e:"Clemence",j:"クレマンス",def:"Hermès soft, slouchy leather with visible grain",defJp:"エルメスの柔らかくたるみのある粒の見えるレザー"},
-    {e:"Togo",j:"トゴ",def:"Hermès grainy leather, more structured than Clemence",defJp:"エルメスの粒状レザー、クレマンスよりも構造的"},
-    {e:"Epsom",j:"エプソン",def:"Hermès embossed leather - stiff, holds shape well",defJp:"エルメスの型押しレザー - 硬く、形状をよく保持"},
-    {e:"Swift",j:"スウィフト",def:"Hermès smooth, soft leather with slight sheen",defJp:"エルメスの滑らかで柔らかい微光沢のあるレザー"},
-    {e:"Box calf",j:"ボックスカーフ",def:"Hermès shiny, formal leather - shows scratches easily",defJp:"エルメスの光沢のあるフォーマルレザー - 傷が付きやすい"},
-    {e:"Saffiano",j:"サフィアーノ",def:"Prada's crosshatch-textured calfskin - scratch-resistant",defJp:"プラダのクロスハッチ質感のカーフスキン - 耐傷性"},
-    {e:"Guccissima",j:"グッチシマ",def:"Gucci's embossed GG pattern leather",defJp:"グッチの型押しGGパターンレザー"},
-    {e:"Nappa leather",j:"ナッパレザー",def:"Soft, supple full-grain leather",defJp:"柔らかくしなやかなフルグレインレザー"},
-    {e:"Patent leather",j:"エナメルレザー",def:"Glossy, high-shine coated leather",defJp:"光沢のある高輝度コーティングレザー"},
-    {e:"Suede",j:"スエード",def:"Soft, napped leather finish - delicate, stains easily",defJp:"柔らかい起毛レザー仕上げ - 繊細、汚れやすい"},
-    {e:"Exotic skins",j:"エキゾチックスキン",def:"Alligator, crocodile, python, ostrich - rare, expensive",defJp:"アリゲーター、クロコダイル、パイソン、オーストリッチ - 希少、高価"}
+    {e:"Caviar leather",j:"キャビアレザー",def:"Chanel's textured, pebbled leather - durable, scratch-resistant",defJp:"シャネルの質感のあるペブルレザー - 耐久性、耐傷性",category:"ecommerce",emoji:"🖤"},
+    {e:"Lambskin",j:"ラムスキン",def:"Soft, buttery leather - luxurious but delicate",defJp:"柔らかいバターのようなレザー - 豪華だが繊細",category:"ecommerce",emoji:"🐑"},
+    {e:"Calfskin",j:"カーフスキン",def:"Smooth leather from young cow - refined finish",defJp:"若い牛からの滑らかなレザー - 洗練された仕上げ",category:"ecommerce",emoji:"🐄"},
+    {e:"Vachetta leather",j:"ヌメ革",def:"Untreated leather that darkens (patina) over time - Louis Vuitton",defJp:"未処理のレザーで時間とともに暗くなる（経年変化） - ルイ・ヴィトン",category:"ecommerce",emoji:"🍂"},
+    {e:"Epi leather",j:"エピレザー",def:"Louis Vuitton's textured leather with linear grain pattern",defJp:"線状の粒模様を持つルイ・ヴィトンの質感レザー",category:"ecommerce",emoji:"📏"},
+    {e:"Clemence",j:"クレマンス",def:"Hermès soft, slouchy leather with visible grain",defJp:"エルメスの柔らかくたるみのある粒の見えるレザー",category:"ecommerce",emoji:"✨"},
+    {e:"Togo",j:"トゴ",def:"Hermès grainy leather, more structured than Clemence",defJp:"エルメスの粒状レザー、クレマンスよりも構造的",category:"ecommerce",emoji:"💪"},
+    {e:"Epsom",j:"エプソン",def:"Hermès embossed leather - stiff, holds shape well",defJp:"エルメスの型押しレザー - 硬く、形状をよく保持",category:"ecommerce",emoji:"📐"},
+    {e:"Swift",j:"スウィフト",def:"Hermès smooth, soft leather with slight sheen",defJp:"エルメスの滑らかで柔らかい微光沢のあるレザー",category:"ecommerce",emoji:"💫"},
+    {e:"Box calf",j:"ボックスカーフ",def:"Hermès shiny, formal leather - shows scratches easily",defJp:"エルメスの光沢のあるフォーマルレザー - 傷が付きやすい",category:"ecommerce",emoji:"✨"},
+    {e:"Saffiano",j:"サフィアーノ",def:"Prada's crosshatch-textured calfskin - scratch-resistant",defJp:"プラダのクロスハッチ質感のカーフスキン - 耐傷性",category:"ecommerce",emoji:"#️⃣"},
+    {e:"Guccissima",j:"グッチシマ",def:"Gucci's embossed GG pattern leather",defJp:"グッチの型押しGGパターンレザー",category:"ecommerce",emoji:"🔷"},
+    {e:"Nappa leather",j:"ナッパレザー",def:"Soft, supple full-grain leather",defJp:"柔らかくしなやかなフルグレインレザー",category:"ecommerce",emoji:"🧈"},
+    {e:"Patent leather",j:"エナメルレザー",def:"Glossy, high-shine coated leather",defJp:"光沢のある高輝度コーティングレザー",category:"ecommerce",emoji:"✨"},
+    {e:"Suede",j:"スエード",def:"Soft, napped leather finish - delicate, stains easily",defJp:"柔らかい起毛レザー仕上げ - 繊細、汚れやすい",category:"ecommerce",emoji:"🧥"},
+    {e:"Exotic skins",j:"エキゾチックスキン",def:"Alligator, crocodile, python, ostrich - rare, expensive",defJp:"アリゲーター、クロコダイル、パイソン、オーストリッチ - 希少、高価",category:"ecommerce",emoji:"🐊"}
   ]},
   { cat:"Bag Anatomy & Parts", items:[
-    {e:"Flap",j:"フラップ",def:"Fold-over cover on front of bag",defJp:"バッグ前面の折り返しカバー"},
-    {e:"Turnlock / Twist lock",j:"ターンロック",def:"Rotating clasp closure (iconic on Chanel Classic Flap)",defJp:"回転式留め金（シャネル クラシックフラップの象徴）"},
-    {e:"Magnetic snap",j:"マグネットスナップ",def:"Magnetic closure mechanism",defJp:"マグネット式留め具"},
-    {e:"Zipper pull / Zip tab",j:"ジッパープル",def:"Tag attached to zipper for easy opening",defJp:"簡単に開けるためのジッパーに付いたタグ"},
-    {e:"Hardware",j:"金具",def:"Metal components - zippers, locks, chains, studs",defJp:"金属部品 - ジッパー、ロック、チェーン、スタッド"},
-    {e:"Gold-tone / Silver-tone hardware",j:"ゴールド/シルバー金具",def:"Brass metal plated to look like gold or silver",defJp:"金または銀に見えるようにメッキされた真鍮金属"},
-    {e:"Chain strap",j:"チェーンストラップ",def:"Metal chain shoulder strap (Chanel signature)",defJp:"金属チェーンショルダーストラップ（シャネルのシグネチャー）"},
-    {e:"Adjustable strap",j:"調節可能ストラップ",def:"Strap with holes or slider to change length",defJp:"長さを変えるための穴またはスライダー付きストラップ"},
-    {e:"Detachable strap",j:"取り外し可能ストラップ",def:"Strap that can be removed for different styling",defJp:"異なるスタイリングのために取り外し可能なストラップ"},
-    {e:"Sangles",j:"サングル",def:"Hermès Birkin/Kelly shoulder strap (often unused)",defJp:"エルメス バーキン/ケリーのショルダーストラップ（未使用が多い）"},
-    {e:"Base / Bottom",j:"底/ベース",def:"Bottom of bag - check for dirt, wear, sagging",defJp:"バッグの底 - 汚れ、摩耗、たるみを確認"},
-    {e:"Feet / Studs",j:"スタッズ/足",def:"Metal protectors on bottom corners to prevent wear",defJp:"摩耗を防ぐための底角の金属保護具"},
-    {e:"Gusset",j:"マチ",def:"Side panels that give bag depth/width",defJp:"バッグに深さ/幅を与える側面パネル"},
-    {e:"Top handle",j:"トップハンドル",def:"Handle on top of bag for hand-carrying",defJp:"手持ち用のバッグ上部のハンドル"},
-    {e:"Shoulder strap",j:"ショルダーストラップ",def:"Long strap for wearing bag on shoulder",defJp:"バッグを肩に掛けるための長いストラップ"},
-    {e:"Interior pockets",j:"内ポケット",def:"Storage compartments inside bag",defJp:"バッグ内の収納コンパートメント"},
-    {e:"Zip pocket",j:"ジップポケット",def:"Zippered compartment for secure storage",defJp:"安全収納用のジッパー付きコンパートメント"},
-    {e:"Slip pocket",j:"スリップポケット",def:"Open pocket without closure",defJp:"留め具のないオープンポケット"}
+    {e:"Flap",j:"フラップ",def:"Fold-over cover on front of bag",defJp:"バッグ前面の折り返しカバー",category:"ecommerce",emoji:"📋"},
+    {e:"Turnlock / Twist lock",j:"ターンロック",def:"Rotating clasp closure (iconic on Chanel Classic Flap)",defJp:"回転式留め金（シャネル クラシックフラップの象徴）",category:"ecommerce",emoji:"🔐"},
+    {e:"Magnetic snap",j:"マグネットスナップ",def:"Magnetic closure mechanism",defJp:"マグネット式留め具",category:"ecommerce",emoji:"🧲"},
+    {e:"Zipper pull / Zip tab",j:"ジッパープル",def:"Tag attached to zipper for easy opening",defJp:"簡単に開けるためのジッパーに付いたタグ",category:"ecommerce",emoji:"🏷️"},
+    {e:"Hardware",j:"金具",def:"Metal components - zippers, locks, chains, studs",defJp:"金属部品 - ジッパー、ロック、チェーン、スタッド",category:"ecommerce",emoji:"🔩"},
+    {e:"Gold-tone / Silver-tone hardware",j:"ゴールド/シルバー金具",def:"Brass metal plated to look like gold or silver",defJp:"金または銀に見えるようにメッキされた真鍮金属",category:"ecommerce",emoji:"✨"},
+    {e:"Chain strap",j:"チェーンストラップ",def:"Metal chain shoulder strap (Chanel signature)",defJp:"金属チェーンショルダーストラップ（シャネルのシグネチャー）",category:"ecommerce",emoji:"⛓️"},
+    {e:"Adjustable strap",j:"調節可能ストラップ",def:"Strap with holes or slider to change length",defJp:"長さを変えるための穴またはスライダー付きストラップ",category:"ecommerce",emoji:"📏"},
+    {e:"Detachable strap",j:"取り外し可能ストラップ",def:"Strap that can be removed for different styling",defJp:"異なるスタイリングのために取り外し可能なストラップ",category:"ecommerce",emoji:"🔀"},
+    {e:"Sangles",j:"サングル",def:"Hermès Birkin/Kelly shoulder strap (often unused)",defJp:"エルメス バーキン/ケリーのショルダーストラップ（未使用が多い）",category:"ecommerce",emoji:"🎀"},
+    {e:"Base / Bottom",j:"底/ベース",def:"Bottom of bag - check for dirt, wear, sagging",defJp:"バッグの底 - 汚れ、摩耗、たるみを確認",category:"ecommerce",emoji:"⬇️"},
+    {e:"Feet / Studs",j:"スタッズ/足",def:"Metal protectors on bottom corners to prevent wear",defJp:"摩耗を防ぐための底角の金属保護具",category:"ecommerce",emoji:"⚙️"},
+    {e:"Gusset",j:"マチ",def:"Side panels that give bag depth/width",defJp:"バッグに深さ/幅を与える側面パネル",category:"ecommerce",emoji:"📦"},
+    {e:"Top handle",j:"トップハンドル",def:"Handle on top of bag for hand-carrying",defJp:"手持ち用のバッグ上部のハンドル",category:"ecommerce",emoji:"🎒"},
+    {e:"Shoulder strap",j:"ショルダーストラップ",def:"Long strap for wearing bag on shoulder",defJp:"バッグを肩に掛けるための長いストラップ",category:"ecommerce",emoji:"👜"},
+    {e:"Interior pockets",j:"内ポケット",def:"Storage compartments inside bag",defJp:"バッグ内の収納コンパートメント",category:"ecommerce",emoji:"📁"},
+    {e:"Zip pocket",j:"ジップポケット",def:"Zippered compartment for secure storage",defJp:"安全収納用のジッパー付きコンパートメント",category:"ecommerce",emoji:"🤐"},
+    {e:"Slip pocket",j:"スリップポケット",def:"Open pocket without closure",defJp:"留め具のないオープンポケット",category:"ecommerce",emoji:"📄"}
   ]},
   { cat:"Live Streaming Energy Phrases", items:[
-    {e:"Who's ready for this?!",j:"準備はいいですか？！",def:"Hype opener to engage audience",defJp:"視聴者を引き込む盛り上げオープナー"},
-    {e:"This is FLYING off the shelves!",j:"飛ぶように売れてます！",def:"Create urgency about item popularity",defJp:"アイテムの人気で緊急性を作る"},
-    {e:"You don't want to miss this!",j:"これは見逃せない！",def:"Hook viewers to keep watching",defJp:"視聴者を引き留めるフック"},
-    {e:"Drop a heart if you want this!",j:"欲しい人はハートを！",def:"Call to action for engagement",defJp:"エンゲージメントのためのコールトゥアクション"},
-    {e:"Comment 'MINE' to claim!",j:"「欲しい」とコメント！",def:"Interactive claim mechanic",defJp:"インタラクティブなクレームメカニック"},
-    {e:"Let me show you the details!",j:"詳細を見せます！",def:"Transition to close-up examination",defJp:"クローズアップ検査への移行"},
-    {e:"Look at this GLOW!",j:"この輝きを見て！",def:"Draw attention to visual appeal",defJp:"視覚的魅力に注目を集める"},
-    {e:"Luxury you can FEEL!",j:"感じる高級感！",def:"Emphasize tactile quality",defJp:"触覚的品質を強調"},
-    {e:"Investment piece, not just a purchase!",j:"購入ではなく投資！",def:"Position as valuable long-term buy",defJp:"長期的価値のある購入として位置付け"},
-    {e:"Grab it before someone else does!",j:"他の人が取る前に！",def:"FOMO (fear of missing out) urgency",defJp:"FOMO（見逃すことへの恐怖）緊急性"},
-    {e:"This is a STEAL at this price!",j:"この価格は破格！",def:"Highlight value/deal",defJp:"価値/取引を強調"},
-    {e:"Sold out everywhere else!",j:"他では完売！",def:"Create scarcity perception",defJp:"希少性の認識を作る"},
-    {e:"Only ONE available!",j:"1点のみ！",def:"Extreme urgency - single item",defJp:"極端な緊急性 - 1点のみ"},
-    {e:"Fresh from the boutique!",j:"ブティックから直送！",def:"Emphasize newness and authenticity",defJp:"新しさと本物であることを強調"},
-    {e:"Let's start the bidding at $1!",j:"1ドルから始めましょう！",def:"Low starting price hook",defJp:"低開始価格フック"},
-    {e:"Who's going to win this beauty?",j:"誰がこの美品を手に入れる？",def:"Competitive framing",defJp:"競争的なフレーミング"},
-    {e:"Auction ending in 30 seconds!",j:"30秒で終了！",def:"Final urgency push",defJp:"最終緊急プッシュ"}
+    {e:"Who's ready for this?!",j:"準備はいいですか？！",def:"Hype opener to engage audience",defJp:"視聴者を引き込む盛り上げオープナー",category:"live",emoji:"🎬"},
+    {e:"This is FLYING off the shelves!",j:"飛ぶように売れてます！",def:"Create urgency about item popularity",defJp:"アイテムの人気で緊急性を作る",category:"live",emoji:"🚀"},
+    {e:"You don't want to miss this!",j:"これは見逃せない！",def:"Hook viewers to keep watching",defJp:"視聴者を引き留めるフック",category:"live",emoji:"⚠️"},
+    {e:"Drop a heart if you want this!",j:"欲しい人はハートを！",def:"Call to action for engagement",defJp:"エンゲージメントのためのコールトゥアクション",category:"live",emoji:"❤️"},
+    {e:"Comment 'MINE' to claim!",j:"「欲しい」とコメント！",def:"Interactive claim mechanic",defJp:"インタラクティブなクレームメカニック",category:"live",emoji:"💬"},
+    {e:"Let me show you the details!",j:"詳細を見せます！",def:"Transition to close-up examination",defJp:"クローズアップ検査への移行",category:"live",emoji:"🔍"},
+    {e:"Look at this GLOW!",j:"この輝きを見て！",def:"Draw attention to visual appeal",defJp:"視覚的魅力に注目を集める",category:"live",emoji:"✨"},
+    {e:"Luxury you can FEEL!",j:"感じる高級感！",def:"Emphasize tactile quality",defJp:"触覚的品質を強調",category:"live",emoji:"🤲"},
+    {e:"Investment piece, not just a purchase!",j:"購入ではなく投資！",def:"Position as valuable long-term buy",defJp:"長期的価値のある購入として位置付け",category:"live",emoji:"💰"},
+    {e:"Grab it before someone else does!",j:"他の人が取る前に！",def:"FOMO (fear of missing out) urgency",defJp:"FOMO（見逃すことへの恐怖）緊急性",category:"live",emoji:"⏰"},
+    {e:"This is a STEAL at this price!",j:"この価格は破格！",def:"Highlight value/deal",defJp:"価値/取引を強調",category:"live",emoji:"💸"},
+    {e:"Sold out everywhere else!",j:"他では完売！",def:"Create scarcity perception",defJp:"希少性の認識を作る",category:"live",emoji:"🚫"},
+    {e:"Only ONE available!",j:"1点のみ！",def:"Extreme urgency - single item",defJp:"極端な緊急性 - 1点のみ",category:"live",emoji:"1️⃣"},
+    {e:"Fresh from the boutique!",j:"ブティックから直送！",def:"Emphasize newness and authenticity",defJp:"新しさと本物であることを強調",category:"live",emoji:"🎁"},
+    {e:"Let's start the bidding at $1!",j:"1ドルから始めましょう！",def:"Low starting price hook",defJp:"低開始価格フック",category:"live",emoji:"🔨"},
+    {e:"Who's going to win this beauty?",j:"誰がこの美品を手に入れる？",def:"Competitive framing",defJp:"競争的なフレーミング",category:"live",emoji:"🏆"},
+    {e:"Auction ending in 30 seconds!",j:"30秒で終了！",def:"Final urgency push",defJp:"最終緊急プッシュ",category:"live",emoji:"⏱️"}
   ]},
   { cat:"Damage & Flaw Descriptions (Honest Selling)", items:[
-    {e:"Corner wear",j:"角スレ",def:"Rubbing/damage on bag corners from use",defJp:"使用による角の擦れ/ダメージ"},
-    {e:"Edge wear",j:"縁スレ",def:"Worn edges along trim or piping",defJp:"トリムやパイピングに沿った摩耗した縁"},
-    {e:"Scuffs / Scratches",j:"擦り傷",def:"Surface marks from contact or friction",defJp:"接触または摩擦による表面の跡"},
-    {e:"Creasing",j:"しわ",def:"Folds or wrinkles in leather from use",defJp:"使用によるレザーの折り目やしわ"},
-    {e:"Sagging",j:"たるみ",def:"Loss of shape/structure from heavy use",defJp:"重い使用による形状/構造の喪失"},
-    {e:"Color transfer",j:"色移り",def:"Dye from clothing transferred onto bag (especially light bags)",defJp:"衣類からバッグへの染料移り（特に明るいバッグ）"},
-    {e:"Tarnish / Oxidation",j:"変色/酸化",def:"Metal hardware darkening or discoloration",defJp:"金属金具の暗色化または変色"},
-    {e:"Sticky residue",j:"べたつき",def:"Adhesive or coating breakdown (common in vintage)",defJp:"接着剤またはコーティングの劣化（ヴィンテージによくある）"},
-    {e:"Cracking",j:"ひび割れ",def:"Splits in leather from dryness or age",defJp:"乾燥または経年によるレザーの亀裂"},
-    {e:"Peeling",j:"剥がれ",def:"Surface coating coming off (patent leather, canvas)",defJp:"表面コーティングが剥がれる（エナメルレザー、キャンバス）"},
-    {e:"Staining",j:"シミ",def:"Discoloration from spills, water, oil",defJp:"こぼれ、水、油による変色"},
-    {e:"Pen marks",j:"ペン跡",def:"Ink marks inside bag (very common)",defJp:"バッグ内部のインク跡（非常に一般的）"},
-    {e:"Odor / Musty smell",j:"臭い/カビ臭",def:"Unpleasant smell from storage or use",defJp:"保管または使用による不快な臭い"},
-    {e:"Missing hardware",j:"金具欠品",def:"Lock, key, or chain missing",defJp:"ロック、鍵、またはチェーンの欠品"},
-    {e:"Loose stitching",j:"縫い目のほつれ",def:"Thread coming undone at seams",defJp:"縫い目での糸のほつれ"},
-    {e:"Zipper issues",j:"ジッパー不具合",def:"Stuck, broken, or missing teeth",defJp:"詰まり、破損、または歯の欠け"}
+    {e:"Corner wear",j:"角スレ",def:"Rubbing/damage on bag corners from use",defJp:"使用による角の擦れ/ダメージ",category:"ecommerce",emoji:"📐"},
+    {e:"Edge wear",j:"縁スレ",def:"Worn edges along trim or piping",defJp:"トリムやパイピングに沿った摩耗した縁",category:"ecommerce",emoji:"✂️"},
+    {e:"Scuffs / Scratches",j:"擦り傷",def:"Surface marks from contact or friction",defJp:"接触または摩擦による表面の跡",category:"ecommerce",emoji:"⚠️"},
+    {e:"Creasing",j:"しわ",def:"Folds or wrinkles in leather from use",defJp:"使用によるレザーの折り目やしわ",category:"ecommerce",emoji:"〰️"},
+    {e:"Sagging",j:"たるみ",def:"Loss of shape/structure from heavy use",defJp:"重い使用による形状/構造の喪失",category:"ecommerce",emoji:"📉"},
+    {e:"Color transfer",j:"色移り",def:"Dye from clothing transferred onto bag (especially light bags)",defJp:"衣類からバッグへの染料移り（特に明るいバッグ）",category:"ecommerce",emoji:"🎨"},
+    {e:"Tarnish / Oxidation",j:"変色/酸化",def:"Metal hardware darkening or discoloration",defJp:"金属金具の暗色化または変色",category:"ecommerce",emoji:"🌫️"},
+    {e:"Sticky residue",j:"べたつき",def:"Adhesive or coating breakdown (common in vintage)",defJp:"接着剤またはコーティングの劣化（ヴィンテージによくある）",category:"ecommerce",emoji:"💧"},
+    {e:"Cracking",j:"ひび割れ",def:"Splits in leather from dryness or age",defJp:"乾燥または経年によるレザーの亀裂",category:"ecommerce",emoji:"⚡"},
+    {e:"Peeling",j:"剥がれ",def:"Surface coating coming off (patent leather, canvas)",defJp:"表面コーティングが剥がれる（エナメルレザー、キャンバス）",category:"ecommerce",emoji:"🍂"},
+    {e:"Staining",j:"シミ",def:"Discoloration from spills, water, oil",defJp:"こぼれ、水、油による変色",category:"ecommerce",emoji:"💦"},
+    {e:"Pen marks",j:"ペン跡",def:"Ink marks inside bag (very common)",defJp:"バッグ内部のインク跡（非常に一般的）",category:"ecommerce",emoji:"🖊️"},
+    {e:"Odor / Musty smell",j:"臭い/カビ臭",def:"Unpleasant smell from storage or use",defJp:"保管または使用による不快な臭い",category:"ecommerce",emoji:"👃"},
+    {e:"Missing hardware",j:"金具欠品",def:"Lock, key, or chain missing",defJp:"ロック、鍵、またはチェーンの欠品",category:"ecommerce",emoji:"❌"},
+    {e:"Loose stitching",j:"縫い目のほつれ",def:"Thread coming undone at seams",defJp:"縫い目での糸のほつれ",category:"ecommerce",emoji:"🧵"},
+    {e:"Zipper issues",j:"ジッパー不具合",def:"Stuck, broken, or missing teeth",defJp:"詰まり、破損、または歯の欠け",category:"ecommerce",emoji:"🔒"}
   ]},
   { cat:"Pricing & Negotiation Terms", items:[
-    {e:"Retail price",j:"定価",def:"Original price at brand boutique",defJp:"ブランドブティックでのオリジナル価格"},
-    {e:"Resale value",j:"再販価格",def:"Current secondary market price",defJp:"現在の二次市場価格"},
-    {e:"Below retail",j:"定価以下",def:"Selling for less than original price",defJp:"オリジナル価格より安く販売"},
-    {e:"Above retail / Premium",j:"定価以上/プレミアム",def:"Rare items selling for more than retail (limited editions, sold-out)",defJp:"小売以上で売れる希少品（限定版、完売品）"},
-    {e:"Firm price",j:"価格固定",def:"Not open to negotiation",defJp:"交渉不可"},
-    {e:"Best offer",j:"最良オファー",def:"Open to reasonable price negotiations",defJp:"妥当な価格交渉に応じる"},
-    {e:"Starting bid",j:"開始価格",def:"Minimum price to begin auction",defJp:"オークション開始の最低価格"},
-    {e:"Reserve price",j:"最低落札価格",def:"Hidden minimum price seller will accept",defJp:"売主が受け入れる隠れた最低価格"},
-    {e:"Buy It Now (BIN)",j:"即決価格",def:"Fixed price to purchase immediately without bidding",defJp:"入札せずに即購入する固定価格"},
-    {e:"Final price / All-in price",j:"最終価格",def:"Price including shipping and fees",defJp:"送料と手数料を含む価格"},
-    {e:"Bundle deal",j:"バンドル価格",def:"Discount for buying multiple items together",defJp:"複数アイテムをまとめて購入する割引"},
-    {e:"Flash sale",j:"フラッシュセール",def:"Limited-time discount offer",defJp:"期間限定の割引オファー"}
+    {e:"Retail price",j:"定価",def:"Original price at brand boutique",defJp:"ブランドブティックでのオリジナル価格",category:"ecommerce",emoji:"🏷️"},
+    {e:"Resale value",j:"再販価格",def:"Current secondary market price",defJp:"現在の二次市場価格",category:"ecommerce",emoji:"💵"},
+    {e:"Below retail",j:"定価以下",def:"Selling for less than original price",defJp:"オリジナル価格より安く販売",category:"ecommerce",emoji:"📉"},
+    {e:"Above retail / Premium",j:"定価以上/プレミアム",def:"Rare items selling for more than retail (limited editions, sold-out)",defJp:"小売以上で売れる希少品（限定版、完売品）",category:"ecommerce",emoji:"📈"},
+    {e:"Firm price",j:"価格固定",def:"Not open to negotiation",defJp:"交渉不可",category:"ebay",emoji:"🚫"},
+    {e:"Best offer",j:"最良オファー",def:"Open to reasonable price negotiations",defJp:"妥当な価格交渉に応じる",category:"ebay",emoji:"🤝"},
+    {e:"Starting bid",j:"開始価格",def:"Minimum price to begin auction",defJp:"オークション開始の最低価格",category:"ebay",emoji:"🔨"},
+    {e:"Reserve price",j:"最低落札価格",def:"Hidden minimum price seller will accept",defJp:"売主が受け入れる隠れた最低価格",category:"ebay",emoji:"🔐"},
+    {e:"Buy It Now (BIN)",j:"即決価格",def:"Fixed price to purchase immediately without bidding",defJp:"入札せずに即購入する固定価格",category:"ebay",emoji:"⚡"},
+    {e:"Final price / All-in price",j:"最終価格",def:"Price including shipping and fees",defJp:"送料と手数料を含む価格",category:"ecommerce",emoji:"💰"},
+    {e:"Bundle deal",j:"バンドル価格",def:"Discount for buying multiple items together",defJp:"複数アイテムをまとめて購入する割引",category:"ecommerce",emoji:"📦"},
+    {e:"Flash sale",j:"フラッシュセール",def:"Limited-time discount offer",defJp:"期間限定の割引オファー",category:"live",emoji:"⚡"}
   ]},
   { cat:"Bag Shapes & Patterns", items:[
-    {e:"Monogram canvas",j:"モノグラムキャンバス",def:"LV's iconic brown canvas with LV logo pattern - 'The classic. You know it, you love it.'",defJp:"LVの象徴的な茶色のキャンバスとLVロゴパターン - クラシック"},
-    {e:"Damier Ebene",j:"ダミエ エベヌ",def:"LV's brown checkered pattern - 'Great if you want LV without the big logos.'",defJp:"LVの茶色のチェッカー柄 - 大きなロゴなしでLVが欲しい人向け"},
-    {e:"Damier Azur",j:"ダミエ アズール",def:"LV's light cream/blue checkered pattern - 'Light and fresh. Perfect for summer.'",defJp:"LVの明るいクリーム/ブルーのチェッカー柄 - 夏に完璧"},
-    {e:"GG Supreme canvas",j:"GGスプリームキャンバス",def:"Gucci's beige/brown canvas with double G pattern",defJp:"グッチのベージュ/茶色のキャンバスとダブルGパターン"},
-    {e:"Oblique canvas",j:"オブリークキャンバス",def:"Diagonal pattern (Dior, Goyard) - slanted logo design",defJp:"斜めパターン（ディオール、ゴヤール） - 斜めロゴデザイン"},
-    {e:"Epi leather",j:"エピレザー",def:"LV's textured leather with linear grain pattern - modern, subtle",defJp:"LVの線状粒模様の質感レザー - モダンで控えめ"},
-    {e:"Quilted / Matelassé",j:"キルティング",def:"Padded diamond or chevron stitching (Chanel signature)",defJp:"パッド入りダイヤモンドまたはシェブロンステッチ（シャネルのシグネチャー）"},
-    {e:"Chevron pattern",j:"シェブロン柄",def:"V-shaped zigzag quilting (Chanel Boy Bag)",defJp:"V字型ジグザグキルティング（シャネル ボーイバッグ）"},
-    {e:"Tote shape",j:"トートバッグ型",def:"Open-top bag with parallel handles (LV Neverfull, Goyard St. Louis)",defJp:"平行ハンドルのオープントップバッグ（LV ネヴァーフル、ゴヤール サンルイ）"},
-    {e:"Satchel",j:"サッチェル",def:"Structured bag with top handle + shoulder strap (LV Alma, Prada Galleria)",defJp:"トップハンドル+ショルダーストラップの構造的バッグ（LV アルマ、プラダ ガレリア）"},
-    {e:"Hobo bag",j:"ホーボーバッグ",def:"Slouchy crescent-shaped bag (Gucci Jackie)",defJp:"たるんだ三日月型バッグ（グッチ ジャッキー）"},
-    {e:"Bucket bag",j:"バケツ型バッグ",def:"Cylindrical drawstring bag (LV Noé, Mansur Gavriel Bucket)",defJp:"円筒形の巾着バッグ（LV ノエ、マンサー ガブリエル バケット）"},
-    {e:"Saddle bag",j:"サドルバッグ",def:"Curved, saddle-shaped (Dior Saddle)",defJp:"曲がったサドル型（ディオール サドル）"},
-    {e:"Baguette",j:"バゲット型",def:"Compact underarm bag (Fendi Baguette)",defJp:"コンパクトな脇下バッグ（フェンディ バゲット）"},
-    {e:"Crossbody / Messenger",j:"クロスボディ",def:"Long strap worn across body",defJp:"体を横切って着用する長いストラップ"},
-    {e:"Clutch",j:"クラッチ",def:"No strap, handheld evening bag",defJp:"ストラップなし、手持ちイブニングバッグ"}
+    {e:"Monogram canvas",j:"モノグラムキャンバス",def:"LV's iconic brown canvas with LV logo pattern - 'The classic. You know it, you love it.'",defJp:"LVの象徴的な茶色のキャンバスとLVロゴパターン - クラシック",category:"ecommerce",emoji:"👜"},
+    {e:"Damier Ebene",j:"ダミエ エベヌ",def:"LV's brown checkered pattern - 'Great if you want LV without the big logos.'",defJp:"LVの茶色のチェッカー柄 - 大きなロゴなしでLVが欲しい人向け",category:"ecommerce",emoji:"🟫"},
+    {e:"Damier Azur",j:"ダミエ アズール",def:"LV's light cream/blue checkered pattern - 'Light and fresh. Perfect for summer.'",defJp:"LVの明るいクリーム/ブルーのチェッカー柄 - 夏に完璧",category:"ecommerce",emoji:"🔵"},
+    {e:"GG Supreme canvas",j:"GGスプリームキャンバス",def:"Gucci's beige/brown canvas with double G pattern",defJp:"グッチのベージュ/茶色のキャンバスとダブルGパターン",category:"ecommerce",emoji:"🅶"},
+    {e:"Oblique canvas",j:"オブリークキャンバス",def:"Diagonal pattern (Dior, Goyard) - slanted logo design",defJp:"斜めパターン（ディオール、ゴヤール） - 斜めロゴデザイン",category:"ecommerce",emoji:"📐"},
+    {e:"Epi leather",j:"エピレザー",def:"LV's textured leather with linear grain pattern - modern, subtle",defJp:"LVの線状粒模様の質感レザー - モダンで控えめ",category:"ecommerce",emoji:"📏"},
+    {e:"Quilted / Matelassé",j:"キルティング",def:"Padded diamond or chevron stitching (Chanel signature)",defJp:"パッド入りダイヤモンドまたはシェブロンステッチ（シャネルのシグネチャー）",category:"ecommerce",emoji:"💎"},
+    {e:"Chevron pattern",j:"シェブロン柄",def:"V-shaped zigzag quilting (Chanel Boy Bag)",defJp:"V字型ジグザグキルティング（シャネル ボーイバッグ）",category:"ecommerce",emoji:"⚡"},
+    {e:"Tote shape",j:"トートバッグ型",def:"Open-top bag with parallel handles (LV Neverfull, Goyard St. Louis)",defJp:"平行ハンドルのオープントップバッグ（LV ネヴァーフル、ゴヤール サンルイ）",category:"ecommerce",emoji:"🛍️"},
+    {e:"Satchel",j:"サッチェル",def:"Structured bag with top handle + shoulder strap (LV Alma, Prada Galleria)",defJp:"トップハンドル+ショルダーストラップの構造的バッグ（LV アルマ、プラダ ガレリア）",category:"ecommerce",emoji:"💼"},
+    {e:"Hobo bag",j:"ホーボーバッグ",def:"Slouchy crescent-shaped bag (Gucci Jackie)",defJp:"たるんだ三日月型バッグ（グッチ ジャッキー）",category:"ecommerce",emoji:"🌙"},
+    {e:"Bucket bag",j:"バケツ型バッグ",def:"Cylindrical drawstring bag (LV Noé, Mansur Gavriel Bucket)",defJp:"円筒形の巾着バッグ（LV ノエ、マンサー ガブリエル バケット）",category:"ecommerce",emoji:"🪣"},
+    {e:"Saddle bag",j:"サドルバッグ",def:"Curved, saddle-shaped (Dior Saddle)",defJp:"曲がったサドル型（ディオール サドル）",category:"ecommerce",emoji:"🏇"},
+    {e:"Baguette",j:"バゲット型",def:"Compact underarm bag (Fendi Baguette)",defJp:"コンパクトな脇下バッグ（フェンディ バゲット）",category:"ecommerce",emoji:"🥖"},
+    {e:"Crossbody / Messenger",j:"クロスボディ",def:"Long strap worn across body",defJp:"体を横切って着用する長いストラップ",category:"ecommerce",emoji:"➡️"},
+    {e:"Clutch",j:"クラッチ",def:"No strap, handheld evening bag",defJp:"ストラップなし、手持ちイブニングバッグ",category:"ecommerce",emoji:"👛"}
   ]},
   { cat:"Maintenance & Repair Advice (Pro Tips)", items:[
-    {e:"Minor hardware scratches",j:"金具の小傷",def:"Can be buffed with a microfiber cloth. For deeper scratches, jeweler's polishing cloth works.",defJp:"マイクロファイバークロスで磨けます。深い傷には宝石用研磨布が効果的。"},
-    {e:"Vachetta patina",j:"ヌメ革の経年変化",def:"Normal and many consider it desirable. Can be lightened with saddle soap but not fully reversed.",defJp:"正常で多くの人が望ましいと考える。サドルソープで薄くできるが完全には戻らない。"},
-    {e:"Water stains on vachetta",j:"ヌメ革の水シミ",def:"Can be minimized with leather conditioner. Apply evenly to blend the stain.",defJp:"レザーコンディショナーで最小化できる。均一に塗ってシミを馴染ませる。"},
-    {e:"Corner wear",j:"角スレ",def:"Cosmetic only - doesn't affect structure. Professional leather service can re-color and seal.",defJp:"見た目だけ - 構造に影響なし。プロのレザーサービスで再着色と保護できる。"},
-    {e:"Pen marks inside",j:"内側のペン跡",def:"Sometimes respond to leather erasers (Mr. Clean Magic Eraser). Test in hidden area first.",defJp:"レザー消しゴム（メラミンスポンジ）で対応できることも。まず隠れた部分でテスト。"},
-    {e:"Sticky interior pockets",j:"内ポケットのべたつき",def:"Common in vintage bags. Professional cleaning recommended - home fixes can make it worse.",defJp:"ヴィンテージバッグでよくある。プロのクリーニング推奨 - 自己対処で悪化する可能性。"},
-    {e:"Loose stitching",j:"縫い目のほつれ",def:"Minor loose threads can be carefully trimmed. Structural issues need professional repair.",defJp:"軽い糸のほつれは慎重にカット可能。構造的問題はプロの修理が必要。"},
-    {e:"Tarnished hardware",j:"変色した金具",def:"Brass polish (like Brasso) works for severe tarnish. Available at Home Depot/hardware stores.",defJp:"ひどい変色には真鍮磨き（Brasso）が効果的。ホームデポ/金物店で入手可。"},
-    {e:"Dry leather",j:"乾燥したレザー",def:"Apply leather conditioner (Leather Honey, Cadillac). Restores moisture and flexibility.",defJp:"レザーコンディショナー（Leather Honey、Cadillac）を塗る。水分と柔軟性を回復。"},
-    {e:"Musty odor",j:"カビ臭",def:"Air out for 48 hours. Place baking soda sachet inside. Activated charcoal also works.",defJp:"48時間風通し。中に重曹袋を入れる。活性炭も効果的。"},
-    {e:"Color transfer",j:"色移り",def:"Leather cleaner + gentle rubbing. Light colors are more prone - recommend protective sprays.",defJp:"レザークリーナー+優しく擦る。明るい色は移りやすい - 保護スプレー推奨。"},
-    {e:"Zipper issues",j:"ジッパー不具合",def:"Graphite pencil on teeth helps stuck zippers. Broken pull tab? Replacement available online.",defJp:"詰まったジッパーには歯に鉛筆の芯を塗る。引き手が壊れた？オンラインで交換部品入手可。"},
-    {e:"Canvas peeling",j:"キャンバスの剥がれ",def:"SHOULD NOT happen on authentic LV - canvas is coated fabric, not glued. If peeling, authentication concern.",defJp:"本物のLVでは起きない - キャンバスはコーティング布、接着ではない。剥がれたら真贋に懸念。"},
-    {e:"Storage tips",j:"保管のコツ",def:"Stuff with tissue, store in dust bag, cool dry place, away from sunlight. Prevents sagging.",defJp:"ティッシュで詰め、保存袋に入れ、涼しく乾燥した場所、日光を避ける。たるみ防止。"},
-    {e:"Hardware protective film",j:"金具の保護フィルム",def:"NWT bags often have this. 'You can remove it or keep it - some buyers prefer it pristine.'",defJp:"新品タグ付きによくある。「取るも残すも自由 - 未使用を好むバイヤーもいる」"},
-    {e:"Professional leather spa",j:"プロのレザースパ",def:"Services like Leather Spa, Rago Brothers, or local cobblers. For major restoration.",defJp:"Leather Spa、Rago Brothers、地元の靴修理店など。大規模修復用。"}
+    {e:"Minor hardware scratches",j:"金具の小傷",def:"Can be buffed with a microfiber cloth. For deeper scratches, jeweler's polishing cloth works.",defJp:"マイクロファイバークロスで磨けます。深い傷には宝石用研磨布が効果的。",category:"ecommerce",emoji:"✨"},
+    {e:"Vachetta patina",j:"ヌメ革の経年変化",def:"Normal and many consider it desirable. Can be lightened with saddle soap but not fully reversed.",defJp:"正常で多くの人が望ましいと考える。サドルソープで薄くできるが完全には戻らない。",category:"ecommerce",emoji:"🍂"},
+    {e:"Water stains on vachetta",j:"ヌメ革の水シミ",def:"Can be minimized with leather conditioner. Apply evenly to blend the stain.",defJp:"レザーコンディショナーで最小化できる。均一に塗ってシミを馴染ませる。",category:"ecommerce",emoji:"💧"},
+    {e:"Corner wear",j:"角スレ",def:"Cosmetic only - doesn't affect structure. Professional leather service can re-color and seal.",defJp:"見た目だけ - 構造に影響なし。プロのレザーサービスで再着色と保護できる。",category:"ecommerce",emoji:"🔧"},
+    {e:"Pen marks inside",j:"内側のペン跡",def:"Sometimes respond to leather erasers (Mr. Clean Magic Eraser). Test in hidden area first.",defJp:"レザー消しゴム（メラミンスポンジ）で対応できることも。まず隠れた部分でテスト。",category:"ecommerce",emoji:"🖊️"},
+    {e:"Sticky interior pockets",j:"内ポケットのべたつき",def:"Common in vintage bags. Professional cleaning recommended - home fixes can make it worse.",defJp:"ヴィンテージバッグでよくある。プロのクリーニング推奨 - 自己対処で悪化する可能性。",category:"ecommerce",emoji:"🧴"},
+    {e:"Loose stitching",j:"縫い目のほつれ",def:"Minor loose threads can be carefully trimmed. Structural issues need professional repair.",defJp:"軽い糸のほつれは慎重にカット可能。構造的問題はプロの修理が必要。",category:"ecommerce",emoji:"🪡"},
+    {e:"Tarnished hardware",j:"変色した金具",def:"Brass polish (like Brasso) works for severe tarnish. Available at Home Depot/hardware stores.",defJp:"ひどい変色には真鍮磨き（Brasso）が効果的。ホームデポ/金物店で入手可。",category:"ecommerce",emoji:"🌟"},
+    {e:"Dry leather",j:"乾燥したレザー",def:"Apply leather conditioner (Leather Honey, Cadillac). Restores moisture and flexibility.",defJp:"レザーコンディショナー（Leather Honey、Cadillac）を塗る。水分と柔軟性を回復。",category:"ecommerce",emoji:"💦"},
+    {e:"Musty odor",j:"カビ臭",def:"Air out for 48 hours. Place baking soda sachet inside. Activated charcoal also works.",defJp:"48時間風通し。中に重曹袋を入れる。活性炭も効果的。",category:"ecommerce",emoji:"👃"},
+    {e:"Color transfer",j:"色移り",def:"Leather cleaner + gentle rubbing. Light colors are more prone - recommend protective sprays.",defJp:"レザークリーナー+優しく擦る。明るい色は移りやすい - 保護スプレー推奨。",category:"ecommerce",emoji:"🎨"},
+    {e:"Zipper issues",j:"ジッパー不具合",def:"Graphite pencil on teeth helps stuck zippers. Broken pull tab? Replacement available online.",defJp:"詰まったジッパーには歯に鉛筆の芯を塗る。引き手が壊れた？オンラインで交換部品入手可。",category:"ecommerce",emoji:"🔐"},
+    {e:"Canvas peeling",j:"キャンバスの剥がれ",def:"SHOULD NOT happen on authentic LV - canvas is coated fabric, not glued. If peeling, authentication concern.",defJp:"本物のLVでは起きない - キャンバスはコーティング布、接着ではない。剥がれたら真贋に懸念。",category:"ecommerce",emoji:"⚠️"},
+    {e:"Storage tips",j:"保管のコツ",def:"Stuff with tissue, store in dust bag, cool dry place, away from sunlight. Prevents sagging.",defJp:"ティッシュで詰め、保存袋に入れ、涼しく乾燥した場所、日光を避ける。たるみ防止。",category:"ecommerce",emoji:"📦"},
+    {e:"Hardware protective film",j:"金具の保護フィルム",def:"NWT bags often have this. 'You can remove it or keep it - some buyers prefer it pristine.'",defJp:"新品タグ付きによくある。「取るも残すも自由 - 未使用を好むバイヤーもいる」",category:"ecommerce",emoji:"🎁"},
+    {e:"Professional leather spa",j:"プロのレザースパ",def:"Services like Leather Spa, Rago Brothers, or local cobblers. For major restoration.",defJp:"Leather Spa、Rago Brothers、地元の靴修理店など。大規模修復用。",category:"ecommerce",emoji:"💼"}
   ]}
 ];
 
@@ -2360,65 +2360,378 @@ function LiveContentTypesP({ lang }) {
   );
 }
 
-/* ═══ ENGLISH ═══ */
+/* ═══ SPEECH UTILITY FUNCTIONS ═══ */
+function speakWord(word, speed = 1.0) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel(); // Stop any ongoing speech
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US';
+    utterance.rate = speed;
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
+function stopSpeaking() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+/* ═══ ENGLISH / VOCABULARY & PRONUNCIATION ═══ */
 function EnglishP({ lang }) {
-  const [open, setOpen] = useState(null);
+  const [expandedCard, setExpandedCard] = useState(null);
+  const [filter, setFilter] = useState('all');
+  const [speed, setSpeed] = useState(1.0);
+  const [playingIndex, setPlayingIndex] = useState(null);
+  const [isPlayingAll, setIsPlayingAll] = useState(false);
+
+  // Flatten all vocab items with index
+  const allItems = VOCAB_CATS.flatMap(cat => cat.items.map(item => ({...item, catName: cat.cat})));
+
+  // Filter by category
+  const filteredItems = filter === 'all'
+    ? allItems
+    : allItems.filter(item => item.category === filter);
+
+  // Count items by category
+  const counts = {
+    all: allItems.length,
+    ebay: allItems.filter(i => i.category === 'ebay').length,
+    live: allItems.filter(i => i.category === 'live').length,
+    ecommerce: allItems.filter(i => i.category === 'ecommerce').length
+  };
+
+  // Play All function
+  const playAll = async () => {
+    setIsPlayingAll(true);
+    for (let i = 0; i < filteredItems.length; i++) {
+      if (!isPlayingAll) break; // Allow stopping
+      setPlayingIndex(i);
+      speakWord(filteredItems[i].e, speed);
+      await new Promise(resolve => setTimeout(resolve, 2500)); // Wait between words
+    }
+    setPlayingIndex(null);
+    setIsPlayingAll(false);
+  };
+
+  const stopPlayAll = () => {
+    stopSpeaking();
+    setIsPlayingAll(false);
+    setPlayingIndex(null);
+  };
+
+  // Expanded card view
+  if (expandedCard !== null) {
+    const item = filteredItems[expandedCard];
+    return (
+      <div style={{ animation:"fu 0.3s ease", maxWidth:600, margin:"0 auto" }}>
+        <button
+          onClick={() => setExpandedCard(null)}
+          style={{
+            background:"#F7F7F7",
+            border:"none",
+            padding:"10px 20px",
+            borderRadius:10,
+            cursor:"pointer",
+            fontSize:15,
+            fontWeight:600,
+            color:"#4b5563",
+            marginBottom:24,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang==="en"?"Back":"戻る"}
+        </button>
+
+        <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:16, padding:"32px", textAlign:"center" }}>
+          {/* Large Image */}
+          {item.imageUrl ? (
+            <img
+              src={item.imageUrl}
+              alt={item.e}
+              style={{
+                width:"100%",
+                maxHeight:250,
+                objectFit:"cover",
+                borderRadius:12,
+                marginBottom:24
+              }}
+              onError={(e) => {
+                // Fallback to emoji background if image fails to load
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+          ) : null}
+          <div style={{
+            display: item.imageUrl ? "none" : "flex",
+            width:"100%",
+            height:250,
+            background:"linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            borderRadius:12,
+            marginBottom:24,
+            alignItems:"center",
+            justifyContent:"center",
+            fontSize:120
+          }}>
+            {item.emoji || "📚"}
+          </div>
+
+          {/* Word + Speaker */}
+          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16, marginBottom:12 }}>
+            <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", margin:0 }}>{item.e}</h2>
+            <button
+              onClick={() => speakWord(item.e, speed)}
+              style={{
+                background:"#3665F3",
+                border:"none",
+                borderRadius:999,
+                width:48,
+                height:48,
+                cursor:"pointer",
+                fontSize:24,
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
+                flexShrink:0
+              }}
+            >
+              🔊
+            </button>
+          </div>
+
+          {/* Japanese */}
+          <div style={{ fontSize:20, color:"#FFFFFF", fontWeight:600, background:"#86B817", padding:"8px 16px", borderRadius:8, display:"inline-block", marginBottom:24 }}>
+            {item.j}
+          </div>
+
+          {/* Definition */}
+          <div style={{
+            fontSize:17,
+            color:"#191919",
+            lineHeight:1.8,
+            background:"#F7F7F7",
+            padding:"20px 24px",
+            borderRadius:12,
+            textAlign:"left",
+            marginBottom:16
+          }}>
+            {lang==="en"?item.def:item.defJp}
+          </div>
+
+          {/* Category badge */}
+          <div style={{ fontSize:13, color:"#6B7280", fontWeight:600, textTransform:"uppercase", letterSpacing:1 }}>
+            {item.category === 'ebay' && '🏷️ eBay'}
+            {item.category === 'live' && '🎬 Live Selling'}
+            {item.category === 'ecommerce' && '🛒 E-commerce'}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Grid view
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
+      {/* Header */}
       <div style={{ marginBottom:32 }}>
         <h1 style={{ fontSize:36, fontWeight:700, color:"#191919", marginBottom:8 }}>
-          {lang==="en"?"Professional Vocabulary":"プロフェッショナル用語集"}
+          {lang==="en"?"Vocabulary & Pronunciation":"単語＆発音"}
         </h1>
         <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
           {lang==="en"
-            ?"Master the language of luxury fashion live selling. Essential terms for describing conditions, running auctions, and communicating with B2B buyers."
-            :"高級ファッションライブ販売の言語をマスター。状態説明、オークション運営、B2Bバイヤーとのコミュニケーションに必須の用語。"}
+            ?"Master essential English terms for eBay Live selling. Click any word to see details and hear pronunciation."
+            :"eBayライブ販売に必須の英語用語をマスター。単語をクリックして詳細と発音を確認。"}
         </p>
       </div>
 
-      <div style={{ display:"grid", gap:12 }}>
-        {VOCAB_CATS.map((cat,ci)=>(
-          <div key={ci} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, overflow:"hidden", transition:"all 0.2s" }}>
-            <div onClick={()=>setOpen(open===ci?null:ci)} style={{ padding:"18px 24px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", background:open===ci?"#EFF6FF":"#FFFFFF", transition:"all 0.2s", minHeight:60 }}>
-              <span style={{ fontSize:18, fontWeight:600, color:"#191919" }}>{cat.cat}</span>
-              <span style={{ fontSize:24, color:"#3665F3", fontWeight:300 }}>{open===ci?"−":"+"}</span>
-            </div>
-            {open===ci && (
-              <div style={{ padding:"8px 0", animation:"fu 0.2s ease" }}>
-                {cat.items.map((x,i)=>{
-                  // Extract hex code from color names (e.g., "Sweet Orange (#E8833A)")
-                  const hexMatch = x.e.match(/#([0-9A-Fa-f]{6})/);
-                  const hexCode = hexMatch ? hexMatch[0] : null;
+      {/* Controls */}
+      <div style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"20px 24px", marginBottom:24 }}>
+        {/* Speed Controls */}
+        <div style={{ marginBottom:20 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#4B5563", marginBottom:12, textTransform:"uppercase" }}>
+            {lang==="en"?"Playback Speed":"再生速度"}
+          </div>
+          <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+            {[
+              {value: 0.5, label: lang==="en"?"Slow":"ゆっくり"},
+              {value: 1.0, label: lang==="en"?"Normal":"標準"},
+              {value: 1.5, label: lang==="en"?"Fast":"速い"}
+            ].map(s => (
+              <button
+                key={s.value}
+                onClick={() => setSpeed(s.value)}
+                style={{
+                  background: speed === s.value ? "#3665F3" : "#F7F7F7",
+                  color: speed === s.value ? "#FFFFFF" : "#191919",
+                  border:"none",
+                  borderRadius:8,
+                  padding:"10px 20px",
+                  fontSize:15,
+                  fontWeight:600,
+                  cursor:"pointer",
+                  transition:"all 0.2s"
+                }}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
-                  return (
-                    <div key={i} style={{ padding:"16px 24px", borderTop:"1px solid #F7F7F7", background:"#FFFFFF" }}>
-                      <div style={{ display:"flex", justifyContent:"space-between", marginBottom:10, flexWrap:"wrap", gap:8, alignItems:"center" }}>
-                        <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-                          {hexCode && (
-                            <div style={{
-                              width:40,
-                              height:40,
-                              borderRadius:8,
-                              background:hexCode,
-                              border:"2px solid #E5E7EB",
-                              boxShadow:"0 2px 4px rgba(0,0,0,0.1)"
-                            }} title={hexCode}></div>
-                          )}
-                          <span style={{ fontSize:17, color:"#191919", fontWeight:600 }}>{x.e}</span>
-                        </div>
-                        <span style={{ fontSize:15, color:"#FFFFFF", fontWeight:500, background:"#86B817", padding:"6px 14px", borderRadius:8 }}>{x.j}</span>
-                      </div>
-                      <div style={{ fontSize:15, color:"#4B5563", lineHeight:1.7, fontWeight:400, paddingLeft:hexCode ? 52 : 12, borderLeft:"3px solid #3665F3" }}>
-                        {lang==="en"?x.def:x.defJp}
-                      </div>
-                    </div>
-                  );
-                })}
+        {/* Category Filters */}
+        <div style={{ marginBottom:20 }}>
+          <div style={{ fontSize:14, fontWeight:700, color:"#4B5563", marginBottom:12, textTransform:"uppercase" }}>
+            {lang==="en"?"Category Filter":"カテゴリーフィルター"}
+          </div>
+          <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+            {[
+              {value: 'all', label: lang==="en"?`All (${counts.all})`:`すべて (${counts.all})`, color:"#6B7280"},
+              {value: 'ebay', label: lang==="en"?`eBay (${counts.ebay})`:`eBay (${counts.ebay})`, color:"#3665F3"},
+              {value: 'live', label: lang==="en"?`Live Selling (${counts.live})`:`ライブ販売 (${counts.live})`, color:"#E53238"},
+              {value: 'ecommerce', label: lang==="en"?`E-commerce (${counts.ecommerce})`:`EC (${counts.ecommerce})`, color:"#86B817"}
+            ].map(f => (
+              <button
+                key={f.value}
+                onClick={() => {setFilter(f.value); setExpandedCard(null);}}
+                style={{
+                  background: filter === f.value ? f.color : "#F7F7F7",
+                  color: filter === f.value ? "#FFFFFF" : "#191919",
+                  border:"none",
+                  borderRadius:8,
+                  padding:"10px 16px",
+                  fontSize:14,
+                  fontWeight:600,
+                  cursor:"pointer",
+                  transition:"all 0.2s"
+                }}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Play All Button */}
+        <div>
+          <button
+            onClick={isPlayingAll ? stopPlayAll : playAll}
+            style={{
+              background: isPlayingAll ? "#E53238" : "#86B817",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:8,
+              padding:"12px 24px",
+              fontSize:15,
+              fontWeight:700,
+              cursor:"pointer",
+              display:"flex",
+              alignItems:"center",
+              gap:8,
+              width:"100%",
+              justifyContent:"center"
+            }}
+          >
+            {isPlayingAll ? "⏹️" : "▶️"}
+            {isPlayingAll
+              ? (lang==="en"?"Stop":"停止")
+              : (lang==="en"?`Play All (${filteredItems.length} words)`:`すべて再生 (${filteredItems.length}語)`)}
+          </button>
+        </div>
+      </div>
+
+      {/* Vocab Grid */}
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:16 }}>
+        {filteredItems.map((item, i) => (
+          <div
+            key={i}
+            onClick={() => setExpandedCard(i)}
+            style={{
+              background: playingIndex === i ? "#FEF3C7" : "#FFFFFF",
+              border: playingIndex === i ? "2px solid #F5AF02" : "2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"16px",
+              cursor:"pointer",
+              transition:"all 0.2s",
+              position:"relative",
+              animation: playingIndex === i ? "pulse 1s infinite" : "none"
+            }}
+            onMouseEnter={e => {if (playingIndex !== i) e.currentTarget.style.transform="translateY(-4px)"}}
+            onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}
+          >
+            {/* Mini Image/Emoji */}
+            <div style={{
+              width:60,
+              height:60,
+              background: item.imageUrl ? `url(${item.imageUrl})` : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              backgroundSize:"cover",
+              backgroundPosition:"center",
+              borderRadius:8,
+              marginBottom:12,
+              display:"flex",
+              alignItems:"center",
+              justifyContent:"center",
+              fontSize:32,
+              flexShrink:0
+            }}>
+              {!item.imageUrl && (item.emoji || "📚")}
+            </div>
+
+            {/* Word + Speaker */}
+            <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:8 }}>
+              <div style={{ flex:1 }}>
+                <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{item.e}</div>
+                <div style={{ fontSize:14, color:"#FFFFFF", fontWeight:600, background:"#86B817", padding:"4px 10px", borderRadius:6, display:"inline-block" }}>
+                  {item.j}
+                </div>
               </div>
-            )}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent card expansion
+                  speakWord(item.e, speed);
+                }}
+                style={{
+                  background:"#3665F3",
+                  border:"none",
+                  borderRadius:999,
+                  width:36,
+                  height:36,
+                  cursor:"pointer",
+                  fontSize:18,
+                  display:"flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  flexShrink:0
+                }}
+              >
+                🔊
+              </button>
+            </div>
+
+            {/* Category badge */}
+            <div style={{ fontSize:11, color:"#6B7280", fontWeight:600, textTransform:"uppercase" }}>
+              {item.category === 'ebay' && '🏷️ eBay'}
+              {item.category === 'live' && '🎬 Live'}
+              {item.category === 'ecommerce' && '🛒 E-commerce'}
+            </div>
           </div>
         ))}
       </div>
+
+      {filteredItems.length === 0 && (
+        <div style={{ textAlign:"center", padding:"60px 20px", color:"#6B7280" }}>
+          {lang==="en"?"No vocabulary found in this category.":"このカテゴリーに単語がありません。"}
+        </div>
+      )}
+
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(245, 175, 2, 0.7); }
+          50% { box-shadow: 0 0 0 10px rgba(245, 175, 2, 0); }
+        }
+      `}</style>
     </div>
   );
 }
