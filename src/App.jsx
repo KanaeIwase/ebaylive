@@ -2305,17 +2305,35 @@ function EnglishP({ lang }) {
             </div>
             {open===ci && (
               <div style={{ padding:"8px 0", animation:"fu 0.2s ease" }}>
-                {cat.items.map((x,i)=>(
-                  <div key={i} style={{ padding:"16px 24px", borderTop:"1px solid #F7F7F7", background:"#FFFFFF" }}>
-                    <div style={{ display:"flex", justifyContent:"space-between", marginBottom:10, flexWrap:"wrap", gap:8 }}>
-                      <span style={{ fontSize:17, color:"#191919", fontWeight:600 }}>{x.e}</span>
-                      <span style={{ fontSize:15, color:"#FFFFFF", fontWeight:500, background:"#86B817", padding:"6px 14px", borderRadius:8 }}>{x.j}</span>
+                {cat.items.map((x,i)=>{
+                  // Extract hex code from color names (e.g., "Sweet Orange (#E8833A)")
+                  const hexMatch = x.e.match(/#([0-9A-Fa-f]{6})/);
+                  const hexCode = hexMatch ? hexMatch[0] : null;
+
+                  return (
+                    <div key={i} style={{ padding:"16px 24px", borderTop:"1px solid #F7F7F7", background:"#FFFFFF" }}>
+                      <div style={{ display:"flex", justifyContent:"space-between", marginBottom:10, flexWrap:"wrap", gap:8, alignItems:"center" }}>
+                        <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                          {hexCode && (
+                            <div style={{
+                              width:40,
+                              height:40,
+                              borderRadius:8,
+                              background:hexCode,
+                              border:"2px solid #E5E7EB",
+                              boxShadow:"0 2px 4px rgba(0,0,0,0.1)"
+                            }} title={hexCode}></div>
+                          )}
+                          <span style={{ fontSize:17, color:"#191919", fontWeight:600 }}>{x.e}</span>
+                        </div>
+                        <span style={{ fontSize:15, color:"#FFFFFF", fontWeight:500, background:"#86B817", padding:"6px 14px", borderRadius:8 }}>{x.j}</span>
+                      </div>
+                      <div style={{ fontSize:15, color:"#4B5563", lineHeight:1.7, fontWeight:400, paddingLeft:hexCode ? 52 : 12, borderLeft:"3px solid #3665F3" }}>
+                        {lang==="en"?x.def:x.defJp}
+                      </div>
                     </div>
-                    <div style={{ fontSize:15, color:"#4B5563", lineHeight:1.7, fontWeight:400, paddingLeft:12, borderLeft:"3px solid #3665F3" }}>
-                      {lang==="en"?x.def:x.defJp}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
