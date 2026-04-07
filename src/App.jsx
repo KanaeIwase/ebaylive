@@ -899,8 +899,8 @@ export default function App() {
     ]
   };
 
-  const tabs = lang==="en" ? ["Home","Brands","Framework","Policy","Content Types","Vocab","Practice"] : ["ホーム","ブランド","フレームワーク","ポリシー","コンテンツ","用語集","練習"];
-  const icons = ["🏠","👜","📡","🌐","🎬","💬","🎯"];
+  const tabs = lang==="en" ? ["Home","Brands","6-Step Framework","Stream Formats","Vocab","Practice"] : ["ホーム","ブランド","6ステップ","配信形式","用語集","練習"];
+  const icons = ["🏠","👜","📡","🎬","💬","🎯"];
 
   // Check for newly earned badges
   const checkBadges = (updatedPlayerData) => {
@@ -1115,10 +1115,9 @@ export default function App() {
           {page===0 && <HomeP lang={lang} setPage={setPage} playerData={playerData} />}
           {page===1 && <FashionP lang={lang} />}
           {page===2 && <LiveFrameworkP lang={lang} />}
-          {page===3 && <LivePolicyP lang={lang} />}
-          {page===4 && <LiveContentTypesP lang={lang} />}
-          {page===5 && <EnglishP lang={lang} />}
-          {page===6 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
+          {page===3 && <LiveContentTypesP lang={lang} />}
+          {page===4 && <EnglishP lang={lang} />}
+          {page===5 && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
         </div>
       </div>
     </div>
@@ -1647,8 +1646,8 @@ function HomeP({ lang, setPage, playerData }) {
         {[
           { icon:"👜", name:lang==="en"?"Brand Knowledge":"ブランド知識", desc:lang==="en"?"Learn luxury brand value points":"高級ブランドの価値を学ぶ", page:1, progress:playerData.modulesCompleted.brands || 0 },
           { icon:"📡", name:lang==="en"?"Live Strategies":"ライブ戦略", desc:lang==="en"?"6-step framework & formats":"6ステップ＆配信形式", page:2, progress:playerData.modulesCompleted.live || 0 },
-          { icon:"💬", name:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Professional terms & phrases":"専門用語とフレーズ", page:5, progress:playerData.modulesCompleted.vocab || 0 },
-          { icon:"🎯", name:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills":"インタラクティブドリル", page:6, progress:playerData.modulesCompleted.practice || 0 }
+          { icon:"💬", name:lang==="en"?"Vocabulary":"用語集", desc:lang==="en"?"Professional terms & phrases":"専門用語とフレーズ", page:4, progress:playerData.modulesCompleted.vocab || 0 },
+          { icon:"🎯", name:lang==="en"?"Practice":"練習", desc:lang==="en"?"Interactive drills":"インタラクティブドリル", page:5, progress:playerData.modulesCompleted.practice || 0 }
         ].map((mod,i)=>(
           <div key={i} onClick={()=>setPage(mod.page)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"20px", cursor:"pointer", transition:"all 0.2s" }}
             onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.boxShadow="0 8px 16px rgba(54,101,243,0.15)"}}
