@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { simulateLiveStreamBuyer, isAPIConfigured, evaluateConditionDescription, chatAsBuyer, rephraseJapaneseToEnglish } from "./services/anthropic";
+import { playSuccess, playLevelUp, playWarning, playBadgeUnlock, playClick } from "./utils/sounds";
 
 /* ═══ LIVE STREAMING KNOWLEDGE (eBay Live Best Practices) ═══ */
 const LIVE_KB = {
@@ -915,6 +916,9 @@ export default function App() {
       setPlayerData(updated);
       localStorage.setItem('ebay-live-player', JSON.stringify(updated));
 
+      // Play badge unlock sound
+      playBadgeUnlock();
+
       // Show badge notification
       earnedBadges.forEach(badge => {
         setTimeout(() => {
@@ -930,6 +934,7 @@ export default function App() {
   // Update streak on visit
   // XP earning handler
   const handleXpEarned = (amount, statUpdates = {}) => {
+    const oldLevel = playerData.level;
     const newXp = playerData.xp + amount;
     const newLevel = Math.floor(newXp / 100) + 1;
     const newStats = { ...playerData.stats };
@@ -950,6 +955,13 @@ export default function App() {
       level: newLevel,
       stats: newStats
     };
+
+    // Play level up sound if leveled up
+    if (newLevel > oldLevel) {
+      playLevelUp();
+    } else {
+      playSuccess();
+    }
 
     // Check for newly earned badges
     updated = checkBadges(updated);
@@ -1729,6 +1741,119 @@ function HomeP({ lang, setPage, playerData }) {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Data Export/Import */}
+      <div style={{
+        background:"#FFFFFF",
+        border:"2px solid #E5E7EB",
+        borderRadius:12,
+        padding:"24px",
+        marginBottom:24
+      }}>
+        <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:12 }}>
+          💾 {lang==="en"?"Backup & Restore":"バックアップ＆復元"}
+        </div>
+        <p style={{ fontSize:14, color:"#6B7280", marginBottom:16, lineHeight:1.6 }}>
+          {lang==="en"
+            ?"Save your progress data to a file or restore from a previous backup. Your XP, badges, stats, and confidence ratings will be preserved."
+            :"進捗データをファイルに保存したり、以前のバックアップから復元できます。XP、バッジ、統計、自信評価が保持されます。"}
+        </p>
+        <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+          <button
+            onClick={() => {
+              const dataStr = JSON.stringify(playerData, null, 2);
+              const blob = new Blob([dataStr], { type: 'application/json' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `ebay-live-backup-${new Date().toISOString().split('T')[0]}.json`;
+              a.click();
+              URL.revokeObjectURL(url);
+            }}
+            style={{
+              background:"#3665F3",
+              color:"#FFFFFF",
+              border:"none",
+              borderRadius:8,
+              padding:"12px 20px",
+              fontSize:15,
+              fontWeight:600,
+              cursor:"pointer",
+              display:"flex",
+              alignItems:"center",
+              gap:8
+            }}
+          >
+            📥 {lang==="en"?"Export Data":"データをエクスポート"}
+          </button>
+          <label style={{
+            background:"#F7F7F7",
+            color:"#191919",
+            border:"2px solid #E5E7EB",
+            borderRadius:8,
+            padding:"12px 20px",
+            fontSize:15,
+            fontWeight:600,
+            cursor:"pointer",
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}>
+            📤 {lang==="en"?"Import Data":"データをインポート"}
+            <input
+              type="file"
+              accept=".json"
+              style={{ display:"none" }}
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = (event) => {
+                    try {
+                      const importedData = JSON.parse(event.target.result);
+                      // Validate data structure
+                      if (importedData && typeof importedData.xp === 'number') {
+                        localStorage.setItem('ebay-live-player', JSON.stringify(importedData));
+                        window.location.reload();
+                      } else {
+                        alert(lang==="en"?"Invalid backup file":"無効なバックアップファイル");
+                      }
+                    } catch (err) {
+                      alert(lang==="en"?"Error reading file":"ファイル読み込みエラー");
+                    }
+                  };
+                  reader.readAsText(file);
+                }
+              }}
+            />
+          </label>
+          <button
+            onClick={() => {
+              if (confirm(lang==="en"
+                ?"Are you sure you want to reset all progress? This cannot be undone."
+                :"すべての進捗をリセットしてもよろしいですか？この操作は元に戻せません。")) {
+                localStorage.removeItem('ebay-live-player');
+                window.location.reload();
+              }
+            }}
+            style={{
+              background:"#FEF3C7",
+              color:"#D97706",
+              border:"2px solid #F59E0B",
+              borderRadius:8,
+              padding:"12px 20px",
+              fontSize:15,
+              fontWeight:600,
+              cursor:"pointer",
+              display:"flex",
+              alignItems:"center",
+              gap:8
+            }}
+          >
+            🔄 {lang==="en"?"Reset Progress":"進捗をリセット"}
+          </button>
+        </div>
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24, marginBottom:48 }}>
@@ -3509,6 +3634,10 @@ function NameBlastGame({ lang, onComplete }) {
 
   useEffect(() => {
     if (gameState === "playing" && timeLeft > 0) {
+      // Play warning sound when time is running out
+      if (timeLeft === 10 || timeLeft === 5) {
+        playWarning();
+      }
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timer);
     } else if (timeLeft === 0 && gameState === "playing") {
@@ -3561,6 +3690,7 @@ function NameBlastGame({ lang, onComplete }) {
 
   const handleNext = () => {
     if (currentNameIndex < shuffledNames.length - 1) {
+      playClick();
       setCurrentNameIndex(currentNameIndex + 1);
       setScore(score + 1);
     }
@@ -3583,6 +3713,27 @@ function NameBlastGame({ lang, onComplete }) {
       setIsListening(false);
     }
   }, [gameState]);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (gameState === "playing" && !voiceMode) {
+        if (e.code === "Space" || e.code === "Enter") {
+          e.preventDefault();
+          handleNext();
+        }
+      } else if (gameState === "ready" && e.code === "Enter") {
+        e.preventDefault();
+        startGame();
+      } else if (gameState === "finished" && e.code === "Enter") {
+        e.preventDefault();
+        handleRestart();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [gameState, voiceMode, currentNameIndex, shuffledNames.length, score]);
 
   if (gameState === "ready") {
     return (
@@ -3753,6 +3904,11 @@ function NameBlastGame({ lang, onComplete }) {
 
         <div style={{ textAlign:"center", marginTop:16, fontSize:14, color:"#9CA3AF" }}>
           {currentNameIndex + 1} / {shuffledNames.length} names
+          {!voiceMode && (
+            <div style={{ marginTop:8, fontSize:12, opacity:0.7 }}>
+              ⌨️ {lang==="en"?"Press Space or Enter to continue":"スペースまたはEnterで次へ"}
+            </div>
+          )}
         </div>
       </div>
     );
