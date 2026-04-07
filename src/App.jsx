@@ -1493,10 +1493,20 @@ export default function App() {
         </div>
 
         <div className="ebay-content" key={`${page}-${lang}`}>
+          {/* DEBUG: Show current page value */}
+          <div style={{position:"fixed",top:60,right:10,background:"#FF0000",color:"#FFF",padding:"8px 12px",borderRadius:6,zIndex:9999,fontSize:12}}>
+            Page: {JSON.stringify(page)} | Type: {typeof page}
+          </div>
+
           {/* Render based on page value */}
           {(() => {
+            console.log("Current page:", page, "Type:", typeof page);
+
             // Handle null/undefined - default to home
-            if (page === null || page === undefined) return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
+            if (page === null || page === undefined) {
+              console.log("Rendering Home (null/undefined)");
+              return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
+            }
 
             const pageStr = String(page);
 
