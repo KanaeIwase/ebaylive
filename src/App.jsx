@@ -1488,29 +1488,37 @@ export default function App() {
         </div>
 
         <div className="ebay-content" key={`${page}-${lang}`}>
-          {/* Home */}
-          {page===0 && <HomeP lang={lang} setPage={setPage} playerData={playerData} />}
+          {/* Render based on page value */}
+          {(() => {
+            const pageStr = String(page);
 
-          {/* Brand Knowledge */}
-          {(page===1 || String(page).startsWith("brand-")) && <FashionP lang={lang} />}
+            // Home
+            if (page === 0 || page === "0") return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
 
-          {/* Live Selling - 6 Steps */}
-          {(page===2 || String(page).startsWith("live-step")) && <LiveP lang={lang} />}
+            // Brand Knowledge
+            if (page === 1 || pageStr.startsWith("brand-")) return <FashionP lang={lang} />;
 
-          {/* eBay Policy */}
-          {(page===4 || page==="policy") && <PolicyP lang={lang} />}
+            // Live Selling - 6 Steps
+            if (page === 2 || pageStr.startsWith("live-step")) return <LiveP lang={lang} />;
 
-          {/* Vocabulary */}
-          {(page===5 || String(page).startsWith("vocab-")) && <EnglishP lang={lang} />}
+            // eBay Policy
+            if (page === 4 || page === "policy") return <PolicyP lang={lang} />;
 
-          {/* Practice Games */}
-          {(page===6 || String(page).startsWith("game-")) && <PracticeP lang={lang} onXpEarned={handleXpEarned} />}
+            // Vocabulary
+            if (page === 5 || pageStr.startsWith("vocab-")) return <EnglishP lang={lang} />;
 
-          {/* AI Practice */}
-          {String(page).startsWith("ai-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>AI Practice features coming soon...</div>}
+            // Practice Games
+            if (page === 6 || pageStr.startsWith("game-")) return <PracticeP lang={lang} onXpEarned={handleXpEarned} />;
 
-          {/* Progress */}
-          {String(page).startsWith("progress-") && <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>Progress pages coming soon...</div>}
+            // AI Practice
+            if (pageStr.startsWith("ai-")) return <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>AI Practice features coming soon...</div>;
+
+            // Progress
+            if (pageStr.startsWith("progress-")) return <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>Progress pages coming soon...</div>;
+
+            // Fallback - show page value for debugging
+            return <div style={{padding:40,textAlign:"center",color:"#E53238"}}>Page not found: {JSON.stringify(page)}</div>;
+          })()}
         </div>
       </div>
     </div>
