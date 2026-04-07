@@ -1358,7 +1358,10 @@ export default function App() {
                           {sub.page !== undefined ? (
                             // Simple sub-link
                             <button
-                              onClick={() => setPage(sub.page)}
+                              onClick={() => {
+                                console.log("Clicked:", sub.label, "Setting page to:", sub.page);
+                                setPage(sub.page);
+                              }}
                               onMouseEnter={e => {if(page!==sub.page) e.currentTarget.style.background = "#F7F7F7"}}
                               onMouseLeave={e => {if(page!==sub.page) e.currentTarget.style.background = "transparent"}}
                               style={{
@@ -1426,7 +1429,10 @@ export default function App() {
                                   {sub.children.map((item, idx) => (
                                     <button
                                       key={idx}
-                                      onClick={() => setPage(item.page)}
+                                      onClick={() => {
+                                        console.log("Clicked:", item.label, "Setting page to:", item.page);
+                                        setPage(item.page);
+                                      }}
                                       onMouseEnter={e => {if(page!==item.page) e.currentTarget.style.background = "#F7F7F7"}}
                                       onMouseLeave={e => {if(page!==item.page) e.currentTarget.style.background = "transparent"}}
                                       style={{
