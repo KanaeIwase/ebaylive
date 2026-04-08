@@ -4,6 +4,7 @@
  * Falls back gracefully when APIs are not available
  */
 
+import { searchPexelsImages, getConditionImages } from './pexels.js';
 import { searchImages, getRandomImage, BRAND_IMAGE_QUERIES } from './unsplash.js';
 import { BAG_SHAPES, CONDITION_INDICATORS, WEAR_PATTERNS } from '../utils/bagShapeSVG.js';
 
@@ -11,10 +12,30 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
 
 /**
  * Get the best available image for a luxury brand/model
- * Priority: Unsplash → Gemini → SVG placeholder
+ * Priority: Pexels (FREE!) → Unsplash → Gemini → SVG placeholder
  */
 export async function getBrandImage(brandKey, modelName = null) {
-  // Try Unsplash first
+  // Try Pexels first (100% FREE, no API key needed!)
+  try {
+    const query = modelName
+      ? `luxury ${modelName} handbag`
+      : `luxury ${brandKey} handbag`;
+
+    const results = await searchPexelsImages(query, 1);
+    if (results && results.length > 0) {
+      return {
+        src: results[0].url,
+        thumb: results[0].thumb,
+        source: 'pexels',
+        attribution: `Photo by ${results[0].photographer} (Pexels - Free)`,
+        attributionUrl: results[0].photographerUrl
+      };
+    }
+  } catch (error) {
+    console.log('Pexels not available, trying Unsplash...');
+  }
+
+  // Try Unsplash as fallback
   try {
     const query = modelName
       ? `${BRAND_IMAGE_QUERIES[brandKey]} ${modelName}`
