@@ -909,16 +909,7 @@ export default function App() {
             id: "brands",
             icon: "👜",
             label: "Brand Knowledge",
-            children: [
-              { label: "Louis Vuitton", page: "brand-lv" },
-              { label: "Chanel", page: "brand-chanel" },
-              { label: "Hermès", page: "brand-hermes" },
-              { label: "Gucci", page: "brand-gucci" },
-              { label: "Prada", page: "brand-prada" },
-              { label: "Dior", page: "brand-dior" },
-              { label: "Cartier", page: "brand-cartier" },
-              { label: "Bulgari", page: "brand-bulgari" }
-            ]
+            page: 1
           },
           {
             id: "live",
@@ -943,24 +934,7 @@ export default function App() {
             id: "vocab",
             icon: "📖",
             label: "Vocabulary",
-            children: [
-              { label: "Condition Grading", page: "vocab-0" },
-              { label: "Handbag Structure & Wear", page: "vocab-1" },
-              { label: "Auction Language", page: "vocab-2" },
-              { label: "Luxury Fashion Terms", page: "vocab-3" },
-              { label: "Styling & Presentation", page: "vocab-4" },
-              { label: "Buyer Communication", page: "vocab-5" },
-              { label: "Selling Color & Style", page: "vocab-6" },
-              { label: "Live Commerce Abbreviations", page: "vocab-7" },
-              { label: "Authentication & Verification", page: "vocab-8" },
-              { label: "Luxury Leather Types", page: "vocab-9" },
-              { label: "Bag Anatomy & Parts", page: "vocab-10" },
-              { label: "Live Streaming Energy", page: "vocab-11" },
-              { label: "Damage & Flaw Descriptions", page: "vocab-12" },
-              { label: "Pricing & Negotiation", page: "vocab-13" },
-              { label: "Bag Shapes & Patterns", page: "vocab-14" },
-              { label: "Maintenance & Repair", page: "vocab-15" }
-            ]
+            page: 5
           }
         ]
       },
@@ -1016,16 +990,7 @@ export default function App() {
             id: "brands",
             icon: "👜",
             label: "ブランド知識",
-            children: [
-              { label: "ルイ・ヴィトン", page: "brand-lv" },
-              { label: "シャネル", page: "brand-chanel" },
-              { label: "エルメス", page: "brand-hermes" },
-              { label: "グッチ", page: "brand-gucci" },
-              { label: "プラダ", page: "brand-prada" },
-              { label: "ディオール", page: "brand-dior" },
-              { label: "カルティエ", page: "brand-cartier" },
-              { label: "ブルガリ", page: "brand-bulgari" }
-            ]
+            page: 1
           },
           {
             id: "live",
@@ -1050,24 +1015,7 @@ export default function App() {
             id: "vocab",
             icon: "📖",
             label: "用語集",
-            children: [
-              { label: "状態グレーディング", page: "vocab-0" },
-              { label: "バッグ構造＆摩耗", page: "vocab-1" },
-              { label: "オークション用語", page: "vocab-2" },
-              { label: "高級ファッション用語", page: "vocab-3" },
-              { label: "スタイリング＆プレゼン", page: "vocab-4" },
-              { label: "バイヤーコミュニケーション", page: "vocab-5" },
-              { label: "色＆スタイル販売", page: "vocab-6" },
-              { label: "ライブコマース略語", page: "vocab-7" },
-              { label: "認証＆検証", page: "vocab-8" },
-              { label: "高級レザータイプ", page: "vocab-9" },
-              { label: "バッグパーツ", page: "vocab-10" },
-              { label: "ライブ配信エネルギー", page: "vocab-11" },
-              { label: "ダメージ＆欠陥説明", page: "vocab-12" },
-              { label: "価格＆交渉", page: "vocab-13" },
-              { label: "バッグ形状＆パターン", page: "vocab-14" },
-              { label: "メンテナンス＆修理", page: "vocab-15" }
-            ]
+            page: 5
           }
         ]
       },
