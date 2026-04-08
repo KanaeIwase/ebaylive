@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { simulateLiveStreamBuyer, isAPIConfigured, evaluateConditionDescription, chatAsBuyer, rephraseJapaneseToEnglish } from "./services/anthropic";
 import { playSuccess, playLevelUp, playWarning, playBadgeUnlock, playClick } from "./utils/sounds";
+import { Product360Viewer, ConditionComparisonGrid, WearExampleGallery, PracticeScenarioViewer } from "./components/ConditionTrainingViewer";
+import { BrandImageGallery, ConditionExamplesGallery } from "./components/BrandImageGallery";
 
 /* ═══ LIVE STREAMING KNOWLEDGE (eBay Live Best Practices) ═══ */
 const LIVE_KB = {
@@ -2318,6 +2320,31 @@ function FashionP({ lang }) {
             "{lang==="en"?model.tip:model.tipJp}"
           </p>
         </div>
+
+        {/* Visual Training Section */}
+        <div style={{ marginTop:32 }}>
+          <h2 style={{ fontSize:24, fontWeight:700, color:"#1a1a2e", marginBottom:16 }}>
+            📸 {lang==="en"?"Visual Training":"ビジュアルトレーニング"}
+          </h2>
+
+          {/* Brand Image Gallery */}
+          <BrandImageGallery brandKey={selBrand} modelName={model.name} showShapes={true} />
+
+          {/* 360 Degree Viewer */}
+          <Product360Viewer
+            brand={brand.name}
+            model={model.name}
+            condition="good"
+            lang={lang}
+          />
+
+          {/* Condition Comparison */}
+          <ConditionComparisonGrid
+            brand={brand.name}
+            model={model.name}
+            lang={lang}
+          />
+        </div>
       </div>
     );
   }
@@ -2837,6 +2864,34 @@ function EnglishP({ lang }) {
           )}
         </div>
       ))}
+
+      {/* Condition Training Section */}
+      <div style={{ marginTop:48 }}>
+        <h2 style={{ fontSize:28, fontWeight:700, color:"#1a1a2e", marginBottom:16 }}>
+          🎓 {lang==="en"?"Condition Assessment Training":"コンディション評価トレーニング"}
+        </h2>
+        <p style={{ fontSize:15, color:"#6b7280", marginBottom:24 }}>
+          {lang==="en"
+            ?"Practice identifying and describing product conditions with visual examples. Essential for INAD prevention."
+            :"視覚的な例で商品のコンディションを識別し説明する練習。INAD防止に必須。"}
+        </p>
+
+        {/* Condition Examples Gallery */}
+        <ConditionExamplesGallery lang={lang} />
+
+        {/* Wear Pattern Examples */}
+        <WearExampleGallery lang={lang} />
+
+        {/* Practice Scenarios */}
+        <div style={{ marginTop:32 }}>
+          <h3 style={{ fontSize:22, fontWeight:700, color:"#1a1a2e", marginBottom:16 }}>
+            💬 {lang==="en"?"Practice Scenarios":"練習シナリオ"}
+          </h3>
+          <PracticeScenarioViewer scenarioType="minor-wear" lang={lang} />
+          <PracticeScenarioViewer scenarioType="patina-disclosure" lang={lang} />
+          <PracticeScenarioViewer scenarioType="hardware-tarnish" lang={lang} />
+        </div>
+      </div>
     </div>
   );
 }
