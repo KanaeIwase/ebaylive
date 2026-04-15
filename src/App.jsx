@@ -3,6 +3,8 @@ import { simulateLiveStreamBuyer, isAPIConfigured, evaluateConditionDescription,
 import { playSuccess, playLevelUp, playWarning, playBadgeUnlock, playClick } from "./utils/sounds";
 import { Product360Viewer, ConditionComparisonGrid, WearExampleGallery, PracticeScenarioViewer } from "./components/ConditionTrainingViewer";
 import { BrandImageGallery, ConditionExamplesGallery } from "./components/BrandImageGallery";
+import { ConditionVocabularyViewer } from "./components/ConditionVocabularyViewer";
+import { AILiveStreamSimulator, AIConditionEvaluator, AIConversationPartner, AIPhraseTranslator } from "./components/AIPracticeTools";
 
 /* ═══ LIVE STREAMING KNOWLEDGE (eBay Live Best Practices) ═══ */
 const LIVE_KB = {
@@ -389,6 +391,7 @@ const LIVE_KB = {
 const BRAND_DATA = {
   lv: {
     name:"Louis Vuitton", year:1854, country:"France",
+    categories:["handbags", "jewelry"],
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Louis_Vuitton_logo_and_wordmark.svg/512px-Louis_Vuitton_logo_and_wordmark.svg.png",
     auth:"Date codes (pre-2021) → heat stamps with microchip (2021+). Canvas should NEVER peel. Stitching always even.",
     authJp:"デートコード（2021年以前）→ ヒートスタンプ+マイクロチップ（2021年以降）。キャンバスは剥離しない。ステッチは均一。",
@@ -462,6 +465,7 @@ const BRAND_DATA = {
   },
   chanel: {
     name:"Chanel", year:1910, country:"France",
+    categories:["handbags", "jewelry"],
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chanel_logo_interlocking_cs.svg/512px-Chanel_logo_interlocking_cs.svg.png",
     auth:"Serial sticker + card (pre-2021). Microchip (post-2021). Quilting must align at seams.",
     authJp:"シリアルステッカー+カード（2021年以前）。マイクロチップ（2021年以降）。キルティングは縫い目で合う必須。",
@@ -514,6 +518,7 @@ const BRAND_DATA = {
   },
   hermes: {
     name:"Hermès", year:1837, country:"France",
+    categories:["handbags", "jewelry"],
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Herm%C3%A8s_Logo.svg/512px-Herm%C3%A8s_Logo.svg.png",
     auth:"Craftsman stamp with ID, year letter, blind stamp. Hand-stitched saddle stitch (angled, not straight).",
     authJp:"職人スタンプ+ID、年号レター、ブラインドスタンプ。手縫いサドルステッチ（斜め、直線ではない）。",
@@ -551,12 +556,20 @@ const BRAND_DATA = {
   },
   gucci: {
     name:"Gucci", year:1921, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Gucci_Logo.svg/512px-Gucci_Logo.svg.png",
     auth:"Serial number tag inside (2 rows, 10-13 digits). Controllato card. Clean hardware.",
     authJp:"内側シリアル番号タグ（2行、10-13桁）。コントロラートカード。きれいな金具。",
     rare:"Tom Ford era (1994-2004) vintage premium. Vintage bamboo handles. Alessandro Michele era (2015-2022).",
     rareJp:"トム・フォード時代（1994-2004）ヴィンテージプレミアム。ヴィンテージバンブーハンドル。ミケーレ時代（2015-2022）。",
     tip:"Gucci goes through creative eras. Tom Ford pieces from the 90s? Highly collectible.",
     tipJp:"グッチはクリエイティブ時代を経る。90年代のトム・フォード作品？高コレクティブル。",
+    colors:[
+      {name:"GG Supreme Beige", hex:"#C9A882", nameJp:"GGスプリーム ベージュ", desc:"The iconic GG canvas. Classic Gucci.", descJp:"象徴的なGGキャンバス。クラシックなグッチ。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Timeless black. Always in style.", descJp:"タイムレスなブラック。常にスタイリッシュ。"},
+      {name:"Red", hex:"#C8102E", nameJp:"レッド", desc:"Bold Gucci red. Statement color.", descJp:"大胆なグッチレッド。ステートメントカラー。"},
+      {name:"Pink", hex:"#FFB6C1", nameJp:"ピンク", desc:"Soft pink. Very feminine.", descJp:"柔らかいピンク。とてもフェミニン。"}
+    ],
     models:[
       { name:"GG Marmont", brief:"Quilted chevron - modern classic", briefJp:"キルティングシェブロン - モダンクラシック",
         desc:"Matelassé chevron leather with signature GG logo. Launched 2016, instantly iconic.",
@@ -575,10 +588,753 @@ const BRAND_DATA = {
         tipJp:"マーモントはグッチのシャネルへの回答。バイヤーはこのスタイルを知ってる。とても人気。"
       }
     ]
+  },
+  prada: {
+    name:"Prada", year:1913, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Prada_logo.svg/512px-Prada_logo.svg.png",
+    auth:"Authenticity card with serial number. Saffiano leather texture. Triangle logo plaque (metal, not plastic).",
+    authJp:"シリアル番号付き真贋カード。サフィアーノレザーの質感。三角ロゴプレート（プラスチックではなく金属）。",
+    rare:"Vintage nylon bags from 1980s-90s highly collectible. Limited edition Saffiano colors.",
+    rareJp:"1980-90年代のヴィンテージナイロンバッグは高コレクタブル。限定版サフィアーノカラー。",
+    tip:"Prada invented luxury nylon. Those vintage pieces? Worth more than when they were new.",
+    tipJp:"プラダは高級ナイロンを発明。そのヴィンテージ作品？新品時より価値がある。",
+    colors:[
+      {name:"Saffiano Black", hex:"#000000", nameJp:"サフィアーノブラック", desc:"Classic Prada. Scratch-resistant.", descJp:"クラシックなプラダ。耐傷性。"},
+      {name:"Saffiano Pink", hex:"#F4C2C2", nameJp:"サフィアーノピンク", desc:"Beautiful blush pink. Very elegant.", descJp:"美しいブラッシュピンク。とてもエレガント。"},
+      {name:"Saffiano Red", hex:"#C41E3A", nameJp:"サフィアーノレッド", desc:"Gorgeous red. Very striking.", descJp:"美しいレッド。とても印象的。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Professional and chic.", descJp:"深いネイビー。プロフェッショナルでシック。"}
+    ],
+    models:[
+      { name:"Galleria", brief:"Structured tote - professional", briefJp:"構造的トート - プロフェッショナル",
+        desc:"Prada's iconic tote in Saffiano leather. The ultimate work bag.",
+        descJp:"サフィアーノレザーのプラダの象徴的なトート。究極の仕事バッグ。",
+        shape:"Rectangular structured tote with double handles. Detachable shoulder strap.",
+        shapeJp:"ダブルハンドル付き長方形の構造的トート。取り外し可能なショルダーストラップ。",
+        sizes:[
+          {name:"Small", dim:"10.2\"W × 7.5\"H × 5.5\"D"},
+          {name:"Medium", dim:"13\"W × 9.8\"H × 6.3\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 11\"H × 7\"D"}
+        ],
+        rare:"Limited edition colors. Two-tone versions. Crocodile leather (extremely rare).",
+        rareJp:"限定版カラー。ツートーンバージョン。クロコダイルレザー（極めて希少）。",
+        tip:"The Galleria is THE executive bag. Holds everything, looks sharp, lasts forever.",
+        tipJp:"ガレリアはTHEエグゼクティブバッグ。全部入る、シャープに見える、永遠に持つ。"
+      }
+    ]
+  },
+  dior: {
+    name:"Dior", year:1946, country:"France",
+    categories:["handbags", "jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Dior_Logo.svg/512px-Dior_Logo.svg.png",
+    auth:"'CHRISTIAN DIOR PARIS' stamp inside. Serial number tag. Cannage quilting must be perfectly symmetrical.",
+    authJp:"内側に「CHRISTIAN DIOR PARIS」刻印。シリアル番号タグ。カナージュキルティングは完全に対称である必要。",
+    rare:"Vintage Lady Dior (Princess Diana's favorite). Saddle Bag revival. Limited edition embroideries.",
+    rareJp:"ヴィンテージレディディオール（ダイアナ妃のお気に入り）。サドルバッグ復活。限定版刺繍。",
+    tip:"The Lady Dior was Princess Diana's signature bag. That's royalty in your hands.",
+    tipJp:"レディディオールはダイアナ妃のシグネチャーバッグ。あなたの手の中の王室。",
+    colors:[
+      {name:"Black Cannage", hex:"#000000", nameJp:"ブラック カナージュ", desc:"The classic. Pure elegance.", descJp:"クラシック。純粋なエレガンス。"},
+      {name:"Light Pink", hex:"#FFB6C1", nameJp:"ライトピンク", desc:"So feminine and romantic.", descJp:"とてもフェミニンでロマンティック。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Sophisticated navy. Very Parisian.", descJp:"洗練されたネイビー。とてもパリジャン。"},
+      {name:"Red", hex:"#DC143C", nameJp:"レッド", desc:"Classic Dior red. Stunning.", descJp:"クラシックなディオールレッド。素晴らしい。"}
+    ],
+    models:[
+      { name:"Lady Dior", brief:"Cannage quilted - iconic elegance", briefJp:"カナージュキルト - 象徴的なエレガンス",
+        desc:"The most iconic Dior bag. Cannage quilting with DIOR charms.",
+        descJp:"最も象徴的なディオールバッグ。DIORチャーム付きカナージュキルティング。",
+        shape:"Structured bag with signature Cannage quilting. Top handles with detachable shoulder strap.",
+        shapeJp:"シグネチャー カナージュキルティングの構造的バッグ。取り外し可能なショルダーストラップ付きトップハンドル。",
+        sizes:[
+          {name:"Mini", dim:"6.7\"W × 5.5\"H × 3.9\"D"},
+          {name:"Small", dim:"7.9\"W × 6.3\"H × 4.3\"D"},
+          {name:"Medium", dim:"9.4\"W × 7.9\"H × 5.1\"D - MOST POPULAR"},
+          {name:"Large", dim:"12.2\"W × 10.2\"H × 5.9\"D"}
+        ],
+        rare:"Princess Diana's personal collection pieces. Limited edition embellishments. Two-tone versions.",
+        rareJp:"ダイアナ妃の個人コレクション作品。限定版装飾。ツートーンバージョン。",
+        tip:"Princess Diana made this bag famous. It was literally named after her. Icon status.",
+        tipJp:"ダイアナ妃がこのバッグを有名にした。文字通り彼女にちなんで命名。アイコンステータス。"
+      }
+    ]
+  },
+  cartier: {
+    name:"Cartier", year:1847, country:"France",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cartier_logo.svg/512px-Cartier_logo.svg.png",
+    auth:"Serial number engraved. Hallmark stamps (750 for 18k gold, 950 for platinum). Screw system on Love bracelet must be smooth.",
+    authJp:"シリアル番号刻印。ホールマークスタンプ（18金は750、プラチナは950）。ラブブレスレットのネジシステムは滑らかである必要。",
+    rare:"Vintage pieces from 1970s-80s. Limited edition colors. Yellow gold (less common than white/rose).",
+    rareJp:"1970-80年代のヴィンテージ作品。限定版カラー。イエローゴールド（ホワイト/ローズより希少）。",
+    tip:"The Love bracelet? You need a screwdriver to take it off. That's commitment. That's Cartier.",
+    tipJp:"ラブブレスレット？外すにはドライバーが必要。それがコミットメント。それがカルティエ。",
+    colors:[
+      {name:"18k Yellow Gold", hex:"#FFD700", nameJp:"18金イエローゴールド", desc:"Classic gold. Timeless.", descJp:"クラシックゴールド。タイムレス。"},
+      {name:"18k White Gold", hex:"#E5E4E2", nameJp:"18金ホワイトゴールド", desc:"Modern and sleek.", descJp:"モダンでスリーク。"},
+      {name:"18k Rose Gold", hex:"#B76E79", nameJp:"18金ローズゴールド", desc:"So flattering on every skin tone.", descJp:"どんな肌色にも似合う。"},
+      {name:"Platinum", hex:"#E5E4E2", nameJp:"プラチナ", desc:"The ultimate luxury metal.", descJp:"究極の高級金属。"}
+    ],
+    models:[
+      { name:"Love Bracelet", brief:"Iconic screw bracelet - symbol of love", briefJp:"象徴的なネジブレスレット - 愛のシンボル",
+        desc:"The most iconic Cartier piece. Oval bracelet with screw motifs. Needs screwdriver to put on/take off.",
+        descJp:"最も象徴的なカルティエ作品。ネジモチーフ付きオーバルブレスレット。着脱にドライバーが必要。",
+        shape:"Oval bangle with screw details. Flat profile sits close to wrist.",
+        shapeJp:"ネジディテール付きオーバルバングル。フラットプロファイルで手首に密着。",
+        sizes:[
+          {name:"Size 15", dim:"6.2cm diameter - Small wrist"},
+          {name:"Size 16", dim:"6.4cm diameter - MOST POPULAR"},
+          {name:"Size 17", dim:"6.6cm diameter - Medium wrist"},
+          {name:"Size 18", dim:"6.8cm diameter - Large wrist"},
+          {name:"Size 19", dim:"7.0cm diameter - XL wrist"}
+        ],
+        rare:"Vintage from 1970s (first release). Full diamond pave. Limited edition colored stones (sapphires, emeralds).",
+        rareJp:"1970年代のヴィンテージ（初回リリース）。フルダイヤモンドパヴェ。限定版カラーストーン（サファイア、エメラルド）。",
+        tip:"People wear this 24/7. They sleep in it, shower in it. That's how iconic it is.",
+        tipJp:"人々は24時間これを着ける。寝る時も、シャワーの時も。それがどれだけ象徴的か。"
+      },
+      { name:"Juste un Clou", brief:"Nail bracelet - bold statement", briefJp:"釘ブレスレット - 大胆なステートメント",
+        desc:"Bracelet shaped like a bent nail. Bold, modern design launched in 1970s New York.",
+        descJp:"曲がった釘の形のブレスレット。1970年代ニューヨークで発売された大胆でモダンなデザイン。",
+        shape:"Curved nail design that wraps around wrist. Sharp, geometric ends.",
+        shapeJp:"手首を巻く曲がった釘デザイン。鋭い幾何学的な端。",
+        sizes:[
+          {name:"Size 15", dim:"6.2cm diameter"},
+          {name:"Size 16", dim:"6.4cm diameter - MOST POPULAR"},
+          {name:"Size 17", dim:"6.6cm diameter"},
+          {name:"Size 18", dim:"6.8cm diameter"}
+        ],
+        rare:"Full diamond version. Vintage 1970s original. Yellow gold (rarer than white/rose).",
+        rareJp:"フルダイヤモンドバージョン。1970年代のヴィンテージオリジナル。イエローゴールド（ホワイト/ローズより希少）。",
+        tip:"It's a NAIL. Cartier made a nail into jewelry. And it costs thousands. That's fashion.",
+        tipJp:"それは釘。カルティエは釘をジュエリーにした。そして何千ドルもする。それがファッション。"
+      },
+      { name:"Trinity Ring", brief:"Three-band ring - eternal symbol", briefJp:"3バンドリング - 永遠のシンボル",
+        desc:"Three interlocking bands in three golds: white, yellow, rose. Represents love, fidelity, friendship.",
+        descJp:"3色のゴールドの3つの連結バンド：ホワイト、イエロー、ローズ。愛、忠誠、友情を表す。",
+        shape:"Three rolling bands interlocked. Each band is a different gold color.",
+        shapeJp:"3つのローリングバンドが連結。各バンドは異なるゴールドカラー。",
+        sizes:[
+          {name:"Size 47", dim:"Ring size 4 US"},
+          {name:"Size 49", dim:"Ring size 5 US"},
+          {name:"Size 52", dim:"Ring size 6 US - MOST POPULAR"},
+          {name:"Size 54", dim:"Ring size 7 US"},
+          {name:"Size 57", dim:"Ring size 8 US"}
+        ],
+        rare:"Full diamond pave versions. Wide band versions. Vintage from 1920s-30s.",
+        rareJp:"フルダイヤモンドパヴェバージョン。ワイドバンドバージョン。1920-30年代のヴィンテージ。",
+        tip:"Three bands, three golds, three meanings. Jean Cocteau wore one. Poetry in jewelry form.",
+        tipJp:"3バンド、3ゴールド、3つの意味。ジャン・コクトーが着用。ジュエリー形式の詩。"
+      }
+    ]
+  },
+  bulgari: {
+    name:"Bulgari", year:1884, country:"Italy",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Bulgari_logo.svg/512px-Bulgari_logo.svg.png",
+    auth:"BVLGARI stamp (uses V instead of U, Roman style). Serial number. Logo must be crisp, not blurry.",
+    authJp:"BVLGARI刻印（ローマ式でUではなくVを使用）。シリアル番号。ロゴは鮮明で、ぼやけていない必要。",
+    rare:"Vintage Serpenti watches. Monete (ancient coin) jewelry. Elizabeth Taylor's personal collection pieces.",
+    rareJp:"ヴィンテージ セルペンティウォッチ。モネーテ（古代コイン）ジュエリー。エリザベス・テイラーの個人コレクション作品。",
+    tip:"Elizabeth Taylor had the world's greatest Bulgari collection. This is Hollywood royalty jewelry.",
+    tipJp:"エリザベス・テイラーは世界最高のブルガリコレクションを持っていた。これはハリウッド王室のジュエリー。",
+    colors:[
+      {name:"18k Yellow Gold", hex:"#FFD700", nameJp:"18金イエローゴールド", desc:"Classic Bulgari gold. Very Italian.", descJp:"クラシックなブルガリゴールド。とてもイタリアン。"},
+      {name:"18k White Gold", hex:"#E5E4E2", nameJp:"18金ホワイトゴールド", desc:"Modern elegance.", descJp:"モダンなエレガンス。"},
+      {name:"18k Rose Gold", hex:"#B76E79", nameJp:"18金ローズゴールド", desc:"Warm and luxurious.", descJp:"温かく豪華。"},
+      {name:"Onyx Black", hex:"#000000", nameJp:"オニキスブラック", desc:"Dramatic black stone inlays.", descJp:"ドラマティックなブラックストーンインレイ。"}
+    ],
+    models:[
+      { name:"Serpenti", brief:"Snake bracelet watch - iconic flexibility", briefJp:"蛇ブレスレットウォッチ - 象徴的な柔軟性",
+        desc:"Iconic snake-shaped watch bracelet. Flexible scale design wraps around wrist.",
+        descJp:"象徴的な蛇形ウォッチブレスレット。柔軟なスケールデザインが手首を巻く。",
+        shape:"Coiled snake bracelet with watch face. Articulated scales allow flexibility.",
+        shapeJp:"時計文字盤付きコイル状の蛇ブレスレット。関節スケールで柔軟性を実現。",
+        sizes:[
+          {name:"One Size", dim:"Flexible - fits most wrists"}
+        ],
+        rare:"Vintage 1960s-70s Serpenti. Full diamond versions. Enamel scale details.",
+        rareJp:"1960-70年代のヴィンテージ セルペンティ。フルダイヤモンドバージョン。エナメルスケールディテール。",
+        tip:"It's a SNAKE watch. The scales move. Elizabeth Taylor wore one. Need I say more?",
+        tipJp:"それは蛇時計。スケールが動く。エリザベス・テイラーが着用。これ以上何を言う必要がある？"
+      },
+      { name:"B.zero1", brief:"Spiral ring - modern icon", briefJp:"スパイラルリング - モダンアイコン",
+        desc:"Bold spiral band ring inspired by Roman Colosseum architecture.",
+        descJp:"ローマのコロッセオ建築にインスパイアされた大胆なスパイラルバンドリング。",
+        shape:"Wide band with raised spiral edges. Central engraved BVLGARI BVLGARI logo.",
+        shapeJp:"盛り上がったスパイラルエッジのワイドバンド。中央にBVLGARI BVLGARI刻印ロゴ。",
+        sizes:[
+          {name:"Size 50", dim:"Ring size 5 US"},
+          {name:"Size 52", dim:"Ring size 6 US - MOST POPULAR"},
+          {name:"Size 54", dim:"Ring size 7 US"},
+          {name:"Size 56", dim:"Ring size 8 US"}
+        ],
+        rare:"Full diamond pave. Ceramic inlay versions. Limited edition colors.",
+        rareJp:"フルダイヤモンドパヴェ。セラミックインレイバージョン。限定版カラー。",
+        tip:"Inspired by the Colosseum. You're wearing 2,000 years of Roman history on your finger.",
+        tipJp:"コロッセオにインスパイア。あなたは指に2000年のローマの歴史を着けている。"
+      }
+    ]
+  },
+  tiffany: {
+    name:"Tiffany & Co.", year:1837, country:"USA",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Tiffany_%26_Co._logo.svg/512px-Tiffany_%26_Co._logo.svg.png",
+    auth:"'Tiffany & Co.' stamp. Sterling silver marked '925'. Comes in iconic blue box with white ribbon.",
+    authJp:"「Tiffany & Co.」刻印。スターリングシルバーには「925」マーク。象徴的なブルーボックスとホワイトリボン付き。",
+    rare:"Elsa Peretti vintage designs. Paloma Picasso collection. Schlumberger pieces (very rare).",
+    rareJp:"エルサ・ペレッティのヴィンテージデザイン。パロマ・ピカソコレクション。シュランバーガー作品（非常に希少）。",
+    tip:"The blue box alone is worth something. Everyone knows that Tiffany blue. Instant recognition.",
+    tipJp:"ブルーボックスだけでも価値がある。誰もがあのティファニーブルーを知っている。即座に認識。",
+    colors:[
+      {name:"Sterling Silver", hex:"#C0C0C0", nameJp:"スターリングシルバー", desc:"Classic Tiffany silver. Never goes out of style.", descJp:"クラシックなティファニーシルバー。流行に左右されない。"},
+      {name:"18k Yellow Gold", hex:"#FFD700", nameJp:"18金イエローゴールド", desc:"Warm gold. Very elegant.", descJp:"温かいゴールド。とてもエレガント。"},
+      {name:"18k Rose Gold", hex:"#B76E79", nameJp:"18金ローズゴールド", desc:"Modern and romantic.", descJp:"モダンでロマンティック。"},
+      {name:"Tiffany Blue", hex:"#81D8D0", nameJp:"ティファニーブルー", desc:"THE color. Instantly recognizable.", descJp:"THEカラー。即座に認識可能。"}
+    ],
+    models:[
+      { name:"Return to Tiffany", brief:"Heart tag - iconic design", briefJp:"ハートタグ - 象徴的デザイン",
+        desc:"Heart-shaped tag engraved 'Please Return to Tiffany & Co. New York'. Classic gift piece.",
+        descJp:"「Please Return to Tiffany & Co. New York」刻印のハート型タグ。クラシックなギフトピース。",
+        shape:"Heart-shaped pendant or charm on chain/bracelet. Engraved text on front.",
+        shapeJp:"チェーンまたはブレスレットのハート型ペンダントまたはチャーム。前面に刻印テキスト。",
+        sizes:[
+          {name:"Small Heart", dim:"0.6\"W pendant"},
+          {name:"Medium Heart", dim:"0.8\"W pendant - MOST POPULAR"},
+          {name:"Large Heart", dim:"1\"W pendant"}
+        ],
+        rare:"Vintage 1970s-80s originals. Enamel heart versions (blue). Limited edition colors.",
+        rareJp:"1970-80年代のヴィンテージオリジナル。エナメルハートバージョン（ブルー）。限定版カラー。",
+        tip:"The message says return it to Tiffany if found. Because it's that valuable. Sweet, right?",
+        tipJp:"メッセージは見つけたらティファニーに返すと言っている。それだけ価値があるから。素敵でしょ？"
+      },
+      { name:"T Collection", brief:"Bold T motif - modern luxury", briefJp:"大胆なTモチーフ - モダンラグジュアリー",
+        desc:"Bold, graphic T design in bracelets, rings, necklaces. Modern Tiffany aesthetic.",
+        descJp:"ブレスレット、リング、ネックレスの大胆でグラフィカルなTデザイン。モダンなティファニー美学。",
+        shape:"Geometric T shape in various forms - wire, solid, pave.",
+        shapeJp:"ワイヤー、ソリッド、パヴェなど様々な形の幾何学的T形状。",
+        sizes:[
+          {name:"Small", dim:"Varies by piece"},
+          {name:"Medium", dim:"Varies by piece - MOST POPULAR"},
+          {name:"Large", dim:"Varies by piece"}
+        ],
+        rare:"Full diamond pave. Two-tone gold. Limited edition stones.",
+        rareJp:"フルダイヤモンドパヴェ。ツートーンゴールド。限定版ストーン。",
+        tip:"The T is for Tiffany. Big, bold, modern. This is NOT your grandmother's Tiffany.",
+        tipJp:"TはティファニーのT。大きく、大胆、モダン。これはあなたのおばあちゃんのティファニーではない。"
+      }
+    ]
+  },
+  vca: {
+    name:"Van Cleef & Arpels", year:1906, country:"France",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Van_Cleef_%26_Arpels_logo.svg/512px-Van_Cleef_%26_Arpels_logo.svg.png",
+    auth:"VCA hallmark stamp. Serial number. Mother-of-pearl pieces have natural variation. Alhambra clover must have 4 leaves.",
+    authJp:"VCAホールマークスタンプ。シリアル番号。マザーオブパールピースは自然なバリエーション。アルハンブラクローバーは4葉である必要。",
+    rare:"Vintage Alhambra from 1960s-70s. Limited edition stone colors (carnelian, tiger's eye). Mystery Set technique pieces.",
+    rareJp:"1960-70年代のヴィンテージ アルハンブラ。限定版ストーンカラー（カーネリアン、タイガーアイ）。ミステリーセット技術作品。",
+    tip:"The Alhambra is lucky. Four-leaf clover. Grace Kelly wore it. Royalty and luck combined.",
+    tipJp:"アルハンブラは幸運。四つ葉のクローバー。グレース・ケリーが着用。王室と幸運の組み合わせ。",
+    colors:[
+      {name:"18k Yellow Gold", hex:"#FFD700", nameJp:"18金イエローゴールド", desc:"Classic VCA gold. Timeless.", descJp:"クラシックなVCAゴールド。タイムレス。"},
+      {name:"18k White Gold", hex:"#E5E4E2", nameJp:"18金ホワイトゴールド", desc:"Elegant and modern.", descJp:"エレガントでモダン。"},
+      {name:"18k Rose Gold", hex:"#B76E79", nameJp:"18金ローズゴールド", desc:"Warm and feminine.", descJp:"温かくフェミニン。"},
+      {name:"Mother of Pearl White", hex:"#F8F8FF", nameJp:"マザーオブパール ホワイト", desc:"Iridescent white. So beautiful.", descJp:"虹色のホワイト。とても美しい。"},
+      {name:"Onyx Black", hex:"#000000", nameJp:"オニキス ブラック", desc:"Deep black stone. Very chic.", descJp:"深いブラックストーン。とてもシック。"},
+      {name:"Carnelian", hex:"#B7410E", nameJp:"カーネリアン", desc:"Gorgeous orange-red stone.", descJp:"美しいオレンジレッドストーン。"}
+    ],
+    models:[
+      { name:"Alhambra", brief:"Four-leaf clover - lucky charm", briefJp:"四つ葉のクローバー - 幸運のお守り",
+        desc:"Iconic four-leaf clover motif. Available in various stones and sizes. The signature VCA design.",
+        descJp:"象徴的な四つ葉のクローバーモチーフ。様々なストーンとサイズで利用可能。VCAのシグネチャーデザイン。",
+        shape:"Quatrefoil (4-leaf clover) shape. Beaded gold border around stone inlay.",
+        shapeJp:"クアトレフォイル（4葉クローバー）形状。ストーンインレイの周りにビーズゴールドボーダー。",
+        sizes:[
+          {name:"Sweet (Extra Small)", dim:"0.4\" clover"},
+          {name:"Vintage (Small)", dim:"0.6\" clover - MOST POPULAR"},
+          {name:"Magic (Medium)", dim:"0.8\" clover"},
+          {name:"Alhambra (Large)", dim:"1\" clover"}
+        ],
+        rare:"Vintage from 1960s-70s. Rare stones (tiger's eye, turquoise, lapis). Limited edition colors.",
+        rareJp:"1960-70年代のヴィンテージ。希少ストーン（タイガーアイ、ターコイズ、ラピス）。限定版カラー。",
+        tip:"Four-leaf clover for luck. Grace Kelly, Princess of Monaco, wore these. Luck AND royalty.",
+        tipJp:"幸運のための四つ葉のクローバー。モナコ公妃グレース・ケリーが着用。幸運と王室。"
+      },
+      { name:"Perlée", brief:"Gold bead bracelet - delicate luxury", briefJp:"ゴールドビーズブレスレット - 繊細な高級",
+        desc:"Delicate gold beaded bracelet. Signature VCA beading technique.",
+        descJp:"繊細なゴールドビーズブレスレット。VCAのシグネチャービーディング技術。",
+        shape:"Thin bangle with tiny gold beads along edges. Smooth, tactile finish.",
+        shapeJp:"エッジに沿った小さなゴールドビーズの細いバングル。滑らかで触覚的な仕上げ。",
+        sizes:[
+          {name:"Small", dim:"6.3cm diameter"},
+          {name:"Medium", dim:"6.5cm diameter - MOST POPULAR"},
+          {name:"Large", dim:"6.7cm diameter"}
+        ],
+        rare:"Full diamond pave. Multi-strand versions. Limited edition stones.",
+        rareJp:"フルダイヤモンドパヴェ。マルチストランドバージョン。限定版ストーン。",
+        tip:"Subtle luxury. Just gold beads, but you KNOW it's VCA. That's understated elegance.",
+        tipJp:"控えめな高級。ただのゴールドビーズだけど、VCAだとわかる。それが控えめなエレガンス。"
+      }
+    ]
+  },
+  bottegaveneta: {
+    name:"Bottega Veneta", year:1966, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bottega_Veneta_logo.svg/512px-Bottega_Veneta_logo.svg.png",
+    auth:"No logo on exterior. Intrecciato weave must be perfect and even. Interior stamp: 'BOTTEGA VENETA' + 'MADE IN ITALY' + serial number.",
+    authJp:"外側にロゴなし。イントレチャート編みは完璧で均一である必要。内側刻印：「BOTTEGA VENETA」+「MADE IN ITALY」+シリアル番号。",
+    rare:"Tomas Maier era (2001-2018) pieces highly collectible. The Pouch, The Chain Cassette. Vintage woven bags.",
+    rareJp:"トーマス・マイヤー時代（2001-2018）作品は高コレクティブル。ザ・ポーチ、ザ・チェーンカセット。ヴィンテージ編みバッグ。",
+    tip:"No logo = quiet luxury. The weave IS the logo. Buyers who know, know.",
+    tipJp:"ロゴなし = 静かなラグジュアリー。編みがロゴ。知ってる人は知ってる。",
+    models:[]
+  },
+  fendi: {
+    name:"Fendi", year:1925, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fendi_Logo.svg/512px-Fendi_Logo.svg.png",
+    auth:"Double F logo (Zucca pattern). Serial number + 'FENDI' stamp inside. Hardware engraved with FENDI.",
+    authJp:"ダブルFロゴ（ズッカパターン）。内側にシリアル番号+「FENDI」刻印。金具にFENDI刻印。",
+    rare:"Baguette bag (90s icon). Karl Lagerfeld collaborations. Peekaboo in exotic leathers.",
+    rareJp:"バゲットバッグ（90年代アイコン）。カール・ラガーフェルドコラボ。エキゾチックレザーのピーカブー。",
+    tip:"The Baguette is THE 90s It bag. Sex and the City made it famous. Vintage is hot right now.",
+    tipJp:"バゲットはTHE 90年代Itバッグ。セックス・アンド・ザ・シティで有名に。ヴィンテージが今熱い。",
+    models:[]
+  },
+  celine: {
+    name:"Celine", year:1945, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Celine_logo.svg/512px-Celine_logo.svg.png",
+    auth:"'CÉLINE PARIS' stamp (note the accent). Made in Italy stamp. Serial number embossed on leather tab.",
+    authJp:"「CÉLINE PARIS」刻印（アクセント注意）。Made in Italyスタンプ。レザータブにシリアル番号エンボス。",
+    rare:"Phoebe Philo era (2008-2017) extremely sought after. Phantom, Trapeze, Classic Box. Minimalist aesthetic.",
+    rareJp:"フィービー・ファイロ時代（2008-2017）極めて人気。ファントム、トラペーズ、クラシックボックス。ミニマリスト美学。",
+    tip:"Phoebe Philo Celine is THE collector's grail. Minimalist, no logos. If you know, you know.",
+    tipJp:"フィービー・ファイロ セリーヌはTHEコレクター聖杯。ミニマリスト、ロゴなし。知ってる人は知ってる。",
+    models:[]
+  },
+  loewe: {
+    name:"Loewe", year:1846, country:"Spain",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Loewe_logo.svg/512px-Loewe_logo.svg.png",
+    auth:"'LOEWE' stamp on leather. 'Made in Spain' (some Italy). Anagram logo embossed. Serial number format changed over time.",
+    authJp:"レザーに「LOEWE」刻印。「Made in Spain」（一部イタリア）。アナグラムロゴエンボス。シリアル番号形式は時代で変化。",
+    rare:"Puzzle bag. Hammock bag. Vintage from 1970s-80s. Jonathan Anderson era (2013+) collectible.",
+    rareJp:"パズルバッグ。ハンモックバッグ。1970-80年代ヴィンテージ。ジョナサン・アンダーソン時代（2013+）コレクティブル。",
+    tip:"Spanish leather craftsmanship since 1846. The Puzzle bag is architectural genius.",
+    tipJp:"1846年以来のスペインレザー職人技。パズルバッグは建築的天才。",
+    models:[]
+  },
+  balenciaga: {
+    name:"Balenciaga", year:1919, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Balenciaga_logo.svg/512px-Balenciaga_logo.svg.png",
+    auth:"'BALENCIAGA PARIS' embossed. Serial number on white leather tag. Bale logo on hardware. Italy made.",
+    authJp:"「BALENCIAGA PARIS」エンボス。白レザータグにシリアル番号。金具にBaleロゴ。イタリア製。",
+    rare:"City bag (2000s icon). Giant hardware versions. Motorcycle/Moto bag. Nicolas Ghesquière era (1997-2012).",
+    rareJp:"シティバッグ（2000年代アイコン）。ジャイアント金具バージョン。モーターサイクル/モトバッグ。ニコラ・ジェスキエール時代（1997-2012）。",
+    tip:"The City bag with giant studs was THE 2000s It bag. Kate Moss carried it.",
+    tipJp:"ジャイアントスタッズ付きシティバッグはTHE 2000年代Itバッグ。ケイト・モスが持った。",
+    models:[]
+  },
+  saintlaurent: {
+    name:"Saint Laurent", year:1961, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Saint_Laurent_logo.svg/512px-Saint_Laurent_logo.svg.png",
+    auth:"YSL logo (interlocking Y and SL). 'SAINT LAURENT' or 'YVES SAINT LAURENT' inside. Serial number. Made in Italy.",
+    authJp:"YSLロゴ（YとSLの組み合わせ）。内側に「SAINT LAURENT」または「YVES SAINT LAURENT」。シリアル番号。イタリア製。",
+    rare:"Muse bag. Sac de Jour. Vintage Yves Saint Laurent (with 'Yves' is pre-2012). Hedi Slimane era.",
+    rareJp:"ミューズバッグ。サック・ド・ジュール。ヴィンテージ イヴ・サンローラン（「Yves」付きは2012年以前）。エディ・スリマン時代。",
+    tip:"YSL vs Saint Laurent = pre-2012 vs post-2012. Collectors know the difference.",
+    tipJp:"YSL vs サンローラン = 2012年以前 vs 2012年以降。コレクターは違いを知ってる。",
+    models:[]
+  },
+  givenchy: {
+    name:"Givenchy", year:1952, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Givenchy_logo.svg/512px-Givenchy_logo.svg.png",
+    auth:"'GIVENCHY PARIS' stamp. Serial number. 4G logo on hardware. Made in Italy.",
+    authJp:"「GIVENCHY PARIS」刻印。シリアル番号。金具に4Gロゴ。イタリア製。",
+    rare:"Antigona bag. Nightingale bag. Pandora box. Riccardo Tisci era (2005-2017) collectible.",
+    rareJp:"アンティゴナバッグ。ナイチンゲールバッグ。パンドラボックス。リカルド・ティッシ時代（2005-2017）コレクティブル。",
+    tip:"The Antigona is the structured work bag. Sharp, geometric, professional.",
+    tipJp:"アンティゴナは構造的仕事バッグ。シャープ、幾何学的、プロフェッショナル。",
+    models:[]
+  },
+  valentino: {
+    name:"Valentino", year:1960, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Valentino_logo.svg/512px-Valentino_logo.svg.png",
+    auth:"'VALENTINO' or 'VALENTINO GARAVANI' stamp. Serial number. V logo or Rockstud hardware. Made in Italy.",
+    authJp:"「VALENTINO」または「VALENTINO GARAVANI」刻印。シリアル番号。Vロゴまたはロックスタッズ金具。イタリア製。",
+    rare:"Rockstud collection (iconic studs). Vintage Valentino Garavani. Red Valentino (diffusion line).",
+    rareJp:"ロックスタッズコレクション（象徴的スタッズ）。ヴィンテージ ヴァレンティノ・ガラヴァーニ。レッド ヴァレンティノ（ディフュージョンライン）。",
+    tip:"The Rockstuds are instantly recognizable. Edgy luxury. Very on-brand for Valentino.",
+    tipJp:"ロックスタッズは即座に認識可能。エッジーなラグジュアリー。ヴァレンティノらしい。",
+    models:[]
+  },
+  burberry: {
+    name:"Burberry", year:1856, country:"UK",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Burberry_logo.svg/512px-Burberry_logo.svg.png",
+    auth:"Burberry check pattern (tan, black, white, red). 'BURBERRY' stamp. Serial number. Made in Italy or UK.",
+    authJp:"バーバリーチェックパターン（タン、ブラック、ホワイト、レッド）。「BURBERRY」刻印。シリアル番号。イタリアまたは英国製。",
+    rare:"Vintage Nova check. Prorsum line (premium). Thomas Burberry Archive collection.",
+    rareJp:"ヴィンテージ ノバチェック。プローサムライン（プレミアム）。トーマス・バーバリー アーカイブコレクション。",
+    tip:"The check is iconic. British heritage since 1856. If it's check, it's Burberry.",
+    tipJp:"チェックは象徴的。1856年以来の英国伝統。チェックならバーバリー。",
+    models:[]
+  },
+  mcm: {
+    name:"MCM", year:1976, country:"Germany",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/MCM_logo.svg/512px-MCM_logo.svg.png",
+    auth:"Visetos monogram (MCM logo + laurel leaves). Serial number on leather patch. Made in Germany or Korea.",
+    authJp:"ヴィセトスモノグラム（MCMロゴ+月桂樹の葉）。レザーパッチにシリアル番号。ドイツまたは韓国製。",
+    rare:"Vintage 1980s-90s bags (original German production). Stark backpack. Limited edition collabs.",
+    rareJp:"1980-90年代ヴィンテージバッグ（オリジナルドイツ製）。スタークバックパック。限定版コラボ。",
+    tip:"MCM backpacks are everywhere now. Vintage German-made ones are the real deal.",
+    tipJp:"MCMバックパックは今どこにでもある。ヴィンテージドイツ製が本物。",
+    models:[]
+  },
+  alexandermcqueen: {
+    name:"Alexander McQueen", year:1992, country:"UK",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Alexander_McQueen_logo.svg/512px-Alexander_McQueen_logo.svg.png",
+    auth:"'ALEXANDER McQUEEN' stamp. Made in Italy. Skull hardware (signature motif). Serial number inside.",
+    authJp:"「ALEXANDER McQUEEN」刻印。イタリア製。スカル金具（シグネチャーモチーフ）。内側にシリアル番号。",
+    rare:"Skull clutch (iconic). Heroine bag. Vintage pieces from Lee McQueen era (pre-2010).",
+    rareJp:"スカルクラッチ（象徴的）。ヒロインバッグ。リー・マックイーン時代（2010年以前）のヴィンテージ作品。",
+    tip:"The skull clutch is ICONIC. Dark, edgy luxury. Lee McQueen was a genius.",
+    tipJp:"スカルクラッチは象徴的。ダーク、エッジーなラグジュアリー。リー・マックイーンは天才だった。",
+    models:[]
+  },
+  miumiu: {
+    name:"Miu Miu", year:1993, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miu_Miu_logo.svg/512px-Miu_Miu_logo.svg.png",
+    auth:"'MIU MIU' logo plate or embossed. Made in Italy. Part of Prada Group - similar quality standards.",
+    authJp:"「MIU MIU」ロゴプレートまたはエンボス。イタリア製。プラダグループの一部 - 同様の品質基準。",
+    rare:"Matelassé (quilted) leather bags. Coffer bag. Crystal embellishments. Vintage 90s-2000s pieces.",
+    rareJp:"マトラッセ（キルティング）レザーバッグ。コファーバッグ。クリスタル装飾。90年代〜2000年代ヴィンテージ作品。",
+    tip:"Miu Miu is Prada's little sister. Younger, edgier, more playful. Same quality, different vibe.",
+    tipJp:"ミュウミュウはプラダの妹。より若く、エッジーで、遊び心。同じ品質、異なる雰囲気。",
+    models:[]
+  },
+  chloe: {
+    name:"Chloé", year:1952, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Chloe_logo.svg/512px-Chloe_logo.svg.png",
+    auth:"'CHLOÉ' stamp (note accent mark). Made in Italy. Serial number embossed. Padlock on some styles.",
+    authJp:"「CHLOÉ」刻印（アクセント注意）。イタリア製。シリアル番号エンボス。一部スタイルに南京錠。",
+    rare:"Paddington bag (2000s icon with padlock). Drew bag. Faye bag. Vintage Phoebe Philo era (2001-2006).",
+    rareJp:"パディントンバッグ（2000年代アイコン、南京錠付き）。ドリューバッグ。フェイバッグ。ヴィンテージ フィービー・ファイロ時代（2001-2006）。",
+    tip:"Feminine, romantic, soft. The Paddington with the big padlock was EVERYWHERE in 2005.",
+    tipJp:"女性的、ロマンチック、ソフト。大きな南京錠付きパディントンは2005年にどこにでもあった。",
+    models:[]
+  },
+  tomford: {
+    name:"Tom Ford", year:2005, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tom_Ford_logo.svg/512px-Tom_Ford_logo.svg.png",
+    auth:"'TOM FORD' logo plate or stamp. Made in Italy. Metal TF logo on hardware. Premium materials.",
+    authJp:"「TOM FORD」ロゴプレートまたは刻印。イタリア製。金具にTFメタルロゴ。プレミアム素材。",
+    rare:"Jennifer bag (crossbody with chain). Natalia bag. Limited edition exotic leathers.",
+    rareJp:"ジェニファーバッグ（チェーン付きクロスボディ）。ナタリアバッグ。限定版エキゾチックレザー。",
+    tip:"Tom Ford = modern luxury. Sexy, sophisticated, expensive. This is grown-up glamour.",
+    tipJp:"トム・フォード = モダンラグジュアリー。セクシー、洗練、高価。これは大人のグラマー。",
+    models:[]
+  },
+  dolcegabbana: {
+    name:"Dolce & Gabbana", year:1985, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Dolce_%26_Gabbana_logo.svg/512px-Dolce_%26_Gabbana_logo.svg.png",
+    auth:"'DOLCE&GABBANA' logo plate. Made in Italy. DG logo on hardware. Bold, ornate designs.",
+    authJp:"「DOLCE&GABBANA」ロゴプレート。イタリア製。金具にDGロゴ。大胆で華やかなデザイン。",
+    rare:"Sicily bag (iconic). Miss Sicily. Devotion bag with heart. Baroque print bags.",
+    rareJp:"シチリアバッグ（象徴的）。ミス シチリア。ハート付きディヴォーションバッグ。バロックプリントバッグ。",
+    tip:"Very Italian. Bold prints, gold hardware, baroque vibes. NOT minimalist. Maximalist luxury.",
+    tipJp:"非常にイタリアン。大胆なプリント、ゴールド金具、バロック雰囲気。ミニマリストではない。マキシマリストラグジュアリー。",
+    models:[]
+  },
+  versace: {
+    name:"Versace", year:1978, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Versace_logo.svg/512px-Versace_logo.svg.png",
+    auth:"Medusa head logo. 'VERSACE' stamp. Made in Italy. Greek key (meander) pattern. Bold, flashy hardware.",
+    authJp:"メデューサヘッドロゴ。「VERSACE」刻印。イタリア製。グリークキー（メアンダー）パターン。大胆で派手な金具。",
+    rare:"Medusa shoulder bag. Vintage Gianni Versace pieces (pre-1997). Safety pin dresses/bags (iconic).",
+    rareJp:"メデューサショルダーバッグ。ヴィンテージ ジャンニ・ヴェルサーチ作品（1997年以前）。安全ピンドレス/バッグ（象徴的）。",
+    tip:"BOLD. Gold Medusa, Greek keys, baroque prints. Versace doesn't do subtle. It screams luxury.",
+    tipJp:"大胆。ゴールドメデューサ、グリークキー、バロックプリント。ヴェルサーチは控えめをしない。ラグジュアリーを叫ぶ。",
+    models:[]
+  },
+  jimmychoo: {
+    name:"Jimmy Choo", year:1996, country:"UK",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Jimmy_Choo_logo.svg/512px-Jimmy_Choo_logo.svg.png",
+    auth:"'JIMMY CHOO' logo embossed or on plate. Made in Italy. Star studs (signature motif). Serial number inside.",
+    authJp:"「JIMMY CHOO」エンボスまたはプレート。イタリア製。スタースタッズ（シグネチャーモチーフ）。内側にシリアル番号。",
+    rare:"Choo 24:7 bag. Bon Bon bucket bag. Star-studded bags. Collaborations (H&M was huge).",
+    rareJp:"Choo 24:7バッグ。ボンボンバケットバッグ。スタースタッズバッグ。コラボレーション（H&Mは巨大だった）。",
+    tip:"Known for SHOES, but bags are solid. Star studs = Jimmy Choo. Red carpet glamour.",
+    tipJp:"シューズで有名だが、バッグも堅実。スタースタッズ = ジミー・チュウ。レッドカーペットグラマー。",
+    models:[]
+  },
+  christianlouboutin: {
+    name:"Christian Louboutin", year:1991, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Christian_Louboutin_logo.svg/512px-Christian_Louboutin_logo.svg.png",
+    auth:"'CHRISTIAN LOUBOUTIN' stamp. Made in Italy. Red sole on some bag designs (like shoes). Spike studs.",
+    authJp:"「CHRISTIAN LOUBOUTIN」刻印。イタリア製。一部バッグデザインに赤底（靴のように）。スパイクスタッズ。",
+    rare:"Paloma clutch (spiked). Sweet Charity shoulder bag. Panettone wallet. Red-soled bags.",
+    rareJp:"パロマクラッチ（スパイク付き）。スイートチャリティショルダーバッグ。パネットーネウォレット。レッドソールバッグ。",
+    tip:"Red soles on SHOES made him famous. Bags have same edgy luxury. Spikes, studs, glamour.",
+    tipJp:"シューズの赤底で有名に。バッグも同じエッジーラグジュアリー。スパイク、スタッズ、グラマー。",
+    models:[]
+  },
+  offwhite: {
+    name:"Off-White", year:2013, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Off-White_logo.svg/512px-Off-White_logo.svg.png",
+    auth:"'OFF-WHITE' logo. Industrial belt strap. Diagonal arrows. Quote marks. Made in Italy.",
+    authJp:"「OFF-WHITE」ロゴ。インダストリアルベルトストラップ。斜め矢印。引用符。イタリア製。",
+    rare:"Binder Clip bag (iconic). Jitney bag. Virgil Abloh era pieces (2013-2021). Nike collabs.",
+    rareJp:"バインダークリップバッグ（象徴的）。ジットニーバッグ。ヴァージル・アブロー時代作品（2013-2021）。ナイキコラボ。",
+    tip:"Virgil Abloh's streetwear meets luxury. The yellow industrial belt = instant recognition.",
+    tipJp:"ヴァージル・アブローのストリートウェアとラグジュアリーの融合。黄色のインダストリアルベルト = 即座に認識。",
+    models:[]
+  },
+  marni: {
+    name:"Marni", year:1994, country:"Italy",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Marni_logo.svg/512px-Marni_logo.svg.png",
+    auth:"'MARNI' logo. Made in Italy. Known for unusual shapes, bold colors. Minimalist hardware.",
+    authJp:"「MARNI」ロゴ。イタリア製。珍しい形、大胆な色で知られる。ミニマリスト金具。",
+    rare:"Trunk bag. Museo bag (soft tote). Color-block designs. Vintage 2000s pieces.",
+    rareJp:"トランクバッグ。ムセオバッグ（ソフトトート）。カラーブロックデザイン。2000年代ヴィンテージ作品。",
+    tip:"Quirky, artistic, bold colors. Marni is NOT boring. It's for people who take fashion risks.",
+    tipJp:"風変わり、芸術的、大胆な色。マルニは退屈ではない。ファッションリスクを取る人向け。",
+    models:[]
+  },
+  therow: {
+    name:"The Row", year:2006, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Row_logo.svg/512px-The_Row_logo.svg.png",
+    auth:"'THE ROW' discreet label. Made in Italy or USA. No logos, minimalist. Premium materials (cashmere-lined).",
+    authJp:"「THE ROW」控えめラベル。イタリアまたは米国製。ロゴなし、ミニマリスト。プレミアム素材（カシミア裏地）。",
+    rare:"Margaux tote. Half Moon bag. Sofia bag. Ashley and Mary-Kate Olsen designed - ultra-luxury.",
+    rareJp:"マルゴートート。ハーフムーンバッグ。ソフィアバッグ。アシュリーとメアリー・ケイト・オルセンデザイン - 超ラグジュアリー。",
+    tip:"QUIET luxury. No logos. Insane quality. If you know The Row, you're in the know.",
+    tipJp:"静かなラグジュアリー。ロゴなし。驚異的品質。The Rowを知ってるなら、あなたは通。",
+    models:[]
+  },
+  stellamccartney: {
+    name:"Stella McCartney", year:2001, country:"UK",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Stella_McCartney_logo.svg/512px-Stella_McCartney_logo.svg.png",
+    auth:"'STELLA McCARTNEY' logo. Made in Italy. Vegan - NO LEATHER. Uses sustainable materials.",
+    authJp:"「STELLA McCARTNEY」ロゴ。イタリア製。ヴィーガン - レザーなし。持続可能な素材使用。",
+    rare:"Falabella bag (chain trim). Vegan leather innovator. Beatles legacy (Paul McCartney's daughter).",
+    rareJp:"ファラベラバッグ（チェーントリム）。ヴィーガンレザー革新者。ビートルズ遺産（ポール・マッカートニーの娘）。",
+    tip:"NO LEATHER, NO FUR, NO SKIN. All vegan luxury. Stella changed the game for sustainable fashion.",
+    tipJp:"レザーなし、ファーなし、スキンなし。すべてヴィーガンラグジュアリー。ステラはサステナブルファッションのゲームを変えた。",
+    models:[]
+  },
+  proenzaschouler: {
+    name:"Proenza Schouler", year:2002, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Proenza_Schouler_logo.svg/512px-Proenza_Schouler_logo.svg.png",
+    auth:"'PROENZA SCHOULER' label. Made in Italy or China. PS logo hardware. Contemporary luxury.",
+    authJp:"「PROENZA SCHOULER」ラベル。イタリアまたは中国製。PS金具ロゴ。コンテンポラリーラグジュアリー。",
+    rare:"PS1 bag (satchel with buckles). PS11 (box bag). PS Courier bag. Early 2000s pieces.",
+    rareJp:"PS1バッグ（バックル付きサッチェル）。PS11（ボックスバッグ）。PSクーリエバッグ。2000年代初期作品。",
+    tip:"The PS1 was THE It bag of the 2010s. Modern, structured, downtown NYC cool.",
+    tipJp:"PS1は2010年代のTHE Itバッグだった。モダン、構造的、ダウンタウンNYCクール。",
+    models:[]
+  },
+  balmain: {
+    name:"Balmain", year:1945, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Balmain_logo.svg/512px-Balmain_logo.svg.png",
+    auth:"'BALMAIN PARIS' logo. Made in Italy. Military-inspired hardware (buttons, chains). Bold embellishments.",
+    authJp:"「BALMAIN PARIS」ロゴ。イタリア製。ミリタリー風金具（ボタン、チェーン）。大胆な装飾。",
+    rare:"B-Buzz bag. BBag. Olivier Rousteing era (2011+) collectible. Vintage Pierre Balmain pieces.",
+    rareJp:"B-バズバッグ。Bバッグ。オリヴィエ・ルスタン時代（2011+）コレクティブル。ヴィンテージ ピエール・バルマン作品。",
+    tip:"Military jackets made Balmain famous. Bags have same vibe - structured, bold, fierce.",
+    tipJp:"ミリタリージャケットでバルマンは有名に。バッグも同じ雰囲気 - 構造的、大胆、激しい。",
+    models:[]
+  },
+  alexanderwang: {
+    name:"Alexander Wang", year:2005, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Alexander_Wang_logo.svg/512px-Alexander_Wang_logo.svg.png",
+    auth:"'ALEXANDER WANG' logo or AW tag. Made in China or Italy. Edgy hardware (studs, chains).",
+    authJp:"「ALEXANDER WANG」ロゴまたはAWタグ。中国またはイタリア製。エッジーな金具（スタッズ、チェーン）。",
+    rare:"Rocco bag (studs and zippers). Lia bag. Marti backpack. Early 2010s NYC cool.",
+    rareJp:"ロッコバッグ（スタッズとジッパー）。リアバッグ。マルティバックパック。2010年代初期NYCクール。",
+    tip:"Downtown NYC aesthetic. Black, studs, zippers, edge. Model-off-duty style.",
+    tipJp:"ダウンタウンNYC美学。ブラック、スタッズ、ジッパー、エッジ。オフデューティモデルスタイル。",
+    models:[]
+  },
+  lanvin: {
+    name:"Lanvin", year:1889, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lanvin_logo.svg/512px-Lanvin_logo.svg.png",
+    auth:"'LANVIN PARIS' logo. Made in Italy. Oldest French fashion house still operating.",
+    authJp:"「LANVIN PARIS」ロゴ。イタリア製。現在も営業中の最古のフランスファッションハウス。",
+    rare:"Happy bag (woven chain handle). Cabas tote. Alber Elbaz era (2001-2015) highly collectible.",
+    rareJp:"ハッピーバッグ（編みチェーンハンドル）。カバトート。アルベール・エルバズ時代（2001-2015）高コレクティブル。",
+    tip:"Oldest French couture house (1889). Alber Elbaz made it cool again in 2000s. Feminine, elegant.",
+    tipJp:"最古のフランスクチュールハウス（1889）。アルベール・エルバズが2000年代に再びクールに。女性的、エレガント。",
+    models:[]
+  },
+  jilsander: {
+    name:"Jil Sander", year:1968, country:"Germany",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Jil_Sander_logo.svg/512px-Jil_Sander_logo.svg.png",
+    auth:"'JIL SANDER' discreet label. Made in Italy. Minimalist - clean lines, no logos. Premium materials.",
+    authJp:"「JIL SANDER」控えめラベル。イタリア製。ミニマリスト - クリーンライン、ロゴなし。プレミアム素材。",
+    rare:"Tangle bag (knotted handle). Cannolo bag. Vintage 90s pieces. Phoebe Philo collaborations.",
+    rareJp:"タングルバッグ（結び目ハンドル）。カンノーロバッグ。90年代ヴィンテージ作品。フィービー・ファイロコラボ。",
+    tip:"QUEEN of minimalism. Clean, architectural, no logos. Jil Sander = less is more.",
+    tipJp:"ミニマリズムの女王。クリーン、建築的、ロゴなし。ジル・サンダー = 少ない方が多い。",
+    models:[]
+  },
+  goyard: {
+    name:"Goyard", year:1853, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Goyard_logo.svg/512px-Goyard_logo.svg.png",
+    auth:"Hand-painted Y pattern (Goyardine canvas). No serial numbers. Heat stamp with owner initials. Made in France.",
+    authJp:"手描きYパターン（ゴヤールディーヌキャンバス）。シリアル番号なし。所有者イニシャルの刻印。フランス製。",
+    rare:"St. Louis tote. Saigon tote. Bellechasse bag. Special colors (rare - most are standard).",
+    rareJp:"サンルイトート。サイゴントート。ベルシャスバッグ。スペシャルカラー（希少 - ほとんどは標準）。",
+    tip:"NO ONLINE SALES. Only in Goyard boutiques. Hand-painted monogram. Ultimate exclusivity.",
+    tipJp:"オンライン販売なし。ゴヤールブティックのみ。手描きモノグラム。究極の独占性。",
+    models:[]
+  },
+  delvaux: {
+    name:"Delvaux", year:1829, country:"Belgium",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Delvaux_logo.svg/512px-Delvaux_logo.svg.png",
+    auth:"'DELVAUX BRUXELLES' stamp. Made in Belgium or France. D logo clasp. Oldest fine leather goods house.",
+    authJp:"「DELVAUX BRUXELLES」刻印。ベルギーまたはフランス製。Dロゴクラスプ。最古の高級レザーグッズハウス。",
+    rare:"Brillant bag (structured). Tempête bag. Pin bag. Royal warrant holder (Belgian royalty).",
+    rareJp:"ブリヤンバッグ（構造的）。タンペットバッグ。ピンバッグ。王室御用達（ベルギー王室）。",
+    tip:"Older than Louis Vuitton (1829!). Belgian craftsmanship. The Brillant is architectural perfection.",
+    tipJp:"ルイ・ヴィトンより古い（1829！）。ベルギー職人技。ブリヤンは建築的完璧。",
+    models:[]
+  },
+  judithlieber: {
+    name:"Judith Leiber", year:1963, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Judith_Leiber_logo.svg/512px-Judith_Leiber_logo.svg.png",
+    auth:"'JUDITH LEIBER' signature. Made in USA or Italy. Crystal minaudières (evening bags). Serial number.",
+    authJp:"「JUDITH LEIBER」署名。米国またはイタリア製。クリスタルミノディエール（イブニングバッグ）。シリアル番号。",
+    rare:"Crystal animal clutches (collectible). Vintage 1960s-80s. Custom pieces. Red carpet bags.",
+    rareJp:"クリスタル動物クラッチ（コレクティブル）。1960-80年代ヴィンテージ。カスタム作品。レッドカーペットバッグ。",
+    tip:"Crystal minaudières shaped like animals, fruits, objects. Red carpet staple. Whimsical luxury.",
+    tipJp:"動物、果物、オブジェクトの形のクリスタルミノディエール。レッドカーペット定番。気まぐれなラグジュアリー。",
+    models:[]
+  },
+  markcross: {
+    name:"Mark Cross", year:1845, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mark_Cross_logo.svg/512px-Mark_Cross_logo.svg.png",
+    auth:"'MARK CROSS' logo. Made in Italy. Grace Kelly carried one. Structured, classic American luxury.",
+    authJp:"「MARK CROSS」ロゴ。イタリア製。グレース・ケリーが持った。構造的、クラシックアメリカンラグジュアリー。",
+    rare:"Grace Box bag (named after Grace Kelly). Vintage 1950s-60s pieces. Saffiano leather.",
+    rareJp:"グレースボックスバッグ（グレース・ケリーにちなんで命名）。1950-60年代ヴィンテージ作品。サフィアーノレザー。",
+    tip:"Grace Kelly carried Mark Cross. That's all you need to know. Royalty approved.",
+    tipJp:"グレース・ケリーがマーク・クロスを持った。それだけで十分。王室承認。",
+    models:[]
+  },
+  mulberry: {
+    name:"Mulberry", year:1971, country:"UK",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mulberry_logo.svg/512px-Mulberry_logo.svg.png",
+    auth:"'MULBERRY' stamp. Made in UK (premium) or China. Postman's lock (signature). Tree logo.",
+    authJp:"「MULBERRY」刻印。英国製（プレミアム）または中国製。郵便屋ロック（シグネチャー）。木のロゴ。",
+    rare:"Bayswater bag (iconic). Alexa bag (named after Alexa Chung). Vintage UK-made pieces.",
+    rareJp:"ベイズウォーターバッグ（象徴的）。アレクサバッグ（アレクサ・チャンにちなんで命名）。ヴィンテージ英国製作品。",
+    tip:"British leather craftsmanship. The Bayswater is THE classic. Alexa Chung made the Alexa bag huge.",
+    tipJp:"英国レザー職人技。ベイズウォーターはTHEクラシック。アレクサ・チャンがアレクサバッグを巨大にした。",
+    models:[]
+  },
+  coach: {
+    name:"Coach", year:1941, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Coach_logo.svg/512px-Coach_logo.svg.png",
+    auth:"'COACH' logo. Made in USA (vintage) or China/Vietnam (modern). Creed patch inside with serial.",
+    authJp:"「COACH」ロゴ。米国製（ヴィンテージ）または中国/ベトナム製（モダン）。内側にシリアル付きクリードパッチ。",
+    rare:"Vintage USA-made bags (1960s-90s). Bonnie Cashin era. Willis bag. Legacy collection.",
+    rareJp:"ヴィンテージ米国製バッグ（1960-90年代）。ボニー・カシン時代。ウィリスバッグ。レガシーコレクション。",
+    tip:"Vintage Coach (USA-made) is GOLD. Modern Coach is accessible luxury. Know the difference.",
+    tipJp:"ヴィンテージコーチ（米国製）はゴールド。モダンコーチはアクセシブルラグジュアリー。違いを知る。",
+    models:[]
+  },
+  jacquemus: {
+    name:"Jacquemus", year:2009, country:"France",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Jacquemus_logo.svg/512px-Jacquemus_logo.svg.png",
+    auth:"'JACQUEMUS' logo. Made in Portugal or Italy. Known for TINY micro bags and oversized XL bags.",
+    authJp:"「JACQUEMUS」ロゴ。ポルトガルまたはイタリア製。超小型マイクロバッグと特大XLバッグで知られる。",
+    rare:"Le Chiquito (TINY bag - phone won't fit). Le Grand Bambino. Bright colors, playful shapes.",
+    rareJp:"ル・シキート（超小型バッグ - 電話が入らない）。ル・グラン・バンビーノ。明るい色、遊び心のある形。",
+    tip:"Instagram famous for TINY bags. Le Chiquito is comically small. It's art, not utility.",
+    tipJp:"超小型バッグでInstagram有名。ル・シキートは滑稽なほど小さい。実用性ではなくアート。",
+    models:[]
+  },
+  chromHearts: {
+    name:"Chrome Hearts", year:1988, country:"USA",
+    categories:["handbags"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Chrome_Hearts_logo.svg/512px-Chrome_Hearts_logo.svg.png",
+    auth:"Cross logo. 'CHROME HEARTS' stamp. Made in USA. Sterling silver hardware. Gothic aesthetic.",
+    authJp:"クロスロゴ。「CHROME HEARTS」刻印。米国製。スターリングシルバー金具。ゴシック美学。",
+    rare:"Leather bags with silver hardware. Custom pieces. Collaborations (Off-White, Rick Owens).",
+    rareJp:"シルバー金具付きレザーバッグ。カスタム作品。コラボレーション（オフホワイト、リック・オウエンス）。",
+    tip:"Biker luxury. Gothic crosses, sterling silver, rock 'n' roll. Chrome Hearts is CULT status.",
+    tipJp:"バイカーラグジュアリー。ゴシッククロス、スターリングシルバー、ロックンロール。クロムハーツはカルトステータス。",
+    models:[]
+  },
+  chopard: {
+    name:"Chopard", year:1860, country:"Switzerland",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Chopard_logo.svg/512px-Chopard_logo.svg.png",
+    auth:"'CHOPARD' stamp. Swiss hallmarks. Serial number. High jewelry and watches.",
+    authJp:"「CHOPARD」刻印。スイスホールマーク。シリアル番号。ハイジュエリーと時計。",
+    rare:"Happy Diamonds (moving diamonds). Ice Cube collection. Red carpet jewelry (Cannes).",
+    rareJp:"ハッピーダイヤモンド（動くダイヤモンド）。アイスキューブコレクション。レッドカーペットジュエリー（カンヌ）。",
+    tip:"Swiss luxury jewelry and watches. Happy Diamonds MOVE inside the watch. Playful high jewelry.",
+    tipJp:"スイスラグジュアリージュエリーと時計。ハッピーダイヤモンドは時計内で動く。遊び心のあるハイジュエリー。",
+    models:[]
+  },
+  pomellato: {
+    name:"Pomellato", year:1967, country:"Italy",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Pomellato_logo.svg/512px-Pomellato_logo.svg.png",
+    auth:"'POMELLATO' stamp. Made in Italy. Known for colorful gemstones. Cabochon cuts.",
+    authJp:"「POMELLATO」刻印。イタリア製。カラフルな宝石で知られる。カボションカット。",
+    rare:"Nudo collection (large gemstone rings). Iconica collection. Vintage 1960s-70s pieces.",
+    rareJp:"ヌードコレクション（大きな宝石リング）。アイコニカコレクション。1960-70年代ヴィンテージ作品。",
+    tip:"Italian. Colorful. Cabochon gemstones. Pomellato is BOLD jewelry for confident women.",
+    tipJp:"イタリアン。カラフル。カボション宝石。ポメラートは自信のある女性のための大胆なジュエリー。",
+    models:[]
+  },
+  mikimoto: {
+    name:"Mikimoto", year:1893, country:"Japan",
+    categories:["jewelry"],
+    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mikimoto_logo.svg/512px-Mikimoto_logo.svg.png",
+    auth:"'MIKIMOTO' stamp. Akoya pearls (signature). Serial number on clasp. Japanese cultured pearls.",
+    authJp:"「MIKIMOTO」刻印。アコヤ真珠（シグネチャー）。クラスプにシリアル番号。日本養殖真珠。",
+    rare:"Vintage Akoya pearl strands. Special clasp designs. High-grade AAA+ pearls.",
+    rareJp:"ヴィンテージアコヤ真珠ストランド。スペシャルクラスプデザイン。高級AAA+真珠。",
+    tip:"Kokichi Mikimoto invented cultured pearls in 1893. Mikimoto = THE pearl authority.",
+    tipJp:"御木本幸吉が1893年に養殖真珠を発明。ミキモト = THE真珠権威。",
+    models:[]
   }
 };
 
-/* ═══ PROFESSIONAL VOCABULARY ═══ */
+/* ═══ PROFESSIONAL VOCABULARY ===
 const VOCAB_CATS = [
   { cat:"Condition Grading (Essential Terms)", items:[
     {e:"Mint",j:"ミント",def:"Perfect, flawless condition - appears never used or touched",defJp:"完璧、傷なし状態 - 未使用または未触に見える",category:"ecommerce",emoji:"💎"},
@@ -911,7 +1667,56 @@ export default function App() {
             id: "brands",
             icon: "👜",
             label: "Brand Knowledge",
-            page: 1
+            children: [
+              { label: "Louis Vuitton 👜💎", page: "brand-lv" },
+              { label: "Chanel 👜💎", page: "brand-chanel" },
+              { label: "Hermès 👜💎", page: "brand-hermes" },
+              { label: "Gucci 👜", page: "brand-gucci" },
+              { label: "Prada 👜", page: "brand-prada" },
+              { label: "Dior 👜💎", page: "brand-dior" },
+              { label: "Cartier 💎", page: "brand-cartier" },
+              { label: "Bulgari 💎", page: "brand-bulgari" },
+              { label: "Tiffany & Co. 💎", page: "brand-tiffany" },
+              { label: "Van Cleef & Arpels 💎", page: "brand-vca" },
+              { label: "Bottega Veneta 👜", page: "brand-bottegaveneta" },
+              { label: "Fendi 👜", page: "brand-fendi" },
+              { label: "Celine 👜", page: "brand-celine" },
+              { label: "Loewe 👜", page: "brand-loewe" },
+              { label: "Balenciaga 👜", page: "brand-balenciaga" },
+              { label: "Saint Laurent 👜", page: "brand-saintlaurent" },
+              { label: "Givenchy 👜", page: "brand-givenchy" },
+              { label: "Valentino 👜", page: "brand-valentino" },
+              { label: "Burberry 👜", page: "brand-burberry" },
+              { label: "MCM 👜", page: "brand-mcm" },
+              { label: "Alexander McQueen 👜", page: "brand-alexandermcqueen" },
+              { label: "Miu Miu 👜", page: "brand-miumiu" },
+              { label: "Chloé 👜", page: "brand-chloe" },
+              { label: "Tom Ford 👜", page: "brand-tomford" },
+              { label: "Dolce & Gabbana 👜", page: "brand-dolcegabbana" },
+              { label: "Versace 👜", page: "brand-versace" },
+              { label: "Jimmy Choo 👜", page: "brand-jimmychoo" },
+              { label: "Christian Louboutin 👜", page: "brand-christianlouboutin" },
+              { label: "Off-White 👜", page: "brand-offwhite" },
+              { label: "Marni 👜", page: "brand-marni" },
+              { label: "The Row 👜", page: "brand-therow" },
+              { label: "Stella McCartney 👜", page: "brand-stellamccartney" },
+              { label: "Proenza Schouler 👜", page: "brand-proenzaschouler" },
+              { label: "Balmain 👜", page: "brand-balmain" },
+              { label: "Alexander Wang 👜", page: "brand-alexanderwang" },
+              { label: "Lanvin 👜", page: "brand-lanvin" },
+              { label: "Jil Sander 👜", page: "brand-jilsander" },
+              { label: "Goyard 👜", page: "brand-goyard" },
+              { label: "Delvaux 👜", page: "brand-delvaux" },
+              { label: "Judith Leiber 👜", page: "brand-judithlieber" },
+              { label: "Mark Cross 👜", page: "brand-markcross" },
+              { label: "Mulberry 👜", page: "brand-mulberry" },
+              { label: "Coach 👜", page: "brand-coach" },
+              { label: "Jacquemus 👜", page: "brand-jacquemus" },
+              { label: "Chrome Hearts 👜", page: "brand-chromhearts" },
+              { label: "Chopard 💎", page: "brand-chopard" },
+              { label: "Pomellato 💎", page: "brand-pomellato" },
+              { label: "Mikimoto 💎", page: "brand-mikimoto" }
+            ]
           },
           {
             id: "live",
@@ -992,7 +1797,56 @@ export default function App() {
             id: "brands",
             icon: "👜",
             label: "ブランド知識",
-            page: 1
+            children: [
+              { label: "ルイ・ヴィトン 👜💎", page: "brand-lv" },
+              { label: "シャネル 👜💎", page: "brand-chanel" },
+              { label: "エルメス 👜💎", page: "brand-hermes" },
+              { label: "グッチ 👜", page: "brand-gucci" },
+              { label: "プラダ 👜", page: "brand-prada" },
+              { label: "ディオール 👜💎", page: "brand-dior" },
+              { label: "カルティエ 💎", page: "brand-cartier" },
+              { label: "ブルガリ 💎", page: "brand-bulgari" },
+              { label: "ティファニー 💎", page: "brand-tiffany" },
+              { label: "ヴァンクリーフ＆アーペル 💎", page: "brand-vca" },
+              { label: "ボッテガ・ヴェネタ 👜", page: "brand-bottegaveneta" },
+              { label: "フェンディ 👜", page: "brand-fendi" },
+              { label: "セリーヌ 👜", page: "brand-celine" },
+              { label: "ロエベ 👜", page: "brand-loewe" },
+              { label: "バレンシアガ 👜", page: "brand-balenciaga" },
+              { label: "サンローラン 👜", page: "brand-saintlaurent" },
+              { label: "ジバンシィ 👜", page: "brand-givenchy" },
+              { label: "ヴァレンティノ 👜", page: "brand-valentino" },
+              { label: "バーバリー 👜", page: "brand-burberry" },
+              { label: "MCM 👜", page: "brand-mcm" },
+              { label: "アレキサンダー・マックイーン 👜", page: "brand-alexandermcqueen" },
+              { label: "ミュウミュウ 👜", page: "brand-miumiu" },
+              { label: "クロエ 👜", page: "brand-chloe" },
+              { label: "トム・フォード 👜", page: "brand-tomford" },
+              { label: "ドルチェ＆ガッバーナ 👜", page: "brand-dolcegabbana" },
+              { label: "ヴェルサーチ 👜", page: "brand-versace" },
+              { label: "ジミー・チュウ 👜", page: "brand-jimmychoo" },
+              { label: "クリスチャン・ルブタン 👜", page: "brand-christianlouboutin" },
+              { label: "オフ・ホワイト 👜", page: "brand-offwhite" },
+              { label: "マルニ 👜", page: "brand-marni" },
+              { label: "ザ・ロウ 👜", page: "brand-therow" },
+              { label: "ステラ・マッカートニー 👜", page: "brand-stellamccartney" },
+              { label: "プロエンザ・スクーラー 👜", page: "brand-proenzaschouler" },
+              { label: "バルマン 👜", page: "brand-balmain" },
+              { label: "アレキサンダー・ワン 👜", page: "brand-alexanderwang" },
+              { label: "ランバン 👜", page: "brand-lanvin" },
+              { label: "ジル・サンダー 👜", page: "brand-jilsander" },
+              { label: "ゴヤール 👜", page: "brand-goyard" },
+              { label: "デルヴォー 👜", page: "brand-delvaux" },
+              { label: "ジュディス・リーバー 👜", page: "brand-judithlieber" },
+              { label: "マーク・クロス 👜", page: "brand-markcross" },
+              { label: "マルベリー 👜", page: "brand-mulberry" },
+              { label: "コーチ 👜", page: "brand-coach" },
+              { label: "ジャックムス 👜", page: "brand-jacquemus" },
+              { label: "クロムハーツ 👜", page: "brand-chromhearts" },
+              { label: "ショパール 💎", page: "brand-chopard" },
+              { label: "ポメラート 💎", page: "brand-pomellato" },
+              { label: "ミキモト 💎", page: "brand-mikimoto" }
+            ]
           },
           {
             id: "live",
@@ -1494,7 +2348,7 @@ export default function App() {
             if (page === 0 || page === "0") return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
 
             // Brand Knowledge
-            if (page === 1 || pageStr.startsWith("brand-")) return <FashionP lang={lang} />;
+            if (page === 1 || pageStr.startsWith("brand-")) return <FashionP lang={lang} initialBrand={pageStr} />;
 
             // Live Selling - 6 Steps
             if (page === 2 || pageStr.startsWith("live-step")) return <LiveP lang={lang} />;
@@ -1509,7 +2363,10 @@ export default function App() {
             if (page === 6 || pageStr.startsWith("game-")) return <PracticeP lang={lang} onXpEarned={handleXpEarned} />;
 
             // AI Practice
-            if (pageStr.startsWith("ai-")) return <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>AI Practice features coming soon...</div>;
+            if (pageStr === "ai-simulator") return <AILiveStreamSimulator lang={lang} />;
+            if (pageStr === "ai-condition") return <AIConditionEvaluator lang={lang} />;
+            if (pageStr === "ai-conversation") return <AIConversationPartner lang={lang} />;
+            if (pageStr === "ai-translator") return <AIPhraseTranslator lang={lang} />;
 
             // Progress
             if (pageStr.startsWith("progress-")) return <div style={{padding:40,textAlign:"center",color:"#6B7280"}}>Progress pages coming soon...</div>;
@@ -2253,13 +3110,38 @@ function HomeP({ lang, setPage, playerData }) {
 }
 
 /* ═══ FASHION ═══ */
-function FashionP({ lang }) {
-  const [selBrand, setSelBrand] = useState(null);
+function FashionP({ lang, initialBrand }) {
+  // Map page IDs to brand keys
+  const brandMap = {
+    "brand-lv": "lv",
+    "brand-chanel": "chanel",
+    "brand-hermes": "hermes",
+    "brand-gucci": "gucci",
+    "brand-prada": "prada",
+    "brand-dior": "dior",
+    "brand-cartier": "cartier",
+    "brand-bulgari": "bulgari",
+    "brand-tiffany": "tiffany",
+    "brand-vca": "vca"
+  };
+
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand && brandMap[initialBrand] ? brandMap[initialBrand] : "lv");
+  const [selectedSubTab, setSelectedSubTab] = useState("models");
   const [selModel, setSelModel] = useState(null);
 
+  const brandKeys = Object.keys(BRAND_DATA);
+  const brand = BRAND_DATA[selectedBrand];
+
+  // Sub-tabs for each brand
+  const subTabs = [
+    { id: "models", icon: "👜", label: lang==="en"?"Models":"モデル" },
+    { id: "auth", icon: "✓", label: lang==="en"?"Authentication":"真贋確認" },
+    { id: "colors", icon: "🎨", label: lang==="en"?"Colors":"カラー" },
+    { id: "tips", icon: "💡", label: lang==="en"?"Tips":"販売テクニック" }
+  ];
+
   // Model detail view
-  if (selBrand !== null && selModel !== null) {
-    const brand = BRAND_DATA[selBrand];
+  if (selModel !== null) {
     const model = brand.models[selModel];
     return (
       <div style={{ animation:"fu 0.3s ease" }}>
@@ -2328,7 +3210,7 @@ function FashionP({ lang }) {
           </h2>
 
           {/* Brand Image Gallery */}
-          <BrandImageGallery brandKey={selBrand} modelName={model.name} showShapes={true} />
+          <BrandImageGallery brandKey={selectedBrand} modelName={model.name} showShapes={true} />
 
           {/* 360 Degree Viewer */}
           <Product360Viewer
@@ -2349,69 +3231,185 @@ function FashionP({ lang }) {
     );
   }
 
-  // Brand model list view
-  if (selBrand !== null) {
-    const brand = BRAND_DATA[selBrand];
-    return (
-      <div style={{ animation:"fu 0.3s ease" }}>
-        <button onClick={()=>setSelBrand(null)} style={{background:"#f3f4f6",border:"none",padding:"10px 20px",borderRadius:10,cursor:"pointer",fontSize:15,fontWeight:600,color:"#4b5563",marginBottom:24}}>
-          ← {lang==="en"?"Back to Brands":"ブランド一覧に戻る"}
+  // Brand navigation helpers
+  const currentBrandIndex = brandKeys.indexOf(selectedBrand);
+  const prevBrand = currentBrandIndex > 0 ? brandKeys[currentBrandIndex - 1] : null;
+  const nextBrand = currentBrandIndex < brandKeys.length - 1 ? brandKeys[currentBrandIndex + 1] : null;
+
+  return (
+    <div style={{ animation:"fu 0.4s ease" }}>
+      {/* Brand Navigation Header */}
+      <div style={{ marginBottom:24, display:"flex", alignItems:"center", justifyContent:"space-between", gap:16 }}>
+        <button
+          onClick={() => prevBrand && setSelectedBrand(prevBrand)}
+          disabled={!prevBrand}
+          style={{
+            background: prevBrand ? "#FFFFFF" : "#F3F4F6",
+            border: "2px solid #E5E7EB",
+            borderRadius:10,
+            padding:"10px 16px",
+            cursor: prevBrand ? "pointer" : "not-allowed",
+            fontSize:14,
+            fontWeight:600,
+            color: prevBrand ? "#191919" : "#9CA3AF",
+            transition:"all 0.2s",
+            fontFamily:"inherit",
+            opacity: prevBrand ? 1 : 0.5
+          }}
+          onMouseEnter={e => prevBrand && (e.currentTarget.style.borderColor="#3665F3")}
+          onMouseLeave={e => prevBrand && (e.currentTarget.style.borderColor="#E5E7EB")}
+        >
+          ← {lang==="en"?"Previous":"前へ"}
         </button>
 
-        <div style={{ marginBottom:32 }}>
-          <div style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:4 }}>{brand.name}</div>
-          <div style={{ fontSize:16, color:"#6b7280" }}>Founded {brand.year}, {brand.country}</div>
-        </div>
-
-        {/* Auth Info */}
-        <div style={{ marginBottom:32, background:"#ECFDF5", padding:"20px", borderRadius:12, borderLeft:"4px solid #86B817" }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#86B817", marginBottom:8 }}>
-            ✓ {lang==="en"?"AUTHENTICATION":"真贋確認"}
+        <div style={{ flex:1, display:"flex", alignItems:"center", gap:16 }}>
+          {brand.imageUrl && (
+            <img src={brand.imageUrl} alt={brand.name} style={{ height:50, objectFit:"contain" }} />
+          )}
+          <div>
+            <div style={{ fontSize:24, fontWeight:800, color:"#1a1a2e", display:"flex", alignItems:"center", gap:8 }}>
+              {brand.name}
+              <span style={{ fontSize:20 }}>
+                {brand.categories.includes("handbags") && "👜"}
+                {brand.categories.includes("jewelry") && "💎"}
+              </span>
+            </div>
+            <div style={{ fontSize:13, color:"#6b7280" }}>
+              Founded {brand.year}, {brand.country}
+              {" • "}
+              {brand.categories.map(cat => cat === "handbags" ? (lang==="en"?"Handbags":"ハンドバッグ") : (lang==="en"?"Jewelry":"ジュエリー")).join(" & ")}
+            </div>
           </div>
-          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0 }}>
-            {lang==="en"?brand.auth:brand.authJp}
-          </p>
         </div>
 
-        {/* Models */}
-        <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
-          {lang==="en"?"Classic Models":"クラシックモデル"}
-        </div>
-        <div style={{ display:"grid", gap:12 }}>
-          {brand.models.map((m,i)=>(
-            <button key={i} onClick={()=>setSelModel(i)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", cursor:"pointer", textAlign:"left", transition:"all 0.2s", fontFamily:"inherit" }}
-              onMouseEnter={e=>e.target.style.borderColor="#3665F3"}
-              onMouseLeave={e=>e.target.style.borderColor="#E5E7EB"}>
-              <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{m.name}</div>
-              <div style={{ fontSize:14, color:"#4B5563" }}>{lang==="en"?m.brief:m.briefJp}</div>
+        <button
+          onClick={() => nextBrand && setSelectedBrand(nextBrand)}
+          disabled={!nextBrand}
+          style={{
+            background: nextBrand ? "#FFFFFF" : "#F3F4F6",
+            border: "2px solid #E5E7EB",
+            borderRadius:10,
+            padding:"10px 16px",
+            cursor: nextBrand ? "pointer" : "not-allowed",
+            fontSize:14,
+            fontWeight:600,
+            color: nextBrand ? "#191919" : "#9CA3AF",
+            transition:"all 0.2s",
+            fontFamily:"inherit",
+            opacity: nextBrand ? 1 : 0.5
+          }}
+          onMouseEnter={e => nextBrand && (e.currentTarget.style.borderColor="#3665F3")}
+          onMouseLeave={e => nextBrand && (e.currentTarget.style.borderColor="#E5E7EB")}
+        >
+          {lang==="en"?"Next":"次へ"} →
+        </button>
+      </div>
+
+      {/* Sub-Tabs */}
+      <div style={{
+        display:"flex",
+        gap:8,
+        marginBottom:24,
+        borderBottom:"2px solid #E5E7EB",
+        paddingBottom:8
+      }}>
+        {subTabs.map((tab) => {
+          const isActive = selectedSubTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => { setSelectedSubTab(tab.id); setSelModel(null); }}
+              style={{
+                background: isActive ? "#EFF6FF" : "transparent",
+                color: isActive ? "#3665F3" : "#6B7280",
+                border: "none",
+                borderBottom: isActive ? "3px solid #3665F3" : "3px solid transparent",
+                padding:"12px 20px",
+                cursor:"pointer",
+                fontSize:15,
+                fontWeight: isActive ? 700 : 600,
+                transition:"all 0.2s",
+                fontFamily:"inherit"
+              }}
+            >
+              <span style={{ marginRight:6 }}>{tab.icon}</span>
+              {tab.label}
             </button>
-          ))}
-        </div>
+          );
+        })}
+      </div>
 
-        {/* Signature Colors */}
-        {brand.colors && brand.colors.length > 0 && (
-          <div style={{ marginTop:32 }}>
+      {/* Content Area */}
+      <div>
+        {/* Models Tab */}
+        {selectedSubTab === "models" && (
+          <div style={{ animation:"fu 0.3s ease" }}>
+            <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
+              {lang==="en"?"Classic Models":"クラシックモデル"}
+            </div>
+            <div style={{ display:"grid", gap:12 }}>
+              {brand.models.map((m,i)=>(
+                <button key={i} onClick={()=>setSelModel(i)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", cursor:"pointer", textAlign:"left", transition:"all 0.2s", fontFamily:"inherit" }}
+                  onMouseEnter={e=>{e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.transform="translateY(-2px)";}}
+                  onMouseLeave={e=>{e.currentTarget.style.borderColor="#E5E7EB"; e.currentTarget.style.transform="translateY(0)";}}>
+                  <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{m.name}</div>
+                  <div style={{ fontSize:14, color:"#4B5563" }}>{lang==="en"?m.brief:m.briefJp}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Authentication Tab */}
+        {selectedSubTab === "auth" && (
+          <div style={{ animation:"fu 0.3s ease" }}>
+            <div style={{ marginBottom:32, background:"#ECFDF5", padding:"24px", borderRadius:12, borderLeft:"4px solid #86B817" }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#86B817", marginBottom:12 }}>
+                ✓ {lang==="en"?"AUTHENTICATION MARKERS":"真贋確認ポイント"}
+              </div>
+              <p style={{ fontSize:16, color:"#191919", lineHeight:1.8, margin:0 }}>
+                {lang==="en"?brand.auth:brand.authJp}
+              </p>
+            </div>
+
+            <div style={{ background:"#FEF3C7", padding:"24px", borderRadius:12, borderLeft:"4px solid #F5AF02" }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#F5AF02", marginBottom:12 }}>
+                ⭐ {lang==="en"?"RARE & DISCONTINUED":"レア・廃盤情報"}
+              </div>
+              <p style={{ fontSize:16, color:"#191919", lineHeight:1.8, margin:0 }}>
+                {lang==="en"?brand.rare:brand.rareJp}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Colors Tab */}
+        {selectedSubTab === "colors" && brand.colors && brand.colors.length > 0 && (
+          <div style={{ animation:"fu 0.3s ease" }}>
             <div style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16 }}>
               🎨 {lang==="en"?"Signature Colors":"シグネチャーカラー"}
             </div>
-            <div style={{ display:"grid", gap:12 }}>
+            <div style={{ display:"grid", gap:16 }}>
               {brand.colors.map((color,i)=>(
-                <div key={i} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", display:"flex", alignItems:"center", gap:16 }}>
+                <div key={i} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"20px 24px", display:"flex", alignItems:"center", gap:20 }}>
                   <div style={{
-                    width:48,
-                    height:48,
-                    borderRadius:8,
+                    width:64,
+                    height:64,
+                    borderRadius:12,
                     background:color.hex,
-                    border:"2px solid #E5E7EB",
-                    boxShadow:"0 2px 4px rgba(0,0,0,0.1)",
+                    border:"3px solid #FFFFFF",
+                    boxShadow:"0 4px 12px rgba(0,0,0,0.15)",
                     flexShrink:0
                   }} title={color.hex}></div>
                   <div style={{ flex:1 }}>
-                    <div style={{ fontSize:16, fontWeight:700, color:"#191919", marginBottom:4 }}>
-                      {color.name} {lang==="jp" && `(${color.nameJp})`}
+                    <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:6 }}>
+                      {color.name}
                     </div>
-                    <div style={{ fontSize:14, color:"#6B7280", lineHeight:1.6 }}>
-                      {lang==="en"?color.desc:color.descJp}
+                    <div style={{ fontSize:14, color:"#6B7280", marginBottom:4 }}>
+                      {lang==="jp" && color.nameJp}
+                    </div>
+                    <div style={{ fontSize:15, color:"#191919", lineHeight:1.6, fontStyle:"italic" }}>
+                      "{lang==="en"?color.desc:color.descJp}"
                     </div>
                   </div>
                 </div>
@@ -2420,64 +3418,28 @@ function FashionP({ lang }) {
           </div>
         )}
 
-        {/* Rare Items */}
-        <div style={{ marginTop:32, background:"#FEF3C7", padding:"20px", borderRadius:12, borderLeft:"4px solid #F5AF02" }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#F5AF02", marginBottom:8 }}>
-            ⭐ {lang==="en"?"RARE & DISCONTINUED":"レア・廃盤"}
-          </div>
-          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0 }}>
-            {lang==="en"?brand.rare:brand.rareJp}
-          </p>
-        </div>
-
-        {/* Selling Tip */}
-        <div style={{ marginTop:24, background:"#EFF6FF", padding:"20px", borderRadius:12, borderLeft:"4px solid #3665F3" }}>
-          <div style={{ fontSize:14, fontWeight:700, color:"#3665F3", marginBottom:8 }}>
-            💡 {lang==="en"?"PRO SELLING TIP":"プロの販売テクニック"}
-          </div>
-          <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0, fontStyle:"italic" }}>
-            "{lang==="en"?brand.tip:brand.tipJp}"
-          </p>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div style={{ animation:"fu 0.4s ease" }}>
-      <div style={{ marginBottom:32 }}>
-        <h1 style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:8 }}>
-          {lang==="en"?"Luxury Brand Knowledge":"高級ブランド知識"}
-        </h1>
-        <p style={{ fontSize:16, color:"#6b7280", lineHeight:1.6 }}>
-          {lang==="en"
-            ?"eBay Authenticity Guarantee brands. Learn value points, rarity factors, and condition assessment for B2B reseller buyers."
-            :"eBay認証保証ブランド。B2Bリセラーバイヤー向けの価値ポイント、希少性要因、状態評価を学習。"}
-        </p>
-      </div>
-
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(320px, 1fr))", gap:20 }}>
-        {Object.keys(BRAND_DATA).map((key)=>{
-          const b = BRAND_DATA[key];
-          return (
-            <button key={key} onClick={()=>setSelBrand(key)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"24px", cursor:"pointer", transition:"all 0.2s", textAlign:"left", fontFamily:"inherit", width:"100%" }}
-              onMouseEnter={e => {e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.boxShadow="0 8px 16px rgba(54,101,243,0.15)"}}
-              onMouseLeave={e => {e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.borderColor="#E5E7EB"; e.currentTarget.style.boxShadow="none"}}>
-              {b.imageUrl && (
-                <div style={{ marginBottom:16, display:"flex", justifyContent:"center", alignItems:"center", height:60 }}>
-                  <img src={b.imageUrl} alt={b.name} style={{ maxHeight:"100%", maxWidth:"100%", objectFit:"contain" }} />
-                </div>
-              )}
-              <div style={{ fontSize:24, fontWeight:700, color:"#191919", marginBottom:6 }}>{b.name}</div>
-              <div style={{ fontSize:14, color:"#6b7280", marginBottom:16, fontWeight:400 }}>Founded {b.year}, {b.country}</div>
-              <div style={{ fontSize:14, color:"#4B5563", marginBottom:12, fontWeight:400 }}>
-                <strong style={{ fontWeight:700 }}>{lang==="en"?"Models":"モデル"}:</strong> {b.models.length} {lang==="en"?"classic models":"クラシックモデル"}
+        {/* Tips Tab */}
+        {selectedSubTab === "tips" && (
+          <div style={{ animation:"fu 0.3s ease" }}>
+            <div style={{ background:"#EFF6FF", padding:"24px", borderRadius:12, borderLeft:"4px solid #3665F3", marginBottom:24 }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#3665F3", marginBottom:12 }}>
+                💡 {lang==="en"?"PRO SELLING TIP":"プロの販売テクニック"}
               </div>
-              <div style={{ fontSize:14, color:"#3665F3", fontWeight:700 }}>
-                {lang==="en"?"Explore Models →":"モデルを見る →"}
+              <p style={{ fontSize:16, color:"#191919", lineHeight:1.8, margin:0, fontStyle:"italic" }}>
+                "{lang==="en"?brand.tip:brand.tipJp}"
+              </p>
+            </div>
+
+            <div style={{ background:"#FEF3C7", padding:"24px", borderRadius:12, borderLeft:"4px solid #F5AF02" }}>
+              <div style={{ fontSize:18, fontWeight:700, color:"#F5AF02", marginBottom:12 }}>
+                ⭐ {lang==="en"?"WHAT TO HIGHLIGHT":"強調すべきポイント"}
               </div>
-            </button>
-          );
-        })}
+              <p style={{ fontSize:16, color:"#191919", lineHeight:1.8, margin:0 }}>
+                {lang==="en"?brand.rare:brand.rareJp}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -2864,6 +3826,11 @@ function EnglishP({ lang }) {
           )}
         </div>
       ))}
+
+      {/* Comprehensive Condition Vocabulary */}
+      <div style={{ marginTop:48 }}>
+        <ConditionVocabularyViewer lang={lang} />
+      </div>
 
       {/* Condition Training Section */}
       <div style={{ marginTop:48 }}>
@@ -5836,1236 +6803,6 @@ function DragDropMatching({ lang, onComplete }) {
   }
 }
 
-/* ═══ AI LIVE STREAM SIMULATOR ═══ */
-function AILiveStreamSimulator({ lang, onComplete }) {
-  const [gameState, setGameState] = useState("setup"); // setup, streaming, results
-  const [currentItem, setCurrentItem] = useState(null);
-  const [messages, setMessages] = useState([]);
-  const [inputText, setInputText] = useState("");
-  const [isAITyping, setIsAITyping] = useState(false);
-  const [score, setScore] = useState(0);
-  const [buyerInterest, setBuyerInterest] = useState(50); // 0-100
-  const messagesEndRef = useRef(null);
-
-  const liveItems = {
-    en: [
-      { name: "Louis Vuitton Speedy 30", condition: "Very Good", issues: ["Corner wear", "Light patina"], price: "$400", image: "👜" },
-      { name: "Chanel Classic Flap", condition: "Excellent", issues: ["Minor hardware scratches"], price: "$3,500", image: "👛" },
-      { name: "Hermès Birkin 35", condition: "Excellent", issues: ["Pristine"], price: "$8,000", image: "💼" },
-    ],
-    jp: [
-      { name: "ルイ・ヴィトン スピーディ30", condition: "Very Good", issues: ["角スレ", "軽いパティーナ"], price: "$400", image: "👜" },
-      { name: "シャネル クラシックフラップ", condition: "Excellent", issues: ["金具に軽い傷"], price: "$3,500", image: "👛" },
-      { name: "エルメス バーキン35", condition: "Excellent", issues: ["美品"], price: "$8,000", image: "💼" },
-    ]
-  };
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  const startSimulation = () => {
-    if (!isAPIConfigured()) {
-      alert(lang === "en"
-        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
-        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
-      return;
-    }
-
-    const items = liveItems[lang];
-    const randomItem = items[Math.floor(Math.random() * items.length)];
-    setCurrentItem(randomItem);
-    setMessages([
-      {
-        role: "system",
-        content: lang === "en"
-          ? `🎥 Stream started! You're selling: ${randomItem.name}. Welcome buyers and start describing the item!`
-          : `🎥 配信開始！販売中: ${randomItem.name}。バイヤーを歓迎してアイテムの説明を始めましょう！`,
-        timestamp: new Date().toLocaleTimeString()
-      }
-    ]);
-    setBuyerInterest(50);
-    setScore(0);
-    setGameState("streaming");
-
-    // AI sends first buyer message after 2 seconds
-    setTimeout(() => {
-      sendAIBuyerMessage(randomItem, []);
-    }, 2000);
-  };
-
-  const sendAIBuyerMessage = async (item, conversationHistory) => {
-    setIsAITyping(true);
-
-    const context = {
-      messages: [
-        {
-          role: "user",
-          content: `You are a buyer in an eBay Live stream. The seller is showing: ${item.name} (${item.condition} condition).
-
-Issues visible: ${item.issues.join(", ")}
-Price: ${item.price}
-
-Conversation so far:
-${conversationHistory.map(m => `${m.role}: ${m.content}`).join("\n")}
-
-Send a SHORT buyer message (1-2 sentences). Ask about condition, price, authenticity, or show interest if seller answered well.`
-        }
-      ]
-    };
-
-    try {
-      let aiMessage = "";
-      await simulateLiveStreamBuyer(context, (chunk) => {
-        aiMessage += chunk;
-      });
-
-      setIsAITyping(false);
-
-      const newMessage = {
-        role: "buyer",
-        name: ["luxury_hunter", "chanel_collector", "resale_pro", "bagaholic"][Math.floor(Math.random() * 4)],
-        content: aiMessage,
-        timestamp: new Date().toLocaleTimeString()
-      };
-
-      setMessages(prev => [...prev, newMessage]);
-
-      // Update buyer interest based on message sentiment
-      if (aiMessage.toLowerCase().includes("sold") || aiMessage.toLowerCase().includes("love")) {
-        setBuyerInterest(prev => Math.min(100, prev + 15));
-        setScore(prev => prev + 20);
-      }
-
-    } catch (error) {
-      setIsAITyping(false);
-      console.error("AI buyer error:", error);
-      setMessages(prev => [...prev, {
-        role: "system",
-        content: "⚠️ " + (lang === "en" ? "AI buyer disconnected" : "AIバイヤー切断"),
-        timestamp: new Date().toLocaleTimeString()
-      }]);
-    }
-  };
-
-  const handleSendMessage = async () => {
-    if (!inputText.trim() || isAITyping) return;
-
-    const newMessage = {
-      role: "seller",
-      content: inputText,
-      timestamp: new Date().toLocaleTimeString()
-    };
-
-    setMessages(prev => [...prev, newMessage]);
-    setInputText("");
-
-    // Evaluate seller's message
-    const lowerMessage = inputText.toLowerCase();
-    if (lowerMessage.includes("corner") || lowerMessage.includes("patina") || lowerMessage.includes("scratch")) {
-      setBuyerInterest(prev => Math.min(100, prev + 10));
-      setScore(prev => prev + 10);
-    }
-
-    // AI responds after short delay
-    setTimeout(() => {
-      sendAIBuyerMessage(currentItem, [...messages, newMessage]);
-    }, 1500);
-  };
-
-  const handleEndStream = () => {
-    setGameState("results");
-    if (onComplete) onComplete(score);
-  };
-
-  if (!isAPIConfigured() && gameState === "setup") {
-    return (
-      <div style={{ background:"#FEF2F2", borderRadius:16, padding:32, border:"2px solid #E53238" }}>
-        <div style={{ fontSize:48, marginBottom:16, textAlign:"center" }}>⚠️</div>
-        <h3 style={{ fontSize:20, fontWeight:700, color:"#E53238", marginBottom:12, textAlign:"center" }}>
-          {lang === "en" ? "API Key Required" : "APIキーが必要"}
-        </h3>
-        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, textAlign:"center", marginBottom:16 }}>
-          {lang === "en"
-            ? "This AI feature requires an Anthropic API key. Please add VITE_ANTHROPIC_API_KEY to your .env file."
-            : "このAI機能にはAnthropic APIキーが必要です。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。"}
-        </p>
-        <div style={{ background:"#FFFFFF", borderRadius:8, padding:16, fontSize:14, fontFamily:"monospace", color:"#191919" }}>
-          VITE_ANTHROPIC_API_KEY=sk-ant-...
-        </div>
-      </div>
-    );
-  }
-
-  if (gameState === "setup") {
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
-        <div style={{ fontSize:48, marginBottom:16 }}>🎥</div>
-        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
-          {lang === "en" ? "AI Live Stream Simulator" : "AIライブ配信シミュレーター"}
-        </h2>
-        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
-          {lang === "en"
-            ? "Practice a REAL live stream! AI simulates actual buyers asking questions. Describe the item, answer questions, and make the sale. This is as close to the real thing as it gets!"
-            : "リアルなライブ配信を練習！AIが実際のバイヤーを模擬して質問します。アイテムを説明し、質問に答え、販売しましょう。本物に最も近い体験！"}
-        </p>
-        <div style={{
-          background:"#F7F7F7",
-          borderRadius:12,
-          padding:20,
-          marginBottom:24,
-          maxWidth:450,
-          margin:"0 auto 24px"
-        }}>
-          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:12, fontWeight:600 }}>
-            {lang === "en" ? "You'll Practice:" : "練習内容："}
-          </div>
-          <div style={{ fontSize:14, color:"#191919", lineHeight:1.8, textAlign:"left" }}>
-            ✓ {lang === "en" ? "Greeting buyers naturally" : "バイヤーへの自然な挨拶"}<br />
-            ✓ {lang === "en" ? "Describing condition accurately" : "状態の正確な説明"}<br />
-            ✓ {lang === "en" ? "Answering tough questions" : "難しい質問への回答"}<br />
-            ✓ {lang === "en" ? "Building buyer confidence" : "バイヤーの信頼構築"}<br />
-            ✓ {lang === "en" ? "Closing the sale" : "販売のクロージング"}
-          </div>
-        </div>
-        <button
-          onClick={startSimulation}
-          style={{
-            background:"#E53238",
-            color:"#FFFFFF",
-            border:"none",
-            borderRadius:12,
-            padding:"16px 48px",
-            fontSize:20,
-            fontWeight:700,
-            cursor:"pointer",
-            transition:"all 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
-          onMouseLeave={e => e.target.style.transform = "scale(1)"}
-        >
-          {lang === "en" ? "🔴 Go Live!" : "🔴 配信開始！"}
-        </button>
-      </div>
-    );
-  }
-
-  if (gameState === "streaming") {
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:24, border:"2px solid #E5E7EB", animation:"fu 0.4s ease", maxWidth:800, margin:"0 auto" }}>
-        {/* Header */}
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:16, paddingBottom:16, borderBottom:"2px solid #E5E7EB" }}>
-          <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-            <div style={{
-              width:12,
-              height:12,
-              borderRadius:"50%",
-              background:"#E53238",
-              animation:"pulse 1s infinite"
-            }}></div>
-            <span style={{ fontSize:16, fontWeight:700, color:"#191919" }}>
-              {lang === "en" ? "🔴 LIVE" : "🔴 配信中"}
-            </span>
-          </div>
-          <div style={{ display:"flex", gap:16, alignItems:"center" }}>
-            <div style={{ fontSize:14, color:"#9CA3AF" }}>
-              {lang === "en" ? "Interest:" : "興味度:"} <span style={{ color: buyerInterest > 70 ? "#86B817" : buyerInterest > 40 ? "#F5AF02" : "#E53238", fontWeight:700 }}>{buyerInterest}%</span>
-            </div>
-            <div style={{ fontSize:14, color:"#9CA3AF" }}>
-              {lang === "en" ? "Score:" : "スコア:"} <span style={{ color:"#3665F3", fontWeight:700 }}>{score}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Item Display */}
-        {currentItem && (
-          <div style={{
-            background:"#F7F7F7",
-            borderRadius:12,
-            padding:16,
-            marginBottom:16,
-            display:"flex",
-            alignItems:"center",
-            gap:16
-          }}>
-            <div style={{ fontSize:48 }}>{currentItem.image}</div>
-            <div style={{ flex:1 }}>
-              <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>
-                {currentItem.name}
-              </div>
-              <div style={{ fontSize:14, color:"#9CA3AF" }}>
-                {currentItem.condition} • {currentItem.price}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Chat Messages */}
-        <div style={{
-          background:"#F7F7F7",
-          borderRadius:12,
-          padding:16,
-          height:350,
-          overflowY:"auto",
-          marginBottom:16
-        }}>
-          {messages.map((msg, i) => (
-            <div key={i} style={{
-              marginBottom:12,
-              display:"flex",
-              flexDirection:"column",
-              alignItems: msg.role === "seller" ? "flex-end" : "flex-start"
-            }}>
-              {msg.role === "system" ? (
-                <div style={{
-                  background:"#EFF6FF",
-                  border:"1px solid #3665F3",
-                  borderRadius:8,
-                  padding:"8px 12px",
-                  fontSize:14,
-                  color:"#3665F3",
-                  fontStyle:"italic",
-                  maxWidth:"90%",
-                  textAlign:"center",
-                  margin:"0 auto"
-                }}>
-                  {msg.content}
-                </div>
-              ) : (
-                <div style={{
-                  maxWidth:"75%",
-                  display:"flex",
-                  flexDirection:"column",
-                  alignItems: msg.role === "seller" ? "flex-end" : "flex-start"
-                }}>
-                  {msg.name && (
-                    <div style={{ fontSize:12, color:"#9CA3AF", marginBottom:4, fontWeight:600 }}>
-                      {msg.name}
-                    </div>
-                  )}
-                  <div style={{
-                    background: msg.role === "seller" ? "#3665F3" : "#FFFFFF",
-                    color: msg.role === "seller" ? "#FFFFFF" : "#191919",
-                    borderRadius:12,
-                    padding:"10px 14px",
-                    fontSize:15,
-                    lineHeight:1.5,
-                    border: msg.role === "buyer" ? "1px solid #E5E7EB" : "none"
-                  }}>
-                    {msg.content}
-                  </div>
-                  <div style={{ fontSize:11, color:"#9CA3AF", marginTop:4 }}>
-                    {msg.timestamp}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-          {isAITyping && (
-            <div style={{
-              background:"#FFFFFF",
-              border:"1px solid #E5E7EB",
-              borderRadius:12,
-              padding:"10px 14px",
-              fontSize:15,
-              maxWidth:"75%",
-              color:"#9CA3AF",
-              fontStyle:"italic"
-            }}>
-              {lang === "en" ? "Buyer is typing..." : "バイヤーが入力中..."}
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Input */}
-        <div style={{ display:"flex", gap:12, marginBottom:12 }}>
-          <input
-            type="text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-            placeholder={lang === "en" ? "Type your message to buyers..." : "バイヤーへのメッセージを入力..."}
-            disabled={isAITyping}
-            style={{
-              flex:1,
-              padding:"12px 16px",
-              borderRadius:12,
-              border:"2px solid #E5E7EB",
-              fontSize:15,
-              outline:"none",
-              fontFamily:"inherit"
-            }}
-          />
-          <button
-            onClick={handleSendMessage}
-            disabled={!inputText.trim() || isAITyping}
-            style={{
-              background: !inputText.trim() || isAITyping ? "#E5E7EB" : "#3665F3",
-              color:"#FFFFFF",
-              border:"none",
-              borderRadius:12,
-              padding:"12px 24px",
-              fontSize:16,
-              fontWeight:700,
-              cursor: !inputText.trim() || isAITyping ? "not-allowed" : "pointer",
-              transition:"all 0.2s"
-            }}
-          >
-            {lang === "en" ? "Send" : "送信"}
-          </button>
-        </div>
-
-        <button
-          onClick={handleEndStream}
-          style={{
-            width:"100%",
-            background:"#F7F7F7",
-            color:"#E53238",
-            border:"2px solid #E53238",
-            borderRadius:12,
-            padding:"12px",
-            fontSize:16,
-            fontWeight:700,
-            cursor:"pointer",
-            transition:"all 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.background = "#FEF2F2"}
-          onMouseLeave={e => e.target.style.background = "#F7F7F7"}
-        >
-          {lang === "en" ? "⏹️ End Stream" : "⏹️ 配信終了"}
-        </button>
-      </div>
-    );
-  }
-
-  if (gameState === "results") {
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
-        <div style={{ fontSize:64, marginBottom:16 }}>
-          {buyerInterest >= 70 ? "🎉" : buyerInterest >= 40 ? "💪" : "📚"}
-        </div>
-        <h2 style={{ fontSize:32, fontWeight:700, color:"#191919", marginBottom:8 }}>
-          {lang === "en" ? "Stream Ended!" : "配信終了！"}
-        </h2>
-
-        <div style={{
-          background:"linear-gradient(135deg, #E53238 0%, #F5AF02 100%)",
-          borderRadius:12,
-          padding:24,
-          marginBottom:24,
-          color:"#FFFFFF"
-        }}>
-          <div style={{ fontSize:16, marginBottom:8, opacity:0.9 }}>
-            {lang === "en" ? "Final Score" : "最終スコア"}
-          </div>
-          <div style={{ fontSize:48, fontWeight:700 }}>{score}</div>
-          <div style={{ fontSize:14, marginTop:8, opacity:0.8 }}>
-            {lang === "en" ? "Buyer Interest:" : "バイヤー興味度:"} {buyerInterest}%
-          </div>
-        </div>
-
-        <div style={{
-          background: buyerInterest >= 70 ? "#ECFDF5" : buyerInterest >= 40 ? "#EFF6FF" : "#FEF3C7",
-          padding:"16px 24px",
-          borderRadius:12,
-          marginBottom:24,
-          border:`2px solid ${buyerInterest >= 70 ? "#86B817" : buyerInterest >= 40 ? "#3665F3" : "#F5AF02"}`
-        }}>
-          <p style={{ fontSize:16, color:"#191919", fontWeight:600, margin:0 }}>
-            {buyerInterest >= 70
-              ? (lang === "en" ? "🌟 Excellent! Buyers were engaged and interested!" : "🌟 素晴らしい！バイヤーは関心を持ちました！")
-              : buyerInterest >= 40
-              ? (lang === "en" ? "💪 Good work! Keep practicing detailed descriptions!" : "💪 よくできました！詳細な説明を練習し続けて！")
-              : (lang === "en" ? "📚 Keep practicing! Focus on being specific about condition!" : "📚 練習を続けよう！状態の具体的な説明に集中！")}
-          </p>
-        </div>
-
-        <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
-          <button
-            onClick={startSimulation}
-            style={{
-              background:"#E53238",
-              color:"#FFFFFF",
-              border:"none",
-              borderRadius:12,
-              padding:"16px 32px",
-              fontSize:18,
-              fontWeight:700,
-              cursor:"pointer",
-              transition:"all 0.2s"
-            }}
-            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
-            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
-          >
-            {lang === "en" ? "🔄 Stream Again" : "🔄 もう一度配信"}
-          </button>
-          <button
-            onClick={() => setGameState("setup")}
-            style={{
-              background:"#F7F7F7",
-              color:"#191919",
-              border:"2px solid #E5E7EB",
-              borderRadius:12,
-              padding:"16px 32px",
-              fontSize:18,
-              fontWeight:700,
-              cursor:"pointer",
-              transition:"all 0.2s"
-            }}
-            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
-            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
-          >
-            {lang === "en" ? "← Back" : "← 戻る"}
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
-
-/* ═══ AI CONDITION DESCRIBER ═══ */
-function AIConditionDescriber({ lang, onComplete }) {
-  const [gameState, setGameState] = useState("ready");
-  const [currentItem, setCurrentItem] = useState(null);
-  const [userDescription, setUserDescription] = useState("");
-  const [evaluation, setEvaluation] = useState(null);
-  const [isEvaluating, setIsEvaluating] = useState(false);
-
-  const practiceItems = {
-    en: [
-      {
-        item: "Louis Vuitton Speedy 30",
-        image: "👜",
-        issues: ["Corner wear on all four corners", "Light patina on handles", "Interior clean", "Hardware shows minor tarnish"],
-        correctCondition: "Very Good"
-      },
-      {
-        item: "Chanel Classic Flap",
-        image: "👛",
-        issues: ["Quilting intact", "Chain shows light scratches", "Turnlock slightly loose", "Minor scuffing on back"],
-        correctCondition: "Good"
-      },
-      {
-        item: "Hermès Birkin 35",
-        image: "💼",
-        issues: ["Pristine clemence leather", "Hardware unscratched", "Sangles never used", "Includes clochette, lock, keys"],
-        correctCondition: "Excellent"
-      }
-    ],
-    jp: [
-      {
-        item: "ルイ・ヴィトン スピーディ30",
-        image: "👜",
-        issues: ["4つ角すべてにスレ", "ハンドルに軽いパティーナ", "内側きれい", "金具に軽い変色"],
-        correctCondition: "Very Good"
-      },
-      {
-        item: "シャネル クラシックフラップ",
-        image: "👛",
-        issues: ["キルティング正常", "チェーンに軽い傷", "ターンロック少し緩い", "背面に軽いスレ"],
-        correctCondition: "Good"
-      },
-      {
-        item: "エルメス バーキン35",
-        image: "💼",
-        issues: ["美品クレマンスレザー", "金具無傷", "サングル未使用", "クロシェット・鍵付き"],
-        correctCondition: "Excellent"
-      }
-    ]
-  };
-
-  const startPractice = () => {
-    if (!isAPIConfigured()) {
-      alert(lang === "en"
-        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
-        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
-      return;
-    }
-
-    const items = practiceItems[lang];
-    const randomItem = items[Math.floor(Math.random() * items.length)];
-    setCurrentItem(randomItem);
-    setUserDescription("");
-    setEvaluation(null);
-    setGameState("describing");
-  };
-
-  const handleEvaluate = async () => {
-    if (!userDescription.trim()) return;
-
-    setIsEvaluating(true);
-
-    try {
-      const result = await evaluateConditionDescription(currentItem, userDescription);
-      setEvaluation(result);
-      setGameState("results");
-
-      // Award XP based on score
-      const xp = result.score === "Excellent" ? 50 : result.score === "Good" ? 30 : 15;
-      if (onComplete) onComplete(xp);
-
-    } catch (error) {
-      console.error("Evaluation error:", error);
-      alert(lang === "en"
-        ? "AI evaluation failed. Please try again."
-        : "AI評価に失敗しました。もう一度お試しください。");
-    } finally {
-      setIsEvaluating(false);
-    }
-  };
-
-  if (gameState === "ready") {
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
-        <div style={{ fontSize:48, marginBottom:16 }}>🔍</div>
-        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
-          {lang === "en" ? "AI Condition Describer" : "AIコンディション説明評価"}
-        </h2>
-        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
-          {lang === "en"
-            ? "You'll see a luxury item with visible issues. Describe its condition in English as if you're on a live stream. AI will evaluate if your description is detailed enough to prevent INAD returns!"
-            : "目に見える問題のある高級品が表示されます。ライブ配信で話すように英語で状態を説明してください。AIがINAD返品を防ぐのに十分詳細かどうかを評価します！"}
-        </p>
-        <button
-          onClick={startPractice}
-          style={{
-            background:"#F5AF02",
-            color:"#FFFFFF",
-            border:"none",
-            borderRadius:12,
-            padding:"16px 48px",
-            fontSize:20,
-            fontWeight:700,
-            cursor:"pointer",
-            transition:"all 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
-          onMouseLeave={e => e.target.style.transform = "scale(1)"}
-        >
-          {lang === "en" ? "📝 Start Practice" : "📝 練習開始"}
-        </button>
-      </div>
-    );
-  }
-
-  if (gameState === "describing") {
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
-        <h3 style={{ fontSize:22, fontWeight:700, color:"#191919", marginBottom:20 }}>
-          {lang === "en" ? "Describe This Item" : "このアイテムを説明"}
-        </h3>
-
-        {/* Item Card */}
-        <div style={{
-          background:"#F7F7F7",
-          borderRadius:12,
-          padding:24,
-          marginBottom:24,
-          border:"2px solid #E5E7EB"
-        }}>
-          <div style={{ fontSize:64, textAlign:"center", marginBottom:16 }}>{currentItem.image}</div>
-          <h4 style={{ fontSize:20, fontWeight:700, color:"#191919", marginBottom:16, textAlign:"center" }}>
-            {currentItem.item}
-          </h4>
-
-          <div style={{
-            background:"#FFFFFF",
-            borderRadius:8,
-            padding:16,
-            marginBottom:12
-          }}>
-            <div style={{ fontSize:14, color:"#E53238", fontWeight:700, marginBottom:8, textTransform:"uppercase", letterSpacing:1 }}>
-              {lang === "en" ? "Visible Issues:" : "目に見える問題："}
-            </div>
-            <ul style={{ margin:0, paddingLeft:20, fontSize:15, lineHeight:1.8, color:"#191919" }}>
-              {currentItem.issues.map((issue, i) => (
-                <li key={i}>{issue}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div style={{
-            background:"#EFF6FF",
-            border:"1px solid #3665F3",
-            borderRadius:8,
-            padding:12,
-            fontSize:14,
-            color:"#3665F3"
-          }}>
-            <strong>{lang === "en" ? "Correct Condition:" : "正しい状態："}</strong> {currentItem.correctCondition}
-          </div>
-        </div>
-
-        {/* Description Input */}
-        <div style={{ marginBottom:24 }}>
-          <label style={{ display:"block", fontSize:16, fontWeight:700, color:"#191919", marginBottom:8 }}>
-            {lang === "en" ? "Your Description (in English):" : "あなたの説明（英語で）："}
-          </label>
-          <textarea
-            value={userDescription}
-            onChange={(e) => setUserDescription(e.target.value)}
-            placeholder={lang === "en"
-              ? "Example: This Louis Vuitton Speedy 30 is in very good condition. All four corners show wear from use. The vachetta handles have light patina. The interior is clean with no stains. Hardware shows minor tarnish but fully functional."
-              : "例：This Louis Vuitton Speedy 30 is in very good condition. All four corners show wear from use. The vachetta handles have light patina. The interior is clean with no stains. Hardware shows minor tarnish but fully functional."}
-            disabled={isEvaluating}
-            style={{
-              width:"100%",
-              minHeight:150,
-              padding:"12px 16px",
-              borderRadius:12,
-              border:"2px solid #E5E7EB",
-              fontSize:15,
-              lineHeight:1.6,
-              outline:"none",
-              fontFamily:"inherit",
-              resize:"vertical"
-            }}
-          />
-        </div>
-
-        <button
-          onClick={handleEvaluate}
-          disabled={!userDescription.trim() || isEvaluating}
-          style={{
-            width:"100%",
-            background: !userDescription.trim() || isEvaluating ? "#E5E7EB" : "#F5AF02",
-            color:"#FFFFFF",
-            border:"none",
-            borderRadius:12,
-            padding:"16px",
-            fontSize:18,
-            fontWeight:700,
-            cursor: !userDescription.trim() || isEvaluating ? "not-allowed" : "pointer",
-            transition:"all 0.2s"
-          }}
-        >
-          {isEvaluating
-            ? (lang === "en" ? "🤖 AI is evaluating..." : "🤖 AI評価中...")
-            : (lang === "en" ? "✨ Get AI Feedback" : "✨ AIフィードバック取得")}
-        </button>
-      </div>
-    );
-  }
-
-  if (gameState === "results" && evaluation) {
-    const scoreColor = evaluation.score === "Excellent" ? "#86B817" : evaluation.score === "Good" ? "#3665F3" : "#F5AF02";
-    const scoreBg = evaluation.score === "Excellent" ? "#ECFDF5" : evaluation.score === "Good" ? "#EFF6FF" : "#FEF3C7";
-
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", animation:"fu 0.4s ease" }}>
-        <div style={{ textAlign:"center", marginBottom:24 }}>
-          <div style={{ fontSize:64, marginBottom:12 }}>
-            {evaluation.score === "Excellent" ? "🌟" : evaluation.score === "Good" ? "💪" : "📚"}
-          </div>
-          <div style={{
-            background:scoreBg,
-            border:`2px solid ${scoreColor}`,
-            borderRadius:12,
-            padding:"12px 24px",
-            display:"inline-block",
-            fontSize:20,
-            fontWeight:700,
-            color:scoreColor
-          }}>
-            {lang === "en" ? "Score:" : "スコア:"} {evaluation.score}
-          </div>
-        </div>
-
-        {/* Feedback */}
-        <div style={{
-          background:"#F7F7F7",
-          borderRadius:12,
-          padding:20,
-          marginBottom:16
-        }}>
-          <div style={{ fontSize:14, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:600 }}>
-            {lang === "en" ? "AI Feedback:" : "AIフィードバック："}
-          </div>
-          <p style={{ fontSize:16, color:"#191919", lineHeight:1.7, margin:0 }}>
-            {evaluation.feedback}
-          </p>
-        </div>
-
-        {/* Missed Issues */}
-        {evaluation.missed && evaluation.missed.length > 0 && (
-          <div style={{
-            background:"#FEF3C7",
-            border:"2px solid #F5AF02",
-            borderRadius:12,
-            padding:20,
-            marginBottom:16
-          }}>
-            <div style={{ fontSize:14, color:"#F5AF02", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:700 }}>
-              ⚠️ {lang === "en" ? "You Missed:" : "見落とし："}
-            </div>
-            <ul style={{ margin:0, paddingLeft:20, fontSize:15, lineHeight:1.7, color:"#191919" }}>
-              {evaluation.missed.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* Model Answer */}
-        {evaluation.modelAnswer && (
-          <div style={{
-            background:"#ECFDF5",
-            border:"2px solid #86B817",
-            borderRadius:12,
-            padding:20,
-            marginBottom:24
-          }}>
-            <div style={{ fontSize:14, color:"#86B817", textTransform:"uppercase", letterSpacing:1, marginBottom:8, fontWeight:700 }}>
-              ✓ {lang === "en" ? "Model Answer:" : "模範解答："}
-            </div>
-            <p style={{ fontSize:15, color:"#191919", lineHeight:1.7, margin:0, fontStyle:"italic" }}>
-              "{evaluation.modelAnswer}"
-            </p>
-          </div>
-        )}
-
-        <div style={{ display:"flex", gap:12 }}>
-          <button
-            onClick={startPractice}
-            style={{
-              flex:1,
-              background:"#F5AF02",
-              color:"#FFFFFF",
-              border:"none",
-              borderRadius:12,
-              padding:"16px",
-              fontSize:18,
-              fontWeight:700,
-              cursor:"pointer",
-              transition:"all 0.2s"
-            }}
-            onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
-            onMouseLeave={e => e.target.style.transform = "translateY(0)"}
-          >
-            {lang === "en" ? "🔄 Try Another" : "🔄 もう一つ"}
-          </button>
-          <button
-            onClick={() => setGameState("ready")}
-            style={{
-              flex:1,
-              background:"#F7F7F7",
-              color:"#191919",
-              border:"2px solid #E5E7EB",
-              borderRadius:12,
-              padding:"16px",
-              fontSize:18,
-              fontWeight:700,
-              cursor:"pointer",
-              transition:"all 0.2s"
-            }}
-            onMouseEnter={e => e.target.style.background = "#E5E7EB"}
-            onMouseLeave={e => e.target.style.background = "#F7F7F7"}
-          >
-            {lang === "en" ? "← Back" : "← 戻る"}
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
-
-/* ═══ AI CONVERSATION PARTNER ═══ */
-function AIConversationPartner({ lang, onComplete }) {
-  const [conversationHistory, setConversationHistory] = useState([]);
-  const [inputText, setInputText] = useState("");
-  const [isAITyping, setIsAITyping] = useState(false);
-  const [conversationEnded, setConversationEnded] = useState(false);
-  const messagesEndRef = useRef(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [conversationHistory]);
-
-  const startConversation = () => {
-    if (!isAPIConfigured()) {
-      alert(lang === "en"
-        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
-        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
-      return;
-    }
-
-    setConversationHistory([
-      {
-        role: "assistant",
-        content: lang === "en"
-          ? "Hi! I'm interested in luxury bags. Do you have anything good today?"
-          : "Hi! I'm interested in luxury bags. Do you have anything good today?",
-        timestamp: new Date().toLocaleTimeString()
-      }
-    ]);
-    setConversationEnded(false);
-  };
-
-  const handleSendMessage = async () => {
-    if (!inputText.trim() || isAITyping) return;
-
-    const userMessage = {
-      role: "user",
-      content: inputText,
-      timestamp: new Date().toLocaleTimeString()
-    };
-
-    const newHistory = [...conversationHistory, userMessage];
-    setConversationHistory(newHistory);
-    setInputText("");
-    setIsAITyping(true);
-
-    try {
-      const messages = newHistory.map(msg => ({
-        role: msg.role,
-        content: msg.content
-      }));
-
-      let aiResponse = "";
-      await chatAsBuyer(messages, (chunk) => {
-        aiResponse += chunk;
-      });
-
-      setIsAITyping(false);
-
-      const aiMessage = {
-        role: "assistant",
-        content: aiResponse,
-        timestamp: new Date().toLocaleTimeString()
-      };
-
-      setConversationHistory(prev => [...prev, aiMessage]);
-
-      // Check if conversation should end (AI gives coaching feedback)
-      if (newHistory.length >= 10 || aiResponse.toLowerCase().includes("coaching") || aiResponse.toLowerCase().includes("feedback")) {
-        setConversationEnded(true);
-        if (onComplete) onComplete(30);
-      }
-
-    } catch (error) {
-      setIsAITyping(false);
-      console.error("AI chat error:", error);
-      alert(lang === "en"
-        ? "AI response failed. Please try again."
-        : "AI応答に失敗しました。もう一度お試しください。");
-    }
-  };
-
-  if (conversationHistory.length === 0) {
-    return (
-      <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, textAlign:"center", border:"2px solid #E5E7EB" }}>
-        <div style={{ fontSize:48, marginBottom:16 }}>💬</div>
-        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
-          {lang === "en" ? "AI Conversation Partner" : "AI会話パートナー"}
-        </h2>
-        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:24, maxWidth:500, margin:"0 auto 24px" }}>
-          {lang === "en"
-            ? "Practice free-form conversations with an AI buyer! Talk about products, answer questions, handle objections. AI will give you gentle coaching feedback after the conversation."
-            : "AIバイヤーと自由形式の会話を練習！商品について話し、質問に答え、異議に対処。会話後にAIが優しいコーチングフィードバックを提供します。"}
-        </p>
-        <button
-          onClick={startConversation}
-          style={{
-            background:"#3665F3",
-            color:"#FFFFFF",
-            border:"none",
-            borderRadius:12,
-            padding:"16px 48px",
-            fontSize:20,
-            fontWeight:700,
-            cursor:"pointer",
-            transition:"all 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.transform = "scale(1.05)"}
-          onMouseLeave={e => e.target.style.transform = "scale(1)"}
-        >
-          {lang === "en" ? "💬 Start Chat" : "💬 チャット開始"}
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div style={{ background:"#FFFFFF", borderRadius:16, padding:24, border:"2px solid #E5E7EB", animation:"fu 0.4s ease", maxWidth:700, margin:"0 auto" }}>
-      <div style={{ marginBottom:16, paddingBottom:16, borderBottom:"2px solid #E5E7EB" }}>
-        <h3 style={{ fontSize:20, fontWeight:700, color:"#191919", margin:0 }}>
-          {lang === "en" ? "💬 Practice Conversation" : "💬 会話練習"}
-        </h3>
-      </div>
-
-      {/* Chat Messages */}
-      <div style={{
-        background:"#F7F7F7",
-        borderRadius:12,
-        padding:16,
-        height:400,
-        overflowY:"auto",
-        marginBottom:16
-      }}>
-        {conversationHistory.map((msg, i) => (
-          <div key={i} style={{
-            marginBottom:12,
-            display:"flex",
-            flexDirection:"column",
-            alignItems: msg.role === "user" ? "flex-end" : "flex-start"
-          }}>
-            <div style={{
-              maxWidth:"75%",
-              background: msg.role === "user" ? "#3665F3" : "#FFFFFF",
-              color: msg.role === "user" ? "#FFFFFF" : "#191919",
-              borderRadius:12,
-              padding:"10px 14px",
-              fontSize:15,
-              lineHeight:1.5,
-              border: msg.role === "assistant" ? "1px solid #E5E7EB" : "none"
-            }}>
-              {msg.content}
-            </div>
-            <div style={{ fontSize:11, color:"#9CA3AF", marginTop:4 }}>
-              {msg.timestamp}
-            </div>
-          </div>
-        ))}
-        {isAITyping && (
-          <div style={{
-            background:"#FFFFFF",
-            border:"1px solid #E5E7EB",
-            borderRadius:12,
-            padding:"10px 14px",
-            fontSize:15,
-            maxWidth:"75%",
-            color:"#9CA3AF",
-            fontStyle:"italic"
-          }}>
-            {lang === "en" ? "AI is typing..." : "AIが入力中..."}
-          </div>
-        )}
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input */}
-      {!conversationEnded ? (
-        <div style={{ display:"flex", gap:12 }}>
-          <input
-            type="text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-            placeholder={lang === "en" ? "Type your response..." : "返信を入力..."}
-            disabled={isAITyping}
-            style={{
-              flex:1,
-              padding:"12px 16px",
-              borderRadius:12,
-              border:"2px solid #E5E7EB",
-              fontSize:15,
-              outline:"none",
-              fontFamily:"inherit"
-            }}
-          />
-          <button
-            onClick={handleSendMessage}
-            disabled={!inputText.trim() || isAITyping}
-            style={{
-              background: !inputText.trim() || isAITyping ? "#E5E7EB" : "#3665F3",
-              color:"#FFFFFF",
-              border:"none",
-              borderRadius:12,
-              padding:"12px 24px",
-              fontSize:16,
-              fontWeight:700,
-              cursor: !inputText.trim() || isAITyping ? "not-allowed" : "pointer"
-            }}
-          >
-            {lang === "en" ? "Send" : "送信"}
-          </button>
-        </div>
-      ) : (
-        <button
-          onClick={() => setConversationHistory([])}
-          style={{
-            width:"100%",
-            background:"#3665F3",
-            color:"#FFFFFF",
-            border:"none",
-            borderRadius:12,
-            padding:"16px",
-            fontSize:18,
-            fontWeight:700,
-            cursor:"pointer",
-            transition:"all 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.transform = "scale(1.02)"}
-          onMouseLeave={e => e.target.style.transform = "scale(1)"}
-        >
-          {lang === "en" ? "🔄 Start New Conversation" : "🔄 新しい会話を開始"}
-        </button>
-      )}
-    </div>
-  );
-}
-
-/* ═══ AI PHRASE REPHRASER ═══ */
-function AIPhraseRephraser({ lang, onComplete }) {
-  const [japaneseInput, setJapaneseInput] = useState("");
-  const [englishVersions, setEnglishVersions] = useState(null);
-  const [isTranslating, setIsTranslating] = useState(false);
-  const [selectedVersion, setSelectedVersion] = useState(null);
-
-  const handleRephrase = async () => {
-    if (!japaneseInput.trim()) return;
-
-    if (!isAPIConfigured()) {
-      alert(lang === "en"
-        ? "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your .env file."
-        : "APIキーが設定されていません。.envファイルにVITE_ANTHROPIC_API_KEYを追加してください。");
-      return;
-    }
-
-    setIsTranslating(true);
-
-    try {
-      const versions = await rephraseJapaneseToEnglish(japaneseInput);
-      setEnglishVersions(versions);
-      setSelectedVersion(null);
-    } catch (error) {
-      console.error("Rephrase error:", error);
-      alert(lang === "en"
-        ? "AI translation failed. Please try again."
-        : "AI翻訳に失敗しました。もう一度お試しください。");
-    } finally {
-      setIsTranslating(false);
-    }
-  };
-
-  const handleSelectVersion = (version) => {
-    setSelectedVersion(version);
-    if (onComplete) onComplete(10);
-  };
-
-  return (
-    <div style={{ background:"#FFFFFF", borderRadius:16, padding:32, border:"2px solid #E5E7EB", maxWidth:700, margin:"0 auto" }}>
-      <div style={{ textAlign:"center", marginBottom:24 }}>
-        <div style={{ fontSize:48, marginBottom:16 }}>🌐</div>
-        <h2 style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:12 }}>
-          {lang === "en" ? "AI Phrase Rephraser" : "AIフレーズ変換"}
-        </h2>
-        <p style={{ fontSize:16, color:"#4B5563", lineHeight:1.6 }}>
-          {lang === "en"
-            ? "Think in Japanese, speak in English! Type what you want to say in Japanese, and AI will give you 3 natural English versions: formal, casual, and confident."
-            : "日本語で考え、英語で話す！日本語で言いたいことを入力すると、AIが3つの自然な英語バージョンを提供：フォーマル、カジュアル、自信満々。"}
-        </p>
-      </div>
-
-      {/* Japanese Input */}
-      <div style={{ marginBottom:24 }}>
-        <label style={{ display:"block", fontSize:16, fontWeight:700, color:"#191919", marginBottom:8 }}>
-          {lang === "en" ? "What do you want to say? (in Japanese)" : "何を言いたいですか？（日本語で）"}
-        </label>
-        <textarea
-          value={japaneseInput}
-          onChange={(e) => setJapaneseInput(e.target.value)}
-          placeholder={lang === "en"
-            ? "例：このバッグは本当に状態が良いです。角にスレはありますが、全体的にとてもきれいです。"
-            : "例：このバッグは本当に状態が良いです。角にスレはありますが、全体的にとてもきれいです。"}
-          disabled={isTranslating}
-          style={{
-            width:"100%",
-            minHeight:100,
-            padding:"12px 16px",
-            borderRadius:12,
-            border:"2px solid #E5E7EB",
-            fontSize:15,
-            lineHeight:1.6,
-            outline:"none",
-            fontFamily:"inherit",
-            resize:"vertical"
-          }}
-        />
-      </div>
-
-      <button
-        onClick={handleRephrase}
-        disabled={!japaneseInput.trim() || isTranslating}
-        style={{
-          width:"100%",
-          background: !japaneseInput.trim() || isTranslating ? "#E5E7EB" : "#86B817",
-          color:"#FFFFFF",
-          border:"none",
-          borderRadius:12,
-          padding:"16px",
-          fontSize:18,
-          fontWeight:700,
-          cursor: !japaneseInput.trim() || isTranslating ? "not-allowed" : "pointer",
-          marginBottom:24,
-          transition:"all 0.2s"
-        }}
-      >
-        {isTranslating
-          ? (lang === "en" ? "🤖 AI is translating..." : "🤖 AI翻訳中...")
-          : (lang === "en" ? "✨ Get English Versions" : "✨ 英語バージョン取得")}
-      </button>
-
-      {/* English Versions */}
-      {englishVersions && (
-        <div style={{ animation:"fu 0.4s ease" }}>
-          <h3 style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:16 }}>
-            {lang === "en" ? "Choose Your Style:" : "スタイルを選択："}
-          </h3>
-
-          {[
-            { type: "formal", icon: "👔", label: lang === "en" ? "Formal / Professional" : "フォーマル / プロフェッショナル", color: "#3665F3" },
-            { type: "casual", icon: "😊", label: lang === "en" ? "Casual / Friendly" : "カジュアル / フレンドリー", color: "#F5AF02" },
-            { type: "confident", icon: "💪", label: lang === "en" ? "Confident / Salesy" : "自信満々 / セールス", color: "#86B817" }
-          ].map((style) => (
-            <div
-              key={style.type}
-              onClick={() => handleSelectVersion(style.type)}
-              style={{
-                background: selectedVersion === style.type ? `${style.color}15` : "#F7F7F7",
-                border: `2px solid ${selectedVersion === style.type ? style.color : "#E5E7EB"}`,
-                borderRadius:12,
-                padding:20,
-                marginBottom:12,
-                cursor:"pointer",
-                transition:"all 0.2s"
-              }}
-              onMouseEnter={e => e.target.style.transform = "translateY(-2px)"}
-              onMouseLeave={e => e.target.style.transform = "translateY(0)"}
-            >
-              <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8 }}>
-                <span style={{ fontSize:24 }}>{style.icon}</span>
-                <span style={{ fontSize:16, fontWeight:700, color:style.color }}>{style.label}</span>
-                {selectedVersion === style.type && <span style={{ marginLeft:"auto", fontSize:20 }}>✓</span>}
-              </div>
-              <p style={{ fontSize:15, color:"#191919", lineHeight:1.6, margin:0, fontStyle:"italic" }}>
-                "{englishVersions[style.type]}"
-              </p>
-            </div>
-          ))}
-
-          {selectedVersion && (
-            <div style={{
-              background:"#ECFDF5",
-              border:"2px solid #86B817",
-              borderRadius:12,
-              padding:16,
-              marginTop:16,
-              textAlign:"center"
-            }}>
-              <p style={{ fontSize:16, color:"#86B817", fontWeight:700, margin:0 }}>
-                ✓ {lang === "en"
-                  ? "Great! Now practice saying it out loud 3 times!"
-                  : "素晴らしい！今度は声に出して3回練習しましょう！"}
-              </p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
 
 /* ═══ PRACTICE ═══ */
 function PracticeP({ lang, onXpEarned }) {
@@ -7319,7 +7056,7 @@ function PracticeP({ lang, onXpEarned }) {
         >
           ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
         </button>
-        <AIConditionDescriber lang={lang} onComplete={(score) => handleGameComplete(score, "aiCondition")} />
+        <AIConditionEvaluator lang={lang} onComplete={(score) => handleGameComplete(score, "aiCondition")} />
       </div>
     );
   }
@@ -7369,7 +7106,7 @@ function PracticeP({ lang, onXpEarned }) {
         >
           ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
         </button>
-        <AIPhraseRephraser lang={lang} onComplete={(score) => handleGameComplete(score, "aiRephrase")} />
+        <AIPhraseTranslator lang={lang} onComplete={(score) => handleGameComplete(score, "aiRephrase")} />
       </div>
     );
   }

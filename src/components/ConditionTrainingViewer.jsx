@@ -19,14 +19,18 @@ export function Product360Viewer({ brand, model, condition = 'good', lang = 'en'
 
   const labels = {
     en: {
-      loading: 'Generating 360° view...',
-      generate: 'Generate 360° View',
-      views: ['Front', 'Back', 'Left Side', 'Right Side', 'Interior', 'Top', 'Bottom']
+      loading: 'Generating 6 essential angles for eBay Live...',
+      generate: 'Generate 6 Angles for eBay Live',
+      title: 'eBay Live Training: 6 Essential Camera Angles',
+      subtitle: 'These are the angles you MUST show during live streaming',
+      views: ['1. Front', '2. Right Side', '3. Back', '4. Left Side', '5. Bottom', '6. Inside']
     },
     jp: {
-      loading: '360°ビュー生成中...',
-      generate: '360°ビュー生成',
-      views: ['正面', '背面', '左側面', '右側面', '内部', '上面', '底面']
+      loading: 'eBay Live用6アングル生成中...',
+      generate: 'eBay Live用6アングル生成',
+      title: 'eBay Liveトレーニング: 必須の6つのカメラアングル',
+      subtitle: 'ライブ配信中に必ず見せるべきアングル',
+      views: ['1. 正面', '2. 右側面', '3. 背面', '4. 左側面', '5. 底面', '6. 内部']
     }
   };
 
@@ -85,12 +89,22 @@ export function Product360Viewer({ brand, model, condition = 'good', lang = 'en'
 
   return (
     <div style={containerStyle}>
-      <h3>📐 360° Product View</h3>
-      <p style={{ fontSize: '14px', color: '#666' }}>
-        {lang === 'jp'
-          ? '全ての角度からコンディションを確認・説明する練習'
-          : 'Practice describing condition from all angles'}
+      <h3>📹 {t.title}</h3>
+      <p style={{ fontSize: '14px', color: '#666', marginBottom: '8px' }}>
+        {t.subtitle}
       </p>
+      <div style={{
+        background: '#fff3cd',
+        padding: '12px 16px',
+        borderRadius: '8px',
+        borderLeft: '4px solid #ffc107',
+        fontSize: '13px',
+        marginBottom: '16px'
+      }}>
+        💡 {lang === 'jp'
+          ? 'eBay Live配信では、この順序で商品を回しながら説明します。各アングルで状態を詳しく説明してください。'
+          : 'During eBay Live, rotate the product in this order and describe the condition at each angle in detail.'}
+      </div>
 
       {!views.length && (
         <button

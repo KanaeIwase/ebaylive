@@ -8,18 +8,18 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
 const GEMINI_API = 'https://generativelanguage.googleapis.com/v1beta';
 
 /**
- * Generate 360-degree product view (4 sides + interior)
+ * Generate 6 essential eBay Live angles (what sellers MUST show on camera)
+ * Front, Right, Back, Left, Bottom, Inside
  * Perfect for condition description training
  */
 export async function generate360View(productType, brand, condition = 'good') {
   const views = [
-    { angle: 'front', description: 'Front view showing main body and hardware' },
-    { angle: 'back', description: 'Back view showing rear panel' },
-    { angle: 'left-side', description: 'Left side profile view' },
-    { angle: 'right-side', description: 'Right side profile view' },
-    { angle: 'interior', description: 'Interior view showing lining and pockets' },
-    { angle: 'top', description: 'Top view showing opening and handles' },
-    { angle: 'bottom', description: 'Bottom view showing feet and base' }
+    { angle: 'front', description: 'Front view - Main body, logo, hardware', priority: 1 },
+    { angle: 'right-side', description: 'Right side - Profile, depth, structure', priority: 2 },
+    { angle: 'back', description: 'Back view - Rear panel, back pockets', priority: 3 },
+    { angle: 'left-side', description: 'Left side - Profile, opposite angle', priority: 4 },
+    { angle: 'bottom', description: 'Bottom - Feet, base wear, corners', priority: 5 },
+    { angle: 'interior', description: 'Inside - Lining, pockets, condition', priority: 6 }
   ];
 
   const images = await Promise.all(
@@ -283,32 +283,36 @@ async function generateWithGemini(prompt) {
   }
 
   try {
+    // Use Gemini's text-to-image generation API
     const response = await fetch(
-      `${GEMINI_API}/models/imagen-3.0-generate-001:predict?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:generate?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          instances: [{ prompt: prompt }],
-          parameters: {
-            sampleCount: 1,
-            aspectRatio: '4:3',
-            safetyFilterLevel: 'block_some'
-          }
+          prompt: prompt,
+          number_of_images: 1,
+          aspect_ratio: "4:3",
+          safety_filter_level: "block_some",
+          person_generation: "allow_adult"
         })
       }
     );
 
     if (!response.ok) {
-      console.error('Gemini API error:', response.status);
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Gemini API error:', response.status, errorData);
       return createEnhancedPlaceholder(prompt);
     }
 
     const data = await response.json();
-    if (data.predictions && data.predictions[0]?.bytesBase64Encoded) {
-      return `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
+
+    // Check for generated images in the response
+    if (data.generated_images && data.generated_images[0]?.image?.image_bytes) {
+      return `data:image/png;base64,${data.generated_images[0].image.image_bytes}`;
     }
 
+    console.warn('No image in Gemini response:', data);
     return createEnhancedPlaceholder(prompt);
   } catch (error) {
     console.error('Error generating with Gemini:', error);

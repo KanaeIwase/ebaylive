@@ -14,7 +14,7 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
  * Get the best available image for a luxury brand/model
  * Priority: Pexels (FREE!) → Unsplash → Gemini → SVG placeholder
  */
-export async function getBrandImage(brandKey, modelName = null) {
+export async function getBrandImage(brandKey, modelName = null, variation = 0) {
   // Try Pexels first (100% FREE, no API key needed!)
   try {
     const query = modelName
@@ -58,7 +58,7 @@ export async function getBrandImage(brandKey, modelName = null) {
   // Try Gemini if configured
   if (GEMINI_API_KEY) {
     try {
-      const geminiImage = await generateGeminiImage(brandKey, modelName);
+      const geminiImage = await generateGeminiImage(brandKey, modelName, variation);
       if (geminiImage) {
         return {
           src: geminiImage,
@@ -69,7 +69,7 @@ export async function getBrandImage(brandKey, modelName = null) {
         };
       }
     } catch (error) {
-      console.log('Gemini not available, using placeholder...');
+      console.log('Gemini not available, using placeholder...', error);
     }
   }
 
@@ -86,47 +86,52 @@ export async function getBrandImage(brandKey, modelName = null) {
 /**
  * Generate image using Gemini API
  */
-async function generateGeminiImage(brandKey, modelName) {
+async function generateGeminiImage(brandKey, modelName, variation = 0) {
   if (!GEMINI_API_KEY) return null;
 
+  const angles = ['front view', 'side view', 'back view', 'detail closeup', 'overhead view', 'three-quarter view'];
+  const angle = angles[variation % angles.length];
+
   const prompts = {
-    'lv': `Louis Vuitton ${modelName || 'handbag'}, luxury product photography`,
-    'chanel': `Chanel ${modelName || 'handbag'}, luxury product photography`,
-    'hermes': `Hermès ${modelName || 'Birkin bag'}, luxury product photography`,
-    'gucci': `Gucci ${modelName || 'handbag'}, luxury product photography`,
-    'prada': `Prada ${modelName || 'handbag'}, luxury product photography`,
-    'dior': `Dior ${modelName || 'handbag'}, luxury product photography`,
-    'cartier': `Cartier ${modelName || 'jewelry'}, luxury product photography`,
-    'bulgari': `Bulgari ${modelName || 'jewelry'}, luxury product photography`
+    'lv': `Louis Vuitton ${modelName || 'handbag'}, ${angle}, luxury product photography`,
+    'chanel': `Chanel ${modelName || 'handbag'}, ${angle}, luxury product photography`,
+    'hermes': `Hermès ${modelName || 'Birkin bag'}, ${angle}, luxury product photography`,
+    'gucci': `Gucci ${modelName || 'handbag'}, ${angle}, luxury product photography`,
+    'prada': `Prada ${modelName || 'handbag'}, ${angle}, luxury product photography`,
+    'dior': `Dior ${modelName || 'handbag'}, ${angle}, luxury product photography`,
+    'cartier': `Cartier ${modelName || 'jewelry'}, ${angle}, luxury product photography`,
+    'bulgari': `Bulgari ${modelName || 'jewelry'}, ${angle}, luxury product photography`
   };
 
-  const prompt = prompts[brandKey] || `Luxury ${modelName || 'product'}`;
+  const prompt = prompts[brandKey] || `Luxury ${modelName || 'product'}, ${angle}`;
 
   try {
-    // Use Gemini Imagen API (Note: This is a simplified example)
-    // Real implementation would use the actual Gemini Imagen endpoint
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:generate?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          instances: [{
-            prompt: `${prompt}, professional product photography, white background, studio lighting, high detail, luxury catalog style`
-          }],
-          parameters: {
-            sampleCount: 1,
-            aspectRatio: '4:3'
-          }
+          prompt: `${prompt}, professional product photography, white background, studio lighting, high detail, luxury catalog style`,
+          number_of_images: 1,
+          aspect_ratio: "4:3",
+          safety_filter_level: "block_some",
+          person_generation: "allow_adult"
         })
       }
     );
 
-    if (response.ok) {
-      const data = await response.json();
-      if (data.predictions && data.predictions[0]?.bytesBase64Encoded) {
-        return `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
-      }
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Gemini API error:', response.status, errorData);
+      return null;
+    }
+
+    const data = await response.json();
+    console.log('Gemini response:', data); // Debug log
+
+    if (data.generated_images && data.generated_images[0]?.image?.image_bytes) {
+      return `data:image/png;base64,${data.generated_images[0].image.image_bytes}`;
     }
   } catch (error) {
     console.error('Gemini image generation error:', error);
@@ -183,21 +188,23 @@ async function generateConditionImageGemini(prompt) {
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:generate?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          instances: [{ prompt: `${prompt}, closeup detail photography, educational reference` }],
-          parameters: { sampleCount: 1, aspectRatio: '1:1' }
+          prompt: `${prompt}, closeup detail photography, educational reference`,
+          number_of_images: 1,
+          aspect_ratio: "1:1",
+          safety_filter_level: "block_some"
         })
       }
     );
 
     if (response.ok) {
       const data = await response.json();
-      if (data.predictions && data.predictions[0]?.bytesBase64Encoded) {
-        return `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
+      if (data.generated_images && data.generated_images[0]?.image?.image_bytes) {
+        return `data:image/png;base64,${data.generated_images[0].image.image_bytes}`;
       }
     }
   } catch (error) {

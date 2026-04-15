@@ -157,6 +157,7 @@ function createPlaceholderSVG(text, bgColor, width, height) {
  * Predefined searches for luxury brands
  */
 export const BRAND_IMAGE_QUERIES = {
+  'lv': 'Louis Vuitton handbag luxury',
   'louis-vuitton': 'Louis Vuitton handbag luxury',
   'chanel': 'Chanel classic flap bag',
   'hermes': 'Hermès Birkin bag',

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { searchImages, BRAND_IMAGE_QUERIES } from '../services/unsplash.js';
 import { BAG_SHAPES, CONDITION_INDICATORS, WEAR_PATTERNS, svgToDataURL } from '../utils/bagShapeSVG.js';
+import { getBrandImage } from '../services/imageGenerator.js';
+import { WEAR_PATTERN_IMAGES, CONDITION_IMAGES } from '../data/wearPatternImages.js';
 
 /**
  * Brand Image Gallery Component
@@ -16,15 +18,38 @@ export function BrandImageGallery({ brandKey, modelName, showShapes = true }) {
       if (!brandKey) return;
 
       setLoading(true);
-      const query = modelName
-        ? `${BRAND_IMAGE_QUERIES[brandKey]} ${modelName}`
-        : BRAND_IMAGE_QUERIES[brandKey];
 
       try {
-        const results = await searchImages(query, 6);
-        setImages(results);
+        // Get ONE brand image with variation numbers to avoid duplicates
+        const imagePromises = [];
+        for (let i = 0; i < 6; i++) {
+          imagePromises.push(getBrandImage(brandKey, modelName, i));
+        }
+        const results = await Promise.all(imagePromises);
+
+        // Format for display
+        const formattedImages = results.map((img, idx) => ({
+          id: `${brandKey}-${modelName || 'bag'}-${idx}`,
+          url: img.src,
+          thumb: img.thumb,
+          alt: `${brandKey} ${modelName || 'product'} - View ${idx + 1}`,
+          photographer: img.attribution,
+          photographerUrl: img.attributionUrl,
+          isPlaceholder: img.source === 'placeholder'
+        }));
+
+        setImages(formattedImages);
       } catch (error) {
         console.error('Error loading images:', error);
+        // Show at least one placeholder
+        setImages([{
+          id: 'placeholder',
+          url: 'data:image/svg+xml;base64,' + btoa(`<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f0f0f0"/><text x="200" y="150" text-anchor="middle" font-size="16" fill="#666">No images available</text></svg>`),
+          thumb: 'data:image/svg+xml;base64,' + btoa(`<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f0f0f0"/><text x="200" y="150" text-anchor="middle" font-size="16" fill="#666">No images available</text></svg>`),
+          alt: 'Placeholder',
+          photographer: 'Add Gemini API key for images',
+          isPlaceholder: true
+        }]);
       }
       setLoading(false);
     }
@@ -133,13 +158,28 @@ export function BrandImageGallery({ brandKey, modelName, showShapes = true }) {
       {/* Bag Shape Reference (if enabled) */}
       {showShapes && (
         <div style={{ marginTop: '30px' }}>
-          <h4>👜 Bag Shapes Reference</h4>
-          <div style={{ ...gridStyle, gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))' }}>
-            {Object.entries(BAG_SHAPES).map(([key, svg]) => (
-              <div key={key} style={{ textAlign: 'center', padding: '10px' }}>
-                <div dangerouslySetInnerHTML={{ __html: svg }} />
-              </div>
-            ))}
+          <h4 style={{ fontSize: '18px', marginBottom: '15px' }}>👜 Bag Shapes Reference</h4>
+          <div style={{ ...gridStyle, gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))' }}>
+            {Object.entries(BAG_SHAPES).map(([key, svg]) => {
+              const shapeNames = {
+                tote: 'Tote',
+                satchel: 'Satchel',
+                hobo: 'Hobo',
+                clutch: 'Clutch',
+                crossbody: 'Crossbody',
+                bucket: 'Bucket',
+                flap: 'Flap',
+                messenger: 'Messenger'
+              };
+              return (
+                <div key={key} style={{ textAlign: 'center', padding: '15px', background: 'white', borderRadius: '8px' }}>
+                  <div dangerouslySetInnerHTML={{ __html: svg }} />
+                  <p style={{ fontSize: '16px', fontWeight: 'bold', marginTop: '10px', color: '#333' }}>
+                    {shapeNames[key] || key}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
@@ -189,45 +229,89 @@ export function ConditionExamplesGallery({ lang = 'en' }) {
       cornerWear: 'Corner Wear',
       patina: 'Vachetta Patina',
       scratches: 'Surface Scratches',
-      stain: 'Interior Stain'
+      stain: 'Interior Stain',
+      hardwareWear: 'Hardware Tarnish',
+      leatherCrack: 'Leather Cracking',
+      waterStain: 'Water Stains',
+      colorTransfer: 'Color Transfer',
+      penMark: 'Pen Marks',
+      stitchingIssue: 'Loose Stitching'
     },
     jp: {
       cornerWear: 'コーナー摩耗',
       patina: 'ヴァケッタパティーナ',
       scratches: '表面キズ',
-      stain: '内部染み'
+      stain: '内部染み',
+      hardwareWear: '金具の変色',
+      leatherCrack: 'レザーのひび割れ',
+      waterStain: '水シミ',
+      colorTransfer: '色移り',
+      penMark: 'ペン跡',
+      stitchingIssue: '縫い目のほつれ'
     }
   };
 
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
-    gap: '15px',
-    padding: '20px'
+  const imageCardStyle = {
+    background: 'white',
+    borderRadius: '12px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    transition: 'transform 0.2s'
+  };
+
+  const imageStyle = {
+    width: '100%',
+    height: '200px',
+    objectFit: 'cover'
+  };
+
+  const captionStyle = {
+    padding: '12px',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    color: '#333',
+    textAlign: 'center'
+  };
+
+  const descStyle = {
+    padding: '0 12px 12px',
+    fontSize: '12px',
+    color: '#666',
+    lineHeight: '1.4'
   };
 
   return (
     <div style={{ background: '#f9f9f9', borderRadius: '12px', marginTop: '20px', padding: '20px' }}>
-      <h3>🔍 Condition Indicators</h3>
-      <div style={gridStyle}>
-        {Object.entries(CONDITION_INDICATORS).map(([key, svg]) => (
-          <div key={key} style={{ textAlign: 'center' }}>
-            <div dangerouslySetInnerHTML={{ __html: svg }} />
-            <p style={{ fontSize: '12px', marginTop: '5px' }}>
-              {conditionNames[lang][key]}
-            </p>
+      <h3 style={{ fontSize: '20px', marginBottom: '10px' }}>🔍 Condition Level Examples</h3>
+      <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
+        {lang === 'en'
+          ? 'Real examples of different condition levels - use these as reference when describing items'
+          : 'コンディションレベルの実例 - 商品説明時の参考にしてください'}
+      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
+        {Object.entries(CONDITION_IMAGES).map(([key, data]) => (
+          <div key={key} style={imageCardStyle}>
+            <img src={data.url} alt={data.description} style={imageStyle} />
+            <div style={captionStyle}>{conditionNames[lang][key]}</div>
+            <div style={descStyle}>{data.details}</div>
           </div>
         ))}
       </div>
 
-      <h3 style={{ marginTop: '30px' }}>⚠️ Common Wear Patterns</h3>
-      <div style={gridStyle}>
-        {Object.entries(WEAR_PATTERNS).map(([key, svg]) => (
-          <div key={key} style={{ textAlign: 'center' }}>
-            <div dangerouslySetInnerHTML={{ __html: svg }} />
-            <p style={{ fontSize: '12px', marginTop: '5px' }}>
-              {wearNames[lang][key]}
-            </p>
+      <h3 style={{ marginTop: '40px', fontSize: '20px', marginBottom: '10px' }}>⚠️ Common Wear Pattern Examples</h3>
+      <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
+        {lang === 'en'
+          ? 'Learn to identify and describe specific wear patterns accurately'
+          : '特定の劣化パターンを正確に識別・説明する方法を学ぶ'}
+      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
+        {Object.entries(WEAR_PATTERN_IMAGES).map(([key, data]) => (
+          <div key={key} style={imageCardStyle}>
+            <img src={data.url} alt={data.description} style={imageStyle} />
+            <div style={captionStyle}>{wearNames[lang][key]}</div>
+            <div style={descStyle}>
+              <strong>{lang === 'en' ? 'Example:' : '例:'}</strong> {data.example}
+            </div>
           </div>
         ))}
       </div>
