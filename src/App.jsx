@@ -2727,7 +2727,9 @@ export default function App() {
           { label: "Scenario Response", page: "game-scenario" },
           { label: "Flashcard Mode", page: "game-flashcard" },
           { label: "Matching Game", page: "game-matching" },
-          { label: "Daily Warm-Up", page: "game-warmup" }
+          { label: "Daily Warm-Up", page: "game-warmup" },
+          { label: "📹 6 Camera Angles", page: "game-camera" },
+          { label: "🎯 Condition Comparison", page: "game-conditioncomp" }
         ]
       },
       {
@@ -2858,7 +2860,9 @@ export default function App() {
           { label: "シナリオ対応", page: "game-scenario" },
           { label: "フラッシュカード", page: "game-flashcard" },
           { label: "マッチングゲーム", page: "game-matching" },
-          { label: "デイリーウォームアップ", page: "game-warmup" }
+          { label: "デイリーウォームアップ", page: "game-warmup" },
+          { label: "📹 6つのカメラアングル", page: "game-camera" },
+          { label: "🎯 状態比較", page: "game-conditioncomp" }
         ]
       },
       {
@@ -8253,6 +8257,322 @@ function DragDropMatching({ lang, onComplete }) {
 
 
 /* ═══ PRACTICE ═══ */
+/* ═══ CAMERA ANGLES TRAINING ═══ */
+function CameraAnglesTraining({ lang }) {
+  const angles = [
+    {
+      name: lang === "en" ? "Full Item Overview" : "アイテム全体",
+      nameEn: "Full Item Overview",
+      desc: lang === "en" ? "Show the entire item in frame. Establish what you're selling." : "アイテム全体をフレームに。何を販売しているか確立。",
+      emoji: "📦",
+      tips: lang === "en"
+        ? "Hold item at arm's length. Show full silhouette. Rotate slowly 360°."
+        : "腕を伸ばしてアイテムを持つ。完全なシルエットを見せる。ゆっくり360°回転。",
+      example: lang === "en" ? "Start every product with: 'Okay, here we have a Louis Vuitton Speedy 30...'" : "すべての製品を次で開始：「では、こちらルイ・ヴィトン スピーディ30です...」"
+    },
+    {
+      name: lang === "en" ? "Brand Logo Close-Up" : "ブランドロゴクローズアップ",
+      nameEn: "Brand Logo Close-Up",
+      desc: lang === "en" ? "Zoom in on brand logos, stamps, and authentication markers." : "ブランドロゴ、刻印、真贋マーカーにズームイン。",
+      emoji: "🔍",
+      tips: lang === "en"
+        ? "Move camera closer OR bring item to camera. Focus on logo clarity. Hold steady for 3-5 seconds."
+        : "カメラを近づけるか、アイテムをカメラに。ロゴの鮮明さに焦点。3-5秒間静止。",
+      example: lang === "en" ? "'See this heat stamp? It's crisp and clear. That's authentic Louis Vuitton.'" : "「この刻印見えますか？鮮明で明確。これが本物のルイ・ヴィトン。」"
+    },
+    {
+      name: lang === "en" ? "Hardware Details" : "金具ディテール",
+      nameEn: "Hardware Details",
+      desc: lang === "en" ? "Show zippers, clasps, chains, and metal hardware." : "ジッパー、クラスプ、チェーン、金属金具を見せる。",
+      emoji: "⚙️",
+      tips: lang === "en"
+        ? "Zoom in on zippers, locks, chains. Show engravings on hardware. Test zipper on camera."
+        : "ジッパー、ロック、チェーンにズームイン。金具の彫刻を見せる。カメラ前でジッパーテスト。",
+      example: lang === "en" ? "'Look at this hardware - all original Chanel. The zipper glides perfectly.'" : "「この金具を見て - すべてオリジナルシャネル。ジッパーは完璧に滑る。」"
+    },
+    {
+      name: lang === "en" ? "Interior View" : "内側ビュー",
+      nameEn: "Interior View",
+      desc: lang === "en" ? "Open the bag and show lining, pockets, and interior condition." : "バッグを開けて裏地、ポケット、内側状態を見せる。",
+      emoji: "👀",
+      tips: lang === "en"
+        ? "Open bag wide. Tilt to show inside clearly. Point out pockets and compartments."
+        : "バッグを大きく開ける。内側が明確に見えるように傾ける。ポケットとコンパートメントを指す。",
+      example: lang === "en" ? "'Inside is clean - no stains. You have one zip pocket here and two open pockets.'" : "「内側はきれい - シミなし。ここにジップポケット1つと開いたポケット2つ。」"
+    },
+    {
+      name: lang === "en" ? "Condition Close-Ups" : "状態クローズアップ",
+      nameEn: "Condition Close-Ups",
+      desc: lang === "en" ? "Show any wear, scratches, stains, or defects honestly." : "使用感、傷、シミ、欠陥を正直に見せる。",
+      emoji: "🔎",
+      tips: lang === "en"
+        ? "Don't hide flaws! Zoom in on wear spots. Better to be honest now than deal with returns."
+        : "欠陥を隠さない！使用箇所にズームイン。返品対応より今正直な方が良い。",
+      example: lang === "en" ? "'There's minor corner wear here - very common for this model. See? Not bad at all.'" : "「ここに軽いコーナー使用感 - このモデルでは非常に一般的。見える？全然悪くない。」"
+    },
+    {
+      name: lang === "en" ? "Size Reference" : "サイズ参照",
+      nameEn: "Size Reference",
+      desc: lang === "en" ? "Show the bag worn/held to demonstrate actual size." : "バッグを着用/保持して実際のサイズを示す。",
+      emoji: "📏",
+      tips: lang === "en"
+        ? "Hold bag next to your body. Show on shoulder or crossbody. Give size context."
+        : "バッグを体の横に持つ。肩またはクロスボディで見せる。サイズのコンテキストを提供。",
+      example: lang === "en" ? "'This is how it looks when worn. Perfect everyday size - not too big, not too small.'" : "「着用するとこんな感じ。完璧な日常サイズ - 大きすぎず、小さすぎず。」"
+    }
+  ];
+
+  return (
+    <div style={{ animation: "fu 0.4s ease" }}>
+      <div style={{ marginBottom: 32 }}>
+        <h1 style={{ fontSize: 36, fontWeight: 700, color: "#191919", marginBottom: 8 }}>
+          📹 {lang === "en" ? "6 Essential Camera Angles" : "6つの必須カメラアングル"}
+        </h1>
+        <p style={{ fontSize: 16, color: "#4B5563", lineHeight: 1.6 }}>
+          {lang === "en"
+            ? "Master these 6 camera angles to show items professionally during live streams. Buyers need to see every detail before they buy!"
+            : "ライブ配信中にアイテムをプロフェッショナルに見せるために、これら6つのカメラアングルをマスターしましょう。バイヤーは購入前にすべての詳細を見る必要があります！"}
+        </p>
+      </div>
+
+      <div style={{ display: "grid", gap: 20 }}>
+        {angles.map((angle, idx) => (
+          <div
+            key={idx}
+            style={{
+              background: "#FFFFFF",
+              border: "2px solid #E5E7EB",
+              borderRadius: 16,
+              padding: 24,
+              transition: "all 0.2s"
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = "#3665F3";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(54, 101, 243, 0.15)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = "#E5E7EB";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
+              <div style={{ fontSize: 48, flexShrink: 0 }}>{angle.emoji}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+                  <div style={{
+                    background: "#3665F3",
+                    color: "#FFF",
+                    width: 32,
+                    height: 32,
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 16,
+                    fontWeight: 700
+                  }}>
+                    {idx + 1}
+                  </div>
+                  <h3 style={{ fontSize: 20, fontWeight: 700, color: "#191919", margin: 0 }}>
+                    {angle.name}
+                  </h3>
+                </div>
+                <p style={{ fontSize: 15, color: "#6B7280", lineHeight: 1.7, marginBottom: 16 }}>
+                  {angle.desc}
+                </p>
+                <div style={{ background: "#F7F7F7", padding: 16, borderRadius: 10, marginBottom: 12 }}>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: "#3665F3", marginBottom: 6 }}>
+                    💡 {lang === "en" ? "How to do it:" : "やり方："}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#191919", lineHeight: 1.6 }}>
+                    {angle.tips}
+                  </div>
+                </div>
+                <div style={{ background: "#EFF6FF", padding: 16, borderRadius: 10, borderLeft: "4px solid #3665F3" }}>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: "#3665F3", marginBottom: 6 }}>
+                    🎙️ {lang === "en" ? "What to say:" : "何を言う："}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#191919", lineHeight: 1.6, fontStyle: "italic" }}>
+                    "{angle.example}"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: 32, background: "#FEF3C7", padding: 24, borderRadius: 12, border: "2px solid #F5AF02" }}>
+        <h3 style={{ fontSize: 18, fontWeight: 700, color: "#F5AF02", marginBottom: 12 }}>
+          ⭐ {lang === "en" ? "Pro Tip" : "プロのヒント"}
+        </h3>
+        <p style={{ fontSize: 15, color: "#191919", lineHeight: 1.7, margin: 0 }}>
+          {lang === "en"
+            ? "Go through ALL 6 angles for EVERY item. It takes 2-3 minutes max, but dramatically increases buyer confidence. The more they see, the more they trust, the more they buy!"
+            : "すべてのアイテムに対してすべての6つのアングルを通過。最大2-3分かかりますが、バイヤーの信頼を劇的に高めます。見れば見るほど、信頼し、購入する！"}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ═══ CONDITION GRADE COMPARISON ═══ */
+function ConditionGradeComparison({ lang }) {
+  const grades = [
+    {
+      grade: lang === "en" ? "Brand New / NWT" : "新品・タグ付き",
+      emoji: "🏷️",
+      color: "#86B817",
+      description: lang === "en"
+        ? "Never used, tags still attached, perfect condition"
+        : "未使用、タグ付き、完璧な状態",
+      visualCues: lang === "en"
+        ? ["Original tags attached", "No signs of wear", "Pristine hardware", "Clean interior", "No odors"]
+        : ["オリジナルタグ付き", "使用感なし", "完璧な金具", "きれいな内側", "臭いなし"],
+      example: lang === "en"
+        ? "Brand new Chanel Classic Flap - tags still on, never worn, perfect!"
+        : "新品シャネル クラシックフラップ - タグ付き、未着用、完璧！"
+    },
+    {
+      grade: lang === "en" ? "Like New / Excellent" : "ほぼ新品・極美品",
+      emoji: "✨",
+      color: "#3665F3",
+      description: lang === "en"
+        ? "Barely used, may be missing tags but appears unworn"
+        : "ほとんど未使用、タグはないが未着用に見える",
+      visualCues: lang === "en"
+        ? ["May lack tags", "Minimal to no visible wear", "Hardware shiny", "Interior spotless", "Could pass as new"]
+        : ["タグなしの可能性", "目に見える使用感がほとんどまたはまったくない", "金具が輝いている", "内側が汚れていない", "新品として通る可能性"],
+      example: lang === "en"
+        ? "Used once for a special event - looks brand new!"
+        : "特別なイベントで1回使用 - 新品のように見える！"
+    },
+    {
+      grade: lang === "en" ? "Very Good" : "美品",
+      emoji: "👍",
+      color: "#F5AF02",
+      description: lang === "en"
+        ? "Light use, minor signs of wear but well-maintained"
+        : "軽い使用、軽微な使用感があるが、よく手入れされている",
+      visualCues: lang === "en"
+        ? ["Light corner wear", "Minimal scratches on hardware", "Interior clean with possible light marks", "Structure intact", "No major flaws"]
+        : ["軽いコーナー使用感", "金具に最小限の傷", "内側はきれいだが軽いマークの可能性", "構造は無傷", "大きな欠陥なし"],
+      example: lang === "en"
+        ? "Gently used Louis Vuitton - some light patina on handles, great condition overall!"
+        : "優しく使用されたルイ・ヴィトン - ハンドルに軽いパティーナ、全体的に良い状態！"
+    },
+    {
+      grade: lang === "en" ? "Good" : "良品",
+      emoji: "👌",
+      color: "#F59E0B",
+      description: lang === "en"
+        ? "Moderate use, visible wear but fully functional"
+        : "中程度の使用、目に見える使用感があるが完全に機能的",
+      visualCues: lang === "en"
+        ? ["Visible corner wear", "Hardware tarnishing", "Interior may have stains/marks", "Minor scratches visible", "Shape may be slightly softened"]
+        : ["目に見えるコーナー使用感", "金具の変色", "内側にシミ/マークの可能性", "軽い傷が見える", "形状がわずかに柔らかくなっている可能性"],
+      example: lang === "en"
+        ? "Well-loved Hermès Birkin - shows wear but authentic and functional!"
+        : "よく愛されたエルメス バーキン - 使用感はあるが本物で機能的！"
+    },
+    {
+      grade: lang === "en" ? "Fair / Heavily Used" : "使用感あり",
+      emoji: "📋",
+      color: "#E53238",
+      description: lang === "en"
+        ? "Heavy use, significant wear, may need repair"
+        : "重度の使用、かなりの使用感、修理が必要な可能性",
+      visualCues: lang === "en"
+        ? ["Heavy corner/edge wear", "Scratched/damaged hardware", "Interior stains or odor", "Structural damage possible", "May need professional cleaning/repair"]
+        : ["重いコーナー/エッジ使用感", "傷/損傷した金具", "内側のシミまたは臭い", "構造的損傷の可能性", "プロのクリーニング/修理が必要な可能性"],
+      example: lang === "en"
+        ? "Vintage Gucci - needs TLC, great for restoration project or parts!"
+        : "ヴィンテージ グッチ - TLCが必要、修復プロジェクトまたはパーツに最適！"
+    }
+  ];
+
+  return (
+    <div style={{ animation: "fu 0.4s ease" }}>
+      <div style={{ marginBottom: 32 }}>
+        <h1 style={{ fontSize: 36, fontWeight: 700, color: "#191919", marginBottom: 8 }}>
+          🎯 {lang === "en" ? "Condition Grade Comparison" : "状態グレード比較"}
+        </h1>
+        <p style={{ fontSize: 16, color: "#4B5563", lineHeight: 1.6 }}>
+          {lang === "en"
+            ? "Learn to accurately grade luxury items. Honest condition descriptions prevent returns and build buyer trust!"
+            : "高級品を正確にグレード評価する方法を学びましょう。正直な状態説明は返品を防ぎ、バイヤーの信頼を築きます！"}
+        </p>
+      </div>
+
+      <div style={{ display: "grid", gap: 20 }}>
+        {grades.map((grade, idx) => (
+          <div
+            key={idx}
+            style={{
+              background: "#FFFFFF",
+              border: `3px solid ${grade.color}`,
+              borderRadius: 16,
+              padding: 24,
+              transition: "all 0.2s"
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = `0 8px 20px ${grade.color}40`;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
+              <div style={{ fontSize: 48 }}>{grade.emoji}</div>
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: 22, fontWeight: 700, color: grade.color, margin: 0, marginBottom: 4 }}>
+                  {grade.grade}
+                </h3>
+                <p style={{ fontSize: 15, color: "#6B7280", margin: 0 }}>
+                  {grade.description}
+                </p>
+              </div>
+            </div>
+
+            <div style={{ background: "#F7F7F7", padding: 20, borderRadius: 12, marginBottom: 16 }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: grade.color, marginBottom: 12 }}>
+                👁️ {lang === "en" ? "What to Look For:" : "確認事項："}
+              </div>
+              <ul style={{ margin: 0, paddingLeft: 24, fontSize: 14, color: "#191919", lineHeight: 1.8 }}>
+                {grade.visualCues.map((cue, i) => (
+                  <li key={i}>{cue}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div style={{ background: `${grade.color}15`, padding: 16, borderRadius: 10, borderLeft: `4px solid ${grade.color}` }}>
+              <div style={{ fontSize: 13, fontWeight: 600, color: grade.color, marginBottom: 6 }}>
+                🎙️ {lang === "en" ? "How to Describe on Stream:" : "配信での説明方法："}
+              </div>
+              <div style={{ fontSize: 14, color: "#191919", lineHeight: 1.6, fontStyle: "italic" }}>
+                "{grade.example}"
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: 32, background: "#EFF6FF", padding: 24, borderRadius: 12, border: "2px solid #3665F3" }}>
+        <h3 style={{ fontSize: 18, fontWeight: 700, color: "#3665F3", marginBottom: 12 }}>
+          ⚠️ {lang === "en" ? "Critical Rule" : "重要なルール"}
+        </h3>
+        <p style={{ fontSize: 15, color: "#191919", lineHeight: 1.7, margin: 0 }}>
+          {lang === "en"
+            ? "When in doubt, grade LOWER. It's better to undersell the condition than oversell. If you say 'Excellent' and it arrives 'Good', you get a return. If you say 'Good' and it arrives better than expected, you get a happy customer and 5-star review!"
+            : "迷ったら、低くグレード評価。状態を過大評価するより過小評価する方が良い。「極美品」と言って「良品」が届くと返品。「良品」と言って期待以上が届くと、幸せな顧客と5つ星レビュー！"}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function PracticeP({ lang, onXpEarned }) {
   const [activeGame, setActiveGame] = useState(null);
 
@@ -8559,6 +8879,56 @@ function PracticeP({ lang, onXpEarned }) {
     );
   }
 
+  if (activeGame === "camera") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <CameraAnglesTraining lang={lang} />
+      </div>
+    );
+  }
+
+  if (activeGame === "conditioncomp") {
+    return (
+      <div style={{ animation:"fu 0.4s ease" }}>
+        <button
+          onClick={() => setActiveGame(null)}
+          style={{
+            background:"none",
+            border:"none",
+            color:"#3665F3",
+            fontSize:16,
+            fontWeight:600,
+            cursor:"pointer",
+            marginBottom:16,
+            display:"flex",
+            alignItems:"center",
+            gap:8
+          }}
+        >
+          ← {lang === "en" ? "Back to Practice" : "練習に戻る"}
+        </button>
+        <ConditionGradeComparison lang={lang} />
+      </div>
+    );
+  }
+
   return (
     <div style={{ animation:"fu 0.4s ease" }}>
       <div style={{ marginBottom:32 }}>
@@ -8628,6 +8998,22 @@ function PracticeP({ lang, onXpEarned }) {
             d:lang==="en"?"3-minute pre-stream confidence booster":"配信前3分間の自信ブースター",
             c:"#86B817",
             game:"warmup",
+            available:true
+          },
+          {
+            icon:"📹",
+            t:lang==="en"?"6 Essential Camera Angles":"6つの必須カメラアングル",
+            d:lang==="en"?"Learn the 6 camera angles every live seller needs to show items":"全てのライブセラーがアイテムを見せるために必要な6つのカメラアングル",
+            c:"#3665F3",
+            game:"camera",
+            available:true
+          },
+          {
+            icon:"🎯",
+            t:lang==="en"?"Condition Grade Comparison":"状態グレード比較",
+            d:lang==="en"?"Practice grading luxury items with visual examples":"ビジュアル例で高級品のグレード評価を練習",
+            c:"#F5AF02",
+            game:"conditioncomp",
             available:true
           },
           {
