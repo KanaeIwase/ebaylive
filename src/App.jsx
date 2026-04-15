@@ -886,7 +886,60 @@ const BRAND_DATA = {
     rareJp:"トーマス・マイヤー時代（2001-2018）作品は高コレクティブル。ザ・ポーチ、ザ・チェーンカセット。ヴィンテージ編みバッグ。",
     tip:"No logo = quiet luxury. The weave IS the logo. Buyers who know, know.",
     tipJp:"ロゴなし = 静かなラグジュアリー。編みがロゴ。知ってる人は知ってる。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Classic BV. Timeless and versatile.", descJp:"クラシックBV。タイムレスで万能。"},
+      {name:"Fondente (Dark Brown)", hex:"#3E2723", nameJp:"フォンデンテ（ダークブラウン）", desc:"Rich chocolate brown. Very popular.", descJp:"リッチなチョコレートブラウン。とても人気。"},
+      {name:"Parakeet (Green)", hex:"#7CB342", nameJp:"パラキート（グリーン）", desc:"Bold, unexpected. Statement color.", descJp:"大胆、予想外。ステートメントカラー。"},
+      {name:"Cream/Chalk", hex:"#F5F5DC", nameJp:"クリーム/チョーク", desc:"Soft neutral. Shows the weave beautifully.", descJp:"ソフトなニュートラル。編みを美しく見せる。"}
+    ],
+    models:[
+      { name:"The Pouch", brief:"Oversized clutch - iconic pillow shape", briefJp:"特大クラッチ - 象徴的なピロー形状",
+        desc:"Bottega's most iconic modern bag. Soft, gathered leather clutch that looks like a cloud. No structure, pure luxury.",
+        descJp:"ボッテガの最も象徴的なモダンバッグ。雲のような柔らかいギャザーレザークラッチ。構造なし、純粋なラグジュアリー。",
+        shape:"Soft gathered pouch with magnetic closure. No structure - collapses when not full. Signature gathered leather.",
+        shapeJp:"マグネットクロージャーのソフトギャザーポーチ。構造なし - 空の時は潰れる。シグネチャーのギャザーレザー。",
+        sizes:[
+          {name:"Mini", dim:"7.9\"W × 4.7\"H"},
+          {name:"Small", dim:"11.8\"W × 7.1\"H"},
+          {name:"Large", dim:"15.7\"W × 9.8\"H - MOST POPULAR"},
+          {name:"Maxi", dim:"19.7\"W × 12.6\"H"}
+        ],
+        rare:"Tomas Maier era (2019). Limited edition colors like Parakeet green. Exotic leather versions.",
+        rareJp:"トーマス・マイヤー時代（2019）。パラキートグリーンなど限定版カラー。エキゾチックレザーバージョン。",
+        tip:"Hold it like a clutch or tuck under arm. The gathered leather is BUTTER soft. No logos - pure quiet luxury.",
+        tipJp:"クラッチのように持つか、脇に挟む。ギャザーレザーはバターのように柔らか。ロゴなし - 純粋な静かなラグジュアリー。"
+      },
+      { name:"Cassette", brief:"Padded woven crossbody - puffy signature", briefJp:"パッド入り編みクロスボディ - ぷっくりシグネチャー",
+        desc:"Puffy, padded Intrecciato weave. Became hugely popular 2019+. Soft, pillow-like quilted squares.",
+        descJp:"ぷっくりとパッド入りイントレチャート編み。2019年以降大人気。柔らかい、枕のようなキルトスクエア。",
+        shape:"Rectangular with rounded corners. Padded woven squares. Chain strap. Flap closure.",
+        shapeJp:"丸みのある角の長方形。パッド入り編みスクエア。チェーンストラップ。フラップクロージャー。",
+        sizes:[
+          {name:"Mini", dim:"5.5\"W × 4.3\"H × 2.4\"D"},
+          {name:"Small", dim:"7.1\"W × 5.5\"H × 3.1\"D - MOST POPULAR"},
+          {name:"Medium", dim:"11\"W × 7.9\"H × 3.9\"D"}
+        ],
+        rare:"Chain Cassette (woven chain strap). Jodie (hobo version). Limited colors.",
+        rareJp:"チェーンカセット（編みチェーンストラップ）。ジョディ（ホーボーバージョン）。限定カラー。",
+        tip:"The padding makes it SO luxe. Feels like a cloud. The weave is tight and perfect - check for loose threads.",
+        tipJp:"パッドがとても豪華に見せる。雲のよう。編みがタイトで完璧 - 緩んだ糸をチェック。"
+      },
+      { name:"Jodie", brief:"Gathered hobo - slouchy everyday", briefJp:"ギャザーホーボー - たるんだ日常用",
+        desc:"Slouchy hobo style with gathered Intrecciato weave. Knotted strap detail. Casual luxury.",
+        descJp:"ギャザーイントレチャート編みのたるんだホーボースタイル。結び目ストラップディテール。カジュアルラグジュアリー。",
+        shape:"Slouchy half-moon hobo. Gathered woven leather. Single knotted shoulder strap.",
+        shapeJp:"たるんだ半月ホーボー。ギャザー編みレザー。シングル結び目ショルダーストラップ。",
+        sizes:[
+          {name:"Mini", dim:"7.5\"W × 5.9\"H × 2.8\"D"},
+          {name:"Small", dim:"10.2\"W × 7.9\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"13\"W × 10.2\"H × 4.3\"D"}
+        ],
+        rare:"First season (2020). Unique colorways. Tomas Maier's last designs.",
+        rareJp:"初シーズン（2020）。ユニークなカラーウェイ。トーマス・マイヤーの最後のデザイン。",
+        tip:"Perfect everyday bag. Slouchy but polished. The knotted strap is signature BV - mention it!",
+        tipJp:"完璧な日常バッグ。たるんでいるが洗練。結び目ストラップはシグネチャーBV - 言及して！"
+      }
+    ]
   },
   fendi: {
     name:"Fendi", year:1925, country:"Italy",
@@ -898,7 +951,59 @@ const BRAND_DATA = {
     rareJp:"バゲットバッグ（90年代アイコン）。カール・ラガーフェルドコラボ。エキゾチックレザーのピーカブー。",
     tip:"The Baguette is THE 90s It bag. Sex and the City made it famous. Vintage is hot right now.",
     tipJp:"バゲットはTHE 90年代Itバッグ。セックス・アンド・ザ・シティで有名に。ヴィンテージが今熱い。",
-    models:[]
+    colors:[
+      {name:"Zucca Brown", hex:"#8B4513", nameJp:"ズッカブラウン", desc:"Classic FF monogram. Instantly recognizable.", descJp:"クラシックFFモノグラム。即座に認識可能。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Sleek and timeless. Hides wear well.", descJp:"スリークでタイムレス。摩耗を隠す。"},
+      {name:"Tobacco/Cognac", hex:"#A0522D", nameJp:"タバコ/コニャック", desc:"Warm brown leather. Very luxurious.", descJp:"温かいブラウンレザー。とても豪華。"},
+      {name:"Pink/Blush", hex:"#FFB6C1", nameJp:"ピンク/ブラッシュ", desc:"Feminine and playful. Limited editions.", descJp:"女性的で遊び心。限定版。"}
+    ],
+    models:[
+      { name:"Baguette", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",
+        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
+        descJp:"90年代後半のTHE Itバッグ。コンパクト、フランスのバゲットのように脇の下に収まる。セックス・アンド・ザ・シティで有名に。",
+        shape:"Small rectangular bag. Flap closure. Short shoulder strap. Fits snugly under arm.",
+        shapeJp:"小さな長方形バッグ。フラップクロージャー。短いショルダーストラップ。脇の下にぴったり収まる。",
+        sizes:[
+          {name:"Mini", dim:"6.7\"W × 4.3\"H × 1.6\"D"},
+          {name:"Regular", dim:"10\"W × 6\"H × 2\"D - MOST POPULAR"},
+          {name:"Large", dim:"12\"W × 7\"H × 3\"D"}
+        ],
+        rare:"Vintage 1997-2000 (original release). Embroidered/beaded versions. Karl Lagerfeld collaborations. Sequin Baguettes.",
+        rareJp:"1997-2000年のヴィンテージ（オリジナルリリース）。刺繍/ビーズバージョン。カール・ラガーフェルドコラボ。スパンコールバゲット。",
+        tip:"Carrie Bradshaw carried THIS bag. Tell that story! Vintage Baguettes from the 90s are collector's items now.",
+        tipJp:"キャリー・ブラッドショーがこのバッグを持った。その話をして！90年代のヴィンテージバゲットは今コレクターアイテム。"
+      },
+      { name:"Peekaboo", brief:"Structured tote - iconic twist lock", briefJp:"構造的トート - 象徴的なツイストロック",
+        desc:"Fendi's modern icon. Structured frame bag with distinctive twist-lock closure. Professional yet stylish.",
+        descJp:"フェンディのモダンアイコン。特徴的なツイストロッククロージャー付き構造フレームバッグ。プロフェッショナルでスタイリッシュ。",
+        shape:"Structured rectangular frame bag. Double top handles. Twist-lock closure. Interior divided into compartments.",
+        shapeJp:"構造的長方形フレームバッグ。ダブルトップハンドル。ツイストロッククロージャー。コンパートメントに分かれた内部。",
+        sizes:[
+          {name:"Mini", dim:"7.9\"W × 6.3\"H × 4.3\"D"},
+          {name:"Regular", dim:"12.6\"W × 9.8\"H × 6.3\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 11\"H × 7\"D"}
+        ],
+        rare:"Selleria (hand-stitched). Exotic leathers (python, crocodile). Two-tone color combinations.",
+        rareJp:"セレリア（手縫い）。エキゾチックレザー（パイソン、クロコダイル）。ツートーンカラーコンビネーション。",
+        tip:"The twist-lock is signature. Show how it opens - buyers love that detail. It's a work bag that's also chic.",
+        tipJp:"ツイストロックはシグネチャー。開き方を見せて - バイヤーはその詳細が好き。シックな仕事バッグ。"
+      },
+      { name:"By The Way", brief:"Crossbody satchel - everyday luxury", briefJp:"クロスボディサッチェル - 日常ラグジュアリー",
+        desc:"Modern crossbody satchel. Structured but lightweight. Perfect everyday bag with shoulder strap.",
+        descJp:"モダンクロスボディサッチェル。構造的だが軽量。ショルダーストラップ付き完璧な日常バッグ。",
+        shape:"Small structured satchel. Top handle + detachable shoulder strap. Zip closure. Compact but roomy.",
+        shapeJp:"小さな構造サッチェル。トップハンドル+取り外し可能ショルダーストラップ。ジップクロージャー。コンパクトだが広々。",
+        sizes:[
+          {name:"Mini", dim:"7.5\"W × 6.3\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Small", dim:"9.8\"W × 7.9\"H × 4.7\"D"},
+          {name:"Medium", dim:"12.2\"W × 9\"H × 5.5\"D"}
+        ],
+        rare:"Two-tone leather. Studded versions. Limited edition prints.",
+        rareJp:"ツートーンレザー。スタッズバージョン。限定版プリント。",
+        tip:"Practical AND luxurious. Fits phone, wallet, keys. The shoulder strap is adjustable - show that!",
+        tipJp:"実用的で豪華。電話、財布、鍵が入る。ショルダーストラップは調整可能 - それを見せて！"
+      }
+    ]
   },
   celine: {
     name:"Celine", year:1945, country:"France",
@@ -910,7 +1015,59 @@ const BRAND_DATA = {
     rareJp:"フィービー・ファイロ時代（2008-2017）極めて人気。ファントム、トラペーズ、クラシックボックス。ミニマリスト美学。",
     tip:"Phoebe Philo Celine is THE collector's grail. Minimalist, no logos. If you know, you know.",
     tipJp:"フィービー・ファイロ セリーヌはTHEコレクター聖杯。ミニマリスト、ロゴなし。知ってる人は知ってる。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Ultimate minimalism. Never goes out of style.", descJp:"究極のミニマリズム。流行に左右されない。"},
+      {name:"Taupe/Dune", hex:"#C9B29C", nameJp:"トープ/デューン", desc:"Warm neutral. Phoebe Philo signature.", descJp:"温かいニュートラル。フィービー・ファイロシグネチャー。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Sophisticated alternative to black.", descJp:"ブラックの洗練された代替。"},
+      {name:"Burgundy/Oxblood", hex:"#800020", nameJp:"バーガンディ/オックスブラッド", desc:"Rich, luxurious. Fall favorite.", descJp:"リッチ、豪華。秋のお気に入り。"}
+    ],
+    models:[
+      { name:"Belt Bag", brief:"Structured tote with belt detail - icon", briefJp:"ベルトディテール付き構造トート - アイコン",
+        desc:"Celine's modern icon. Structured tote with signature belt wings on sides. Clean, architectural lines.",
+        descJp:"セリーヌのモダンアイコン。サイドにシグネチャーベルトウィング付き構造トート。クリーンで建築的なライン。",
+        shape:"Trapeze/triangular tote. Belt detail creates wings on sides. Top zip closure. Clean minimal aesthetic.",
+        shapeJp:"台形/三角トート。ベルトディテールがサイドにウィングを作る。トップジップクロージャー。クリーンなミニマル美学。",
+        sizes:[
+          {name:"Micro", dim:"7.9\"W × 7.1\"H × 3.9\"D"},
+          {name:"Nano", dim:"9.8\"W × 7.5\"H × 5.1\"D - MOST POPULAR"},
+          {name:"Mini", dim:"10.2\"W × 9.8\"H × 5.5\"D"}
+        ],
+        rare:"Phoebe Philo era (2010-2017). Exotic leathers. Tricolor versions (three leather panels).",
+        rareJp:"フィービー・ファイロ時代（2010-2017）。エキゾチックレザー。トリカラーバージョン（3つのレザーパネル）。",
+        tip:"The belt detail is what makes it Celine. Point out those wings! Phoebe Philo designs are GOLD.",
+        tipJp:"ベルトディテールがセリーヌらしさ。そのウィングを指摘！フィービー・ファイロデザインはゴールド。"
+      },
+      { name:"Luggage Tote", brief:"Winged tote - architectural statement", briefJp:"ウィング付きトート - 建築的ステートメント",
+        desc:"THE Celine bag. Architectural tote with distinctive wing flaps. Instantly recognizable silhouette.",
+        descJp:"THEセリーヌバッグ。特徴的なウィングフラップ付き建築的トート。即座に認識できるシルエット。",
+        shape:"Structured tote with wing-like side panels. Front zipper detail. Top handles. Architectural and bold.",
+        shapeJp:"翼のようなサイドパネル付き構造トート。フロントジッパーディテール。トップハンドル。建築的で大胆。",
+        sizes:[
+          {name:"Nano", dim:"7.9\"W × 7.9\"H × 3.9\"D - MOST POPULAR"},
+          {name:"Micro", dim:"10.2\"W × 9.8\"H × 5.1\"D"},
+          {name:"Mini", dim:"12\"W × 11\"H × 5.9\"D"},
+          {name:"Medium", dim:"13\"W × 13\"H × 7\"D"}
+        ],
+        rare:"Phantom (no zipper, more slouchy). Tricolor leather. Drummed calfskin. Phoebe Philo era pieces.",
+        rareJp:"ファントム（ジッパーなし、よりたるんだ）。トリカラーレザー。ドラムカーフスキン。フィービー・ファイロ時代作品。",
+        tip:"This is THE bag fashionistas know. The wings make it stand out. Mention Phoebe Philo!",
+        tipJp:"これはファッショニスタが知るTHEバッグ。ウィングが目立つ。フィービー・ファイロに言及！"
+      },
+      { name:"Trio", brief:"Triple pouch crossbody - minimalist essential", briefJp:"トリプルポーチクロスボディ - ミニマリスト必需品",
+        desc:"Three zip pouches attached together. Ultimate minimalist crossbody. Simple, functional, chic.",
+        descJp:"3つのジップポーチが一緒に取り付けられている。究極のミニマリストクロスボディ。シンプル、機能的、シック。",
+        shape:"Three separate zip pouches on one strap. Can detach and use individually. Clean minimal design.",
+        shapeJp:"1つのストラップに3つの独立したジップポーチ。個別に取り外して使用可能。クリーンなミニマルデザイン。",
+        sizes:[
+          {name:"Small", dim:"Each pouch: 5\"W × 3.5\"H - MOST POPULAR"},
+          {name:"Large", dim:"Each pouch: 6.5\"W × 5\"H"}
+        ],
+        rare:"Phoebe Philo era (discontin ued 2018). Limited colors. Original versions with CÉLINE accent.",
+        rareJp:"フィービー・ファイロ時代（2018年に廃止）。限定カラー。CÉLINEアクセント付きオリジナルバージョン。",
+        tip:"Three bags in one! You can detach them. Perfect for travel. Minimalist but SO functional.",
+        tipJp:"3つのバッグが1つに！取り外し可能。旅行に完璧。ミニマリストだが超機能的。"
+      }
+    ]
   },
   loewe: {
     name:"Loewe", year:1846, country:"Spain",
@@ -922,7 +1079,59 @@ const BRAND_DATA = {
     rareJp:"パズルバッグ。ハンモックバッグ。1970-80年代ヴィンテージ。ジョナサン・アンダーソン時代（2013+）コレクティブル。",
     tip:"Spanish leather craftsmanship since 1846. The Puzzle bag is architectural genius.",
     tipJp:"1846年以来のスペインレザー職人技。パズルバッグは建築的天才。",
-    models:[]
+    colors:[
+      {name:"Tan/Camel", hex:"#C19A6B", nameJp:"タン/キャメル", desc:"Classic Loewe. Showcases leather quality.", descJp:"クラシックロエベ。レザー品質を見せる。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Timeless and versatile.", descJp:"タイムレスで万能。"},
+      {name:"Rust/Cognac", hex:"#B7410E", nameJp:"ラスト/コニャック", desc:"Rich warm brown. Very luxurious.", descJp:"リッチな温かいブラウン。とても豪華。"},
+      {name:"Soft White/Chalk", hex:"#F5F5DC", nameJp:"ソフトホワイト/チョーク", desc:"Modern minimalist. Shows craftsmanship.", descJp:"モダンミニマリスト。職人技を見せる。"}
+    ],
+    models:[
+      { name:"Puzzle", brief:"Geometric folded bag - architectural icon", briefJp:"幾何学折りバッグ - 建築的アイコン",
+        desc:"Loewe's modern masterpiece. Geometric bag made from 40+ leather pieces. Folds flat or pops into 3D shape. Architectural genius.",
+        descJp:"ロエベのモダン傑作。40以上のレザーピースで作られた幾何学バッグ。平らに折りたたむか、3D形状にポップ。建築的天才。",
+        shape:"Geometric puzzle of leather panels. Can be worn/carried multiple ways. Folds completely flat or expands into structured shape.",
+        shapeJp:"レザーパネルの幾何学パズル。複数の方法で着用/運搬可能。完全に平らに折りたたむか、構造形状に拡張。",
+        sizes:[
+          {name:"Nano", dim:"5.9\"W × 4.3\"H × 2.8\"D"},
+          {name:"Small", dim:"9.4\"W × 5.9\"H × 3.9\"D - MOST POPULAR"},
+          {name:"Medium", dim:"14.2\"W × 7.9\"H × 4.7\"D"},
+          {name:"Large", dim:"17.7\"W × 12.6\"H × 5.9\"D"}
+        ],
+        rare:"First season (2014). Limited colors. Exotic leather versions. Two-tone color blocking.",
+        rareJp:"初シーズン（2014）。限定カラー。エキゾチックレザーバージョン。ツートーンカラーブロッキング。",
+        tip:"Show how it folds! That's the selling point. Made from 40 pieces of leather - mention that craftsmanship!",
+        tipJp:"折り方を見せて！それがセリングポイント。40ピースのレザーで作られている - その職人技に言及！"
+      },
+      { name:"Hammock", brief:"Slouchy hobo - versatile everyday", briefJp:"たるんだホーボー - 多用途日常",
+        desc:"Soft, slouchy hobo bag. Can be worn as shoulder bag, crossbody, or backpack. Ultra-versatile.",
+        descJp:"柔らかくたるんだホーボーバッグ。ショルダーバッグ、クロスボディ、またはバックパックとして着用可能。超多用途。",
+        shape:"Drawstring bucket with adjustable straps. Soft unstructured leather. Multiple carrying options.",
+        shapeJp:"調整可能ストラップ付き巾着バケット。柔らかい非構造レザー。複数の運搬オプション。",
+        sizes:[
+          {name:"Small", dim:"11.8\"W × 10.6\"H × 6.3\"D - MOST POPULAR"},
+          {name:"Medium", dim:"14.2\"W × 12.2\"H × 7.5\"D"}
+        ],
+        rare:"Jonathan Anderson first designs (2014). Limited edition colors. Shearling-lined versions.",
+        rareJp:"ジョナサン・アンダーソンの最初のデザイン（2014）。限定版カラー。シアリング裏地バージョン。",
+        tip:"Three bags in one! Shoulder, cross body, OR backpack. Show all three ways to carry it!",
+        tipJp:"3つのバッグが1つに！ショルダー、クロスボディ、またはバックパック。3つの運搬方法すべてを見せて！"
+      },
+      { name:"Gate", brief:"Structured bag with knot closure - elegant", briefJp:"結び目クロージャー付き構造バッグ - エレガント",
+        desc:"Structured bag with signature knot closure. Elegant, sophisticated. Modern classic.",
+        descJp:"シグネチャー結び目クロージャー付き構造バッグ。エレガント、洗練。モダンクラシック。",
+        shape:"Structured rectangular bag. Leather knot closure. Top handle + shoulder strap. Clean lines.",
+        shapeJp:"構造的長方形バッグ。レザー結び目クロージャー。トップハンドル+ショルダーストラップ。クリーンライン。",
+        sizes:[
+          {name:"Mini", dim:"6.7\"W × 4.7\"H × 3.1\"D"},
+          {name:"Small", dim:"8.7\"W × 6.3\"H × 4.3\"D - MOST POPULAR"},
+          {name:"Medium", dim:"11.8\"W × 9.1\"H × 5.9\"D"}
+        ],
+        rare:"First season colors. Two-tone leather. Exotic skins.",
+        rareJp:"初シーズンカラー。ツートーンレザー。エキゾチックスキン。",
+        tip:"That knot closure is signature Loewe. It's simple but SO elegant. Spanish leather quality is unmatched.",
+        tipJp:"その結び目クロージャーはシグネチャーロエベ。シンプルだが超エレガント。スペインレザー品質は比類なし。"
+      }
+    ]
   },
   balenciaga: {
     name:"Balenciaga", year:1919, country:"France",
