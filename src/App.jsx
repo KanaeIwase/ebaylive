@@ -3299,11 +3299,6 @@ export default function App() {
         </div>
 
         <div className="ebay-content" key={`${page}-${lang}`}>
-          {/* DEBUG: Show current page value */}
-          <div style={{position:"fixed",top:60,right:10,background:"#FF0000",color:"#FFF",padding:"8px 12px",borderRadius:6,zIndex:9999,fontSize:12}}>
-            Page: {JSON.stringify(page)} | Type: {typeof page}
-          </div>
-
           {/* Render based on page value */}
           {(() => {
             console.log("Current page:", page, "Type:", typeof page);
@@ -4248,24 +4243,19 @@ function BrandKnowledgeLandingPage({ lang, onBrandSelect }) {
         </div>
       </div>
 
-      {/* Results Count */}
-      <div style={{ marginBottom: 16, color: "#6B7280", fontSize: 14 }}>
-        {searchQuery || categoryFilter !== "all" ? (
-          <>
+      {/* Only show results when there's a search query or filter */}
+      {(searchQuery.trim() || categoryFilter !== "all") && (
+        <>
+          {/* Results Count */}
+          <div style={{ marginBottom: 16, color: "#6B7280", fontSize: 14 }}>
             {lang === "en" ? "Found" : "検索結果"}: {brandResults.length} {lang === "en" ? "brands" : "ブランド"}
             {modelResults.length > 0 && (
               <>, {modelResults.length} {lang === "en" ? "models" : "モデル"}</>
             )}
-          </>
-        ) : (
-          <>
-            {lang === "en" ? "Showing all" : "表示中"}: {totalBrands} {lang === "en" ? "brands" : "ブランド"}
-          </>
-        )}
-      </div>
+          </div>
 
-      {/* Brands Grid */}
-      {brandResults.length > 0 && (
+          {/* Brands Grid */}
+          {brandResults.length > 0 && (
         <div style={{ marginBottom: 32 }}>
           <h2 style={{ fontSize: 24, fontWeight: 700, color: "#191919", marginBottom: 16 }}>
             {lang === "en" ? "Brands" : "ブランド"}
@@ -4446,19 +4436,21 @@ function BrandKnowledgeLandingPage({ lang, onBrandSelect }) {
         </div>
       )}
 
-      {/* No Results */}
-      {brandResults.length === 0 && modelResults.length === 0 && searchQuery && (
-        <div style={{ textAlign: "center", padding: 60, color: "#6B7280" }}>
-          <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
-          <div style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
-            {lang === "en" ? "No results found" : "結果が見つかりません"}
-          </div>
-          <div style={{ fontSize: 14 }}>
-            {lang === "en"
-              ? "Try a different search term or browse all brands above"
-              : "別の検索キーワードを試すか、上記の全ブランドを閲覧してください"}
-          </div>
-        </div>
+          {/* No Results */}
+          {brandResults.length === 0 && modelResults.length === 0 && searchQuery && (
+            <div style={{ textAlign: "center", padding: 60, color: "#6B7280" }}>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
+              <div style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
+                {lang === "en" ? "No results found" : "結果が見つかりません"}
+              </div>
+              <div style={{ fontSize: 14 }}>
+                {lang === "en"
+                  ? "Try a different search term or browse all brands above"
+                  : "別の検索キーワードを試すか、上記の全ブランドを閲覧してください"}
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
@@ -4601,30 +4593,7 @@ function FashionP({ lang, initialBrand }) {
           </p>
         </div>
 
-        {/* Visual Training Section */}
-        <div style={{ marginTop:32 }}>
-          <h2 style={{ fontSize:24, fontWeight:700, color:"#1a1a2e", marginBottom:16 }}>
-            📸 {lang==="en"?"Visual Training":"ビジュアルトレーニング"}
-          </h2>
-
-          {/* Brand Image Gallery */}
-          <BrandImageGallery brandKey={selectedBrand} modelName={model.name} showShapes={true} />
-
-          {/* 360 Degree Viewer */}
-          <Product360Viewer
-            brand={brand.name}
-            model={model.name}
-            condition="good"
-            lang={lang}
-          />
-
-          {/* Condition Comparison */}
-          <ConditionComparisonGrid
-            brand={brand.name}
-            model={model.name}
-            lang={lang}
-          />
-        </div>
+        {/* Visual Training Section - Removed temporarily */}
       </div>
     );
   }
