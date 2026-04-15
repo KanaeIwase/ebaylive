@@ -3109,6 +3109,350 @@ function HomeP({ lang, setPage, playerData }) {
   );
 }
 
+/* ═══ BRAND KNOWLEDGE LANDING PAGE ═══ */
+function BrandKnowledgeLandingPage({ lang, onBrandSelect }) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all"); // all, handbags, jewelry
+
+  // Build searchable data: brands + their models
+  const searchableData = [];
+  Object.keys(BRAND_DATA).forEach(brandKey => {
+    const brand = BRAND_DATA[brandKey];
+
+    // Add brand itself
+    searchableData.push({
+      type: "brand",
+      brandKey,
+      brandName: brand.name,
+      categories: brand.categories,
+      year: brand.year,
+      country: brand.country,
+      imageUrl: brand.imageUrl
+    });
+
+    // Add each model
+    if (brand.models && brand.models.length > 0) {
+      brand.models.forEach(model => {
+        searchableData.push({
+          type: "model",
+          brandKey,
+          brandName: brand.name,
+          modelName: model.name,
+          categories: brand.categories,
+          brief: lang === "en" ? model.brief : model.briefJp
+        });
+      });
+    }
+  });
+
+  // Filter by search query and category
+  const filteredResults = searchableData.filter(item => {
+    // Category filter
+    if (categoryFilter !== "all") {
+      if (!item.categories.includes(categoryFilter === "handbags" ? "handbags" : "jewelry")) {
+        return false;
+      }
+    }
+
+    // Search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      const brandMatch = item.brandName.toLowerCase().includes(query);
+      const modelMatch = item.modelName ? item.modelName.toLowerCase().includes(query) : false;
+      return brandMatch || modelMatch;
+    }
+
+    return true;
+  });
+
+  // Separate brands and models
+  const brandResults = filteredResults.filter(r => r.type === "brand");
+  const modelResults = filteredResults.filter(r => r.type === "model");
+
+  // Category counts
+  const totalBrands = Object.keys(BRAND_DATA).length;
+  const handbagBrands = Object.values(BRAND_DATA).filter(b => b.categories.includes("handbags")).length;
+  const jewelryBrands = Object.values(BRAND_DATA).filter(b => b.categories.includes("jewelry")).length;
+
+  return (
+    <div style={{ animation: "fu 0.4s ease" }}>
+      {/* Header */}
+      <div style={{ marginBottom: 32 }}>
+        <h1 style={{ fontSize: 36, fontWeight: 700, color: "#191919", marginBottom: 8 }}>
+          {lang === "en" ? "Brand Knowledge" : "ブランド知識"}
+        </h1>
+        <p style={{ fontSize: 16, color: "#4B5563", lineHeight: 1.6, marginBottom: 24 }}>
+          {lang === "en"
+            ? "Complete training on all eBay Authenticity Guarantee eligible brands. Search by brand or model name."
+            : "eBay Authenticity Guarantee対象の全ブランドの完全トレーニング。ブランド名またはモデル名で検索。"}
+        </p>
+
+        {/* Stats Cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16, marginBottom: 32 }}>
+          <div style={{ background: "linear-gradient(135deg, #3665F3 0%, #667eea 100%)", borderRadius: 12, padding: "20px 24px", color: "#FFF" }}>
+            <div style={{ fontSize: 14, opacity: 0.9, marginBottom: 4 }}>
+              {lang === "en" ? "Total Brands" : "総ブランド数"}
+            </div>
+            <div style={{ fontSize: 32, fontWeight: 700 }}>{totalBrands}</div>
+          </div>
+          <div style={{ background: "linear-gradient(135deg, #F5AF02 0%, #f59e0b 100%)", borderRadius: 12, padding: "20px 24px", color: "#FFF" }}>
+            <div style={{ fontSize: 14, opacity: 0.9, marginBottom: 4 }}>
+              👜 {lang === "en" ? "Handbags" : "ハンドバッグ"}
+            </div>
+            <div style={{ fontSize: 32, fontWeight: 700 }}>{handbagBrands}</div>
+          </div>
+          <div style={{ background: "linear-gradient(135deg, #86B817 0%, #84cc16 100%)", borderRadius: 12, padding: "20px 24px", color: "#FFF" }}>
+            <div style={{ fontSize: 14, opacity: 0.9, marginBottom: 4 }}>
+              💎 {lang === "en" ? "Jewelry" : "ジュエリー"}
+            </div>
+            <div style={{ fontSize: 32, fontWeight: 700 }}>{jewelryBrands}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Search & Filter Controls */}
+      <div style={{ marginBottom: 32 }}>
+        {/* Search Box */}
+        <div style={{ marginBottom: 16 }}>
+          <input
+            type="text"
+            placeholder={lang === "en" ? "Search brands or models..." : "ブランドまたはモデルを検索..."}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "16px 20px",
+              fontSize: 16,
+              border: "2px solid #E5E7EB",
+              borderRadius: 12,
+              fontFamily: "inherit",
+              outline: "none",
+              transition: "all 0.2s"
+            }}
+            onFocus={(e) => e.currentTarget.style.borderColor = "#3665F3"}
+            onBlur={(e) => e.currentTarget.style.borderColor = "#E5E7EB"}
+          />
+        </div>
+
+        {/* Category Filter Buttons */}
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          {[
+            { id: "all", label: lang === "en" ? "All Brands" : "全てのブランド", icon: "🏪" },
+            { id: "handbags", label: lang === "en" ? "Handbags Only" : "ハンドバッグのみ", icon: "👜" },
+            { id: "jewelry", label: lang === "en" ? "Jewelry Only" : "ジュエリーのみ", icon: "💎" }
+          ].map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setCategoryFilter(cat.id)}
+              style={{
+                background: categoryFilter === cat.id ? "#3665F3" : "#FFFFFF",
+                color: categoryFilter === cat.id ? "#FFFFFF" : "#191919",
+                border: `2px solid ${categoryFilter === cat.id ? "#3665F3" : "#E5E7EB"}`,
+                borderRadius: 10,
+                padding: "10px 20px",
+                fontSize: 15,
+                fontWeight: 600,
+                cursor: "pointer",
+                transition: "all 0.2s",
+                fontFamily: "inherit"
+              }}
+              onMouseEnter={(e) => {
+                if (categoryFilter !== cat.id) {
+                  e.currentTarget.style.borderColor = "#3665F3";
+                  e.currentTarget.style.background = "#EFF6FF";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (categoryFilter !== cat.id) {
+                  e.currentTarget.style.borderColor = "#E5E7EB";
+                  e.currentTarget.style.background = "#FFFFFF";
+                }
+              }}
+            >
+              <span style={{ marginRight: 8 }}>{cat.icon}</span>
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Results Count */}
+      <div style={{ marginBottom: 16, color: "#6B7280", fontSize: 14 }}>
+        {searchQuery || categoryFilter !== "all" ? (
+          <>
+            {lang === "en" ? "Found" : "検索結果"}: {brandResults.length} {lang === "en" ? "brands" : "ブランド"}
+            {modelResults.length > 0 && (
+              <>, {modelResults.length} {lang === "en" ? "models" : "モデル"}</>
+            )}
+          </>
+        ) : (
+          <>
+            {lang === "en" ? "Showing all" : "表示中"}: {totalBrands} {lang === "en" ? "brands" : "ブランド"}
+          </>
+        )}
+      </div>
+
+      {/* Brands Grid */}
+      {brandResults.length > 0 && (
+        <div style={{ marginBottom: 32 }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: "#191919", marginBottom: 16 }}>
+            {lang === "en" ? "Brands" : "ブランド"}
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
+            {brandResults.map((result, idx) => {
+              const brand = BRAND_DATA[result.brandKey];
+              return (
+                <button
+                  key={idx}
+                  onClick={() => onBrandSelect(result.brandKey)}
+                  style={{
+                    background: "#FFFFFF",
+                    border: "2px solid #E5E7EB",
+                    borderRadius: 12,
+                    padding: "20px",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    transition: "all 0.2s",
+                    fontFamily: "inherit"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#3665F3";
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(54, 101, 243, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "#E5E7EB";
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  {/* Brand Logo */}
+                  {brand.imageUrl && (
+                    <div style={{ height: 40, marginBottom: 16, display: "flex", alignItems: "center" }}>
+                      <img src={brand.imageUrl} alt={brand.name} style={{ maxHeight: 40, maxWidth: "100%", objectFit: "contain" }} />
+                    </div>
+                  )}
+
+                  {/* Brand Name with Icons */}
+                  <div style={{ fontSize: 18, fontWeight: 700, color: "#191919", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}>
+                    {brand.name}
+                    <span style={{ fontSize: 16 }}>
+                      {brand.categories.includes("handbags") && "👜"}
+                      {brand.categories.includes("jewelry") && "💎"}
+                    </span>
+                  </div>
+
+                  {/* Brand Info */}
+                  <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 12 }}>
+                    {brand.year} • {brand.country}
+                  </div>
+
+                  {/* Categories */}
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                    {brand.categories.map((cat, i) => (
+                      <span
+                        key={i}
+                        style={{
+                          fontSize: 12,
+                          background: cat === "handbags" ? "#FEF3C7" : "#ECFDF5",
+                          color: cat === "handbags" ? "#92400E" : "#065F46",
+                          padding: "4px 10px",
+                          borderRadius: 6,
+                          fontWeight: 600
+                        }}
+                      >
+                        {cat === "handbags" ? (lang === "en" ? "Handbags" : "ハンドバッグ") : (lang === "en" ? "Jewelry" : "ジュエリー")}
+                      </span>
+                    ))}
+                    {brand.models && brand.models.length > 0 && (
+                      <span style={{
+                        fontSize: 12,
+                        background: "#EFF6FF",
+                        color: "#1E40AF",
+                        padding: "4px 10px",
+                        borderRadius: 6,
+                        fontWeight: 600
+                      }}>
+                        {brand.models.length} {lang === "en" ? "models" : "モデル"}
+                      </span>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Models List */}
+      {modelResults.length > 0 && (
+        <div>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: "#191919", marginBottom: 16 }}>
+            {lang === "en" ? "Models" : "モデル"}
+          </h2>
+          <div style={{ display: "grid", gap: 12 }}>
+            {modelResults.map((result, idx) => (
+              <button
+                key={idx}
+                onClick={() => onBrandSelect(result.brandKey)}
+                style={{
+                  background: "#FFFFFF",
+                  border: "2px solid #E5E7EB",
+                  borderRadius: 12,
+                  padding: "16px 20px",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "all 0.2s",
+                  fontFamily: "inherit",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 16
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "#3665F3";
+                  e.currentTarget.style.background = "#EFF6FF";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "#E5E7EB";
+                  e.currentTarget.style.background = "#FFFFFF";
+                }}
+              >
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 4 }}>
+                    {result.brandName}
+                  </div>
+                  <div style={{ fontSize: 18, fontWeight: 700, color: "#191919", marginBottom: 4 }}>
+                    {result.modelName}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#4B5563" }}>
+                    {result.brief}
+                  </div>
+                </div>
+                <div style={{ fontSize: 24 }}>→</div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* No Results */}
+      {brandResults.length === 0 && modelResults.length === 0 && searchQuery && (
+        <div style={{ textAlign: "center", padding: 60, color: "#6B7280" }}>
+          <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
+          <div style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
+            {lang === "en" ? "No results found" : "結果が見つかりません"}
+          </div>
+          <div style={{ fontSize: 14 }}>
+            {lang === "en"
+              ? "Try a different search term or browse all brands above"
+              : "別の検索キーワードを試すか、上記の全ブランドを閲覧してください"}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ═══ FASHION ═══ */
 function FashionP({ lang, initialBrand }) {
   // Map page IDs to brand keys
@@ -3122,15 +3466,58 @@ function FashionP({ lang, initialBrand }) {
     "brand-cartier": "cartier",
     "brand-bulgari": "bulgari",
     "brand-tiffany": "tiffany",
-    "brand-vca": "vca"
+    "brand-vca": "vca",
+    "brand-bottegaveneta": "bottegaveneta",
+    "brand-fendi": "fendi",
+    "brand-celine": "celine",
+    "brand-loewe": "loewe",
+    "brand-balenciaga": "balenciaga",
+    "brand-saintlaurent": "saintlaurent",
+    "brand-givenchy": "givenchy",
+    "brand-valentino": "valentino",
+    "brand-burberry": "burberry",
+    "brand-mcm": "mcm",
+    "brand-alexandermcqueen": "alexandermcqueen",
+    "brand-miumiu": "miumiu",
+    "brand-chloe": "chloe",
+    "brand-tomford": "tomford",
+    "brand-dolcegabbana": "dolcegabbana",
+    "brand-versace": "versace",
+    "brand-jimmychoo": "jimmychoo",
+    "brand-christianlouboutin": "christianlouboutin",
+    "brand-offwhite": "offwhite",
+    "brand-marni": "marni",
+    "brand-therow": "therow",
+    "brand-stellamccartney": "stellamccartney",
+    "brand-proenzaschouler": "proenzaschouler",
+    "brand-balmain": "balmain",
+    "brand-alexanderwang": "alexanderwang",
+    "brand-lanvin": "lanvin",
+    "brand-jilsander": "jilsander",
+    "brand-goyard": "goyard",
+    "brand-delvaux": "delvaux",
+    "brand-judithlieber": "judithlieber",
+    "brand-markcross": "markcross",
+    "brand-mulberry": "mulberry",
+    "brand-coach": "coach",
+    "brand-jacquemus": "jacquemus",
+    "brand-chromhearts": "chromhearts",
+    "brand-chopard": "chopard",
+    "brand-pomellato": "pomellato",
+    "brand-mikimoto": "mikimoto"
   };
 
-  const [selectedBrand, setSelectedBrand] = useState(initialBrand && brandMap[initialBrand] ? brandMap[initialBrand] : "lv");
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand && brandMap[initialBrand] ? brandMap[initialBrand] : null);
   const [selectedSubTab, setSelectedSubTab] = useState("models");
   const [selModel, setSelModel] = useState(null);
 
   const brandKeys = Object.keys(BRAND_DATA);
-  const brand = BRAND_DATA[selectedBrand];
+  const brand = selectedBrand ? BRAND_DATA[selectedBrand] : null;
+
+  // Show landing page if no brand is selected
+  if (!selectedBrand) {
+    return <BrandKnowledgeLandingPage lang={lang} onBrandSelect={(brandKey) => setSelectedBrand(brandKey)} />;
+  }
 
   // Sub-tabs for each brand
   const subTabs = [
