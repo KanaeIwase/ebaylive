@@ -1143,7 +1143,58 @@ const BRAND_DATA = {
     rareJp:"シティバッグ（2000年代アイコン）。ジャイアント金具バージョン。モーターサイクル/モトバッグ。ニコラ・ジェスキエール時代（1997-2012）。",
     tip:"The City bag with giant studs was THE 2000s It bag. Kate Moss carried it.",
     tipJp:"ジャイアントスタッズ付きシティバッグはTHE 2000年代Itバッグ。ケイト・モスが持った。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Edgy and timeless. Classic moto vibe.", descJp:"エッジーでタイムレス。クラシックモトバイブ。"},
+      {name:"Rose Gold/Blush", hex:"#E0AFA0", nameJp:"ローズゴールド/ブラッシュ", desc:"Feminine but edgy. Very popular.", descJp:"女性的だがエッジー。とても人気。"},
+      {name:"Gris/Anthracite", hex:"#4A4A4A", nameJp:"グリ/アンスラサイト", desc:"Dark grey. Sophisticated neutral.", descJp:"ダークグレー。洗練されたニュートラル。"},
+      {name:"Rouge/Red", hex:"#C41E3A", nameJp:"ルージュ/レッド", desc:"Bold statement color. Eye-catching.", descJp:"大胆なステートメントカラー。目を引く。"}
+    ],
+    models:[
+      { name:"City Bag", brief:"Motorcycle bag with studs - 2000s icon", briefJp:"スタッズ付きモーターサイクルバッグ - 2000年代アイコン",
+        desc:"THE It bag of the 2000s. Distressed leather, studs, tassels. Inspired by motorcycle gear. Kate Moss, Nicole Richie, Mary-Kate Olsen all carried it.",
+        descJp:"2000年代のTHE Itバッグ。ディストレスレザー、スタッズ、タッセル。モーターサイクルギアにインスパイア。ケイト・モス、ニコール・リッチー、メアリー・ケイト・オルセンが持った。",
+        shape:"Soft slouchy shoulder bag. Stud details and tassels. Long shoulder strap. Unstructured and effortlessly cool.",
+        shapeJp:"柔らかいたるんだショルダーバッグ。スタッズディテールとタッセル。長いショルダーストラップ。非構造で楽にクール。",
+        sizes:[
+          {name:"First/Mini", dim:"9.8\"W × 7.1\"H × 3.9\"D"},
+          {name:"City/Classic", dim:"15\"W × 9.5\"H × 6\"D - MOST POPULAR"},
+          {name:"Work", dim:"15\"W × 12\"H × 6\"D"},
+          {name:"Part Time", dim:"12.6\"W × 8.3\"H × 4.7\"D"}
+        ],
+        rare:"Nicolas Ghesquière era (2001-2012). Giant hardware versions (oversized studs). First season colors (2001-2003).",
+        rareJp:"ニコラ・ジェスキエール時代（2001-2012）。ジャイアント金具バージョン（特大スタッズ）。初シーズンカラー（2001-2003）。",
+        tip:"The studs and tassels are EVERYTHING. This was THE bag every celebrity had in 2005. Nicolas Ghesquière pieces are collectible!",
+        tipJp:"スタッズとタッセルがすべて。これは2005年にすべてのセレブが持っていたTHEバッグ。ニコラ・ジェスキエール作品はコレクティブル！"
+      },
+      { name:"Classic Hip", brief:"Belt bag - hands-free essential", briefJp:"ベルトバッグ - ハンズフリー必需品",
+        desc:"Balenciaga's modern belt bag. Adjustable strap, logo hardware. Wear on waist or crossbody.",
+        descJp:"バレンシアガのモダンベルトバッグ。調整可能ストラップ、ロゴ金具。ウエストまたはクロスボディで着用。",
+        shape:"Compact zip pouch with adjustable belt strap. Logo hardware. Simple and functional.",
+        shapeJp:"調整可能ベルトストラップ付きコンパクトジップポーチ。ロゴ金具。シンプルで機能的。",
+        sizes:[
+          {name:"Small", dim:"7.5\"W × 5.1\"H × 2\"D - MOST POPULAR"},
+          {name:"Large", dim:"10.2\"W × 6.3\"H × 2.4\"D"}
+        ],
+        rare:"Limited edition colors. Velvet versions. Logo variations.",
+        rareJp:"限定版カラー。ベルベットバージョン。ロゴバリエーション。",
+        tip:"The logo hardware is key - show that Balenciaga plate! Perfect for festivals, travel, hands-free shopping.",
+        tipJp:"ロゴ金具が重要 - そのバレンシアガプレートを見せて！フェスティバル、旅行、ハンズフリーショッピングに完璧。"
+      },
+      { name:"Le Cagole", brief:"Studded mini bag - Y2K revival", briefJp:"スタッズミニバッグ - Y2K復活",
+        desc:"City bag's little sister. Mini version covered in studs and buckles. Y2K aesthetic revived for 2020s.",
+        descJp:"シティバッグの妹。スタッズとバックルで覆われたミニバージョン。2020年代のためにY2K美学復活。",
+        shape:"Small shoulder bag covered in studs. Multiple buckle straps. Edgy and bold.",
+        shapeJp:"スタッズで覆われた小さなショルダーバッグ。複数のバックルストラップ。エッジーで大胆。",
+        sizes:[
+          {name:"XS", dim:"7.1\"W × 4.3\"H × 2.8\"D - MOST POPULAR"},
+          {name:"Small", dim:"9.1\"W × 5.9\"H × 3.5\"D"}
+        ],
+        rare:"First release (2021). Limited colors. Demna Gvasalia era collectibles.",
+        rareJp:"初リリース（2021）。限定カラー。デムナ・ヴァザリア時代コレクティブル。",
+        tip:"This is Y2K nostalgia! The studs, the buckles - it's Paris Hilton energy. Gen Z LOVES this aesthetic.",
+        tipJp:"これはY2Kノスタルジア！スタッズ、バックル - パリス・ヒルトンエネルギー。Z世代がこの美学を大好き。"
+      }
+    ]
   },
   saintlaurent: {
     name:"Saint Laurent", year:1961, country:"France",
@@ -1155,7 +1206,59 @@ const BRAND_DATA = {
     rareJp:"ミューズバッグ。サック・ド・ジュール。ヴィンテージ イヴ・サンローラン（「Yves」付きは2012年以前）。エディ・スリマン時代。",
     tip:"YSL vs Saint Laurent = pre-2012 vs post-2012. Collectors know the difference.",
     tipJp:"YSL vs サンローラン = 2012年以前 vs 2012年以降。コレクターは違いを知ってる。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Rock and roll elegance. Timeless.", descJp:"ロックンロールエレガンス。タイムレス。"},
+      {name:"Nude/Beige", hex:"#D2B48C", nameJp:"ヌード/ベージュ", desc:"Sophisticated neutral. Very Parisian.", descJp:"洗練されたニュートラル。とてもパリジャン。"},
+      {name:"Burgundy/Bordeaux", hex:"#800020", nameJp:"バーガンディ/ボルドー", desc:"Rich wine color. Luxurious.", descJp:"リッチなワインカラー。豪華。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep blue. Classic alternative to black.", descJp:"深いブルー。ブラックのクラシック代替。"}
+    ],
+    models:[
+      { name:"Sac de Jour", brief:"Structured tote - modern classic", briefJp:"構造トート - モダンクラシック",
+        desc:"Saint Laurent's iconic structured tote. Clean lines, top handles, optional shoulder strap. The ultimate work-to-weekend bag.",
+        descJp:"サンローランの象徴的な構造トート。クリーンライン、トップハンドル、オプションのショルダーストラップ。究極の仕事から週末バッグ。",
+        shape:"Structured rectangular tote. Double top handles. Detachable shoulder strap. Clean minimal design with YSL logo.",
+        shapeJp:"構造的長方形トート。ダブルトップハンドル。取り外し可能ショルダーストラップ。YSLロゴ付きクリーンなミニマルデザイン。",
+        sizes:[
+          {name:"Nano", dim:"8.3\"W × 6.3\"H × 3.9\"D"},
+          {name:"Baby", dim:"10.6\"W × 8.3\"H × 5.1\"D - MOST POPULAR"},
+          {name:"Small", dim:"13\"W × 9.8\"H × 5.9\"D"},
+          {name:"Large", dim:"15\"W × 12.2\"H × 7.1\"D"}
+        ],
+        rare:"Crocodile embossed. Souple (soft leather version). Two-tone color blocking. Hedi Slimane era (2012-2016).",
+        rareJp:"クロコダイルエンボス。スープル（ソフトレザーバージョン）。ツートーンカラーブロッキング。エディ・スリマン時代（2012-2016）。",
+        tip:"This is THE work bag. Professional but chic. The YSL logo is subtle - point it out! Structured means it stands up on its own.",
+        tipJp:"これはTHE仕事バッグ。プロフェッショナルだがシック。YSLロゴは控えめ - 指摘して！構造的だから自立する。"
+      },
+      { name:"Kate", brief:"Tassel chain bag - evening icon", briefJp:"タッセルチェーンバッグ - イブニングアイコン",
+        desc:"Saint Laurent's sultry chain bag. YSL logo, tassel detail, chain strap. Named after Kate Moss. Evening bag perfection.",
+        descJp:"サンローランの魅惑的チェーンバッグ。YSLロゴ、タッセルディテール、チェーンストラップ。ケイト・モスにちなんで命名。イブニングバッグの完璧。",
+        shape:"Small shoulder bag with chain strap. YSL logo on flap. Tassel on chain. Sleek and sexy.",
+        shapeJp:"チェーンストラップ付き小さなショルダーバッグ。フラップにYSLロゴ。チェーンにタッセル。スリークでセクシー。",
+        sizes:[
+          {name:"Small", dim:"9.8\"W × 5.9\"H × 2\"D - MOST POPULAR"},
+          {name:"Medium", dim:"12.2\"W × 7.5\"H × 2.4\"D"}
+        ],
+        rare:"Vintage YSL (pre-2012 with 'Yves'). Exotic leathers. Metallic finishes. Limited colors.",
+        rareJp:"ヴィンテージYSL（2012年以前で「Yves」付き）。エキゾチックレザー。メタリック仕上げ。限定カラー。",
+        tip:"Named after Kate Moss! The tassel is iconic - show it swing! Perfect evening bag or date night.",
+        tipJp:"ケイト・モスにちなんで命名！タッセルは象徴的 - 揺れを見せて！完璧なイブニングバッグまたはデートナイト。"
+      },
+      { name:"Niki", brief:"Quilted shoulder bag - casual chic", briefJp:"キルトショルダーバッグ - カジュアルシック",
+        desc:"Chevron quilted bag with chain strap. Slouchy, casual, cool. The everyday YSL bag.",
+        descJp:"チェーンストラップ付きシェブロンキルトバッグ。たるんだ、カジュアル、クール。日常YSLバッグ。",
+        shape:"Chevron quilted leather. Chain strap. Slouchy unstructured body. YSL logo on flap.",
+        shapeJp:"シェブロンキルトレザー。チェーンストラップ。たるんだ非構造ボディ。フラップにYSLロゴ。",
+        sizes:[
+          {name:"Baby", dim:"10.2\"W × 7.1\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"13\"W × 9.8\"H × 4.7\"D"},
+          {name:"Large", dim:"16.5\"W × 11.8\"H × 5.9\"D"}
+        ],
+        rare:"Vintage leather (distressed finish). Two-tone chevron. Limited colors.",
+        rareJp:"ヴィンテージレザー（ディストレス仕上げ）。ツートーンシェブロン。限定カラー。",
+        tip:"The quilting is V-shaped - that's the chevron pattern. Slouchy means it's relaxed, not stiff. Perfect everyday bag!",
+        tipJp:"キルティングはV字 - それがシェブロンパターン。たるんだとは、リラックス、硬くない。完璧な日常バッグ！"
+      }
+    ]
   },
   givenchy: {
     name:"Givenchy", year:1952, country:"France",
@@ -1167,7 +1270,60 @@ const BRAND_DATA = {
     rareJp:"アンティゴナバッグ。ナイチンゲールバッグ。パンドラボックス。リカルド・ティッシ時代（2005-2017）コレクティブル。",
     tip:"The Antigona is the structured work bag. Sharp, geometric, professional.",
     tipJp:"アンティゴナは構造的仕事バッグ。シャープ、幾何学的、プロフェッショナル。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Sleek Parisian elegance. Timeless.", descJp:"スリークなパリジャンエレガンス。タイムレス。"},
+      {name:"Sugar Pink/Blush", hex:"#FFB6C1", nameJp:"シュガーピンク/ブラッシュ", desc:"Feminine and chic. Very popular.", descJp:"女性的でシック。とても人気。"},
+      {name:"Grey/Storm", hex:"#808080", nameJp:"グレー/ストーム", desc:"Sophisticated neutral. Modern.", descJp:"洗練されたニュートラル。モダン。"},
+      {name:"Red/Rouge", hex:"#C41E3A", nameJp:"レッド/ルージュ", desc:"Bold power color. Statement piece.", descJp:"大胆なパワーカラー。ステートメントピース。"}
+    ],
+    models:[
+      { name:"Antigona", brief:"Structured tote - sharp and professional", briefJp:"構造トート - シャープでプロフェッショナル",
+        desc:"Givenchy's iconic structured bag. Sharp triangular shape, top handles, detachable strap. The ultimate work bag.",
+        descJp:"ジバンシィの象徴的構造バッグ。シャープな三角形、トップハンドル、取り外し可能ストラップ。究極の仕事バッグ。",
+        shape:"Triangular structured tote. Sharp geometric lines. Top handles + shoulder strap. Clean architectural design.",
+        shapeJp:"三角構造トート。シャープな幾何学ライン。トップハンドル+ショルダーストラップ。クリーンな建築デザイン。",
+        sizes:[
+          {name:"Micro", dim:"8.3\"W × 6.7\"H × 4.3\"D"},
+          {name:"Small", dim:"11.4\"W × 9.4\"H × 5.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"13\"W × 10.2\"H × 6.3\"D"},
+          {name:"Large", dim:"15.4\"W × 11.8\"H × 7.1\"D"}
+        ],
+        rare:"Riccardo Tisci era (2005-2017). Studded versions. Nightingale (different model, very rare). Two-tone leather.",
+        rareJp:"リカルド・ティッシ時代（2005-2017）。スタッズバージョン。ナイチンゲール（別モデル、非常に希少）。ツートーンレザー。",
+        tip:"The sharp edges make it architectural. It STANDS UP on its own - show that! Perfect work bag, fits laptop.",
+        tipJp:"シャープなエッジが建築的。自立する - それを見せて！完璧な仕事バッグ、ラップトップが入る。"
+      },
+      { name:"Pandora", brief:"Slouchy crossbody - casual elegance", briefJp:"たるんだクロスボディ - カジュアルエレガンス",
+        desc:"Soft slouchy bag with unique wrinkled leather. Zip top, adjustable strap. Effortlessly cool.",
+        descJp:"ユニークなしわレザーのソフトたるんだバッグ。ジップトップ、調整可能ストラップ。楽にクール。",
+        shape:"Soft slouchy pouch. Wrinkled/creased leather is intentional. Zip top. Long shoulder strap.",
+        shapeJp:"ソフトたるんだポーチ。しわ/折り目レザーは意図的。ジップトップ。長いショルダーストラップ。",
+        sizes:[
+          {name:"Mini", dim:"7.5\"W × 5.5\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Small", dim:"9.8\"W × 7.1\"H × 4.7\"D"},
+          {name:"Medium", dim:"12.6\"W × 8.7\"H × 5.9\"D"}
+        ],
+        rare:"First season (2009). Nightingale leather (pepe). Metallic finishes.",
+        rareJp:"初シーズン（2009）。ナイチンゲールレザー（ペペ）。メタリック仕上げ。",
+        tip:"The wrinkled leather is SUPPOSED to look like that! It's called 'pepe' leather. It gets softer with age.",
+        tipJp:"しわレザーはそう見えるべき！「ペペ」レザーと呼ばれる。年齢とともに柔らかくなる。"
+      },
+      { name:"GV3", brief:"Quilted crossbody - modern classic", briefJp:"キルトクロスボディ - モダンクラシック",
+        desc:"Diamond quilted bag with signature GV3 hardware. Chain strap. Modern Givenchy icon.",
+        descJp:"シグネチャーGV3金具付きダイヤモンドキルトバッグ。チェーンストラップ。モダンジバンシィアイコン。",
+        shape:"Diamond quilted leather. GV3 logo hardware closure. Chain strap. Small structured crossbody.",
+        shapeJp:"ダイヤモンドキルトレザー。GV3ロゴ金具クロージャー。チェーンストラップ。小さな構造クロスボディ。",
+        sizes:[
+          {name:"Nano", dim:"6.3\"W × 4.3\"H × 2.4\"D"},
+          {name:"Small", dim:"9.1\"W × 5.9\"H × 3.1\"D - MOST POPULAR"},
+          {name:"Medium", dim:"11\"W × 7.5\"H × 3.9\"D"}
+        ],
+        rare:"Limited colors. Exotic leathers. Two-tone versions.",
+        rareJp:"限定カラー。エキゾチックレザー。ツートーンバージョン。",
+        tip:"The GV3 logo hardware is signature. The quilting is diamond-shaped, not chevron. Perfect size for everyday!",
+        tipJp:"GV3ロゴ金具はシグネチャー。キルティングはダイヤモンド型、シェブロンではない。日常に完璧なサイズ！"
+      }
+    ]
   },
   valentino: {
     name:"Valentino", year:1960, country:"Italy",
@@ -1179,7 +1335,57 @@ const BRAND_DATA = {
     rareJp:"ロックスタッズコレクション（象徴的スタッズ）。ヴィンテージ ヴァレンティノ・ガラヴァーニ。レッド ヴァレンティノ（ディフュージョンライン）。",
     tip:"The Rockstuds are instantly recognizable. Edgy luxury. Very on-brand for Valentino.",
     tipJp:"ロックスタッズは即座に認識可能。エッジーなラグジュアリー。ヴァレンティノらしい。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Edgy elegance. The studs pop against black.", descJp:"エッジーなエレガンス。スタッズがブラックに映える。"},
+      {name:"Nude/Poudre", hex:"#F5DEB3", nameJp:"ヌード/プードル", desc:"Feminine and versatile. Very popular.", descJp:"女性的で万能。とても人気。"},
+      {name:"Valentino Red", hex:"#C41E3A", nameJp:"ヴァレンティノレッド", desc:"Signature red. Bold and romantic.", descJp:"シグネチャーレッド。大胆でロマンチック。"},
+      {name:"Pastel Pink", hex:"#FFB6C1", nameJp:"パステルピンク", desc:"Soft romantic. Studs add edge.", descJp:"ソフトロマンチック。スタッズがエッジを追加。"}
+    ],
+    models:[
+      { name:"Rockstud", brief:"Studded crossbody - iconic pyramid studs", briefJp:"スタッズクロスボディ - 象徴的ピラミッドスタッズ",
+        desc:"THE Valentino bag. Covered in signature pyramid studs. Chain strap, sleek silhouette. Edgy romance.",
+        descJp:"THEヴァレンティノバッグ。シグネチャーピラミッドスタッズで覆われている。チェーンストラップ、スリークシルエット。エッジーロマンス。",
+        shape:"Rectangular flap bag. Pyramid studs on leather trim. Chain strap. Clean lines with edgy detail.",
+        shapeJp:"長方形フラップバッグ。レザートリムにピラミッドスタッズ。チェーンストラップ。エッジーディテール付きクリーンライン。",
+        sizes:[
+          {name:"Micro", dim:"6.7\"W × 4.3\"H × 2.4\"D"},
+          {name:"Small", dim:"9.4\"W × 5.5\"H × 2.8\"D - MOST POPULAR"},
+          {name:"Medium", dim:"11.4\"W × 7.1\"H × 3.5\"D"}
+        ],
+        rare:"First season (2010). Two-tone leather. Metallic studs. Exotic leathers with studs.",
+        rareJp:"初シーズン（2010）。ツートーンレザー。メタリックスタッズ。スタッズ付きエキゾチックレザー。",
+        tip:"Count the studs on camera! They're pyramid-shaped, not round. This is edgy romance - feminine but fierce.",
+        tipJp:"カメラでスタッズを数えて！ピラミッド型、丸くない。これはエッジーロマンス - 女性的だが激しい。"
+      },
+      { name:"Roman Stud", brief:"Chain shoulder bag - bold hardware", briefJp:"チェーンショルダーバッグ - 大胆な金具",
+        desc:"Larger geometric studs. Chain strap. More structured than Rockstud. Bold statement bag.",
+        descJp:"より大きな幾何学スタッズ。チェーンストラップ。ロックスタッズより構造的。大胆なステートメントバッグ。",
+        shape:"Structured shoulder bag. Large square studs. Chain strap. Geometric and architectural.",
+        shapeJp:"構造ショルダーバッグ。大きな四角スタッズ。チェーンストラップ。幾何学的で建築的。",
+        sizes:[
+          {name:"Small", dim:"8.7\"W × 6.3\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"11\"W × 7.9\"H × 4.3\"D"}
+        ],
+        rare:"Limited colors. Rare finishes. First season pieces.",
+        rareJp:"限定カラー。希少仕上げ。初シーズン作品。",
+        tip:"Roman studs are SQUARE, not pyramid. Bigger and bolder than Rockstud. More architectural.",
+        tipJp:"ローマンスタッズは四角、ピラミッドではない。ロックスタッズより大きく大胆。より建築的。"
+      },
+      { name:"VLogo Signature", brief:"Chain bag with V logo - modern icon", briefJp:"Vロゴ付きチェーンバッグ - モダンアイコン",
+        desc:"Quilted leather with oversized V logo hardware. Chain strap. Modern Valentino signature.",
+        descJp:"特大Vロゴ金具付きキルトレザー。チェーンストラップ。モダンヴァレンティノシグネチャー。",
+        shape:"Quilted leather. Large V logo closure. Chain strap. Structured small bag.",
+        shapeJp:"キルトレザー。大きなVロゴクロージャー。チェーンストラップ。構造的小バッグ。",
+        sizes:[
+          {name:"Small", dim:"7.9\"W × 5.5\"H × 2.8\"D - MOST POPULAR"},
+          {name:"Medium", dim:"10.2\"W × 7.1\"H × 3.5\"D"}
+        ],
+        rare:"Limited colors. Metallic finishes. Chain variations.",
+        rareJp:"限定カラー。メタリック仕上げ。チェーンバリエーション。",
+        tip:"That V logo is HUGE - it's the statement. The quilting is subtle, the V is bold. Modern Valentino!",
+        tipJp:"そのVロゴは巨大 - それがステートメント。キルティングは控えめ、Vは大胆。モダンヴァレンティノ！"
+      }
+    ]
   },
   burberry: {
     name:"Burberry", year:1856, country:"UK",
@@ -1191,7 +1397,57 @@ const BRAND_DATA = {
     rareJp:"ヴィンテージ ノバチェック。プローサムライン（プレミアム）。トーマス・バーバリー アーカイブコレクション。",
     tip:"The check is iconic. British heritage since 1856. If it's check, it's Burberry.",
     tipJp:"チェックは象徴的。1856年以来の英国伝統。チェックならバーバリー。",
-    models:[]
+    colors:[
+      {name:"Archive Beige", hex:"#D4BC8E", nameJp:"アーカイブベージュ", desc:"The classic Burberry tan. Instantly recognizable.", descJp:"クラシックなバーバリータン。即座に認識できる。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Timeless black. Very British.", descJp:"タイムレスなブラック。とても英国的。"},
+      {name:"Honey", hex:"#C9A86A", nameJp:"ハニー", desc:"Warm honey brown. Heritage color.", descJp:"温かいハニーブラウン。伝統カラー。"},
+      {name:"Stone", hex:"#A89F91", nameJp:"ストーン", desc:"Neutral grey-taupe. Very versatile.", descJp:"ニュートラルなグレー・トープ。とても万能。"}
+    ],
+    models:[
+      { name:"TB Bag", brief:"Monogram canvas tote - modern icon", briefJp:"モノグラムキャンバストート - モダンアイコン",
+        desc:"Large tote with TB (Thomas Burberry) monogram. Modern take on heritage.",
+        descJp:"TB（トーマス・バーバリー）モノグラム付き大型トート。伝統のモダンな解釈。",
+        shape:"Rectangular tote with top handles. TB monogram canvas. Leather trim.",
+        shapeJp:"トップハンドル付き長方形トート。TBモノグラムキャンバス。レザートリム。",
+        sizes:[
+          {name:"Small", dim:"11\"W × 9\"H × 5\"D"},
+          {name:"Medium", dim:"13\"W × 11\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 13\"H × 7\"D"}
+        ],
+        rare:"Limited edition check patterns. Collaborations. Vintage Prorsum line.",
+        rareJp:"限定版チェックパターン。コラボレーション。ヴィンテージ プローサムライン。",
+        tip:"TB stands for Thomas Burberry. The founder. That's 167 years of British heritage right there.",
+        tipJp:"TBはトーマス・バーバリーの略。創設者。167年の英国伝統がここに。"
+      },
+      { name:"Lola Bag", brief:"Quilted shoulder bag - casual chic", briefJp:"キルティングショルダーバッグ - カジュアルシック",
+        desc:"Quilted lambskin with chain strap. Burberry's answer to Chanel.",
+        descJp:"チェーンストラップ付きキルティングラムスキン。バーバリーのシャネルへの回答。",
+        shape:"Rounded quilted bag with chain-leather strap. TB logo hardware.",
+        shapeJp:"チェーン・レザーストラップ付き丸みのあるキルティングバッグ。TBロゴ金具。",
+        sizes:[
+          {name:"Small", dim:"7.5\"W × 5\"H × 3\"D"},
+          {name:"Medium", dim:"9\"W × 6\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Large", dim:"11\"W × 7.5\"H × 4\"D"}
+        ],
+        rare:"Archive check interior. Limited edition colors. Contrast quilting.",
+        rareJp:"アーカイブチェック内装。限定版カラー。コントラストキルティング。",
+        tip:"Quilted like Chanel, but Burberry. For buyers who want that vibe with British heritage.",
+        tipJp:"シャネルのようなキルティング、でもバーバリー。その雰囲気と英国伝統を求めるバイヤー向け。"
+      },
+      { name:"Knight Bag", brief:"Crossbody with check - everyday essential", briefJp:"チェック付きクロスボディ - 日常必需品",
+        desc:"Small crossbody featuring signature check canvas. Practical and iconic.",
+        descJp:"シグネチャーチェックキャンバスの小型クロスボディ。実用的で象徴的。",
+        shape:"Compact crossbody with flap closure. Check canvas with leather trim.",
+        shapeJp:"フラップ閉鎖のコンパクトクロスボディ。チェックキャンバスとレザートリム。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 2.5\"D - MOST POPULAR"}
+        ],
+        rare:"Vintage Nova check (discontinued). Archive beige check. Special edition colors.",
+        rareJp:"ヴィンテージ ノバチェック（廃番）。アーカイブベージュチェック。スペシャルエディションカラー。",
+        tip:"The check pattern = instant Burberry recognition. Kate Moss carried this style.",
+        tipJp:"チェックパターン = 即座にバーバリー認識。ケイト・モスがこのスタイルを持った。"
+      }
+    ]
   },
   mcm: {
     name:"MCM", year:1976, country:"Germany",
@@ -1203,7 +1459,59 @@ const BRAND_DATA = {
     rareJp:"1980-90年代ヴィンテージバッグ（オリジナルドイツ製）。スタークバックパック。限定版コラボ。",
     tip:"MCM backpacks are everywhere now. Vintage German-made ones are the real deal.",
     tipJp:"MCMバックパックは今どこにでもある。ヴィンテージドイツ製が本物。",
-    models:[]
+    colors:[
+      {name:"Cognac Visetos", hex:"#8B4513", nameJp:"コニャック ヴィセトス", desc:"Classic brown monogram. The OG MCM color.", descJp:"クラシックブラウンモノグラム。元祖MCMカラー。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Sleek black. Very modern.", descJp:"スリークなブラック。とてもモダン。"},
+      {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Crisp white monogram. Super clean.", descJp:"クリスプなホワイトモノグラム。超クリーン。"},
+      {name:"Pink", hex:"#FFB6C1", nameJp:"ピンク", desc:"Soft pink. Popular in Asia.", descJp:"柔らかいピンク。アジアで人気。"}
+    ],
+    models:[
+      { name:"Stark Backpack", brief:"Monogram backpack - street style icon", briefJp:"モノグラムバックパック - ストリートスタイルアイコン",
+        desc:"THE MCM backpack. Visetos monogram with studded sides. Urban luxury.",
+        descJp:"MCMバックパック。スタッズサイド付きヴィセトスモノグラム。アーバンラグジュアリー。",
+        shape:"Medium-size backpack with top handle and adjustable straps. Side studs for structure.",
+        shapeJp:"トップハンドルと調節可能なストラップ付きミディアムサイズバックパック。構造のためのサイドスタッズ。",
+        sizes:[
+          {name:"Mini", dim:"9\"W × 10\"H × 4\"D"},
+          {name:"Small", dim:"11\"W × 13\"H × 5\"D"},
+          {name:"Medium", dim:"13\"W × 16\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 18\"H × 7\"D"}
+        ],
+        rare:"Vintage 1980s original German-made. Limited edition collabs (Puma, Bape). White monogram.",
+        rareJp:"1980年代オリジナルドイツ製ヴィンテージ。限定版コラボ（プーマ、ベイプ）。ホワイトモノグラム。",
+        tip:"This backpack is HUGE in Asia. Vintage German-made ones from the 80s? Collector's items.",
+        tipJp:"このバックパックはアジアで巨大。80年代のヴィンテージドイツ製？コレクターアイテム。"
+      },
+      { name:"Patricia Crossbody", brief:"Shoulder bag - structured classic", briefJp:"ショルダーバッグ - 構造的クラシック",
+        desc:"Structured shoulder bag with fold-over flap. Clean lines, logo clasp.",
+        descJp:"折りたたみフラップ付き構造的ショルダーバッグ。クリーンライン、ロゴクラスプ。",
+        shape:"Rectangular shoulder bag with flap and metal logo closure. Chain-leather strap.",
+        shapeJp:"フラップとメタルロゴ閉鎖付き長方形ショルダーバッグ。チェーン・レザーストラップ。",
+        sizes:[
+          {name:"Small", dim:"7\"W × 5\"H × 2.5\"D"},
+          {name:"Medium", dim:"9\"W × 6.5\"H × 3\"D - MOST POPULAR"},
+          {name:"Large", dim:"11\"W × 8\"H × 4\"D"}
+        ],
+        rare:"Limited edition colors. Two-tone versions. Vintage Visetos from 1990s.",
+        rareJp:"限定版カラー。ツートーンバージョン。1990年代のヴィンテージ ヴィセトス。",
+        tip:"More grown-up than the backpack. This is MCM for the office, not the street.",
+        tipJp:"バックパックより大人。これは路上ではなくオフィス用のMCM。"
+      },
+      { name:"Toni Shopper", brief:"Tote bag - daily essential", briefJp:"トートバッグ - デイリー必需品",
+        desc:"Spacious tote with Visetos monogram. Reversible in some versions.",
+        descJp:"ヴィセトスモノグラム付き広々トート。一部バージョンはリバーシブル。",
+        shape:"Open-top tote with double handles. Large capacity for everyday use.",
+        shapeJp:"ダブルハンドル付きオープントップトート。日常使用のための大容量。",
+        sizes:[
+          {name:"Medium", dim:"13\"W × 11\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 13\"H × 7\"D"}
+        ],
+        rare:"Reversible versions (plain leather inside). Limited edition prints.",
+        rareJp:"リバーシブルバージョン（内側はプレーンレザー）。限定版プリント。",
+        tip:"Reversible! One side monogram, flip it inside-out for plain leather. Two bags in one.",
+        tipJp:"リバーシブル！片面モノグラム、裏返してプレーンレザー。2つのバッグが1つに。"
+      }
+    ]
   },
   alexandermcqueen: {
     name:"Alexander McQueen", year:1992, country:"UK",
@@ -1215,7 +1523,55 @@ const BRAND_DATA = {
     rareJp:"スカルクラッチ（象徴的）。ヒロインバッグ。リー・マックイーン時代（2010年以前）のヴィンテージ作品。",
     tip:"The skull clutch is ICONIC. Dark, edgy luxury. Lee McQueen was a genius.",
     tipJp:"スカルクラッチは象徴的。ダーク、エッジーなラグジュアリー。リー・マックイーンは天才だった。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Gothic black. Very McQueen.", descJp:"ゴシックブラック。とてもマックイーン。"},
+      {name:"Oxblood Red", hex:"#4A0404", nameJp:"オックスブラッドレッド", desc:"Deep blood red. Dark romance.", descJp:"深い血の赤。ダークロマンス。"},
+      {name:"Ivory", hex:"#FFFFF0", nameJp:"アイボリー", desc:"Bone white. Macabre elegance.", descJp:"骨白。不気味なエレガンス。"},
+      {name:"Silver", hex:"#C0C0C0", nameJp:"シルバー", desc:"Metallic silver hardware. Edgy.", descJp:"メタリックシルバー金具。エッジー。"}
+    ],
+    models:[
+      { name:"Skull Clutch", brief:"Iconic knuckle box clutch - gothic glamour", briefJp:"象徴的ナックルボックスクラッチ - ゴシックグラマー",
+        desc:"THE Alexander McQueen piece. Hard-shell clutch shaped like knuckles with skull rings.",
+        descJp:"Alexander McQueen作品。スカルリング付きナックル型ハードシェルクラッチ。",
+        shape:"Rigid box clutch shaped like four-finger knuckles. Skull rings on each knuckle.",
+        shapeJp:"4本指ナックル型の硬質ボックスクラッチ。各ナックルにスカルリング。",
+        sizes:[
+          {name:"Classic", dim:"8\"W × 4\"H × 2\"D - MOST POPULAR"}
+        ],
+        rare:"Limited edition crystal skulls. Vintage Lee McQueen era (2000s). Colored versions (rare).",
+        rareJp:"限定版クリスタルスカル。ヴィンテージ リー・マックイーン時代（2000年代）。カラーバージョン（希少）。",
+        tip:"It's KNUCKLES. With SKULLS. Sarah Jessica Parker carried it on the red carpet. Dark, edgy, ICONIC.",
+        tipJp:"それはナックル。スカル付き。サラ・ジェシカ・パーカーがレッドカーペットで持った。ダーク、エッジー、象徴的。"
+      },
+      { name:"Jewelled Satchel", brief:"Embellished crossbody - punk luxury", briefJp:"装飾クロスボディ - パンクラグジュアリー",
+        desc:"Leather satchel with jeweled skull embellishments. Punk meets luxury.",
+        descJp:"宝石スカル装飾付きレザーサッチェル。パンクとラグジュアリーの融合。",
+        shape:"Structured satchel with flap closure. Metal skull with crystal embellishments.",
+        shapeJp:"フラップクロージャー付き構造的サッチェル。クリスタル装飾付きメタルスカル。",
+        sizes:[
+          {name:"Small", dim:"9\"W × 7\"H × 3\"D"},
+          {name:"Medium", dim:"11\"W × 8.5\"H × 4\"D - MOST POPULAR"}
+        ],
+        rare:"Full crystal skull versions. Colored leather (red, blue). Vintage hardware.",
+        rareJp:"フルクリスタルスカルバージョン。カラーレザー（赤、青）。ヴィンテージ金具。",
+        tip:"Count the crystals on the skull! It's McQueen - dark, romantic, rebellious. Punk princess energy.",
+        tipJp:"スカルのクリスタルを数えて！マックイーン - ダーク、ロマンティック、反逆的。パンクプリンセスエネルギー。"
+      },
+      { name:"Curve Bag", brief:"Structured shoulder bag - architectural edge", briefJp:"構造的ショルダーバッグ - 建築的エッジ",
+        desc:"Sculptural bag with curved lines and signature McQueen hardware.",
+        descJp:"曲線とシグネチャー マックイーン金具の彫刻的バッグ。",
+        shape:"Structured bag with curved silhouette. Metal knuckle ring detail on strap.",
+        shapeJp:"曲線シルエットの構造的バッグ。ストラップにメタルナックルリングディテール。",
+        sizes:[
+          {name:"Small", dim:"8.5\"W × 6.5\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"10\"W × 8\"H × 4.5\"D"}
+        ],
+        rare:"Limited edition finishes. Gradient leather. Vintage runway pieces.",
+        rareJp:"限定版仕上げ。グラデーションレザー。ヴィンテージランウェイ作品。",
+        tip:"Architectural curves. This isn't soft and slouchy - it's STRUCTURED. McQueen does power, not pretty.",
+        tipJp:"建築的曲線。これは柔らかくスラウチーではない - 構造的。マックイーンはパワーを行う、可愛くない。"
+      }
+    ]
   },
   miumiu: {
     name:"Miu Miu", year:1993, country:"Italy",
@@ -1227,7 +1583,57 @@ const BRAND_DATA = {
     rareJp:"マトラッセ（キルティング）レザーバッグ。コファーバッグ。クリスタル装飾。90年代〜2000年代ヴィンテージ作品。",
     tip:"Miu Miu is Prada's little sister. Younger, edgier, more playful. Same quality, different vibe.",
     tipJp:"ミュウミュウはプラダの妹。より若く、エッジーで、遊び心。同じ品質、異なる雰囲気。",
-    models:[]
+    colors:[
+      {name:"Matelassé Black", hex:"#000000", nameJp:"マトラッセブラック", desc:"Quilted black leather. Edgy elegance.", descJp:"キルティングブラックレザー。エッジーなエレガンス。"},
+      {name:"Matelassé Pink", hex:"#F8C8DC", nameJp:"マトラッセピンク", desc:"Soft quilted pink. Very Miu Miu.", descJp:"柔らかいキルティングピンク。とてもミュウミュウ。"},
+      {name:"Crystal Cipria", hex:"#E8D5C4", nameJp:"クリスタル チプリア", desc:"Pale nude beige. Sophisticated.", descJp:"淡いヌードベージュ。洗練。"},
+      {name:"Cameo Beige", hex:"#D4C4B0", nameJp:"カメオベージュ", desc:"Warm neutral. Very versatile.", descJp:"温かいニュートラル。とても万能。"}
+    ],
+    models:[
+      { name:"Matelassé Bag", brief:"Quilted shoulder bag - playful luxury", briefJp:"キルティングショルダーバッグ - 遊び心のあるラグジュアリー",
+        desc:"Nappa leather with quilted matelassé pattern. Younger sister to Prada.",
+        descJp:"キルティングマトラッセパターンのナッパレザー。プラダの妹。",
+        shape:"Soft quilted bag with chain strap. Curved shape, relaxed structure.",
+        shapeJp:"チェーンストラップ付き柔らかいキルティングバッグ。曲線形状、リラックスした構造。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 3\"D"},
+          {name:"Medium", dim:"10\"W × 7.5\"H × 4\"D - MOST POPULAR"},
+          {name:"Large", dim:"12\"W × 9\"H × 5\"D"}
+        ],
+        rare:"Crystal embellished versions. Limited edition colors. Vintage 1990s original matelassé.",
+        rareJp:"クリスタル装飾バージョン。限定版カラー。1990年代オリジナルマトラッセのヴィンテージ。",
+        tip:"It's like Prada, but younger and cooler. Same quality, but fun. For the girl who's over 'serious' bags.",
+        tipJp:"プラダのようだが、より若くクール。同じ品質、でも楽しい。「真面目な」バッグに飽きた女の子向け。"
+      },
+      { name:"Wander Hobo", brief:"Slouchy hobo - effortless style", briefJp:"スラウチーホーボー - 楽なスタイル",
+        desc:"Soft hobo bag with gathered detail. Relaxed, bohemian vibe.",
+        descJp:"ギャザーディテール付き柔らかいホーボーバッグ。リラックス、ボヘミアン雰囲気。",
+        shape:"Crescent hobo shape. Single shoulder strap. Slouchy, unstructured.",
+        shapeJp:"クレセントホーボー形状。シングルショルダーストラップ。スラウチー、非構造的。",
+        sizes:[
+          {name:"Small", dim:"10\"W × 7\"H × 4\"D"},
+          {name:"Medium", dim:"13\"W × 9\"H × 5\"D - MOST POPULAR"}
+        ],
+        rare:"Distressed leather versions. Vintage hardware. Limited edition textures.",
+        rareJp:"ディストレストレザーバージョン。ヴィンテージ金具。限定版テクスチャ。",
+        tip:"Hobo bags are BACK. This is that effortless cool-girl aesthetic. Off-duty model vibes.",
+        tipJp:"ホーボーバッグが帰ってきた。これが楽なクールガール美学。オフデューティモデル雰囲気。"
+      },
+      { name:"Coffer Bag", brief:"Box bag - structured statement", briefJp:"ボックスバッグ - 構造的ステートメント",
+        desc:"Rigid box-shaped bag with top handle. Vintage-inspired, very structured.",
+        descJp:"トップハンドル付き硬質ボックス型バッグ。ヴィンテージ風、とても構造的。",
+        shape:"Rectangular box with curved corners. Top handle and detachable strap.",
+        shapeJp:"曲線コーナー付き長方形ボックス。トップハンドルと取り外し可能ストラップ。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 4\"D - MOST POPULAR"},
+          {name:"Medium", dim:"10\"W × 7.5\"H × 5\"D"}
+        ],
+        rare:"Crystal-embellished closure. Vintage-style metal clasps. Limited edition prints.",
+        rareJp:"クリスタル装飾クロージャー。ヴィンテージスタイルメタルクラスプ。限定版プリント。",
+        tip:"It's a BOX. Very literal. Very Miu Miu. Quirky, fun, but still luxury. Count the crystals!",
+        tipJp:"それは箱。とても文字通り。とてもミュウミュウ。風変わり、楽しい、でも依然ラグジュアリー。クリスタルを数えて！"
+      }
+    ]
   },
   chloe: {
     name:"Chloé", year:1952, country:"France",
@@ -1263,7 +1669,57 @@ const BRAND_DATA = {
     rareJp:"シチリアバッグ（象徴的）。ミス シチリア。ハート付きディヴォーションバッグ。バロックプリントバッグ。",
     tip:"Very Italian. Bold prints, gold hardware, baroque vibes. NOT minimalist. Maximalist luxury.",
     tipJp:"非常にイタリアン。大胆なプリント、ゴールド金具、バロック雰囲気。ミニマリストではない。マキシマリストラグジュアリー。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Classic Italian black. Very chic.", descJp:"クラシックなイタリアンブラック。とてもシック。"},
+      {name:"Red", hex:"#DC143C", nameJp:"レッド", desc:"Passionate Italian red. Bold statement.", descJp:"情熱的なイタリアンレッド。大胆なステートメント。"},
+      {name:"Leopard Print", hex:"#C19A6B", nameJp:"レオパードプリント", desc:"Animal print. So D&G.", descJp:"アニマルプリント。とてもD&G。"},
+      {name:"Gold", hex:"#FFD700", nameJp:"ゴールド", desc:"Baroque gold hardware. Maximum luxury.", descJp:"バロックゴールド金具。最大ラグジュアリー。"}
+    ],
+    models:[
+      { name:"Sicily Bag", brief:"Structured tote - Sicilian heritage", briefJp:"構造的トート - シチリア遺産",
+        desc:"THE Dolce & Gabbana bag. Inspired by vintage doctor's bag. Structured, elegant.",
+        descJp:"Dolce & Gabbanaバッグ。ヴィンテージドクターバッグからインスピレーション。構造的、エレガント。",
+        shape:"Trapezoid tote with top handles. Structured with metal feet. DG logo plate.",
+        shapeJp:"トップハンドル付き台形トート。メタルフィート付き構造的。DGロゴプレート。",
+        sizes:[
+          {name:"Mini", dim:"7\"W × 6\"H × 4\"D"},
+          {name:"Small", dim:"10\"W × 8\"H × 5\"D"},
+          {name:"Medium", dim:"13\"W × 10\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 12\"H × 7\"D"}
+        ],
+        rare:"Baroque print versions. Lace overlays. Crystal embellishments. Limited edition Sicilian motifs.",
+        rareJp:"バロックプリントバージョン。レースオーバーレイ。クリスタル装飾。限定版シチリアモチーフ。",
+        tip:"Named after Sicily. This is Italian DRAMA. Baroque prints, lace, crystals. Go big or go home!",
+        tipJp:"シチリアにちなんで命名。これはイタリアンドラマ。バロックプリント、レース、クリスタル。大きく行くか帰るか！"
+      },
+      { name:"Devotion Bag", brief:"Heart logo bag - romantic statement", briefJp:"ハートロゴバッグ - ロマンティックステートメント",
+        desc:"Shoulder bag with large Sacred Heart logo. Ornate, romantic, very D&G.",
+        descJp:"大きな聖心ロゴ付きショルダーバッグ。華やか、ロマンティック、とてもD&G。",
+        shape:"Camera bag style with Sacred Heart closure. Quilted in some versions.",
+        shapeJp:"聖心クロージャー付きカメラバッグスタイル。一部バージョンはキルティング。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 3\"D"},
+          {name:"Medium", dim:"10\"W × 7.5\"H × 4\"D - MOST POPULAR"}
+        ],
+        rare:"Full crystal Sacred Heart. Limited edition baroque prints. Velvet versions.",
+        rareJp:"フルクリスタル聖心。限定版バロックプリント。ベルベットバージョン。",
+        tip:"That HUGE heart logo? It's a Sacred Heart. Very Italian, very Catholic, very romantic. It's LOUD.",
+        tipJp:"あの巨大ハートロゴ？聖心。とてもイタリアン、とてもカトリック、とてもロマンティック。うるさい。"
+      },
+      { name:"DG Girls Bag", brief:"Crossbody - playful femininity", briefJp:"クロスボディ - 遊び心のある女性らしさ",
+        desc:"Small crossbody with DG logo hardware. Fun, flirty, young.",
+        descJp:"DGロゴ金具付き小型クロスボディ。楽しい、いちゃつく、若い。",
+        shape:"Compact rectangular crossbody with chain strap. DG logo closure.",
+        shapeJp:"チェーンストラップ付きコンパクト長方形クロスボディ。DGロゴクロージャー。",
+        sizes:[
+          {name:"Small", dim:"7.5\"W × 5\"H × 2.5\"D - MOST POPULAR"}
+        ],
+        rare:"Leopard print. Floral embroidery. Limited edition patches and pins.",
+        rareJp:"レオパードプリント。フローラル刺繍。限定版パッチとピン。",
+        tip:"This is young D&G. Leopard prints, florals, patches. Like their runway shows - sexy, fun, Italian.",
+        tipJp:"これは若いD&G。レオパードプリント、フローラル、パッチ。ランウェイショーのように - セクシー、楽しい、イタリアン。"
+      }
+    ]
   },
   versace: {
     name:"Versace", year:1978, country:"Italy",
@@ -1275,7 +1731,56 @@ const BRAND_DATA = {
     rareJp:"メデューサショルダーバッグ。ヴィンテージ ジャンニ・ヴェルサーチ作品（1997年以前）。安全ピンドレス/バッグ（象徴的）。",
     tip:"BOLD. Gold Medusa, Greek keys, baroque prints. Versace doesn't do subtle. It screams luxury.",
     tipJp:"大胆。ゴールドメデューサ、グリークキー、バロックプリント。ヴェルサーチは控えめをしない。ラグジュアリーを叫ぶ。",
-    models:[]
+    colors:[
+      {name:"Black with Gold", hex:"#000000", nameJp:"ブラック+ゴールド", desc:"Black leather with gold Medusa. Classic Versace.", descJp:"ゴールドメデューサ付きブラックレザー。クラシックなヴェルサーチ。"},
+      {name:"Barocco Print", hex:"#FFD700", nameJp:"バロッコプリント", desc:"Gold baroque print. Maximum Versace.", descJp:"ゴールドバロックプリント。最大ヴェルサーチ。"},
+      {name:"Medusa Gold", hex:"#B8860B", nameJp:"メデューサゴールド", desc:"Rich gold hardware. Very opulent.", descJp:"豊かなゴールド金具。とても豪華。"},
+      {name:"Red", hex:"#C41E3A", nameJp:"レッド", desc:"Bold Italian red. Statement color.", descJp:"大胆なイタリアンレッド。ステートメントカラー。"}
+    ],
+    models:[
+      { name:"Virtus Bag", brief:"Medusa logo bag - bold statement", briefJp:"メデューサロゴバッグ - 大胆なステートメント",
+        desc:"Shoulder bag featuring large Medusa logo. Quilted leather with chain strap.",
+        descJp:"大きなメデューサロゴ付きショルダーバッグ。チェーンストラップ付きキルティングレザー。",
+        shape:"Quilted camera bag style with large Medusa head closure. Chunky chain strap.",
+        shapeJp:"大きなメデューサヘッドクロージャー付きキルティングカメラバッグスタイル。太いチェーンストラップ。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 3\"D"},
+          {name:"Medium", dim:"10\"W × 7.5\"H × 4\"D - MOST POPULAR"}
+        ],
+        rare:"Barocco print versions. Limited edition colors. Full gold hardware.",
+        rareJp:"バロッコプリントバージョン。限定版カラー。フルゴールド金具。",
+        tip:"That HUGE Medusa head? It's not subtle. It's Versace. You wear this when you want EVERYONE to notice.",
+        tipJp:"あの巨大メデューサヘッド？控えめではない。ヴェルサーチ。全員に気づいてほしい時にこれを着ける。"
+      },
+      { name:"La Medusa Tote", brief:"Structured tote - power luxury", briefJp:"構造的トート - パワーラグジュアリー",
+        desc:"Large structured tote with Medusa hardware. Professional but flashy.",
+        descJp:"メデューサ金具付き大型構造的トート。プロフェッショナルだが派手。",
+        shape:"Rectangular structured tote with top handles. Large Medusa medallion.",
+        shapeJp:"トップハンドル付き長方形構造的トート。大きなメデューサメダリオン。",
+        sizes:[
+          {name:"Medium", dim:"13\"W × 10\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 12\"H × 7\"D"}
+        ],
+        rare:"Barocco quilted versions. Gold-tone hardware. Vintage Gianni Versace era.",
+        rareJp:"バロッコキルティングバージョン。ゴールドトーン金具。ヴィンテージ ジャンニ・ヴェルサーチ時代。",
+        tip:"This is the power tote. Gold Medusa on the front. Greek key lining. Walk into that boardroom BOLD.",
+        tipJp:"これがパワートート。前面にゴールドメデューサ。グリークキー裏地。大胆にその役員室に入る。"
+      },
+      { name:"Greca Goddess Bag", brief:"Greek key shoulder bag - heritage motif", briefJp:"グリークキーショルダーバッグ - 伝統モチーフ",
+        desc:"Crossbody with signature Greek key (Greca) pattern. Heritage Versace motif.",
+        descJp:"シグネチャー グリークキー（グレカ）パターンのクロスボディ。ヴェルサーチ伝統モチーフ。",
+        shape:"Flap crossbody with Greek key embossing. Chain strap with leather weave.",
+        shapeJp:"グリークキーエンボス付きフラップクロスボディ。レザーウィーブ付きチェーンストラップ。",
+        sizes:[
+          {name:"Small", dim:"7.5\"W × 5.5\"H × 2.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"9\"W × 7\"H × 3\"D"}
+        ],
+        rare:"Vintage Gianni era Greek key. Limited edition barocco print. Crystal embellishments.",
+        rareJp:"ヴィンテージ ジャンニ時代グリークキー。限定版バロッコプリント。クリスタル装飾。",
+        tip:"That Greek key pattern? Versace's SIGNATURE since day one. Gianni Versace was obsessed with Greek mythology.",
+        tipJp:"あのグリークキーパターン？初日からヴェルサーチのシグネチャー。ジャンニ・ヴェルサーチはギリシャ神話に夢中だった。"
+      }
+    ]
   },
   jimmychoo: {
     name:"Jimmy Choo", year:1996, country:"UK",
@@ -1419,7 +1924,57 @@ const BRAND_DATA = {
     rareJp:"サンルイトート。サイゴントート。ベルシャスバッグ。スペシャルカラー（希少 - ほとんどは標準）。",
     tip:"NO ONLINE SALES. Only in Goyard boutiques. Hand-painted monogram. Ultimate exclusivity.",
     tipJp:"オンライン販売なし。ゴヤールブティックのみ。手描きモノグラム。究極の独占性。",
-    models:[]
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Classic black Goyardine. Timeless.", descJp:"クラシックブラック ゴヤールディーヌ。タイムレス。"},
+      {name:"Goyard Green", hex:"#2C5F2D", nameJp:"ゴヤールグリーン", desc:"Signature deep green. Very Goyard.", descJp:"シグネチャー深緑。とてもゴヤール。"},
+      {name:"Navy", hex:"#1C2951", nameJp:"ネイビー", desc:"Deep navy Goyardine. Classic.", descJp:"深いネイビー ゴヤールディーヌ。クラシック。"},
+      {name:"Grey", hex:"#808080", nameJp:"グレー", desc:"Neutral grey. Versatile.", descJp:"ニュートラルグレー。万能。"}
+    ],
+    models:[
+      { name:"St. Louis Tote", brief:"Open tote - iconic reversible", briefJp:"オープントート - 象徴的リバーシブル",
+        desc:"THE Goyard tote. Reversible - Goyardine outside, leather inside. No zipper.",
+        descJp:"Goyardトート。リバーシブル - 外側ゴヤールディーヌ、内側レザー。ジッパーなし。",
+        shape:"Open-top tote with leather handles. Reversible construction.",
+        shapeJp:"レザーハンドル付きオープントップトート。リバーシブル構造。",
+        sizes:[
+          {name:"PM", dim:"11\"W × 8\"H × 6\"D"},
+          {name:"GM", dim:"13\"W × 11\"H × 7\"D - MOST POPULAR"},
+          {name:"MM", dim:"15\"W × 13\"H × 8\"D"}
+        ],
+        rare:"Special colors (limited release). Personalized monogramming. Vintage with leather bottom.",
+        rareJp:"スペシャルカラー（限定リリース）。パーソナライズドモノグラム。レザーボトム付きヴィンテージ。",
+        tip:"It's REVERSIBLE! Flip it inside out. Hand-painted Y pattern. NO online sales - boutique only. EXCLUSIVE.",
+        tipJp:"リバーシブル！裏返す。手描きYパターン。オンライン販売なし - ブティックのみ。独占的。"
+      },
+      { name:"Anjou Tote", brief:"Structured tote - professional elegance", briefJp:"構造的トート - プロフェッショナルエレガンス",
+        desc:"More structured than St. Louis. Zip-top closure for security.",
+        descJp:"サンルイより構造的。セキュリティのためのジップトップクロージャー。",
+        shape:"Structured tote with zip closure. Goyardine canvas with leather trim.",
+        shapeJp:"ジップクロージャー付き構造的トート。レザートリム付きゴヤールディーヌキャンバス。",
+        sizes:[
+          {name:"PM", dim:"12\"W × 9\"H × 6\"D"},
+          {name:"GM", dim:"14\"W × 11\"H × 7\"D - MOST POPULAR"}
+        ],
+        rare:"Special color combos. Personalized heat stamp. Limited edition releases.",
+        rareJp:"スペシャルカラーコンボ。パーソナライズドヒートスタンプ。限定版リリース。",
+        tip:"Zip-top = more secure than St. Louis. Still hand-painted. Still boutique-only. Still GOYARD.",
+        tipJp:"ジップトップ = サンルイより安全。依然手描き。依然ブティックのみ。依然ゴヤール。"
+      },
+      { name:"Bellechasse Bag", brief:"Shoulder bag - everyday luxury", briefJp:"ショルダーバッグ - 日常ラグジュアリー",
+        desc:"Crossbody with adjustable strap. Zip closure. Daily luxury.",
+        descJp:"調節可能ストラップ付きクロスボディ。ジップクロージャー。デイリーラグジュアリー。",
+        shape:"Structured crossbody with front flap. Goyardine with leather accents.",
+        shapeJp:"フロントフラップ付き構造的クロスボディ。レザーアクセント付きゴヤールディーヌ。",
+        sizes:[
+          {name:"PM", dim:"9\"W × 7\"H × 3\"D - MOST POPULAR"},
+          {name:"GM", dim:"11\"W × 9\"H × 4\"D"}
+        ],
+        rare:"Special colors. Personalized monogram. Vintage pieces with brass hardware.",
+        rareJp:"スペシャルカラー。パーソナライズドモノグラム。真鍮金具付きヴィンテージ作品。",
+        tip:"Crossbody = hands-free. Goyard quality but practical. Still hand-painted. Still exclusive.",
+        tipJp:"クロスボディ = ハンズフリー。ゴヤール品質だが実用的。依然手描き。依然独占的。"
+      }
+    ]
   },
   delvaux: {
     name:"Delvaux", year:1829, country:"Belgium",
@@ -1467,7 +2022,57 @@ const BRAND_DATA = {
     rareJp:"ベイズウォーターバッグ（象徴的）。アレクサバッグ（アレクサ・チャンにちなんで命名）。ヴィンテージ英国製作品。",
     tip:"British leather craftsmanship. The Bayswater is THE classic. Alexa Chung made the Alexa bag huge.",
     tipJp:"英国レザー職人技。ベイズウォーターはTHEクラシック。アレクサ・チャンがアレクサバッグを巨大にした。",
-    models:[]
+    colors:[
+      {name:"Oak", hex:"#8B6F47", nameJp:"オーク", desc:"Classic tan leather. Signature Mulberry.", descJp:"クラシックタンレザー。シグネチャー マルベリー。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Timeless black. Always chic.", descJp:"タイムレスブラック。常にシック。"},
+      {name:"Oxblood", hex:"#4A0404", nameJp:"オックスブラッド", desc:"Deep burgundy. Very British.", descJp:"深いバーガンディ。とても英国的。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Classic navy. Professional.", descJp:"クラシックネイビー。プロフェッショナル。"}
+    ],
+    models:[
+      { name:"Bayswater", brief:"Structured tote - British icon", briefJp:"構造的トート - 英国アイコン",
+        desc:"THE Mulberry bag. Structured tote with postman's lock closure.",
+        descJp:"Mulberryバッグ。郵便屋ロッククロージャー付き構造的トート。",
+        shape:"Rectangular structured bag with flap and postman's lock. Top handles.",
+        shapeJp:"フラップと郵便屋ロック付き長方形構造的バッグ。トップハンドル。",
+        sizes:[
+          {name:"Small", dim:"11\"W × 9\"H × 5\"D"},
+          {name:"Regular", dim:"14\"W × 11\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"16\"W × 13\"H × 7\"D"}
+        ],
+        rare:"Vintage UK-made (pre-2000s). Limited edition colors. Darwin leather (ages beautifully).",
+        rareJp:"ヴィンテージ英国製（2000年代以前）。限定版カラー。ダーウィンレザー（美しく経年変化）。",
+        tip:"That postman's lock? Mulberry's SIGNATURE. British craftsmanship. Oak leather ages like fine wine.",
+        tipJp:"あの郵便屋ロック？Mulberryのシグネチャー。英国職人技。オークレザーは上質ワインのように経年変化。"
+      },
+      { name:"Alexa", brief:"Satchel - cool girl classic", briefJp:"サッチェル - クールガールクラシック",
+        desc:"Named after Alexa Chung. Vintage-inspired satchel with hardware details.",
+        descJp:"アレクサ・チャンにちなんで命名。金具ディテール付きヴィンテージ風サッチェル。",
+        shape:"Slouchy satchel with flap and hardware. Detachable shoulder strap.",
+        shapeJp:"フラップと金具付きスラウチーサッチェル。取り外し可能ショルダーストラップ。",
+        sizes:[
+          {name:"Regular", dim:"12\"W × 8\"H × 4\"D - MOST POPULAR"},
+          {name:"Mini", dim:"8\"W × 6\"H × 3\"D"}
+        ],
+        rare:"Limited edition colors. Elaphe (python) versions. Original 2009-2012 releases.",
+        rareJp:"限定版カラー。エラフェ（パイソン）バージョン。2009-2012年オリジナルリリース。",
+        tip:"Alexa Chung carried it. IT bag of 2010. Vintage-cool meets British heritage. Style icon approved!",
+        tipJp:"アレクサ・チャンが持った。2010年のITバッグ。ヴィンテージクールと英国伝統の融合。スタイルアイコン承認！"
+      },
+      { name:"Lily", brief:"Shoulder bag - everyday elegance", briefJp:"ショルダーバッグ - 日常エレガンス",
+        desc:"Compact shoulder bag with signature twist-lock. Practical luxury.",
+        descJp:"シグネチャー ツイストロック付きコンパクトショルダーバッグ。実用的ラグジュアリー。",
+        shape:"Structured shoulder bag with twist-lock closure. Adjustable strap.",
+        shapeJp:"ツイストロッククロージャー付き構造的ショルダーバッグ。調節可能ストラップ。",
+        sizes:[
+          {name:"Small", dim:"9\"W × 6\"H × 3\"D - MOST POPULAR"},
+          {name:"Medium", dim:"11\"W × 7\"H × 4\"D"}
+        ],
+        rare:"Vintage UK-made. Exotic leathers. Limited edition hardware finishes.",
+        rareJp:"ヴィンテージ英国製。エキゾチックレザー。限定版金具仕上げ。",
+        tip:"That twist-lock = classic Mulberry hardware. British quality at accessible prices. Everyday luxury.",
+        tipJp:"あのツイストロック = クラシック Mulberry金具。アクセシブルな価格の英国品質。日常ラグジュアリー。"
+      }
+    ]
   },
   coach: {
     name:"Coach", year:1941, country:"USA",
@@ -1515,7 +2120,59 @@ const BRAND_DATA = {
     rareJp:"ハッピーダイヤモンド（動くダイヤモンド）。アイスキューブコレクション。レッドカーペットジュエリー（カンヌ）。",
     tip:"Swiss luxury jewelry and watches. Happy Diamonds MOVE inside the watch. Playful high jewelry.",
     tipJp:"スイスラグジュアリージュエリーと時計。ハッピーダイヤモンドは時計内で動く。遊び心のあるハイジュエリー。",
-    models:[]
+    colors:[
+      {name:"18k White Gold", hex:"#E5E4E2", nameJp:"18金ホワイトゴールド", desc:"Classic white gold. Swiss precision.", descJp:"クラシックホワイトゴールド。スイス精密。"},
+      {name:"18k Yellow Gold", hex:"#FFD700", nameJp:"18金イエローゴールド", desc:"Warm gold. Timeless elegance.", descJp:"温かいゴールド。タイムレスなエレガンス。"},
+      {name:"18k Rose Gold", hex:"#B76E79", nameJp:"18金ローズゴールド", desc:"Romantic rose gold. Very flattering.", descJp:"ロマンティックローズゴールド。とても似合う。"},
+      {name:"Diamond", hex:"#FFFFFF", nameJp:"ダイヤモンド", desc:"Moving Happy Diamonds. Playful luxury.", descJp:"動くハッピーダイヤモンド。遊び心のあるラグジュアリー。"}
+    ],
+    models:[
+      { name:"Happy Diamonds", brief:"Moving diamonds - playful innovation", briefJp:"動くダイヤモンド - 遊び心のある革新",
+        desc:"THE Chopard signature. Loose diamonds that move freely between two sapphire crystals.",
+        descJp:"Chopardシグネチャー。2つのサファイアクリスタル間を自由に動く緩いダイヤモンド。",
+        shape:"Various shapes - pendant, earrings, watch. Diamonds move inside sealed compartment.",
+        shapeJp:"様々な形状 - ペンダント、イヤリング、時計。密閉区画内でダイヤモンドが動く。",
+        sizes:[
+          {name:"Watch", dim:"36mm - 40mm diameter"},
+          {name:"Pendant", dim:"Small to Large - various sizes"},
+          {name:"Earrings", dim:"Stud to Drop styles"}
+        ],
+        rare:"Vintage 1976 original Happy Diamonds. Limited edition colored gemstones. Full pavé versions.",
+        rareJp:"1976年オリジナル ハッピーダイヤモンドのヴィンテージ。限定版カラー宝石。フルパヴェバージョン。",
+        tip:"The diamonds MOVE! Shake it on camera. They dance around. Innovation from 1976. Still iconic today.",
+        tipJp:"ダイヤモンドが動く！カメラで振る。踊り回る。1976年からの革新。今でも象徴的。"
+      },
+      { name:"Ice Cube", brief:"Geometric cube design - modern minimalism", briefJp:"幾何学的キューブデザイン - モダンミニマリズム",
+        desc:"Modern collection with cube-shaped links. Minimalist Swiss design.",
+        descJp:"キューブ型リンクのモダンコレクション。ミニマリストスイスデザイン。",
+        shape:"Square cube links connected together. Clean geometric lines.",
+        shapeJp:"つながった正方形キューブリンク。クリーンな幾何学的ライン。",
+        sizes:[
+          {name:"Pendant", dim:"Small to Large cubes"},
+          {name:"Bracelet", dim:"Flexible cube links"},
+          {name:"Ring", dim:"Single or stacked cubes"}
+        ],
+        rare:"Full diamond pavé cubes. Limited edition colors. Oversized cube versions.",
+        rareJp:"フルダイヤモンドパヴェキューブ。限定版カラー。特大キューブバージョン。",
+        tip:"It's CUBES. Modern, geometric, Swiss precision. Stack them, layer them. This is contemporary Chopard.",
+        tipJp:"それはキューブ。モダン、幾何学的、スイス精密。スタックする、レイヤーする。これが現代的Chopard。"
+      },
+      { name:"Mille Miglia", brief:"Racing-inspired watches - motorsport heritage", briefJp:"レーシング風時計 - モータースポーツ伝統",
+        desc:"Watch collection inspired by legendary Italian race. Racing chronographs.",
+        descJp:"伝説のイタリアンレースからインスピレーション。レーシングクロノグラフ。",
+        shape:"Chronograph watches with racing details. Sporty but luxury.",
+        shapeJp:"レーシングディテール付きクロノグラフ時計。スポーティーだが高級。",
+        sizes:[
+          {name:"40mm", dim:"Classic racing size"},
+          {name:"42mm", dim:"Sport chronograph - MOST POPULAR"},
+          {name:"44mm", dim:"Large racing dial"}
+        ],
+        rare:"Limited edition race commemoratives. Vintage 1988 originals. Special dials.",
+        rareJp:"限定版レース記念版。1988年オリジナルのヴィンテージ。スペシャルダイヤル。",
+        tip:"Named after the Mille Miglia race. 1,000 miles across Italy. This is luxury meets motorsport.",
+        tipJp:"ミッレミリアレースにちなんで命名。イタリア横断1000マイル。これはラグジュアリーとモータースポーツの融合。"
+      }
+    ]
   },
   pomellato: {
     name:"Pomellato", year:1967, country:"Italy",
@@ -1527,7 +2184,57 @@ const BRAND_DATA = {
     rareJp:"ヌードコレクション（大きな宝石リング）。アイコニカコレクション。1960-70年代ヴィンテージ作品。",
     tip:"Italian. Colorful. Cabochon gemstones. Pomellato is BOLD jewelry for confident women.",
     tipJp:"イタリアン。カラフル。カボション宝石。ポメラートは自信のある女性のための大胆なジュエリー。",
-    models:[]
+    colors:[
+      {name:"18k Rose Gold", hex:"#B76E79", nameJp:"18金ローズゴールド", desc:"Signature Pomellato rose gold. Very Italian.", descJp:"シグネチャー ポメラート ローズゴールド。とてもイタリアン。"},
+      {name:"Blue Topaz", hex:"#4682B4", nameJp:"ブルートパーズ", desc:"Vibrant blue cabochon. Bold color.", descJp:"鮮やかなブルーカボション。大胆な色。"},
+      {name:"Amethyst", hex:"#9966CC", nameJp:"アメジスト", desc:"Rich purple. Very dramatic.", descJp:"豊かな紫。とてもドラマティック。"},
+      {name:"Smoky Quartz", hex:"#6E4B3A", nameJp:"スモーキークオーツ", desc:"Deep brown gemstone. Sophisticated.", descJp:"深いブラウン宝石。洗練。"}
+    ],
+    models:[
+      { name:"Nudo", brief:"Large cabochon ring - bold color statement", briefJp:"大きなカボションリング - 大胆なカラーステートメント",
+        desc:"THE Pomellato ring. Oversized cabochon gemstone on rose gold band.",
+        descJp:"Pomellatoリング。ローズゴールドバンド上の特大カボション宝石。",
+        shape:"Large oval or cushion-cut cabochon stone. Minimal prong setting shows maximum stone.",
+        shapeJp:"大きなオーバルまたはクッションカットカボションストーン。最小プロングセッティングで最大ストーンを見せる。",
+        sizes:[
+          {name:"Classic", dim:"12mm gemstone - MOST POPULAR"},
+          {name:"Maxi", dim:"15mm gemstone - statement size"},
+          {name:"Mini", dim:"8mm gemstone"}
+        ],
+        rare:"Rare gemstone colors (Mandarin garnet, tanzanite). Vintage 1990s original Nudo. Full diamond pavé band.",
+        rareJp:"希少宝石色（マンダリンガーネット、タンザナイト）。1990年代オリジナル ヌードのヴィンテージ。フルダイヤモンドパヴェバンド。",
+        tip:"That HUGE stone? It's a cabochon - smooth, no facets. Italian jewelry is about COLOR and SIZE. Go bold!",
+        tipJp:"あの巨大ストーン？カボション - 滑らか、ファセットなし。イタリアンジュエリーは色とサイズについて。大胆に！"
+      },
+      { name:"Iconica", brief:"Chain bracelet - Italian craftsmanship", briefJp:"チェーンブレスレット - イタリア職人技",
+        desc:"Chunky chain bracelet in rose gold. Simple but impactful.",
+        descJp:"ローズゴールドの太いチェーンブレスレット。シンプルだが印象的。",
+        shape:"Heavy oval chain links. Substantial weight, luxury feel.",
+        shapeJp:"重いオーバルチェーンリンク。実質的重量、ラグジュアリー感触。",
+        sizes:[
+          {name:"Bracelet", dim:"18cm standard - MOST POPULAR"},
+          {name:"Necklace", dim:"40cm - 45cm chain"}
+        ],
+        rare:"Full diamond pavé versions. Limited edition finishes. Vintage 1967 original chains.",
+        rareJp:"フルダイヤモンドパヴェバージョン。限定版仕上げ。1967年オリジナルチェーンのヴィンテージ。",
+        tip:"Feel the WEIGHT! This is solid rose gold. Italian craftsmanship. Heavy = luxury. Stack them!",
+        tipJp:"重さを感じて！これは固体ローズゴールド。イタリア職人技。重い = ラグジュアリー。スタックして！"
+      },
+      { name:"Bahia", brief:"Tourmaline rings - rainbow collection", briefJp:"トルマリンリング - レインボーコレクション",
+        desc:"Colorful tourmaline gemstone rings. Every color of the rainbow.",
+        descJp:"カラフルなトルマリン宝石リング。虹のすべての色。",
+        shape:"Oval cabochon tourmalines in various colors. Stackable rings.",
+        shapeJp:"様々な色のオーバルカボション トルマリン。スタッカブルリング。",
+        sizes:[
+          {name:"Single Ring", dim:"8mm-10mm stone"},
+          {name:"Stacked Set", dim:"Multiple rings worn together - POPULAR"}
+        ],
+        rare:"Rare tourmaline colors (Paraiba blue, watermelon). Vintage collections. Full rainbow sets.",
+        rareJp:"希少トルマリン色（パライバブルー、スイカ）。ヴィンテージコレクション。フルレインボーセット。",
+        tip:"Tourmaline comes in EVERY color. Pink, green, blue, multicolor. Mix and match. Build your rainbow!",
+        tipJp:"トルマリンはすべての色で来る。ピンク、グリーン、ブルー、マルチカラー。ミックスアンドマッチ。レインボーを作る！"
+      }
+    ]
   },
   mikimoto: {
     name:"Mikimoto", year:1893, country:"Japan",
@@ -1539,7 +2246,61 @@ const BRAND_DATA = {
     rareJp:"ヴィンテージアコヤ真珠ストランド。スペシャルクラスプデザイン。高級AAA+真珠。",
     tip:"Kokichi Mikimoto invented cultured pearls in 1893. Mikimoto = THE pearl authority.",
     tipJp:"御木本幸吉が1893年に養殖真珠を発明。ミキモト = THE真珠権威。",
-    models:[]
+    colors:[
+      {name:"White Akoya", hex:"#FFFAF0", nameJp:"ホワイトアコヤ", desc:"Classic white pearls with pink overtone. Signature Mikimoto.", descJp:"ピンクオーバートーンのクラシックホワイト真珠。シグネチャー ミキモト。"},
+      {name:"Silver Blue Akoya", hex:"#C0D8E8", nameJp:"シルバーブルーアコヤ", desc:"Rare blue-silver luster. Very valuable.", descJp:"希少ブルーシルバー光沢。とても貴重。"},
+      {name:"Golden South Sea", hex:"#FFD700", nameJp:"ゴールデン南洋", desc:"Large golden pearls. Luxurious.", descJp:"大きなゴールデン真珠。豪華。"},
+      {name:"Black Tahitian", hex:"#2F4F4F", nameJp:"ブラックタヒチアン", desc:"Dark peacock pearls. Dramatic.", descJp:"ダークピーコック真珠。ドラマティック。"}
+    ],
+    models:[
+      { name:"Akoya Pearl Strand", brief:"Classic pearl necklace - timeless elegance", briefJp:"クラシック真珠ネックレス - タイムレスエレガンス",
+        desc:"THE Mikimoto piece. Strand of perfectly matched Akoya pearls.",
+        descJp:"Mikimoto作品。完璧にマッチしたアコヤ真珠のストランド。",
+        shape:"Graduated or uniform pearl strand. Classic white with pink overtone.",
+        shapeJp:"グラデーションまたは均一真珠ストランド。ピンクオーバートーンのクラシックホワイト。",
+        sizes:[
+          {name:"Choker", dim:"14-16 inches - 6-7mm pearls"},
+          {name:"Princess", dim:"17-19 inches - 7-8mm pearls - MOST POPULAR"},
+          {name:"Matinee", dim:"20-24 inches - 8-9mm pearls"},
+          {name:"Opera", dim:"28-34 inches - 9-10mm pearls"}
+        ],
+        rare:"AAA+ grade matching. Blue-silver overtone (rare). Vintage art deco clasps. Large 10mm+ pearls.",
+        rareJp:"AAA+グレードマッチング。ブルーシルバーオーバートーン（希少）。ヴィンテージ アールデコクラスプ。大きな10mm+真珠。",
+        tip:"Mikimoto INVENTED cultured pearls. Check the luster - should glow like moonlight. Count the size in mm!",
+        tipJp:"ミキモトが養殖真珠を発明。光沢をチェック - 月光のように輝く必要。mmでサイズを数える！"
+      },
+      { name:"Akoya Pearl Studs", brief:"Classic earrings - everyday elegance", briefJp:"クラシックイヤリング - 日常エレガンス",
+        desc:"Simple pearl stud earrings. The ultimate classic.",
+        descJp:"シンプルな真珠スタッドイヤリング。究極のクラシック。",
+        shape:"Round Akoya pearls on white or yellow gold posts.",
+        shapeJp:"ホワイトまたはイエローゴールドポスト上の丸いアコヤ真珠。",
+        sizes:[
+          {name:"5mm", dim:"Delicate everyday"},
+          {name:"7mm", dim:"Classic size - MOST POPULAR"},
+          {name:"8mm", dim:"Statement studs"},
+          {name:"9-10mm", dim:"Bold, luxurious"}
+        ],
+        rare:"Perfectly matched pairs AAA+. Blue-silver overtone. Vintage gold settings.",
+        rareJp:"完璧にマッチしたペアAAA+。ブルーシルバーオーバートーン。ヴィンテージゴールドセッティング。",
+        tip:"Pearl studs = instant class. Audrey Hepburn wore them. Jackie Kennedy wore them. Timeless.",
+        tipJp:"真珠スタッド = 即座にクラス。オードリー・ヘップバーンが着用。ジャッキー・ケネディが着用。タイムレス。"
+      },
+      { name:"Black South Sea Pearls", brief:"Tahitian pearls - exotic luxury", briefJp:"タヒチアン真珠 - エキゾチックラグジュアリー",
+        desc:"Dark peacock pearls from Tahiti. Rare and dramatic.",
+        descJp:"タヒチからのダークピーコック真珠。希少でドラマティック。",
+        shape:"Large round or baroque Tahitian pearls. Dark grey to black with color overtones.",
+        shapeJp:"大きな丸またはバロック タヒチアン真珠。カラーオーバートーン付きダークグレーからブラック。",
+        sizes:[
+          {name:"Pendant", dim:"11-13mm - MOST POPULAR"},
+          {name:"Studs", dim:"9-11mm matched pair"},
+          {name:"Strand", dim:"18 inches - 10-12mm pearls"}
+        ],
+        rare:"Peacock green overtone. Perfect round (rare in Tahitians). Large 15mm+ pearls.",
+        rareJp:"ピーコックグリーンオーバートーン。完全丸形（タヒチアンでは希少）。大きな15mm+真珠。",
+        tip:"Black pearls are RARE. Tahitian = exotic. Look for peacock green or purple overtones. Very valuable!",
+        tipJp:"ブラック真珠は希少。タヒチアン = エキゾチック。ピーコックグリーンまたは紫オーバートーンを探す。とても貴重！"
+      }
+    ]
   }
 };
 
