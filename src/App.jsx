@@ -4618,6 +4618,55 @@ function FashionP({ lang, initialBrand }) {
             )}
           </div>
         </div>
+
+        {/* Bag Shapes Reference */}
+        {brand.categories.includes("handbags") && (
+          <div style={{ marginTop: 32 }}>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: "#191919", marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
+              👜 {lang === "en" ? "Bag Shapes Reference" : "バッグ形状リファレンス"}
+            </h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
+              {[
+                { shape: lang === "en" ? "Tote" : "トート", desc: lang === "en" ? "Open-top bag with parallel handles" : "平行ハンドル付きオープントップバッグ", emoji: "🛍️" },
+                { shape: lang === "en" ? "Satchel" : "サッチェル", desc: lang === "en" ? "Structured bag with flap closure" : "フラップクロージャー付き構造的バッグ", emoji: "💼" },
+                { shape: lang === "en" ? "Crossbody" : "クロスボディ", desc: lang === "en" ? "Long strap worn across body" : "ボディを横切って着用する長いストラップ", emoji: "👝" },
+                { shape: lang === "en" ? "Shoulder" : "ショルダー", desc: lang === "en" ? "Single or double strap on shoulder" : "肩に単または二重ストラップ", emoji: "👜" },
+                { shape: lang === "en" ? "Clutch" : "クラッチ", desc: lang === "en" ? "No strap, held in hand" : "ストラップなし、手持ち", emoji: "👛" },
+                { shape: lang === "en" ? "Hobo" : "ホーボー", desc: lang === "en" ? "Crescent-shaped, slouchy" : "クレセント型、スラウチー", emoji: "🌙" },
+                { shape: lang === "en" ? "Bucket" : "バケット", desc: lang === "en" ? "Cylindrical with drawstring closure" : "巾着クロージャー付き円筒形", emoji: "🪣" },
+                { shape: lang === "en" ? "Saddle" : "サドル", desc: lang === "en" ? "Curved bottom, inspired by horse saddle" : "馬の鞍にインスパイアされた曲線底", emoji: "🐎" }
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#FFFFFF", border: "2px solid #E5E7EB", borderRadius: 12, padding: 20, textAlign: "center", transition: "all 0.2s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#3665F3"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#E5E7EB"; e.currentTarget.style.transform = "translateY(0)"; }}>
+                  <div style={{ fontSize: 48, marginBottom: 12 }}>{item.emoji}</div>
+                  <div style={{ fontSize: 18, fontWeight: 700, color: "#191919", marginBottom: 6 }}>{item.shape}</div>
+                  <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.5 }}>{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Reference Images Placeholder */}
+        <div style={{ marginTop: 32, background: "#FEF3C7", padding: 24, borderRadius: 12, border: "2px solid #F5AF02" }}>
+          <h3 style={{ fontSize: 20, fontWeight: 700, color: "#F5AF02", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
+            📸 {lang === "en" ? "Reference Images" : "参考画像"}
+          </h3>
+          <p style={{ fontSize: 15, color: "#191919", lineHeight: 1.7, margin: 0 }}>
+            {lang === "en"
+              ? `When streaming ${model.name}, search for authentic reference images on the official ${brand.name} website or authorized retailers. Compare hardware, stitching patterns, logo placement, and interior details. Save screenshots for quick reference during your live stream.`
+              : `${model.name}を配信する際は、公式${brand.name}ウェブサイトまたは正規販売店で本物の参考画像を検索してください。金具、ステッチパターン、ロゴ配置、内部ディテールを比較。ライブ配信中のクイックリファレンスのためにスクリーンショットを保存。`}
+          </p>
+          <div style={{ marginTop: 16, padding: 16, background: "#FFFFFF", borderRadius: 8 }}>
+            <strong style={{ color: "#F5AF02" }}>💡 {lang === "en" ? "Pro Tip:" : "プロのヒント："}</strong><br/>
+            <span style={{ fontSize: 14, color: "#191919" }}>
+              {lang === "en"
+                ? "Keep a folder of authentic reference photos on your phone or tablet. During the stream, you can quickly compare and point out authentic details to buyers. This builds trust!"
+                : "スマートフォンまたはタブレットに本物の参考写真のフォルダを保管。配信中、素早く比較してバイヤーに本物のディテールを指摘できる。信頼を築く！"}
+            </span>
+          </div>
+        </div>
       </div>
     );
   }
