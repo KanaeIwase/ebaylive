@@ -1668,6 +1668,7 @@ export default function App() {
             icon: "👜",
             label: "Brand Knowledge",
             children: [
+              { label: "🔍 Browse All Brands", page: "brands" },
               { label: "Louis Vuitton 👜💎", page: "brand-lv" },
               { label: "Chanel 👜💎", page: "brand-chanel" },
               { label: "Hermès 👜💎", page: "brand-hermes" },
@@ -1798,6 +1799,7 @@ export default function App() {
             icon: "👜",
             label: "ブランド知識",
             children: [
+              { label: "🔍 全ブランドを見る", page: "brands" },
               { label: "ルイ・ヴィトン 👜💎", page: "brand-lv" },
               { label: "シャネル 👜💎", page: "brand-chanel" },
               { label: "エルメス 👜💎", page: "brand-hermes" },
@@ -2348,7 +2350,7 @@ export default function App() {
             if (page === 0 || page === "0") return <HomeP lang={lang} setPage={setPage} playerData={playerData} />;
 
             // Brand Knowledge
-            if (page === 1 || pageStr.startsWith("brand-")) return <FashionP lang={lang} initialBrand={pageStr} />;
+            if (page === 1 || page === "brands" || pageStr.startsWith("brand-")) return <FashionP lang={lang} initialBrand={pageStr} />;
 
             // Live Selling - 6 Steps
             if (page === 2 || pageStr.startsWith("live-step")) return <LiveP lang={lang} />;
