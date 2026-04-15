@@ -3326,12 +3326,51 @@ function BrandKnowledgeLandingPage({ lang, onBrandSelect }) {
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 >
-                  {/* Brand Logo */}
-                  {brand.imageUrl && (
-                    <div style={{ height: 40, marginBottom: 16, display: "flex", alignItems: "center" }}>
-                      <img src={brand.imageUrl} alt={brand.name} style={{ maxHeight: 40, maxWidth: "100%", objectFit: "contain" }} />
-                    </div>
-                  )}
+                  {/* Brand Logo - Fallback to colored initial */}
+                  <div style={{ height: 40, marginBottom: 16, display: "flex", alignItems: "center" }}>
+                    {brand.imageUrl ? (
+                      <img
+                        src={brand.imageUrl}
+                        alt={brand.name}
+                        style={{ maxHeight: 40, maxWidth: "100%", objectFit: "contain" }}
+                        onError={(e) => {
+                          // Fallback to colored circle with initial
+                          const initial = brand.name.charAt(0).toUpperCase();
+                          const colors = ["#3665F3", "#F5AF02", "#86B817", "#E53238", "#667eea"];
+                          const colorIndex = brand.name.charCodeAt(0) % colors.length;
+                          e.target.style.display = "none";
+                          const fallback = document.createElement("div");
+                          fallback.style.width = "40px";
+                          fallback.style.height = "40px";
+                          fallback.style.borderRadius = "50%";
+                          fallback.style.background = colors[colorIndex];
+                          fallback.style.color = "#FFF";
+                          fallback.style.display = "flex";
+                          fallback.style.alignItems = "center";
+                          fallback.style.justifyContent = "center";
+                          fallback.style.fontSize = "18px";
+                          fallback.style.fontWeight = "700";
+                          fallback.textContent = initial;
+                          e.target.parentNode.appendChild(fallback);
+                        }}
+                      />
+                    ) : (
+                      <div style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        background: ["#3665F3", "#F5AF02", "#86B817", "#E53238", "#667eea"][brand.name.charCodeAt(0) % 5],
+                        color: "#FFF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 18,
+                        fontWeight: 700
+                      }}>
+                        {brand.name.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                  </div>
 
                   {/* Brand Name with Icons */}
                   <div style={{ fontSize: 18, fontWeight: 700, color: "#191919", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}>
@@ -3650,9 +3689,17 @@ function FashionP({ lang, initialBrand }) {
         </button>
 
         <div style={{ flex:1, display:"flex", alignItems:"center", gap:16 }}>
-          {brand.imageUrl && (
-            <img src={brand.imageUrl} alt={brand.name} style={{ height:50, objectFit:"contain" }} />
-          )}
+          {brand.imageUrl ? (
+            <img
+              src={brand.imageUrl}
+              alt={brand.name}
+              style={{ height:50, objectFit:"contain", maxWidth: 200 }}
+              onError={(e) => {
+                // Hide broken image
+                e.target.style.display = "none";
+              }}
+            />
+          ) : null}
           <div>
             <div style={{ fontSize:24, fontWeight:800, color:"#1a1a2e", display:"flex", alignItems:"center", gap:8 }}>
               {brand.name}
