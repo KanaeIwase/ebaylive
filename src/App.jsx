@@ -4593,7 +4593,31 @@ function FashionP({ lang, initialBrand }) {
           </p>
         </div>
 
-        {/* Visual Training Section - Removed temporarily */}
+        {/* Key Visual Points for Live Streaming */}
+        <div style={{ marginTop: 32, background: "#EFF6FF", padding: 24, borderRadius: 12, border: "2px solid #3665F3" }}>
+          <h3 style={{ fontSize: 20, fontWeight: 700, color: "#3665F3", marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
+            📸 {lang === "en" ? "What to Show on Camera" : "カメラで見せるポイント"}
+          </h3>
+          <div style={{ fontSize: 15, color: "#191919", lineHeight: 1.8 }}>
+            <p style={{ margin: "0 0 12px 0" }}>
+              <strong>{lang === "en" ? "Essential shots for this model:" : "このモデルの必須ショット："}</strong>
+            </p>
+            <ul style={{ margin: "0 0 16px 0", paddingLeft: 24 }}>
+              <li>{lang === "en" ? "Show the overall shape and silhouette from multiple angles" : "複数の角度から全体の形とシルエットを見せる"}</li>
+              <li>{lang === "en" ? "Close-up of brand logos, stamps, and authentication markers" : "ブランドロゴ、刻印、真贋マーカーのクローズアップ"}</li>
+              <li>{lang === "en" ? "Hardware details (zippers, clasps, chains) - zoom in!" : "金具ディテール（ジッパー、クラスプ、チェーン）- ズームイン！"}</li>
+              <li>{lang === "en" ? "Interior lining and pockets - buyers want to see inside" : "内装と内ポケット - バイヤーは内側を見たい"}</li>
+              <li>{lang === "en" ? "Any defects or wear - be honest and show clearly" : "欠陥や使用感 - 正直に明確に見せる"}</li>
+              <li>{lang === "en" ? "Size reference - hold it up, show how it looks when worn/carried" : "サイズ感 - 持ち上げる、着用/携帯時の見え方を見せる"}</li>
+            </ul>
+            {model.shape && (
+              <p style={{ margin: "16px 0 0 0", padding: 16, background: "#FFFFFF", borderRadius: 8, borderLeft: "4px solid #F5AF02" }}>
+                <strong style={{ color: "#F5AF02" }}>💡 {lang === "en" ? "Shape Guide:" : "形状ガイド："}</strong><br/>
+                {lang === "en" ? model.shape : model.shapeJp}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     );
   }
