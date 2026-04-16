@@ -2876,7 +2876,41 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Preppy chic.", descJp:"深いネイビー。プレッピーシック。"},
       {name:"Brass Hardware", hex:"#B5A642", nameJp:"ブラス金具", desc:"Vintage brass turnlock. Signature detail.", descJp:"ヴィンテージブラスターンロック。シグネチャーディテール。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Willis", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Crossbody with pockets - vintage icon",
+        briefJp:"ポケット付きクロスボディ - ヴィンテージアイコン",
+        desc:"Vintage Coach icon. Crossbody with front pockets. 1980s-90s USA-made collectible. Brass turnlock hardware. American heritage.",
+        descJp:"ヴィンテージコーチアイコン。フロントポケット付きクロスボディ。1980-90年代米国製コレクタブル。真鍮ターンロック金具。アメリカ遺産。",
+        shape:"Crossbody messenger. Dual front pockets with turnlock flaps. Adjustable strap. Structured.",
+        shapeJp:"クロスボディメッセンジャー。ターンロックフラップ付きデュアルフロントポケット。調整可能ストラップ。構造的。",
+        sizes:[
+          {name:"One Size", dim:"9\"W × 8\"H × 3\"D - Classic crossbody"}
+        ],
+        rare:"1980s-90s USA-made (NYC factory, superior leather). Bonnie Cashin era designs.",
+        rareJp:"1980-90年代米国製（NYC工場、優れたレザー）。ボニー・カシン時代デザイン。",
+        tip:"Willis = vintage GOLD. USA-made = valuable. Those front pockets + turnlock = Coach icon.",
+        tipJp:"ウィリス = ヴィンテージゴールド。米国製 = 価値あり。あのフロントポケット + ターンロック = コーチアイコン。"
+      },
+      {
+        name:"Rogue", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Modern structured satchel - 2015 revival",
+        briefJp:"モダン構造的サッチェル - 2015年復活",
+        desc:"Modern Coach icon from Stuart Vevers era. Structured satchel. Heritage details meet contemporary design. Coach revival piece.",
+        descJp:"スチュアート・ヴィーバース時代のモダンコーチアイコン。構造的サッチェル。遺産ディテールが現代デザインと出会う。コーチ復活作品。",
+        shape:"Structured satchel. Top handle and crossbody strap. Turnlock closure. Modern classic.",
+        shapeJp:"構造的サッチェル。トップハンドルとクロスボディストラップ。ターンロッククロージャー。モダンクラシック。",
+        sizes:[
+          {name:"25", dim:"Small - 10\"W × 8\"H"},
+          {name:"30", dim:"Medium - 12\"W × 9\"H - MOST POPULAR"}
+        ],
+        rare:"Original 2015 launch colors. Limited editions. Heritage revival.",
+        rareJp:"オリジナル2015年発売カラー。限定版。遺産復活。",
+        tip:"Rogue = modern Coach revival. Stuart Vevers brought cool back. Heritage + contemporary.",
+        tipJp:"ローグ = モダンコーチ復活。スチュアート・ヴィーバースがクールを復活。遺産 + 現代。"
+      }
+    ]
   },
   jacquemus: {
     name:"Jacquemus", year:2009, country:"France",
@@ -2897,7 +2931,40 @@ const BRAND_DATA = {
       {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Crisp white. Summer essential.", descJp:"鮮やかなホワイト。夏必須。"},
       {name:"Orange", hex:"#FF8C00", nameJp:"オレンジ", desc:"Vibrant orange. Fun and bold.", descJp:"鮮やかなオレンジ。楽しく大胆。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Le Chiquito", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Micro-mini bag - Instagram viral icon",
+        briefJp:"マイクロミニバッグ - Instagram バイラルアイコン",
+        desc:"THE Jacquemus bag. Comically TINY - too small for a phone! Instagram viral sensation. It's art, not utility. Statement piece.",
+        descJp:"THE ジャックムスバッグ。滑稽なほど超小型 - 電話も入らない！Instagram バイラルセンセーション。実用性ではなくアート。ステートメントピース。",
+        shape:"Micro-mini top-handle bag. Structured miniature. Removable shoulder strap. TINY statement.",
+        shapeJp:"マイクロミニトップハンドルバッグ。構造的ミニチュア。取り外し可能ショルダーストラップ。超小型ステートメント。",
+        sizes:[
+          {name:"Micro", dim:"2.5\"W × 2\"H - Too small for phone!"}
+        ],
+        rare:"Original 2018 viral launch. Limited seasonal colors. Sold out instantly.",
+        rareJp:"オリジナル2018年バイラル発売。限定季節カラー。即完売。",
+        tip:"Le Chiquito = TOO SMALL for anything! Instagram famous. Pure art. Get likes, not utility.",
+        tipJp:"ル・シキート = 何にも小さすぎる！Instagram有名。純粋アート。実用性でなくいいねを得る。"
+      },
+      {
+        name:"Le Bambino", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Small top-handle - playful proportion",
+        briefJp:"小さなトップハンドル - 遊び心ある比率",
+        desc:"Larger than Le Chiquito but still small. Actually holds things! Playful Jacquemus proportions. Modern French chic.",
+        descJp:"ル・シキートより大きいがまだ小さい。実際に物が入る！遊び心のあるジャックムス比率。モダンフレンチシック。",
+        shape:"Small structured top-handle bag. Curved silhouette. Removable strap. Functional cute.",
+        shapeJp:"小さな構造的トップハンドルバッグ。曲線シルエット。取り外し可能ストラップ。機能的可愛さ。",
+        sizes:[
+          {name:"Small", dim:"7\"W × 5\"H × 3\"D - Actually usable!"}
+        ],
+        rare:"First seasons 2017-2019. Limited Provence colors. Pre-mainstream fame.",
+        rareJp:"初シーズン2017-2019。限定プロヴァンスカラー。主流名声前。",
+        tip:"Le Bambino = small but USABLE. Jacquemus playful size. French summer vibes.",
+        tipJp:"ル・バンビーノ = 小さいが使用可能。ジャックムス遊び心サイズ。フランス夏雰囲気。"
+      }
+    ]
   },
   chromHearts: {
     name:"Chrome Hearts", year:1988, country:"USA",
@@ -2918,7 +2985,40 @@ const BRAND_DATA = {
       {name:"White Leather", hex:"#FFFFF0", nameJp:"ホワイトレザー", desc:"White with silver crosses. Bold contrast.", descJp:"シルバークロス付きホワイト。大胆なコントラスト。"},
       {name:"Red Leather", hex:"#8B0000", nameJp:"レッドレザー", desc:"Dark red. Gothic luxury.", descJp:"ダークレッド。ゴシックラグジュアリー。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Cross Hardware Bag", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Sterling silver cross bag - gothic luxury",
+        briefJp:"スターリングシルバークロスバッグ - ゴシックラグジュアリー",
+        desc:"Chrome Hearts signature. Black leather with heavy STERLING SILVER crosses. Handcrafted in LA. Rock 'n' roll luxury. Cult status.",
+        descJp:"クロムハーツシグネチャー。重いスターリングシルバークロス付きブラックレザー。LA手作り。ロックンロールラグジュアリー。カルトステータス。",
+        shape:"Leather bag fully decorated with sterling silver cross hardware. Heavy metal details. Gothic aesthetic.",
+        shapeJp:"スターリングシルバークロス金具で完全に装飾されたレザーバッグ。重いメタルディテール。ゴシック美学。",
+        sizes:[
+          {name:"Various", dim:"Sizes vary - custom pieces common"}
+        ],
+        rare:"Vintage 1988-2000s pieces. Custom bespoke commissions. Celebrity provenance.",
+        rareJp:"ヴィンテージ1988-2000年代作品。カスタムビスポーク委託。セレブ来歴。",
+        tip:"Chrome Hearts = HEAVY silver crosses. Gothic biker luxury. Cult status. Made in LA.",
+        tipJp:"クロムハーツ = 重いシルバークロス。ゴシックバイカーラグジュアリー。カルトステータス。LA製。"
+      },
+      {
+        name:"Dagger Hardware Bag", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Silver dagger details - edgy rock luxury",
+        briefJp:"シルバーダガーディテール - エッジーロックラグジュアリー",
+        desc:"Sterling silver DAGGERS and knives. Gothic warrior luxury. Chrome Hearts edge. Pure rebellion.",
+        descJp:"スターリングシルバーダガーとナイフ。ゴシック戦士ラグジュアリー。クロムハーツエッジ。純粋な反抗。",
+        shape:"Leather bag with silver dagger and knife hardware details. Edgy gothic design.",
+        shapeJp:"シルバーダガーとナイフ金具ディテール付きレザーバッグ。エッジーゴシックデザイン。",
+        sizes:[
+          {name:"Various", dim:"Custom and standard sizes"}
+        ],
+        rare:"Limited production. Custom pieces. Rockstar favored.",
+        rareJp:"限定生産。カスタム作品。ロックスターに好まれる。",
+        tip:"Dagger hardware = EDGY Chrome Hearts. Silver knives on leather. Pure rock 'n' roll.",
+        tipJp:"ダガー金具 = エッジークロムハーツ。レザーにシルバーナイフ。純粋ロックンロール。"
+      }
+    ]
   },
   chopard: {
     name:"Chopard", year:1860, country:"Switzerland",
