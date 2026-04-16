@@ -2529,7 +2529,42 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Quiet sophistication.", descJp:"深いネイビー。静かな洗練。"},
       {name:"Grey", hex:"#808080", nameJp:"グレー", desc:"Neutral grey. Architectural neutrality.", descJp:"ニュートラルグレー。建築的中立性。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Tangle", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Sculptural knotted tote - minimalist icon",
+        briefJp:"彫刻的結び目トート - ミニマリストアイコン",
+        desc:"Jil Sander's modern icon. Sculptural KNOTTED handles. Architectural minimalism. No logos. Pure form.",
+        descJp:"ジル・サンダーのモダンアイコン。彫刻的結び目ハンドル。建築的ミニマリズム。ロゴなし。純粋な形。",
+        shape:"Tote with signature knotted sculptural handles. Clean architectural lines. No branding. Form follows function.",
+        shapeJp:"シグネチャー結び目彫刻的ハンドル付きトート。クリーン建築的ライン。ブランディングなし。機能が形に従う。",
+        sizes:[
+          {name:"Small", dim:"9\"W × 8\"H × 4\"D"},
+          {name:"Medium", dim:"12\"W × 10\"H × 5\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 12\"H × 6\"D"}
+        ],
+        rare:"Original 2019 launch colors. Limited production runs. Sold out editions.",
+        rareJp:"オリジナル2019年発売カラー。限定生産ラン。完売版。",
+        tip:"Tangle = those KNOTTED handles. Pure minimalism. No logos. Architectural perfection.",
+        tipJp:"タングル = あの結び目ハンドル。純粋ミニマリズム。ロゴなし。建築的完璧。"
+      },
+      {
+        name:"Cannolo", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Cylindrical bag - unique minimalist shape",
+        briefJp:"円筒形バッグ - ユニークミニマリスト形状",
+        desc:"Unique cylindrical shape. Minimalist construction. Jil Sander architectural sophistication. Limited production.",
+        descJp:"ユニーク円筒形状。ミニマリスト構造。ジル・サンダー建築的洗練。限定生産。",
+        shape:"Cylindrical tube shape. Minimal hardware. Clean geometric form. Shoulder strap.",
+        shapeJp:"円筒チューブ形状。ミニマル金具。クリーン幾何学形態。ショルダーストラップ。",
+        sizes:[
+          {name:"One Size", dim:"10\"L × 5\"Diameter - Cylindrical"}
+        ],
+        rare:"Limited production. Unique shape. Sold out quickly.",
+        rareJp:"限定生産。ユニーク形状。即完売。",
+        tip:"Cannolo = cylindrical tube bag. Unique minimalist shape. Pure Jil Sander.",
+        tipJp:"カンノーロ = 円筒チューブバッグ。ユニークミニマリスト形状。純粋ジル・サンダー。"
+      }
+    ]
   },
   goyard: {
     name:"Goyard", year:1853, country:"France",
@@ -2614,7 +2649,42 @@ const BRAND_DATA = {
       {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Royal burgundy. Regal luxury.", descJp:"ロイヤルバーガンディ。王室ラグジュアリー。"},
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Classic navy. Understated prestige.", descJp:"クラシックネイビー。控えめな威信。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Brillant", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"D-clasp box bag - 1958 architectural icon",
+        briefJp:"Dクラスプボックスバッグ - 1958建築的アイコン",
+        desc:"THE Delvaux bag. Structured box with iconic D-shaped clasp. 1958 design. Belgian perfection. 200 years of leather mastery.",
+        descJp:"THE デルヴォーバッグ。象徴的なD型クラスプ付き構造的ボックス。1958年デザイン。ベルギー完璧。200年のレザー熟練。",
+        shape:"Structured box bag. Signature D-shaped clasp. Top handle. Architectural precision.",
+        shapeJp:"構造的ボックスバッグ。シグネチャー D型クラスプ。トップハンドル。建築的精度。",
+        sizes:[
+          {name:"PM", dim:"9\"W × 7\"H × 4\"D - Petite"},
+          {name:"MM", dim:"11\"W × 8\"H × 5\"D - MOST POPULAR"},
+          {name:"GM", dim:"13\"W × 10\"H × 6\"D - Grande"}
+        ],
+        rare:"Original 1958 vintage. Belgian royal warrant provenance. Exotic leathers.",
+        rareJp:"オリジナル1958年ヴィンテージ。ベルギー王室御用達来歴。エキゾチックレザー。",
+        tip:"Brillant = that D-CLASP. 1958 icon. Older than Louis Vuitton. Belgian royalty approved.",
+        tipJp:"ブリヤン = あのDクラスプ。1958年アイコン。ルイ・ヴィトンより古い。ベルギー王室承認。"
+      },
+      {
+        name:"Pin", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Mini crossbody - modern Belgian minimal",
+        briefJp:"ミニクロスボディ - モダンベルギーミニマル",
+        desc:"Small crossbody. Modern Delvaux icon. Belgian minimalism. Compact sophistication.",
+        descJp:"小さなクロスボディ。モダンデルヴォーアイコン。ベルギーミニマリズム。コンパクト洗練。",
+        shape:"Small crossbody. Clean minimal lines. Belgian craftsmanship. Shoulder strap.",
+        shapeJp:"小さなクロスボディ。クリーンミニマルライン。ベルギー職人技。ショルダーストラップ。",
+        sizes:[
+          {name:"One Size", dim:"8\"W × 6\"H × 2\"D - Mini crossbody"}
+        ],
+        rare:"Limited colors. Modern collectible. Belgian made.",
+        rareJp:"限定カラー。モダンコレクタブル。ベルギー製。",
+        tip:"Pin = mini modern Delvaux. Belgian minimalist sophistication. Compact icon.",
+        tipJp:"ピン = ミニモダンデルヴォー。ベルギーミニマリスト洗練。コンパクトアイコン。"
+      }
+    ]
   },
   judithlieber: {
     name:"Judith Leiber", year:1963, country:"USA",
@@ -2635,7 +2705,40 @@ const BRAND_DATA = {
       {name:"Multicolor", hex:"#FF69B4", nameJp:"マルチカラー", desc:"Rainbow crystals. Playful luxury.", descJp:"レインボークリスタル。遊び心のあるラグジュアリー。"},
       {name:"Black Crystal", hex:"#000000", nameJp:"ブラッククリスタル", desc:"Black crystals. Dramatic elegance.", descJp:"ブラッククリスタル。ドラマティックエレガンス。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Animal Minaudière", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Crystal animal clutch - whimsical luxury",
+        briefJp:"クリスタル動物クラッチ - 気まぐれラグジュアリー",
+        desc:"THE Judith Leiber piece. Crystal-covered animal shapes. Dogs, cats, birds, frogs. Whimsical red-carpet icon. Hand-applied crystals.",
+        descJp:"THE ジュディス・リーバー作品。クリスタルで覆われた動物形状。犬、猫、鳥、カエル。気まぐれレッドカーペットアイコン。手作業適用クリスタル。",
+        shape:"Shaped like animals. Entirely covered in Swarovski crystals. Evening minaudière clutch. Chain strap.",
+        shapeJp:"動物型。完全にスワロフスキークリスタルで覆われている。イブニングミノディエールクラッチ。チェーンストラップ。",
+        sizes:[
+          {name:"Evening Size", dim:"4-6\" dimensions vary by animal shape"}
+        ],
+        rare:"Vintage 1960s-1980s pieces. First Ladies provenance. Red carpet documented.",
+        rareJp:"ヴィンテージ1960-1980年代作品。ファーストレディ来歴。レッドカーペット記録。",
+        tip:"Animal minaudières = WHIMSICAL luxury. Red carpet staple. Thousands of hand-applied crystals.",
+        tipJp:"動物ミノディエール = 気まぐれラグジュアリー。レッドカーペット定番。何千もの手作業適用クリスタル。"
+      },
+      {
+        name:"Food Minaudière", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Crystal food clutch - playful icon",
+        briefJp:"クリスタル食べ物クラッチ - 遊び心アイコン",
+        desc:"Shaped like food. Strawberries, cupcakes, champagne bottles. Crystal-covered novelty luxury. Playful glamour.",
+        descJp:"食べ物型。イチゴ、カップケーキ、シャンパンボトル。クリスタル覆われたノベルティラグジュアリー。遊び心グラマー。",
+        shape:"Food-shaped minaudière. Full crystal coverage. Whimsical evening clutch. Chain strap.",
+        shapeJp:"食べ物型ミノディエール。フルクリスタルカバレッジ。気まぐれイブニングクラッチ。チェーンストラップ。",
+        sizes:[
+          {name:"Evening Size", dim:"4-6\" dimensions vary by food shape"}
+        ],
+        rare:"Vintage collectible shapes. Limited production. Red carpet novelty.",
+        rareJp:"ヴィンテージコレクタブル形状。限定生産。レッドカーペットノベルティ。",
+        tip:"Food clutches = strawberries, cupcakes, champagne! Playful crystal luxury. Pure fun.",
+        tipJp:"食べ物クラッチ = イチゴ、カップケーキ、シャンパン！遊び心クリスタルラグジュアリー。純粋な楽しさ。"
+      }
+    ]
   },
   markcross: {
     name:"Mark Cross", year:1845, country:"USA",
@@ -2656,7 +2759,41 @@ const BRAND_DATA = {
       {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Deep burgundy. Sophisticated luxury.", descJp:"深いバーガンディ。洗練されたラグジュアリー。"},
       {name:"Forest Green", hex:"#228B22", nameJp:"フォレストグリーン", desc:"Rich green. Vintage charm.", descJp:"豊かな緑。ヴィンテージ魅力。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Grace Box", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Structured box - Grace Kelly icon",
+        briefJp:"構造的ボックス - グレース・ケリーアイコン",
+        desc:"Named for Grace Kelly. Structured Saffiano box bag. Princess of Monaco carried it. American royalty-approved luxury.",
+        descJp:"グレース・ケリーに命名。構造的サフィアーノボックスバッグ。モナコ公妃が持った。アメリカ王室承認ラグジュアリー。",
+        shape:"Structured box bag. Saffiano leather. Top handle. Classic American sophistication.",
+        shapeJp:"構造的ボックスバッグ。サフィアーノレザー。トップハンドル。クラシックアメリカン洗練。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 3\"D"},
+          {name:"Medium", dim:"10\"W × 7\"H × 4\"D - MOST POPULAR"}
+        ],
+        rare:"Vintage 1950s-60s Grace Kelly era. Made in USA pieces. Royal provenance.",
+        rareJp:"ヴィンテージ1950-60年代グレース・ケリー時代。米国製作品。王室来歴。",
+        tip:"Grace Box = GRACE KELLY carried it. That's the story. Royalty approved.",
+        tipJp:"グレース ボックス = グレース・ケリーが持った。それが物語。王室承認。"
+      },
+      {
+        name:"Fitzgerald", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Structured bucket - classic American",
+        briefJp:"構造的バケット - クラシックアメリカン",
+        desc:"Structured bucket bag. Classic American lines. Limited production. Mark Cross heritage sophistication.",
+        descJp:"構造的バケットバッグ。クラシックアメリカンライン。限定生産。マーク・クロス遺産洗練。",
+        shape:"Bucket bag with structured silhouette. Saffiano leather. Drawstring top. Heritage design.",
+        shapeJp:"構造的シルエットのバケットバッグ。サフィアーノレザー。巾着トップ。遺産デザイン。",
+        sizes:[
+          {name:"One Size", dim:"10\"W × 11\"H × 8\"D - Bucket"}
+        ],
+        rare:"Limited production. Discontinued. Classic heritage piece.",
+        rareJp:"限定生産。廃盤。クラシック遺産作品。",
+        tip:"Fitzgerald = structured bucket. Classic Mark Cross. American heritage luxury.",
+        tipJp:"フィッツジェラルド = 構造的バケット。クラシック マーク・クロス。アメリカ遺産ラグジュアリー。"
+      }
+    ]
   },
   mulberry: {
     name:"Mulberry", year:1971, country:"UK",
