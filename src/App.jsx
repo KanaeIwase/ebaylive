@@ -415,6 +415,7 @@ const BRAND_DATA = {
     ],
     models:[
       { name:"Speedy", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",
+        imageUrl:"https://images.unsplash.com/photo-1591561954557-26941169b49e?w=400",
         desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
         descJp:"1930年以来の最も象徴的なLVバッグ。柔らかくたるむバレル型、ロール レザーハンドル付き。",
         shape:"Barrel/cylindrical with zip-top closure. Slouches when not stuffed.",
@@ -433,6 +434,7 @@ const BRAND_DATA = {
         tipJp:"30サイズはオードリー・ヘップバーンのオリジナルサイズ。あなたの手の中の歴史。"
       },
       { name:"Neverfull", brief:"Tote bag - spacious, open-top", briefJp:"トートバッグ - 広々、オープントップ",
+        imageUrl:"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400",
         desc:"Open-top tote with side laces for adjustable width. The ultimate everyday bag.",
         descJp:"調節可能な幅のサイドレース付きオープントップトート。究極のデイリーバッグ。",
         shape:"Rectangular tote, open-top, side laces cinch/expand width.",
