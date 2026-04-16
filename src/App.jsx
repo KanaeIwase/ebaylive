@@ -5139,13 +5139,17 @@ function FashionP({ lang, initialBrand }) {
 
 /* ═══ LIVE FRAMEWORK WRAPPER ═══ */
 function LiveFrameworkP({ lang }) {
-  return <LiveP lang={lang} />;
+  const [selectedStep, setSelectedStep] = useState(null);
+
+  if (selectedStep !== null) {
+    return <StepDetailPage lang={lang} stepIndex={selectedStep} onBack={() => setSelectedStep(null)} />;
+  }
+
+  return <LiveP lang={lang} onSelectStep={setSelectedStep} />;
 }
 
-/* ═══ 6-STEP FRAMEWORK ═══ */
-function LiveP({ lang }) {
-  const [openStep, setOpenStep] = useState(0);
-  const [openSec, setOpenSec] = useState(null);
+/* ═══ 6-STEP FRAMEWORK OVERVIEW ═══ */
+function LiveP({ lang, onSelectStep }) {
   const data = LIVE_KB.framework[lang];
 
   return (
@@ -5156,29 +5160,37 @@ function LiveP({ lang }) {
         </h1>
         <p style={{ fontSize:16, color:"#191919", lineHeight:1.6, fontWeight:400 }}>
           {lang==="en"
-            ?"Master eBay Live streaming with this proven 6-step framework. Each step builds on the last to maximize viewer engagement and drive sales."
-            :"この実証済み6ステップフレームワークでeBayライブ配信をマスター。各ステップが次のステップの土台となり視聴者エンゲージメントを最大化し売上を促進。"}
+            ?"Master eBay Live streaming with this proven 6-step framework. Click each step to explore detailed strategies and best practices."
+            :"この実証済み6ステップフレームワークでeBayライブ配信をマスター。各ステップをクリックして詳細な戦略とベストプラクティスを見る。"}
         </p>
       </div>
 
-      {data.map((step, si) => (
-        <div key={si} style={{ marginBottom:16 }}>
+      <div style={{ display:"grid", gap:16 }}>
+        {data.map((step, si) => (
           <div
-            onClick={()=>setOpenStep(openStep===si?null:si)}
+            key={si}
+            onClick={() => onSelectStep(si)}
             style={{
               display:"flex",
               alignItems:"flex-start",
               gap:16,
               background:"#FFFFFF",
-              border:`2px solid ${openStep===si?step.color:"#E5E7EB"}`,
+              border:`2px solid #E5E7EB`,
               borderRadius:12,
               padding:"20px 24px",
               cursor:"pointer",
               transition:"all 0.2s",
-              boxShadow: openStep===si ? `0 4px 12px ${step.color}33` : "none"
             }}
-            onMouseEnter={e => e.currentTarget.style.transform="translateY(-2px)"}
-            onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform="translateY(-2px)";
+              e.currentTarget.style.border=`2px solid ${step.color}`;
+              e.currentTarget.style.boxShadow=`0 4px 12px ${step.color}33`;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform="translateY(0)";
+              e.currentTarget.style.border="2px solid #E5E7EB";
+              e.currentTarget.style.boxShadow="none";
+            }}
           >
             <span style={{ fontSize:40, lineHeight:1 }}>{step.icon}</span>
             <div style={{ flex:1 }}>
@@ -5205,33 +5217,107 @@ function LiveP({ lang }) {
               </div>
 
               <div style={{ fontSize:13, color:step.color, fontWeight:700, marginTop:4 }}>
-                {openStep===si
-                  ? (lang==="en"?"▼ Hide Details":"▼ 詳細を隠す")
-                  : (lang==="en"?"▶ Explore Framework":"▶ フレームワークを見る")}
+                {lang==="en"?"▶ Explore This Step":"▶ ステップを見る"}
               </div>
             </div>
           </div>
-          {openStep===si && (
-            <div style={{ padding:"12px 0 0 20px", borderLeft:`3px solid ${step.color}`, marginLeft:20, marginTop:12, animation:"fu 0.3s ease" }}>
-              {step.sections.map((sec, sci) => (
-                <div key={sci} style={{ marginBottom:8 }}>
-                  <div onClick={()=>setOpenSec(openSec===`${si}-${sci}`?null:`${si}-${sci}`)} style={{ padding:"12px 16px", background:"#F7F7F7", borderRadius:8, cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-                    <span style={{ fontSize:15, fontWeight:700, color:"#191919" }}>{sec.t}</span>
-                    <span style={{ fontSize:13, color:"#191919", background:step.color, padding:"4px 10px", borderRadius:6, fontWeight:700 }}>{sec.items.length}</span>
-                  </div>
-                  {openSec===`${si}-${sci}` && (
-                    <div style={{ padding:"8px 16px" }}>
-                      {sec.items.map((item, ii) => (
-                        <div key={ii} style={{ fontSize:14, color:"#191919", lineHeight:1.8, paddingLeft:12, borderLeft:`3px solid ${step.color}44`, marginBottom:6, fontWeight:400 }}>{item}</div>
-                      ))}
-                    </div>
-                  )}
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ═══ INDIVIDUAL STEP DETAIL PAGE ═══ */
+function StepDetailPage({ lang, stepIndex, onBack }) {
+  const data = LIVE_KB.framework[lang];
+  const step = data[stepIndex];
+
+  return (
+    <div style={{ animation:"fu 0.4s ease" }}>
+      {/* Back button */}
+      <div
+        onClick={onBack}
+        style={{
+          display:"inline-flex",
+          alignItems:"center",
+          gap:8,
+          marginBottom:24,
+          cursor:"pointer",
+          color:"#6B7280",
+          fontSize:14,
+          fontWeight:600,
+          transition:"color 0.2s"
+        }}
+        onMouseEnter={e => e.currentTarget.style.color = step.color}
+        onMouseLeave={e => e.currentTarget.style.color = "#6B7280"}
+      >
+        <span>←</span>
+        <span>{lang==="en"?"Back to Framework":"フレームワークに戻る"}</span>
+      </div>
+
+      {/* Step header */}
+      <div style={{
+        background:`linear-gradient(135deg, ${step.color}15, ${step.color}05)`,
+        border:`2px solid ${step.color}`,
+        borderRadius:16,
+        padding:"32px",
+        marginBottom:32
+      }}>
+        <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:16 }}>
+          <span style={{ fontSize:56, lineHeight:1 }}>{step.icon}</span>
+          <div style={{ flex:1 }}>
+            <div style={{ fontSize:28, fontWeight:700, color:"#191919", marginBottom:8 }}>{step.step}</div>
+            <div style={{ fontSize:18, color:"#6B7280", lineHeight:1.5 }}>{step.sub}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Sections */}
+      <div style={{ display:"grid", gap:24 }}>
+        {step.sections.map((sec, sci) => (
+          <div
+            key={sci}
+            style={{
+              background:"#FFFFFF",
+              border:"2px solid #E5E7EB",
+              borderRadius:12,
+              padding:"24px",
+              transition:"border-color 0.2s"
+            }}
+          >
+            <div style={{
+              fontSize:20,
+              fontWeight:700,
+              color:step.color,
+              marginBottom:16,
+              paddingBottom:12,
+              borderBottom:`2px solid ${step.color}22`
+            }}>
+              {sec.t}
+            </div>
+            <div style={{ display:"grid", gap:12 }}>
+              {sec.items.map((item, ii) => (
+                <div
+                  key={ii}
+                  style={{
+                    fontSize:15,
+                    color:"#191919",
+                    lineHeight:1.8,
+                    paddingLeft:16,
+                    borderLeft:`3px solid ${step.color}`,
+                    background:`${step.color}08`,
+                    padding:"12px 16px",
+                    borderRadius:6,
+                    fontWeight:400
+                  }}
+                >
+                  {item}
                 </div>
               ))}
             </div>
-          )}
-        </div>
-      ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
