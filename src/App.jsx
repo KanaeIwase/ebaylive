@@ -392,6 +392,8 @@ const BRAND_DATA = {
   lv: {
     name:"Louis Vuitton", year:1854, country:"France",
     categories:["handbags", "jewelry"],
+    desc:"Founded by Louis Vuitton in Paris, this legendary French house revolutionized travel with its iconic monogram canvas and innovative flat-top trunks. Known for exceptional craftsmanship, timeless design, and status symbol appeal. Louis Vuitton bags hold their value incredibly well and are recognized worldwide.",
+    descJp:"ルイ・ヴィトンがパリで創業したこの伝説的なフランスメゾンは、象徴的なモノグラムキャンバスと革新的なフラットトップトランクで旅行に革命をもたらしました。卓越した職人技、時代を超えたデザイン、ステータスシンボルとしての魅力で知られています。ルイ・ヴィトンのバッグは非常に価値を保持し、世界中で認知されています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Louis_Vuitton_logo_and_wordmark.svg/512px-Louis_Vuitton_logo_and_wordmark.svg.png",
     auth:"Date codes (pre-2021) → heat stamps with microchip (2021+). Canvas should NEVER peel. Stitching always even.",
     authJp:"デートコード（2021年以前）→ ヒートスタンプ+マイクロチップ（2021年以降）。キャンバスは剥離しない。ステッチは均一。",
@@ -466,6 +468,8 @@ const BRAND_DATA = {
   chanel: {
     name:"Chanel", year:1910, country:"France",
     categories:["handbags", "jewelry"],
+    desc:"Founded by Coco Chanel, this iconic French luxury house epitomizes timeless elegance and Parisian chic. Famous for the Classic Flap bag with its signature quilted leather and interlocking CC logo. Chanel bags are considered investment pieces that appreciate in value, with prices increasing 2-3 times per year. A symbol of sophistication worldwide.",
+    descJp:"ココ・シャネルが創業したこの象徴的なフランスの高級メゾンは、時代を超えたエレガンスとパリジャンシックを体現しています。シグネチャーのキルティングレザーとインターロッキングCCロゴを持つクラシックフラップバッグで有名。シャネルのバッグは年に2〜3回価格が上昇し、価値が上がる投資品と見なされています。世界中で洗練の象徴です。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chanel_logo_interlocking_cs.svg/512px-Chanel_logo_interlocking_cs.svg.png",
     auth:"Serial sticker + card (pre-2021). Microchip (post-2021). Quilting must align at seams.",
     authJp:"シリアルステッカー+カード（2021年以前）。マイクロチップ（2021年以降）。キルティングは縫い目で合う必須。",
@@ -519,6 +523,8 @@ const BRAND_DATA = {
   hermes: {
     name:"Hermès", year:1837, country:"France",
     categories:["handbags", "jewelry"],
+    desc:"The pinnacle of luxury craftsmanship, originally a harness and saddle maker for European nobility. Each Hermès bag is handmade by a single artisan using traditional techniques. The Birkin and Kelly bags are among the most coveted and investment-worthy handbags in the world. Hermès maintains exclusivity through limited production and waitlists, making pre-owned pieces highly valuable.",
+    descJp:"もともとヨーロッパ貴族のための馬具とサドルメーカーだった、高級職人技の頂点。各エルメスバッグは伝統的な技術を使用して一人の職人が手作りしています。バーキンとケリーバッグは世界で最も垂涎され投資価値のあるハンドバッグの一つです。エルメスは限定生産とウェイトリストを通じて独占性を維持し、中古品を非常に価値あるものにしています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Herm%C3%A8s_Logo.svg/512px-Herm%C3%A8s_Logo.svg.png",
     auth:"Craftsman stamp with ID, year letter, blind stamp. Hand-stitched saddle stitch (angled, not straight).",
     authJp:"職人スタンプ+ID、年号レター、ブラインドスタンプ。手縫いサドルステッチ（斜め、直線ではない）。",
@@ -557,6 +563,8 @@ const BRAND_DATA = {
   gucci: {
     name:"Gucci", year:1921, country:"Italy",
     categories:["handbags"],
+    desc:"Italian luxury house known for bold designs, iconic double-G logo, and GG canvas pattern. Gucci reinvents itself with each creative director era—from Tom Ford's sexy 90s glamour to Alessandro Michele's maximalist eclectic style. The brand balances heritage with contemporary fashion, making Gucci bags instantly recognizable and highly desirable.",
+    descJp:"大胆なデザイン、象徴的なダブルGロゴ、GGキャンバスパターンで知られるイタリアの高級メゾン。グッチは各クリエイティブディレクター時代で自らを再発明します—トム・フォードのセクシーな90年代グラマーからアレッサンドロ・ミケーレのマキシマリスト折衷スタイルまで。ブランドは伝統と現代ファッションのバランスを取り、グッチのバッグを即座に認識可能で非常に望ましいものにしています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Gucci_Logo.svg/512px-Gucci_Logo.svg.png",
     auth:"Serial number tag inside (2 rows, 10-13 digits). Controllato card. Clean hardware.",
     authJp:"内側シリアル番号タグ（2行、10-13桁）。コントロラートカード。きれいな金具。",
@@ -592,6 +600,8 @@ const BRAND_DATA = {
   prada: {
     name:"Prada", year:1913, country:"Italy",
     categories:["handbags"],
+    desc:"Italian luxury brand that revolutionized fashion by making nylon a luxury material. Famous for minimalist aesthetics, the iconic triangle logo, and innovative Saffiano leather with crosshatch texture. Prada represents intellectual elegance and understated luxury. Vintage Prada nylon bags from the 1980s-90s are now highly collectible.",
+    descJp:"ナイロンを高級素材にすることでファッションに革命をもたらしたイタリアの高級ブランド。ミニマリスト美学、象徴的な三角ロゴ、クロスハッチ質感の革新的なサフィアーノレザーで有名。プラダは知的なエレガンスと控えめな高級感を表しています。1980〜90年代のヴィンテージプラダナイロンバッグは現在非常にコレクタブルです。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Prada_logo.svg/512px-Prada_logo.svg.png",
     auth:"Authenticity card with serial number. Saffiano leather texture. Triangle logo plaque (metal, not plastic).",
     authJp:"シリアル番号付き真贋カード。サフィアーノレザーの質感。三角ロゴプレート（プラスチックではなく金属）。",
@@ -626,6 +636,8 @@ const BRAND_DATA = {
   dior: {
     name:"Dior", year:1946, country:"France",
     categories:["handbags", "jewelry"],
+    desc:"Founded by Christian Dior, embodying French haute couture elegance and femininity. The Lady Dior bag, named after Princess Diana, became one of the most iconic handbags in history. Known for the signature Cannage quilting pattern and architectural silhouettes. Dior represents timeless sophistication and royal-approved luxury.",
+    descJp:"クリスチャン・ディオールによって創業され、フランスのオートクチュールのエレガンスと女性らしさを体現しています。ダイアナ妃にちなんで名付けられたレディディオールバッグは、歴史上最も象徴的なハンドバッグの一つになりました。シグネチャーのカナージュキルティングパターンと建築的シルエットで知られています。ディオールは時代を超えた洗練と王室公認の高級感を表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Dior_Logo.svg/512px-Dior_Logo.svg.png",
     auth:"'CHRISTIAN DIOR PARIS' stamp inside. Serial number tag. Cannage quilting must be perfectly symmetrical.",
     authJp:"内側に「CHRISTIAN DIOR PARIS」刻印。シリアル番号タグ。カナージュキルティングは完全に対称である必要。",
@@ -661,6 +673,8 @@ const BRAND_DATA = {
   cartier: {
     name:"Cartier", year:1847, country:"France",
     categories:["jewelry"],
+    desc:"The 'King of Jewelers and Jeweler to Kings,' Cartier has adorned royalty and celebrities for over 175 years. Famous for the Love bracelet with its iconic screw motif and the bold Juste un Clou nail design. Cartier pieces are investment jewelry that hold and increase in value. Known for impeccable craftsmanship and timeless design.",
+    descJp:"「宝石商の王、王の宝石商」であるカルティエは、175年以上にわたって王室とセレブを飾ってきました。象徴的なネジモチーフのラブブレスレットと大胆なジュスト アン クルー釘デザインで有名。カルティエの作品は価値を保持し上昇する投資ジュエリーです。完璧な職人技と時代を超えたデザインで知られています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cartier_logo.svg/512px-Cartier_logo.svg.png",
     auth:"Serial number engraved. Hallmark stamps (750 for 18k gold, 950 for platinum). Screw system on Love bracelet must be smooth.",
     authJp:"シリアル番号刻印。ホールマークスタンプ（18金は750、プラチナは950）。ラブブレスレットのネジシステムは滑らかである必要。",
@@ -730,6 +744,8 @@ const BRAND_DATA = {
   bulgari: {
     name:"Bulgari", year:1884, country:"Italy",
     categories:["jewelry"],
+    desc:"Italian luxury jeweler known for bold, colorful designs inspired by ancient Rome. Famous for the Serpenti snake motif and distinctive BVLGARI logo (using Roman V instead of U). Elizabeth Taylor's favorite jeweler—her Bulgari collection was legendary. Combines classical Italian craftsmanship with contemporary glamour. Highly collectible vintage pieces.",
+    descJp:"古代ローマに着想を得た大胆でカラフルなデザインで知られるイタリアの高級宝石商。セルペンティの蛇モチーフと特徴的なBVLGARIロゴ（ローマ式VをUの代わりに使用）で有名。エリザベス・テイラーのお気に入りの宝石商—彼女のブルガリコレクションは伝説的でした。クラシックなイタリア職人技と現代的グラマーを組み合わせています。ヴィンテージ作品は高コレクタブル。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Bulgari_logo.svg/512px-Bulgari_logo.svg.png",
     auth:"BVLGARI stamp (uses V instead of U, Roman style). Serial number. Logo must be crisp, not blurry.",
     authJp:"BVLGARI刻印（ローマ式でUではなくVを使用）。シリアル番号。ロゴは鮮明で、ぼやけていない必要。",
@@ -778,6 +794,8 @@ const BRAND_DATA = {
   tiffany: {
     name:"Tiffany & Co.", year:1837, country:"USA",
     categories:["jewelry"],
+    desc:"America's most iconic luxury jeweler, famous worldwide for the signature Tiffany Blue Box. Founded in New York, Tiffany set the standard for American luxury and romance. Known for exceptional diamond quality, sterling silver designs, and collaborations with legendary designers like Elsa Peretti and Paloma Picasso. The ultimate symbol of love and celebration.",
+    descJp:"シグネチャーのティファニーブルーボックスで世界的に有名なアメリカで最も象徴的な高級宝石商。ニューヨークで創業され、ティファニーはアメリカの高級感とロマンスの基準を設定しました。卓越したダイヤモンド品質、スターリングシルバーデザイン、エルサ・ペレッティやパロマ・ピカソなどの伝説的デザイナーとのコラボレーションで知られています。愛と祝福の究極のシンボル。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Tiffany_%26_Co._logo.svg/512px-Tiffany_%26_Co._logo.svg.png",
     auth:"'Tiffany & Co.' stamp. Sterling silver marked '925'. Comes in iconic blue box with white ribbon.",
     authJp:"「Tiffany & Co.」刻印。スターリングシルバーには「925」マーク。象徴的なブルーボックスとホワイトリボン付き。",
@@ -827,6 +845,8 @@ const BRAND_DATA = {
   vca: {
     name:"Van Cleef & Arpels", year:1906, country:"France",
     categories:["jewelry"],
+    desc:"French high jewelry house renowned for poetic designs and exceptional craftsmanship. Famous for the Alhambra four-leaf clover collection symbolizing luck, love, health, and fortune. Favored by royalty including Grace Kelly and modern celebrities. Known for the innovative Mystery Set technique and delicate beaded Perlée designs. Each piece is a wearable work of art.",
+    descJp:"詩的なデザインと卓越した職人技で有名なフランスの高級ジュエリーメゾン。幸運、愛、健康、富を象徴するアルハンブラの四つ葉のクローバーコレクションで有名。グレース・ケリーや現代のセレブを含む王室に愛されています。革新的なミステリーセット技術と繊細なビーズのペルレデザインで知られています。各ピースは着用可能なアート作品です。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Van_Cleef_%26_Arpels_logo.svg/512px-Van_Cleef_%26_Arpels_logo.svg.png",
     auth:"VCA hallmark stamp. Serial number. Mother-of-pearl pieces have natural variation. Alhambra clover must have 4 leaves.",
     authJp:"VCAホールマークスタンプ。シリアル番号。マザーオブパールピースは自然なバリエーション。アルハンブラクローバーは4葉である必要。",
@@ -879,6 +899,8 @@ const BRAND_DATA = {
   bottegaveneta: {
     name:"Bottega Veneta", year:1966, country:"Italy",
     categories:["handbags"],
+    desc:"Italian luxury house famous for 'quiet luxury' and the signature Intrecciato woven leather technique. No visible logos—the craftsmanship speaks for itself. Under creative director Tomas Maier (2001-2018), Bottega became synonymous with understated elegance. Known for The Pouch, The Cassette, and impeccable leather quality. For those who know, they know.",
+    descJp:"「静かなラグジュアリー」とシグネチャーのイントレチャート編みレザー技術で有名なイタリアの高級メゾン。目に見えるロゴなし—職人技が語ります。クリエイティブディレクターのトーマス・マイヤー（2001-2018）の下で、ボッテガは控えめなエレガンスの代名詞になりました。ザ・ポーチ、ザ・カセット、完璧なレザー品質で知られています。知っている人は知っています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bottega_Veneta_logo.svg/512px-Bottega_Veneta_logo.svg.png",
     auth:"No logo on exterior. Intrecciato weave must be perfect and even. Interior stamp: 'BOTTEGA VENETA' + 'MADE IN ITALY' + serial number.",
     authJp:"外側にロゴなし。イントレチャート編みは完璧で均一である必要。内側刻印：「BOTTEGA VENETA」+「MADE IN ITALY」+シリアル番号。",
@@ -944,6 +966,8 @@ const BRAND_DATA = {
   fendi: {
     name:"Fendi", year:1925, country:"Italy",
     categories:["handbags"],
+    desc:"Italian luxury fashion house famous for the Baguette bag—the original 'It bag' of the 1990s made iconic by Sex and the City. Known for the double-F Zucca logo, playful designs, and fur expertise. Fendi balances Roman heritage with contemporary whimsy and bold colors. The Baguette and Peekaboo are instant status symbols.",
+    descJp:"1990年代のオリジナル「Itバッグ」であるバゲットバッグで有名なイタリアの高級ファッションハウス—セックス・アンド・ザ・シティで象徴的になりました。ダブルFズッカロゴ、遊び心のあるデザイン、ファーの専門知識で知られています。フェンディはローマの伝統と現代的な気まぐれと大胆な色のバランスを取ります。バゲットとピーカブーは即座のステータスシンボルです。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fendi_Logo.svg/512px-Fendi_Logo.svg.png",
     auth:"Double F logo (Zucca pattern). Serial number + 'FENDI' stamp inside. Hardware engraved with FENDI.",
     authJp:"ダブルFロゴ（ズッカパターン）。内側にシリアル番号+「FENDI」刻印。金具にFENDI刻印。",
@@ -1008,6 +1032,8 @@ const BRAND_DATA = {
   celine: {
     name:"Celine", year:1945, country:"France",
     categories:["handbags"],
+    desc:"French luxury house known for refined minimalism and architectural silhouettes. The Phoebe Philo era (2008-2017) is considered the golden age—bags from this period are collector's grails. Famous for the Belt Bag with distinctive wings and the iconic Luggage Tote. Celine represents quiet luxury and intellectual elegance without loud logos.",
+    descJp:"洗練されたミニマリズムと建築的シルエットで知られるフランスの高級メゾン。フィービー・ファイロ時代（2008-2017）は黄金時代と見なされています—この期間のバッグはコレクターの聖杯です。特徴的なウィング付きベルトバッグと象徴的なラゲージトートで有名。セリーヌは大きなロゴのない静かなラグジュアリーと知的エレガンスを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Celine_logo.svg/512px-Celine_logo.svg.png",
     auth:"'CÉLINE PARIS' stamp (note the accent). Made in Italy stamp. Serial number embossed on leather tab.",
     authJp:"「CÉLINE PARIS」刻印（アクセント注意）。Made in Italyスタンプ。レザータブにシリアル番号エンボス。",
@@ -1072,6 +1098,8 @@ const BRAND_DATA = {
   loewe: {
     name:"Loewe", year:1846, country:"Spain",
     categories:["handbags"],
+    desc:"Spain's oldest luxury house, renowned for exceptional leather craftsmanship since 1846. Under creative director Jonathan Anderson (2013+), Loewe became known for architectural, innovative bag designs. The Puzzle bag—made from 40+ leather pieces that fold flat—is a modern masterpiece. Represents artisanal quality and clever design.",
+    descJp:"1846年以来の卓越したレザー職人技で有名なスペイン最古の高級メゾン。クリエイティブディレクターのジョナサン・アンダーソン（2013+）の下で、ロエベは建築的で革新的なバッグデザインで知られるようになりました。平らに折りたためる40以上のレザーピースで作られたパズルバッグはモダン傑作です。職人品質と賢いデザインを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Loewe_logo.svg/512px-Loewe_logo.svg.png",
     auth:"'LOEWE' stamp on leather. 'Made in Spain' (some Italy). Anagram logo embossed. Serial number format changed over time.",
     authJp:"レザーに「LOEWE」刻印。「Made in Spain」（一部イタリア）。アナグラムロゴエンボス。シリアル番号形式は時代で変化。",
@@ -1136,6 +1164,8 @@ const BRAND_DATA = {
   balenciaga: {
     name:"Balenciaga", year:1919, country:"France",
     categories:["handbags"],
+    desc:"Spanish-born French luxury house famous for the City/Motorcycle bag—THE It bag of the 2000s carried by Kate Moss and every celebrity. Known for distressed leather, studs, and rock-and-roll edge. The Nicolas Ghesquière era (1997-2012) is highly collectible. Balenciaga represents effortlessly cool, rebellious luxury.",
+    descJp:"ケイト・モスとすべてのセレブが持った2000年代のTHE Itバッグであるシティ/モーターサイクルバッグで有名なスペイン生まれのフランス高級メゾン。ディストレスレザー、スタッズ、ロックンロールエッジで知られています。ニコラ・ジェスキエール時代（1997-2012）は高コレクタブルです。バレンシアガは楽にクールで反抗的なラグジュアリーを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Balenciaga_logo.svg/512px-Balenciaga_logo.svg.png",
     auth:"'BALENCIAGA PARIS' embossed. Serial number on white leather tag. Bale logo on hardware. Italy made.",
     authJp:"「BALENCIAGA PARIS」エンボス。白レザータグにシリアル番号。金具にBaleロゴ。イタリア製。",
@@ -1199,6 +1229,8 @@ const BRAND_DATA = {
   saintlaurent: {
     name:"Saint Laurent", year:1961, country:"France",
     categories:["handbags"],
+    desc:"French fashion house founded by legendary designer Yves Saint Laurent. Known for androgynous, rock-and-roll elegance. Famous for the Sac de Jour structured tote and Kate chain bag (named after Kate Moss). The brand changed from 'Yves Saint Laurent' to 'Saint Laurent' in 2012—collectors value the vintage 'YSL' era pieces. Represents Parisian cool.",
+    descJp:"伝説的デザイナー イヴ・サンローランによって創業されたフランスのファッションハウス。アンドロジナスでロックンロールなエレガンスで知られています。構造的トートのサック・ド・ジュールとケイトチェーンバッグ（ケイト・モスにちなんで命名）で有名。ブランドは2012年に「イヴ・サンローラン」から「サンローラン」に変更—コレクターはヴィンテージ「YSL」時代作品を評価します。パリジャンクールを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Saint_Laurent_logo.svg/512px-Saint_Laurent_logo.svg.png",
     auth:"YSL logo (interlocking Y and SL). 'SAINT LAURENT' or 'YVES SAINT LAURENT' inside. Serial number. Made in Italy.",
     authJp:"YSLロゴ（YとSLの組み合わせ）。内側に「SAINT LAURENT」または「YVES SAINT LAURENT」。シリアル番号。イタリア製。",
@@ -1263,6 +1295,8 @@ const BRAND_DATA = {
   givenchy: {
     name:"Givenchy", year:1952, country:"France",
     categories:["handbags"],
+    desc:"French luxury house founded by Hubert de Givenchy, famous for dressing Audrey Hepburn. Known for the Antigona structured tote with sharp geometric lines and sophisticated Parisian elegance. The Riccardo Tisci era (2005-2017) is highly collectible for its gothic, edgy aesthetic. Represents refined French luxury with architectural precision.",
+    descJp:"オードリー・ヘプバーンを着飾ったことで有名なユベール・ド・ジバンシィによって創業されたフランスの高級メゾン。シャープな幾何学ラインと洗練されたパリジャンエレガンスを持つアンティゴナ構造トートで知られています。リカルド・ティッシ時代（2005-2017）はゴシックでエッジーな美学で高コレクタブルです。建築的精度を持つ洗練されたフランスラグジュアリーを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Givenchy_logo.svg/512px-Givenchy_logo.svg.png",
     auth:"'GIVENCHY PARIS' stamp. Serial number. 4G logo on hardware. Made in Italy.",
     authJp:"「GIVENCHY PARIS」刻印。シリアル番号。金具に4Gロゴ。イタリア製。",
@@ -1328,6 +1362,8 @@ const BRAND_DATA = {
   valentino: {
     name:"Valentino", year:1960, country:"Italy",
     categories:["handbags"],
+    desc:"Italian fashion house founded by Valentino Garavani, synonymous with romantic elegance and signature Valentino Red. Famous for the Rockstud collection—edgy pyramid studs on luxurious leather. Balances feminine romance with rock-and-roll edge. The Rockstuds are one of the most recognizable luxury accessories of the 2010s.",
+    descJp:"ヴァレンティノ・ガラヴァーニによって創業され、ロマンチックなエレガンスとシグネチャーのヴァレンティノレッドの代名詞であるイタリアファッションハウス。豪華なレザーにエッジーなピラミッドスタッズを持つロックスタッズコレクションで有名。女性的ロマンスとロックンロールエッジのバランスを取ります。ロックスタッズは2010年代で最も認識可能な高級アクセサリーの一つです。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Valentino_logo.svg/512px-Valentino_logo.svg.png",
     auth:"'VALENTINO' or 'VALENTINO GARAVANI' stamp. Serial number. V logo or Rockstud hardware. Made in Italy.",
     authJp:"「VALENTINO」または「VALENTINO GARAVANI」刻印。シリアル番号。Vロゴまたはロックスタッズ金具。イタリア製。",
@@ -1390,6 +1426,8 @@ const BRAND_DATA = {
   burberry: {
     name:"Burberry", year:1856, country:"UK",
     categories:["handbags"],
+    desc:"Iconic British luxury brand famous for the signature beige, black, and red check pattern and classic trench coats. Founded in 1856, Burberry represents timeless British heritage and craftsmanship. The check pattern is one of the most recognizable luxury patterns worldwide. Modern collections balance heritage with contemporary design.",
+    descJp:"シグネチャーのベージュ、ブラック、レッドのチェックパターンとクラシックトレンチコートで有名な象徴的なイギリスの高級ブランド。1856年創業のバーバリーは時代を超えたイギリスの伝統と職人技を表しています。チェックパターンは世界中で最も認識可能な高級パターンの一つです。モダンコレクションは伝統と現代デザインのバランスを取ります。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Burberry_logo.svg/512px-Burberry_logo.svg.png",
     auth:"Burberry check pattern (tan, black, white, red). 'BURBERRY' stamp. Serial number. Made in Italy or UK.",
     authJp:"バーバリーチェックパターン（タン、ブラック、ホワイト、レッド）。「BURBERRY」刻印。シリアル番号。イタリアまたは英国製。",
@@ -2439,6 +2477,42 @@ const VOCAB_CATS = [
     {e:"Patent leather",j:"エナメルレザー",def:"Glossy, high-shine coated leather",defJp:"光沢のある高輝度コーティングレザー",category:"ecommerce",emoji:"✨"},
     {e:"Suede",j:"スエード",def:"Soft, napped leather finish - delicate, stains easily",defJp:"柔らかい起毛レザー仕上げ - 繊細、汚れやすい",category:"ecommerce",emoji:"🧥"},
     {e:"Exotic skins",j:"エキゾチックスキン",def:"Alligator, crocodile, python, ostrich - rare, expensive",defJp:"アリゲーター、クロコダイル、パイソン、オーストリッチ - 希少、高価",category:"ecommerce",emoji:"🐊"}
+  ]},
+  { cat:"Handbag Shapes & Silhouettes", catJp:"ハンドバッグの形とシルエット", icon:"👜", items:[
+    {e:"Tote",j:"トート",def:"Open-top bag with two handles - spacious, versatile for everyday use",defJp:"2つのハンドルを持つオープントップバッグ - 広々として日常使いに万能",category:"ecommerce",emoji:"👜"},
+    {e:"Satchel",j:"サッチェル",def:"Structured bag with top handle and often a shoulder strap - classic professional style",defJp:"トップハンドルとショルダーストラップ付きの構造的バッグ - クラシックなプロフェッショナルスタイル",category:"ecommerce",emoji:"💼"},
+    {e:"Crossbody",j:"クロスボディ",def:"Long strap worn across body - hands-free, casual convenience",defJp:"体を横切って着用する長いストラップ - ハンズフリーでカジュアルな利便性",category:"ecommerce",emoji:"👜"},
+    {e:"Shoulder Bag",j:"ショルダーバッグ",def:"Single or double strap worn on shoulder - versatile everyday style",defJp:"肩に掛ける1本または2本のストラップ - 万能な日常スタイル",category:"ecommerce",emoji:"👜"},
+    {e:"Clutch",j:"クラッチ",def:"No straps, held in hand - elegant for evening/formal events",defJp:"ストラップなし、手で持つ - イブニング/フォーマルイベントにエレガント",category:"ecommerce",emoji:"👛"},
+    {e:"Hobo",j:"ホーボー",def:"Crescent-shaped, slouchy bag with shoulder strap - relaxed, bohemian vibe",defJp:"三日月型のたるんだバッグとショルダーストラップ - リラックスしたボヘミアンな雰囲気",category:"ecommerce",emoji:"🌙"},
+    {e:"Bucket",j:"バケツ",def:"Cylindrical shape with drawstring closure - casual, spacious interior",defJp:"巾着式クロージャー付きの円筒形 - カジュアルで広々とした内部",category:"ecommerce",emoji:"🪣"},
+    {e:"Saddle",j:"サドル",def:"Curved silhouette inspired by equestrian saddles - iconic Dior shape",defJp:"乗馬サドルに着想を得た曲線的シルエット - ディオールの象徴的な形",category:"ecommerce",emoji:"🏇"},
+    {e:"Baguette",j:"バゲット",def:"Small, compact bag tucked under arm like French bread - Fendi signature",defJp:"フランスパンのように脇に挟む小さくコンパクトなバッグ - フェンディのシグネチャー",category:"ecommerce",emoji:"🥖"},
+    {e:"Box Bag",j:"ボックスバッグ",def:"Rigid, structured rectangular shape - vintage-inspired, polished look",defJp:"硬く構造化された長方形 - ヴィンテージ風で洗練された外観",category:"ecommerce",emoji:"📦"},
+    {e:"Bowling Bag",j:"ボウリングバッグ",def:"Rounded, dome-shaped with top handles - retro sporty aesthetic",defJp:"丸みを帯びたドーム型でトップハンドル付き - レトロなスポーティ美学",category:"ecommerce",emoji:"🎳"},
+    {e:"Doctor's Bag / Frame Bag",j:"ドクターズバッグ",def:"Structured bag with metal frame opening - vintage medical bag inspiration",defJp:"金属フレーム開口部付きの構造的バッグ - ヴィンテージ医療バッグからの着想",category:"ecommerce",emoji:"💼"},
+    {e:"Envelope Bag",j:"エンベロープバッグ",def:"Flat, triangular flap resembles envelope - sleek, minimalist",defJp:"封筒に似た平らな三角形のフラップ - スリークでミニマリスト",category:"ecommerce",emoji:"✉️"},
+    {e:"Messenger Bag",j:"メッセンジャーバッグ",def:"Rectangular with long crossbody strap and flap closure - casual, utilitarian",defJp:"長いクロスボディストラップとフラップクロージャー付きの長方形 - カジュアルで実用的",category:"ecommerce",emoji:"📬"},
+    {e:"Top Handle",j:"トップハンドル",def:"Short handles on top for hand or crook-of-arm carry - ladylike elegance",defJp:"手または腕の曲がりで持つための短いハンドル - 女性らしいエレガンス",category:"ecommerce",emoji:"👜"},
+    {e:"Wristlet",j:"リストレット",def:"Small pouch with wrist strap - minimalist for essentials only",defJp:"手首ストラップ付きの小さなポーチ - 必需品のみのミニマリスト",category:"ecommerce",emoji:"💳"},
+    {e:"Minaudière",j:"ミノディエール",def:"Hard-case evening bag, often jewel-encrusted - ultra-formal, collectible",defJp:"ハードケースのイブニングバッグ、宝石で飾られることが多い - 超フォーマル、コレクティブル",category:"ecommerce",emoji:"💎"},
+    {e:"Backpack",j:"バックパック",def:"Two shoulder straps worn on back - hands-free practicality meets luxury",defJp:"背中に着用する2つのショルダーストラップ - ハンズフリーの実用性と高級感",category:"ecommerce",emoji:"🎒"},
+    {e:"Belt Bag / Fanny Pack",j:"ベルトバッグ",def:"Worn around waist or crossbody - trendy, compact, hands-free",defJp:"腰またはクロスボディに着用 - トレンディでコンパクト、ハンズフリー",category:"ecommerce",emoji:"👖"},
+    {e:"Duffle / Weekender",j:"ダッフル/ウィークエンダー",def:"Large cylindrical or barrel-shaped travel bag - spacious for overnight trips",defJp:"大きな円筒形または樽型の旅行バッグ - 一泊旅行に広々",category:"ecommerce",emoji:"🧳"},
+    {e:"Flap Bag",j:"フラップバッグ",def:"Front flap covering main compartment with turnlock or clasp - Chanel Classic Flap",defJp:"ターンロックまたはクラスプ付きのメインコンパートメントを覆う前面フラップ - シャネル クラシックフラップ",category:"ecommerce",emoji:"📋"},
+    {e:"Trapeze",j:"トラペーズ",def:"Trapezoidal silhouette, wider at top than bottom - architectural, modern",defJp:"台形シルエット、上部が下部より広い - 建築的でモダン",category:"ecommerce",emoji:"🔺"},
+    {e:"Structured",j:"構造的",def:"Rigid, holds shape on its own - polished, professional appearance",defJp:"硬く、自立する形状 - 洗練されたプロフェッショナルな外観",category:"ecommerce",emoji:"📐"},
+    {e:"Barrel Bag",j:"バレルバッグ",def:"Cylindrical tube shape with top zip - sporty, roomy interior",defJp:"トップジップ付きの円筒形チューブ - スポーティで広々とした内部",category:"ecommerce",emoji:"🛢️"},
+    {e:"Pochette",j:"ポシェット",def:"Small flat pouch, can be clutch or have strap - French for 'little pocket'",defJp:"小さなフラットポーチ、クラッチまたはストラップ付き - フランス語で「小さなポケット」",category:"ecommerce",emoji:"👝"}
+  ]},
+  { cat:"Reference Images & Authentication Research", catJp:"参考画像と真贋リサーチ", icon:"📸", items:[
+    {e:"Brand website reference",j:"ブランド公式サイト参照",def:"Use official brand website to verify model names, hardware, and design details",defJp:"モデル名、金具、デザイン詳細を確認するためにブランド公式サイトを使用",category:"ecommerce",emoji:"🌐"},
+    {e:"Comparison shopping",j:"比較ショッピング",def:"Check Fashionphile, Rebag, Vestiaire Collective to see authenticated examples and pricing",defJp:"Fashionphile、Rebag、Vestiaire Collectiveで認証済み例と価格を確認",category:"ecommerce",emoji:"🛍️"},
+    {e:"Date code verification",j:"デートコード確認",def:"Cross-reference date codes with online databases to confirm production period",defJp:"オンラインデータベースでデートコードを相互参照し製造時期を確認",category:"ecommerce",emoji:"📅"},
+    {e:"Authentication guides",j:"真贋ガイド",def:"Study guides from Entrupy, Authenticate First, and luxury forums for red flags",defJp:"Entrupy、Authenticate First、高級フォーラムのガイドで危険信号を学習",category:"ecommerce",emoji:"🔍"},
+    {e:"YouTube authentication videos",j:"YouTube真贋動画",def:"Watch expert authenticators show real vs fake comparisons for specific models",defJp:"専門家が特定モデルの本物と偽物を比較するのを見る",category:"live",emoji:"📹"},
+    {e:"Archive lookbooks",j:"アーカイブルックブック",def:"Research past runway shows and seasonal collections for rare/vintage pieces",defJp:"希少/ヴィンテージ品のための過去のランウェイショーとシーズンコレクションをリサーチ",category:"ecommerce",emoji:"📚"},
+    {e:"Seller photos + brand stock",j:"セラー写真+ブランドストック",def:"Compare your item's condition against pristine brand stock images during stream",defJp:"ストリーム中に完璧なブランドストック画像と比較してアイテムの状態を確認",category:"live",emoji:"📸"}
   ]},
   { cat:"Bag Anatomy & Parts", items:[
     {e:"Flap",j:"フラップ",def:"Fold-over cover on front of bag",defJp:"バッグ前面の折り返しカバー",category:"ecommerce",emoji:"📋"},
@@ -4623,54 +4697,6 @@ function FashionP({ lang, initialBrand }) {
           </div>
         </div>
 
-        {/* Bag Shapes Reference */}
-        {brand.categories.includes("handbags") && (
-          <div style={{ marginTop: 32 }}>
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: "#191919", marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
-              👜 {lang === "en" ? "Bag Shapes Reference" : "バッグ形状リファレンス"}
-            </h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
-              {[
-                { shape: lang === "en" ? "Tote" : "トート", desc: lang === "en" ? "Open-top bag with parallel handles" : "平行ハンドル付きオープントップバッグ", emoji: "🛍️" },
-                { shape: lang === "en" ? "Satchel" : "サッチェル", desc: lang === "en" ? "Structured bag with flap closure" : "フラップクロージャー付き構造的バッグ", emoji: "💼" },
-                { shape: lang === "en" ? "Crossbody" : "クロスボディ", desc: lang === "en" ? "Long strap worn across body" : "ボディを横切って着用する長いストラップ", emoji: "👝" },
-                { shape: lang === "en" ? "Shoulder" : "ショルダー", desc: lang === "en" ? "Single or double strap on shoulder" : "肩に単または二重ストラップ", emoji: "👜" },
-                { shape: lang === "en" ? "Clutch" : "クラッチ", desc: lang === "en" ? "No strap, held in hand" : "ストラップなし、手持ち", emoji: "👛" },
-                { shape: lang === "en" ? "Hobo" : "ホーボー", desc: lang === "en" ? "Crescent-shaped, slouchy" : "クレセント型、スラウチー", emoji: "🌙" },
-                { shape: lang === "en" ? "Bucket" : "バケット", desc: lang === "en" ? "Cylindrical with drawstring closure" : "巾着クロージャー付き円筒形", emoji: "🪣" },
-                { shape: lang === "en" ? "Saddle" : "サドル", desc: lang === "en" ? "Curved bottom, inspired by horse saddle" : "馬の鞍にインスパイアされた曲線底", emoji: "🐎" }
-              ].map((item, i) => (
-                <div key={i} style={{ background: "#FFFFFF", border: "2px solid #E5E7EB", borderRadius: 12, padding: 20, textAlign: "center", transition: "all 0.2s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#3665F3"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#E5E7EB"; e.currentTarget.style.transform = "translateY(0)"; }}>
-                  <div style={{ fontSize: 48, marginBottom: 12 }}>{item.emoji}</div>
-                  <div style={{ fontSize: 18, fontWeight: 700, color: "#191919", marginBottom: 6 }}>{item.shape}</div>
-                  <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.5 }}>{item.desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Reference Images Placeholder */}
-        <div style={{ marginTop: 32, background: "#FEF3C7", padding: 24, borderRadius: 12, border: "2px solid #F5AF02" }}>
-          <h3 style={{ fontSize: 20, fontWeight: 700, color: "#F5AF02", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-            📸 {lang === "en" ? "Reference Images" : "参考画像"}
-          </h3>
-          <p style={{ fontSize: 15, color: "#191919", lineHeight: 1.7, margin: 0 }}>
-            {lang === "en"
-              ? `When streaming ${model.name}, search for authentic reference images on the official ${brand.name} website or authorized retailers. Compare hardware, stitching patterns, logo placement, and interior details. Save screenshots for quick reference during your live stream.`
-              : `${model.name}を配信する際は、公式${brand.name}ウェブサイトまたは正規販売店で本物の参考画像を検索してください。金具、ステッチパターン、ロゴ配置、内部ディテールを比較。ライブ配信中のクイックリファレンスのためにスクリーンショットを保存。`}
-          </p>
-          <div style={{ marginTop: 16, padding: 16, background: "#FFFFFF", borderRadius: 8 }}>
-            <strong style={{ color: "#F5AF02" }}>💡 {lang === "en" ? "Pro Tip:" : "プロのヒント："}</strong><br/>
-            <span style={{ fontSize: 14, color: "#191919" }}>
-              {lang === "en"
-                ? "Keep a folder of authentic reference photos on your phone or tablet. During the stream, you can quickly compare and point out authentic details to buyers. This builds trust!"
-                : "スマートフォンまたはタブレットに本物の参考写真のフォルダを保管。配信中、素早く比較してバイヤーに本物のディテールを指摘できる。信頼を築く！"}
-            </span>
-          </div>
-        </div>
       </div>
     );
   }
@@ -4721,16 +4747,47 @@ function FashionP({ lang, initialBrand }) {
           <div>
             <div style={{ fontSize:24, fontWeight:800, color:"#1a1a2e", display:"flex", alignItems:"center", gap:8 }}>
               {brand.name}
+              <button
+                onClick={() => {
+                  const utterance = new SpeechSynthesisUtterance(brand.name);
+                  utterance.lang = "en-US";
+                  utterance.rate = 0.9;
+                  window.speechSynthesis.cancel();
+                  window.speechSynthesis.speak(utterance);
+                }}
+                style={{
+                  background:"#EFF6FF",
+                  border:"2px solid #BFDBFE",
+                  borderRadius:8,
+                  padding:"6px 10px",
+                  cursor:"pointer",
+                  fontSize:16,
+                  transition:"all 0.2s",
+                  display:"flex",
+                  alignItems:"center",
+                  gap:4
+                }}
+                onMouseEnter={e => {e.currentTarget.style.background="#DBEAFE"; e.currentTarget.style.borderColor="#3B82F6";}}
+                onMouseLeave={e => {e.currentTarget.style.background="#EFF6FF"; e.currentTarget.style.borderColor="#BFDBFE";}}
+                title={lang==="en"?"Listen to pronunciation":"発音を聞く"}
+              >
+                🔊
+              </button>
               <span style={{ fontSize:20 }}>
                 {brand.categories.includes("handbags") && "👜"}
                 {brand.categories.includes("jewelry") && "💎"}
               </span>
             </div>
-            <div style={{ fontSize:13, color:"#6b7280" }}>
+            <div style={{ fontSize:13, color:"#6b7280", marginBottom:8 }}>
               Founded {brand.year}, {brand.country}
               {" • "}
               {brand.categories.map(cat => cat === "handbags" ? (lang==="en"?"Handbags":"ハンドバッグ") : (lang==="en"?"Jewelry":"ジュエリー")).join(" & ")}
             </div>
+            {brand.desc && (
+              <div style={{ fontSize:14, color:"#4B5563", lineHeight:"1.6", maxWidth:700, marginTop:12 }}>
+                {lang==="en" ? brand.desc : brand.descJp}
+              </div>
+            )}
           </div>
         </div>
 
