@@ -1492,6 +1492,8 @@ const BRAND_DATA = {
   mcm: {
     name:"MCM", year:1976, country:"Germany",
     categories:["handbags"],
+    desc:"German luxury brand famous for the Visetos monogram pattern (MCM logo with laurel leaves) and iconic studded backpacks. Originally 'Mode Creation Munich', MCM represents urban luxury and streetwear meets high fashion. Vintage German-made pieces from the 1980s-90s are highly collectible—superior to modern Korean-made versions. The Stark backpack is everywhere in Asia. Represents contemporary luxury with heritage roots.",
+    descJp:"ヴィセトスモノグラムパターン（月桂樹の葉付きMCMロゴ）と象徴的なスタッズバックパックで有名なドイツ高級ブランド。元は「モード・クリエイション・ミュンヘン」、MCMはアーバンラグジュアリーとストリートウェアがハイファッションと出会うことを表しています。1980-90年代のヴィンテージドイツ製作品は高コレクタブル—現代韓国製バージョンより優れています。スタークバックパックはアジアでどこにでもあります。遺産ルーツを持つ現代ラグジュアリーを表しています。",
     imageUrl:"https://logo.clearbit.com/mcmworldwide.com",
     auth:"Visetos monogram (MCM logo + laurel leaves). Serial number on leather patch. Made in Germany or Korea.",
     authJp:"ヴィセトスモノグラム（MCMロゴ+月桂樹の葉）。レザーパッチにシリアル番号。ドイツまたは韓国製。",
@@ -1860,6 +1862,8 @@ const BRAND_DATA = {
   versace: {
     name:"Versace", year:1978, country:"Italy",
     categories:["handbags"],
+    desc:"Italian fashion house founded by legendary Gianni Versace, synonymous with bold glamour, Medusa logo, and baroque opulence. Known for gold hardware, Greek key patterns, and maximalist designs that scream luxury. The safety pin dress moment (1994) epitomizes Versace's punk-meets-palace aesthetic. Vintage Gianni era pieces (pre-1997) are museum-quality collectibles. Represents unapologetic, flashy Italian luxury. Not for the subtle.",
+    descJp:"伝説的ジャンニ・ヴェルサーチによって創設されたイタリアファッションハウスで、大胆なグラマー、メデューサロゴ、バロック豪華さと同義。ゴールド金具、グリークキーパターン、ラグジュアリーを叫ぶマキシマリストデザインで知られています。安全ピンドレス瞬間（1994）はヴェルサーチのパンクと宮殿の美学を体現。ヴィンテージ ジャンニ時代作品（1997年以前）は美術館品質コレクタブル。謝罪しない派手なイタリアンラグジュアリーを表しています。控えめな人向けではない。",
     imageUrl:"https://logo.clearbit.com/versace.com",
     auth:"Medusa head logo. 'VERSACE' stamp. Made in Italy. Greek key (meander) pattern. Bold, flashy hardware.",
     authJp:"メデューサヘッドロゴ。「VERSACE」刻印。イタリア製。グリークキー（メアンダー）パターン。大胆で派手な金具。",
@@ -2798,6 +2802,8 @@ const BRAND_DATA = {
   mulberry: {
     name:"Mulberry", year:1971, country:"UK",
     categories:["handbags"],
+    desc:"British luxury brand renowned for exceptional leather craftsmanship and the iconic postman's lock closure. The Bayswater tote is a British classic, while the Alexa bag (named after style icon Alexa Chung) became THE It bag of 2010. Vintage UK-made pieces from the Somerset factory are highly collectible. Known for Oak leather that ages beautifully and develops character. Represents timeless British heritage and quality.",
+    descJp:"卓越したレザー職人技と象徴的な郵便屋ロッククロージャーで有名な英国高級ブランド。ベイズウォータートートは英国クラシック、アレクサバッグ（スタイルアイコン アレクサ・チャンにちなむ）は2010年のTHE Itバッグになりました。サマセット工場からのヴィンテージ英国製作品は高コレクタブル。美しく経年変化し個性を発展させるオークレザーで知られています。時代を超えた英国遺産と品質を表しています。",
     imageUrl:"https://logo.clearbit.com/mulberry.com",
     auth:"'MULBERRY' stamp. Made in UK (premium) or China. Postman's lock (signature). Tree logo.",
     authJp:"「MULBERRY」刻印。英国製（プレミアム）または中国製。郵便屋ロック（シグネチャー）。木のロゴ。",
