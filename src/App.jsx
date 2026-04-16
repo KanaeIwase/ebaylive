@@ -1698,7 +1698,50 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Soft navy. Parisian ease.", descJp:"柔らかいネイビー。パリジャンイーズ。"},
       {name:"Caramel", hex:"#C68E17", nameJp:"キャラメル", desc:"Warm caramel. Boho luxury.", descJp:"温かいキャラメル。ボヘミアンラグジュアリー。"}
     ],
-    models:[]
+    models:[
+      { name:"Paddington", brief:"Padlock satchel - 2005 It bag icon", briefJp:"南京錠サッチェル - 2005 Itバッグアイコン",
+        desc:"THE Chloé bag. Slouchy satchel with oversized brass padlock. The It bag of 2005.",
+        descJp:"Chloéバッグ。特大真鍮南京錠付きスラウチーサッチェル。2005年のItバッグ。",
+        shape:"Soft slouchy satchel with dual handles. Oversized brass padlock on front. Key included.",
+        shapeJp:"デュアルハンドル付きソフトスラウチーサッチェル。前面に特大真鍮南京錠。鍵付き。",
+        sizes:[
+          {name:"Medium", dim:"14\"W × 10\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"16\"W × 12\"H × 7\"D"}
+        ],
+        rare:"Phoebe Philo era (2005-2006). Limited edition colors. Original brass hardware.",
+        rareJp:"フィービー・ファイロ時代（2005-2006）。限定版カラー。オリジナル真鍮金具。",
+        tip:"That HUGE padlock is the signature! It comes with a key. This was THE bag everyone wanted in 2005.",
+        tipJp:"あの巨大南京錠がシグネチャー！鍵が付属。これは2005年に皆が欲しがったTHEバッグ。"
+      },
+      { name:"Drew", brief:"Saddle bag - modern Chloé icon", briefJp:"サドルバッグ - モダンChloéアイコン",
+        desc:"Modern Chloé icon. Saddle bag with chain and leather strap. Soft, slouchy, feminine.",
+        descJp:"モダンChloéアイコン。チェーンとレザーストラップ付きサドルバッグ。柔らかく、スラウチー、女性的。",
+        shape:"Saddle shape with curved flap. Chain and leather strap. Rings hardware detail.",
+        shapeJp:"曲線フラップのサドル形状。チェーンとレザーストラップ。リング金具ディテール。",
+        sizes:[
+          {name:"Small", dim:"7.5\"W × 6\"H × 2.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"10\"W × 8\"H × 3\"D"}
+        ],
+        rare:"First season 2014. Limited edition colors. Suede versions.",
+        rareJp:"初シーズン2014。限定版カラー。スエードバージョン。",
+        tip:"Saddle bag shape = equestrian chic. The rings hardware is signature Chloé. Soft, romantic, effortless.",
+        tipJp:"サドルバッグ形状 = 乗馬シック。リング金具はシグネチャーChloé。柔らかく、ロマンティック、楽。"
+      },
+      { name:"Faye", brief:"Flap bag with bracelet - bohemian elegance", briefJp:"ブレスレット付きフラップバッグ - ボヘミアンエレガンス",
+        desc:"Flap bag with distinctive ring bracelet handle. Bohemian meets luxury.",
+        descJp:"特徴的なリングブレスレットハンドル付きフラップバッグ。ボヘミアンとラグジュアリーの出会い。",
+        shape:"Flap bag with metal ring bracelet on front. Suede and leather combinations.",
+        shapeJp:"前面にメタルリングブレスレット付きフラップバッグ。スエードとレザーの組み合わせ。",
+        sizes:[
+          {name:"Small", dim:"7\"W × 5\"H × 2.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"9\"W × 7\"H × 3\"D"}
+        ],
+        rare:"Limited edition colorways. Suede with leather trim versions. Special hardware.",
+        rareJp:"限定版カラーウェイ。レザートリム付きスエードバージョン。スペシャル金具。",
+        tip:"That metal ring bracelet on the front = signature detail. Mix of suede and leather. Very boho chic.",
+        tipJp:"前面のメタルリングブレスレット = シグネチャーディテール。スエードとレザーのミックス。とてもボヘミアンシック。"
+      }
+    ]
   },
   tomford: {
     name:"Tom Ford", year:2005, country:"USA",
