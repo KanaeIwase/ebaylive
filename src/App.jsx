@@ -1762,7 +1762,36 @@ const BRAND_DATA = {
       {name:"Gold Hardware", hex:"#B8860B", nameJp:"ゴールド金具", desc:"Signature TF logo hardware. Premium detail.", descJp:"シグネチャーTFロゴ金具。プレミアムディテール。"},
       {name:"Midnight Blue", hex:"#191970", nameJp:"ミッドナイトブルー", desc:"Dark blue. Sexy sophistication.", descJp:"ダークブルー。セクシー洗練。"}
     ],
-    models:[]
+    models:[
+      { name:"Jennifer", brief:"Chain shoulder bag - sleek sophistication", briefJp:"チェーンショルダーバッグ - 滑らかな洗練",
+        desc:"Tom Ford's signature shoulder bag. Chain strap, TF logo. Sleek and sophisticated.",
+        descJp:"トム・フォードのシグネチャーショルダーバッグ。チェーンストラップ、TFロゴ。滑らかで洗練。",
+        shape:"Structured shoulder bag with chain strap. TF logo hardware. Clean minimal lines.",
+        shapeJp:"チェーンストラップ付き構造ショルダーバッグ。TFロゴ金具。クリーンなミニマルライン。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 3\"D - MOST POPULAR"},
+          {name:"Medium", dim:"10\"W × 7.5\"H × 3.5\"D"}
+        ],
+        rare:"Exotic leathers (crocodile, python). Limited edition finishes. Discontinued colors.",
+        rareJp:"エキゾチックレザー（クロコダイル、パイソン）。限定版仕上げ。廃盤カラー。",
+        tip:"Sleek, minimal, EXPENSIVE. Tom Ford quality = museum-grade exotic leathers. This is grown-up luxury.",
+        tipJp:"滑らか、ミニマル、高価。トム・フォード品質 = 美術館級エキゾチックレザー。これは大人のラグジュアリー。"
+      },
+      { name:"Natalia", brief:"Top-handle tote - structured elegance", briefJp:"トップハンドルトート - 構造的エレガンス",
+        desc:"Structured top-handle tote. Professional but sexy. Tom Ford sophistication.",
+        descJp:"構造的トップハンドルトート。プロフェッショナルだがセクシー。トム・フォード洗練。",
+        shape:"Trapezoid tote with structured silhouette. Top handles, optional shoulder strap.",
+        shapeJp:"構造的シルエットの台形トート。トップハンドル、オプションのショルダーストラップ。",
+        sizes:[
+          {name:"Medium", dim:"12\"W × 10\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"14\"W × 12\"H × 7\"D"}
+        ],
+        rare:"Exotic skins. Limited production. Special hardware finishes.",
+        rareJp:"エキゾチックスキン。限定生産。スペシャル金具仕上げ。",
+        tip:"Structured = stands up on its own. Professional tote but SEXY. That's Tom Ford - sophisticated but sensual.",
+        tipJp:"構造的 = 自立する。プロフェッショナルトートだがセクシー。それがトム・フォード - 洗練だが官能的。"
+      }
+    ]
   },
   dolcegabbana: {
     name:"Dolce & Gabbana", year:1985, country:"Italy",
@@ -1950,7 +1979,42 @@ const BRAND_DATA = {
       {name:"Orange", hex:"#FF6600", nameJp:"オレンジ", desc:"Vibrant orange accents. Street energy.", descJp:"鮮やかなオレンジアクセント。ストリートエネルギー。"},
       {name:"Neon Green", hex:"#39FF14", nameJp:"ネオングリーン", desc:"Bold neon. Statement making.", descJp:"大胆なネオン。ステートメント作り。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Jitney", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Box bag with binder clip - office supply icon",
+        briefJp:"バインダークリップ付きボックスバッグ - 事務用品アイコン",
+        desc:"Off-White's iconic box bag. Structured shape with signature BINDER CLIP closure. Industrial meets luxury. Virgil's genius.",
+        descJp:"Off-Whiteのアイコニックボックスバッグ。シグネチャー バインダークリップクロージャー付き構造的形状。インダストリアルとラグジュアリーの融合。ヴァージルの天才。",
+        shape:"Structured rectangular box bag. Metal binder clip closure on flap. Removable shoulder strap.",
+        shapeJp:"構造的長方形ボックスバッグ。フラップにメタルバインダークリップクロージャー。取り外し可能ショルダーストラップ。",
+        sizes:[
+          {name:"Jitney 0.7", dim:"Mini size - 7\"W × 5\"H × 3\"D"},
+          {name:"Jitney 1.0", dim:"Medium - 10\"W × 7\"H × 4\"D - MOST POPULAR"},
+          {name:"Jitney 1.4", dim:"Large - 14\"W × 10\"H × 5\"D"}
+        ],
+        rare:"Original 2016 launch colors. Virgil Abloh era (pre-2021). Sold out collabs.",
+        rareJp:"オリジナル2016年発売カラー。ヴァージル・アブロー時代（2021年前）。完売コラボ。",
+        tip:"That BINDER CLIP is the whole point. Office supply becomes luxury icon. Pure Virgil.",
+        tipJp:"あのバインダークリップが全て。事務用品がラグジュアリーアイコンに。純粋ヴァージル。"
+      },
+      {
+        name:"Diagonal Flap", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Arrow crossbody - streetwear signature",
+        briefJp:"矢印クロスボディ - ストリートウェアシグネチャー",
+        desc:"Mini crossbody with Off-White's signature diagonal arrow stripe. Logo, industrial belt, instant recognition. Streetwear flex.",
+        descJp:"Off-Whiteのシグネチャー斜め矢印ストライプ付きミニクロスボディ。ロゴ、インダストリアルベルト、即座に認識。ストリートウェアフレックス。",
+        shape:"Small rectangular crossbody. Diagonal arrow print on flap. Industrial logo strap.",
+        shapeJp:"小さな長方形クロスボディ。フラップに斜め矢印プリント。インダストリアルロゴストラップ。",
+        sizes:[
+          {name:"One Size", dim:"8\"W × 6\"H × 2\"D - Compact crossbody"}
+        ],
+        rare:"Early Virgil era colors. Collaboration limited editions. Pre-2021 pieces.",
+        rareJp:"初期ヴァージル時代カラー。コラボ限定版。2021年前作品。",
+        tip:"Those diagonal ARROWS = instant Off-White recognition. Streetwear meets high fashion.",
+        tipJp:"あの斜め矢印 = 即座にOff-White認識。ストリートウェアとハイファッションの融合。"
+      }
+    ]
   },
   marni: {
     name:"Marni", year:1994, country:"Italy",
@@ -1971,7 +2035,58 @@ const BRAND_DATA = {
       {name:"Mustard Yellow", hex:"#FFDB58", nameJp:"マスタードイエロー", desc:"Rich mustard. Unexpected chic.", descJp:"豊かなマスタード。予想外のシック。"},
       {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Deep burgundy. Sophisticated drama.", descJp:"深いバーガンディ。洗練されたドラマ。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Trunk", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Boxy structured bag - architectural icon",
+        briefJp:"箱型構造的バッグ - 建築的アイコン",
+        desc:"Marni's most iconic bag. Boxy, structured, architectural. Bold colors. Quirky but sophisticated. Marni in a bag.",
+        descJp:"マルニの最もアイコニックバッグ。箱型、構造的、建築的。大胆な色。風変わりだが洗練。バッグの中のマルニ。",
+        shape:"Structured rectangular box bag. Top handle. Clean architectural lines. Minimal hardware.",
+        shapeJp:"構造的長方形ボックスバッグ。トップハンドル。クリーン建築的ライン。ミニマル金具。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 4\"D"},
+          {name:"Medium", dim:"11\"W × 8\"H × 5\"D - MOST POPULAR"},
+          {name:"Large", dim:"14\"W × 10\"H × 6\"D"}
+        ],
+        rare:"Original 2016 colorblock versions. Limited edition color combinations. Sold out bold prints.",
+        rareJp:"オリジナル2016年カラーブロックバージョン。限定版色組み合わせ。完売大胆プリント。",
+        tip:"Marni Trunk = bold colors + boxy shape. NOT boring. For people who love unique style.",
+        tipJp:"マルニ トランク = 大胆な色 + 箱型。退屈ではない。ユニークスタイルを愛する人向け。"
+      },
+      {
+        name:"Museo", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Soft unstructured tote - artistic shopper",
+        briefJp:"柔らかい非構造トート - 芸術的ショッパー",
+        desc:"Soft, slouchy shopping tote. Colorblock designs, unexpected color pairings. Large, practical, artistic. Marni's playful side.",
+        descJp:"柔らかい、たるんだショッピングトート。カラーブロックデザイン、予想外の色ペアリング。大きい、実用的、芸術的。マルニの遊び心側。",
+        shape:"Soft unstructured tote. Dual top handles. Open top or snap closure. Colorblock panels.",
+        shapeJp:"柔らかい非構造トート。デュアルトップハンドル。オープントップまたはスナップクロージャー。カラーブロックパネル。",
+        sizes:[
+          {name:"Large", dim:"15\"W × 13\"H × 6\"D - Shopper tote size"}
+        ],
+        rare:"Limited colorblock combinations. Artistic print versions. Vintage 2000s-2010s pieces.",
+        rareJp:"限定カラーブロック組み合わせ。芸術的プリントバージョン。ヴィンテージ2000-2010年代作品。",
+        tip:"Museo = big tote with BOLD color blocking. Artistic, unexpected, very Marni.",
+        tipJp:"ムセオ = 大胆な色ブロッキング付き大きいトート。芸術的、予想外、非常にマルニ。"
+      },
+      {
+        name:"Pannier", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Basket-style bag - unique sculptural shape",
+        briefJp:"バスケットスタイルバッグ - ユニークな彫刻的形状",
+        desc:"Structured basket-inspired bag. Unique shape, architectural design. Marni's quirky sophistication. A conversation piece.",
+        descJp:"構造的バスケット風バッグ。ユニーク形状、建築的デザイン。マルニの風変わりな洗練。会話のきっかけ。",
+        shape:"Basket-like structured shape. Top handle. Curved architectural lines. Unique silhouette.",
+        shapeJp:"バスケット風構造的形状。トップハンドル。曲線建築的ライン。ユニークシルエット。",
+        sizes:[
+          {name:"One Size", dim:"12\"W × 10\"H × 6\"D - Statement bag"}
+        ],
+        rare:"Limited production runs. Special edition materials. Rare colorways.",
+        rareJp:"限定生産ラン。特別版素材。希少カラーウェイ。",
+        tip:"Pannier = basket shape meets luxury. Quirky, architectural, VERY Marni. Not for everyone.",
+        tipJp:"パニア = バスケット形状とラグジュアリーの融合。風変わり、建築的、非常にマルニ。万人向けではない。"
+      }
+    ]
   },
   therow: {
     name:"The Row", year:2006, country:"USA",
@@ -1992,7 +2107,59 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Refined simplicity.", descJp:"深いネイビー。洗練されたシンプルさ。"},
       {name:"Chocolate Brown", hex:"#3B2414", nameJp:"チョコレートブラウン", desc:"Luxe brown. Quiet richness.", descJp:"豪華なブラウン。静かな豊かさ。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Margaux", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Structured minimalist tote - cashmere-lined icon",
+        briefJp:"構造的ミニマリストトート - カシミア裏地アイコン",
+        desc:"THE Row's ultimate bag. Structured minimalist tote. CASHMERE-LINED interior. Five-figure price. Worth it. If you know, you know.",
+        descJp:"The Rowの究極バッグ。構造的ミニマリストトート。カシミア裏地インテリア。5桁価格。価値あり。知ってる人は知ってる。",
+        shape:"Structured rectangular tote. Clean architectural lines. Dual top handles. NO LOGOS. Minimalist perfection.",
+        shapeJp:"構造的長方形トート。クリーン建築的ライン。デュアルトップハンドル。ロゴなし。ミニマリスト完璧。",
+        sizes:[
+          {name:"10", dim:"10\"W × 8\"H × 4\"D - Compact"},
+          {name:"12", dim:"12\"W × 10\"H × 5\"D - MOST POPULAR"},
+          {name:"15", dim:"15\"W × 12\"H × 6\"D - Large work tote"}
+        ],
+        rare:"Exotic leathers (croc, alligator - special order). Early 2016-2017 versions. Made in USA pieces.",
+        rareJp:"エキゾチックレザー（クロコ、アリゲーター - 特別注文）。初期2016-2017バージョン。米国製作品。",
+        tip:"Margaux = QUIET LUXURY. No logos. Insane craftsmanship. Cashmere lining. $5,000+. Icon.",
+        tipJp:"マルゴー = 静かなラグジュアリー。ロゴなし。驚異的職人技。カシミア裏地。$5,000+。アイコン。"
+      },
+      {
+        name:"Half Moon", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Crescent crossbody - architectural minimalism",
+        briefJp:"三日月クロスボディ - 建築的ミニマリズム",
+        desc:"Crescent-shaped crossbody. Architectural minimalism. No logos, clean lines. Sells out constantly. Modern icon.",
+        descJp:"三日月形クロスボディ。建築的ミニマリズム。ロゴなし、クリーンライン。常に完売。現代アイコン。",
+        shape:"Curved crescent half-moon shape. Single shoulder strap. Minimal hardware. Sculptural silhouette.",
+        shapeJp:"曲線三日月ハーフムーン形状。シングルショルダーストラップ。ミニマル金具。彫刻的シルエット。",
+        sizes:[
+          {name:"Small", dim:"9\"W × 6\"H × 3\"D - Crossbody"},
+          {name:"Large", dim:"12\"W × 8\"H × 4\"D"}
+        ],
+        rare:"Limited colors (sold out fast). Exotic leather versions. Early 2018-2019 pieces.",
+        rareJp:"限定カラー（即完売）。エキゾチックレザーバージョン。初期2018-2019作品。",
+        tip:"Half Moon = architectural curve. No logos. Sells out. If you see it, buy it.",
+        tipJp:"ハーフムーン = 建築的曲線。ロゴなし。完売。見たら、買うべき。"
+      },
+      {
+        name:"Sofia", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Slouchy hobo - soft minimalist luxury",
+        briefJp:"たるんだホーボー - 柔らかいミニマリストラグジュアリー",
+        desc:"Soft slouchy hobo. Supple leather. Minimalist design. Limited production. The Row's softer side.",
+        descJp:"柔らかいたるんだホーボー。しなやかなレザー。ミニマリストデザイン。限定生産。The Rowの柔らかい側。",
+        shape:"Slouchy hobo shape. Single shoulder strap. Soft unstructured leather. Minimal branding.",
+        shapeJp:"たるんだホーボー形状。シングルショルダーストラップ。柔らかい非構造レザー。ミニマルブランディング。",
+        sizes:[
+          {name:"Medium", dim:"14\"W × 11\"H × 5\"D - Slouchy hobo"}
+        ],
+        rare:"Limited color releases. Early 2019-2020 versions. Premium leather finishes.",
+        rareJp:"限定カラーリリース。初期2019-2020バージョン。プレミアムレザー仕上げ。",
+        tip:"Sofia = soft hobo luxury. No logos. Supple leather. Understated perfection.",
+        tipJp:"ソフィア = 柔らかいホーボーラグジュアリー。ロゴなし。しなやかなレザー。控えめな完璧。"
+      }
+    ]
   },
   stellamccartney: {
     name:"Stella McCartney", year:2001, country:"UK",
