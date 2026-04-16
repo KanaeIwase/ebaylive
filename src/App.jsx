@@ -1554,6 +1554,8 @@ const BRAND_DATA = {
   alexandermcqueen: {
     name:"Alexander McQueen", year:1992, country:"UK",
     categories:["handbags"],
+    desc:"British fashion house founded by legendary designer Lee Alexander McQueen, known for dark romantic aesthetics and theatrical designs. The iconic Skull Clutch is one of fashion's most recognizable accessories. McQueen pieces blend gothic edge with impeccable tailoring. Vintage Lee McQueen era (pre-2010) is highly collectible. Represents rebellious luxury and artistic vision.",
+    descJp:"伝説的デザイナー、リー・アレキサンダー・マックイーンによって創業された、ダークロマンチック美学と演劇的デザインで知られるイギリスファッションハウス。象徴的なスカルクラッチはファッション界で最も認識可能なアクセサリーの一つ。マックイーン作品はゴシックエッジと完璧な仕立てを融合。ヴィンテージ リー・マックイーン時代（2010年以前）は高コレクタブル。反抗的なラグジュアリーと芸術的ビジョンを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Alexander_McQueen_logo.svg/512px-Alexander_McQueen_logo.svg.png",
     auth:"'ALEXANDER McQUEEN' stamp. Made in Italy. Skull hardware (signature motif). Serial number inside.",
     authJp:"「ALEXANDER McQUEEN」刻印。イタリア製。スカル金具（シグネチャーモチーフ）。内側にシリアル番号。",
@@ -1614,6 +1616,8 @@ const BRAND_DATA = {
   miumiu: {
     name:"Miu Miu", year:1993, country:"Italy",
     categories:["handbags"],
+    desc:"Prada's younger sister brand created by Miuccia Prada, known for playful, quirky luxury with an edge. Famous for Matelassé quilted leather bags and the whimsical Coffer box bag with crystal embellishments. Same exceptional quality as Prada but with youthful rebellion. Vintage 1990s-2000s pieces are highly collectible. For the girl who's over 'serious' luxury.",
+    descJp:"ミウッチャ・プラダによって創設されたプラダの妹ブランドで、遊び心があり風変わりなエッジのあるラグジュアリーで知られています。マトラッセキルティングレザーバッグとクリスタル装飾の気まぐれなコファーボックスバッグで有名。プラダと同じ卓越した品質ですが、若々しい反抗心があります。1990〜2000年代のヴィンテージ作品は高コレクタブル。「真面目な」ラグジュアリーに飽きた女の子向け。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miu_Miu_logo.svg/512px-Miu_Miu_logo.svg.png",
     auth:"'MIU MIU' logo plate or embossed. Made in Italy. Part of Prada Group - similar quality standards.",
     authJp:"「MIU MIU」ロゴプレートまたはエンボス。イタリア製。プラダグループの一部 - 同様の品質基準。",
@@ -1676,6 +1680,8 @@ const BRAND_DATA = {
   chloe: {
     name:"Chloé", year:1952, country:"France",
     categories:["handbags"],
+    desc:"French luxury house embodying effortless Parisian femininity and romantic bohemian style. The Paddington bag with its signature oversized padlock was THE It bag of 2005. The Phoebe Philo era (2001-2006) is legendary among collectors. Known for soft, slouchy leather and dreamy aesthetic. Represents carefree French-girl elegance.",
+    descJp:"パリジェンヌの女性らしさとロマンチックなボヘミアンスタイルを体現するフランスの高級メゾン。シグネチャーの特大南京錠付きパディントンバッグは2005年のTHE Itバッグでした。フィービー・ファイロ時代（2001-2006）はコレクターの間で伝説的。柔らかくスラウチーなレザーと夢のような美学で知られています。気楽なフレンチガールエレガンスを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Chloe_logo.svg/512px-Chloe_logo.svg.png",
     auth:"'CHLOÉ' stamp (note accent mark). Made in Italy. Serial number embossed. Padlock on some styles.",
     authJp:"「CHLOÉ」刻印（アクセント注意）。イタリア製。シリアル番号エンボス。一部スタイルに南京錠。",
@@ -1688,6 +1694,8 @@ const BRAND_DATA = {
   tomford: {
     name:"Tom Ford", year:2005, country:"USA",
     categories:["handbags"],
+    desc:"American luxury brand by legendary designer Tom Ford, synonymous with sexy sophistication and modern glamour. Famous for sleek, minimalist designs with exceptional materials and impeccable construction. The Jennifer bag and exotic leather pieces are highly coveted. Represents grown-up, unapologetically luxurious style. For those who want the best and know it.",
+    descJp:"伝説的デザイナー、トム・フォードによるアメリカの高級ブランドで、セクシーな洗練と現代的グラマーの代名詞。滑らかでミニマリストなデザイン、卓越した素材、完璧な構造で有名。ジェニファーバッグとエキゾチックレザー作品は非常に垂涎されています。大人で、謝罪しない豪華なスタイルを表しています。最高を望み、それを知っている人向け。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tom_Ford_logo.svg/512px-Tom_Ford_logo.svg.png",
     auth:"'TOM FORD' logo plate or stamp. Made in Italy. Metal TF logo on hardware. Premium materials.",
     authJp:"「TOM FORD」ロゴプレートまたは刻印。イタリア製。金具にTFメタルロゴ。プレミアム素材。",
@@ -1700,6 +1708,8 @@ const BRAND_DATA = {
   dolcegabbana: {
     name:"Dolce & Gabbana", year:1985, country:"Italy",
     categories:["handbags"],
+    desc:"Italian fashion house celebrating Sicilian heritage and Mediterranean passion with maximalist glamour. Famous for the Sicily bag inspired by vintage doctor's bags, and Devotion bags with ornate Sacred Heart logos. Known for baroque prints, lace, leopard, and bold gold hardware. Represents unapologetic Italian luxury and drama. Not for the minimalist.",
+    descJp:"シチリアの遺産と地中海の情熱をマキシマリストグラマーで祝うイタリアファッションハウス。ヴィンテージドクターバッグからインスピレーションを得たシチリアバッグと華麗な聖心ロゴ付きディヴォーションバッグで有名。バロックプリント、レース、レオパード、大胆なゴールド金具で知られています。謝罪しないイタリアンラグジュアリーとドラマを表しています。ミニマリスト向けではない。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Dolce_%26_Gabbana_logo.svg/512px-Dolce_%26_Gabbana_logo.svg.png",
     auth:"'DOLCE&GABBANA' logo plate. Made in Italy. DG logo on hardware. Bold, ornate designs.",
     authJp:"「DOLCE&GABBANA」ロゴプレート。イタリア製。金具にDGロゴ。大胆で華やかなデザイン。",
@@ -1823,6 +1833,8 @@ const BRAND_DATA = {
   jimmychoo: {
     name:"Jimmy Choo", year:1996, country:"UK",
     categories:["handbags"],
+    desc:"British luxury brand world-famous for glamorous footwear, also creating stunning handbags with the same red-carpet appeal. Known for star studs signature motif and party-ready designs. While shoes made the name, the bags deliver the same Hollywood glamour and sophistication. Perfect for special occasions and making an entrance.",
+    descJp:"グラマラスなフットウェアで世界的に有名なイギリスの高級ブランドで、同じレッドカーペット魅力を持つ素晴らしいハンドバッグも製作しています。スタースタッズのシグネチャーモチーフとパーティー対応デザインで知られています。シューズが名を成しましたが、バッグも同じハリウッドグラマーと洗練を提供。特別な機会や登場に最適。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Jimmy_Choo_logo.svg/512px-Jimmy_Choo_logo.svg.png",
     auth:"'JIMMY CHOO' logo embossed or on plate. Made in Italy. Star studs (signature motif). Serial number inside.",
     authJp:"「JIMMY CHOO」エンボスまたはプレート。イタリア製。スタースタッズ（シグネチャーモチーフ）。内側にシリアル番号。",
@@ -1835,6 +1847,8 @@ const BRAND_DATA = {
   christianlouboutin: {
     name:"Christian Louboutin", year:1991, country:"France",
     categories:["handbags"],
+    desc:"French luxury house legendary for red-soled stilettos, creating equally bold handbags with signature spike studs and edgy glamour. The Paloma spiked clutch is iconic. Some bag designs feature the famous red sole aesthetic. Represents fearless femininity and unapologetic luxury. For women who command attention.",
+    descJp:"赤底スティレットで伝説的なフランスの高級メゾンで、シグネチャーのスパイクスタッズとエッジーなグラマーを持つ同様に大胆なハンドバッグを製作しています。パロマスパイククラッチは象徴的。一部バッグデザインは有名な赤底美学を特徴としています。恐れを知らない女性らしさと謝罪しないラグジュアリーを表しています。注目を集める女性向け。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Christian_Louboutin_logo.svg/512px-Christian_Louboutin_logo.svg.png",
     auth:"'CHRISTIAN LOUBOUTIN' stamp. Made in Italy. Red sole on some bag designs (like shoes). Spike studs.",
     authJp:"「CHRISTIAN LOUBOUTIN」刻印。イタリア製。一部バッグデザインに赤底（靴のように）。スパイクスタッズ。",
@@ -1847,6 +1861,8 @@ const BRAND_DATA = {
   offwhite: {
     name:"Off-White", year:2013, country:"Italy",
     categories:["handbags"],
+    desc:"Revolutionary streetwear-meets-luxury brand founded by visionary designer Virgil Abloh. Famous for industrial yellow belt straps, diagonal arrows, and ironic quotation marks. The Binder Clip bag and Jitney bag are instant icons. Virgil Abloh era pieces (2013-2021) are already highly collectible. Represents the new generation of luxury.",
+    descJp:"ビジョナリーデザイナー ヴァージル・アブローによって創設された、革命的なストリートウェアとラグジュアリーの融合ブランド。インダストリアル黄色ベルトストラップ、斜め矢印、皮肉な引用符で有名。バインダークリップバッグとジットニーバッグは即座のアイコン。ヴァージル・アブロー時代作品（2013-2021）は既に高コレクタブル。新世代ラグジュアリーを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Off-White_logo.svg/512px-Off-White_logo.svg.png",
     auth:"'OFF-WHITE' logo. Industrial belt strap. Diagonal arrows. Quote marks. Made in Italy.",
     authJp:"「OFF-WHITE」ロゴ。インダストリアルベルトストラップ。斜め矢印。引用符。イタリア製。",
@@ -1859,6 +1875,8 @@ const BRAND_DATA = {
   marni: {
     name:"Marni", year:1994, country:"Italy",
     categories:["handbags"],
+    desc:"Italian luxury brand known for quirky artistic designs, unexpected color combinations, and architectural shapes. The Trunk bag and Museo tote showcase Marni's playful sophistication. Represents intellectual fashion for those who reject boring. Vintage 2000s pieces are highly sought after. For confident style individualists.",
+    descJp:"風変わりな芸術的デザイン、予想外の色の組み合わせ、建築的形状で知られるイタリアの高級ブランド。トランクバッグとムセオトートはマルニの遊び心ある洗練を示しています。退屈を拒否する人々のための知的ファッションを表しています。2000年代ヴィンテージ作品は非常に求められています。自信あるスタイル個人主義者向け。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Marni_logo.svg/512px-Marni_logo.svg.png",
     auth:"'MARNI' logo. Made in Italy. Known for unusual shapes, bold colors. Minimalist hardware.",
     authJp:"「MARNI」ロゴ。イタリア製。珍しい形、大胆な色で知られる。ミニマリスト金具。",
@@ -1871,6 +1889,8 @@ const BRAND_DATA = {
   therow: {
     name:"The Row", year:2006, country:"USA",
     categories:["handbags"],
+    desc:"Ultra-luxury brand by Ashley and Mary-Kate Olsen, epitomizing the ultimate quiet luxury with no logos and impeccable craftsmanship. Famous for cashmere-lined bags, premium leathers, and architectural minimalism. The Margaux and Half Moon bags are modern icons. Insanely expensive and worth every penny. If you know, you know.",
+    descJp:"アシュリーとメアリー・ケイト・オルセンによる超高級ブランドで、ロゴなしと完璧な職人技で究極の静かなラグジュアリーを体現しています。カシミア裏地バッグ、プレミアムレザー、建築的ミニマリズムで有名。マルゴーとハーフムーンバッグは現代アイコン。驚異的に高価で、すべてのペニーに値する。知っている人は知っている。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Row_logo.svg/512px-The_Row_logo.svg.png",
     auth:"'THE ROW' discreet label. Made in Italy or USA. No logos, minimalist. Premium materials (cashmere-lined).",
     authJp:"「THE ROW」控えめラベル。イタリアまたは米国製。ロゴなし、ミニマリスト。プレミアム素材（カシミア裏地）。",
@@ -1883,6 +1903,8 @@ const BRAND_DATA = {
   stellamccartney: {
     name:"Stella McCartney", year:2001, country:"UK",
     categories:["handbags"],
+    desc:"Pioneering luxury brand that proves fashion can be beautiful without harm—100% vegan with no leather, fur, or animal skin. Famous for the Falabella bag with signature chain trim. Stella McCartney (Paul McCartney's daughter) revolutionized sustainable luxury. Represents conscious fashion without compromising on style or quality.",
+    descJp:"ファッションが害なく美しくあり得ることを証明する先駆的高級ブランド—レザー、ファー、動物スキンなしの100%ヴィーガン。シグネチャーチェーントリム付きファラベラバッグで有名。ステラ・マッカートニー（ポール・マッカートニーの娘）はサステナブルラグジュアリーに革命をもたらしました。スタイルや品質を妥協しない意識的ファッションを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Stella_McCartney_logo.svg/512px-Stella_McCartney_logo.svg.png",
     auth:"'STELLA McCARTNEY' logo. Made in Italy. Vegan - NO LEATHER. Uses sustainable materials.",
     authJp:"「STELLA McCARTNEY」ロゴ。イタリア製。ヴィーガン - レザーなし。持続可能な素材使用。",
@@ -1895,6 +1917,8 @@ const BRAND_DATA = {
   proenzaschouler: {
     name:"Proenza Schouler", year:2002, country:"USA",
     categories:["handbags"],
+    desc:"Contemporary American luxury brand famous for the PS1 satchel—THE It bag of the early 2010s. Known for modern, structured designs with downtown NYC cool. The PS1 with its distinctive buckles and PS11 box bag are highly collectible. Represents intelligent, grown-up style for the modern woman. New York sophistication.",
+    descJp:"PS1サッチェルで有名なコンテンポラリーアメリカ高級ブランド—2010年代初期のTHE Itバッグ。ダウンタウンNYCクールを持つモダンで構造的なデザインで知られています。特徴的なバックル付きPS1とPS11ボックスバッグは高コレクタブル。現代女性のための知的で大人のスタイルを表しています。ニューヨーク洗練。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Proenza_Schouler_logo.svg/512px-Proenza_Schouler_logo.svg.png",
     auth:"'PROENZA SCHOULER' label. Made in Italy or China. PS logo hardware. Contemporary luxury.",
     authJp:"「PROENZA SCHOULER」ラベル。イタリアまたは中国製。PS金具ロゴ。コンテンポラリーラグジュアリー。",
@@ -1907,6 +1931,8 @@ const BRAND_DATA = {
   balmain: {
     name:"Balmain", year:1945, country:"France",
     categories:["handbags"],
+    desc:"Historic French couture house reimagined by Olivier Rousteing into modern warrior-princess luxury. Famous for military-inspired designs with bold buttons, chains, and structured silhouettes. The B-Buzz and BBag showcase Balmain's fierce, unapologetic glamour. Vintage Pierre Balmain pieces are collectible. Represents bold, empowered femininity.",
+    descJp:"オリヴィエ・ルスタンによって現代戦士プリンセスラグジュアリーに再構想された歴史的フランスクチュールハウス。大胆なボタン、チェーン、構造的シルエットを持つミリタリー風デザインで有名。B-バズとBバッグはバルマンの激しく謝罪しないグラマーを示しています。ヴィンテージ ピエール・バルマン作品はコレクタブル。大胆で力を与えられた女性らしさを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Balmain_logo.svg/512px-Balmain_logo.svg.png",
     auth:"'BALMAIN PARIS' logo. Made in Italy. Military-inspired hardware (buttons, chains). Bold embellishments.",
     authJp:"「BALMAIN PARIS」ロゴ。イタリア製。ミリタリー風金具（ボタン、チェーン）。大胆な装飾。",
@@ -1919,6 +1945,8 @@ const BRAND_DATA = {
   alexanderwang: {
     name:"Alexander Wang", year:2005, country:"USA",
     categories:["handbags"],
+    desc:"Downtown NYC luxury with edgy streetwear attitude. Famous for the Rocco bag covered in studs and zippers—the epitome of model-off-duty style. Black leather, hardware, and urban cool define the aesthetic. Early 2010s pieces capture peak NYC fashion moment. For those who make cool look effortless.",
+    descJp:"エッジーなストリートウェア態度を持つダウンタウンNYCラグジュアリー。スタッズとジッパーで覆われたロッコバッグで有名—オフデューティモデルスタイルの縮図。ブラックレザー、金具、アーバンクールが美学を定義。2010年代初期作品はピークNYCファッション瞬間を捉えています。クールを楽に見せる人向け。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Alexander_Wang_logo.svg/512px-Alexander_Wang_logo.svg.png",
     auth:"'ALEXANDER WANG' logo or AW tag. Made in China or Italy. Edgy hardware (studs, chains).",
     authJp:"「ALEXANDER WANG」ロゴまたはAWタグ。中国またはイタリア製。エッジーな金具（スタッズ、チェーン）。",
@@ -1931,6 +1959,8 @@ const BRAND_DATA = {
   lanvin: {
     name:"Lanvin", year:1889, country:"France",
     categories:["handbags"],
+    desc:"The oldest French fashion house still in operation, embodying Parisian elegance since 1889. The Alber Elbaz era (2001-2015) is legendary—Happy bag with woven chain handles became iconic. Represents timeless French femininity and sophisticated craftsmanship. Vintage Lanvin pieces are highly prized by collectors. Heritage meets modern romance.",
+    descJp:"1889年以来パリジャンエレガンスを体現する、現在も営業中の最古のフランスファッションハウス。アルベール・エルバズ時代（2001-2015）は伝説的—編みチェーンハンドル付きハッピーバッグは象徴的になりました。時代を超えたフランスの女性らしさと洗練された職人技を表しています。ヴィンテージランバン作品はコレクターに高く評価されています。遺産が現代ロマンスと出会う。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lanvin_logo.svg/512px-Lanvin_logo.svg.png",
     auth:"'LANVIN PARIS' logo. Made in Italy. Oldest French fashion house still operating.",
     authJp:"「LANVIN PARIS」ロゴ。イタリア製。現在も営業中の最古のフランスファッションハウス。",
@@ -1943,6 +1973,8 @@ const BRAND_DATA = {
   jilsander: {
     name:"Jil Sander", year:1968, country:"Germany",
     categories:["handbags"],
+    desc:"The queen of minimalism, pioneering 'less is more' luxury with architectural precision and zero logos. Famous for the Tangle bag with sculptural knotted handles and Cannolo bag. Clean lines, premium materials, intellectual sophistication. Vintage 1990s pieces and Phoebe Philo collaborations are collector's items. For purists who value substance over flash.",
+    descJp:"建築的精度とロゴゼロで「少ない方が多い」ラグジュアリーを先駆けた、ミニマリズムの女王。彫刻的な結び目ハンドル付きタングルバッグとカンノーロバッグで有名。クリーンライン、プレミアム素材、知的洗練。1990年代ヴィンテージ作品とフィービー・ファイロコラボはコレクターアイテム。フラッシュより実質を評価する純粋主義者向け。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Jil_Sander_logo.svg/512px-Jil_Sander_logo.svg.png",
     auth:"'JIL SANDER' discreet label. Made in Italy. Minimalist - clean lines, no logos. Premium materials.",
     authJp:"「JIL SANDER」控えめラベル。イタリア製。ミニマリスト - クリーンライン、ロゴなし。プレミアム素材。",
@@ -1955,6 +1987,8 @@ const BRAND_DATA = {
   goyard: {
     name:"Goyard", year:1853, country:"France",
     categories:["handbags"],
+    desc:"The ultimate exclusive luxury—NO online sales, only available in boutiques worldwide. Famous for hand-painted Goyardine canvas with signature Y pattern and personalized monogramming. The St. Louis tote is reversible and iconic. No serial numbers, no advertising, pure heritage craftsmanship since 1853. If you know Goyard, you're in the elite club.",
+    descJp:"究極の独占的ラグジュアリー—オンライン販売なし、世界中のブティックのみで入手可能。シグネチャーYパターンとパーソナライズドモノグラムを持つ手描きゴヤールディーヌキャンバスで有名。サンルイトートはリバーシブルで象徴的。シリアル番号なし、広告なし、1853年以来の純粋な遺産職人技。ゴヤールを知っているなら、あなたはエリートクラブの一員。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Goyard_logo.svg/512px-Goyard_logo.svg.png",
     auth:"Hand-painted Y pattern (Goyardine canvas). No serial numbers. Heat stamp with owner initials. Made in France.",
     authJp:"手描きYパターン（ゴヤールディーヌキャンバス）。シリアル番号なし。所有者イニシャルの刻印。フランス製。",
@@ -2017,6 +2051,8 @@ const BRAND_DATA = {
   delvaux: {
     name:"Delvaux", year:1829, country:"Belgium",
     categories:["handbags"],
+    desc:"The world's oldest fine leather goods house, predating even Louis Vuitton by 25 years. Belgian royal warrant holder known for the architectural Brillant bag with distinctive D-shaped clasp. Represents refined European craftsmanship and understated luxury. Each bag is a testament to nearly 200 years of leather mastery. True connoisseur's choice.",
+    descJp:"世界最古の高級レザーグッズハウスで、ルイ・ヴィトンより25年先行。特徴的なD型クラスプを持つ建築的ブリヤンバッグで知られるベルギー王室御用達。洗練されたヨーロッパ職人技と控えめなラグジュアリーを表しています。各バッグは約200年のレザー熟練の証。真の鑑定家の選択。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Delvaux_logo.svg/512px-Delvaux_logo.svg.png",
     auth:"'DELVAUX BRUXELLES' stamp. Made in Belgium or France. D logo clasp. Oldest fine leather goods house.",
     authJp:"「DELVAUX BRUXELLES」刻印。ベルギーまたはフランス製。Dロゴクラスプ。最古の高級レザーグッズハウス。",
@@ -2029,6 +2065,8 @@ const BRAND_DATA = {
   judithlieber: {
     name:"Judith Leiber", year:1963, country:"USA",
     categories:["handbags"],
+    desc:"Legendary American luxury brand famous for whimsical crystal minaudière clutches shaped like animals, fruits, and objects. A red-carpet staple carried by First Ladies and celebrities for decades. Each crystal-encrusted piece is handcrafted art. Vintage pieces from 1960s-1980s are highly collectible. Represents playful, unapologetic glamour.",
+    descJp:"動物、果物、オブジェクトの形をした気まぐれなクリスタルミノディエールクラッチで有名な伝説的アメリカ高級ブランド。何十年もファーストレディとセレブが持つレッドカーペット定番。各クリスタル装飾作品は手作りアート。1960-1980年代ヴィンテージ作品は高コレクタブル。遊び心があり謝罪しないグラマーを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Judith_Leiber_logo.svg/512px-Judith_Leiber_logo.svg.png",
     auth:"'JUDITH LEIBER' signature. Made in USA or Italy. Crystal minaudières (evening bags). Serial number.",
     authJp:"「JUDITH LEIBER」署名。米国またはイタリア製。クリスタルミノディエール（イブニングバッグ）。シリアル番号。",
@@ -2041,6 +2079,8 @@ const BRAND_DATA = {
   markcross: {
     name:"Mark Cross", year:1845, country:"USA",
     categories:["handbags"],
+    desc:"Historic American luxury house famously carried by Grace Kelly, Princess of Monaco. The Grace Box bag named in her honor epitomizes timeless elegance. Known for structured silhouettes, Saffiano leather, and classic American sophistication. Vintage 1950s-1960s pieces are collector's treasures. Royalty-approved American luxury.",
+    descJp:"モナコ公妃グレース・ケリーが持ったことで有名な歴史的アメリカ高級ハウス。彼女に敬意を表して名付けられたグレースボックスバッグは時代を超えたエレガンスを体現。構造的シルエット、サフィアーノレザー、クラシックアメリカン洗練で知られています。1950-1960年代ヴィンテージ作品はコレクターの宝。王室承認アメリカンラグジュアリー。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mark_Cross_logo.svg/512px-Mark_Cross_logo.svg.png",
     auth:"'MARK CROSS' logo. Made in Italy. Grace Kelly carried one. Structured, classic American luxury.",
     authJp:"「MARK CROSS」ロゴ。イタリア製。グレース・ケリーが持った。構造的、クラシックアメリカンラグジュアリー。",
@@ -2115,6 +2155,8 @@ const BRAND_DATA = {
   coach: {
     name:"Coach", year:1941, country:"USA",
     categories:["handbags"],
+    desc:"Classic American brand with two distinct eras: vintage USA-made bags (1960s-1990s) are collectible treasures, while modern Coach offers accessible luxury. Vintage Bonnie Cashin designs and Willis bags are highly prized. Known for quality leather, practical designs, and the signature turnlock hardware. Represents American craftsmanship heritage.",
+    descJp:"2つの異なる時代を持つクラシックアメリカンブランド：ヴィンテージ米国製バッグ（1960-1990年代）はコレクタブル宝物、モダンコーチはアクセシブルラグジュアリーを提供。ヴィンテージ ボニー・カシンデザインとウィリスバッグは高く評価されています。品質レザー、実用的デザイン、シグネチャー ターンロック金具で知られています。アメリカ職人技遺産を表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Coach_logo.svg/512px-Coach_logo.svg.png",
     auth:"'COACH' logo. Made in USA (vintage) or China/Vietnam (modern). Creed patch inside with serial.",
     authJp:"「COACH」ロゴ。米国製（ヴィンテージ）または中国/ベトナム製（モダン）。内側にシリアル付きクリードパッチ。",
@@ -2127,6 +2169,8 @@ const BRAND_DATA = {
   jacquemus: {
     name:"Jacquemus", year:2009, country:"France",
     categories:["handbags"],
+    desc:"Modern French brand that broke Instagram with Le Chiquito—the comically tiny bag too small for a phone. Known for playful proportions, from micro-mini to oversized XL bags, in vibrant colors. Represents irreverent, joyful luxury that doesn't take itself too seriously. Perfect for making a statement and getting likes.",
+    descJp:"電話も入らない滑稽なほど小さいバッグ、ル・シキートでInstagramを席巻したモダンフランスブランド。マイクロミニから特大XLバッグまでの遊び心ある比率と鮮やかな色で知られています。自分自身を真剣に受け止めない不遜で楽しいラグジュアリーを表しています。ステートメントを作りいいねを得るのに最適。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Jacquemus_logo.svg/512px-Jacquemus_logo.svg.png",
     auth:"'JACQUEMUS' logo. Made in Portugal or Italy. Known for TINY micro bags and oversized XL bags.",
     authJp:"「JACQUEMUS」ロゴ。ポルトガルまたはイタリア製。超小型マイクロバッグと特大XLバッグで知られる。",
@@ -2139,6 +2183,8 @@ const BRAND_DATA = {
   chromHearts: {
     name:"Chrome Hearts", year:1988, country:"USA",
     categories:["handbags"],
+    desc:"Legendary rock-and-roll luxury brand born from motorcycle culture, famous for sterling silver crosses, daggers, and gothic motifs. Each piece is handcrafted in Los Angeles with heavy silver hardware. No mass production, no compromises. Cult favorite of celebrities and rockstars. Represents rebellious, unapologetic luxury with substance.",
+    descJp:"モーターサイクル文化から生まれたスターリングシルバークロス、短剣、ゴシックモチーフで有名な伝説的ロックンロールラグジュアリーブランド。各ピースはロサンゼルスで重いシルバー金具で手作りされています。大量生産なし、妥協なし。セレブとロックスターのカルトお気に入り。実質のある反抗的で謝罪しないラグジュアリーを表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Chrome_Hearts_logo.svg/512px-Chrome_Hearts_logo.svg.png",
     auth:"Cross logo. 'CHROME HEARTS' stamp. Made in USA. Sterling silver hardware. Gothic aesthetic.",
     authJp:"クロスロゴ。「CHROME HEARTS」刻印。米国製。スターリングシルバー金具。ゴシック美学。",
@@ -2151,6 +2197,8 @@ const BRAND_DATA = {
   chopard: {
     name:"Chopard", year:1860, country:"Switzerland",
     categories:["jewelry"],
+    desc:"Swiss luxury jeweler famous for Happy Diamonds—innovative design where diamonds move freely between sapphire crystals. Official jeweler of the Cannes Film Festival, creating red-carpet masterpieces. The Ice Cube collection showcases modern geometric design. Represents playful Swiss precision and high jewelry artistry. Where innovation meets timeless luxury.",
+    descJp:"サファイアクリスタル間でダイヤモンドが自由に動く革新的デザインのハッピーダイヤモンドで有名なスイス高級宝石商。カンヌ映画祭の公式宝石商で、レッドカーペット傑作を創作。アイスキューブコレクションは現代幾何学的デザインを示しています。遊び心のあるスイス精密とハイジュエリー芸術性を表しています。革新が時代を超えたラグジュアリーと出会う場所。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Chopard_logo.svg/512px-Chopard_logo.svg.png",
     auth:"'CHOPARD' stamp. Swiss hallmarks. Serial number. High jewelry and watches.",
     authJp:"「CHOPARD」刻印。スイスホールマーク。シリアル番号。ハイジュエリーと時計。",
@@ -2277,6 +2325,8 @@ const BRAND_DATA = {
   mikimoto: {
     name:"Mikimoto", year:1893, country:"Japan",
     categories:["jewelry"],
+    desc:"The inventor of cultured pearls and the world's foremost pearl authority. Founded by Kokichi Mikimoto who revolutionized the jewelry industry in 1893. Famous for flawless Akoya pearls with legendary luster and perfectly matched strands. Each pearl is graded to the highest standards. Represents Japanese precision, timeless elegance, and pearl perfection.",
+    descJp:"養殖真珠の発明者であり世界最高の真珠権威。1893年にジュエリー業界に革命をもたらした御木本幸吉によって創業。伝説的な光沢と完璧にマッチしたストランドを持つ完璧なアコヤ真珠で有名。各真珠は最高基準に格付けされています。日本の精密、時代を超えたエレガンス、真珠の完璧を表しています。",
     imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Mikimoto_logo.svg/512px-Mikimoto_logo.svg.png",
     auth:"'MIKIMOTO' stamp. Akoya pearls (signature). Serial number on clasp. Japanese cultured pearls.",
     authJp:"「MIKIMOTO」刻印。アコヤ真珠（シグネチャー）。クラスプにシリアル番号。日本養殖真珠。",
