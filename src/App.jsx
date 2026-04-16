@@ -2363,7 +2363,41 @@ const BRAND_DATA = {
       {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Crisp white. Clean power.", descJp:"鮮やかなホワイト。クリーンパワー。"},
       {name:"Red", hex:"#DC143C", nameJp:"レッド", desc:"Bold red. Commanding presence.", descJp:"大胆な赤。威圧的存在感。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"B-Buzz", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Quilted chain bag - military glamour",
+        briefJp:"キルティングチェーンバッグ - ミリタリーグラマー",
+        desc:"Balmain's modern icon. Quilted leather with chain strap. B logo hardware. Military meets glamour. Olivier Rousteing era signature.",
+        descJp:"バルマンのモダンアイコン。チェーンストラップ付きキルティングレザー。Bロゴ金具。ミリタリーとグラマーの融合。オリヴィエ・ルスタン時代シグネチャー。",
+        shape:"Quilted leather shoulder bag. Chain strap. Bold B logo hardware. Structured glamour.",
+        shapeJp:"キルティングレザーショルダーバッグ。チェーンストラップ。大胆なBロゴ金具。構造的グラマー。",
+        sizes:[
+          {name:"Small", dim:"8\"W × 6\"H × 3\"D"},
+          {name:"Medium", dim:"10\"W × 7\"H × 4\"D - MOST POPULAR"}
+        ],
+        rare:"Limited colorways. Embellished versions with crystals. Sold out editions.",
+        rareJp:"限定カラーウェイ。クリスタル付き装飾バージョン。完売版。",
+        tip:"B-Buzz = Balmain modern icon. Quilted + chains + B logo = warrior princess glamour.",
+        tipJp:"B-バズ = バルマン モダンアイコン。キルティング + チェーン + Bロゴ = 戦士プリンセスグラマー。"
+      },
+      {
+        name:"BBag", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Structured tote - bold buttons",
+        briefJp:"構造的トート - 大胆なボタン",
+        desc:"Structured tote. Bold Balmain buttons on front. Military-inspired hardware. Architectural glamour.",
+        descJp:"構造的トート。前面に大胆なバルマンボタン。ミリタリー風金具。建築的グラマー。",
+        shape:"Structured rectangular tote. Bold button details. Dual top handles. Military aesthetic.",
+        shapeJp:"構造的長方形トート。大胆なボタンディテール。デュアルトップハンドル。ミリタリー美学。",
+        sizes:[
+          {name:"Medium", dim:"13\"W × 10\"H × 5\"D - Tote size"}
+        ],
+        rare:"Limited production. Bold hardware versions. Special edition colors.",
+        rareJp:"限定生産。大胆な金具バージョン。特別版カラー。",
+        tip:"BBag = those BOLD BUTTONS. Military-inspired tote. Balmain's structured glamour.",
+        tipJp:"Bバッグ = あの大胆なボタン。ミリタリー風トート。バルマンの構造的グラマー。"
+      }
+    ]
   },
   alexanderwang: {
     name:"Alexander Wang", year:2005, country:"USA",
@@ -2384,7 +2418,42 @@ const BRAND_DATA = {
       {name:"Oxblood", hex:"#4A0404", nameJp:"オックスブラッド", desc:"Deep burgundy. Dark luxury.", descJp:"深いバーガンディ。ダークラグジュアリー。"},
       {name:"Nude", hex:"#E3BC9A", nameJp:"ヌード", desc:"Soft nude with black hardware. Contrast cool.", descJp:"ブラック金具付き柔らかいヌード。コントラストクール。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Rocco", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Studded satchel - model-off-duty icon",
+        briefJp:"スタッズサッチェル - オフデューティモデルアイコン",
+        desc:"THE Alexander Wang bag. Satchel covered in studs and zippers. Model-off-duty essential. 2010s NYC icon.",
+        descJp:"THE アレキサンダー・ワンバッグ。スタッズとジッパーで覆われたサッチェル。オフデューティモデル必需品。2010年代NYCアイコン。",
+        shape:"Soft satchel. Full stud and zipper coverage. Dual top handles. Crossbody strap. Downtown edge.",
+        shapeJp:"柔らかいサッチェル。フルスタッドとジッパーカバレッジ。デュアルトップハンドル。クロスボディストラップ。ダウンタウンエッジ。",
+        sizes:[
+          {name:"Small", dim:"10\"W × 8\"H × 5\"D"},
+          {name:"Medium", dim:"14\"W × 10\"H × 6\"D - MOST POPULAR"},
+          {name:"Large", dim:"17\"W × 12\"H × 7\"D"}
+        ],
+        rare:"Original 2009 black leather. Limited hardware finishes (rose gold). Sold out colors.",
+        rareJp:"オリジナル2009年ブラックレザー。限定金具仕上げ（ローズゴールド）。完売カラー。",
+        tip:"Rocco = THE Wang bag. Studs + zippers EVERYWHERE. 2010s model-off-duty icon.",
+        tipJp:"ロッコ = THE ワンバッグ。スタッズ + ジッパー どこでも。2010年代オフデューティモデルアイコン。"
+      },
+      {
+        name:"Prisma Skeletal", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Geometric cutout tote - architectural edge",
+        briefJp:"幾何学カットアウトトート - 建築的エッジ",
+        desc:"Geometric cutout design. Architectural leather tote. Limited edition. Wang's edgy minimalism.",
+        descJp:"幾何学カットアウトデザイン。建築的レザートート。限定版。ワンのエッジーミニマリズム。",
+        shape:"Tote with geometric cutout panels. Structural leather. Angular design. Modern edge.",
+        shapeJp:"幾何学カットアウトパネル付きトート。構造的レザー。角度デザイン。モダンエッジ。",
+        sizes:[
+          {name:"Large", dim:"15\"W × 12\"H × 6\"D - Tote"}
+        ],
+        rare:"Limited edition design. Discontinued. Sold out quickly.",
+        rareJp:"限定版デザイン。廃盤。即完売。",
+        tip:"Prisma Skeletal = geometric cutouts. Architectural Wang. Limited edition, rare find.",
+        tipJp:"プリズマ スケレタル = 幾何学カットアウト。建築的ワン。限定版、希少発見。"
+      }
+    ]
   },
   lanvin: {
     name:"Lanvin", year:1889, country:"France",
@@ -2405,7 +2474,41 @@ const BRAND_DATA = {
       {name:"Chain Gold", hex:"#D4AF37", nameJp:"チェーンゴールド", desc:"Woven chain detail. Signature hardware.", descJp:"編みチェーンディテール。シグネチャー金具。"},
       {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Deep burgundy. French sophistication.", descJp:"深いバーガンディ。フランス洗練。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Happy", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Woven chain tote - Elbaz era icon",
+        briefJp:"編みチェーントート - エルバズ時代アイコン",
+        desc:"THE Lanvin bag. Woven chain handles. Alber Elbaz's iconic creation. Romantic, elegant, collectible. 2012+ icon.",
+        descJp:"THE ランバンバッグ。編みチェーンハンドル。アルベール・エルバズの象徴的創作。ロマンティック、エレガント、コレクタブル。2012+アイコン。",
+        shape:"Tote bag with signature woven chain handles. Soft leather body. Feminine elegance.",
+        shapeJp:"シグネチャー 編みチェーンハンドル付きトートバッグ。柔らかいレザーボディ。女性的エレガンス。",
+        sizes:[
+          {name:"Medium", dim:"12\"W × 10\"H × 5\"D - MOST POPULAR"},
+          {name:"Large", dim:"15\"W × 12\"H × 6\"D"}
+        ],
+        rare:"Original Elbaz era colors. Sold out limited editions. H&M collab version 2010.",
+        rareJp:"オリジナル エルバズ時代カラー。完売限定版。H&Mコラボバージョン2010。",
+        tip:"Happy = woven CHAIN handles. Alber Elbaz icon. Romantic Lanvin. Collectible Elbaz era.",
+        tipJp:"ハッピー = 編みチェーンハンドル。アルベール・エルバズアイコン。ロマンティックランバン。コレクタブル エルバズ時代。"
+      },
+      {
+        name:"Amalia", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Chain shoulder bag - elegant evening",
+        briefJp:"チェーンショルダーバッグ - エレガントイブニング",
+        desc:"Chain shoulder bag. Elegant evening piece. Soft leather. Elbaz era romantic sophistication.",
+        descJp:"チェーンショルダーバッグ。エレガントイブニングピース。柔らかいレザー。エルバズ時代ロマンティック洗練。",
+        shape:"Shoulder bag with chain strap. Soft leather. Elegant flap closure. Evening sophistication.",
+        shapeJp:"チェーンストラップ付きショルダーバッグ。柔らかいレザー。エレガントフラップクロージャー。イブニング洗練。",
+        sizes:[
+          {name:"Small", dim:"9\"W × 7\"H × 3\"D - Evening bag"}
+        ],
+        rare:"Elbaz era designs. Limited production. Sold out colors.",
+        rareJp:"エルバズ時代デザイン。限定生産。完売カラー。",
+        tip:"Amalia = elegant chain shoulder bag. Elbaz romantic style. Perfect evening piece.",
+        tipJp:"アマリア = エレガント チェーンショルダーバッグ。エルバズロマンティックスタイル。完璧なイブニングピース。"
+      }
+    ]
   },
   jilsander: {
     name:"Jil Sander", year:1968, country:"Germany",
