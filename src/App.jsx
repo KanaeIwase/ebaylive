@@ -1937,7 +1937,40 @@ const BRAND_DATA = {
       {name:"Navy Blue", hex:"#000080", nameJp:"ネイビーブルー", desc:"Deep navy. Classic elegance.", descJp:"深いネイビー。クラシックエレガンス。"},
       {name:"Nude Pink", hex:"#FADADD", nameJp:"ヌードピンク", desc:"Soft nude. Very feminine.", descJp:"柔らかいヌード。とても女性的。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Choo 24:7", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Hobo shoulder bag - everyday glamour",
+        briefJp:"ホーボーショルダーバッグ - 毎日のグラマー",
+        desc:"Versatile hobo shoulder bag. Star studs detail. Everyday luxury with red carpet edge. Discontinued but iconic.",
+        descJp:"多用途ホーボーショルダーバッグ。スタースタッズディテール。レッドカーペットエッジを持つ毎日のラグジュアリー。廃盤だがアイコニック。",
+        shape:"Slouchy hobo shoulder bag. Star stud accents. Single shoulder strap. Zipper top closure.",
+        shapeJp:"たるんだホーボーショルダーバッグ。スタースタッズアクセント。シングルショルダーストラップ。ジッパートップクロージャー。",
+        sizes:[
+          {name:"Medium", dim:"13\"W × 10\"H × 4\"D - Everyday hobo"}
+        ],
+        rare:"Discontinued design. Limited colors. Early 2000s versions.",
+        rareJp:"廃盤デザイン。限定カラー。2000年代初期バージョン。",
+        tip:"24:7 = everyday glamour. Those STAR STUDS = Jimmy Choo signature. Discontinued, find it!",
+        tipJp:"24:7 = 毎日のグラマー。あのスタースタッズ = ジミー・チュウシグネチャー。廃盤、見つけて！"
+      },
+      {
+        name:"Lockett", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Structured mini with lock - elegant petite",
+        briefJp:"ロック付き構造的ミニ - エレガント小柄",
+        desc:"Structured mini bag. Lock hardware detail. Compact, elegant, party-ready. Limited production.",
+        descJp:"構造的ミニバッグ。ロック金具ディテール。コンパクト、エレガント、パーティー対応。限定生産。",
+        shape:"Small structured bag. Lock detail on front. Shoulder chain strap. Compact evening bag.",
+        shapeJp:"小さな構造的バッグ。前面にロックディテール。ショルダーチェーンストラップ。コンパクトイブニングバッグ。",
+        sizes:[
+          {name:"Mini", dim:"7\"W × 5\"H × 3\"D - Evening clutch size"}
+        ],
+        rare:"Limited production runs. Sold out colors. Special edition finishes.",
+        rareJp:"限定生産ラン。完売カラー。特別版仕上げ。",
+        tip:"Lockett = mini structured bag. Lock detail. Perfect for parties. Limited, rare find.",
+        tipJp:"ロケット = ミニ構造的バッグ。ロックディテール。パーティーに完璧。限定、希少発見。"
+      }
+    ]
   },
   christianlouboutin: {
     name:"Christian Louboutin", year:1991, country:"France",
@@ -1958,7 +1991,41 @@ const BRAND_DATA = {
       {name:"Metallic Gold", hex:"#FFD700", nameJp:"メタリックゴールド", desc:"Bold gold hardware. Maximum impact.", descJp:"大胆なゴールド金具。最大インパクト。"},
       {name:"Patent Black", hex:"#1A1A1A", nameJp:"パテントブラック", desc:"Shiny patent leather. Ultra glam.", descJp:"光沢パテントレザー。ウルトラグラム。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Paloma", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Spiked clutch - knuckle-duster icon",
+        briefJp:"スパイククラッチ - ナックルダスターアイコン",
+        desc:"THE Louboutin bag. Clutch covered in SPIKES. Knuckle-duster style. Red carpet icon. Fierce and fabulous.",
+        descJp:"THE ルブタンバッグ。スパイクで覆われたクラッチ。ナックルダスタースタイル。レッドカーペットアイコン。激しく素晴らしい。",
+        shape:"Structured clutch. Full spike coverage on front. Fold-over flap. Optional chain strap. Edgy glamour.",
+        shapeJp:"構造的クラッチ。前面にフルスパイクカバレッジ。折り返しフラップ。オプションチェーンストラップ。エッジーグラマー。",
+        sizes:[
+          {name:"Small", dim:"9\"W × 5\"H × 2\"D - Clutch"},
+          {name:"Medium", dim:"11\"W × 6\"H × 3\"D - MOST POPULAR"}
+        ],
+        rare:"Original 2009 launch. Limited spike finishes (gold, gunmetal). Red carpet provenance.",
+        rareJp:"オリジナル2009年発売。限定スパイク仕上げ（ゴールド、ガンメタル）。レッドカーペット来歴。",
+        tip:"Paloma = SPIKES everywhere. Red carpet staple. Those spikes = pure Louboutin edge.",
+        tipJp:"パロマ = どこでもスパイク。レッドカーペット定番。あのスパイク = 純粋ルブタンエッジ。"
+      },
+      {
+        name:"Cabata", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Tote with studs - luxury shopper",
+        briefJp:"スタッズ付きトート - ラグジュアリーショッパー",
+        desc:"Large tote bag. Stud details. Louboutin edge meets practical tote. Studded versions are rare and fierce.",
+        descJp:"大型トートバッグ。スタッズディテール。ルブタンエッジが実用的トートと出会う。スタッズバージョンは希少で激しい。",
+        shape:"Large rectangular tote. Spike or stud embellishments. Dual top handles. Open top. Spacious.",
+        shapeJp:"大型長方形トート。スパイクまたはスタッズ装飾。デュアルトップハンドル。オープントップ。広々。",
+        sizes:[
+          {name:"Large", dim:"15\"W × 12\"H × 6\"D - Shopper tote"}
+        ],
+        rare:"Studded limited editions. Limited production runs. Bold spike versions.",
+        rareJp:"スタッズ限定版。限定生産ラン。大胆なスパイクバージョン。",
+        tip:"Cabata tote = practical meets FIERCE. Studded versions are rare. Louboutin edge, tote size.",
+        tipJp:"カバタトート = 実用的が激しいと出会う。スタッズバージョンは希少。ルブタンエッジ、トートサイズ。"
+      }
+    ]
   },
   offwhite: {
     name:"Off-White", year:2013, country:"Italy",
