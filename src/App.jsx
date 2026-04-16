@@ -1689,6 +1689,13 @@ const BRAND_DATA = {
     rareJp:"パディントンバッグ（2000年代アイコン、南京錠付き）。ドリューバッグ。フェイバッグ。ヴィンテージ フィービー・ファイロ時代（2001-2006）。",
     tip:"Feminine, romantic, soft. The Paddington with the big padlock was EVERYWHERE in 2005.",
     tipJp:"女性的、ロマンチック、ソフト。大きな南京錠付きパディントンは2005年にどこにでもあった。",
+    colors:[
+      {name:"Tan", hex:"#D2B48C", nameJp:"タン", desc:"Soft tan leather. Romantic bohemian.", descJp:"柔らかいタンレザー。ロマンティックボヘミアン。"},
+      {name:"Motty Grey", hex:"#A9A9A9", nameJp:"モッティグレー", desc:"Signature grey. Effortless chic.", descJp:"シグネチャーグレー。楽なシック。"},
+      {name:"Blush Pink", hex:"#FFB6C1", nameJp:"ブラッシュピンク", desc:"Dreamy pink. Feminine elegance.", descJp:"夢のようなピンク。女性的エレガンス。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Soft navy. Parisian ease.", descJp:"柔らかいネイビー。パリジャンイーズ。"},
+      {name:"Caramel", hex:"#C68E17", nameJp:"キャラメル", desc:"Warm caramel. Boho luxury.", descJp:"温かいキャラメル。ボヘミアンラグジュアリー。"}
+    ],
     models:[]
   },
   tomford: {
@@ -1703,6 +1710,13 @@ const BRAND_DATA = {
     rareJp:"ジェニファーバッグ（チェーン付きクロスボディ）。ナタリアバッグ。限定版エキゾチックレザー。",
     tip:"Tom Ford = modern luxury. Sexy, sophisticated, expensive. This is grown-up glamour.",
     tipJp:"トム・フォード = モダンラグジュアリー。セクシー、洗練、高価。これは大人のグラマー。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Sleek black. Modern sophistication.", descJp:"滑らかなブラック。モダン洗練。"},
+      {name:"Cognac", hex:"#9F4A07", nameJp:"コニャック", desc:"Rich cognac leather. Luxurious warmth.", descJp:"豊かなコニャックレザー。豪華な温かさ。"},
+      {name:"Chocolate Brown", hex:"#3B2414", nameJp:"チョコレートブラウン", desc:"Deep brown. Masculine elegance.", descJp:"深いブラウン。男性的エレガンス。"},
+      {name:"Gold Hardware", hex:"#B8860B", nameJp:"ゴールド金具", desc:"Signature TF logo hardware. Premium detail.", descJp:"シグネチャーTFロゴ金具。プレミアムディテール。"},
+      {name:"Midnight Blue", hex:"#191970", nameJp:"ミッドナイトブルー", desc:"Dark blue. Sexy sophistication.", descJp:"ダークブルー。セクシー洗練。"}
+    ],
     models:[]
   },
   dolcegabbana: {
@@ -1842,6 +1856,13 @@ const BRAND_DATA = {
     rareJp:"Choo 24:7バッグ。ボンボンバケットバッグ。スタースタッズバッグ。コラボレーション（H&Mは巨大だった）。",
     tip:"Known for SHOES, but bags are solid. Star studs = Jimmy Choo. Red carpet glamour.",
     tipJp:"シューズで有名だが、バッグも堅実。スタースタッズ = ジミー・チュウ。レッドカーペットグラマー。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Classic black leather. Red carpet ready.", descJp:"クラシックブラックレザー。レッドカーペット対応。"},
+      {name:"Metallic Silver", hex:"#C0C0C0", nameJp:"メタリックシルバー", desc:"Glamorous silver. Party perfect.", descJp:"グラマラスシルバー。パーティー完璧。"},
+      {name:"Champagne Gold", hex:"#F7E7CE", nameJp:"シャンパンゴールド", desc:"Elegant champagne. Sophisticated shimmer.", descJp:"エレガントシャンパン。洗練されたシマー。"},
+      {name:"Navy Blue", hex:"#000080", nameJp:"ネイビーブルー", desc:"Deep navy. Classic elegance.", descJp:"深いネイビー。クラシックエレガンス。"},
+      {name:"Nude Pink", hex:"#FADADD", nameJp:"ヌードピンク", desc:"Soft nude. Very feminine.", descJp:"柔らかいヌード。とても女性的。"}
+    ],
     models:[]
   },
   christianlouboutin: {
@@ -1856,6 +1877,13 @@ const BRAND_DATA = {
     rareJp:"パロマクラッチ（スパイク付き）。スイートチャリティショルダーバッグ。パネットーネウォレット。レッドソールバッグ。",
     tip:"Red soles on SHOES made him famous. Bags have same edgy luxury. Spikes, studs, glamour.",
     tipJp:"シューズの赤底で有名に。バッグも同じエッジーラグジュアリー。スパイク、スタッズ、グラマー。",
+    colors:[
+      {name:"Black with Spikes", hex:"#000000", nameJp:"ブラック+スパイク", desc:"Black leather with signature spikes. Edgy glamour.", descJp:"シグネチャースパイク付きブラックレザー。エッジーグラマー。"},
+      {name:"Louboutin Red", hex:"#C41E3A", nameJp:"ルブタンレッド", desc:"Iconic red sole color. THE signature.", descJp:"象徴的な赤底カラー。THEシグネチャー。"},
+      {name:"Nude", hex:"#E3BC9A", nameJp:"ヌード", desc:"Classic nude. Leg-lengthening effect.", descJp:"クラシックヌード。脚長効果。"},
+      {name:"Metallic Gold", hex:"#FFD700", nameJp:"メタリックゴールド", desc:"Bold gold hardware. Maximum impact.", descJp:"大胆なゴールド金具。最大インパクト。"},
+      {name:"Patent Black", hex:"#1A1A1A", nameJp:"パテントブラック", desc:"Shiny patent leather. Ultra glam.", descJp:"光沢パテントレザー。ウルトラグラム。"}
+    ],
     models:[]
   },
   offwhite: {
@@ -1870,6 +1898,13 @@ const BRAND_DATA = {
     rareJp:"バインダークリップバッグ（象徴的）。ジットニーバッグ。ヴァージル・アブロー時代作品（2013-2021）。ナイキコラボ。",
     tip:"Virgil Abloh's streetwear meets luxury. The yellow industrial belt = instant recognition.",
     tipJp:"ヴァージル・アブローのストリートウェアとラグジュアリーの融合。黄色のインダストリアルベルト = 即座に認識。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Classic Off-White black. Streetwear staple.", descJp:"クラシック オフホワイト ブラック。ストリートウェア定番。"},
+      {name:"Industrial Yellow", hex:"#FDD835", nameJp:"インダストリアルイエロー", desc:"THE signature belt color. Instant recognition.", descJp:"THEシグネチャーベルトカラー。即座に認識。"},
+      {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Clean white with contrast stitching.", descJp:"コントラストステッチ付きクリーンホワイト。"},
+      {name:"Orange", hex:"#FF6600", nameJp:"オレンジ", desc:"Vibrant orange accents. Street energy.", descJp:"鮮やかなオレンジアクセント。ストリートエネルギー。"},
+      {name:"Neon Green", hex:"#39FF14", nameJp:"ネオングリーン", desc:"Bold neon. Statement making.", descJp:"大胆なネオン。ステートメント作り。"}
+    ],
     models:[]
   },
   marni: {
@@ -1884,6 +1919,13 @@ const BRAND_DATA = {
     rareJp:"トランクバッグ。ムセオバッグ（ソフトトート）。カラーブロックデザイン。2000年代ヴィンテージ作品。",
     tip:"Quirky, artistic, bold colors. Marni is NOT boring. It's for people who take fashion risks.",
     tipJp:"風変わり、芸術的、大胆な色。マルニは退屈ではない。ファッションリスクを取る人向け。",
+    colors:[
+      {name:"Marni Green", hex:"#2D5016", nameJp:"マルニグリーン", desc:"Deep forest green. Signature color.", descJp:"深い森の緑。シグネチャーカラー。"},
+      {name:"Terracotta Orange", hex:"#E2725B", nameJp:"テラコッタオレンジ", desc:"Warm terracotta. Artistic vibe.", descJp:"温かいテラコッタ。芸術的雰囲気。"},
+      {name:"Cobalt Blue", hex:"#0047AB", nameJp:"コバルトブルー", desc:"Vibrant cobalt. Bold statement.", descJp:"鮮やかなコバルト。大胆なステートメント。"},
+      {name:"Mustard Yellow", hex:"#FFDB58", nameJp:"マスタードイエロー", desc:"Rich mustard. Unexpected chic.", descJp:"豊かなマスタード。予想外のシック。"},
+      {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Deep burgundy. Sophisticated drama.", descJp:"深いバーガンディ。洗練されたドラマ。"}
+    ],
     models:[]
   },
   therow: {
@@ -1898,6 +1940,13 @@ const BRAND_DATA = {
     rareJp:"マルゴートート。ハーフムーンバッグ。ソフィアバッグ。アシュリーとメアリー・ケイト・オルセンデザイン - 超ラグジュアリー。",
     tip:"QUIET luxury. No logos. Insane quality. If you know The Row, you're in the know.",
     tipJp:"静かなラグジュアリー。ロゴなし。驚異的品質。The Rowを知ってるなら、あなたは通。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Perfect black. Minimalist luxury.", descJp:"完璧なブラック。ミニマリストラグジュアリー。"},
+      {name:"Cream", hex:"#FFFDD0", nameJp:"クリーム", desc:"Soft cream. Understated elegance.", descJp:"柔らかいクリーム。控えめなエレガンス。"},
+      {name:"Camel", hex:"#C19A6B", nameJp:"キャメル", desc:"Rich camel. Timeless neutral.", descJp:"豊かなキャメル。タイムレスなニュートラル。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Refined simplicity.", descJp:"深いネイビー。洗練されたシンプルさ。"},
+      {name:"Chocolate Brown", hex:"#3B2414", nameJp:"チョコレートブラウン", desc:"Luxe brown. Quiet richness.", descJp:"豪華なブラウン。静かな豊かさ。"}
+    ],
     models:[]
   },
   stellamccartney: {
@@ -1912,6 +1961,13 @@ const BRAND_DATA = {
     rareJp:"ファラベラバッグ（チェーントリム）。ヴィーガンレザー革新者。ビートルズ遺産（ポール・マッカートニーの娘）。",
     tip:"NO LEATHER, NO FUR, NO SKIN. All vegan luxury. Stella changed the game for sustainable fashion.",
     tipJp:"レザーなし、ファーなし、スキンなし。すべてヴィーガンラグジュアリー。ステラはサステナブルファッションのゲームを変えた。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Sustainable black. Vegan luxury.", descJp:"サステナブルブラック。ヴィーガンラグジュアリー。"},
+      {name:"Blush Pink", hex:"#FFB6C1", nameJp:"ブラッシュピンク", desc:"Soft pink. Feminine eco-chic.", descJp:"柔らかいピンク。女性的エコシック。"},
+      {name:"Sage Green", hex:"#9DC183", nameJp:"セージグリーン", desc:"Natural green. Earth-conscious.", descJp:"ナチュラルグリーン。地球意識。"},
+      {name:"Navy", hex:"#001F3F", nameJp:"ネイビー", desc:"Deep navy. Sustainable sophistication.", descJp:"深いネイビー。サステナブル洗練。"},
+      {name:"Beige", hex:"#F5F5DC", nameJp:"ベージュ", desc:"Natural beige. Conscious neutral.", descJp:"ナチュラルベージュ。意識的ニュートラル。"}
+    ],
     models:[]
   },
   proenzaschouler: {
@@ -1926,6 +1982,13 @@ const BRAND_DATA = {
     rareJp:"PS1バッグ（バックル付きサッチェル）。PS11（ボックスバッグ）。PSクーリエバッグ。2000年代初期作品。",
     tip:"The PS1 was THE It bag of the 2010s. Modern, structured, downtown NYC cool.",
     tipJp:"PS1は2010年代のTHE Itバッグだった。モダン、構造的、ダウンタウンNYCクール。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"NYC black. Urban sophistication.", descJp:"NYCブラック。アーバン洗練。"},
+      {name:"Oxblood", hex:"#4A0404", nameJp:"オックスブラッド", desc:"Deep burgundy. Rich and moody.", descJp:"深いバーガンディ。豊かでムーディー。"},
+      {name:"Smoke Grey", hex:"#708090", nameJp:"スモークグレー", desc:"Cool grey. Modern neutral.", descJp:"クールグレー。モダンニュートラル。"},
+      {name:"Burnt Orange", hex:"#CC5500", nameJp:"バーントオレンジ", desc:"Warm orange. Statement color.", descJp:"温かいオレンジ。ステートメントカラー。"},
+      {name:"Midnight Blue", hex:"#191970", nameJp:"ミッドナイトブルー", desc:"Deep blue. Downtown chic.", descJp:"深いブルー。ダウンタウンシック。"}
+    ],
     models:[]
   },
   balmain: {
@@ -1940,6 +2003,13 @@ const BRAND_DATA = {
     rareJp:"B-バズバッグ。Bバッグ。オリヴィエ・ルスタン時代（2011+）コレクティブル。ヴィンテージ ピエール・バルマン作品。",
     tip:"Military jackets made Balmain famous. Bags have same vibe - structured, bold, fierce.",
     tipJp:"ミリタリージャケットでバルマンは有名に。バッグも同じ雰囲気 - 構造的、大胆、激しい。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Warrior black. Military chic.", descJp:"戦士ブラック。ミリタリーシック。"},
+      {name:"Gold Hardware", hex:"#FFD700", nameJp:"ゴールド金具", desc:"Bold gold buttons. Signature detail.", descJp:"大胆なゴールドボタン。シグネチャーディテール。"},
+      {name:"Army Green", hex:"#4B5320", nameJp:"アーミーグリーン", desc:"Military green. Strong and bold.", descJp:"ミリタリーグリーン。強く大胆。"},
+      {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Crisp white. Clean power.", descJp:"鮮やかなホワイト。クリーンパワー。"},
+      {name:"Red", hex:"#DC143C", nameJp:"レッド", desc:"Bold red. Commanding presence.", descJp:"大胆な赤。威圧的存在感。"}
+    ],
     models:[]
   },
   alexanderwang: {
@@ -1954,6 +2024,13 @@ const BRAND_DATA = {
     rareJp:"ロッコバッグ（スタッズとジッパー）。リアバッグ。マルティバックパック。2010年代初期NYCクール。",
     tip:"Downtown NYC aesthetic. Black, studs, zippers, edge. Model-off-duty style.",
     tipJp:"ダウンタウンNYC美学。ブラック、スタッズ、ジッパー、エッジ。オフデューティモデルスタイル。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Downtown black. Edgy staple.", descJp:"ダウンタウンブラック。エッジー定番。"},
+      {name:"Silver Hardware", hex:"#C0C0C0", nameJp:"シルバー金具", desc:"Metallic studs and zippers. Signature edge.", descJp:"メタリックスタッズとジッパー。シグネチャーエッジ。"},
+      {name:"Dark Grey", hex:"#3B3B3B", nameJp:"ダークグレー", desc:"Urban grey. Cool neutrality.", descJp:"アーバングレー。クールニュートラル。"},
+      {name:"Oxblood", hex:"#4A0404", nameJp:"オックスブラッド", desc:"Deep burgundy. Dark luxury.", descJp:"深いバーガンディ。ダークラグジュアリー。"},
+      {name:"Nude", hex:"#E3BC9A", nameJp:"ヌード", desc:"Soft nude with black hardware. Contrast cool.", descJp:"ブラック金具付き柔らかいヌード。コントラストクール。"}
+    ],
     models:[]
   },
   lanvin: {
@@ -1968,6 +2045,13 @@ const BRAND_DATA = {
     rareJp:"ハッピーバッグ（編みチェーンハンドル）。カバトート。アルベール・エルバズ時代（2001-2015）高コレクティブル。",
     tip:"Oldest French couture house (1889). Alber Elbaz made it cool again in 2000s. Feminine, elegant.",
     tipJp:"最古のフランスクチュールハウス（1889）。アルベール・エルバズが2000年代に再びクールに。女性的、エレガント。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Parisian black. Timeless chic.", descJp:"パリジャンブラック。タイムレスシック。"},
+      {name:"Powder Blue", hex:"#B0E0E6", nameJp:"パウダーブルー", desc:"Soft blue. Romantic elegance.", descJp:"柔らかいブルー。ロマンティックエレガンス。"},
+      {name:"Blush Pink", hex:"#FFB6C1", nameJp:"ブラッシュピンク", desc:"Delicate pink. Feminine grace.", descJp:"繊細なピンク。女性的優美さ。"},
+      {name:"Chain Gold", hex:"#D4AF37", nameJp:"チェーンゴールド", desc:"Woven chain detail. Signature hardware.", descJp:"編みチェーンディテール。シグネチャー金具。"},
+      {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Deep burgundy. French sophistication.", descJp:"深いバーガンディ。フランス洗練。"}
+    ],
     models:[]
   },
   jilsander: {
@@ -1982,6 +2066,13 @@ const BRAND_DATA = {
     rareJp:"タングルバッグ（結び目ハンドル）。カンノーロバッグ。90年代ヴィンテージ作品。フィービー・ファイロコラボ。",
     tip:"QUEEN of minimalism. Clean, architectural, no logos. Jil Sander = less is more.",
     tipJp:"ミニマリズムの女王。クリーン、建築的、ロゴなし。ジル・サンダー = 少ない方が多い。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Pure black. Minimalist perfection.", descJp:"純粋なブラック。ミニマリスト完璧。"},
+      {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Crisp white. Clean simplicity.", descJp:"鮮やかなホワイト。クリーンシンプルさ。"},
+      {name:"Camel", hex:"#C19A6B", nameJp:"キャメル", desc:"Soft camel. Understated luxury.", descJp:"柔らかいキャメル。控えめなラグジュアリー。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Quiet sophistication.", descJp:"深いネイビー。静かな洗練。"},
+      {name:"Grey", hex:"#808080", nameJp:"グレー", desc:"Neutral grey. Architectural neutrality.", descJp:"ニュートラルグレー。建築的中立性。"}
+    ],
     models:[]
   },
   goyard: {
@@ -2060,6 +2151,13 @@ const BRAND_DATA = {
     rareJp:"ブリヤンバッグ（構造的）。タンペットバッグ。ピンバッグ。王室御用達（ベルギー王室）。",
     tip:"Older than Louis Vuitton (1829!). Belgian craftsmanship. The Brillant is architectural perfection.",
     tipJp:"ルイ・ヴィトンより古い（1829！）。ベルギー職人技。ブリヤンは建築的完璧。",
+    colors:[
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Belgian black. Timeless refinement.", descJp:"ベルギーブラック。タイムレス洗練。"},
+      {name:"Cognac", hex:"#9F4A07", nameJp:"コニャック", desc:"Rich cognac. Heritage leather.", descJp:"豊かなコニャック。遺産レザー。"},
+      {name:"Forest Green", hex:"#228B22", nameJp:"フォレストグリーン", desc:"Deep green. European elegance.", descJp:"深い緑。ヨーロッパエレガンス。"},
+      {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Royal burgundy. Regal luxury.", descJp:"ロイヤルバーガンディ。王室ラグジュアリー。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Classic navy. Understated prestige.", descJp:"クラシックネイビー。控えめな威信。"}
+    ],
     models:[]
   },
   judithlieber: {
@@ -2074,6 +2172,13 @@ const BRAND_DATA = {
     rareJp:"クリスタル動物クラッチ（コレクティブル）。1960-80年代ヴィンテージ。カスタム作品。レッドカーペットバッグ。",
     tip:"Crystal minaudières shaped like animals, fruits, objects. Red carpet staple. Whimsical luxury.",
     tipJp:"動物、果物、オブジェクトの形のクリスタルミノディエール。レッドカーペット定番。気まぐれなラグジュアリー。",
+    colors:[
+      {name:"Full Crystal", hex:"#FFFFFF", nameJp:"フルクリスタル", desc:"Covered in crystals. Maximum sparkle.", descJp:"クリスタルで覆われている。最大スパークル。"},
+      {name:"Gold Crystal", hex:"#FFD700", nameJp:"ゴールドクリスタル", desc:"Gold tone crystals. Opulent glamour.", descJp:"ゴールドトーンクリスタル。豪華グラマー。"},
+      {name:"Silver Crystal", hex:"#C0C0C0", nameJp:"シルバークリスタル", desc:"Silver crystals. Elegant shimmer.", descJp:"シルバークリスタル。エレガントシマー。"},
+      {name:"Multicolor", hex:"#FF69B4", nameJp:"マルチカラー", desc:"Rainbow crystals. Playful luxury.", descJp:"レインボークリスタル。遊び心のあるラグジュアリー。"},
+      {name:"Black Crystal", hex:"#000000", nameJp:"ブラッククリスタル", desc:"Black crystals. Dramatic elegance.", descJp:"ブラッククリスタル。ドラマティックエレガンス。"}
+    ],
     models:[]
   },
   markcross: {
@@ -2088,6 +2193,13 @@ const BRAND_DATA = {
     rareJp:"グレースボックスバッグ（グレース・ケリーにちなんで命名）。1950-60年代ヴィンテージ作品。サフィアーノレザー。",
     tip:"Grace Kelly carried Mark Cross. That's all you need to know. Royalty approved.",
     tipJp:"グレース・ケリーがマーク・クロスを持った。それだけで十分。王室承認。",
+    colors:[
+      {name:"Black Saffiano", hex:"#000000", nameJp:"ブラックサフィアーノ", desc:"Structured black. Grace Kelly classic.", descJp:"構造的ブラック。グレース・ケリークラシック。"},
+      {name:"Cognac", hex:"#9F4A07", nameJp:"コニャック", desc:"Rich cognac. American heritage.", descJp:"豊かなコニャック。アメリカ遺産。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Classic navy. Timeless elegance.", descJp:"クラシックネイビー。タイムレスエレガンス。"},
+      {name:"Burgundy", hex:"#800020", nameJp:"バーガンディ", desc:"Deep burgundy. Sophisticated luxury.", descJp:"深いバーガンディ。洗練されたラグジュアリー。"},
+      {name:"Forest Green", hex:"#228B22", nameJp:"フォレストグリーン", desc:"Rich green. Vintage charm.", descJp:"豊かな緑。ヴィンテージ魅力。"}
+    ],
     models:[]
   },
   mulberry: {
@@ -2164,6 +2276,13 @@ const BRAND_DATA = {
     rareJp:"ヴィンテージ米国製バッグ（1960-90年代）。ボニー・カシン時代。ウィリスバッグ。レガシーコレクション。",
     tip:"Vintage Coach (USA-made) is GOLD. Modern Coach is accessible luxury. Know the difference.",
     tipJp:"ヴィンテージコーチ（米国製）はゴールド。モダンコーチはアクセシブルラグジュアリー。違いを知る。",
+    colors:[
+      {name:"British Tan", hex:"#C19A6B", nameJp:"ブリティッシュタン", desc:"Signature tan leather. Vintage classic.", descJp:"シグネチャータンレザー。ヴィンテージクラシック。"},
+      {name:"Black", hex:"#000000", nameJp:"ブラック", desc:"Classic Coach black. Timeless staple.", descJp:"クラシックコーチブラック。タイムレス定番。"},
+      {name:"Saddle", hex:"#8B4513", nameJp:"サドル", desc:"Warm brown. Americana heritage.", descJp:"温かいブラウン。アメリカーナ遺産。"},
+      {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Preppy chic.", descJp:"深いネイビー。プレッピーシック。"},
+      {name:"Brass Hardware", hex:"#B5A642", nameJp:"ブラス金具", desc:"Vintage brass turnlock. Signature detail.", descJp:"ヴィンテージブラスターンロック。シグネチャーディテール。"}
+    ],
     models:[]
   },
   jacquemus: {
@@ -2178,6 +2297,13 @@ const BRAND_DATA = {
     rareJp:"ル・シキート（超小型バッグ - 電話が入らない）。ル・グラン・バンビーノ。明るい色、遊び心のある形。",
     tip:"Instagram famous for TINY bags. Le Chiquito is comically small. It's art, not utility.",
     tipJp:"超小型バッグでInstagram有名。ル・シキートは滑稽なほど小さい。実用性ではなくアート。",
+    colors:[
+      {name:"Wheat Yellow", hex:"#F5DEB3", nameJp:"ウィートイエロー", desc:"Provence yellow. French sun.", descJp:"プロヴァンスイエロー。フランスの太陽。"},
+      {name:"Pink", hex:"#FFB6C1", nameJp:"ピンク", desc:"Playful pink. Instagram favorite.", descJp:"遊び心のあるピンク。Instagram人気。"},
+      {name:"Blue", hex:"#87CEEB", nameJp:"ブルー", desc:"Sky blue. Mediterranean vibes.", descJp:"スカイブルー。地中海雰囲気。"},
+      {name:"White", hex:"#FFFFFF", nameJp:"ホワイト", desc:"Crisp white. Summer essential.", descJp:"鮮やかなホワイト。夏必須。"},
+      {name:"Orange", hex:"#FF8C00", nameJp:"オレンジ", desc:"Vibrant orange. Fun and bold.", descJp:"鮮やかなオレンジ。楽しく大胆。"}
+    ],
     models:[]
   },
   chromHearts: {
@@ -2192,6 +2318,13 @@ const BRAND_DATA = {
     rareJp:"シルバー金具付きレザーバッグ。カスタム作品。コラボレーション（オフホワイト、リック・オウエンス）。",
     tip:"Biker luxury. Gothic crosses, sterling silver, rock 'n' roll. Chrome Hearts is CULT status.",
     tipJp:"バイカーラグジュアリー。ゴシッククロス、スターリングシルバー、ロックンロール。クロムハーツはカルトステータス。",
+    colors:[
+      {name:"Black Leather", hex:"#000000", nameJp:"ブラックレザー", desc:"Biker black. Rock and roll.", descJp:"バイカーブラック。ロックンロール。"},
+      {name:"Sterling Silver", hex:"#C0C0C0", nameJp:"スターリングシルバー", desc:"Heavy silver hardware. Signature detail.", descJp:"重いシルバー金具。シグネチャーディテール。"},
+      {name:"Brown Leather", hex:"#654321", nameJp:"ブラウンレザー", desc:"Distressed brown. Vintage biker.", descJp:"ディストレストブラウン。ヴィンテージバイカー。"},
+      {name:"White Leather", hex:"#FFFFF0", nameJp:"ホワイトレザー", desc:"White with silver crosses. Bold contrast.", descJp:"シルバークロス付きホワイト。大胆なコントラスト。"},
+      {name:"Red Leather", hex:"#8B0000", nameJp:"レッドレザー", desc:"Dark red. Gothic luxury.", descJp:"ダークレッド。ゴシックラグジュアリー。"}
+    ],
     models:[]
   },
   chopard: {
