@@ -2180,7 +2180,44 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#001F3F", nameJp:"ネイビー", desc:"Deep navy. Sustainable sophistication.", descJp:"深いネイビー。サステナブル洗練。"},
       {name:"Beige", hex:"#F5F5DC", nameJp:"ベージュ", desc:"Natural beige. Conscious neutral.", descJp:"ナチュラルベージュ。意識的ニュートラル。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"Falabella", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Chain-trimmed tote - vegan icon",
+        briefJp:"チェーントリムトート - ヴィーガンアイコン",
+        desc:"THE Stella bag. Chain-trimmed tote. NO LEATHER - 100% vegan. Icon of sustainable luxury. Changed the game.",
+        descJp:"THE ステラバッグ。チェーントリムトート。レザーなし - 100%ヴィーガン。サステナブルラグジュアリーアイコン。ゲームを変えた。",
+        shape:"Soft tote bag. Signature diamond-cut chain trim on edges. Vegan materials. Slouchy silhouette.",
+        shapeJp:"柔らかいトートバッグ。エッジにシグネチャー ダイヤモンドカットチェーントリム。ヴィーガン素材。たるんだシルエット。",
+        sizes:[
+          {name:"Tiny", dim:"Micro charm size - 4\"W × 3\"H"},
+          {name:"Mini", dim:"7\"W × 6\"H × 3\"D"},
+          {name:"Small", dim:"10\"W × 8\"H × 4\"D"},
+          {name:"Medium", dim:"14\"W × 11\"H × 5\"D - MOST POPULAR"},
+          {name:"Large", dim:"17\"W × 14\"H × 6\"D - Tote"}
+        ],
+        rare:"Original 2009 launch. Rainbow chain limited editions. Mushroom leather (Mylo) versions.",
+        rareJp:"オリジナル2009年発売。レインボーチェーン限定版。マッシュルームレザー（Mylo）バージョン。",
+        tip:"Falabella = NO LEATHER. That chain trim = instant Stella. Vegan luxury icon.",
+        tipJp:"ファラベラ = レザーなし。あのチェーントリム = 即座にステラ。ヴィーガンラグジュアリーアイコン。"
+      },
+      {
+        name:"Stella Logo Tote", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Perforated logo tote - sustainable statement",
+        briefJp:"パーフォレーテッドロゴトート - サステナブルステートメント",
+        desc:"Large tote with perforated Stella logo. Vegan leather. Practical, sustainable, statement. For eco-conscious style.",
+        descJp:"パーフォレーテッド ステラロゴ付き大型トート。ヴィーガンレザー。実用的、サステナブル、ステートメント。エコ意識スタイル向け。",
+        shape:"Large rectangular tote. Perforated 'Stella McCartney' logo across front. Open top. Dual handles.",
+        shapeJp:"大型長方形トート。フロントに渡るパーフォレーテッド「Stella McCartney」ロゴ。オープントップ。デュアルハンドル。",
+        sizes:[
+          {name:"One Size", dim:"15\"W × 12\"H × 6\"D - Large shopper"}
+        ],
+        rare:"Original designs before logo fatigue. Limited edition sustainable materials.",
+        rareJp:"ロゴ疲労前オリジナルデザイン。限定版サステナブル素材。",
+        tip:"Logo tote = bold statement. Says 'I care about the planet.' Vegan, practical, cool.",
+        tipJp:"ロゴトート = 大胆なステートメント。「私は地球を気にする」と言う。ヴィーガン、実用的、クール。"
+      }
+    ]
   },
   proenzaschouler: {
     name:"Proenza Schouler", year:2002, country:"USA",
@@ -2201,7 +2238,44 @@ const BRAND_DATA = {
       {name:"Burnt Orange", hex:"#CC5500", nameJp:"バーントオレンジ", desc:"Warm orange. Statement color.", descJp:"温かいオレンジ。ステートメントカラー。"},
       {name:"Midnight Blue", hex:"#191970", nameJp:"ミッドナイトブルー", desc:"Deep blue. Downtown chic.", descJp:"深いブルー。ダウンタウンシック。"}
     ],
-    models:[]
+    models:[
+      {
+        name:"PS1", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Buckle satchel - THE It bag of 2010s",
+        briefJp:"バックルサッチェル - 2010年代のTHE Itバッグ",
+        desc:"THE Proenza Schouler bag. Structured satchel with distinctive buckles. The It bag of early 2010s. Modern classic.",
+        descJp:"THE プロエンザ・スクーラーバッグ。特徴的なバックル付き構造的サッチェル。2010年代初期のItバッグ。モダンクラシック。",
+        shape:"Structured satchel. Distinctive wraparound buckle straps on flap. Crossbody strap included. PS logo hardware.",
+        shapeJp:"構造的サッチェル。フラップに特徴的なラップアラウンドバックルストラップ。クロスボディストラップ付属。PSロゴ金具。",
+        sizes:[
+          {name:"Tiny", dim:"6\"W × 5\"H × 3\"D - Mini"},
+          {name:"Small", dim:"9\"W × 7\"H × 4\"D"},
+          {name:"Medium", dim:"11\"W × 8\"H × 5\"D - MOST POPULAR"},
+          {name:"Large", dim:"14\"W × 10\"H × 6\"D"}
+        ],
+        rare:"Original 2008 launch colors. Exotic leathers (python, ostrich). Tie-dye limited editions.",
+        rareJp:"オリジナル2008年発売カラー。エキゾチックレザー（パイソン、オーストリッチ）。タイダイ限定版。",
+        tip:"PS1 = THE It bag of 2010s. Those buckles = instant recognition. Modern NYC cool.",
+        tipJp:"PS1 = 2010年代のTHE Itバッグ。あのバックル = 即座に認識。モダンNYCクール。"
+      },
+      {
+        name:"PS11", imageUrl:"https://images.unsplash.com/photo-placeholder",
+        brief:"Box bag - architectural minimalism",
+        briefJp:"ボックスバッグ - 建築的ミニマリズム",
+        desc:"Structured box bag. Clean architectural lines. PS logo closure. Modern, minimal, sophisticated. Downtown chic.",
+        descJp:"構造的ボックスバッグ。クリーン建築的ライン。PSロゴクロージャー。モダン、ミニマル、洗練。ダウンタウンシック。",
+        shape:"Structured box shape. Flap with PS logo hardware. Shoulder strap. Architectural minimalism.",
+        shapeJp:"構造的ボックス形状。PSロゴ金具付きフラップ。ショルダーストラップ。建築的ミニマリズム。",
+        sizes:[
+          {name:"Mini", dim:"7\"W × 5\"H × 3\"D"},
+          {name:"Classic", dim:"9\"W × 7\"H × 4\"D - MOST POPULAR"}
+        ],
+        rare:"Sold out colors. Exotic leather versions. Limited metallics.",
+        rareJp:"完売カラー。エキゾチックレザーバージョン。限定メタリック。",
+        tip:"PS11 = structured box. Minimal, modern, architectural. PS1's sophisticated sister.",
+        tipJp:"PS11 = 構造的ボックス。ミニマル、モダン、建築的。PS1の洗練された姉妹。"
+      }
+    ]
   },
   balmain: {
     name:"Balmain", year:1945, country:"France",
