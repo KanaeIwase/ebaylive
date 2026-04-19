@@ -3663,14 +3663,14 @@ export default function App() {
             icon: "📋",
             label: "eBay Policy",
             page: "policy"
-          },
-          {
-            id: "vocab",
-            icon: "📖",
-            label: "Vocabulary",
-            page: 5
           }
         ]
+      },
+      {
+        id: "vocab",
+        icon: "📖",
+        label: "Vocabulary",
+        page: 5
       },
       {
         id: "practice",
@@ -3796,14 +3796,14 @@ export default function App() {
             icon: "📋",
             label: "eBayポリシー",
             page: "policy"
-          },
-          {
-            id: "vocab",
-            icon: "📖",
-            label: "用語集",
-            page: 5
           }
         ]
+      },
+      {
+        id: "vocab",
+        icon: "📖",
+        label: "用語集",
+        page: 5
       },
       {
         id: "practice",
