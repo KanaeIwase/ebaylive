@@ -438,7 +438,7 @@ const BRAND_DATA = {
       {name:"Noir", hex:"#1A1A1A", nameJp:"ノワール", desc:"Classic black. Can't go wrong.", descJp:"クラシックブラック。間違いなし。"}
     ],
     models:[
-      { name:"Speedy", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",        desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
+      { name:"Speedy", imageUrl:"https://product-images.therealreal.com/LOU1085167_1_enlarged.jpg", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",        desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
         descJp:"1930年以来の最も象徴的なLVバッグ。柔らかくたるむバレル型、ロール レザーハンドル付き。",
         shape:"Barrel/cylindrical with zip-top closure. Slouches when not stuffed.",
         shapeJp:"バレル/円筒形でジップトップ閉鎖。詰めないとたるむ。",
@@ -455,7 +455,7 @@ const BRAND_DATA = {
         tip:"The 30 is the original Audrey Hepburn size. That's history in your hands.",
         tipJp:"30サイズはオードリー・ヘップバーンのオリジナルサイズ。あなたの手の中の歴史。"
       },
-      { name:"Neverfull", brief:"Tote bag - spacious, open-top", briefJp:"トートバッグ - 広々、オープントップ",        desc:"Open-top tote with side laces for adjustable width. The ultimate everyday bag.",
+      { name:"Neverfull", imageUrl:"https://a.1stdibscdn.com/louis-vuitton-brown-monogram-canvas-neverfull-gm-tote-bag-for-sale-picture-2/v_13802/v_141575021639157227918/louis_vuitton_neverfull_gm_bag_monogram_canvas_64408_2_master.jpg", brief:"Tote bag - spacious, open-top", briefJp:"トートバッグ - 広々、オープントップ",        desc:"Open-top tote with side laces for adjustable width. The ultimate everyday bag.",
         descJp:"調節可能な幅のサイドレース付きオープントップトート。究極のデイリーバッグ。",
         shape:"Rectangular tote, open-top, side laces cinch/expand width.",
         shapeJp:"長方形トート、オープントップ、サイドレースで幅調節。",
@@ -469,7 +469,7 @@ const BRAND_DATA = {
         tip:"This is THE work bag. Fits a laptop, documents, everything. Buyers know this.",
         tipJp:"これがTHE仕事バッグ。ノートPC、書類、全部入る。バイヤーは知ってる。"
       },
-      { name:"Keepall", brief:"Weekender duffel - travel essential", briefJp:"週末ダッフル - 旅行必需品",        desc:"Soft-sided duffel, the quintessential travel bag since 1930. Folds flat when empty.",
+      { name:"Keepall", imageUrl:"https://medias.collectorsquare.com/images/products/424927/00pp-g-louis-vuitton-keepall-55-travel-bag-in-brown-monogram-canvas-and-natural-leather.jpg", brief:"Weekender duffel - travel essential", briefJp:"週末ダッフル - 旅行必需品",        desc:"Soft-sided duffel, the quintessential travel bag since 1930. Folds flat when empty.",
         descJp:"1930年以来の典型的な旅行バッグ。空の時は平らに折りたためるソフトサイドダッフル。",
         shape:"Cylindrical duffel with rounded ends, double zip closure.",
         shapeJp:"丸い端の円筒形ダッフル、ダブルジップ閉鎖。",
@@ -484,7 +484,7 @@ const BRAND_DATA = {
         tip:"The Keepall is your perfect weekend bag. Fits overhead. Folds flat. Iconic.",
         tipJp:"Keepallは完璧な週末バッグ。機内持込可。平らに折りたためる。象徴的。"
       },
-      { name:"Alma", brief:"Structured dome bag - elegant classic", briefJp:"構造的ドーム型バッグ - エレガントクラシック",        desc:"Structured dome-shaped bag with double handles, created in 1934. Named after the Alma Bridge in Paris. Holds its shape beautifully.",
+      { name:"Alma", imageUrl:"https://a.1stdibscdn.com/louis-vuitton-brown-monogram-canvas-alma-bb-shoulder-bag-for-sale-picture-2/v_13802/v_194373321685468741286/louis_vuitton_alma_bb_shoulder_bag_ebene_monogram_canvas_68047_2_master.jpg", brief:"Structured dome bag - elegant classic", briefJp:"構造的ドーム型バッグ - エレガントクラシック",        desc:"Structured dome-shaped bag with double handles, created in 1934. Named after the Alma Bridge in Paris. Holds its shape beautifully.",
         descJp:"1934年創作のダブルハンドル付き構造的ドーム型バッグ。パリのアルマ橋にちなんで命名。美しく形を保ちます。",
         shape:"Dome/structured shell shape with zip closure and padlock.",
         shapeJp:"ドーム/構造的シェル型、ジップ閉鎖と南京錠付き。",
@@ -499,7 +499,7 @@ const BRAND_DATA = {
         tip:"The Alma BB is incredibly popular right now. Structured bags are having a moment.",
         tipJp:"Alma BBは今とても人気。構造的バッグが流行中。"
       },
-      { name:"Capucines", brief:"Structured top-handle - modern luxury", briefJp:"構造的トップハンドル - モダンラグジュアリー",        desc:"LV's most luxurious bag. Named after Rue des Capucines where Louis Vuitton opened his first store in 1854. Hidden LV initials and exceptionally high craftsmanship.",
+      { name:"Capucines", imageUrl:"https://a.1stdibscdn.com/louis-vuitton-white-taurillon-leather-capucines-mm-for-sale/v_1702/v_181244621673023153546/v_18124462_1673023154226_bg_processed.jpg", brief:"Structured top-handle - modern luxury", briefJp:"構造的トップハンドル - モダンラグジュアリー",        desc:"LV's most luxurious bag. Named after Rue des Capucines where Louis Vuitton opened his first store in 1854. Hidden LV initials and exceptionally high craftsmanship.",
         descJp:"LVの最も豪華なバッグ。1854年にルイ・ヴィトンが最初の店を開いたカプシーヌ通りにちなんで命名。隠れたLVイニシャルと卓越した職人技。",
         shape:"Structured rectangular shape with top handle. Detachable shoulder strap. Hidden magnetic closure.",
         shapeJp:"トップハンドル付き構造的長方形。取り外し可能ショルダーストラップ。隠しマグネットクロージャー。",
@@ -514,7 +514,7 @@ const BRAND_DATA = {
         tip:"This is LV's answer to Hermès. Ultra-luxe craftsmanship. The hidden LV on the handle is genius design.",
         tipJp:"これはLVのエルメスへの答え。超豪華職人技。ハンドルの隠れたLVは天才デザイン。"
       },
-      { name:"Pochette Métis", brief:"Compact crossbody - versatile daily", briefJp:"コンパクトクロスボディ - 万能デイリー",        desc:"Compact crossbody with front flap and S-lock closure. Perfect size for everyday essentials. Became extremely popular in the 2010s.",
+      { name:"Pochette Métis", imageUrl:"https://a.1stdibscdn.com/louis-vuitton-pochette-metis-colours-black-monogram-empreinte-leather-for-sale-picture-2/v_26672/v_190368921681756099334/pochette_metis_black_2_master.jpg", brief:"Compact crossbody - versatile daily", briefJp:"コンパクトクロスボディ - 万能デイリー",        desc:"Compact crossbody with front flap and S-lock closure. Perfect size for everyday essentials. Became extremely popular in the 2010s.",
         descJp:"フロントフラップとSロッククロージャー付きコンパクトクロスボディ。日常必需品に完璧なサイズ。2010年代に極めて人気に。",
         shape:"Mailbag/satchel shape with top handle and long strap. S-lock closure on front flap.",
         shapeJp:"メールバッグ/サッチェル型、トップハンドルとロングストラップ付き。フロントフラップのSロッククロージャー。",
@@ -527,7 +527,7 @@ const BRAND_DATA = {
         tip:"This became THE crossbody bag in the mid-2010s. Everyone wanted one. Still super popular.",
         tipJp:"これは2010年代半ばにTHE クロスボディバッグに。誰もが欲しがった。今も超人気。"
       },
-      { name:"OnTheGo", brief:"Large tote - modern monogram", briefJp:"大きなトート - モダンモノグラム",        desc:"Large structured tote launched 2019. Giant LV logo, spacious interior. Modern take on the classic Neverfull.",
+      { name:"OnTheGo", imageUrl:"https://www.dallasdesignerhandbags.com/cdn/shop/products/DSC_0001_clipped_rev_1_6e40c78d-a6f3-4b67-9ce6-831922816bb4_1024x1024.jpg?v=1670276226", brief:"Large tote - modern monogram", briefJp:"大きなトート - モダンモノグラム",        desc:"Large structured tote launched 2019. Giant LV logo, spacious interior. Modern take on the classic Neverfull.",
         descJp:"2019年発売の大きな構造的トート。巨大LVロゴ、広々とした内部。クラシックなネバーフルのモダンなテイク。",
         shape:"Large rectangular tote with double top handles. Structured with giant LV letters on front.",
         shapeJp:"ダブルトップハンドル付き大きな長方形トート。前面に巨大LV文字で構造的。",
@@ -540,7 +540,7 @@ const BRAND_DATA = {
         tip:"The GIANT LV logo is the statement. This is for people who want everyone to KNOW it's LV.",
         tipJp:"巨大LVロゴがステートメント。これは誰もがLVだとわかってほしい人向け。"
       },
-      { name:"Twist", brief:"Chain shoulder bag - modern classic", briefJp:"チェーンショルダーバッグ - モダンクラシック",        desc:"Modern shoulder bag with LV twist-lock closure. Launched 2014. Structured, elegant, and contemporary.",
+      { name:"Twist", imageUrl:"https://product-images.therealreal.com/LOU1030603_1_enlarged.jpg", brief:"Chain shoulder bag - modern classic", briefJp:"チェーンショルダーバッグ - モダンクラシック",        desc:"Modern shoulder bag with LV twist-lock closure. Launched 2014. Structured, elegant, and contemporary.",
         descJp:"LVツイストロッククロージャー付きモダンショルダーバッグ。2014年発売。構造的、エレガント、コンテンポラリー。",
         shape:"Structured flap bag with signature LV twist-lock. Chain strap. Clean geometric lines.",
         shapeJp:"シグネチャーLVツイストロック付き構造的フラップバッグ。チェーンストラップ。クリーンな幾何学ライン。",
@@ -575,7 +575,7 @@ const BRAND_DATA = {
       {name:"Light Pink", hex:"#F8C8DC", nameJp:"ライトピンク", desc:"Very feminine and lovely.", descJp:"とてもフェミニンで素敵。"}
     ],
     models:[
-      { name:"Classic Flap", brief:"Iconic quilted bag - investment piece", briefJp:"象徴的なキルティングバッグ - 投資品",        desc:"The most iconic Chanel bag. Diamond quilted pattern with chain-leather strap and CC turnlock.",
+      { name:"Classic Flap", imageUrl:"https://a.1stdibscdn.com/chanel-black-quilted-lambskin-medium-classic-double-flap-bag-for-sale-picture-3/0/v_256140221741184739366/142832_pv_master.jpg", brief:"Iconic quilted bag - investment piece", briefJp:"象徴的なキルティングバッグ - 投資品",        desc:"The most iconic Chanel bag. Diamond quilted pattern with chain-leather strap and CC turnlock.",
         descJp:"最も象徴的なシャネルバッグ。ダイヤモンドキルティングパターン、チェーンレザーストラップ、CCターンロック付き。",
         shape:"Rectangular flap bag with signature diamond quilting (matelassé). Chain strap interwoven with leather.",
         shapeJp:"シグネチャーダイヤモンドキルティング（マトラッセ）の長方形フラップバッグ。レザーと組み合わせたチェーンストラップ。",
@@ -591,7 +591,7 @@ const BRAND_DATA = {
         tip:"Classic Flap Medium was $2,800 in 2010. Now over $10,000. That's why pre-loved is smart.",
         tipJp:"クラシックフラップMは2010年$2,800。今は$10,000以上。だから中古が賢い。"
       },
-      { name:"Boy Bag", brief:"Modern, edgy - structured shape", briefJp:"モダンでエッジー - 構造的形状",        desc:"Masculine-inspired bag with bold hardware. More structured than Classic Flap.",
+      { name:"Boy Bag", imageUrl:"https://www.dallasdesignerhandbags.com/cdn/shop/products/IMG_4426_497cba96-150f-4d32-8507-9f6e3def34e0_1024x1024.jpg?v=1589222961", brief:"Modern, edgy - structured shape", briefJp:"モダンでエッジー - 構造的形状",        desc:"Masculine-inspired bag with bold hardware. More structured than Classic Flap.",
         descJp:"大胆な金具のマスキュリンなインスピレーションバッグ。クラシックフラップより構造的。",
         shape:"Rectangular with chevron or diamond quilting. Chunky chain strap. Push-lock closure.",
         shapeJp:"シェブロンまたはダイヤモンドキルティングの長方形。太いチェーンストラップ。プッシュロック閉鎖。",
@@ -605,7 +605,7 @@ const BRAND_DATA = {
         tip:"Boy Bag is for buyers who want Chanel but something edgier. It's bolder.",
         tipJp:"ボーイバッグはシャネルが欲しいけどエッジーなものを求めるバイヤー向け。より大胆。"
       },
-      { name:"2.55 Reissue", brief:"Original 1955 design - vintage icon", briefJp:"オリジナル1955年デザイン - ヴィンテージアイコン",        desc:"The ORIGINAL Chanel bag from February 1955. All-chain strap (no leather), rectangular lock (not CC turnlock). This is where it all started.",
+      { name:"2.55 Reissue", imageUrl:"https://backend.yoogiscloset.com/media/catalog/product/6/0/605541_01.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=840&width=630", brief:"Original 1955 design - vintage icon", briefJp:"オリジナル1955年デザイン - ヴィンテージアイコン",        desc:"The ORIGINAL Chanel bag from February 1955. All-chain strap (no leather), rectangular lock (not CC turnlock). This is where it all started.",
         descJp:"1955年2月のオリジナルシャネルバッグ。オールチェーンストラップ（レザーなし）、長方形ロック（CCターンロックではない）。全てはここから始まった。",
         shape:"Classic rectangular flap with Mademoiselle turnlock (rectangular, not CC). All-chain double strap.",
         shapeJp:"マドモアゼルターンロック（長方形、CCではない）付きクラシック長方形フラップ。オールチェーンダブルストラップ。",
@@ -619,7 +619,7 @@ const BRAND_DATA = {
         tip:"This is for Chanel purists. The 2.55 is the ORIGINAL before Karl changed it. Rectangular lock, all-chain strap. History.",
         tipJp:"これはシャネル純粋主義者向け。2.55はカールが変更する前のオリジナル。長方形ロック、オールチェーンストラップ。歴史。"
       },
-      { name:"GST (Grand Shopping Tote)", brief:"Large tote - discontinued treasure", briefJp:"大きなトート - 廃番の宝",        desc:"Discontinued in 2015 - now highly collectible. Large quilted tote with chain handles. The perfect work bag that Chanel no longer makes.",
+      { name:"GST (Grand Shopping Tote)", imageUrl:"https://a.1stdibscdn.com/chanel-grand-shopping-tote-gst-bag-black-caviar-with-silver-hardware-2015-for-sale/v_9363/v_185958721677961533828/v_18595872_1677961534176_bg_processed.jpg", brief:"Large tote - discontinued treasure", briefJp:"大きなトート - 廃番の宝",        desc:"Discontinued in 2015 - now highly collectible. Large quilted tote with chain handles. The perfect work bag that Chanel no longer makes.",
         descJp:"2015年に廃番 - 今は非常にコレクタブル。チェーンハンドル付き大きなキルティングトート。シャネルがもう作らない完璧な仕事バッグ。",
         shape:"Large rectangular tote. Quilted caviar leather. Chain-woven leather straps. Zip-top closure.",
         shapeJp:"大きな長方形トート。キルティングキャビアレザー。チェーン編みレザーストラップ。ジップトップクロージャー。",
@@ -653,7 +653,7 @@ const BRAND_DATA = {
     tip:"You can't just walk in and buy a Birkin. The fact that we have one here tonight is special.",
     tipJp:"バーキンは歩いて入って買えない。今夜ここにあるのは特別。",
     models:[
-      { name:"Birkin", brief:"Holy grail - most coveted bag", briefJp:"聖杯 - 最も切望されるバッグ",        desc:"The most sought-after handbag in the world. Named after Jane Birkin. Not available online.",
+      { name:"Birkin", imageUrl:"https://cdn.theluxurycloset.com/uploads/opt/products/full/luxury-women-hermes-used-handbags-p1204750-004.jpg", brief:"Holy grail - most coveted bag", briefJp:"聖杯 - 最も切望されるバッグ",        desc:"The most sought-after handbag in the world. Named after Jane Birkin. Not available online.",
         descJp:"世界で最も求められているハンドバッグ。ジェーン・バーキンにちなんで命名。オンライン販売なし。",
         shape:"Rectangular tote with flap, two handles, turnlock closure. Structured with feet.",
         shapeJp:"フラップ付き長方形トート、2つのハンドル、ターンロック閉鎖。足付きで構造的。",
@@ -668,7 +668,7 @@ const BRAND_DATA = {
         tip:"Birkin 25 and 30 are the most sought after. You need purchase history to even buy one retail.",
         tipJp:"バーキン25と30が最も求められている。定価で買うにも購入履歴が必要。"
       },
-      { name:"Kelly", brief:"Grace Kelly's bag - royal elegance", briefJp:"グレース・ケリーのバッグ - 王室エレガンス",        desc:"Named after Grace Kelly who famously used it to hide her pregnancy. More formal and structured than Birkin with single top handle.",
+      { name:"Kelly", imageUrl:"https://medias.collectorsquare.com/images/products/420491/00pp-hermes-kelly-28-cm-handbag-in-navy-blue-box-leather.jpg", brief:"Grace Kelly's bag - royal elegance", briefJp:"グレース・ケリーのバッグ - 王室エレガンス",        desc:"Named after Grace Kelly who famously used it to hide her pregnancy. More formal and structured than Birkin with single top handle.",
         descJp:"妊娠を隠すために使用したことで有名なグレース・ケリーにちなんで命名。シングルトップハンドルでバーキンよりフォーマルで構造的。",
         shape:"Trapezoid shape with single top handle. Flap with turnlock. More structured than Birkin.",
         shapeJp:"シングルトップハンドルの台形。ターンロック付きフラップ。バーキンより構造的。",
@@ -684,7 +684,7 @@ const BRAND_DATA = {
         tip:"Princess Grace of Monaco carried this. That's ROYALTY. Kelly is more formal than Birkin - mention that.",
         tipJp:"モナコ公妃グレースが持っていた。それは王室。ケリーはバーキンよりフォーマル - 言及して。"
       },
-      { name:"Evelyne", brief:"Casual crossbody - perforated H", briefJp:"カジュアルクロスボディ - パーフォレーテッドH",        desc:"The most accessible Hermès bag. Perforated H logo, casual crossbody style. Reversible leather.",
+      { name:"Evelyne", imageUrl:"https://cdn.shopify.com/s/files/1/0567/5388/1162/products/hermes_evelyne_iii_epsom_leather_mango_tc21029_1_1445x.jpg?v=1663117858", brief:"Casual crossbody - perforated H", briefJp:"カジュアルクロスボディ - パーフォレーテッドH",        desc:"The most accessible Hermès bag. Perforated H logo, casual crossbody style. Reversible leather.",
         descJp:"最もアクセシブルなエルメスバッグ。パーフォレーテッドHロゴ、カジュアルクロスボディスタイル。リバーシブルレザー。",
         shape:"Simple messenger/crossbody. Perforated H on front. Adjustable canvas strap. No closure.",
         shapeJp:"シンプルなメッセンジャー/クロスボディ。前面にパーフォレーテッドH。調整可能キャンバスストラップ。クロージャーなし。",
@@ -698,7 +698,7 @@ const BRAND_DATA = {
         tip:"This is the 'entry' Hermès bag. No waitlist. You can actually BUY this one. Perfect for buyers who want H without $10K.",
         tipJp:"これは「エントリー」エルメスバッグ。ウェイトリストなし。実際に買える。1万ドルなしでHが欲しいバイヤーに最適。"
       },
-      { name:"Garden Party", brief:"Canvas tote - casual luxury", briefJp:"キャンバストート - カジュアルラグジュアリー",        desc:"Hermès' casual tote in canvas or leather. Open-top, simple design. More relaxed than Birkin but still unmistakably Hermès.",
+      { name:"Garden Party", imageUrl:"https://images.vestiairecollective.com/images/resized/w=1246,q=75,f=auto,/produit/pink-cloth-garden-party-hermes-handbag-60329489-1_2.jpg", brief:"Canvas tote - casual luxury", briefJp:"キャンバストート - カジュアルラグジュアリー",        desc:"Hermès' casual tote in canvas or leather. Open-top, simple design. More relaxed than Birkin but still unmistakably Hermès.",
         descJp:"キャンバスまたはレザーのエルメスのカジュアルトート。オープントップ、シンプルデザイン。バーキンよりリラックスしているが間違いなくエルメス。",
         shape:"Simple tote with double handles. Open top (no closure). Canvas body with leather trim.",
         shapeJp:"ダブルハンドルのシンプルトート。オープントップ（クロージャーなし）。レザートリム付きキャンバスボディ。",
@@ -712,7 +712,7 @@ const BRAND_DATA = {
         tip:"Perfect weekend bag. Open-top makes it so easy. Canvas means it's tough - great for travel.",
         tipJp:"完璧な週末バッグ。オープントップで とても簡単。キャンバスなので丈夫 - 旅行に最適。"
       },
-      { name:"Picotin", brief:"Bucket bag - simple elegance", briefJp:"バケットバッグ - シンプルエレガンス",        desc:"Simple bucket bag inspired by horse feed bags (Hermès' equestrian heritage). Open-top with single handle. Understated Hermès.",
+      { name:"Picotin", imageUrl:"https://asecondchanceresale.com/cdn/shop/files/10HermesGoldTanTaurillonClemenceLeatherPicotinLock18PMBag100-18238.jpg?v=1687915074", brief:"Bucket bag - simple elegance", briefJp:"バケットバッグ - シンプルエレガンス",        desc:"Simple bucket bag inspired by horse feed bags (Hermès' equestrian heritage). Open-top with single handle. Understated Hermès.",
         descJp:"馬の飼料袋にインスパイアされたシンプルバケットバッグ（エルメスの馬術遺産）。シングルハンドルのオープントップ。控えめなエルメス。",
         shape:"Bucket/cylindrical shape. Single top handle. Open top with lock closure option. Simple and minimal.",
         shapeJp:"バケット/円筒形。シングルトップハンドル。ロッククロージャーオプション付きオープントップ。シンプルでミニマル。",
@@ -726,7 +726,7 @@ const BRAND_DATA = {
         tip:"Horse feed bag origin. That's HERITAGE. Simple but Hermès quality leather makes it special.",
         tipJp:"馬の飼料袋起源。それは伝統。シンプルだがエルメス品質レザーが特別に。"
       },
-      { name:"Constance", brief:"H-clasp shoulder bag - elegant compact", briefJp:"Hクラスプショルダーバッグ - エレガントコンパクト",        desc:"Elegant shoulder bag with iconic H-clasp closure. Named after designer Catherine Chaillet's daughter. More compact and refined than Kelly.",
+      { name:"Constance", imageUrl:"https://product-images.therealreal.com/HER472906_2_enlarged.jpg", brief:"H-clasp shoulder bag - elegant compact", briefJp:"Hクラスプショルダーバッグ - エレガントコンパクト",        desc:"Elegant shoulder bag with iconic H-clasp closure. Named after designer Catherine Chaillet's daughter. More compact and refined than Kelly.",
         descJp:"象徴的なHクラスプクロージャー付きエレガントなショルダーバッグ。デザイナー キャサリン・シャイエの娘にちなんで命名。ケリーよりコンパクトで洗練。",
         shape:"Compact shoulder bag. H-shaped clasp closure. Long shoulder strap. Sleek, minimalist design.",
         shapeJp:"コンパクトショルダーバッグ。H型クラスプクロージャー。長いショルダーストラップ。スリークでミニマリストデザイン。",
@@ -758,7 +758,7 @@ const BRAND_DATA = {
       {name:"Pink", hex:"#FFB6C1", nameJp:"ピンク", desc:"Soft pink. Very feminine.", descJp:"柔らかいピンク。とてもフェミニン。"}
     ],
     models:[
-      { name:"GG Marmont", brief:"Quilted chevron - modern classic", briefJp:"キルティングシェブロン - モダンクラシック",        desc:"Matelassé chevron leather with signature GG logo. Launched 2016, instantly iconic.",
+      { name:"GG Marmont", imageUrl:"https://cdna.lystit.com/photos/lncc/0e25aa81/gucci-black-Gg-Marmont-Matelasse-Small-Shoulder-Bag-In-Black.jpeg", brief:"Quilted chevron - modern classic", briefJp:"キルティングシェブロン - モダンクラシック",        desc:"Matelassé chevron leather with signature GG logo. Launched 2016, instantly iconic.",
         descJp:"シグネチャーGGロゴ付きマトラッセシェブロンレザー。2016年発売、即座に象徴的に。",
         shape:"Soft quilted bag with chevron pattern. Double G hardware. Chain strap.",
         shapeJp:"シェブロンパターンの柔らかいキルティングバッグ。ダブルG金具。チェーンストラップ。",
@@ -773,7 +773,7 @@ const BRAND_DATA = {
         tip:"Marmont is Gucci's answer to Chanel. Buyers know this style. Very popular.",
         tipJp:"マーモントはグッチのシャネルへの回答。バイヤーはこのスタイルを知ってる。とても人気。"
       },
-      { name:"Ophidia", brief:"GG Supreme canvas - web stripe", briefJp:"GGスプリームキャンバス - ウェブストライプ",        desc:"Classic GG Supreme canvas with green-red-green web stripe. Vintage-inspired design launched 2018. Features the iconic double G logo and web stripe.",
+      { name:"Ophidia", imageUrl:"https://cdn.clothbase.com/uploads/e5b42d37-7c44-40f5-b7a0-14f887406103/beige-small-ophidia-gg-shoulder-bag.jpg", brief:"GG Supreme canvas - web stripe", briefJp:"GGスプリームキャンバス - ウェブストライプ",        desc:"Classic GG Supreme canvas with green-red-green web stripe. Vintage-inspired design launched 2018. Features the iconic double G logo and web stripe.",
         descJp:"緑-赤-緑のウェブストライプ付きクラシックGGスプリームキャンバス。2018年発売のヴィンテージ風デザイン。象徴的なダブルGロゴとウェブストライプが特徴。",
         shape:"Structured shoulder bag or tote. GG canvas with leather trim. Signature web stripe down center.",
         shapeJp:"構造的ショルダーバッグまたはトート。レザートリム付きGGキャンバス。センターにシグネチャーウェブストライプ。",
@@ -787,7 +787,7 @@ const BRAND_DATA = {
         tip:"The web stripe is GUCCI heritage. From the 1950s-60s luggage. Mention that vintage connection.",
         tipJp:"ウェブストライプはグッチの伝統。1950-60年代の荷物から。そのヴィンテージ繋がりを言及。"
       },
-      { name:"Horsebit 1955", brief:"Horsebit hardware - equestrian heritage", briefJp:"ホースビット金具 - 馬術遺産",        desc:"Shoulder bag featuring the iconic horsebit hardware from Gucci's equestrian heritage. First created in 1955, reissued in 2020. The horsebit is one of Gucci's oldest symbols.",
+      { name:"Horsebit 1955", imageUrl:"https://www.net-a-porter.com/variants/images/15546005222271485/ou/w2000_q60.jpg", brief:"Horsebit hardware - equestrian heritage", briefJp:"ホースビット金具 - 馬術遺産",        desc:"Shoulder bag featuring the iconic horsebit hardware from Gucci's equestrian heritage. First created in 1955, reissued in 2020. The horsebit is one of Gucci's oldest symbols.",
         descJp:"グッチの馬術遺産から象徴的なホースビット金具を特徴とするショルダーバッグ。1955年に初創作、2020年に復刻。ホースビットはグッチの最古のシンボルの一つ。",
         shape:"Shoulder bag or crossbody. Signature horsebit hardware closure. Structured flap design.",
         shapeJp:"ショルダーバッグまたはクロスボディ。シグネチャーホースビット金具クロージャー。構造的フラップデザイン。",
@@ -800,7 +800,7 @@ const BRAND_DATA = {
         tip:"The horsebit is from Gucci's saddle-making roots. Heritage piece. Collectors love the history.",
         tipJp:"ホースビットはグッチのサドル製造ルーツから。伝統作品。コレクターは歴史を愛する。"
       },
-      { name:"Dionysus", brief:"Tiger head closure - symbol of power", briefJp:"タイガーヘッドクロージャー - 力のシンボル",        desc:"Shoulder bag with distinctive tiger head spur closure. Named after the Greek god Dionysus. Launched by Alessandro Michele in 2015.",
+      { name:"Dionysus", imageUrl:"https://cdn-images.farfetch-contents.com/15/35/99/79/15359979_53139015_1000.jpg", brief:"Tiger head closure - symbol of power", briefJp:"タイガーヘッドクロージャー - 力のシンボル",        desc:"Shoulder bag with distinctive tiger head spur closure. Named after the Greek god Dionysus. Launched by Alessandro Michele in 2015.",
         descJp:"特徴的なタイガーヘッドスパークロージャー付きショルダーバッグ。ギリシャの神ディオニュソスにちなんで命名。2015年にアレッサンドロ・ミケーレが発売。",
         shape:"Structured shoulder bag. Tiger head hardware closure. Sliding chain strap. GG Supreme canvas or leather.",
         shapeJp:"構造的ショルダーバッグ。タイガーヘッド金具クロージャー。スライディングチェーンストラップ。GGスプリームキャンバスまたはレザー。",
@@ -814,7 +814,7 @@ const BRAND_DATA = {
         tip:"The tiger head is FIERCE. Dionysus was the god of wine and pleasure. This bag says LUXURY and POWER.",
         tipJp:"タイガーヘッドは獰猛。ディオニュソスはワインと快楽の神。このバッグは高級と力を語る。"
       },
-      { name:"Jackie 1961", brief:"Hobo with piston closure - vintage icon", briefJp:"ピストンクロージャー付きホーボー - ヴィンテージアイコン",        desc:"Named after Jacqueline Kennedy Onassis who carried it in the 1960s. Hobo shape with distinctive piston closure. Reissued in 2020.",
+      { name:"Jackie 1961", imageUrl:"https://cdn.clothbase.com/uploads/d5ae8931-e0e2-46d6-8524-1799639fbd5d/P00894057.jpg", brief:"Hobo with piston closure - vintage icon", briefJp:"ピストンクロージャー付きホーボー - ヴィンテージアイコン",        desc:"Named after Jacqueline Kennedy Onassis who carried it in the 1960s. Hobo shape with distinctive piston closure. Reissued in 2020.",
         descJp:"1960年代に持っていたジャクリーン・ケネディ・オナシスにちなんで命名。特徴的なピストンクロージャー付きホーボー型。2020年に復刻。",
         shape:"Slouchy hobo shape. Signature piston closure hook. Curved top handle. Vintage-inspired design.",
         shapeJp:"たるんだホーボー型。シグネチャーピストンクロージャーフック。曲線トップハンドル。ヴィンテージ風デザイン。",
@@ -846,7 +846,7 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Professional and chic.", descJp:"深いネイビー。プロフェッショナルでシック。"}
     ],
     models:[
-      { name:"Galleria", brief:"Structured tote - professional", briefJp:"構造的トート - プロフェッショナル",        desc:"Prada's iconic tote in Saffiano leather. The ultimate work bag.",
+      { name:"Galleria", imageUrl:"https://vspconsignment.com/cdn/shop/files/Prada-Black-Saffiano-Leather-Galleria-Bag-12993_2400x.jpg?v=1756824698", brief:"Structured tote - professional", briefJp:"構造的トート - プロフェッショナル",        desc:"Prada's iconic tote in Saffiano leather. The ultimate work bag.",
         descJp:"サフィアーノレザーのプラダの象徴的なトート。究極の仕事バッグ。",
         shape:"Rectangular structured tote with double handles. Detachable shoulder strap.",
         shapeJp:"ダブルハンドル付き長方形の構造的トート。取り外し可能なショルダーストラップ。",
@@ -860,7 +860,7 @@ const BRAND_DATA = {
         tip:"The Galleria is THE executive bag. Holds everything, looks sharp, lasts forever.",
         tipJp:"ガレリアはTHEエグゼクティブバッグ。全部入る、シャープに見える、永遠に持つ。"
       },
-      { name:"Cahier", brief:"Book-shaped bag - vintage studded", briefJp:"本型バッグ - ヴィンテージスタッズ",        desc:"Book-shaped crossbody bag with vintage-inspired hardware and studs. Launched 2016. Resembles an antique journal with metal corners and clasps.",
+      { name:"Cahier", imageUrl:"https://a.1stdibscdn.com/prada-black-leather-cahier-shoulder-bag-for-sale/v_13101/v_168856821662432727784/v_16885682_1662432728460_bg_processed.jpg?disable=upscale&auto=webp&quality=60&width=960", brief:"Book-shaped bag - vintage studded", briefJp:"本型バッグ - ヴィンテージスタッズ",        desc:"Book-shaped crossbody bag with vintage-inspired hardware and studs. Launched 2016. Resembles an antique journal with metal corners and clasps.",
         descJp:"ヴィンテージ風金具とスタッズ付き本型クロスボディバッグ。2016年発売。メタルコーナーと留め金付きのアンティークジャーナルに似ている。",
         shape:"Rectangular book shape. Metal corner reinforcements. Decorative studs. Chain shoulder strap.",
         shapeJp:"長方形の本型。メタルコーナー補強。装飾スタッズ。チェーンショルダーストラップ。",
@@ -873,7 +873,7 @@ const BRAND_DATA = {
         tip:"It looks like a vintage leather book. That unique shape makes it stand out. Very Instagram-worthy.",
         tipJp:"ヴィンテージレザー本のよう。そのユニークな形が目立たせる。とてもインスタ映え。"
       },
-      { name:"Re-Edition 2005", brief:"Nylon shoulder bag - Y2K icon", briefJp:"ナイロンショルダーバッグ - Y2Kアイコン",        desc:"Re-release of Prada's bestselling bag from 2000. Nylon shoulder bag with Saffiano leather triangle logo. Became hugely popular in 2019+ for Y2K nostalgia.",
+      { name:"Re-Edition 2005", imageUrl:"https://cdn-images.farfetch-contents.com/19/66/19/46/19661946_43929832_1000.jpg", brief:"Nylon shoulder bag - Y2K icon", briefJp:"ナイロンショルダーバッグ - Y2Kアイコン",        desc:"Re-release of Prada's bestselling bag from 2000. Nylon shoulder bag with Saffiano leather triangle logo. Became hugely popular in 2019+ for Y2K nostalgia.",
         descJp:"2000年のプラダのベストセラーバッグの復刻版。サフィアーノレザー三角ロゴ付きナイロンショルダーバッグ。Y2Kノスタルジアで2019年以降大人気に。",
         shape:"Compact shoulder bag. Iconic tessuto nylon. Saffiano leather triangle logo. Zip-top closure.",
         shapeJp:"コンパクトショルダーバッグ。象徴的なテスートナイロン。サフィアーノレザー三角ロゴ。ジップトップクロージャー。",
@@ -904,7 +904,7 @@ const BRAND_DATA = {
       {name:"Red", hex:"#DC143C", nameJp:"レッド", desc:"Classic Dior red. Stunning.", descJp:"クラシックなディオールレッド。素晴らしい。"}
     ],
     models:[
-      { name:"Lady Dior", brief:"Cannage quilted - iconic elegance", briefJp:"カナージュキルト - 象徴的なエレガンス",        desc:"The most iconic Dior bag. Cannage quilting with DIOR charms.",
+      { name:"Lady Dior", imageUrl:"https://a.1stdibscdn.com/christian-dior-medium-lady-dior-bag-black-patent-cannage-calfskin-w-box-for-sale/v_33512/v_256860821741883719917/v_25686082_1741883720286_bg_processed.jpg", brief:"Cannage quilted - iconic elegance", briefJp:"カナージュキルト - 象徴的なエレガンス",        desc:"The most iconic Dior bag. Cannage quilting with DIOR charms.",
         descJp:"最も象徴的なディオールバッグ。DIORチャーム付きカナージュキルティング。",
         shape:"Structured bag with signature Cannage quilting. Top handles with detachable shoulder strap.",
         shapeJp:"シグネチャー カナージュキルティングの構造的バッグ。取り外し可能なショルダーストラップ付きトップハンドル。",
@@ -919,7 +919,7 @@ const BRAND_DATA = {
         tip:"Princess Diana made this bag famous. It was literally named after her. Icon status.",
         tipJp:"ダイアナ妃がこのバッグを有名にした。文字通り彼女にちなんで命名。アイコンステータス。"
       },
-      { name:"Book Tote", brief:"Large canvas tote - artistic statement", briefJp:"大きなキャンバストート - アーティスティックステートメント",        desc:"Oversized tote in signature Dior Oblique canvas or embroidered styles. Became hugely popular 2018+. Perfect for travel or statement everyday bag.",
+      { name:"Book Tote", imageUrl:"https://a.1stdibscdn.com/christian-dior-2019-large-embroidered-canvas-book-tote-bag-for-sale/22569652/v_171318021664426722631/v_17131802_1664426722992_bg_processed.jpg", brief:"Large canvas tote - artistic statement", briefJp:"大きなキャンバストート - アーティスティックステートメント",        desc:"Oversized tote in signature Dior Oblique canvas or embroidered styles. Became hugely popular 2018+. Perfect for travel or statement everyday bag.",
         descJp:"シグネチャーディオール オブリークキャンバスまたは刺繍スタイルの特大トート。2018年以降大人気。旅行またはステートメント日常バッグに最適。",
         shape:"Large rectangular tote. Open-top. Often features Dior Oblique canvas or special embroidery/prints.",
         shapeJp:"大きな長方形トート。オープントップ。多くの場合、ディオール オブリークキャンバスまたは特別刺繍/プリントを特徴。",
@@ -933,7 +933,7 @@ const BRAND_DATA = {
         tip:"This tote became THE status symbol in 2019-2020. Limited edition embroideries sell out instantly. It's ART you can carry.",
         tipJp:"このトートは2019-2020年にTHEステータスシンボルに。限定版刺繍は即完売。運べるアート。"
       },
-      { name:"Saddle Bag", brief:"Saddle-shaped crossbody - Galliano icon", briefJp:"サドル型クロスボディ - ガリアーノアイコン",        desc:"Asymmetric saddle-shaped bag created by John Galliano in 1999. Revived in 2018 by Maria Grazia Chiuri. Instantly recognizable curved silhouette.",
+      { name:"Saddle Bag", imageUrl:"https://product-images.therealreal.com/CHR55336_3_enlarged.jpg", brief:"Saddle-shaped crossbody - Galliano icon", briefJp:"サドル型クロスボディ - ガリアーノアイコン",        desc:"Asymmetric saddle-shaped bag created by John Galliano in 1999. Revived in 2018 by Maria Grazia Chiuri. Instantly recognizable curved silhouette.",
         descJp:"1999年にジョン・ガリアーノが創作した非対称サドル型バッグ。2018年にマリア・グラツィア・キウリが復活。即座に認識可能な曲線シルエット。",
         shape:"Asymmetric saddle shape with curved top and Dior CD logo. Wide adjustable strap.",
         shapeJp:"曲線トップとディオールCDロゴ付き非対称サドル型。幅広調整可能ストラップ。",
@@ -1326,7 +1326,7 @@ const BRAND_DATA = {
       {name:"Cream/Chalk", hex:"#F5F5DC", nameJp:"クリーム/チョーク", desc:"Soft neutral. Shows the weave beautifully.", descJp:"ソフトなニュートラル。編みを美しく見せる。"}
     ],
     models:[
-      { name:"The Pouch", brief:"Oversized clutch - iconic pillow shape", briefJp:"特大クラッチ - 象徴的なピロー形状",        desc:"Bottega's most iconic modern bag. Soft, gathered leather clutch that looks like a cloud. No structure, pure luxury.",
+      { name:"The Pouch", imageUrl:"https://img.mytheresa.com/1094/1238/100/jpeg/catalog/product/77/P00458570.jpg", brief:"Oversized clutch - iconic pillow shape", briefJp:"特大クラッチ - 象徴的なピロー形状",        desc:"Bottega's most iconic modern bag. Soft, gathered leather clutch that looks like a cloud. No structure, pure luxury.",
         descJp:"ボッテガの最も象徴的なモダンバッグ。雲のような柔らかいギャザーレザークラッチ。構造なし、純粋なラグジュアリー。",
         shape:"Soft gathered pouch with magnetic closure. No structure - collapses when not full. Signature gathered leather.",
         shapeJp:"マグネットクロージャーのソフトギャザーポーチ。構造なし - 空の時は潰れる。シグネチャーのギャザーレザー。",
@@ -1341,7 +1341,7 @@ const BRAND_DATA = {
         tip:"Hold it like a clutch or tuck under arm. The gathered leather is BUTTER soft. No logos - pure quiet luxury.",
         tipJp:"クラッチのように持つか、脇に挟む。ギャザーレザーはバターのように柔らか。ロゴなし - 純粋な静かなラグジュアリー。"
       },
-      { name:"Cassette", brief:"Padded woven crossbody - puffy signature", briefJp:"パッド入り編みクロスボディ - ぷっくりシグネチャー",        desc:"Puffy, padded Intrecciato weave. Became hugely popular 2019+. Soft, pillow-like quilted squares.",
+      { name:"Cassette", imageUrl:"https://a.1stdibscdn.com/bottega-veneta-cassette-crossbody-bag-padded-maxi-intrecciato-leather-for-sale-picture-3/v_842/v_169771121663106791328/153119_1_Bottega_Veneta_Cassette_Crossbody_Bag_Pad_2D_0004_master.jpg?width=768", brief:"Padded woven crossbody - puffy signature", briefJp:"パッド入り編みクロスボディ - ぷっくりシグネチャー",        desc:"Puffy, padded Intrecciato weave. Became hugely popular 2019+. Soft, pillow-like quilted squares.",
         descJp:"ぷっくりとパッド入りイントレチャート編み。2019年以降大人気。柔らかい、枕のようなキルトスクエア。",
         shape:"Rectangular with rounded corners. Padded woven squares. Chain strap. Flap closure.",
         shapeJp:"丸みのある角の長方形。パッド入り編みスクエア。チェーンストラップ。フラップクロージャー。",
@@ -1415,7 +1415,7 @@ const BRAND_DATA = {
       {name:"Pink/Blush", hex:"#FFB6C1", nameJp:"ピンク/ブラッシュ", desc:"Feminine and playful. Limited editions.", descJp:"女性的で遊び心。限定版。"}
     ],
     models:[
-      { name:"Baguette", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
+      { name:"Baguette", imageUrl:"https://valuecreationuae.com/uploads/frontend/products/7356/conversions/fendi-black-ff-embossed-leather-chain-baguette-bag_imageGallery2-resize_images.webp", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
         descJp:"90年代後半のTHE Itバッグ。コンパクト、フランスのバゲットのように脇の下に収まる。セックス・アンド・ザ・シティで有名に。",
         shape:"Small rectangular bag. Flap closure. Short shoulder strap. Fits snugly under arm.",
         shapeJp:"小さな長方形バッグ。フラップクロージャー。短いショルダーストラップ。脇の下にぴったり収まる。",
@@ -1429,7 +1429,7 @@ const BRAND_DATA = {
         tip:"Carrie Bradshaw carried THIS bag. Tell that story! Vintage Baguettes from the 90s are collector's items now.",
         tipJp:"キャリー・ブラッドショーがこのバッグを持った。その話をして！90年代のヴィンテージバゲットは今コレクターアイテム。"
       },
-      { name:"Peekaboo", brief:"Structured tote - iconic twist lock", briefJp:"構造的トート - 象徴的なツイストロック",        desc:"Fendi's modern icon. Structured frame bag with distinctive twist-lock closure. Professional yet stylish.",
+      { name:"Peekaboo", imageUrl:"https://brands-hub.ru/wp-content/uploads/2021/02/Fendi-Women-Peekaboo-Iseeu-Medium-Leather-Bag-brown-1.jpg", brief:"Structured tote - iconic twist lock", briefJp:"構造的トート - 象徴的なツイストロック",        desc:"Fendi's modern icon. Structured frame bag with distinctive twist-lock closure. Professional yet stylish.",
         descJp:"フェンディのモダンアイコン。特徴的なツイストロッククロージャー付き構造フレームバッグ。プロフェッショナルでスタイリッシュ。",
         shape:"Structured rectangular frame bag. Double top handles. Twist-lock closure. Interior divided into compartments.",
         shapeJp:"構造的長方形フレームバッグ。ダブルトップハンドル。ツイストロッククロージャー。コンパートメントに分かれた内部。",
@@ -1476,7 +1476,7 @@ const BRAND_DATA = {
       {name:"Burgundy/Oxblood", hex:"#800020", nameJp:"バーガンディ/オックスブラッド", desc:"Rich, luxurious. Fall favorite.", descJp:"リッチ、豪華。秋のお気に入り。"}
     ],
     models:[
-      { name:"Belt Bag", brief:"Structured tote with belt detail - icon", briefJp:"ベルトディテール付き構造トート - アイコン",        desc:"Celine's modern icon. Structured tote with signature belt wings on sides. Clean, architectural lines.",
+      { name:"Belt Bag", imageUrl:"https://a.1stdibscdn.com/celine-belt-bag-textured-leather-nano-for-sale/v_842/v_166172721659643519939/v_16617272_1659643520448_bg_processed.jpg", brief:"Structured tote with belt detail - icon", briefJp:"ベルトディテール付き構造トート - アイコン",        desc:"Celine's modern icon. Structured tote with signature belt wings on sides. Clean, architectural lines.",
         descJp:"セリーヌのモダンアイコン。サイドにシグネチャーベルトウィング付き構造トート。クリーンで建築的なライン。",
         shape:"Trapeze/triangular tote. Belt detail creates wings on sides. Top zip closure. Clean minimal aesthetic.",
         shapeJp:"台形/三角トート。ベルトディテールがサイドにウィングを作る。トップジップクロージャー。クリーンなミニマル美学。",
@@ -1490,7 +1490,7 @@ const BRAND_DATA = {
         tip:"The belt detail is what makes it Celine. Point out those wings! Phoebe Philo designs are GOLD.",
         tipJp:"ベルトディテールがセリーヌらしさ。そのウィングを指摘！フィービー・ファイロデザインはゴールド。"
       },
-      { name:"Luggage Tote", brief:"Winged tote - architectural statement", briefJp:"ウィング付きトート - 建築的ステートメント",        desc:"THE Celine bag. Architectural tote with distinctive wing flaps. Instantly recognizable silhouette.",
+      { name:"Luggage Tote", imageUrl:"https://www.purseblog.com/images/2016/06/Celine-Mini-Luggage-Tote-Black-3100.jpg", brief:"Winged tote - architectural statement", briefJp:"ウィング付きトート - 建築的ステートメント",        desc:"THE Celine bag. Architectural tote with distinctive wing flaps. Instantly recognizable silhouette.",
         descJp:"THEセリーヌバッグ。特徴的なウィングフラップ付き建築的トート。即座に認識できるシルエット。",
         shape:"Structured tote with wing-like side panels. Front zipper detail. Top handles. Architectural and bold.",
         shapeJp:"翼のようなサイドパネル付き構造トート。フロントジッパーディテール。トップハンドル。建築的で大胆。",
