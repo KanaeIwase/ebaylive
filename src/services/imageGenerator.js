@@ -107,16 +107,13 @@ async function generateGeminiImage(brandKey, modelName, variation = 0) {
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:generate?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          prompt: `${prompt}, professional product photography, white background, studio lighting, high detail, luxury catalog style`,
-          number_of_images: 1,
-          aspect_ratio: "4:3",
-          safety_filter_level: "block_some",
-          person_generation: "allow_adult"
+          contents: [{ parts: [{ text: `${prompt}, professional product photography, white background, studio lighting, high detail, luxury catalog style` }] }],
+          generationConfig: { responseModalities: ['IMAGE', 'TEXT'] }
         })
       }
     );
@@ -128,10 +125,12 @@ async function generateGeminiImage(brandKey, modelName, variation = 0) {
     }
 
     const data = await response.json();
-    console.log('Gemini response:', data); // Debug log
-
-    if (data.generated_images && data.generated_images[0]?.image?.image_bytes) {
-      return `data:image/png;base64,${data.generated_images[0].image.image_bytes}`;
+    if (data.candidates?.[0]?.content?.parts) {
+      for (const part of data.candidates[0].content.parts) {
+        if (part.inlineData?.data) {
+          return `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+        }
+      }
     }
   } catch (error) {
     console.error('Gemini image generation error:', error);
@@ -188,23 +187,25 @@ async function generateConditionImageGemini(prompt) {
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:generate?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          prompt: `${prompt}, closeup detail photography, educational reference`,
-          number_of_images: 1,
-          aspect_ratio: "1:1",
-          safety_filter_level: "block_some"
+          contents: [{ parts: [{ text: `${prompt}, closeup detail photography, educational reference` }] }],
+          generationConfig: { responseModalities: ['IMAGE', 'TEXT'] }
         })
       }
     );
 
     if (response.ok) {
       const data = await response.json();
-      if (data.generated_images && data.generated_images[0]?.image?.image_bytes) {
-        return `data:image/png;base64,${data.generated_images[0].image.image_bytes}`;
+      if (data.candidates?.[0]?.content?.parts) {
+        for (const part of data.candidates[0].content.parts) {
+          if (part.inlineData?.data) {
+            return `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+          }
+        }
       }
     }
   } catch (error) {

@@ -386,6 +386,32 @@ const LIVE_KB = {
   },
 };
 
+/* ═══ BRAND LOGO HELPER ═══ */
+const BRAND_LOGO_DOMAINS = {
+  lv:'louisvuitton.com', chanel:'chanel.com', hermes:'hermes.com',
+  gucci:'gucci.com', prada:'prada.com', dior:'dior.com',
+  cartier:'cartier.com', bulgari:'bvlgari.com', tiffany:'tiffany.com',
+  vca:'vancleefarpels.com', bottegaveneta:'bottegaveneta.com', fendi:'fendi.com',
+  celine:'celine.com', loewe:'loewe.com', balenciaga:'balenciaga.com',
+  saintlaurent:'ysl.com', givenchy:'givenchy.com', valentino:'valentino.com',
+  burberry:'burberry.com', mcm:'mcmworldwide.com', alexandermcqueen:'alexandermcqueen.com',
+  miumiu:'miumiu.com', chloe:'chloe.com', tomford:'tomford.com',
+  dolcegabbana:'dolcegabbana.com', versace:'versace.com', jimmychoo:'jimmychoo.com',
+  christianlouboutin:'christianlouboutin.com', offwhite:'off---white.com',
+  marni:'marni.com', therow:'therow.com', stellamccartney:'stellamccartney.com',
+  proenzaschouler:'proenzaschouler.com', balmain:'balmain.com',
+  alexanderwang:'alexanderwang.com', lanvin:'lanvin.com', jilsander:'jilsander.com',
+  goyard:'goyard.com', delvaux:'delvaux.com', judithlieber:'judithleibercouture.com',
+  markcross:'markcross.com', mulberry:'mulberry.com', coach:'coach.com',
+  jacquemus:'jacquemus.com', chromHearts:'chromehearts.com',
+  chopard:'chopard.com', pomellato:'pomellato.com', mikimoto:'mikimoto.com',
+};
+const getBrandLogoUrl = (brandKey) => {
+  const domain = BRAND_LOGO_DOMAINS[brandKey];
+  if (!domain) return null;
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+};
+
 /* ═══ BRAND DATA (eBay Authenticity Guarantee Brands) ═══ */
 /* ═══ BRAND KNOWLEDGE DATA (with model details) ═══ */
 const BRAND_DATA = {
@@ -393,9 +419,7 @@ const BRAND_DATA = {
     name:"Louis Vuitton", year:1854, country:"France",
     categories:["handbags", "jewelry"],
     desc:"Founded by Louis Vuitton in Paris, this legendary French house revolutionized travel with its iconic monogram canvas and innovative flat-top trunks. Known for exceptional craftsmanship, timeless design, and status symbol appeal. Louis Vuitton bags hold their value incredibly well and are recognized worldwide.",
-    descJp:"ルイ・ヴィトンがパリで創業したこの伝説的なフランスメゾンは、象徴的なモノグラムキャンバスと革新的なフラットトップトランクで旅行に革命をもたらしました。卓越した職人技、時代を超えたデザイン、ステータスシンボルとしての魅力で知られています。ルイ・ヴィトンのバッグは非常に価値を保持し、世界中で認知されています。",
-    imageUrl:"https://logo.clearbit.com/louisvuitton.com",
-    auth:"Date codes (pre-2021) → heat stamps with microchip (2021+). Canvas should NEVER peel. Stitching always even.",
+    descJp:"ルイ・ヴィトンがパリで創業したこの伝説的なフランスメゾンは、象徴的なモノグラムキャンバスと革新的なフラットトップトランクで旅行に革命をもたらしました。卓越した職人技、時代を超えたデザイン、ステータスシンボルとしての魅力で知られています。ルイ・ヴィトンのバッグは非常に価値を保持し、世界中で認知されています。",    auth:"Date codes (pre-2021) → heat stamps with microchip (2021+). Canvas should NEVER peel. Stitching always even.",
     authJp:"デートコード（2021年以前）→ ヒートスタンプ+マイクロチップ（2021年以降）。キャンバスは剥離しない。ステッチは均一。",
     rare:"Multicolor line by Takashi Murakami (2003-2015, discontinued) — highly collectible, values doubled since discontinuation. Vernis in Pomme d'Amour, Rose Indien, Framboise (rare colors, 2000s). Cherry Blossom collab (2003, extremely rare). Graffiti by Stephen Sprouse (2001, 2009). Pre-2021 date codes more desirable than microchip era. Limited edition artist collabs consistently increase in value. LV NEVER discounts at retail — any pre-owned price is inherently a deal.",
     rareJp:"村上隆とのマルチカラーライン（2003-2015年、廃番）— 高コレクタブル、廃番以来価値が2倍に。ヴェルニのポムダムール、ローズアンディアン、フランボワーズ（希少色、2000年代）。チェリーブロッサムコラボ（2003年、極めて希少）。スティーブン・スプラウスのグラフィティ（2001年、2009年）。2021年以前のデートコードがマイクロチップ時代より望ましい。限定版アーティストコラボは一貫して価値上昇。LVは定価で値引きなし — 中古価格は本質的にお買い得。",
@@ -414,9 +438,7 @@ const BRAND_DATA = {
       {name:"Noir", hex:"#1A1A1A", nameJp:"ノワール", desc:"Classic black. Can't go wrong.", descJp:"クラシックブラック。間違いなし。"}
     ],
     models:[
-      { name:"Speedy", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",
-        imageUrl:"https://images.unsplash.com/photo-1591561954557-26941169b49e?w=400",
-        desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
+      { name:"Speedy", brief:"Iconic barrel bag - compact, everyday", briefJp:"象徴的なバレル型 - コンパクト、毎日使い",        desc:"The most iconic LV bag since 1930. Soft, slouchy barrel shape with rolled leather handles.",
         descJp:"1930年以来の最も象徴的なLVバッグ。柔らかくたるむバレル型、ロール レザーハンドル付き。",
         shape:"Barrel/cylindrical with zip-top closure. Slouches when not stuffed.",
         shapeJp:"バレル/円筒形でジップトップ閉鎖。詰めないとたるむ。",
@@ -433,9 +455,7 @@ const BRAND_DATA = {
         tip:"The 30 is the original Audrey Hepburn size. That's history in your hands.",
         tipJp:"30サイズはオードリー・ヘップバーンのオリジナルサイズ。あなたの手の中の歴史。"
       },
-      { name:"Neverfull", brief:"Tote bag - spacious, open-top", briefJp:"トートバッグ - 広々、オープントップ",
-        imageUrl:"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400",
-        desc:"Open-top tote with side laces for adjustable width. The ultimate everyday bag.",
+      { name:"Neverfull", brief:"Tote bag - spacious, open-top", briefJp:"トートバッグ - 広々、オープントップ",        desc:"Open-top tote with side laces for adjustable width. The ultimate everyday bag.",
         descJp:"調節可能な幅のサイドレース付きオープントップトート。究極のデイリーバッグ。",
         shape:"Rectangular tote, open-top, side laces cinch/expand width.",
         shapeJp:"長方形トート、オープントップ、サイドレースで幅調節。",
@@ -449,8 +469,7 @@ const BRAND_DATA = {
         tip:"This is THE work bag. Fits a laptop, documents, everything. Buyers know this.",
         tipJp:"これがTHE仕事バッグ。ノートPC、書類、全部入る。バイヤーは知ってる。"
       },
-      { name:"Keepall", brief:"Weekender duffel - travel essential", briefJp:"週末ダッフル - 旅行必需品",
-        desc:"Soft-sided duffel, the quintessential travel bag since 1930. Folds flat when empty.",
+      { name:"Keepall", brief:"Weekender duffel - travel essential", briefJp:"週末ダッフル - 旅行必需品",        desc:"Soft-sided duffel, the quintessential travel bag since 1930. Folds flat when empty.",
         descJp:"1930年以来の典型的な旅行バッグ。空の時は平らに折りたためるソフトサイドダッフル。",
         shape:"Cylindrical duffel with rounded ends, double zip closure.",
         shapeJp:"丸い端の円筒形ダッフル、ダブルジップ閉鎖。",
@@ -464,6 +483,76 @@ const BRAND_DATA = {
         rareJp:"バンドリエール（ストラップ付き）がより価値。エピレザー、ダミエ グラフィット希少。コラボ。",
         tip:"The Keepall is your perfect weekend bag. Fits overhead. Folds flat. Iconic.",
         tipJp:"Keepallは完璧な週末バッグ。機内持込可。平らに折りたためる。象徴的。"
+      },
+      { name:"Alma", brief:"Structured dome bag - elegant classic", briefJp:"構造的ドーム型バッグ - エレガントクラシック",        desc:"Structured dome-shaped bag with double handles, created in 1934. Named after the Alma Bridge in Paris. Holds its shape beautifully.",
+        descJp:"1934年創作のダブルハンドル付き構造的ドーム型バッグ。パリのアルマ橋にちなんで命名。美しく形を保ちます。",
+        shape:"Dome/structured shell shape with zip closure and padlock.",
+        shapeJp:"ドーム/構造的シェル型、ジップ閉鎖と南京錠付き。",
+        sizes:[
+          {name:"BB", dim:"9.4\"W × 6.9\"H × 4.7\"D - MOST POPULAR"},
+          {name:"PM", dim:"12.2\"W × 9.4\"H × 5.9\"D"},
+          {name:"MM", dim:"14.2\"W × 11\"H × 6.7\"D"},
+          {name:"GM", dim:"16.1\"W × 12.2\"H × 7.9\"D"}
+        ],
+        rare:"Vernis patent leather in rare colors. Limited edition collabs. Pre-2000 vintage pieces.",
+        rareJp:"希少色のヴェルニパテントレザー。限定版コラボ。2000年以前のヴィンテージ。",
+        tip:"The Alma BB is incredibly popular right now. Structured bags are having a moment.",
+        tipJp:"Alma BBは今とても人気。構造的バッグが流行中。"
+      },
+      { name:"Capucines", brief:"Structured top-handle - modern luxury", briefJp:"構造的トップハンドル - モダンラグジュアリー",        desc:"LV's most luxurious bag. Named after Rue des Capucines where Louis Vuitton opened his first store in 1854. Hidden LV initials and exceptionally high craftsmanship.",
+        descJp:"LVの最も豪華なバッグ。1854年にルイ・ヴィトンが最初の店を開いたカプシーヌ通りにちなんで命名。隠れたLVイニシャルと卓越した職人技。",
+        shape:"Structured rectangular shape with top handle. Detachable shoulder strap. Hidden magnetic closure.",
+        shapeJp:"トップハンドル付き構造的長方形。取り外し可能ショルダーストラップ。隠しマグネットクロージャー。",
+        sizes:[
+          {name:"Mini", dim:"6.7\"W × 5.5\"H × 3.1\"D"},
+          {name:"BB", dim:"8.3\"W × 6.3\"H × 3.9\"D"},
+          {name:"PM", dim:"10.2\"W × 7.5\"H × 4.7\"D"},
+          {name:"MM", dim:"12.2\"W × 9.1\"H × 5.5\"D - MOST POPULAR"}
+        ],
+        rare:"Exotic leathers (python, crocodile - $20,000+). Limited edition artsy collaborations.",
+        rareJp:"エキゾチックレザー（パイソン、クロコダイル - 2万ドル以上）。限定版アーティスティックコラボ。",
+        tip:"This is LV's answer to Hermès. Ultra-luxe craftsmanship. The hidden LV on the handle is genius design.",
+        tipJp:"これはLVのエルメスへの答え。超豪華職人技。ハンドルの隠れたLVは天才デザイン。"
+      },
+      { name:"Pochette Métis", brief:"Compact crossbody - versatile daily", briefJp:"コンパクトクロスボディ - 万能デイリー",        desc:"Compact crossbody with front flap and S-lock closure. Perfect size for everyday essentials. Became extremely popular in the 2010s.",
+        descJp:"フロントフラップとSロッククロージャー付きコンパクトクロスボディ。日常必需品に完璧なサイズ。2010年代に極めて人気に。",
+        shape:"Mailbag/satchel shape with top handle and long strap. S-lock closure on front flap.",
+        shapeJp:"メールバッグ/サッチェル型、トップハンドルとロングストラップ付き。フロントフラップのSロッククロージャー。",
+        sizes:[
+          {name:"Pochette Métis", dim:"9.8\"W × 7.5\"H × 2.8\"D - MOST POPULAR"},
+          {name:"Pochette Métis East West", dim:"11.8\"W × 6.7\"H × 3.1\"D"}
+        ],
+        rare:"Reverse Monogram. Limited edition seasonal prints. Empreinte leather versions.",
+        rareJp:"リバースモノグラム。限定版シーズンプリント。アンプラント レザーバージョン。",
+        tip:"This became THE crossbody bag in the mid-2010s. Everyone wanted one. Still super popular.",
+        tipJp:"これは2010年代半ばにTHE クロスボディバッグに。誰もが欲しがった。今も超人気。"
+      },
+      { name:"OnTheGo", brief:"Large tote - modern monogram", briefJp:"大きなトート - モダンモノグラム",        desc:"Large structured tote launched 2019. Giant LV logo, spacious interior. Modern take on the classic Neverfull.",
+        descJp:"2019年発売の大きな構造的トート。巨大LVロゴ、広々とした内部。クラシックなネバーフルのモダンなテイク。",
+        shape:"Large rectangular tote with double top handles. Structured with giant LV letters on front.",
+        shapeJp:"ダブルトップハンドル付き大きな長方形トート。前面に巨大LV文字で構造的。",
+        sizes:[
+          {name:"MM", dim:"12.6\"W × 10.6\"H × 6.3\"D"},
+          {name:"GM", dim:"16.1\"W × 12.6\"H × 7.5\"D - MOST POPULAR"}
+        ],
+        rare:"Limited edition colorways. Monogram Empreinte leather versions. Reverse Monogram canvas.",
+        rareJp:"限定版カラーウェイ。モノグラム アンプラント レザーバージョン。リバースモノグラムキャンバス。",
+        tip:"The GIANT LV logo is the statement. This is for people who want everyone to KNOW it's LV.",
+        tipJp:"巨大LVロゴがステートメント。これは誰もがLVだとわかってほしい人向け。"
+      },
+      { name:"Twist", brief:"Chain shoulder bag - modern classic", briefJp:"チェーンショルダーバッグ - モダンクラシック",        desc:"Modern shoulder bag with LV twist-lock closure. Launched 2014. Structured, elegant, and contemporary.",
+        descJp:"LVツイストロッククロージャー付きモダンショルダーバッグ。2014年発売。構造的、エレガント、コンテンポラリー。",
+        shape:"Structured flap bag with signature LV twist-lock. Chain strap. Clean geometric lines.",
+        shapeJp:"シグネチャーLVツイストロック付き構造的フラップバッグ。チェーンストラップ。クリーンな幾何学ライン。",
+        sizes:[
+          {name:"PM", dim:"9\"W × 6.7\"H × 3.5\"D"},
+          {name:"MM", dim:"10.2\"W × 7.5\"H × 4.3\"D - MOST POPULAR"},
+          {name:"GM", dim:"12.2\"W × 9.1\"H × 5.1\"D"}
+        ],
+        rare:"Epi leather versions. Limited edition colorways and embellishments. Two-tone combinations.",
+        rareJp:"エピレザーバージョン。限定版カラーウェイと装飾。ツートーンコンビネーション。",
+        tip:"The twist-lock is modern LV. It's not your grandmother's monogram - this is CONTEMPORARY luxury.",
+        tipJp:"ツイストロックはモダンLV。あなたのおばあちゃんのモノグラムではない - これはコンテンポラリーラグジュアリー。"
       }
     ]
   },
@@ -471,9 +560,7 @@ const BRAND_DATA = {
     name:"Chanel", year:1910, country:"France",
     categories:["handbags", "jewelry"],
     desc:"Founded by Coco Chanel, this iconic French luxury house epitomizes timeless elegance and Parisian chic. Famous for the Classic Flap bag with its signature quilted leather and interlocking CC logo. Chanel bags are considered investment pieces that appreciate in value, with prices increasing 2-3 times per year. A symbol of sophistication worldwide.",
-    descJp:"ココ・シャネルが創業したこの象徴的なフランスの高級メゾンは、時代を超えたエレガンスとパリジャンシックを体現しています。シグネチャーのキルティングレザーとインターロッキングCCロゴを持つクラシックフラップバッグで有名。シャネルのバッグは年に2〜3回価格が上昇し、価値が上がる投資品と見なされています。世界中で洗練の象徴です。",
-    imageUrl:"https://logo.clearbit.com/chanel.com",
-    auth:"Serial sticker + card (pre-2021). Microchip (post-2021). Quilting must align at seams.",
+    descJp:"ココ・シャネルが創業したこの象徴的なフランスの高級メゾンは、時代を超えたエレガンスとパリジャンシックを体現しています。シグネチャーのキルティングレザーとインターロッキングCCロゴを持つクラシックフラップバッグで有名。シャネルのバッグは年に2〜3回価格が上昇し、価値が上がる投資品と見なされています。世界中で洗練の象徴です。",    auth:"Serial sticker + card (pre-2021). Microchip (post-2021). Quilting must align at seams.",
     authJp:"シリアルステッカー+カード（2021年以前）。マイクロチップ（2021年以降）。キルティングは縫い目で合う必須。",
     rare:"Chanel raises prices 2-3 times annually (8-15% each time). Classic Flap Medium was $2,800 in 2010, now over $10,000 in 2024 (257% increase). GST (Grand Shopping Tote) and PST (Petite Shopping Tote) discontinued 2015 — now highly sought after. Vintage Karl Lagerfeld era (1983-2019) especially 1980s-1990s with 24K gold-plated hardware. Boy Bag (introduced 2011) early seasons collectible. Limited seasonal colors: Iridescent, Rainbow Dark, Mermaid. Pre-2021 serial stickers considered more traditional than microchip system.",
     rareJp:"シャネルは年2-3回価格上昇（毎回8-15%）。クラシックフラップミディアムは2010年$2,800、2024年に$10,000以上（257%増）。GST（グランドショッピングトート）とPST（プチショッピングトート）2015年廃番 — 今は非常に求められる。ヴィンテージ カール・ラガーフェルド時代（1983-2019）特に24K金メッキ金具の1980-1990年代。ボーイバッグ（2011年導入）初期シーズンはコレクタブル。限定シーズンカラー：イリデセント、レインボーダーク、マーメイド。2021年以前シリアルステッカーはマイクロチップシステムより伝統的と見なされる。",
@@ -488,8 +575,7 @@ const BRAND_DATA = {
       {name:"Light Pink", hex:"#F8C8DC", nameJp:"ライトピンク", desc:"Very feminine and lovely.", descJp:"とてもフェミニンで素敵。"}
     ],
     models:[
-      { name:"Classic Flap", brief:"Iconic quilted bag - investment piece", briefJp:"象徴的なキルティングバッグ - 投資品",
-        desc:"The most iconic Chanel bag. Diamond quilted pattern with chain-leather strap and CC turnlock.",
+      { name:"Classic Flap", brief:"Iconic quilted bag - investment piece", briefJp:"象徴的なキルティングバッグ - 投資品",        desc:"The most iconic Chanel bag. Diamond quilted pattern with chain-leather strap and CC turnlock.",
         descJp:"最も象徴的なシャネルバッグ。ダイヤモンドキルティングパターン、チェーンレザーストラップ、CCターンロック付き。",
         shape:"Rectangular flap bag with signature diamond quilting (matelassé). Chain strap interwoven with leather.",
         shapeJp:"シグネチャーダイヤモンドキルティング（マトラッセ）の長方形フラップバッグ。レザーと組み合わせたチェーンストラップ。",
@@ -505,8 +591,7 @@ const BRAND_DATA = {
         tip:"Classic Flap Medium was $2,800 in 2010. Now over $10,000. That's why pre-loved is smart.",
         tipJp:"クラシックフラップMは2010年$2,800。今は$10,000以上。だから中古が賢い。"
       },
-      { name:"Boy Bag", brief:"Modern, edgy - structured shape", briefJp:"モダンでエッジー - 構造的形状",
-        desc:"Masculine-inspired bag with bold hardware. More structured than Classic Flap.",
+      { name:"Boy Bag", brief:"Modern, edgy - structured shape", briefJp:"モダンでエッジー - 構造的形状",        desc:"Masculine-inspired bag with bold hardware. More structured than Classic Flap.",
         descJp:"大胆な金具のマスキュリンなインスピレーションバッグ。クラシックフラップより構造的。",
         shape:"Rectangular with chevron or diamond quilting. Chunky chain strap. Push-lock closure.",
         shapeJp:"シェブロンまたはダイヤモンドキルティングの長方形。太いチェーンストラップ。プッシュロック閉鎖。",
@@ -519,6 +604,32 @@ const BRAND_DATA = {
         rareJp:"シェブロンキルティングはダイヤモンドより人気。限定版レザーと色。",
         tip:"Boy Bag is for buyers who want Chanel but something edgier. It's bolder.",
         tipJp:"ボーイバッグはシャネルが欲しいけどエッジーなものを求めるバイヤー向け。より大胆。"
+      },
+      { name:"2.55 Reissue", brief:"Original 1955 design - vintage icon", briefJp:"オリジナル1955年デザイン - ヴィンテージアイコン",        desc:"The ORIGINAL Chanel bag from February 1955. All-chain strap (no leather), rectangular lock (not CC turnlock). This is where it all started.",
+        descJp:"1955年2月のオリジナルシャネルバッグ。オールチェーンストラップ（レザーなし）、長方形ロック（CCターンロックではない）。全てはここから始まった。",
+        shape:"Classic rectangular flap with Mademoiselle turnlock (rectangular, not CC). All-chain double strap.",
+        shapeJp:"マドモアゼルターンロック（長方形、CCではない）付きクラシック長方形フラップ。オールチェーンダブルストラップ。",
+        sizes:[
+          {name:"226 (Small)", dim:"9\"W × 6\"H × 2.5\"D - MOST POPULAR"},
+          {name:"227 (Medium)", dim:"10.2\"W × 6.5\"H × 3\"D"},
+          {name:"228 (Jumbo)", dim:"12\"W × 8\"H × 3.5\"D"}
+        ],
+        rare:"Distressed calfskin versions. Metallic finishes. Original vintage 1955-1980s pieces (museum quality).",
+        rareJp:"ディストレストカーフスキンバージョン。メタリック仕上げ。オリジナルヴィンテージ1955-1980年代作品（美術館品質）。",
+        tip:"This is for Chanel purists. The 2.55 is the ORIGINAL before Karl changed it. Rectangular lock, all-chain strap. History.",
+        tipJp:"これはシャネル純粋主義者向け。2.55はカールが変更する前のオリジナル。長方形ロック、オールチェーンストラップ。歴史。"
+      },
+      { name:"GST (Grand Shopping Tote)", brief:"Large tote - discontinued treasure", briefJp:"大きなトート - 廃番の宝",        desc:"Discontinued in 2015 - now highly collectible. Large quilted tote with chain handles. The perfect work bag that Chanel no longer makes.",
+        descJp:"2015年に廃番 - 今は非常にコレクタブル。チェーンハンドル付き大きなキルティングトート。シャネルがもう作らない完璧な仕事バッグ。",
+        shape:"Large rectangular tote. Quilted caviar leather. Chain-woven leather straps. Zip-top closure.",
+        shapeJp:"大きな長方形トート。キルティングキャビアレザー。チェーン編みレザーストラップ。ジップトップクロージャー。",
+        sizes:[
+          {name:"GST", dim:"13\"W × 10\"H × 5.5\"D - MOST POPULAR"}
+        ],
+        rare:"Discontinued 2015 - ALL GST bags are now collectible. Caviar leather holds value better than lambskin.",
+        rareJp:"2015年廃番 - 全てのGSTバッグが今コレクタブル。キャビアレザーはラムスキンより価値保持。",
+        tip:"Tell buyers: Chanel stopped making these in 2015. Values are climbing. The perfect everyday tote that you can't buy new anymore.",
+        tipJp:"バイヤーに伝える：シャネルは2015年に製造停止。価値上昇中。新品で買えない完璧な日常トート。"
       }
     ]
   },
@@ -526,9 +637,7 @@ const BRAND_DATA = {
     name:"Hermès", year:1837, country:"France",
     categories:["handbags", "jewelry"],
     desc:"The pinnacle of luxury craftsmanship, originally a harness and saddle maker for European nobility. Each Hermès bag is handmade by a single artisan using traditional techniques. The Birkin and Kelly bags are among the most coveted and investment-worthy handbags in the world. Hermès maintains exclusivity through limited production and waitlists, making pre-owned pieces highly valuable.",
-    descJp:"もともとヨーロッパ貴族のための馬具とサドルメーカーだった、高級職人技の頂点。各エルメスバッグは伝統的な技術を使用して一人の職人が手作りしています。バーキンとケリーバッグは世界で最も垂涎され投資価値のあるハンドバッグの一つです。エルメスは限定生産とウェイトリストを通じて独占性を維持し、中古品を非常に価値あるものにしています。",
-    imageUrl:"https://logo.clearbit.com/hermes.com",
-    auth:"Craftsman stamp with ID, year letter, blind stamp. Hand-stitched saddle stitch (angled, not straight).",
+    descJp:"もともとヨーロッパ貴族のための馬具とサドルメーカーだった、高級職人技の頂点。各エルメスバッグは伝統的な技術を使用して一人の職人が手作りしています。バーキンとケリーバッグは世界で最も垂涎され投資価値のあるハンドバッグの一つです。エルメスは限定生産とウェイトリストを通じて独占性を維持し、中古品を非常に価値あるものにしています。",    auth:"Craftsman stamp with ID, year letter, blind stamp. Hand-stitched saddle stitch (angled, not straight).",
     authJp:"職人スタンプ+ID、年号レター、ブラインドスタンプ。手縫いサドルステッチ（斜め、直線ではない）。",
     rare:"Exotic leathers command premium: Himalaya Niloticus Crocodile (most expensive handbag ever sold, $300K-500K at auction), Porosus Crocodile, Alligator, Ostrich, Lizard. Special orders 'Horseshoe Stamp' (HSS) with custom colors and contrasting stitching. Rare colors: Rose Tyrien, Blue Electrique, Vert Criquet, Orange H (discontinued 2022). Birkin Faubourg (house-shaped, ultra rare, made-to-order only). Vintage 1980s-1990s with Box leather and older craftsman stamps. Birkins NOT sold online or in-store without SA relationship and purchase history — 2-6 year waitlists. Pre-owned is ONLY realistic acquisition method. Values appreciate 10-15% annually.",
     rareJp:"エキゾチックレザーはプレミアム要求：ヒマラヤニロティカスクロコダイル（史上最高額ハンドバッグ、オークションで30-50万ドル）、ポロサスクロコダイル、アリゲーター、オーストリッチ、リザード。カスタムカラーとコントラストステッチの特注「馬蹄スタンプ」（HSS）。希少色：ローズティリアン、ブルーエレクトリック、ヴェールクリケ、オレンジH（2022年廃番）。バーキン フォーブール（家型、超希少、特注のみ）。ボックスレザーと古い職人スタンプの1980-1990年代ヴィンテージ。バーキンはSA関係と購入履歴なしでオンラインまたは店頭販売なし — 2-6年ウェイトリスト。中古が唯一の現実的入手方法。価値は年10-15%上昇。",
@@ -544,8 +653,7 @@ const BRAND_DATA = {
     tip:"You can't just walk in and buy a Birkin. The fact that we have one here tonight is special.",
     tipJp:"バーキンは歩いて入って買えない。今夜ここにあるのは特別。",
     models:[
-      { name:"Birkin", brief:"Holy grail - most coveted bag", briefJp:"聖杯 - 最も切望されるバッグ",
-        desc:"The most sought-after handbag in the world. Named after Jane Birkin. Not available online.",
+      { name:"Birkin", brief:"Holy grail - most coveted bag", briefJp:"聖杯 - 最も切望されるバッグ",        desc:"The most sought-after handbag in the world. Named after Jane Birkin. Not available online.",
         descJp:"世界で最も求められているハンドバッグ。ジェーン・バーキンにちなんで命名。オンライン販売なし。",
         shape:"Rectangular tote with flap, two handles, turnlock closure. Structured with feet.",
         shapeJp:"フラップ付き長方形トート、2つのハンドル、ターンロック閉鎖。足付きで構造的。",
@@ -559,6 +667,77 @@ const BRAND_DATA = {
         rareJp:"ヒマラヤバーキン（$100K-$500K）。エキゾチックレザー。シーズン限定色。HSS（スペシャルオーダー）。",
         tip:"Birkin 25 and 30 are the most sought after. You need purchase history to even buy one retail.",
         tipJp:"バーキン25と30が最も求められている。定価で買うにも購入履歴が必要。"
+      },
+      { name:"Kelly", brief:"Grace Kelly's bag - royal elegance", briefJp:"グレース・ケリーのバッグ - 王室エレガンス",        desc:"Named after Grace Kelly who famously used it to hide her pregnancy. More formal and structured than Birkin with single top handle.",
+        descJp:"妊娠を隠すために使用したことで有名なグレース・ケリーにちなんで命名。シングルトップハンドルでバーキンよりフォーマルで構造的。",
+        shape:"Trapezoid shape with single top handle. Flap with turnlock. More structured than Birkin.",
+        shapeJp:"シングルトップハンドルの台形。ターンロック付きフラップ。バーキンより構造的。",
+        sizes:[
+          {name:"Kelly 20 (Sellier)", dim:"7.9\"W × 5.9\"H × 3.1\"D - Mini"},
+          {name:"Kelly 25", dim:"9.8\"W × 7.5\"H × 4.3\"D - MOST POPULAR"},
+          {name:"Kelly 28", dim:"11\"W × 8.7\"H × 4.7\"D"},
+          {name:"Kelly 32", dim:"12.6\"W × 9.1\"H × 5.1\"D"},
+          {name:"Kelly 35", dim:"13.8\"W × 10.2\"H × 5.5\"D"}
+        ],
+        rare:"Sellier (rigid structure) vs Retourne (soft). Exotic leathers. Mini Kelly 20. HSS special orders.",
+        rareJp:"セリエ（硬い構造）vsルトゥルネ（柔らかい）。エキゾチックレザー。ミニケリー20。HSS特注。",
+        tip:"Princess Grace of Monaco carried this. That's ROYALTY. Kelly is more formal than Birkin - mention that.",
+        tipJp:"モナコ公妃グレースが持っていた。それは王室。ケリーはバーキンよりフォーマル - 言及して。"
+      },
+      { name:"Evelyne", brief:"Casual crossbody - perforated H", briefJp:"カジュアルクロスボディ - パーフォレーテッドH",        desc:"The most accessible Hermès bag. Perforated H logo, casual crossbody style. Reversible leather.",
+        descJp:"最もアクセシブルなエルメスバッグ。パーフォレーテッドHロゴ、カジュアルクロスボディスタイル。リバーシブルレザー。",
+        shape:"Simple messenger/crossbody. Perforated H on front. Adjustable canvas strap. No closure.",
+        shapeJp:"シンプルなメッセンジャー/クロスボディ。前面にパーフォレーテッドH。調整可能キャンバスストラップ。クロージャーなし。",
+        sizes:[
+          {name:"Evelyne TPM (16)", dim:"6.3\"W × 7.1\"H"},
+          {name:"Evelyne PM (29)", dim:"11.4\"W × 11.8\"H - MOST POPULAR"},
+          {name:"Evelyne GM (33)", dim:"13\"W × 12.2\"H"}
+        ],
+        rare:"Limited seasonal colors. Etoupe and Gold most classic. Early versions with smaller perforations.",
+        rareJp:"シーズン限定色。エトゥープとゴールドが最もクラシック。小さい穴の初期バージョン。",
+        tip:"This is the 'entry' Hermès bag. No waitlist. You can actually BUY this one. Perfect for buyers who want H without $10K.",
+        tipJp:"これは「エントリー」エルメスバッグ。ウェイトリストなし。実際に買える。1万ドルなしでHが欲しいバイヤーに最適。"
+      },
+      { name:"Garden Party", brief:"Canvas tote - casual luxury", briefJp:"キャンバストート - カジュアルラグジュアリー",        desc:"Hermès' casual tote in canvas or leather. Open-top, simple design. More relaxed than Birkin but still unmistakably Hermès.",
+        descJp:"キャンバスまたはレザーのエルメスのカジュアルトート。オープントップ、シンプルデザイン。バーキンよりリラックスしているが間違いなくエルメス。",
+        shape:"Simple tote with double handles. Open top (no closure). Canvas body with leather trim.",
+        shapeJp:"ダブルハンドルのシンプルトート。オープントップ（クロージャーなし）。レザートリム付きキャンバスボディ。",
+        sizes:[
+          {name:"PM (30)", dim:"11.8\"W × 9.4\"H × 7.1\"D"},
+          {name:"MM (36)", dim:"14.2\"W × 11.4\"H × 8.3\"D - MOST POPULAR"},
+          {name:"GM (45)", dim:"17.7\"W × 14.2\"H × 10.6\"D"}
+        ],
+        rare:"All-leather versions (no canvas). Limited seasonal colors. Early 2000s versions.",
+        rareJp:"オールレザーバージョン（キャンバスなし）。シーズン限定色。2000年代初期バージョン。",
+        tip:"Perfect weekend bag. Open-top makes it so easy. Canvas means it's tough - great for travel.",
+        tipJp:"完璧な週末バッグ。オープントップで とても簡単。キャンバスなので丈夫 - 旅行に最適。"
+      },
+      { name:"Picotin", brief:"Bucket bag - simple elegance", briefJp:"バケットバッグ - シンプルエレガンス",        desc:"Simple bucket bag inspired by horse feed bags (Hermès' equestrian heritage). Open-top with single handle. Understated Hermès.",
+        descJp:"馬の飼料袋にインスパイアされたシンプルバケットバッグ（エルメスの馬術遺産）。シングルハンドルのオープントップ。控えめなエルメス。",
+        shape:"Bucket/cylindrical shape. Single top handle. Open top with lock closure option. Simple and minimal.",
+        shapeJp:"バケット/円筒形。シングルトップハンドル。ロッククロージャーオプション付きオープントップ。シンプルでミニマル。",
+        sizes:[
+          {name:"Picotin 18", dim:"7.1\"W × 7.9\"H - MOST POPULAR"},
+          {name:"Picotin 22", dim:"8.7\"W × 9.1\"H"},
+          {name:"Picotin 26", dim:"10.2\"W × 10.6\"H"}
+        ],
+        rare:"Exotic leathers (crocodile Picotin is stunning). PM size. Limited seasonal colors.",
+        rareJp:"エキゾチックレザー（クロコダイル ピコタンは見事）。PMサイズ。シーズン限定色。",
+        tip:"Horse feed bag origin. That's HERITAGE. Simple but Hermès quality leather makes it special.",
+        tipJp:"馬の飼料袋起源。それは伝統。シンプルだがエルメス品質レザーが特別に。"
+      },
+      { name:"Constance", brief:"H-clasp shoulder bag - elegant compact", briefJp:"Hクラスプショルダーバッグ - エレガントコンパクト",        desc:"Elegant shoulder bag with iconic H-clasp closure. Named after designer Catherine Chaillet's daughter. More compact and refined than Kelly.",
+        descJp:"象徴的なHクラスプクロージャー付きエレガントなショルダーバッグ。デザイナー キャサリン・シャイエの娘にちなんで命名。ケリーよりコンパクトで洗練。",
+        shape:"Compact shoulder bag. H-shaped clasp closure. Long shoulder strap. Sleek, minimalist design.",
+        shapeJp:"コンパクトショルダーバッグ。H型クラスプクロージャー。長いショルダーストラップ。スリークでミニマリストデザイン。",
+        sizes:[
+          {name:"Constance 18", dim:"7.1\"W × 5.9\"H × 1.6\"D - MOST POPULAR"},
+          {name:"Constance 24", dim:"9.4\"W × 7.1\"H × 2\"D"}
+        ],
+        rare:"Vintage 1960s originals. Exotic leathers. Two-tone color combinations. Rare seasonal colors.",
+        rareJp:"1960年代のヴィンテージオリジナル。エキゾチックレザー。ツートーンカラーコンビネーション。希少シーズンカラー。",
+        tip:"The H-clasp is pure Hermès elegance. Jacqueline Kennedy carried one. That's STYLE.",
+        tipJp:"Hクラスプはピュアなエルメスエレガンス。ジャクリーン・ケネディが持った。それがスタイル。"
       }
     ]
   },
@@ -566,9 +745,7 @@ const BRAND_DATA = {
     name:"Gucci", year:1921, country:"Italy",
     categories:["handbags"],
     desc:"Italian luxury house known for bold designs, iconic double-G logo, and GG canvas pattern. Gucci reinvents itself with each creative director era—from Tom Ford's sexy 90s glamour to Alessandro Michele's maximalist eclectic style. The brand balances heritage with contemporary fashion, making Gucci bags instantly recognizable and highly desirable.",
-    descJp:"大胆なデザイン、象徴的なダブルGロゴ、GGキャンバスパターンで知られるイタリアの高級メゾン。グッチは各クリエイティブディレクター時代で自らを再発明します—トム・フォードのセクシーな90年代グラマーからアレッサンドロ・ミケーレのマキシマリスト折衷スタイルまで。ブランドは伝統と現代ファッションのバランスを取り、グッチのバッグを即座に認識可能で非常に望ましいものにしています。",
-    imageUrl:"https://logo.clearbit.com/gucci.com",
-    auth:"Serial number tag inside (2 rows, 10-13 digits). Controllato card. Clean hardware.",
+    descJp:"大胆なデザイン、象徴的なダブルGロゴ、GGキャンバスパターンで知られるイタリアの高級メゾン。グッチは各クリエイティブディレクター時代で自らを再発明します—トム・フォードのセクシーな90年代グラマーからアレッサンドロ・ミケーレのマキシマリスト折衷スタイルまで。ブランドは伝統と現代ファッションのバランスを取り、グッチのバッグを即座に認識可能で非常に望ましいものにしています。",    auth:"Serial number tag inside (2 rows, 10-13 digits). Controllato card. Clean hardware.",
     authJp:"内側シリアル番号タグ（2行、10-13桁）。コントロラートカード。きれいな金具。",
     rare:"Tom Ford era (1994-2004) defined modern Gucci — pieces highly collectible for iconic sexy glamour. Vintage bamboo handle bags from 1960s-1970s in excellent condition. Jackie O bag original vintage (1950s-1980s) vs 1961 reissue. Alessandro Michele era (2015-2022) maximalist pieces already becoming collectibles. Gucci x Balenciaga 'Hacker Project' (2021, sold out immediately). Gucci Ghost collaboration (2016, graffiti-style limited edition). Ken Scott floral prints (1960s-1970s vintage). Dionysus limited editions with special embroidery or exotic skins. Vintage GG Supreme canvas with original web stripe.",
     rareJp:"トム・フォード時代（1994-2004）がモダンGucci定義 — 作品は象徴的セクシーグラマーで高コレクタブル。優れた状態の1960-1970年代ヴィンテージバンブーハンドルバッグ。ジャッキーOバッグ オリジナルヴィンテージ（1950-1980年代）vs 1961復刻。アレッサンドロ・ミケーレ時代（2015-2022）マキシマリスト作品は既にコレクティブルに。グッチ x バレンシアガ「ハッカープロジェクト」（2021年、即完売）。グッチゴーストコラボ（2016年、グラフィティスタイル限定版）。ケン・スコット フローラルプリント（1960-1970年代ヴィンテージ）。特別刺繍またはエキゾチックスキンのディオニュソス限定版。オリジナルウェブストライプ付きヴィンテージGGスプリームキャンバス。",
@@ -581,8 +758,7 @@ const BRAND_DATA = {
       {name:"Pink", hex:"#FFB6C1", nameJp:"ピンク", desc:"Soft pink. Very feminine.", descJp:"柔らかいピンク。とてもフェミニン。"}
     ],
     models:[
-      { name:"GG Marmont", brief:"Quilted chevron - modern classic", briefJp:"キルティングシェブロン - モダンクラシック",
-        desc:"Matelassé chevron leather with signature GG logo. Launched 2016, instantly iconic.",
+      { name:"GG Marmont", brief:"Quilted chevron - modern classic", briefJp:"キルティングシェブロン - モダンクラシック",        desc:"Matelassé chevron leather with signature GG logo. Launched 2016, instantly iconic.",
         descJp:"シグネチャーGGロゴ付きマトラッセシェブロンレザー。2016年発売、即座に象徴的に。",
         shape:"Soft quilted bag with chevron pattern. Double G hardware. Chain strap.",
         shapeJp:"シェブロンパターンの柔らかいキルティングバッグ。ダブルG金具。チェーンストラップ。",
@@ -596,6 +772,60 @@ const BRAND_DATA = {
         rareJp:"限定版カラーと装飾。ベルベットバージョン。",
         tip:"Marmont is Gucci's answer to Chanel. Buyers know this style. Very popular.",
         tipJp:"マーモントはグッチのシャネルへの回答。バイヤーはこのスタイルを知ってる。とても人気。"
+      },
+      { name:"Ophidia", brief:"GG Supreme canvas - web stripe", briefJp:"GGスプリームキャンバス - ウェブストライプ",        desc:"Classic GG Supreme canvas with green-red-green web stripe. Vintage-inspired design launched 2018. Features the iconic double G logo and web stripe.",
+        descJp:"緑-赤-緑のウェブストライプ付きクラシックGGスプリームキャンバス。2018年発売のヴィンテージ風デザイン。象徴的なダブルGロゴとウェブストライプが特徴。",
+        shape:"Structured shoulder bag or tote. GG canvas with leather trim. Signature web stripe down center.",
+        shapeJp:"構造的ショルダーバッグまたはトート。レザートリム付きGGキャンバス。センターにシグネチャーウェブストライプ。",
+        sizes:[
+          {name:"Small", dim:"9.8\"W × 7.1\"H × 2.8\"D"},
+          {name:"Medium", dim:"11.8\"W × 8.7\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Tote", dim:"14.2\"W × 12.6\"H × 5.5\"D"}
+        ],
+        rare:"Limited edition GG colors. Seasonal prints. All-leather versions without canvas.",
+        rareJp:"限定版GGカラー。シーズンプリント。キャンバスなしのオールレザーバージョン。",
+        tip:"The web stripe is GUCCI heritage. From the 1950s-60s luggage. Mention that vintage connection.",
+        tipJp:"ウェブストライプはグッチの伝統。1950-60年代の荷物から。そのヴィンテージ繋がりを言及。"
+      },
+      { name:"Horsebit 1955", brief:"Horsebit hardware - equestrian heritage", briefJp:"ホースビット金具 - 馬術遺産",        desc:"Shoulder bag featuring the iconic horsebit hardware from Gucci's equestrian heritage. First created in 1955, reissued in 2020. The horsebit is one of Gucci's oldest symbols.",
+        descJp:"グッチの馬術遺産から象徴的なホースビット金具を特徴とするショルダーバッグ。1955年に初創作、2020年に復刻。ホースビットはグッチの最古のシンボルの一つ。",
+        shape:"Shoulder bag or crossbody. Signature horsebit hardware closure. Structured flap design.",
+        shapeJp:"ショルダーバッグまたはクロスボディ。シグネチャーホースビット金具クロージャー。構造的フラップデザイン。",
+        sizes:[
+          {name:"Small", dim:"7.9\"W × 6.3\"H × 2.4\"D"},
+          {name:"Medium", dim:"9.8\"W × 7.9\"H × 3.1\"D - MOST POPULAR"}
+        ],
+        rare:"Original vintage 1955-1970s pieces. Limited edition colors. Exotic leather versions.",
+        rareJp:"オリジナルヴィンテージ1955-1970年代作品。限定版カラー。エキゾチックレザーバージョン。",
+        tip:"The horsebit is from Gucci's saddle-making roots. Heritage piece. Collectors love the history.",
+        tipJp:"ホースビットはグッチのサドル製造ルーツから。伝統作品。コレクターは歴史を愛する。"
+      },
+      { name:"Dionysus", brief:"Tiger head closure - symbol of power", briefJp:"タイガーヘッドクロージャー - 力のシンボル",        desc:"Shoulder bag with distinctive tiger head spur closure. Named after the Greek god Dionysus. Launched by Alessandro Michele in 2015.",
+        descJp:"特徴的なタイガーヘッドスパークロージャー付きショルダーバッグ。ギリシャの神ディオニュソスにちなんで命名。2015年にアレッサンドロ・ミケーレが発売。",
+        shape:"Structured shoulder bag. Tiger head hardware closure. Sliding chain strap. GG Supreme canvas or leather.",
+        shapeJp:"構造的ショルダーバッグ。タイガーヘッド金具クロージャー。スライディングチェーンストラップ。GGスプリームキャンバスまたはレザー。",
+        sizes:[
+          {name:"Super Mini", dim:"6.7\"W × 4.3\"H × 2\"D"},
+          {name:"Small", dim:"10.6\"W × 7.5\"H × 3.5\"D - MOST POPULAR"},
+          {name:"Medium", dim:"12.6\"W × 8.7\"H × 4.3\"D"}
+        ],
+        rare:"Embroidered limited editions. Exotic leather versions. Alessandro Michele era pieces (2015-2022).",
+        rareJp:"刺繍限定版。エキゾチックレザーバージョン。アレッサンドロ・ミケーレ時代作品（2015-2022）。",
+        tip:"The tiger head is FIERCE. Dionysus was the god of wine and pleasure. This bag says LUXURY and POWER.",
+        tipJp:"タイガーヘッドは獰猛。ディオニュソスはワインと快楽の神。このバッグは高級と力を語る。"
+      },
+      { name:"Jackie 1961", brief:"Hobo with piston closure - vintage icon", briefJp:"ピストンクロージャー付きホーボー - ヴィンテージアイコン",        desc:"Named after Jacqueline Kennedy Onassis who carried it in the 1960s. Hobo shape with distinctive piston closure. Reissued in 2020.",
+        descJp:"1960年代に持っていたジャクリーン・ケネディ・オナシスにちなんで命名。特徴的なピストンクロージャー付きホーボー型。2020年に復刻。",
+        shape:"Slouchy hobo shape. Signature piston closure hook. Curved top handle. Vintage-inspired design.",
+        shapeJp:"たるんだホーボー型。シグネチャーピストンクロージャーフック。曲線トップハンドル。ヴィンテージ風デザイン。",
+        sizes:[
+          {name:"Small", dim:"10.6\"W × 7.5\"H × 1.6\"D - MOST POPULAR"},
+          {name:"Medium", dim:"13\"W × 9.8\"H × 2\"D"}
+        ],
+        rare:"Vintage 1960s-1970s originals (Jackie O era, museum quality). Tom Ford era versions. Limited edition colors.",
+        rareJp:"1960-70年代のヴィンテージオリジナル（ジャッキーO時代、美術館品質）。トム・フォード時代バージョン。限定版カラー。",
+        tip:"JACKIE O carried this. That's FIRST LADY style. The piston closure is the signature - show that detail!",
+        tipJp:"ジャッキーOが持った。それはファーストレディスタイル。ピストンクロージャーがシグネチャー - その詳細を見せて！"
       }
     ]
   },
@@ -603,9 +833,7 @@ const BRAND_DATA = {
     name:"Prada", year:1913, country:"Italy",
     categories:["handbags"],
     desc:"Italian luxury brand that revolutionized fashion by making nylon a luxury material. Famous for minimalist aesthetics, the iconic triangle logo, and innovative Saffiano leather with crosshatch texture. Prada represents intellectual elegance and understated luxury. Vintage Prada nylon bags from the 1980s-90s are now highly collectible.",
-    descJp:"ナイロンを高級素材にすることでファッションに革命をもたらしたイタリアの高級ブランド。ミニマリスト美学、象徴的な三角ロゴ、クロスハッチ質感の革新的なサフィアーノレザーで有名。プラダは知的なエレガンスと控えめな高級感を表しています。1980〜90年代のヴィンテージプラダナイロンバッグは現在非常にコレクタブルです。",
-    imageUrl:"https://logo.clearbit.com/prada.com",
-    auth:"Authenticity card with serial number. Saffiano leather texture. Triangle logo plaque (metal, not plastic).",
+    descJp:"ナイロンを高級素材にすることでファッションに革命をもたらしたイタリアの高級ブランド。ミニマリスト美学、象徴的な三角ロゴ、クロスハッチ質感の革新的なサフィアーノレザーで有名。プラダは知的なエレガンスと控えめな高級感を表しています。1980〜90年代のヴィンテージプラダナイロンバッグは現在非常にコレクタブルです。",    auth:"Authenticity card with serial number. Saffiano leather texture. Triangle logo plaque (metal, not plastic).",
     authJp:"シリアル番号付き真贋カード。サフィアーノレザーの質感。三角ロゴプレート（プラスチックではなく金属）。",
     rare:"Vintage nylon bags from 1984-1990s (when Miuccia Prada introduced nylon) now highly collectible, selling for more than original retail. Re-Edition 2005 (re-release of 2000 bestseller) popular. Limited edition Saffiano colors especially pastels and metallics. Vintage Sport line (1990s athletic-inspired, rare). Prada Cahier (book-shaped bag 2016+) limited editions. Collaboration pieces: Prada x Adidas (2019-present). Original black nylon backpack (vela) from 1980s in excellent condition commands premium. Triangle logo bags pre-2000 with smaller, older-style hardware.",
     rareJp:"ミウッチャ・プラダがナイロン導入した1984-1990年代のヴィンテージナイロンバッグは現在高コレクタブルで、オリジナル小売価格以上で販売。Re-Edition 2005（2000年ベストセラーの再リリース）人気。限定版サフィアーノカラー特にパステルとメタリック。ヴィンテージスポーツライン（1990年代アスレチック風、希少）。プラダカイエ（本型バッグ2016+）限定版。コラボ作品：プラダ x アディダス（2019-現在）。優れた状態の1980年代オリジナルブラックナイロンバックパック（ヴェラ）はプレミアム要求。小さい古いスタイル金具の2000年以前三角ロゴバッグ。",
@@ -618,8 +846,7 @@ const BRAND_DATA = {
       {name:"Navy", hex:"#000080", nameJp:"ネイビー", desc:"Deep navy. Professional and chic.", descJp:"深いネイビー。プロフェッショナルでシック。"}
     ],
     models:[
-      { name:"Galleria", brief:"Structured tote - professional", briefJp:"構造的トート - プロフェッショナル",
-        desc:"Prada's iconic tote in Saffiano leather. The ultimate work bag.",
+      { name:"Galleria", brief:"Structured tote - professional", briefJp:"構造的トート - プロフェッショナル",        desc:"Prada's iconic tote in Saffiano leather. The ultimate work bag.",
         descJp:"サフィアーノレザーのプラダの象徴的なトート。究極の仕事バッグ。",
         shape:"Rectangular structured tote with double handles. Detachable shoulder strap.",
         shapeJp:"ダブルハンドル付き長方形の構造的トート。取り外し可能なショルダーストラップ。",
@@ -632,6 +859,31 @@ const BRAND_DATA = {
         rareJp:"限定版カラー。ツートーンバージョン。クロコダイルレザー（極めて希少）。",
         tip:"The Galleria is THE executive bag. Holds everything, looks sharp, lasts forever.",
         tipJp:"ガレリアはTHEエグゼクティブバッグ。全部入る、シャープに見える、永遠に持つ。"
+      },
+      { name:"Cahier", brief:"Book-shaped bag - vintage studded", briefJp:"本型バッグ - ヴィンテージスタッズ",        desc:"Book-shaped crossbody bag with vintage-inspired hardware and studs. Launched 2016. Resembles an antique journal with metal corners and clasps.",
+        descJp:"ヴィンテージ風金具とスタッズ付き本型クロスボディバッグ。2016年発売。メタルコーナーと留め金付きのアンティークジャーナルに似ている。",
+        shape:"Rectangular book shape. Metal corner reinforcements. Decorative studs. Chain shoulder strap.",
+        shapeJp:"長方形の本型。メタルコーナー補強。装飾スタッズ。チェーンショルダーストラップ。",
+        sizes:[
+          {name:"Small", dim:"7.5\"W × 5.5\"H × 2.8\"D - MOST POPULAR"},
+          {name:"Medium", dim:"9\"W × 6.7\"H × 3.5\"D"}
+        ],
+        rare:"Limited edition embroidered versions. Velvet seasonal styles. Early 2016-2017 launch pieces.",
+        rareJp:"限定版刺繍バージョン。ベルベットシーズンスタイル。初期2016-2017年発売作品。",
+        tip:"It looks like a vintage leather book. That unique shape makes it stand out. Very Instagram-worthy.",
+        tipJp:"ヴィンテージレザー本のよう。そのユニークな形が目立たせる。とてもインスタ映え。"
+      },
+      { name:"Re-Edition 2005", brief:"Nylon shoulder bag - Y2K icon", briefJp:"ナイロンショルダーバッグ - Y2Kアイコン",        desc:"Re-release of Prada's bestselling bag from 2000. Nylon shoulder bag with Saffiano leather triangle logo. Became hugely popular in 2019+ for Y2K nostalgia.",
+        descJp:"2000年のプラダのベストセラーバッグの復刻版。サフィアーノレザー三角ロゴ付きナイロンショルダーバッグ。Y2Kノスタルジアで2019年以降大人気に。",
+        shape:"Compact shoulder bag. Iconic tessuto nylon. Saffiano leather triangle logo. Zip-top closure.",
+        shapeJp:"コンパクトショルダーバッグ。象徴的なテスートナイロン。サフィアーノレザー三角ロゴ。ジップトップクロージャー。",
+        sizes:[
+          {name:"Re-Edition 2005", dim:"7.9\"W × 5.9\"H × 2\"D - ONE SIZE"}
+        ],
+        rare:"First batch 2019 release. Limited seasonal colors. Denim or terry cloth limited editions.",
+        rareJp:"初回2019年リリース。シーズン限定色。デニムまたはテリークロス限定版。",
+        tip:"This brought back 2000s Prada nylon. Y2K fashion is HOT. Tell buyers this is the it-bag that came back.",
+        tipJp:"これが2000年代プラダナイロンを復活させた。Y2Kファッションは熱い。バイヤーに戻ってきたitバッグと伝える。"
       }
     ]
   },
@@ -639,9 +891,7 @@ const BRAND_DATA = {
     name:"Dior", year:1946, country:"France",
     categories:["handbags", "jewelry"],
     desc:"Founded by Christian Dior, embodying French haute couture elegance and femininity. The Lady Dior bag, named after Princess Diana, became one of the most iconic handbags in history. Known for the signature Cannage quilting pattern and architectural silhouettes. Dior represents timeless sophistication and royal-approved luxury.",
-    descJp:"クリスチャン・ディオールによって創業され、フランスのオートクチュールのエレガンスと女性らしさを体現しています。ダイアナ妃にちなんで名付けられたレディディオールバッグは、歴史上最も象徴的なハンドバッグの一つになりました。シグネチャーのカナージュキルティングパターンと建築的シルエットで知られています。ディオールは時代を超えた洗練と王室公認の高級感を表しています。",
-    imageUrl:"https://logo.clearbit.com/dior.com",
-    auth:"'CHRISTIAN DIOR PARIS' stamp inside. Serial number tag. Cannage quilting must be perfectly symmetrical.",
+    descJp:"クリスチャン・ディオールによって創業され、フランスのオートクチュールのエレガンスと女性らしさを体現しています。ダイアナ妃にちなんで名付けられたレディディオールバッグは、歴史上最も象徴的なハンドバッグの一つになりました。シグネチャーのカナージュキルティングパターンと建築的シルエットで知られています。ディオールは時代を超えた洗練と王室公認の高級感を表しています。",    auth:"'CHRISTIAN DIOR PARIS' stamp inside. Serial number tag. Cannage quilting must be perfectly symmetrical.",
     authJp:"内側に「CHRISTIAN DIOR PARIS」刻印。シリアル番号タグ。カナージュキルティングは完全に対称である必要。",
     rare:"Vintage Lady Dior from 1995-2000 (Princess Diana era, named after her in 1996) exceptionally collectible. Original name was 'Chouchou' before Diana made it famous. Saddle Bag original John Galliano era (1999-2007) vs 2018 revival by Maria Grazia Chiuri. Limited edition embroideries and Dior Oblique canvas. Diorissimo (discontinued 2016, hobo style) now sought after. Miss Dior bag vintage 1990s-2000s. Dior Book Tote limited edition artist collaborations. Rare colorways: vintage pastels from 1990s. Lady Dior with celebrity charms (limited editions). Cannage pattern variations and special materials (python, crocodile).",
     rareJp:"1995-2000年のヴィンテージレディディオール（ダイアナ妃時代、1996年に彼女にちなんで命名）は例外的にコレクタブル。ダイアナが有名にする前のオリジナル名は「シュシュ」。サドルバッグ オリジナル ジョン・ガリアーノ時代（1999-2007）vs マリア・グラツィア・キウリによる2018年復活。限定版刺繍とディオール オブリークキャンバス。ディオリッシモ（2016年廃番、ホーボースタイル）今は求められる。ミス ディオール バッグ ヴィンテージ1990-2000年代。ディオール ブックトート限定版アーティストコラボ。希少カラー：1990年代ヴィンテージパステル。セレブリティチャーム付きレディディオール（限定版）。カナージュパターンバリエーションと特別素材（パイソン、クロコダイル）。",
@@ -654,8 +904,7 @@ const BRAND_DATA = {
       {name:"Red", hex:"#DC143C", nameJp:"レッド", desc:"Classic Dior red. Stunning.", descJp:"クラシックなディオールレッド。素晴らしい。"}
     ],
     models:[
-      { name:"Lady Dior", brief:"Cannage quilted - iconic elegance", briefJp:"カナージュキルト - 象徴的なエレガンス",
-        desc:"The most iconic Dior bag. Cannage quilting with DIOR charms.",
+      { name:"Lady Dior", brief:"Cannage quilted - iconic elegance", briefJp:"カナージュキルト - 象徴的なエレガンス",        desc:"The most iconic Dior bag. Cannage quilting with DIOR charms.",
         descJp:"最も象徴的なディオールバッグ。DIORチャーム付きカナージュキルティング。",
         shape:"Structured bag with signature Cannage quilting. Top handles with detachable shoulder strap.",
         shapeJp:"シグネチャー カナージュキルティングの構造的バッグ。取り外し可能なショルダーストラップ付きトップハンドル。",
@@ -669,6 +918,32 @@ const BRAND_DATA = {
         rareJp:"ダイアナ妃の個人コレクション作品。限定版装飾。ツートーンバージョン。",
         tip:"Princess Diana made this bag famous. It was literally named after her. Icon status.",
         tipJp:"ダイアナ妃がこのバッグを有名にした。文字通り彼女にちなんで命名。アイコンステータス。"
+      },
+      { name:"Book Tote", brief:"Large canvas tote - artistic statement", briefJp:"大きなキャンバストート - アーティスティックステートメント",        desc:"Oversized tote in signature Dior Oblique canvas or embroidered styles. Became hugely popular 2018+. Perfect for travel or statement everyday bag.",
+        descJp:"シグネチャーディオール オブリークキャンバスまたは刺繍スタイルの特大トート。2018年以降大人気。旅行またはステートメント日常バッグに最適。",
+        shape:"Large rectangular tote. Open-top. Often features Dior Oblique canvas or special embroidery/prints.",
+        shapeJp:"大きな長方形トート。オープントップ。多くの場合、ディオール オブリークキャンバスまたは特別刺繍/プリントを特徴。",
+        sizes:[
+          {name:"Small", dim:"13.8\"W × 11\"H × 7.1\"D"},
+          {name:"Medium", dim:"16.1\"W × 12.6\"H × 8.3\"D - MOST POPULAR"},
+          {name:"Large", dim:"17.7\"W × 14.2\"H × 8.7\"D"}
+        ],
+        rare:"Limited edition artist collaborations (Kaws, Peter Doig, Pietro Ruffo). Seasonal embroidered editions. First release 2018 classic oblique.",
+        rareJp:"限定版アーティストコラボ（カウズ、ピーター・ドイグ、ピエトロ・ルッフォ）。シーズン刺繍版。初回リリース2018年クラシック オブリーク。",
+        tip:"This tote became THE status symbol in 2019-2020. Limited edition embroideries sell out instantly. It's ART you can carry.",
+        tipJp:"このトートは2019-2020年にTHEステータスシンボルに。限定版刺繍は即完売。運べるアート。"
+      },
+      { name:"Saddle Bag", brief:"Saddle-shaped crossbody - Galliano icon", briefJp:"サドル型クロスボディ - ガリアーノアイコン",        desc:"Asymmetric saddle-shaped bag created by John Galliano in 1999. Revived in 2018 by Maria Grazia Chiuri. Instantly recognizable curved silhouette.",
+        descJp:"1999年にジョン・ガリアーノが創作した非対称サドル型バッグ。2018年にマリア・グラツィア・キウリが復活。即座に認識可能な曲線シルエット。",
+        shape:"Asymmetric saddle shape with curved top and Dior CD logo. Wide adjustable strap.",
+        shapeJp:"曲線トップとディオールCDロゴ付き非対称サドル型。幅広調整可能ストラップ。",
+        sizes:[
+          {name:"Saddle Bag", dim:"10\"W × 7.9\"H × 4.7\"D - ONE SIZE"}
+        ],
+        rare:"Original John Galliano era 1999-2007 (vintage, highly collectible). Limited edition embroidered or beaded styles. Dior Oblique canvas versions.",
+        rareJp:"オリジナル ジョン・ガリアーノ時代1999-2007（ヴィンテージ、高コレクタブル）。限定版刺繍またはビーズスタイル。ディオール オブリークキャンバスバージョン。",
+        tip:"Galliano created this in '99, Chiuri brought it back in 2018. That curved shape? Unmistakable. Very Sex and the City vibes.",
+        tipJp:"ガリアーノが99年に創作、キウリが2018年に復活。その曲線形？間違いない。とてもセックス・アンド・ザ・シティの雰囲気。"
       }
     ]
   },
@@ -676,9 +951,7 @@ const BRAND_DATA = {
     name:"Cartier", year:1847, country:"France",
     categories:["jewelry"],
     desc:"The 'King of Jewelers and Jeweler to Kings,' Cartier has adorned royalty and celebrities for over 175 years. Famous for the Love bracelet with its iconic screw motif and the bold Juste un Clou nail design. Cartier pieces are investment jewelry that hold and increase in value. Known for impeccable craftsmanship and timeless design.",
-    descJp:"「宝石商の王、王の宝石商」であるカルティエは、175年以上にわたって王室とセレブを飾ってきました。象徴的なネジモチーフのラブブレスレットと大胆なジュスト アン クルー釘デザインで有名。カルティエの作品は価値を保持し上昇する投資ジュエリーです。完璧な職人技と時代を超えたデザインで知られています。",
-    imageUrl:"https://logo.clearbit.com/cartier.com",
-    auth:"Serial number engraved. Hallmark stamps (750 for 18k gold, 950 for platinum). Screw system on Love bracelet must be smooth.",
+    descJp:"「宝石商の王、王の宝石商」であるカルティエは、175年以上にわたって王室とセレブを飾ってきました。象徴的なネジモチーフのラブブレスレットと大胆なジュスト アン クルー釘デザインで有名。カルティエの作品は価値を保持し上昇する投資ジュエリーです。完璧な職人技と時代を超えたデザインで知られています。",    auth:"Serial number engraved. Hallmark stamps (750 for 18k gold, 950 for platinum). Screw system on Love bracelet must be smooth.",
     authJp:"シリアル番号刻印。ホールマークスタンプ（18金は750、プラチナは950）。ラブブレスレットのネジシステムは滑らかである必要。",
     rare:"Love Bracelet vintage 1970s first release (original Aldo Cipullo design, 1969 concept, 1970 launch) highly collectible. Trinity Ring vintage 1924 original design. Juste un Clou original 1970s New York collection. Yellow gold Love bracelets rarer than white/rose gold. Full diamond pavé versions (significantly more valuable). Limited edition colored stones: sapphires, emeralds, ceramic. Panthere collection vintage pieces. Tank watches from 1917-1950s (Santos-Dumont also collectible). Cartier rarely discounts — retail prices increase regularly, making pre-owned compelling value.",
     rareJp:"ラブブレスレット ヴィンテージ1970年代初回リリース（オリジナル アルド・チプロデザイン、1969年コンセプト、1970年発売）高コレクタブル。トリニティリング ヴィンテージ1924年オリジナルデザイン。ジュスト アン クルー オリジナル1970年代ニューヨークコレクション。イエローゴールドラブブレスレットはホワイト/ローズゴールドより希少。フルダイヤモンドパヴェバージョン（かなり価値高い）。限定版カラーストーン：サファイア、エメラルド、セラミック。パンテールコレクション ヴィンテージ作品。1917-1950年代のタンク時計（サントス・デュモンもコレクタブル）。カルティエは滅多に値引きなし — 小売価格は定期的に上昇、中古を魅力的な価値にする。",
@@ -691,8 +964,7 @@ const BRAND_DATA = {
       {name:"Platinum", hex:"#E5E4E2", nameJp:"プラチナ", desc:"The ultimate luxury metal.", descJp:"究極の高級金属。"}
     ],
     models:[
-      { name:"Love Bracelet", brief:"Iconic screw bracelet - symbol of love", briefJp:"象徴的なネジブレスレット - 愛のシンボル",
-        desc:"The most iconic Cartier piece. Oval bracelet with screw motifs. Needs screwdriver to put on/take off.",
+      { name:"Love Bracelet", brief:"Iconic screw bracelet - symbol of love", briefJp:"象徴的なネジブレスレット - 愛のシンボル",        desc:"The most iconic Cartier piece. Oval bracelet with screw motifs. Needs screwdriver to put on/take off.",
         descJp:"最も象徴的なカルティエ作品。ネジモチーフ付きオーバルブレスレット。着脱にドライバーが必要。",
         shape:"Oval bangle with screw details. Flat profile sits close to wrist.",
         shapeJp:"ネジディテール付きオーバルバングル。フラットプロファイルで手首に密着。",
@@ -708,8 +980,7 @@ const BRAND_DATA = {
         tip:"People wear this 24/7. They sleep in it, shower in it. That's how iconic it is.",
         tipJp:"人々は24時間これを着ける。寝る時も、シャワーの時も。それがどれだけ象徴的か。"
       },
-      { name:"Juste un Clou", brief:"Nail bracelet - bold statement", briefJp:"釘ブレスレット - 大胆なステートメント",
-        desc:"Bracelet shaped like a bent nail. Bold, modern design launched in 1970s New York.",
+      { name:"Juste un Clou", brief:"Nail bracelet - bold statement", briefJp:"釘ブレスレット - 大胆なステートメント",        desc:"Bracelet shaped like a bent nail. Bold, modern design launched in 1970s New York.",
         descJp:"曲がった釘の形のブレスレット。1970年代ニューヨークで発売された大胆でモダンなデザイン。",
         shape:"Curved nail design that wraps around wrist. Sharp, geometric ends.",
         shapeJp:"手首を巻く曲がった釘デザイン。鋭い幾何学的な端。",
@@ -724,8 +995,7 @@ const BRAND_DATA = {
         tip:"It's a NAIL. Cartier made a nail into jewelry. And it costs thousands. That's fashion.",
         tipJp:"それは釘。カルティエは釘をジュエリーにした。そして何千ドルもする。それがファッション。"
       },
-      { name:"Trinity Ring", brief:"Three-band ring - eternal symbol", briefJp:"3バンドリング - 永遠のシンボル",
-        desc:"Three interlocking bands in three golds: white, yellow, rose. Represents love, fidelity, friendship.",
+      { name:"Trinity Ring", brief:"Three-band ring - eternal symbol", briefJp:"3バンドリング - 永遠のシンボル",        desc:"Three interlocking bands in three golds: white, yellow, rose. Represents love, fidelity, friendship.",
         descJp:"3色のゴールドの3つの連結バンド：ホワイト、イエロー、ローズ。愛、忠誠、友情を表す。",
         shape:"Three rolling bands interlocked. Each band is a different gold color.",
         shapeJp:"3つのローリングバンドが連結。各バンドは異なるゴールドカラー。",
@@ -740,6 +1010,20 @@ const BRAND_DATA = {
         rareJp:"フルダイヤモンドパヴェバージョン。ワイドバンドバージョン。1920-30年代のヴィンテージ。",
         tip:"Three bands, three golds, three meanings. Jean Cocteau wore one. Poetry in jewelry form.",
         tipJp:"3バンド、3ゴールド、3つの意味。ジャン・コクトーが着用。ジュエリー形式の詩。"
+      },
+      { name:"Panthère", brief:"Panther motif - wild elegance", briefJp:"パンサーモチーフ - 野生のエレガンス",        desc:"Iconic panther motif in rings, bracelets, necklaces. Cartier's signature animal since 1914. Represents power, grace, and femininity.",
+        descJp:"リング、ブレスレット、ネックレスの象徴的なパンサーモチーフ。1914年以来のカルティエのシグネチャーアニマル。力、優雅さ、女性らしさを表す。",
+        shape:"Sculptural panther in various poses - prowling, resting, wrapped around finger/wrist.",
+        shapeJp:"様々なポーズの彫刻的パンサー - 徘徊、休息、指/手首を巻いている。",
+        sizes:[
+          {name:"Ring", dim:"Varies - statement piece"},
+          {name:"Bracelet", dim:"Adjustable - MOST POPULAR"},
+          {name:"Necklace", dim:"Chain length varies"}
+        ],
+        rare:"Vintage Panthère from Jeanne Toussaint era (1933-1970, original creator). Full diamond and onyx versions. Duchess of Windsor's personal pieces (estate provenance).",
+        rareJp:"ジャンヌ・トゥーサン時代のヴィンテージ パンテール（1933-1970、オリジナル創作者）。フルダイヤモンドとオニキスバージョン。ウィンザー公爵夫人の個人作品（遺産来歴）。",
+        tip:"The panther is CARTIER. Duchess of Windsor made it famous. It's fierce, elegant, iconic.",
+        tipJp:"パンサーはカルティエ。ウィンザー公爵夫人が有名にした。獰猛、エレガント、象徴的。"
       }
     ]
   },
@@ -747,9 +1031,7 @@ const BRAND_DATA = {
     name:"Bulgari", year:1884, country:"Italy",
     categories:["jewelry"],
     desc:"Italian luxury jeweler known for bold, colorful designs inspired by ancient Rome. Famous for the Serpenti snake motif and distinctive BVLGARI logo (using Roman V instead of U). Elizabeth Taylor's favorite jeweler—her Bulgari collection was legendary. Combines classical Italian craftsmanship with contemporary glamour. Highly collectible vintage pieces.",
-    descJp:"古代ローマに着想を得た大胆でカラフルなデザインで知られるイタリアの高級宝石商。セルペンティの蛇モチーフと特徴的なBVLGARIロゴ（ローマ式VをUの代わりに使用）で有名。エリザベス・テイラーのお気に入りの宝石商—彼女のブルガリコレクションは伝説的でした。クラシックなイタリア職人技と現代的グラマーを組み合わせています。ヴィンテージ作品は高コレクタブル。",
-    imageUrl:"https://logo.clearbit.com/bulgari.com",
-    auth:"BVLGARI stamp (uses V instead of U, Roman style). Serial number. Logo must be crisp, not blurry.",
+    descJp:"古代ローマに着想を得た大胆でカラフルなデザインで知られるイタリアの高級宝石商。セルペンティの蛇モチーフと特徴的なBVLGARIロゴ（ローマ式VをUの代わりに使用）で有名。エリザベス・テイラーのお気に入りの宝石商—彼女のブルガリコレクションは伝説的でした。クラシックなイタリア職人技と現代的グラマーを組み合わせています。ヴィンテージ作品は高コレクタブル。",    auth:"BVLGARI stamp (uses V instead of U, Roman style). Serial number. Logo must be crisp, not blurry.",
     authJp:"BVLGARI刻印（ローマ式でUではなくVを使用）。シリアル番号。ロゴは鮮明で、ぼやけていない必要。",
     rare:"Serpenti Secret Watch vintage 1950s-60s (jeweled bracelet watch, mechanical movement, highly collectible). Monete jewelry with authentic ancient Roman coins (1960s-1970s, extremely rare, museum quality). Elizabeth Taylor estate pieces (her personal collection broke auction records). Parentesi full diamond pave versions. Vintage Tubogas technique (seamless gold weaving, 1940s-50s). B.zero1 pink gold limited editions. Astrale constellation jewelry (1980s, discontinued).",
     rareJp:"セルペンティ シークレットウォッチ ヴィンテージ1950-60年代（宝石ブレスレットウォッチ、機械式ムーブメント、高コレクタブル）。本物の古代ローマコイン付きモネーテジュエリー（1960-70年代、極めて希少、美術館品質）。エリザベス・テイラー遺品（彼女の個人コレクションはオークション記録を破った）。パレンテシ フルダイヤモンドパヴェバージョン。ヴィンテージトゥボガステクニック（シームレスゴールド織り、1940-50年代）。B.zero1ピンクゴールド限定版。アストラーレ星座ジュエリー（1980年代、廃盤）。",
@@ -762,8 +1044,7 @@ const BRAND_DATA = {
       {name:"Onyx Black", hex:"#000000", nameJp:"オニキスブラック", desc:"Dramatic black stone inlays.", descJp:"ドラマティックなブラックストーンインレイ。"}
     ],
     models:[
-      { name:"Serpenti", brief:"Snake bracelet watch - iconic flexibility", briefJp:"蛇ブレスレットウォッチ - 象徴的な柔軟性",
-        desc:"Iconic snake-shaped watch bracelet. Flexible scale design wraps around wrist.",
+      { name:"Serpenti", brief:"Snake bracelet watch - iconic flexibility", briefJp:"蛇ブレスレットウォッチ - 象徴的な柔軟性",        desc:"Iconic snake-shaped watch bracelet. Flexible scale design wraps around wrist.",
         descJp:"象徴的な蛇形ウォッチブレスレット。柔軟なスケールデザインが手首を巻く。",
         shape:"Coiled snake bracelet with watch face. Articulated scales allow flexibility.",
         shapeJp:"時計文字盤付きコイル状の蛇ブレスレット。関節スケールで柔軟性を実現。",
@@ -775,8 +1056,7 @@ const BRAND_DATA = {
         tip:"It's a SNAKE watch. The scales move. Elizabeth Taylor wore one. Need I say more?",
         tipJp:"それは蛇時計。スケールが動く。エリザベス・テイラーが着用。これ以上何を言う必要がある？"
       },
-      { name:"B.zero1", brief:"Spiral ring - modern icon", briefJp:"スパイラルリング - モダンアイコン",
-        desc:"Bold spiral band ring inspired by Roman Colosseum architecture.",
+      { name:"B.zero1", brief:"Spiral ring - modern icon", briefJp:"スパイラルリング - モダンアイコン",        desc:"Bold spiral band ring inspired by Roman Colosseum architecture.",
         descJp:"ローマのコロッセオ建築にインスパイアされた大胆なスパイラルバンドリング。",
         shape:"Wide band with raised spiral edges. Central engraved BVLGARI BVLGARI logo.",
         shapeJp:"盛り上がったスパイラルエッジのワイドバンド。中央にBVLGARI BVLGARI刻印ロゴ。",
@@ -790,6 +1070,34 @@ const BRAND_DATA = {
         rareJp:"フルダイヤモンドパヴェ。セラミックインレイバージョン。限定版カラー。",
         tip:"Inspired by the Colosseum. You're wearing 2,000 years of Roman history on your finger.",
         tipJp:"コロッセオにインスパイア。あなたは指に2000年のローマの歴史を着けている。"
+      },
+      { name:"Diva's Dream", brief:"Fan motif - mosaic inspiration", briefJp:"扇モチーフ - モザイク風着想",        desc:"Fan-shaped design inspired by ancient Roman mosaics found in Caracalla Baths. Elegant, feminine, architectural.",
+        descJp:"カラカラ浴場で発見された古代ローマモザイクにインスパイアされた扇型デザイン。エレガント、フェミニン、建築的。",
+        shape:"Radiating fan or peacock tail shape. Geometric pattern reminiscent of mosaic tiles.",
+        shapeJp:"放射状扇またはクジャクの尾形。モザイクタイルを思わせる幾何学パターン。",
+        sizes:[
+          {name:"Small", dim:"Varies by piece - earrings, pendant"},
+          {name:"Medium", dim:"MOST POPULAR"},
+          {name:"Large", dim:"Statement necklaces"}
+        ],
+        rare:"Full diamond pave versions. Colored gemstone editions (malachite, mother-of-pearl).",
+        rareJp:"フルダイヤモンドパヴェバージョン。カラー宝石版（マラカイト、マザーオブパール）。",
+        tip:"Inspired by 2000-year-old Roman mosaics. That's ancient art on your body. Very Bulgari - bold, Roman, glamorous.",
+        tipJp:"2000年前のローマモザイクにインスパイア。それは体に着ける古代芸術。とてもブルガリ - 大胆、ローマ、グラマラス。"
+      },
+      { name:"Parentesi", brief:"Chain link pattern - flexible elegance", briefJp:"チェーンリンクパターン - 柔軟なエレガンス",        desc:"Interlocking geometric pattern inspired by Roman paving stones. Launched 1980s. Flexible, architectural design.",
+        descJp:"ローマの舗装石にインスパイアされた連結幾何学パターン。1980年代発売。柔軟で建築的デザイン。",
+        shape:"Geometric chain-link pattern forms bracelets, necklaces, rings. Interlocking rectangles.",
+        shapeJp:"幾何学チェーンリンクパターンがブレスレット、ネックレス、リングを形成。連結長方形。",
+        sizes:[
+          {name:"Bracelet", dim:"Adjustable flexible links"},
+          {name:"Ring", dim:"Various ring sizes - MOST POPULAR"},
+          {name:"Necklace", dim:"Chain length varies"}
+        ],
+        rare:"Full diamond pave links. Vintage 1980s original launch pieces.",
+        rareJp:"フルダイヤモンドパヴェリンク。1980年代オリジナル発売ヴィンテージ作品。",
+        tip:"The pattern comes from Roman street paving. Streets you can WEAR. Only Bulgari would do this.",
+        tipJp:"パターンはローマの街の舗装から。着用できる街。ブルガリだけがこれをする。"
       }
     ]
   },
@@ -797,9 +1105,7 @@ const BRAND_DATA = {
     name:"Tiffany & Co.", year:1837, country:"USA",
     categories:["jewelry"],
     desc:"America's most iconic luxury jeweler, famous worldwide for the signature Tiffany Blue Box. Founded in New York, Tiffany set the standard for American luxury and romance. Known for exceptional diamond quality, sterling silver designs, and collaborations with legendary designers like Elsa Peretti and Paloma Picasso. The ultimate symbol of love and celebration.",
-    descJp:"シグネチャーのティファニーブルーボックスで世界的に有名なアメリカで最も象徴的な高級宝石商。ニューヨークで創業され、ティファニーはアメリカの高級感とロマンスの基準を設定しました。卓越したダイヤモンド品質、スターリングシルバーデザイン、エルサ・ペレッティやパロマ・ピカソなどの伝説的デザイナーとのコラボレーションで知られています。愛と祝福の究極のシンボル。",
-    imageUrl:"https://logo.clearbit.com/tiffany.com",
-    auth:"'Tiffany & Co.' stamp. Sterling silver marked '925'. Comes in iconic blue box with white ribbon.",
+    descJp:"シグネチャーのティファニーブルーボックスで世界的に有名なアメリカで最も象徴的な高級宝石商。ニューヨークで創業され、ティファニーはアメリカの高級感とロマンスの基準を設定しました。卓越したダイヤモンド品質、スターリングシルバーデザイン、エルサ・ペレッティやパロマ・ピカソなどの伝説的デザイナーとのコラボレーションで知られています。愛と祝福の究極のシンボル。",    auth:"'Tiffany & Co.' stamp. Sterling silver marked '925'. Comes in iconic blue box with white ribbon.",
     authJp:"「Tiffany & Co.」刻印。スターリングシルバーには「925」マーク。象徴的なブルーボックスとホワイトリボン付き。",
     rare:"Jean Schlumberger Bird on a Rock brooch (1960s original, museum quality, six-figure auction prices). Elsa Peretti Bone Cuff original 1970s design (early hallmarks more valuable). Paloma Picasso Loving Heart Pendants 1980s first edition. Return to Tiffany Heart Tag pre-1990 (vintage versions, heavier silver weight). Atlas Collection original 1995 launch pieces. Tiffany Keys vintage Victorian era (1800s, extremely rare). Tiffany Setting engagement ring with original Tiffany diamond certificate pre-2000. Sterling silver flatware patterns discontinued sets (Chrysanthemum, Audubon, Japanese).",
     rareJp:"ジャン・シュランバーガー バード・オン・ア・ロック ブローチ（1960年代オリジナル、美術館品質、6桁オークション価格）。エルサ・ペレッティ ボーンカフ オリジナル1970年代デザイン（初期ホールマークはより価値が高い）。パロマ・ピカソ ラビングハートペンダント1980年代初版。リターン・トゥ・ティファニー ハートタグ 1990年以前（ヴィンテージバージョン、より重いシルバー重量）。アトラスコレクション オリジナル1995年発売作品。ティファニー キー ヴィンテージビクトリア時代（1800年代、極めて希少）。ティファニーセッティング エンゲージメントリング 2000年以前のオリジナルティファニーダイヤモンド証明書付き。スターリングシルバーフラットウェア 廃盤パターンセット（クリサンセマム、オーデュボン、ジャパニーズ）。",
@@ -812,8 +1118,7 @@ const BRAND_DATA = {
       {name:"Tiffany Blue", hex:"#81D8D0", nameJp:"ティファニーブルー", desc:"THE color. Instantly recognizable.", descJp:"THEカラー。即座に認識可能。"}
     ],
     models:[
-      { name:"Return to Tiffany", brief:"Heart tag - iconic design", briefJp:"ハートタグ - 象徴的デザイン",
-        desc:"Heart-shaped tag engraved 'Please Return to Tiffany & Co. New York'. Classic gift piece.",
+      { name:"Return to Tiffany", brief:"Heart tag - iconic design", briefJp:"ハートタグ - 象徴的デザイン",        desc:"Heart-shaped tag engraved 'Please Return to Tiffany & Co. New York'. Classic gift piece.",
         descJp:"「Please Return to Tiffany & Co. New York」刻印のハート型タグ。クラシックなギフトピース。",
         shape:"Heart-shaped pendant or charm on chain/bracelet. Engraved text on front.",
         shapeJp:"チェーンまたはブレスレットのハート型ペンダントまたはチャーム。前面に刻印テキスト。",
@@ -827,8 +1132,7 @@ const BRAND_DATA = {
         tip:"The message says return it to Tiffany if found. Because it's that valuable. Sweet, right?",
         tipJp:"メッセージは見つけたらティファニーに返すと言っている。それだけ価値があるから。素敵でしょ？"
       },
-      { name:"T Collection", brief:"Bold T motif - modern luxury", briefJp:"大胆なTモチーフ - モダンラグジュアリー",
-        desc:"Bold, graphic T design in bracelets, rings, necklaces. Modern Tiffany aesthetic.",
+      { name:"T Collection", brief:"Bold T motif - modern luxury", briefJp:"大胆なTモチーフ - モダンラグジュアリー",        desc:"Bold, graphic T design in bracelets, rings, necklaces. Modern Tiffany aesthetic.",
         descJp:"ブレスレット、リング、ネックレスの大胆でグラフィカルなTデザイン。モダンなティファニー美学。",
         shape:"Geometric T shape in various forms - wire, solid, pave.",
         shapeJp:"ワイヤー、ソリッド、パヴェなど様々な形の幾何学的T形状。",
@@ -841,6 +1145,103 @@ const BRAND_DATA = {
         rareJp:"フルダイヤモンドパヴェ。ツートーンゴールド。限定版ストーン。",
         tip:"The T is for Tiffany. Big, bold, modern. This is NOT your grandmother's Tiffany.",
         tipJp:"TはティファニーのT。大きく、大胆、モダン。これはあなたのおばあちゃんのティファニーではない。"
+      },
+      { name:"Open Heart", brief:"Elsa Peretti heart - fluid design", briefJp:"エルサ・ペレッティ ハート - 流動的デザイン",        desc:"Iconic open heart designed by Elsa Peretti in 1974. Fluid, organic shape. One of Tiffany's bestselling designs.",
+        descJp:"1974年にエルサ・ペレッティがデザインした象徴的なオープンハート。流動的でオーガニックな形。ティファニーのベストセラーデザインの一つ。",
+        shape:"Asymmetric open heart. Smooth, fluid curves. Minimalist design.",
+        shapeJp:"非対称オープンハート。滑らかで流動的なカーブ。ミニマリストデザイン。",
+        sizes:[
+          {name:"Small", dim:"0.6\"W - MOST POPULAR"},
+          {name:"Medium", dim:"0.9\"W"},
+          {name:"Large", dim:"1.2\"W"}
+        ],
+        rare:"Vintage 1974-1980s originals. Full diamond pave. Colored gemstone versions (sapphire, pink sapphire).",
+        rareJp:"1974-1980年代のヴィンテージオリジナル。フルダイヤモンドパヴェ。カラー宝石バージョン（サファイア、ピンクサファイア）。",
+        tip:"Elsa Peretti is legendary. This Open Heart from 1974? It's been a bestseller for 50 years. That's staying power.",
+        tipJp:"エルサ・ペレッティは伝説。1974年のこのオープンハート？50年間ベストセラー。それが持続力。"
+      },
+      { name:"Bean Design", brief:"Elsa Peretti bean - organic form", briefJp:"エルサ・ペレッティ ビーン - オーガニック形",        desc:"Simple bean-shaped pendant. Organic, smooth, tactile. Designed by Elsa Peretti. Minimalist and timeless.",
+        descJp:"シンプルな豆型ペンダント。オーガニック、滑らか、触覚的。エルサ・ペレッティがデザイン。ミニマリストでタイムレス。",
+        shape:"Bean/seed pod shape. Smooth polished surface. Three-dimensional.",
+        shapeJp:"豆/種莢形。滑らかな磨かれた表面。三次元。",
+        sizes:[
+          {name:"Small", dim:"0.6\"L"},
+          {name:"Medium", dim:"0.9\"L - MOST POPULAR"},
+          {name:"Large", dim:"1.2\"L"}
+        ],
+        rare:"Vintage Peretti originals. Limited edition materials (meteorite, wood inlay).",
+        rareJp:"ヴィンテージ ペレッティオリジナル。限定版素材（隕石、木インレイ）。",
+        tip:"It's a bean. Peretti made simplicity luxurious. That's design genius.",
+        tipJp:"それは豆。ペレッティはシンプルさを豪華にした。それがデザインの天才。"
+      },
+      { name:"Bone Cuff", brief:"Elsa Peretti bone - sculptural form", briefJp:"エルサ・ペレッティ ボーン - 彫刻的形",        desc:"Bold bone-shaped cuff bracelet. Sculptural, organic design by Elsa Peretti. Statement piece.",
+        descJp:"大胆な骨型カフブレスレット。エルサ・ペレッティによる彫刻的でオーガニックなデザイン。ステートメントピース。",
+        shape:"Wide cuff shaped like a bone. Smooth curves, bold presence.",
+        shapeJp:"骨の形の幅広カフ。滑らかなカーブ、大胆な存在感。",
+        sizes:[
+          {name:"Small", dim:"2.5\" opening"},
+          {name:"Medium", dim:"2.6\" opening - MOST POPULAR"},
+          {name:"Large", dim:"2.7\" opening"}
+        ],
+        rare:"Vintage 1970s originals. Full diamond versions.",
+        rareJp:"1970年代のヴィンテージオリジナル。フルダイヤモンドバージョン。",
+        tip:"BONE cuff. Peretti took organic shapes and made them LUXURY. Sculptural jewelry.",
+        tipJp:"ボーンカフ。ペレッティはオーガニック形を取って高級にした。彫刻的ジュエリー。"
+      },
+      { name:"Diamonds by the Yard", brief:"Chain with diamonds - delicate sparkle", briefJp:"ダイヤモンドバイザヤード - 繊細な輝き",        desc:"Delicate chain with diamonds spaced along it. Designed by Elsa Peretti. Elegant, understated.",
+        descJp:"ダイヤモンドが沿って配置された繊細なチェーン。エルサ・ペレッティがデザイン。エレガントで控えめ。",
+        shape:"Fine chain with bezel-set diamonds at intervals. Simple, delicate.",
+        shapeJp:"間隔でベゼルセットダイヤモンド付きファインチェーン。シンプルで繊細。",
+        sizes:[
+          {name:"16\" chain", dim:"Single diamond"},
+          {name:"18\" chain", dim:"Single diamond - MOST POPULAR"},
+          {name:"36\" chain", dim:"Multiple diamonds (by the yard)"}
+        ],
+        rare:"Long vintage yard-length chains. Multi-stone versions.",
+        rareJp:"長いヴィンテージヤード長チェーン。マルチストーンバージョン。",
+        tip:"You buy it by the YARD. Like fabric. Peretti was revolutionary with this design.",
+        tipJp:"ヤードで買う。布地のように。ペレッティはこのデザインで革命的だった。"
+      },
+      { name:"Keys", brief:"Tiffany Keys - unlock possibilities", briefJp:"ティファニーキー - 可能性を開く",        desc:"Decorative key pendants in various designs. Symbolize unlocking new opportunities. Popular gift.",
+        descJp:"様々なデザインの装飾的な鍵ペンダント。新しい機会を開くことを象徴。人気のギフト。",
+        shape:"Ornate key designs - heart keys, crown keys, oval keys. Decorative, symbolic.",
+        shapeJp:"華やかな鍵デザイン - ハートキー、クラウンキー、オーバルキー。装飾的、象徴的。",
+        sizes:[
+          {name:"Small", dim:"1\"L"},
+          {name:"Medium", dim:"1.5\"L - MOST POPULAR"},
+          {name:"Large", dim:"2\"L"}
+        ],
+        rare:"Full diamond pave keys. Colored gemstone accents. Limited edition designs.",
+        rareJp:"フルダイヤモンドパヴェキー。カラー宝石アクセント。限定版デザイン。",
+        tip:"Keys unlock doors. Tiffany says these unlock POSSIBILITIES. That's the marketing genius.",
+        tipJp:"鍵はドアを開ける。ティファニーはこれらが可能性を開くと言う。それがマーケティングの天才。"
+      },
+      { name:"Setting", brief:"Tiffany Setting - the engagement ring", briefJp:"ティファニーセッティング - 婚約指輪",        desc:"THE engagement ring. Created 1886. Six prongs lift the diamond to maximize light. Revolutionary design that defined modern engagement rings.",
+        descJp:"THE婚約指輪。1886年創作。6本の爪がダイヤモンドを持ち上げて光を最大化。現代の婚約指輪を定義した革命的デザイン。",
+        shape:"Round brilliant diamond elevated on six prongs. Classic solitaire.",
+        shapeJp:"6本の爪で高められたラウンドブリリアントダイヤモンド。クラシックソリティア。",
+        sizes:[
+          {name:"0.5 carat", dim:"Various ring sizes"},
+          {name:"1.0 carat", dim:"MOST POPULAR"},
+          {name:"2.0 carat", dim:"Statement size"}
+        ],
+        rare:"Vintage Tiffany Setting from 1886-1950s. Rare cuts (cushion, emerald in Tiffany Setting).",
+        rareJp:"1886-1950年代のヴィンテージ ティファニーセッティング。希少カット（ティファニーセッティングのクッション、エメラルド）。",
+        tip:"This INVENTED the modern engagement ring in 1886. Before this, diamonds sat flat. Tiffany changed EVERYTHING.",
+        tipJp:"これが1886年に現代の婚約指輪を発明。これ以前、ダイヤモンドは平らに座っていた。ティファニーが全てを変えた。"
+      },
+      { name:"Atlas", brief:"Roman numeral design - architectural", briefJp:"ローマ数字デザイン - 建築的",        desc:"Bold Roman numeral design. Inspired by the Atlas clock at Tiffany's New York flagship. Modern, architectural.",
+        descJp:"大胆なローマ数字デザイン。ティファニーニューヨーク旗艦店のアトラス時計にインスパイア。モダンで建築的。",
+        shape:"Roman numerals engraved on rings, bracelets, pendants. Bold, graphic.",
+        shapeJp:"リング、ブレスレット、ペンダントに刻まれたローマ数字。大胆でグラフィカル。",
+        sizes:[
+          {name:"Narrow", dim:"Varies by piece"},
+          {name:"Wide", dim:"Varies by piece - MOST POPULAR"}
+        ],
+        rare:"Original 1995 launch pieces. Full diamond pave versions.",
+        rareJp:"1995年オリジナル発売作品。フルダイヤモンドパヴェバージョン。",
+        tip:"The numerals come from the Atlas clock outside Tiffany Fifth Avenue. You're wearing their flagship store.",
+        tipJp:"数字はティファニー5番街外のアトラス時計から。彼らの旗艦店を着用している。"
       }
     ]
   },
@@ -848,9 +1249,7 @@ const BRAND_DATA = {
     name:"Van Cleef & Arpels", year:1906, country:"France",
     categories:["jewelry"],
     desc:"French high jewelry house renowned for poetic designs and exceptional craftsmanship. Famous for the Alhambra four-leaf clover collection symbolizing luck, love, health, and fortune. Favored by royalty including Grace Kelly and modern celebrities. Known for the innovative Mystery Set technique and delicate beaded Perlée designs. Each piece is a wearable work of art.",
-    descJp:"詩的なデザインと卓越した職人技で有名なフランスの高級ジュエリーメゾン。幸運、愛、健康、富を象徴するアルハンブラの四つ葉のクローバーコレクションで有名。グレース・ケリーや現代のセレブを含む王室に愛されています。革新的なミステリーセット技術と繊細なビーズのペルレデザインで知られています。各ピースは着用可能なアート作品です。",
-    imageUrl:"https://logo.clearbit.com/vancleefarpels.com",
-    auth:"VCA hallmark stamp. Serial number. Mother-of-pearl pieces have natural variation. Alhambra clover must have 4 leaves.",
+    descJp:"詩的なデザインと卓越した職人技で有名なフランスの高級ジュエリーメゾン。幸運、愛、健康、富を象徴するアルハンブラの四つ葉のクローバーコレクションで有名。グレース・ケリーや現代のセレブを含む王室に愛されています。革新的なミステリーセット技術と繊細なビーズのペルレデザインで知られています。各ピースは着用可能なアート作品です。",    auth:"VCA hallmark stamp. Serial number. Mother-of-pearl pieces have natural variation. Alhambra clover must have 4 leaves.",
     authJp:"VCAホールマークスタンプ。シリアル番号。マザーオブパールピースは自然なバリエーション。アルハンブラクローバーは4葉である必要。",
     rare:"Alhambra original 1968 design vintage pieces (first collection, museum quality, significantly more valuable than modern). Mystery Set invisible setting rubies/sapphires (patented 1933 technique, no visible prongs, exceptionally rare and expensive). Vintage Frivole flower collection 1970s (delicate petals, early hallmarks). Limited edition Alhambra stones: grey mother-of-pearl (discontinued), tiger's eye (rare), carnelian (limited), turquoise (highly sought). Perlée clovers vintage 2008-2012 (first editions before widespread popularity). Cosmos clip brooches Art Deco era (1920s-30s, extremely rare). Grace Kelly's personal VCA pieces (estate sales, provenance premium). Ballerina clips with baguette diamonds (1940s-50s, iconic design).",
     rareJp:"アルハンブラ オリジナル1968年デザイン ヴィンテージ作品（最初のコレクション、美術館品質、現代版より大幅に価値が高い）。ミステリーセット 見えないセッティング ルビー/サファイア（1933年特許技術、見える爪なし、極めて希少で高価）。ヴィンテージ フリヴォル フラワーコレクション1970年代（繊細な花びら、初期ホールマーク）。限定版アルハンブラストーン：グレーマザーオブパール（廃盤）、タイガーアイ（希少）、カーネリアン（限定）、ターコイズ（高人気）。ペルレ クローバー ヴィンテージ2008-2012（広範な人気前の初版）。コスモス クリップブローチ アールデコ時代（1920-30年代、極めて希少）。グレース・ケリー個人VCA作品（遺品販売、来歴プレミアム）。バレリーナクリップ バゲットダイヤモンド付き（1940-50年代、象徴的デザイン）。",
@@ -865,8 +1264,7 @@ const BRAND_DATA = {
       {name:"Carnelian", hex:"#B7410E", nameJp:"カーネリアン", desc:"Gorgeous orange-red stone.", descJp:"美しいオレンジレッドストーン。"}
     ],
     models:[
-      { name:"Alhambra", brief:"Four-leaf clover - lucky charm", briefJp:"四つ葉のクローバー - 幸運のお守り",
-        desc:"Iconic four-leaf clover motif. Available in various stones and sizes. The signature VCA design.",
+      { name:"Alhambra", brief:"Four-leaf clover - lucky charm", briefJp:"四つ葉のクローバー - 幸運のお守り",        desc:"Iconic four-leaf clover motif. Available in various stones and sizes. The signature VCA design.",
         descJp:"象徴的な四つ葉のクローバーモチーフ。様々なストーンとサイズで利用可能。VCAのシグネチャーデザイン。",
         shape:"Quatrefoil (4-leaf clover) shape. Beaded gold border around stone inlay.",
         shapeJp:"クアトレフォイル（4葉クローバー）形状。ストーンインレイの周りにビーズゴールドボーダー。",
@@ -881,8 +1279,7 @@ const BRAND_DATA = {
         tip:"Four-leaf clover for luck. Grace Kelly, Princess of Monaco, wore these. Luck AND royalty.",
         tipJp:"幸運のための四つ葉のクローバー。モナコ公妃グレース・ケリーが着用。幸運と王室。"
       },
-      { name:"Perlée", brief:"Gold bead bracelet - delicate luxury", briefJp:"ゴールドビーズブレスレット - 繊細な高級",
-        desc:"Delicate gold beaded bracelet. Signature VCA beading technique.",
+      { name:"Perlée", brief:"Gold bead bracelet - delicate luxury", briefJp:"ゴールドビーズブレスレット - 繊細な高級",        desc:"Delicate gold beaded bracelet. Signature VCA beading technique.",
         descJp:"繊細なゴールドビーズブレスレット。VCAのシグネチャービーディング技術。",
         shape:"Thin bangle with tiny gold beads along edges. Smooth, tactile finish.",
         shapeJp:"エッジに沿った小さなゴールドビーズの細いバングル。滑らかで触覚的な仕上げ。",
@@ -895,6 +1292,20 @@ const BRAND_DATA = {
         rareJp:"フルダイヤモンドパヴェ。マルチストランドバージョン。限定版ストーン。",
         tip:"Subtle luxury. Just gold beads, but you KNOW it's VCA. That's understated elegance.",
         tipJp:"控えめな高級。ただのゴールドビーズだけど、VCAだとわかる。それが控えめなエレガンス。"
+      },
+      { name:"Frivole", brief:"Flower petals - delicate feminine", briefJp:"花びら - 繊細なフェミニン",        desc:"Delicate flower petal design. Light, airy, feminine. Launched in 2003. Each petal is meticulously crafted with subtle dimension.",
+        descJp:"繊細な花びらデザイン。軽く、風通しが良く、フェミニン。2003年発売。各花びらは微妙な次元で細心に作られています。",
+        shape:"Flower petals in earrings, pendants, rings. Delicate open-work design.",
+        shapeJp:"イヤリング、ペンダント、リングの花びら。繊細なオープンワークデザイン。",
+        sizes:[
+          {name:"Mini", dim:"0.4\" flower - Earrings"},
+          {name:"Small", dim:"0.6\" flower - MOST POPULAR"},
+          {name:"Between the Finger Ring", dim:"Large statement ring"}
+        ],
+        rare:"Vintage 1970s originals. Full diamond pave petals. Between the Finger ring (dramatic large scale).",
+        rareJp:"1970年代のヴィンテージオリジナル。フルダイヤモンドパヴェ花びら。ビトゥイーン・ザ・フィンガーリング（劇的な大きなスケール）。",
+        tip:"The petals are so delicate they almost float. Very feminine, very VCA. Grace Kelly loved these too.",
+        tipJp:"花びらはとても繊細でほとんど浮いているよう。とてもフェミニン、とてもVCA。グレース・ケリーもこれが大好きだった。"
       }
     ]
   },
@@ -902,9 +1313,7 @@ const BRAND_DATA = {
     name:"Bottega Veneta", year:1966, country:"Italy",
     categories:["handbags"],
     desc:"Italian luxury house famous for 'quiet luxury' and the signature Intrecciato woven leather technique. No visible logos—the craftsmanship speaks for itself. Under creative director Tomas Maier (2001-2018), Bottega became synonymous with understated elegance. Known for The Pouch, The Cassette, and impeccable leather quality. For those who know, they know.",
-    descJp:"「静かなラグジュアリー」とシグネチャーのイントレチャート編みレザー技術で有名なイタリアの高級メゾン。目に見えるロゴなし—職人技が語ります。クリエイティブディレクターのトーマス・マイヤー（2001-2018）の下で、ボッテガは控えめなエレガンスの代名詞になりました。ザ・ポーチ、ザ・カセット、完璧なレザー品質で知られています。知っている人は知っています。",
-    imageUrl:"https://logo.clearbit.com/bottegaveneta.com",
-    auth:"No logo on exterior. Intrecciato weave must be perfect and even. Interior stamp: 'BOTTEGA VENETA' + 'MADE IN ITALY' + serial number.",
+    descJp:"「静かなラグジュアリー」とシグネチャーのイントレチャート編みレザー技術で有名なイタリアの高級メゾン。目に見えるロゴなし—職人技が語ります。クリエイティブディレクターのトーマス・マイヤー（2001-2018）の下で、ボッテガは控えめなエレガンスの代名詞になりました。ザ・ポーチ、ザ・カセット、完璧なレザー品質で知られています。知っている人は知っています。",    auth:"No logo on exterior. Intrecciato weave must be perfect and even. Interior stamp: 'BOTTEGA VENETA' + 'MADE IN ITALY' + serial number.",
     authJp:"外側にロゴなし。イントレチャート編みは完璧で均一である必要。内側刻印：「BOTTEGA VENETA」+「MADE IN ITALY」+シリアル番号。",
     rare:"Tomas Maier era bags (2001-2018, golden age, values increasing since his departure). The Pouch original launch 2019 (early batches before mass production, better leather quality). Chain Cassette woven chain versions (discontinued, rare craftsmanship). Cabat tote in exotic leathers (crocodile, ostrich, python - six-figure retail, must be special ordered). Knot Clutch original 2001 design (sculptural evening bag, Maier's signature piece). Intrecciato bags pre-2000 (vintage era before mainstream popularity, exceptional quality). Lauren Hutton vintage campaign pieces 1980s. Limited edition Parakeet green or Mustard yellow (bold colors, small production runs). Vintage woven belts 1970s-80s.",
     rareJp:"トーマス・マイヤー時代のバッグ（2001-2018、黄金時代、彼の退任以降価値上昇中）。ザ・ポーチ オリジナル発売2019（大量生産前の初期バッチ、より良いレザー品質）。チェーンカセット 編みチェーンバージョン（廃盤、希少な職人技）。カバットトート エキゾチックレザー（クロコダイル、オーストリッチ、パイソン - 6桁小売価格、特別注文必須）。ノットクラッチ オリジナル2001年デザイン（彫刻的イブニングバッグ、マイヤーのシグネチャーピース）。イントレチャートバッグ 2000年以前（主流人気前のヴィンテージ時代、卓越した品質）。ローレン・ハットン ヴィンテージキャンペーン作品1980年代。限定版パラキートグリーンまたはマスタードイエロー（大胆なカラー、小規模生産）。ヴィンテージ編みベルト1970-80年代。",
@@ -917,8 +1326,7 @@ const BRAND_DATA = {
       {name:"Cream/Chalk", hex:"#F5F5DC", nameJp:"クリーム/チョーク", desc:"Soft neutral. Shows the weave beautifully.", descJp:"ソフトなニュートラル。編みを美しく見せる。"}
     ],
     models:[
-      { name:"The Pouch", brief:"Oversized clutch - iconic pillow shape", briefJp:"特大クラッチ - 象徴的なピロー形状",
-        desc:"Bottega's most iconic modern bag. Soft, gathered leather clutch that looks like a cloud. No structure, pure luxury.",
+      { name:"The Pouch", brief:"Oversized clutch - iconic pillow shape", briefJp:"特大クラッチ - 象徴的なピロー形状",        desc:"Bottega's most iconic modern bag. Soft, gathered leather clutch that looks like a cloud. No structure, pure luxury.",
         descJp:"ボッテガの最も象徴的なモダンバッグ。雲のような柔らかいギャザーレザークラッチ。構造なし、純粋なラグジュアリー。",
         shape:"Soft gathered pouch with magnetic closure. No structure - collapses when not full. Signature gathered leather.",
         shapeJp:"マグネットクロージャーのソフトギャザーポーチ。構造なし - 空の時は潰れる。シグネチャーのギャザーレザー。",
@@ -933,8 +1341,7 @@ const BRAND_DATA = {
         tip:"Hold it like a clutch or tuck under arm. The gathered leather is BUTTER soft. No logos - pure quiet luxury.",
         tipJp:"クラッチのように持つか、脇に挟む。ギャザーレザーはバターのように柔らか。ロゴなし - 純粋な静かなラグジュアリー。"
       },
-      { name:"Cassette", brief:"Padded woven crossbody - puffy signature", briefJp:"パッド入り編みクロスボディ - ぷっくりシグネチャー",
-        desc:"Puffy, padded Intrecciato weave. Became hugely popular 2019+. Soft, pillow-like quilted squares.",
+      { name:"Cassette", brief:"Padded woven crossbody - puffy signature", briefJp:"パッド入り編みクロスボディ - ぷっくりシグネチャー",        desc:"Puffy, padded Intrecciato weave. Became hugely popular 2019+. Soft, pillow-like quilted squares.",
         descJp:"ぷっくりとパッド入りイントレチャート編み。2019年以降大人気。柔らかい、枕のようなキルトスクエア。",
         shape:"Rectangular with rounded corners. Padded woven squares. Chain strap. Flap closure.",
         shapeJp:"丸みのある角の長方形。パッド入り編みスクエア。チェーンストラップ。フラップクロージャー。",
@@ -948,8 +1355,7 @@ const BRAND_DATA = {
         tip:"The padding makes it SO luxe. Feels like a cloud. The weave is tight and perfect - check for loose threads.",
         tipJp:"パッドがとても豪華に見せる。雲のよう。編みがタイトで完璧 - 緩んだ糸をチェック。"
       },
-      { name:"Jodie", brief:"Gathered hobo - slouchy everyday", briefJp:"ギャザーホーボー - たるんだ日常用",
-        desc:"Slouchy hobo style with gathered Intrecciato weave. Knotted strap detail. Casual luxury.",
+      { name:"Jodie", brief:"Gathered hobo - slouchy everyday", briefJp:"ギャザーホーボー - たるんだ日常用",        desc:"Slouchy hobo style with gathered Intrecciato weave. Knotted strap detail. Casual luxury.",
         descJp:"ギャザーイントレチャート編みのたるんだホーボースタイル。結び目ストラップディテール。カジュアルラグジュアリー。",
         shape:"Slouchy half-moon hobo. Gathered woven leather. Single knotted shoulder strap.",
         shapeJp:"たるんだ半月ホーボー。ギャザー編みレザー。シングル結び目ショルダーストラップ。",
@@ -962,6 +1368,33 @@ const BRAND_DATA = {
         rareJp:"初シーズン（2020）。ユニークなカラーウェイ。トーマス・マイヤーの最後のデザイン。",
         tip:"Perfect everyday bag. Slouchy but polished. The knotted strap is signature BV - mention it!",
         tipJp:"完璧な日常バッグ。たるんでいるが洗練。結び目ストラップはシグネチャーBV - 言及して！"
+      },
+      { name:"Cabat", brief:"Large open tote - ultimate luxury", briefJp:"大きなオープントート - 究極の高級",        desc:"Bottega's most expensive bag. Large open tote with perfect Intrecciato weave on both sides. No lining - reversible leather. Takes days to make by master artisans.",
+        descJp:"ボッテガの最も高価なバッグ。両面に完璧なイントレチャート編みの大きなオープントート。裏地なし - リバーシブルレザー。マスター職人が作るのに数日かかる。",
+        shape:"Large rectangular tote. Double woven handles. Open top (no closure). Perfectly symmetrical Intrecciato on both sides.",
+        shapeJp:"大きな長方形トート。ダブル編みハンドル。オープントップ（クロージャーなし）。両面に完璧に対称なイントレチャート。",
+        sizes:[
+          {name:"Small", dim:"12.6\"W × 11.8\"H × 7.9\"D"},
+          {name:"Medium", dim:"15.7\"W × 14.2\"H × 10.2\"D - MOST POPULAR"},
+          {name:"Large", dim:"19.7\"W × 17.7\"H × 12.6\"D"}
+        ],
+        rare:"Exotic leather versions (crocodile, ostrich - can reach $30,000+). Tomas Maier era pieces. Limited edition colors.",
+        rareJp:"エキゾチックレザーバージョン（クロコダイル、オーストリッチ - 3万ドル以上も）。トーマス・マイヤー時代のピース。限定版カラー。",
+        tip:"This is THE Bottega bag for serious collectors. No closure means trust - very high-status. Mention the reversible weave on BOTH sides.",
+        tipJp:"これは真剣なコレクターのためのTHE ボッテガバッグ。クロージャーなしは信頼を意味 - 非常にハイステータス。両面のリバーシブル編みを言及。"
+      },
+      { name:"Arco", brief:"Structured tote - modern classic", briefJp:"構造的トート - モダンクラシック",        desc:"Structured Intrecciato tote with curved top handles. Elegant and professional. Perfect work bag in the Bottega quiet luxury aesthetic.",
+        descJp:"曲線のトップハンドル付き構造的イントレチャートトート。エレガントでプロフェッショナル。ボッテガの静かなラグジュアリー美学の完璧なワークバッグ。",
+        shape:"Structured rectangular tote. Curved rigid top handles. Magnetic snap closure. Interior zip pockets.",
+        shapeJp:"構造的長方形トート。曲線の硬いトップハンドル。マグネットスナップクロージャー。内側ジップポケット。",
+        sizes:[
+          {name:"33cm", dim:"13\"W × 9.8\"H × 6.7\"D"},
+          {name:"48cm", dim:"18.9\"W × 13\"H × 8.3\"D - MOST POPULAR"}
+        ],
+        rare:"First launch 2019. Limited colorways. Exotic leather versions.",
+        rareJp:"初発売2019。限定カラーウェイ。エキゾチックレザーバージョン。",
+        tip:"Professional but still unmistakably Bottega. The curved handles are the signature - no other brand does handles like this.",
+        tipJp:"プロフェッショナルだが間違いなくボッテガ。曲線ハンドルがシグネチャー - 他のブランドはこのようなハンドルをしない。"
       }
     ]
   },
@@ -969,9 +1402,7 @@ const BRAND_DATA = {
     name:"Fendi", year:1925, country:"Italy",
     categories:["handbags"],
     desc:"Italian luxury fashion house famous for the Baguette bag—the original 'It bag' of the 1990s made iconic by Sex and the City. Known for the double-F Zucca logo, playful designs, and fur expertise. Fendi balances Roman heritage with contemporary whimsy and bold colors. The Baguette and Peekaboo are instant status symbols.",
-    descJp:"1990年代のオリジナル「Itバッグ」であるバゲットバッグで有名なイタリアの高級ファッションハウス—セックス・アンド・ザ・シティで象徴的になりました。ダブルFズッカロゴ、遊び心のあるデザイン、ファーの専門知識で知られています。フェンディはローマの伝統と現代的な気まぐれと大胆な色のバランスを取ります。バゲットとピーカブーは即座のステータスシンボルです。",
-    imageUrl:"https://logo.clearbit.com/fendi.com",
-    auth:"Double F logo (Zucca pattern). Serial number + 'FENDI' stamp inside. Hardware engraved with FENDI.",
+    descJp:"1990年代のオリジナル「Itバッグ」であるバゲットバッグで有名なイタリアの高級ファッションハウス—セックス・アンド・ザ・シティで象徴的になりました。ダブルFズッカロゴ、遊び心のあるデザイン、ファーの専門知識で知られています。フェンディはローマの伝統と現代的な気まぐれと大胆な色のバランスを取ります。バゲットとピーカブーは即座のステータスシンボルです。",    auth:"Double F logo (Zucca pattern). Serial number + 'FENDI' stamp inside. Hardware engraved with FENDI.",
     authJp:"ダブルFロゴ（ズッカパターン）。内側にシリアル番号+「FENDI」刻印。金具にFENDI刻印。",
     rare:"Baguette original 1997 launch (Silvia Venturini Fendi design, pre-SATC fame, museum pieces). Embroidered/beaded Baguettes limited editions (1990s-2000s, hand-embellished, extremely rare). Karl Lagerfeld Baguette collaborations (his entire tenure 1965-2019, signature pieces). Sequin and crystal Baguettes (evening versions, delicate, hard to find in good condition). Peekaboo Selleria (entirely hand-stitched, takes 12+ hours per bag, premium craftsmanship). Peekaboo exotic leathers: python, crocodile, ostrich (five-figure prices). Zucca monogram vintage bags 1970s-80s (before widespread logo fatigue). Fur Baguettes (fox, mink, chinchilla - controversial, pre-2000s). Monster bag charms Karlito (Fendi Witches collection, sold out, collectible). 3Jours tote original 2013 release.",
     rareJp:"バゲット オリジナル1997年発売（シルヴィア・ヴェントゥリーニ・フェンディデザイン、SATC名声前、美術館作品）。刺繍/ビーズバゲット限定版（1990-2000年代、手作業装飾、極めて希少）。カール・ラガーフェルド バゲットコラボ（彼の全在任期間1965-2019、シグネチャーピース）。スパンコールとクリスタルバゲット（イブニングバージョン、繊細、良好な状態で発見困難）。ピーカブー セレリア（完全手縫い、バッグ1つに12時間以上、プレミアム職人技）。ピーカブー エキゾチックレザー：パイソン、クロコダイル、オーストリッチ（5桁価格）。ズッカモノグラム ヴィンテージバッグ1970-80年代（広範囲ロゴ疲労前）。ファーバゲット（フォックス、ミンク、チンチラ - 議論の余地、2000年以前）。モンスターバッグチャーム カーリト（フェンディ ウィッチーズコレクション、完売、コレクタブル）。3ジュールトート オリジナル2013年リリース。",
@@ -984,8 +1415,7 @@ const BRAND_DATA = {
       {name:"Pink/Blush", hex:"#FFB6C1", nameJp:"ピンク/ブラッシュ", desc:"Feminine and playful. Limited editions.", descJp:"女性的で遊び心。限定版。"}
     ],
     models:[
-      { name:"Baguette", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",
-        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
+      { name:"Baguette", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
         descJp:"90年代後半のTHE Itバッグ。コンパクト、フランスのバゲットのように脇の下に収まる。セックス・アンド・ザ・シティで有名に。",
         shape:"Small rectangular bag. Flap closure. Short shoulder strap. Fits snugly under arm.",
         shapeJp:"小さな長方形バッグ。フラップクロージャー。短いショルダーストラップ。脇の下にぴったり収まる。",
@@ -999,8 +1429,7 @@ const BRAND_DATA = {
         tip:"Carrie Bradshaw carried THIS bag. Tell that story! Vintage Baguettes from the 90s are collector's items now.",
         tipJp:"キャリー・ブラッドショーがこのバッグを持った。その話をして！90年代のヴィンテージバゲットは今コレクターアイテム。"
       },
-      { name:"Peekaboo", brief:"Structured tote - iconic twist lock", briefJp:"構造的トート - 象徴的なツイストロック",
-        desc:"Fendi's modern icon. Structured frame bag with distinctive twist-lock closure. Professional yet stylish.",
+      { name:"Peekaboo", brief:"Structured tote - iconic twist lock", briefJp:"構造的トート - 象徴的なツイストロック",        desc:"Fendi's modern icon. Structured frame bag with distinctive twist-lock closure. Professional yet stylish.",
         descJp:"フェンディのモダンアイコン。特徴的なツイストロッククロージャー付き構造フレームバッグ。プロフェッショナルでスタイリッシュ。",
         shape:"Structured rectangular frame bag. Double top handles. Twist-lock closure. Interior divided into compartments.",
         shapeJp:"構造的長方形フレームバッグ。ダブルトップハンドル。ツイストロッククロージャー。コンパートメントに分かれた内部。",
@@ -1014,8 +1443,7 @@ const BRAND_DATA = {
         tip:"The twist-lock is signature. Show how it opens - buyers love that detail. It's a work bag that's also chic.",
         tipJp:"ツイストロックはシグネチャー。開き方を見せて - バイヤーはその詳細が好き。シックな仕事バッグ。"
       },
-      { name:"By The Way", brief:"Crossbody satchel - everyday luxury", briefJp:"クロスボディサッチェル - 日常ラグジュアリー",
-        desc:"Modern crossbody satchel. Structured but lightweight. Perfect everyday bag with shoulder strap.",
+      { name:"By The Way", brief:"Crossbody satchel - everyday luxury", briefJp:"クロスボディサッチェル - 日常ラグジュアリー",        desc:"Modern crossbody satchel. Structured but lightweight. Perfect everyday bag with shoulder strap.",
         descJp:"モダンクロスボディサッチェル。構造的だが軽量。ショルダーストラップ付き完璧な日常バッグ。",
         shape:"Small structured satchel. Top handle + detachable shoulder strap. Zip closure. Compact but roomy.",
         shapeJp:"小さな構造サッチェル。トップハンドル+取り外し可能ショルダーストラップ。ジップクロージャー。コンパクトだが広々。",
@@ -1035,9 +1463,7 @@ const BRAND_DATA = {
     name:"Celine", year:1945, country:"France",
     categories:["handbags"],
     desc:"French luxury house known for refined minimalism and architectural silhouettes. The Phoebe Philo era (2008-2017) is considered the golden age—bags from this period are collector's grails. Famous for the Belt Bag with distinctive wings and the iconic Luggage Tote. Celine represents quiet luxury and intellectual elegance without loud logos.",
-    descJp:"洗練されたミニマリズムと建築的シルエットで知られるフランスの高級メゾン。フィービー・ファイロ時代（2008-2017）は黄金時代と見なされています—この期間のバッグはコレクターの聖杯です。特徴的なウィング付きベルトバッグと象徴的なラゲージトートで有名。セリーヌは大きなロゴのない静かなラグジュアリーと知的エレガンスを表しています。",
-    imageUrl:"https://logo.clearbit.com/celine.com",
-    auth:"'CÉLINE PARIS' stamp (note the accent). Made in Italy stamp. Serial number embossed on leather tab.",
+    descJp:"洗練されたミニマリズムと建築的シルエットで知られるフランスの高級メゾン。フィービー・ファイロ時代（2008-2017）は黄金時代と見なされています—この期間のバッグはコレクターの聖杯です。特徴的なウィング付きベルトバッグと象徴的なラゲージトートで有名。セリーヌは大きなロゴのない静かなラグジュアリーと知的エレガンスを表しています。",    auth:"'CÉLINE PARIS' stamp (note the accent). Made in Italy stamp. Serial number embossed on leather tab.",
     authJp:"「CÉLINE PARIS」刻印（アクセント注意）。Made in Italyスタンプ。レザータブにシリアル番号エンボス。",
     rare:"Phoebe Philo era bags (2008-2017, golden age, prices have doubled since her departure). Classic Box Bag (2010-2018, clean-lined shoulder bag, grail status). Phantom Luggage (slouchy version without zipper, discontinued 2018). Trapeze Bag (2011-2016, architectural shape, highly collectible). Trio Crossbody original with CÉLINE accent (pre-2018 logo change, more desirable). Cabas Phantom tote drummed calfskin (slouchy, minimalist, discontinued). Micro Luggage in tricolor leather (three-panel color blocking, limited production). Stamped croc leather versions (not exotic, embossed pattern). Edge Bag (asymmetrical design, 2014-2016, rare). Vertical Cabas tote in grained calfskin. Any bag with old CÉLINE logo (accent removed 2018, marks Philo era).",
     rareJp:"フィービー・ファイロ時代バッグ（2008-2017、黄金時代、彼女の退任以降価格は倍増）。クラシックボックスバッグ（2010-2018、クリーンラインショルダーバッグ、聖杯ステータス）。ファントムラゲージ（ジッパーなしたるんだバージョン、2018年廃盤）。トラペーズバッグ（2011-2016、建築的形状、高コレクタブル）。トリオクロスボディ 旧CÉLINEアクセント付きオリジナル（2018年ロゴ変更前、より望ましい）。カバス ファントムトート ドラムカーフスキン（たるんだ、ミニマリスト、廃盤）。マイクロラゲージ トリカラーレザー（3パネルカラーブロッキング、限定生産）。スタンプクロックレザーバージョン（エキゾチックでなく、エンボスパターン）。エッジバッグ（非対称デザイン、2014-2016、希少）。バーティカルカバストート グレインカーフスキン。旧CÉLINEロゴ付きバッグ（アクセント2018年削除、ファイロ時代を示す）。",
@@ -1050,8 +1476,7 @@ const BRAND_DATA = {
       {name:"Burgundy/Oxblood", hex:"#800020", nameJp:"バーガンディ/オックスブラッド", desc:"Rich, luxurious. Fall favorite.", descJp:"リッチ、豪華。秋のお気に入り。"}
     ],
     models:[
-      { name:"Belt Bag", brief:"Structured tote with belt detail - icon", briefJp:"ベルトディテール付き構造トート - アイコン",
-        desc:"Celine's modern icon. Structured tote with signature belt wings on sides. Clean, architectural lines.",
+      { name:"Belt Bag", brief:"Structured tote with belt detail - icon", briefJp:"ベルトディテール付き構造トート - アイコン",        desc:"Celine's modern icon. Structured tote with signature belt wings on sides. Clean, architectural lines.",
         descJp:"セリーヌのモダンアイコン。サイドにシグネチャーベルトウィング付き構造トート。クリーンで建築的なライン。",
         shape:"Trapeze/triangular tote. Belt detail creates wings on sides. Top zip closure. Clean minimal aesthetic.",
         shapeJp:"台形/三角トート。ベルトディテールがサイドにウィングを作る。トップジップクロージャー。クリーンなミニマル美学。",
@@ -1065,8 +1490,7 @@ const BRAND_DATA = {
         tip:"The belt detail is what makes it Celine. Point out those wings! Phoebe Philo designs are GOLD.",
         tipJp:"ベルトディテールがセリーヌらしさ。そのウィングを指摘！フィービー・ファイロデザインはゴールド。"
       },
-      { name:"Luggage Tote", brief:"Winged tote - architectural statement", briefJp:"ウィング付きトート - 建築的ステートメント",
-        desc:"THE Celine bag. Architectural tote with distinctive wing flaps. Instantly recognizable silhouette.",
+      { name:"Luggage Tote", brief:"Winged tote - architectural statement", briefJp:"ウィング付きトート - 建築的ステートメント",        desc:"THE Celine bag. Architectural tote with distinctive wing flaps. Instantly recognizable silhouette.",
         descJp:"THEセリーヌバッグ。特徴的なウィングフラップ付き建築的トート。即座に認識できるシルエット。",
         shape:"Structured tote with wing-like side panels. Front zipper detail. Top handles. Architectural and bold.",
         shapeJp:"翼のようなサイドパネル付き構造トート。フロントジッパーディテール。トップハンドル。建築的で大胆。",
@@ -1081,8 +1505,7 @@ const BRAND_DATA = {
         tip:"This is THE bag fashionistas know. The wings make it stand out. Mention Phoebe Philo!",
         tipJp:"これはファッショニスタが知るTHEバッグ。ウィングが目立つ。フィービー・ファイロに言及！"
       },
-      { name:"Trio", brief:"Triple pouch crossbody - minimalist essential", briefJp:"トリプルポーチクロスボディ - ミニマリスト必需品",
-        desc:"Three zip pouches attached together. Ultimate minimalist crossbody. Simple, functional, chic.",
+      { name:"Trio", brief:"Triple pouch crossbody - minimalist essential", briefJp:"トリプルポーチクロスボディ - ミニマリスト必需品",        desc:"Three zip pouches attached together. Ultimate minimalist crossbody. Simple, functional, chic.",
         descJp:"3つのジップポーチが一緒に取り付けられている。究極のミニマリストクロスボディ。シンプル、機能的、シック。",
         shape:"Three separate zip pouches on one strap. Can detach and use individually. Clean minimal design.",
         shapeJp:"1つのストラップに3つの独立したジップポーチ。個別に取り外して使用可能。クリーンなミニマルデザイン。",
@@ -1090,10 +1513,22 @@ const BRAND_DATA = {
           {name:"Small", dim:"Each pouch: 5\"W × 3.5\"H - MOST POPULAR"},
           {name:"Large", dim:"Each pouch: 6.5\"W × 5\"H"}
         ],
-        rare:"Phoebe Philo era (discontin ued 2018). Limited colors. Original versions with CÉLINE accent.",
+        rare:"Phoebe Philo era (discontinued 2018). Limited colors. Original versions with CÉLINE accent.",
         rareJp:"フィービー・ファイロ時代（2018年に廃止）。限定カラー。CÉLINEアクセント付きオリジナルバージョン。",
         tip:"Three bags in one! You can detach them. Perfect for travel. Minimalist but SO functional.",
         tipJp:"3つのバッグが1つに！取り外し可能。旅行に完璧。ミニマリストだが超機能的。"
+      },
+      { name:"Box Bag", brief:"Clean-lined shoulder bag - minimalist grail", briefJp:"クリーンラインショルダーバッグ - ミニマリスト聖杯",        desc:"The ultimate Phoebe Philo grail. Clean-lined structured shoulder bag. Minimalist perfection. Discontinued 2018, highly sought after.",
+        descJp:"究極のフィービー・ファイロ聖杯。クリーンライン構造ショルダーバッグ。ミニマリストの完璧。2018年廃盤、非常に求められる。",
+        shape:"Structured box shape with clean lines. Flap closure. Simple hardware. No logos. Pure minimalism.",
+        shapeJp:"クリーンラインの構造ボックス型。フラップクロージャー。シンプルな金具。ロゴなし。純粋なミニマリズム。",
+        sizes:[
+          {name:"Medium Classic Box", dim:"9.4\"W × 7.1\"H × 3.9\"D - MOST POPULAR"}
+        ],
+        rare:"ALL Box Bags are rare (discontinued 2018). Tricolor versions. Exotic leather editions.",
+        rareJp:"全てのボックスバッグが希少（2018年廃盤）。トリカラーバージョン。エキゾチックレザー版。",
+        tip:"This IS the Phoebe Philo grail. Discontinued. Prices have DOUBLED. Collectors fight over these.",
+        tipJp:"これがフィービー・ファイロ聖杯。廃盤。価格は倍増。コレクターがこれらを奪い合う。"
       }
     ]
   },
@@ -1101,9 +1536,7 @@ const BRAND_DATA = {
     name:"Loewe", year:1846, country:"Spain",
     categories:["handbags"],
     desc:"Spain's oldest luxury house, renowned for exceptional leather craftsmanship since 1846. Under creative director Jonathan Anderson (2013+), Loewe became known for architectural, innovative bag designs. The Puzzle bag—made from 40+ leather pieces that fold flat—is a modern masterpiece. Represents artisanal quality and clever design.",
-    descJp:"1846年以来の卓越したレザー職人技で有名なスペイン最古の高級メゾン。クリエイティブディレクターのジョナサン・アンダーソン（2013+）の下で、ロエベは建築的で革新的なバッグデザインで知られるようになりました。平らに折りたためる40以上のレザーピースで作られたパズルバッグはモダン傑作です。職人品質と賢いデザインを表しています。",
-    imageUrl:"https://logo.clearbit.com/loewe.com",
-    auth:"'LOEWE' stamp on leather. 'Made in Spain' (some Italy). Anagram logo embossed. Serial number format changed over time.",
+    descJp:"1846年以来の卓越したレザー職人技で有名なスペイン最古の高級メゾン。クリエイティブディレクターのジョナサン・アンダーソン（2013+）の下で、ロエベは建築的で革新的なバッグデザインで知られるようになりました。平らに折りたためる40以上のレザーピースで作られたパズルバッグはモダン傑作です。職人品質と賢いデザインを表しています。",    auth:"'LOEWE' stamp on leather. 'Made in Spain' (some Italy). Anagram logo embossed. Serial number format changed over time.",
     authJp:"レザーに「LOEWE」刻印。「Made in Spain」（一部イタリア）。アナグラムロゴエンボス。シリアル番号形式は時代で変化。",
     rare:"Puzzle Bag first season 2014 (Jonathan Anderson's debut design, early craftsmanship, collector's item). Amazona vintage 1970s-80s (classic Loewe tote before Anderson era, rare finds). Hammock original 2014 launch (multi-way design, initial colorways). Barcelona Bag vintage (1980s-90s structured tote, discontinued). Antoni Tàpies artist collaboration bags (limited edition, Spanish surrealist artist, 1990s). Flamenco Knot Clutch (drawstring pouch, 2015+, unique closure). Puzzle in exotic leathers: python, crocodile, ostrich (limited production, expensive). Gate Bag original 2016 release. Vintage Loewe Suede bags pre-2000 (softer aesthetic, before modern logo redesign). Elephant Bag novelty design (whimsical animal shape, limited run).",
     rareJp:"パズルバッグ 初シーズン2014（ジョナサン・アンダーソンのデビューデザイン、初期職人技、コレクターアイテム）。アマゾナ ヴィンテージ1970-80年代（アンダーソン時代前のクラシックロエベトート、希少発見）。ハンモック オリジナル2014年発売（多方向デザイン、初期カラーウェイ）。バルセロナバッグ ヴィンテージ（1980-90年代構造トート、廃盤）。アントニ・タピエス アーティストコラボバッグ（限定版、スペインシュールレアリストアーティスト、1990年代）。フラメンコノットクラッチ（巾着ポーチ、2015+、ユニーククロージャー）。パズル エキゾチックレザー：パイソン、クロコダイル、オーストリッチ（限定生産、高価）。ゲートバッグ オリジナル2016年リリース。ヴィンテージロエベ スエードバッグ 2000年以前（ソフト美学、モダンロゴ再デザイン前）。エレファントバッグ ノベルティデザイン（気まぐれな動物形状、限定ラン）。",
@@ -1167,9 +1600,7 @@ const BRAND_DATA = {
     name:"Balenciaga", year:1919, country:"France",
     categories:["handbags"],
     desc:"Spanish-born French luxury house famous for the City/Motorcycle bag—THE It bag of the 2000s carried by Kate Moss and every celebrity. Known for distressed leather, studs, and rock-and-roll edge. The Nicolas Ghesquière era (1997-2012) is highly collectible. Balenciaga represents effortlessly cool, rebellious luxury.",
-    descJp:"ケイト・モスとすべてのセレブが持った2000年代のTHE Itバッグであるシティ/モーターサイクルバッグで有名なスペイン生まれのフランス高級メゾン。ディストレスレザー、スタッズ、ロックンロールエッジで知られています。ニコラ・ジェスキエール時代（1997-2012）は高コレクタブルです。バレンシアガは楽にクールで反抗的なラグジュアリーを表しています。",
-    imageUrl:"https://logo.clearbit.com/balenciaga.com",
-    auth:"'BALENCIAGA PARIS' embossed. Serial number on white leather tag. Bale logo on hardware. Italy made.",
+    descJp:"ケイト・モスとすべてのセレブが持った2000年代のTHE Itバッグであるシティ/モーターサイクルバッグで有名なスペイン生まれのフランス高級メゾン。ディストレスレザー、スタッズ、ロックンロールエッジで知られています。ニコラ・ジェスキエール時代（1997-2012）は高コレクタブルです。バレンシアガは楽にクールで反抗的なラグジュアリーを表しています。",    auth:"'BALENCIAGA PARIS' embossed. Serial number on white leather tag. Bale logo on hardware. Italy made.",
     authJp:"「BALENCIAGA PARIS」エンボス。白レザータグにシリアル番号。金具にBaleロゴ。イタリア製。",
     rare:"City Bag Nicolas Ghesquière era (2001-2012, peak It bag years, values increasing as Y2K nostalgia grows). Giant 12 hardware versions (oversized studs and buckles, 2004-2012, more dramatic and collectible). First/Mini City original 2002 launch (compact size, early season colors). Motorcycle Bag original 2001 design (first iteration, distressed leather before widespread popularity). Lariat Bag (2006-2009, fringe details, bohemian edge, discontinued). Brief/Envelope Clutch (flat clutch version, 2000s, rare). Part Time Bag (mid-size hobo, 2004+, less common than City). Arena leather versions (specially treated soft lambskin, pre-2010). Twiggy Bag (slim shoulder bag, 2005-2008). Le Dix (soft drawstring bucket, 1990s vintage). Work Bag in First season colors 2001-2003 (largest size, rare early colorways).",
     rareJp:"シティバッグ ニコラ・ジェスキエール時代（2001-2012、ピークItバッグ年、Y2Kノスタルジアの成長に伴い価値上昇中）。ジャイアント12金具バージョン（特大スタッズとバックル、2004-2012、よりドラマティックでコレクタブル）。ファースト/ミニシティ オリジナル2002年発売（コンパクトサイズ、初期シーズンカラー）。モーターサイクルバッグ オリジナル2001年デザイン（最初のイテレーション、広範な人気前のディストレスレザー）。ラリアットバッグ（2006-2009、フリンジディテール、ボヘミアンエッジ、廃盤）。ブリーフ/エンベロープクラッチ（フラットクラッチバージョン、2000年代、希少）。パートタイムバッグ（ミッドサイズホーボー、2004+、シティより一般的でない）。アリーナレザーバージョン（特別処理ソフトラムスキン、2010年以前）。ツイッギーバッグ（スリムショルダーバッグ、2005-2008）。ル・ディス（ソフト巾着バケット、1990年代ヴィンテージ）。ワークバッグ 初シーズンカラー2001-2003（最大サイズ、希少初期カラーウェイ）。",
@@ -1232,9 +1663,7 @@ const BRAND_DATA = {
     name:"Saint Laurent", year:1961, country:"France",
     categories:["handbags"],
     desc:"French fashion house founded by legendary designer Yves Saint Laurent. Known for androgynous, rock-and-roll elegance. Famous for the Sac de Jour structured tote and Kate chain bag (named after Kate Moss). The brand changed from 'Yves Saint Laurent' to 'Saint Laurent' in 2012—collectors value the vintage 'YSL' era pieces. Represents Parisian cool.",
-    descJp:"伝説的デザイナー イヴ・サンローランによって創業されたフランスのファッションハウス。アンドロジナスでロックンロールなエレガンスで知られています。構造的トートのサック・ド・ジュールとケイトチェーンバッグ（ケイト・モスにちなんで命名）で有名。ブランドは2012年に「イヴ・サンローラン」から「サンローラン」に変更—コレクターはヴィンテージ「YSL」時代作品を評価します。パリジャンクールを表しています。",
-    imageUrl:"https://logo.clearbit.com/ysl.com",
-    auth:"YSL logo (interlocking Y and SL). 'SAINT LAURENT' or 'YVES SAINT LAURENT' inside. Serial number. Made in Italy.",
+    descJp:"伝説的デザイナー イヴ・サンローランによって創業されたフランスのファッションハウス。アンドロジナスでロックンロールなエレガンスで知られています。構造的トートのサック・ド・ジュールとケイトチェーンバッグ（ケイト・モスにちなんで命名）で有名。ブランドは2012年に「イヴ・サンローラン」から「サンローラン」に変更—コレクターはヴィンテージ「YSL」時代作品を評価します。パリジャンクールを表しています。",    auth:"YSL logo (interlocking Y and SL). 'SAINT LAURENT' or 'YVES SAINT LAURENT' inside. Serial number. Made in Italy.",
     authJp:"YSLロゴ（YとSLの組み合わせ）。内側に「SAINT LAURENT」または「YVES SAINT LAURENT」。シリアル番号。イタリア製。",
     rare:"Muse Bag (2005-2012, oversized tote, Kate Moss favorite, highly collectible). Vintage Yves Saint Laurent pieces pre-2012 (with 'Yves' in name, marks Tom Ford era 2000-2004 and Stefano Pilati era 2004-2012). Hedi Slimane era bags (2012-2016, rebranded to 'Saint Laurent', rock-and-roll aesthetic, slim silhouettes). Sac de Jour original 2013 release (debut under Hedi Slimane). Cabas Chyc tote (2010-2012, structured work bag, discontinued). Roady Bag hobo (2000s, slouchy shoulder bag, rare). Rive Gauche vintage totes 1970s-80s (canvas with leather trim, extremely rare, French Left Bank style). Mondrian Collection tribute bags (geometric color blocking, homage to Yves' 1965 Mondrian dress). Opium Clutch vintage (1970s-80s, hard-shell evening bag). Belle de Jour clutch vintage 1960s (envelope clutch, Catherine Deneuve film tie-in).",
     rareJp:"ミューズバッグ（2005-2012、特大トート、ケイト・モスのお気に入り、高コレクタブル）。ヴィンテージ イヴ・サンローラン作品 2012年以前（名前に「Yves」、トム・フォード時代2000-2004とステファノ・ピラティ時代2004-2012を示す）。エディ・スリマン時代バッグ（2012-2016、「サンローラン」にリブランド、ロックンロール美学、スリムシルエット）。サック・ド・ジュール オリジナル2013年リリース（エディ・スリマン下でのデビュー）。カバス シック トート（2010-2012、構造仕事バッグ、廃盤）。ロードバッグ ホーボー（2000年代、たるんだショルダーバッグ、希少）。リヴ・ゴーシュ ヴィンテージトート1970-80年代（レザートリム付きキャンバス、極めて希少、フランス左岸スタイル）。モンドリアンコレクション トリビュートバッグ（幾何学カラーブロッキング、イヴの1965年モンドリアンドレスへのオマージュ）。オピウムクラッチ ヴィンテージ（1970-80年代、ハードシェルイブニングバッグ）。ベル・ド・ジュール クラッチ ヴィンテージ1960年代（エンベロープクラッチ、カトリーヌ・ドヌーヴ映画タイイン）。",
@@ -1298,9 +1727,7 @@ const BRAND_DATA = {
     name:"Givenchy", year:1952, country:"France",
     categories:["handbags"],
     desc:"French luxury house founded by Hubert de Givenchy, famous for dressing Audrey Hepburn. Known for the Antigona structured tote with sharp geometric lines and sophisticated Parisian elegance. The Riccardo Tisci era (2005-2017) is highly collectible for its gothic, edgy aesthetic. Represents refined French luxury with architectural precision.",
-    descJp:"オードリー・ヘプバーンを着飾ったことで有名なユベール・ド・ジバンシィによって創業されたフランスの高級メゾン。シャープな幾何学ラインと洗練されたパリジャンエレガンスを持つアンティゴナ構造トートで知られています。リカルド・ティッシ時代（2005-2017）はゴシックでエッジーな美学で高コレクタブルです。建築的精度を持つ洗練されたフランスラグジュアリーを表しています。",
-    imageUrl:"https://logo.clearbit.com/givenchy.com",
-    auth:"'GIVENCHY PARIS' stamp. Serial number. 4G logo on hardware. Made in Italy.",
+    descJp:"オードリー・ヘプバーンを着飾ったことで有名なユベール・ド・ジバンシィによって創業されたフランスの高級メゾン。シャープな幾何学ラインと洗練されたパリジャンエレガンスを持つアンティゴナ構造トートで知られています。リカルド・ティッシ時代（2005-2017）はゴシックでエッジーな美学で高コレクタブルです。建築的精度を持つ洗練されたフランスラグジュアリーを表しています。",    auth:"'GIVENCHY PARIS' stamp. Serial number. 4G logo on hardware. Made in Italy.",
     authJp:"「GIVENCHY PARIS」刻印。シリアル番号。金具に4Gロゴ。イタリア製。",
     rare:"Nightingale Bag (2007-2018, Riccardo Tisci signature piece, slouchy hobo with multiple zippers, discontinued, highly collectible). Antigona original 2010 launch (Tisci era, early seasons more valuable). Pandora Box hard-shell evening bag (geometric cube clutch, 2012-2019, limited production). Bambi and Rottweiler print bags (2013 Tisci animal graphics, controversial and rare, sold out instantly). Obsedia bags studded versions (gothic aesthetic, metal hardware, 2014-2016). Horizon Bag vintage 1970s-80s (Hubert de Givenchy original era, extremely rare, pre-LVMH). Shark Lock boots converted to bag charms (2013 Tisci era, edgy hardware). Madonna collaboration pieces (2010, limited capsule). Jaw bag with shark tooth closure (2017, sculptural hardware, short production run). Envelope clutch vintage Audrey Hepburn era 1950s-60s (museum pieces, provenance from Breakfast at Tiffany's styling).",
     rareJp:"ナイチンゲールバッグ（2007-2018、リカルド・ティッシシグネチャーピース、複数ジッパー付きたるんだホーボー、廃盤、高コレクタブル）。アンティゴナ オリジナル2010年発売（ティッシ時代、初期シーズンはより価値が高い）。パンドラボックス ハードシェルイブニングバッグ（幾何学キューブクラッチ、2012-2019、限定生産）。バンビとロットワイラープリントバッグ（2013年ティッシアニマルグラフィック、議論の余地があり希少、即完売）。オブセディアバッグ スタッズバージョン（ゴシック美学、メタル金具、2014-2016）。ホライゾンバッグ ヴィンテージ1970-80年代（ユベール・ド・ジバンシィオリジナル時代、極めて希少、LVMH前）。シャークロックブーツ バッグチャームに変換（2013年ティッシ時代、エッジー金具）。マドンナコラボ作品（2010、限定カプセル）。ジョーバッグ シャーク歯クロージャー付き（2017、彫刻的金具、短期生産）。エンベロープクラッチ ヴィンテージ オードリー・ヘプバーン時代1950-60年代（美術館作品、ティファニーで朝食をスタイリングからの来歴）。",
@@ -1365,9 +1792,7 @@ const BRAND_DATA = {
     name:"Valentino", year:1960, country:"Italy",
     categories:["handbags"],
     desc:"Italian fashion house founded by Valentino Garavani, synonymous with romantic elegance and signature Valentino Red. Famous for the Rockstud collection—edgy pyramid studs on luxurious leather. Balances feminine romance with rock-and-roll edge. The Rockstuds are one of the most recognizable luxury accessories of the 2010s.",
-    descJp:"ヴァレンティノ・ガラヴァーニによって創業され、ロマンチックなエレガンスとシグネチャーのヴァレンティノレッドの代名詞であるイタリアファッションハウス。豪華なレザーにエッジーなピラミッドスタッズを持つロックスタッズコレクションで有名。女性的ロマンスとロックンロールエッジのバランスを取ります。ロックスタッズは2010年代で最も認識可能な高級アクセサリーの一つです。",
-    imageUrl:"https://logo.clearbit.com/valentino.com",
-    auth:"'VALENTINO' or 'VALENTINO GARAVANI' stamp. Serial number. V logo or Rockstud hardware. Made in Italy.",
+    descJp:"ヴァレンティノ・ガラヴァーニによって創業され、ロマンチックなエレガンスとシグネチャーのヴァレンティノレッドの代名詞であるイタリアファッションハウス。豪華なレザーにエッジーなピラミッドスタッズを持つロックスタッズコレクションで有名。女性的ロマンスとロックンロールエッジのバランスを取ります。ロックスタッズは2010年代で最も認識可能な高級アクセサリーの一つです。",    auth:"'VALENTINO' or 'VALENTINO GARAVANI' stamp. Serial number. V logo or Rockstud hardware. Made in Italy.",
     authJp:"「VALENTINO」または「VALENTINO GARAVANI」刻印。シリアル番号。Vロゴまたはロックスタッズ金具。イタリア製。",
     rare:"Rockstud original 2010 launch (debut collection, early craftsmanship, most sought-after). Rockstud Noir full black hardware (rare monochrome version, limited). Vintage Valentino Garavani 1960s-1980s (founder era, pre-corporate acquisition, museum quality). Va-Va-Voom Shoulder Bag 1970s (oversized chain strap, disco era). Nuage Bow bag (cloud-shaped clutch with bow, 2010s, whimsical). Rockstud Spike quilted versions (chevron quilted with studs, 2016+). Candystud pastel-colored studs (candy-coated hardware, limited edition, playful twist). Beehive structured bag 1980s (geometric honeycomb, rare architectural piece). Mime clutch novelty bags (face design, quirky limited edition). Red Valentino special collaborations (diffusion line capsules, lower price but collectible). Valentino Orlandi vintage Italian artisan bags (not Valentino Garavani, but vintage Italian Valentino brand, 1980s-90s, confused provenance adds intrigue).",
     rareJp:"ロックスタッズ オリジナル2010年発売（デビューコレクション、初期職人技、最も人気）。ロックスタッズ ノワール フルブラック金具（希少モノクロームバージョン、限定）。ヴィンテージ ヴァレンティノ・ガラヴァーニ1960-80年代（創業者時代、企業買収前、美術館品質）。ヴァヴァヴーム ショルダーバッグ1970年代（特大チェーンストラップ、ディスコ時代）。ヌアージュ ボウバッグ（蝶結び付き雲形クラッチ、2010年代、気まぐれ）。ロックスタッズ スパイク キルトバージョン（スタッズ付きシェブロンキルト、2016+）。キャンディスタッズ パステルカラースタッズ（キャンディコート金具、限定版、遊び心のあるツイスト）。ビーハイブ 構造バッグ1980年代（幾何学ハニカム、希少建築的ピース）。マイムクラッチ ノベルティバッグ（顔デザイン、風変わりな限定版）。レッド ヴァレンティノ 特別コラボ（ディフュージョンライン カプセル、低価格だがコレクタブル）。ヴァレンティノ・オルランディ ヴィンテージイタリア職人バッグ（ヴァレンティノ・ガラヴァーニではないが、ヴィンテージイタリアヴァレンティノブランド、1980-90年代、混乱した来歴が興味を追加）。",
@@ -1429,9 +1854,7 @@ const BRAND_DATA = {
     name:"Burberry", year:1856, country:"UK",
     categories:["handbags"],
     desc:"Iconic British luxury brand famous for the signature beige, black, and red check pattern and classic trench coats. Founded in 1856, Burberry represents timeless British heritage and craftsmanship. The check pattern is one of the most recognizable luxury patterns worldwide. Modern collections balance heritage with contemporary design.",
-    descJp:"シグネチャーのベージュ、ブラック、レッドのチェックパターンとクラシックトレンチコートで有名な象徴的なイギリスの高級ブランド。1856年創業のバーバリーは時代を超えたイギリスの伝統と職人技を表しています。チェックパターンは世界中で最も認識可能な高級パターンの一つです。モダンコレクションは伝統と現代デザインのバランスを取ります。",
-    imageUrl:"https://logo.clearbit.com/burberry.com",
-    auth:"Burberry check pattern (tan, black, white, red). 'BURBERRY' stamp. Serial number. Made in Italy or UK.",
+    descJp:"シグネチャーのベージュ、ブラック、レッドのチェックパターンとクラシックトレンチコートで有名な象徴的なイギリスの高級ブランド。1856年創業のバーバリーは時代を超えたイギリスの伝統と職人技を表しています。チェックパターンは世界中で最も認識可能な高級パターンの一つです。モダンコレクションは伝統と現代デザインのバランスを取ります。",    auth:"Burberry check pattern (tan, black, white, red). 'BURBERRY' stamp. Serial number. Made in Italy or UK.",
     authJp:"バーバリーチェックパターン（タン、ブラック、ホワイト、レッド）。「BURBERRY」刻印。シリアル番号。イタリアまたは英国製。",
     rare:"Burberry Prorsum bags (1998-2015, premium runway line, discontinued, highly collectible). Vintage Nova Check 1960s-1990s (classic beige check before logo redesign 1999, more desirable pattern). Thomas Burberry Monogram Archive pieces (TB logo revival 2018+, limited production). Blue Label Japan exclusive bags (Japanese market only, 1998-2015, rare outside Asia). Haymarket Check vintage (classic canvas check, pre-2000s production). Orchard Bag original 2013 launch (curved tote, limited colors). Rucksack backpacks vintage 1990s (check canvas, functional, nostalgic). Bee and Archive Print collaborations (animal motifs, limited capsules). Vintage leather bags 1970s-80s (pre-check era, pure leather craftsmanship, rare). Embossed check leather (subtle tonal check in leather, not canvas). Christopher Bailey era bags (2001-2018, modernization period, collectible transition pieces).",
     rareJp:"バーバリー プローサム バッグ（1998-2015、プレミアムランウェイライン、廃番、高コレクタブル）。ヴィンテージ ノバチェック1960-90年代（1999年ロゴ再デザイン前のクラシックベージュチェック、より望ましいパターン）。トーマス・バーバリー モノグラム アーカイブ作品（TBロゴ復活2018+、限定生産）。ブルーレーベル 日本限定バッグ（日本市場のみ、1998-2015、アジア外では希少）。ヘイマーケットチェック ヴィンテージ（クラシックキャンバスチェック、2000年以前の生産）。オーチャードバッグ オリジナル2013年発売（カーブトート、限定カラー）。リュックサック バックパック ヴィンテージ1990年代（チェックキャンバス、機能的、ノスタルジック）。ビーとアーカイブプリント コラボ（動物モチーフ、限定カプセル）。ヴィンテージレザーバッグ1970-80年代（チェック時代前、純粋なレザー職人技、希少）。エンボスチェックレザー（レザーの微妙なトーナルチェック、キャンバスでない）。クリストファー・ベイリー時代バッグ（2001-2018、近代化期間、コレクタブル移行作品）。",
@@ -1493,9 +1916,7 @@ const BRAND_DATA = {
     name:"MCM", year:1976, country:"Germany",
     categories:["handbags"],
     desc:"German luxury brand famous for the Visetos monogram pattern (MCM logo with laurel leaves) and iconic studded backpacks. Originally 'Mode Creation Munich', MCM represents urban luxury and streetwear meets high fashion. Vintage German-made pieces from the 1980s-90s are highly collectible—superior to modern Korean-made versions. The Stark backpack is everywhere in Asia. Represents contemporary luxury with heritage roots.",
-    descJp:"ヴィセトスモノグラムパターン（月桂樹の葉付きMCMロゴ）と象徴的なスタッズバックパックで有名なドイツ高級ブランド。元は「モード・クリエイション・ミュンヘン」、MCMはアーバンラグジュアリーとストリートウェアがハイファッションと出会うことを表しています。1980-90年代のヴィンテージドイツ製作品は高コレクタブル—現代韓国製バージョンより優れています。スタークバックパックはアジアでどこにでもあります。遺産ルーツを持つ現代ラグジュアリーを表しています。",
-    imageUrl:"https://logo.clearbit.com/mcmworldwide.com",
-    auth:"Visetos monogram (MCM logo + laurel leaves). Serial number on leather patch. Made in Germany or Korea.",
+    descJp:"ヴィセトスモノグラムパターン（月桂樹の葉付きMCMロゴ）と象徴的なスタッズバックパックで有名なドイツ高級ブランド。元は「モード・クリエイション・ミュンヘン」、MCMはアーバンラグジュアリーとストリートウェアがハイファッションと出会うことを表しています。1980-90年代のヴィンテージドイツ製作品は高コレクタブル—現代韓国製バージョンより優れています。スタークバックパックはアジアでどこにでもあります。遺産ルーツを持つ現代ラグジュアリーを表しています。",    auth:"Visetos monogram (MCM logo + laurel leaves). Serial number on leather patch. Made in Germany or Korea.",
     authJp:"ヴィセトスモノグラム（MCMロゴ+月桂樹の葉）。レザーパッチにシリアル番号。ドイツまたは韓国製。",
     rare:"Vintage MCM 1976-1990s Munich production (original German-made, pre-Korean acquisition 2005, superior leather quality and craftsmanship). Heritage Boston Bag 1980s (original structured handbag design, hard to find). Munchen-era monogram (early Visetos pattern, slightly different from modern). Stark Backpack original 2000s (before mass production, better materials). Limited edition collaborations: Puma (2018 sneaker bag hybrids), Phenomenon (Japanese streetwear 2010s), Bape (camo Visetos, sold out). White logo on cognac Visetos vintage (classic colorway, 1980s-90s). Bucket bags vintage (drawstring style, 1970s-80s, rare shape). Brass hardware vintage bags (older MCM used heavier brass, not gold-plated). Monogram mini bags 1990s (compact styles before trend revival). Heritage Collection reissues (limited run recreations of archive pieces, 2015+).",
     rareJp:"ヴィンテージMCM 1976-1990年代ミュンヘン生産（オリジナルドイツ製、2005年韓国買収前、優れたレザー品質と職人技）。ヘリテージボストンバッグ1980年代（オリジナル構造ハンドバッグデザイン、発見困難）。ミュンヘン時代モノグラム（初期ヴィセトスパターン、モダンとわずかに異なる）。スタークバックパック オリジナル2000年代（大量生産前、より良い素材）。限定版コラボ：プーマ（2018スニーカーバッグハイブリッド）、フェノメノン（日本ストリートウェア2010年代）、ベイプ（カモヴィセトス、完売）。コニャックヴィセトスにホワイトロゴ ヴィンテージ（クラシックカラーウェイ、1980-90年代）。バケットバッグ ヴィンテージ（巾着スタイル、1970-80年代、希少形状）。真鍮金具 ヴィンテージバッグ（古いMCMはより重い真鍮使用、金メッキでない）。モノグラムミニバッグ1990年代（トレンド復活前のコンパクトスタイル）。ヘリテージコレクション 復刻版（アーカイブ作品の限定ラン再製作、2015+）。",
@@ -1559,9 +1980,7 @@ const BRAND_DATA = {
     name:"Alexander McQueen", year:1992, country:"UK",
     categories:["handbags"],
     desc:"British fashion house founded by legendary designer Lee Alexander McQueen, known for dark romantic aesthetics and theatrical designs. The iconic Skull Clutch is one of fashion's most recognizable accessories. McQueen pieces blend gothic edge with impeccable tailoring. Vintage Lee McQueen era (pre-2010) is highly collectible. Represents rebellious luxury and artistic vision.",
-    descJp:"伝説的デザイナー、リー・アレキサンダー・マックイーンによって創業された、ダークロマンチック美学と演劇的デザインで知られるイギリスファッションハウス。象徴的なスカルクラッチはファッション界で最も認識可能なアクセサリーの一つ。マックイーン作品はゴシックエッジと完璧な仕立てを融合。ヴィンテージ リー・マックイーン時代（2010年以前）は高コレクタブル。反抗的なラグジュアリーと芸術的ビジョンを表しています。",
-    imageUrl:"https://logo.clearbit.com/alexandermcqueen.com",
-    auth:"'ALEXANDER McQUEEN' stamp. Made in Italy. Skull hardware (signature motif). Serial number inside.",
+    descJp:"伝説的デザイナー、リー・アレキサンダー・マックイーンによって創業された、ダークロマンチック美学と演劇的デザインで知られるイギリスファッションハウス。象徴的なスカルクラッチはファッション界で最も認識可能なアクセサリーの一つ。マックイーン作品はゴシックエッジと完璧な仕立てを融合。ヴィンテージ リー・マックイーン時代（2010年以前）は高コレクタブル。反抗的なラグジュアリーと芸術的ビジョンを表しています。",    auth:"'ALEXANDER McQUEEN' stamp. Made in Italy. Skull hardware (signature motif). Serial number inside.",
     authJp:"「ALEXANDER McQUEEN」刻印。イタリア製。スカル金具（シグネチャーモチーフ）。内側にシリアル番号。",
     rare:"Lee Alexander McQueen original era pieces (1992-2010, before his death, museum-quality collectibles, provenance premium). Skull Clutch original 2000s (early versions before mass production, heavier construction). Heroine Bag (oversized tote, 2010-2013, iconic shape, discontinued). Novak Bag studded versions (2009-2011, punk aesthetic, rare finds). Union Jack collection pieces (2012-2013, British flag motif, limited patriotic capsule). Knuckle Box Clutch full crystal versions (Swarovski embellished, extremely expensive, red carpet pieces). Savage Beauty exhibition pieces (museum retrospective 2011, some items auctioned for charity, provenance). Horn-handle bags (animal horn hardware, 2000s, controversial materials, rare). Bumster bags from early collections (1990s low-rise era, extremely rare vintage). Samsonite Black Label collaboration (2009, limited luggage and bags, sold out). Boxes and rigid clutches with Gothic hardware (coffin shapes, Victorian motifs, dark romance aesthetic).",
     rareJp:"リー・アレキサンダー・マックイーン オリジナル時代作品（1992-2010、彼の死前、美術館品質コレクタブル、来歴プレミアム）。スカルクラッチ オリジナル2000年代（大量生産前の初期バージョン、より重い構造）。ヒロインバッグ（特大トート、2010-2013、象徴的形状、廃盤）。ノバックバッグ スタッズバージョン（2009-2011、パンク美学、希少発見）。ユニオンジャックコレクション作品（2012-2013、イギリス国旗モチーフ、限定愛国カプセル）。ナックルボックスクラッチ フルクリスタルバージョン（スワロフスキー装飾、極めて高価、レッドカーペット作品）。サヴェージビューティー 展示作品（2011年美術館回顧展、一部アイテムは慈善オークション、来歴）。ホーンハンドルバッグ（動物角金具、2000年代、議論の余地のある素材、希少）。バムスターバッグ 初期コレクションから（1990年代ローライズ時代、極めて希少ヴィンテージ）。サムソナイト ブラックレーベル コラボ（2009、限定ラゲッジとバッグ、完売）。ゴシック金具付きボックスと硬質クラッチ（棺形状、ビクトリアンモチーフ、ダークロマンス美学）。",
@@ -1621,9 +2040,7 @@ const BRAND_DATA = {
     name:"Miu Miu", year:1993, country:"Italy",
     categories:["handbags"],
     desc:"Prada's younger sister brand created by Miuccia Prada, known for playful, quirky luxury with an edge. Famous for Matelassé quilted leather bags and the whimsical Coffer box bag with crystal embellishments. Same exceptional quality as Prada but with youthful rebellion. Vintage 1990s-2000s pieces are highly collectible. For the girl who's over 'serious' luxury.",
-    descJp:"ミウッチャ・プラダによって創設されたプラダの妹ブランドで、遊び心があり風変わりなエッジのあるラグジュアリーで知られています。マトラッセキルティングレザーバッグとクリスタル装飾の気まぐれなコファーボックスバッグで有名。プラダと同じ卓越した品質ですが、若々しい反抗心があります。1990〜2000年代のヴィンテージ作品は高コレクタブル。「真面目な」ラグジュアリーに飽きた女の子向け。",
-    imageUrl:"https://logo.clearbit.com/miumiu.com",
-    auth:"'MIU MIU' logo plate or embossed. Made in Italy. Part of Prada Group - similar quality standards.",
+    descJp:"ミウッチャ・プラダによって創設されたプラダの妹ブランドで、遊び心があり風変わりなエッジのあるラグジュアリーで知られています。マトラッセキルティングレザーバッグとクリスタル装飾の気まぐれなコファーボックスバッグで有名。プラダと同じ卓越した品質ですが、若々しい反抗心があります。1990〜2000年代のヴィンテージ作品は高コレクタブル。「真面目な」ラグジュアリーに飽きた女の子向け。",    auth:"'MIU MIU' logo plate or embossed. Made in Italy. Part of Prada Group - similar quality standards.",
     authJp:"「MIU MIU」ロゴプレートまたはエンボス。イタリア製。プラダグループの一部 - 同様の品質基準。",
     rare:"Vintage Miu Miu 1990s original collections (early Miuccia Prada designs for the line, pre-mainstream, rare finds). Coffer Bag with crystals (2005-2012, jeweled clasp, discontinued, highly collectible). Matelassé Camera Bag original 2010s (quilted leather crossbody, before trend saturation). Bow Bag embellished versions (2000s, oversized bow detail, whimsical). Crystal-studded bags full pavé (entirely covered in crystals, evening pieces, expensive). Vintage nylon bags 1990s (utilitarian nylon before Prada popularized it, rare Miu Miu versions). Patch embellished bags (2016-2018, eclectic patches and pins, playful aesthetic). Dahlia floral appliqué bags (3D flower decorations, 2012-2014, feminine). Cloqué fabric bags (textured matelassé-style fabric, not leather, unique texture). Madras bags vintage (plaid/check patterns, limited editions). Two-tone colorblock matelassé (contrasting quilted panels, architectural). Wander Hobo original design (slouchy hobo shape, early 2010s).",
     rareJp:"ヴィンテージ ミュウミュウ1990年代オリジナルコレクション（ライン用初期ミウッチャ・プラダデザイン、主流前、希少発見）。クリスタル付きコファーバッグ（2005-2012、宝石留め金、廃盤、高コレクタブル）。マトラッセカメラバッグ オリジナル2010年代（キルティングレザークロスボディ、トレンド飽和前）。ボウバッグ 装飾バージョン（2000年代、特大蝶結びディテール、気まぐれ）。クリスタルスタッズバッグ フルパヴェ（完全にクリスタルで覆われている、イブニング作品、高価）。ヴィンテージナイロンバッグ1990年代（プラダが普及させる前の実用的ナイロン、希少ミュウミュウバージョン）。パッチ装飾バッグ（2016-2018、折衷的パッチとピン、遊び心美学）。ダリア フラワーアップリケバッグ（3D花装飾、2012-2014、女性的）。クロケ生地バッグ（テクスチャードマトラッセスタイル生地、レザーでない、ユニークテクスチャ）。マドラスバッグ ヴィンテージ（プラッド/チェックパターン、限定版）。ツートーンカラーブロック マトラッセ（対照的キルティングパネル、建築的）。ワンダー ホーボー オリジナルデザイン（たるんだホーボー形状、2010年代初頭）。",
@@ -1685,9 +2102,7 @@ const BRAND_DATA = {
     name:"Chloé", year:1952, country:"France",
     categories:["handbags"],
     desc:"French luxury house embodying effortless Parisian femininity and romantic bohemian style. The Paddington bag with its signature oversized padlock was THE It bag of 2005. The Phoebe Philo era (2001-2006) is legendary among collectors. Known for soft, slouchy leather and dreamy aesthetic. Represents carefree French-girl elegance.",
-    descJp:"パリジェンヌの女性らしさとロマンチックなボヘミアンスタイルを体現するフランスの高級メゾン。シグネチャーの特大南京錠付きパディントンバッグは2005年のTHE Itバッグでした。フィービー・ファイロ時代（2001-2006）はコレクターの間で伝説的。柔らかくスラウチーなレザーと夢のような美学で知られています。気楽なフレンチガールエレガンスを表しています。",
-    imageUrl:"https://logo.clearbit.com/chloe.com",
-    auth:"'CHLOÉ' stamp (note accent mark). Made in Italy. Serial number embossed. Padlock on some styles.",
+    descJp:"パリジェンヌの女性らしさとロマンチックなボヘミアンスタイルを体現するフランスの高級メゾン。シグネチャーの特大南京錠付きパディントンバッグは2005年のTHE Itバッグでした。フィービー・ファイロ時代（2001-2006）はコレクターの間で伝説的。柔らかくスラウチーなレザーと夢のような美学で知られています。気楽なフレンチガールエレガンスを表しています。",    auth:"'CHLOÉ' stamp (note accent mark). Made in Italy. Serial number embossed. Padlock on some styles.",
     authJp:"「CHLOÉ」刻印（アクセント注意）。イタリア製。シリアル番号エンボス。一部スタイルに南京錠。",
     rare:"Paddington Bag with padlock (2005-2006 peak years, THE It bag before Balenciaga City, oversized brass padlock signature, highly collectible). Phoebe Philo era bags (2001-2006, before she went to Celine, romantic bohemian aesthetic, grail status). Edith Bag (2006, slouchy hobo with braided handles, short production). Silverado Bag vintage (2004-2006, Western-inspired with concho details). Paraty Bag (2008-2014, structured satchel with braided handles). Drew Bag (2014+, saddle bag with chain strap, popular). Faye Bag (2015+, flap bag with bracelet handle, rings closure). Bay Bag (2017+, structured tote). Vintage 1970s Chloé under Karl Lagerfeld (1963-1983, extremely rare, founder era). Vintage Stella McCartney era (1997-2001, before Phoebe, sustainable beginnings). Georgia shoulder bag 2000s (mini bag trend precursor).",
     rareJp:"パディントンバッグ 南京錠付き（2005-2006年ピーク年、バレンシアガシティ前のTHE Itバッグ、特大真鍮南京錠シグネチャー、高コレクタブル）。フィービー・ファイロ時代バッグ（2001-2006、セリーヌに行く前、ロマンティックボヘミアン美学、聖杯ステータス）。エディスバッグ（2006、編みハンドル付きたるんだホーボー、短期生産）。シルバラードバッグ ヴィンテージ（2004-2006、コンチョディテール付き西部インスパイア）。パラティバッグ（2008-2014、編みハンドル付き構造的サッチェル）。ドリューバッグ（2014+、チェーンストラップ付きサドルバッグ、人気）。フェイバッグ（2015+、ブレスレットハンドル付きフラップバッグ、リングクロージャー）。ベイバッグ（2017+、構造的トート）。1970年代ヴィンテージ クロエ カール・ラガーフェルド下（1963-1983、極めて希少、創設者時代）。ヴィンテージ ステラ・マッカートニー時代（1997-2001、フィービー前、持続可能な始まり）。ジョージアショルダーバッグ2000年代（ミニバッグトレンド前駆）。",
@@ -1749,9 +2164,7 @@ const BRAND_DATA = {
     name:"Tom Ford", year:2005, country:"USA",
     categories:["handbags"],
     desc:"American luxury brand by legendary designer Tom Ford, synonymous with sexy sophistication and modern glamour. Famous for sleek, minimalist designs with exceptional materials and impeccable construction. The Jennifer bag and exotic leather pieces are highly coveted. Represents grown-up, unapologetically luxurious style. For those who want the best and know it.",
-    descJp:"伝説的デザイナー、トム・フォードによるアメリカの高級ブランドで、セクシーな洗練と現代的グラマーの代名詞。滑らかでミニマリストなデザイン、卓越した素材、完璧な構造で有名。ジェニファーバッグとエキゾチックレザー作品は非常に垂涎されています。大人で、謝罪しない豪華なスタイルを表しています。最高を望み、それを知っている人向け。",
-    imageUrl:"https://logo.clearbit.com/tomford.com",
-    auth:"'TOM FORD' logo plate or stamp. Made in Italy. Metal TF logo on hardware. Premium materials.",
+    descJp:"伝説的デザイナー、トム・フォードによるアメリカの高級ブランドで、セクシーな洗練と現代的グラマーの代名詞。滑らかでミニマリストなデザイン、卓越した素材、完璧な構造で有名。ジェニファーバッグとエキゾチックレザー作品は非常に垂涎されています。大人で、謝罪しない豪華なスタイルを表しています。最高を望み、それを知っている人向け。",    auth:"'TOM FORD' logo plate or stamp. Made in Italy. Metal TF logo on hardware. Premium materials.",
     authJp:"「TOM FORD」ロゴプレートまたは刻印。イタリア製。金具にTFメタルロゴ。プレミアム素材。",
     rare:"Limited edition exotic leathers: crocodile, python, ostrich (Tom Ford uses museum-quality skins, five-figure prices). Jennifer Bag (chain shoulder bag, TF logo, discontinued). Natalia Bag (structured top-handle, rare design). Alix Bag (fold-over shoulder bag, limited production). Gucci-era Tom Ford pieces (1994-2004, when he designed for Gucci, not his own label but highly collectible). Yves Saint Laurent-era Tom Ford pieces (2000-2004, his YSL designs before own brand, grails). Limited edition collaborations and capsule collections (small runs, sold out). Petra Bag exotic skins (structured evening bag). Lipstick-shaped novelty bags (signature motif, whimsical limited editions). Private White Label pieces (bespoke commissions, extremely rare, provenance required).",
     rareJp:"限定版エキゾチックレザー：クロコダイル、パイソン、オーストリッチ（トム・フォードは美術館品質の皮を使用、5桁価格）。ジェニファーバッグ（チェーンショルダーバッグ、TFロゴ、廃盤）。ナタリアバッグ（構造的トップハンドル、希少デザイン）。アリックスバッグ（フォールドオーバーショルダーバッグ、限定生産）。グッチ時代 トム・フォード作品（1994-2004、彼がグッチのためにデザインした時、自身のレーベルではないが高コレクタブル）。イヴ・サンローラン時代 トム・フォード作品（2000-2004、自身のブランド前のYSLデザイン、聖杯）。限定版コラボとカプセルコレクション（小規模ラン、完売）。ペトラバッグ エキゾチックスキン（構造的イブニングバッグ）。リップスティック型ノベルティバッグ（シグネチャーモチーフ、気まぐれ限定版）。プライベート ホワイトレーベル作品（ビスポーク依頼、極めて希少、来歴必要）。",
@@ -1799,9 +2212,7 @@ const BRAND_DATA = {
     name:"Dolce & Gabbana", year:1985, country:"Italy",
     categories:["handbags"],
     desc:"Italian fashion house celebrating Sicilian heritage and Mediterranean passion with maximalist glamour. Famous for the Sicily bag inspired by vintage doctor's bags, and Devotion bags with ornate Sacred Heart logos. Known for baroque prints, lace, leopard, and bold gold hardware. Represents unapologetic Italian luxury and drama. Not for the minimalist.",
-    descJp:"シチリアの遺産と地中海の情熱をマキシマリストグラマーで祝うイタリアファッションハウス。ヴィンテージドクターバッグからインスピレーションを得たシチリアバッグと華麗な聖心ロゴ付きディヴォーションバッグで有名。バロックプリント、レース、レオパード、大胆なゴールド金具で知られています。謝罪しないイタリアンラグジュアリーとドラマを表しています。ミニマリスト向けではない。",
-    imageUrl:"https://logo.clearbit.com/dolcegabbana.com",
-    auth:"'DOLCE&GABBANA' logo plate. Made in Italy. DG logo on hardware. Bold, ornate designs.",
+    descJp:"シチリアの遺産と地中海の情熱をマキシマリストグラマーで祝うイタリアファッションハウス。ヴィンテージドクターバッグからインスピレーションを得たシチリアバッグと華麗な聖心ロゴ付きディヴォーションバッグで有名。バロックプリント、レース、レオパード、大胆なゴールド金具で知られています。謝罪しないイタリアンラグジュアリーとドラマを表しています。ミニマリスト向けではない。",    auth:"'DOLCE&GABBANA' logo plate. Made in Italy. DG logo on hardware. Bold, ornate designs.",
     authJp:"「DOLCE&GABBANA」ロゴプレート。イタリア製。金具にDGロゴ。大胆で華やかなデザイン。",
     rare:"Sicily Bag original 2008 launch (structured doctor's bag, Sicilian heritage motif, early versions more collectible). Miss Sicily with embellishments (lace overlays, crystal details, floral appliqués, limited editions). Devotion Bag full crystal Sacred Heart (entirely jeweled closure, extremely expensive, red carpet pieces). Barocco print bags limited editions (gold baroque patterns, maximalist Italian prints). DG Millennials bags (influencer collaborations, sold out capsules). Vintage 1980s-90s Dolce & Gabbana (early collections before mainstream, rare runway pieces). Leopard print bags (signature D&G print, various styles). Rose Famiglia collection (family portrait prints, 2015-2016, quirky). Corset-detail bags (boning and lacing, fashion-forward limited runs). Sicily Von bags (Sicily redesign with new closure, limited). Embellished with patches and pins (2016+ whimsy era).",
     rareJp:"シチリアバッグ オリジナル2008年発売（構造的ドクターバッグ、シチリア遺産モチーフ、初期バージョンはよりコレクタブル）。刺繍付きミス シチリア（レースオーバーレイ、クリスタルディテール、フラワーアップリケ、限定版）。ディヴォーションバッグ フルクリスタル聖心（完全に宝石クロージャー、極めて高価、レッドカーペット作品）。バロッコプリントバッグ限定版（ゴールドバロックパターン、マキシマリストイタリアンプリント）。DGミレニアルズバッグ（インフルエンサーコラボ、完売カプセル）。1980-90年代ヴィンテージ Dolce & Gabbana（主流前の初期コレクション、希少ランウェイ作品）。レオパードプリントバッグ（シグネチャーD&Gプリント、様々なスタイル）。ローズ ファミリア コレクション（家族ポートレートプリント、2015-2016、風変わり）。コルセットディテールバッグ（ボーニングとレーシング、ファッションフォワード限定ラン）。シチリア フォン バッグ（新しいクロージャー付きシチリア再デザイン、限定）。パッチとピン装飾（2016+ 気まぐれ時代）。",
@@ -1863,9 +2274,7 @@ const BRAND_DATA = {
     name:"Versace", year:1978, country:"Italy",
     categories:["handbags"],
     desc:"Italian fashion house founded by legendary Gianni Versace, synonymous with bold glamour, Medusa logo, and baroque opulence. Known for gold hardware, Greek key patterns, and maximalist designs that scream luxury. The safety pin dress moment (1994) epitomizes Versace's punk-meets-palace aesthetic. Vintage Gianni era pieces (pre-1997) are museum-quality collectibles. Represents unapologetic, flashy Italian luxury. Not for the subtle.",
-    descJp:"伝説的ジャンニ・ヴェルサーチによって創設されたイタリアファッションハウスで、大胆なグラマー、メデューサロゴ、バロック豪華さと同義。ゴールド金具、グリークキーパターン、ラグジュアリーを叫ぶマキシマリストデザインで知られています。安全ピンドレス瞬間（1994）はヴェルサーチのパンクと宮殿の美学を体現。ヴィンテージ ジャンニ時代作品（1997年以前）は美術館品質コレクタブル。謝罪しない派手なイタリアンラグジュアリーを表しています。控えめな人向けではない。",
-    imageUrl:"https://logo.clearbit.com/versace.com",
-    auth:"Medusa head logo. 'VERSACE' stamp. Made in Italy. Greek key (meander) pattern. Bold, flashy hardware.",
+    descJp:"伝説的ジャンニ・ヴェルサーチによって創設されたイタリアファッションハウスで、大胆なグラマー、メデューサロゴ、バロック豪華さと同義。ゴールド金具、グリークキーパターン、ラグジュアリーを叫ぶマキシマリストデザインで知られています。安全ピンドレス瞬間（1994）はヴェルサーチのパンクと宮殿の美学を体現。ヴィンテージ ジャンニ時代作品（1997年以前）は美術館品質コレクタブル。謝罪しない派手なイタリアンラグジュアリーを表しています。控えめな人向けではない。",    auth:"Medusa head logo. 'VERSACE' stamp. Made in Italy. Greek key (meander) pattern. Bold, flashy hardware.",
     authJp:"メデューサヘッドロゴ。「VERSACE」刻印。イタリア製。グリークキー（メアンダー）パターン。大胆で派手な金具。",
     rare:"Gianni Versace original era pieces (1978-1997, before his death, museum-quality, provenance adds value). Safety Pin dress and bag motif (1994 Elizabeth Hurley moment, iconic punk glamour, reproductions exist but originals rare). Medusa Shoulder Bag vintage (oversized Medusa head, 1990s, bold hardware). Baroque print bags vintage Gianni era (gold scrollwork, opulent patterns, better quality materials). Vintage Versus by Versace (diffusion line 1989-2005, discontinued then revived, original run collectible). Versace for H&M collaboration 2011 (sold out instantly, affordable Versace, secondary market valuable). Icon bag (quilted tribute bag, Medusa charm, 2019+). Medusa Amplified collection (oversized baroque motifs, 2020+). Virtus Bag early releases (large Medusa clasp, first seasons). Greek key (Greca) pattern vintage (continuous meander border, 1980s-90s). Barocco quilting full bags (entirely quilted baroque print, maximalist). Limited edition color Medusa hardware (colored enamel Medusas, rare).",
     rareJp:"ジャンニ・ヴェルサーチ オリジナル時代作品（1978-1997、彼の死前、美術館品質、来歴が価値を追加）。安全ピンドレスとバッグモチーフ（1994エリザベス・ハーレー瞬間、象徴的パンクグラマー、複製存在するがオリジナル希少）。メデューサショルダーバッグ ヴィンテージ（特大メデューサヘッド、1990年代、大胆な金具）。バロックプリントバッグ ヴィンテージ ジャンニ時代（ゴールド巻物細工、豪華パターン、より良い品質素材）。ヴィンテージ Versus by Versace（ディフュージョンライン1989-2005、廃盤後復活、オリジナルラン コレクタブル）。ヴェルサーチ for H&M コラボ2011（即完売、手頃なヴェルサーチ、二次市場価値あり）。アイコンバッグ（キルティングトリビュートバッグ、メデューサチャーム、2019+）。メデューサアンプリファイド コレクション（特大バロックモチーフ、2020+）。ヴィルトゥスバッグ 初期リリース（大きなメデューサ留め金、初シーズン）。グリークキー（グレカ）パターン ヴィンテージ（連続メアンダーボーダー、1980-90年代）。バロッコキルティング フルバッグ（完全にキルティングバロックプリント、マキシマリスト）。限定版カラー メデューサ金具（色付きエナメル メデューサ、希少）。",
@@ -1926,9 +2335,7 @@ const BRAND_DATA = {
     name:"Jimmy Choo", year:1996, country:"UK",
     categories:["handbags"],
     desc:"British luxury brand world-famous for glamorous footwear, also creating stunning handbags with the same red-carpet appeal. Known for star studs signature motif and party-ready designs. While shoes made the name, the bags deliver the same Hollywood glamour and sophistication. Perfect for special occasions and making an entrance.",
-    descJp:"グラマラスなフットウェアで世界的に有名なイギリスの高級ブランドで、同じレッドカーペット魅力を持つ素晴らしいハンドバッグも製作しています。スタースタッズのシグネチャーモチーフとパーティー対応デザインで知られています。シューズが名を成しましたが、バッグも同じハリウッドグラマーと洗練を提供。特別な機会や登場に最適。",
-    imageUrl:"https://logo.clearbit.com/jimmychoo.com",
-    auth:"'JIMMY CHOO' logo embossed or on plate. Made in Italy. Star studs (signature motif). Serial number inside.",
+    descJp:"グラマラスなフットウェアで世界的に有名なイギリスの高級ブランドで、同じレッドカーペット魅力を持つ素晴らしいハンドバッグも製作しています。スタースタッズのシグネチャーモチーフとパーティー対応デザインで知られています。シューズが名を成しましたが、バッグも同じハリウッドグラマーと洗練を提供。特別な機会や登場に最適。",    auth:"'JIMMY CHOO' logo embossed or on plate. Made in Italy. Star studs (signature motif). Serial number inside.",
     authJp:"「JIMMY CHOO」エンボスまたはプレート。イタリア製。スタースタッズ（シグネチャーモチーフ）。内側にシリアル番号。",
     rare:"Jimmy Choo for H&M collaboration 2009 (sold out in hours, affordable JC, secondary market premium). Choo 24:7 Bag (hobo shoulder bag, discontinued). Bon Bon Bucket Bag (drawstring with star studs, playful design). Star-studded bags full coverage (entirely covered in star studs, evening pieces, expensive). Sasha Bag vintage (chain strap clutch, 2000s). Ramona Bag (structured top-handle, limited run). Vintage Jimmy Choo early collections 1996-2000s (when Tamara Mellon was creative force, before Kering acquisition). Limited edition collaborations with Off-White, Timberland (streetwear crossovers, sold out). Crystal embellished evening bags (Swarovski crystals, red carpet pieces). Metallic finishes limited editions (mirror gold, silver, rose gold). Callie bag (drawstring bucket with pearls, whimsical). Lockett bags (structured with lock detail, mini sizes).",
     rareJp:"ジミー・チュウ for H&M コラボ2009（数時間で完売、手頃なJC、二次市場プレミアム）。Choo 24:7バッグ（ホーボーショルダーバッグ、廃盤）。ボンボンバケットバッグ（スタースタッズ付き巾着、遊び心デザイン）。スタースタッズバッグ フルカバレッジ（完全にスタースタッズで覆われている、イブニング作品、高価）。サシャバッグ ヴィンテージ（チェーンストラップクラッチ、2000年代）。ラモーナバッグ（構造的トップハンドル、限定ラン）。ヴィンテージ ジミー・チュウ 初期コレクション1996-2000年代（タマラ・メロンがクリエイティブフォースだった時、ケリング買収前）。オフホワイト、ティンバーランドとの限定版コラボ（ストリートウェアクロスオーバー、完売）。クリスタル装飾イブニングバッグ（スワロフスキークリスタル、レッドカーペット作品）。メタリック仕上げ限定版（ミラーゴールド、シルバー、ローズゴールド）。キャリーバッグ（真珠付き巾着バケット、気まぐれ）。ロケットバッグ（ロックディテール付き構造的、ミニサイズ）。",
@@ -1943,8 +2350,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Choo 24:7", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Hobo shoulder bag - everyday glamour",
+        name:"Choo 24:7",        brief:"Hobo shoulder bag - everyday glamour",
         briefJp:"ホーボーショルダーバッグ - 毎日のグラマー",
         desc:"Versatile hobo shoulder bag. Star studs detail. Everyday luxury with red carpet edge. Discontinued but iconic.",
         descJp:"多用途ホーボーショルダーバッグ。スタースタッズディテール。レッドカーペットエッジを持つ毎日のラグジュアリー。廃盤だがアイコニック。",
@@ -1959,8 +2365,7 @@ const BRAND_DATA = {
         tipJp:"24:7 = 毎日のグラマー。あのスタースタッズ = ジミー・チュウシグネチャー。廃盤、見つけて！"
       },
       {
-        name:"Lockett", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Structured mini with lock - elegant petite",
+        name:"Lockett",        brief:"Structured mini with lock - elegant petite",
         briefJp:"ロック付き構造的ミニ - エレガント小柄",
         desc:"Structured mini bag. Lock hardware detail. Compact, elegant, party-ready. Limited production.",
         descJp:"構造的ミニバッグ。ロック金具ディテール。コンパクト、エレガント、パーティー対応。限定生産。",
@@ -1980,9 +2385,7 @@ const BRAND_DATA = {
     name:"Christian Louboutin", year:1991, country:"France",
     categories:["handbags"],
     desc:"French luxury house legendary for red-soled stilettos, creating equally bold handbags with signature spike studs and edgy glamour. The Paloma spiked clutch is iconic. Some bag designs feature the famous red sole aesthetic. Represents fearless femininity and unapologetic luxury. For women who command attention.",
-    descJp:"赤底スティレットで伝説的なフランスの高級メゾンで、シグネチャーのスパイクスタッズとエッジーなグラマーを持つ同様に大胆なハンドバッグを製作しています。パロマスパイククラッチは象徴的。一部バッグデザインは有名な赤底美学を特徴としています。恐れを知らない女性らしさと謝罪しないラグジュアリーを表しています。注目を集める女性向け。",
-    imageUrl:"https://logo.clearbit.com/christianlouboutin.com",
-    auth:"'CHRISTIAN LOUBOUTIN' stamp. Made in Italy. Red sole on some bag designs (like shoes). Spike studs.",
+    descJp:"赤底スティレットで伝説的なフランスの高級メゾンで、シグネチャーのスパイクスタッズとエッジーなグラマーを持つ同様に大胆なハンドバッグを製作しています。パロマスパイククラッチは象徴的。一部バッグデザインは有名な赤底美学を特徴としています。恐れを知らない女性らしさと謝罪しないラグジュアリーを表しています。注目を集める女性向け。",    auth:"'CHRISTIAN LOUBOUTIN' stamp. Made in Italy. Red sole on some bag designs (like shoes). Spike studs.",
     authJp:"「CHRISTIAN LOUBOUTIN」刻印。イタリア製。一部バッグデザインに赤底（靴のように）。スパイクスタッズ。",
     rare:"Paloma Clutch with spikes (2009+, iconic knuckle-duster style clutch, full spike coverage, red carpet staple). Sweet Charity shoulder bag (bow detail, 2000s, discontinued). Panettone Wallet studded versions (continental wallet with spikes, signature piece). Red-soled bags (leather goods with signature Louboutin red sole aesthetic, limited production). Marquise Minaudière spiked clutch (jewel-shaped evening bag, extremely rare). Passage bags with studs (mini crossbody, spike details). Elisa bags (chain shoulder bag, versatile). Benech Reporter messenger bag (men's style adopted by women, rare). Cabata tote with spikes (large tote, studded versions limited). Loubi Trash novelty bags (quirky designs, limited capsules). Collaborations and special editions (artist collaborations, sold out). Vintage early Louboutin bags 1990s (when brand was shoes-first, bags extremely rare from this era).",
     rareJp:"パロマクラッチ スパイク付き（2009+、象徴的ナックルダスタースタイルクラッチ、フルスパイクカバレッジ、レッドカーペット定番）。スイートチャリティ ショルダーバッグ（蝶結びディテール、2000年代、廃盤）。パネットーネウォレット スタッズバージョン（スパイク付き長財布、シグネチャーピース）。レッドソールバッグ（シグネチャー ルブタン赤底美学の革製品、限定生産）。マーキーズ ミノディエール スパイククラッチ（宝石型イブニングバッグ、極めて希少）。パッセージバッグ スタッズ付き（ミニクロスボディ、スパイクディテール）。エリサバッグ（チェーンショルダーバッグ、多用途）。ベネシュレポーター メッセンジャーバッグ（女性に採用されたメンズスタイル、希少）。カバタトート スパイク付き（大型トート、スタッズバージョン限定）。ルビトラッシュ ノベルティバッグ（風変わりデザイン、限定カプセル）。コラボと特別版（アーティストコラボ、完売）。ヴィンテージ 初期ルブタンバッグ1990年代（ブランドがシューズファーストだった時、この時代のバッグは極めて希少）。",
@@ -1997,8 +2400,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Paloma", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Spiked clutch - knuckle-duster icon",
+        name:"Paloma",        brief:"Spiked clutch - knuckle-duster icon",
         briefJp:"スパイククラッチ - ナックルダスターアイコン",
         desc:"THE Louboutin bag. Clutch covered in SPIKES. Knuckle-duster style. Red carpet icon. Fierce and fabulous.",
         descJp:"THE ルブタンバッグ。スパイクで覆われたクラッチ。ナックルダスタースタイル。レッドカーペットアイコン。激しく素晴らしい。",
@@ -2014,8 +2416,7 @@ const BRAND_DATA = {
         tipJp:"パロマ = どこでもスパイク。レッドカーペット定番。あのスパイク = 純粋ルブタンエッジ。"
       },
       {
-        name:"Cabata", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Tote with studs - luxury shopper",
+        name:"Cabata",        brief:"Tote with studs - luxury shopper",
         briefJp:"スタッズ付きトート - ラグジュアリーショッパー",
         desc:"Large tote bag. Stud details. Louboutin edge meets practical tote. Studded versions are rare and fierce.",
         descJp:"大型トートバッグ。スタッズディテール。ルブタンエッジが実用的トートと出会う。スタッズバージョンは希少で激しい。",
@@ -2035,9 +2436,7 @@ const BRAND_DATA = {
     name:"Off-White", year:2013, country:"Italy",
     categories:["handbags"],
     desc:"Revolutionary streetwear-meets-luxury brand founded by visionary designer Virgil Abloh. Famous for industrial yellow belt straps, diagonal arrows, and ironic quotation marks. The Binder Clip bag and Jitney bag are instant icons. Virgil Abloh era pieces (2013-2021) are already highly collectible. Represents the new generation of luxury.",
-    descJp:"ビジョナリーデザイナー ヴァージル・アブローによって創設された、革命的なストリートウェアとラグジュアリーの融合ブランド。インダストリアル黄色ベルトストラップ、斜め矢印、皮肉な引用符で有名。バインダークリップバッグとジットニーバッグは即座のアイコン。ヴァージル・アブロー時代作品（2013-2021）は既に高コレクタブル。新世代ラグジュアリーを表しています。",
-    imageUrl:"https://logo.clearbit.com/off---white.com",
-    auth:"'OFF-WHITE' logo. Industrial belt strap. Diagonal arrows. Quote marks. Made in Italy.",
+    descJp:"ビジョナリーデザイナー ヴァージル・アブローによって創設された、革命的なストリートウェアとラグジュアリーの融合ブランド。インダストリアル黄色ベルトストラップ、斜め矢印、皮肉な引用符で有名。バインダークリップバッグとジットニーバッグは即座のアイコン。ヴァージル・アブロー時代作品（2013-2021）は既に高コレクタブル。新世代ラグジュアリーを表しています。",    auth:"'OFF-WHITE' logo. Industrial belt strap. Diagonal arrows. Quote marks. Made in Italy.",
     authJp:"「OFF-WHITE」ロゴ。インダストリアルベルトストラップ。斜め矢印。引用符。イタリア製。",
     rare:"Virgil Abloh original era pieces (2013-2021, before his passing, all pieces now memorial collectibles, provenance premium). Binder Clip bag (2016+, office supply inspiration, industrial metal clip, icon). Jitney bag (0.7, 1.0, 1.4 sizes, box bag structure, signature piece). Nike collaborations: \"The Ten\" collection bags (2017, sold out instantly, streetwear grails). IKEA collaborations (2019, ironic luxury commentary, Markerad collection). SSENSE exclusive drops (limited quantities, sold out). Diagonal Flap Bag (signature arrow motif, mini crossbody). Quote marks bags (ironic quotation typography, deconstructed aesthetic). Industrial belts sold separately (yellow 2.0 belt, merchandise but collectible). First collections 2013-2015 (early Virgil vision, before mainstream hype, rare). Sculpting shoulder bag (puffy quilted design). Meteor shower print bags (celestial limited editions).",
     rareJp:"ヴァージル・アブロー オリジナル時代作品（2013-2021、彼の逝去前、すべての作品が今メモリアルコレクタブル、来歴プレミアム）。バインダークリップバッグ（2016+、事務用品インスピレーション、インダストリアルメタルクリップ、アイコン）。ジットニーバッグ（0.7、1.0、1.4サイズ、ボックスバッグ構造、シグネチャーピース）。ナイキコラボ：「The Ten」コレクションバッグ（2017、即完売、ストリートウェア聖杯）。イケアコラボ（2019、皮肉なラグジュアリーコメンタリー、Markeradコレクション）。SSENSE限定ドロップ（限定数量、完売）。ダイアゴナルフラップバッグ（シグネチャー矢印モチーフ、ミニクロスボディ）。引用符バッグ（皮肉な引用タイポグラフィ、脱構築美学）。インダストリアルベルト 個別販売（イエロー2.0ベルト、商品だがコレクタブル）。初コレクション2013-2015（初期ヴァージルビジョン、主流ハイプ前、希少）。スカルプティングショルダーバッグ（ぷっくりキルティングデザイン）。メテオシャワープリントバッグ（天体限定版）。",
@@ -2052,8 +2451,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Jitney", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Box bag with binder clip - office supply icon",
+        name:"Jitney",        brief:"Box bag with binder clip - office supply icon",
         briefJp:"バインダークリップ付きボックスバッグ - 事務用品アイコン",
         desc:"Off-White's iconic box bag. Structured shape with signature BINDER CLIP closure. Industrial meets luxury. Virgil's genius.",
         descJp:"Off-Whiteのアイコニックボックスバッグ。シグネチャー バインダークリップクロージャー付き構造的形状。インダストリアルとラグジュアリーの融合。ヴァージルの天才。",
@@ -2070,8 +2468,7 @@ const BRAND_DATA = {
         tipJp:"あのバインダークリップが全て。事務用品がラグジュアリーアイコンに。純粋ヴァージル。"
       },
       {
-        name:"Diagonal Flap", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Arrow crossbody - streetwear signature",
+        name:"Diagonal Flap",        brief:"Arrow crossbody - streetwear signature",
         briefJp:"矢印クロスボディ - ストリートウェアシグネチャー",
         desc:"Mini crossbody with Off-White's signature diagonal arrow stripe. Logo, industrial belt, instant recognition. Streetwear flex.",
         descJp:"Off-Whiteのシグネチャー斜め矢印ストライプ付きミニクロスボディ。ロゴ、インダストリアルベルト、即座に認識。ストリートウェアフレックス。",
@@ -2091,9 +2488,7 @@ const BRAND_DATA = {
     name:"Marni", year:1994, country:"Italy",
     categories:["handbags"],
     desc:"Italian luxury brand known for quirky artistic designs, unexpected color combinations, and architectural shapes. The Trunk bag and Museo tote showcase Marni's playful sophistication. Represents intellectual fashion for those who reject boring. Vintage 2000s pieces are highly sought after. For confident style individualists.",
-    descJp:"風変わりな芸術的デザイン、予想外の色の組み合わせ、建築的形状で知られるイタリアの高級ブランド。トランクバッグとムセオトートはマルニの遊び心ある洗練を示しています。退屈を拒否する人々のための知的ファッションを表しています。2000年代ヴィンテージ作品は非常に求められています。自信あるスタイル個人主義者向け。",
-    imageUrl:"https://logo.clearbit.com/marni.com",
-    auth:"'MARNI' logo. Made in Italy. Known for unusual shapes, bold colors. Minimalist hardware.",
+    descJp:"風変わりな芸術的デザイン、予想外の色の組み合わせ、建築的形状で知られるイタリアの高級ブランド。トランクバッグとムセオトートはマルニの遊び心ある洗練を示しています。退屈を拒否する人々のための知的ファッションを表しています。2000年代ヴィンテージ作品は非常に求められています。自信あるスタイル個人主義者向け。",    auth:"'MARNI' logo. Made in Italy. Known for unusual shapes, bold colors. Minimalist hardware.",
     authJp:"「MARNI」ロゴ。イタリア製。珍しい形、大胆な色で知られる。ミニマリスト金具。",
     rare:"Trunk Bag (2016+, boxy structured bag, architectural icon, colorful versions). Museo Tote (soft unstructured tote, large shopper, colorblock designs). Vintage Marni 2000s-2010s (Consuelo Castiglioni era 1997-2016, founder period, quirky maximalism). Color-block bags limited editions (unexpected color pairings, artistic). Marni Market bags (woven raffia, artisan collaboration with Colombian craftspeople, sustainable). Pannier Bag (basket-style structured bag, unique shape). Gusset bags (geometric architectural shapes, folded constructions). Saffiano leather totes vintage (textured leather, less common than soft versions). Flower appliqué bags (3D floral embellishments, whimsical limited editions). Striped canvas totes (bold graphic stripes, summer collections). Vintage jewelry-handle bags 2000s (resin and metal handles, statement pieces, rare).",
     rareJp:"トランクバッグ（2016+、箱型構造的バッグ、建築的アイコン、カラフルバージョン）。ムセオトート（柔らかい非構造トート、大型ショッパー、カラーブロックデザイン）。ヴィンテージ マルニ2000-2010年代（コンスエロ・カスティリオーニ時代1997-2016、創設者期間、風変わりマキシマリズム）。カラーブロックバッグ限定版（予想外の色のペアリング、芸術的）。マルニマーケットバッグ（編みラフィア、コロンビア職人とのアーティザンコラボ、サステナブル）。パニアバッグ（バスケットスタイル構造的バッグ、ユニーク形状）。ガセットバッグ（幾何学建築的形状、折りたたみ構造）。サフィアーノレザートート ヴィンテージ（テクスチャードレザー、ソフトバージョンより一般的でない）。フラワーアップリケバッグ（3Dフローラル装飾、気まぐれ限定版）。ストライプキャンバストート（大胆なグラフィックストライプ、夏コレクション）。ヴィンテージジュエリーハンドルバッグ2000年代（樹脂とメタルハンドル、ステートメント作品、希少）。",
@@ -2108,8 +2503,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Trunk", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Boxy structured bag - architectural icon",
+        name:"Trunk",        brief:"Boxy structured bag - architectural icon",
         briefJp:"箱型構造的バッグ - 建築的アイコン",
         desc:"Marni's most iconic bag. Boxy, structured, architectural. Bold colors. Quirky but sophisticated. Marni in a bag.",
         descJp:"マルニの最もアイコニックバッグ。箱型、構造的、建築的。大胆な色。風変わりだが洗練。バッグの中のマルニ。",
@@ -2126,8 +2520,7 @@ const BRAND_DATA = {
         tipJp:"マルニ トランク = 大胆な色 + 箱型。退屈ではない。ユニークスタイルを愛する人向け。"
       },
       {
-        name:"Museo", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Soft unstructured tote - artistic shopper",
+        name:"Museo",        brief:"Soft unstructured tote - artistic shopper",
         briefJp:"柔らかい非構造トート - 芸術的ショッパー",
         desc:"Soft, slouchy shopping tote. Colorblock designs, unexpected color pairings. Large, practical, artistic. Marni's playful side.",
         descJp:"柔らかい、たるんだショッピングトート。カラーブロックデザイン、予想外の色ペアリング。大きい、実用的、芸術的。マルニの遊び心側。",
@@ -2142,8 +2535,7 @@ const BRAND_DATA = {
         tipJp:"ムセオ = 大胆な色ブロッキング付き大きいトート。芸術的、予想外、非常にマルニ。"
       },
       {
-        name:"Pannier", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Basket-style bag - unique sculptural shape",
+        name:"Pannier",        brief:"Basket-style bag - unique sculptural shape",
         briefJp:"バスケットスタイルバッグ - ユニークな彫刻的形状",
         desc:"Structured basket-inspired bag. Unique shape, architectural design. Marni's quirky sophistication. A conversation piece.",
         descJp:"構造的バスケット風バッグ。ユニーク形状、建築的デザイン。マルニの風変わりな洗練。会話のきっかけ。",
@@ -2163,9 +2555,7 @@ const BRAND_DATA = {
     name:"The Row", year:2006, country:"USA",
     categories:["handbags"],
     desc:"Ultra-luxury brand by Ashley and Mary-Kate Olsen, epitomizing the ultimate quiet luxury with no logos and impeccable craftsmanship. Famous for cashmere-lined bags, premium leathers, and architectural minimalism. The Margaux and Half Moon bags are modern icons. Insanely expensive and worth every penny. If you know, you know.",
-    descJp:"アシュリーとメアリー・ケイト・オルセンによる超高級ブランドで、ロゴなしと完璧な職人技で究極の静かなラグジュアリーを体現しています。カシミア裏地バッグ、プレミアムレザー、建築的ミニマリズムで有名。マルゴーとハーフムーンバッグは現代アイコン。驚異的に高価で、すべてのペニーに値する。知っている人は知っている。",
-    imageUrl:"https://logo.clearbit.com/therow.com",
-    auth:"'THE ROW' discreet label. Made in Italy or USA. No logos, minimalist. Premium materials (cashmere-lined).",
+    descJp:"アシュリーとメアリー・ケイト・オルセンによる超高級ブランドで、ロゴなしと完璧な職人技で究極の静かなラグジュアリーを体現しています。カシミア裏地バッグ、プレミアムレザー、建築的ミニマリズムで有名。マルゴーとハーフムーンバッグは現代アイコン。驚異的に高価で、すべてのペニーに値する。知っている人は知っている。",    auth:"'THE ROW' discreet label. Made in Italy or USA. No logos, minimalist. Premium materials (cashmere-lined).",
     authJp:"「THE ROW」控えめラベル。イタリアまたは米国製。ロゴなし、ミニマリスト。プレミアム素材（カシミア裏地）。",
     rare:"Margaux Tote (2016+, structured minimalist tote, cashmere-lined interior, five-figure price, modern icon). Half Moon Bag (2018+, crescent-shaped crossbody, architectural minimalism, sold out frequently). Sofia Bag (2019+, slouchy hobo, soft leather, limited production). India Bag (oversized tote, rare design). Bindle Bag (hobo shoulder bag, minimalist). 12 Bag (mini crossbody box bag, compact). Early collections 2006-2010 (first seasons, before widespread recognition, rare finds). Limited edition exotic leathers: crocodile, alligator (extremely expensive, special order only). Cashmere-lined bags (signature detail, premium craftsmanship, higher value). Made in USA pieces (some production in California, rarer than Italy-made). Vintage prototypes and samples (occasionally surface, extremely rare, provenance needed). Ashley and Mary-Kate Olsen personal pieces (if provenance confirmed, museum-level collectibility).",
     rareJp:"マルゴートート（2016+、構造的ミニマリストトート、カシミア裏地内装、5桁価格、現代アイコン）。ハーフムーンバッグ（2018+、三日月形クロスボディ、建築的ミニマリズム、頻繁に完売）。ソフィアバッグ（2019+、たるんだホーボー、柔らかいレザー、限定生産）。インディアバッグ（特大トート、希少デザイン）。ビンドルバッグ（ホーボーショルダーバッグ、ミニマリスト）。12バッグ（ミニクロスボディボックスバッグ、コンパクト）。初期コレクション2006-2010（初シーズン、広範な認識前、希少発見）。限定版エキゾチックレザー：クロコダイル、アリゲーター（極めて高価、特別注文のみ）。カシミア裏地バッグ（シグネチャーディテール、プレミアム職人技、より高い価値）。米国製作品（一部カリフォルニア生産、イタリア製より希少）。ヴィンテージプロトタイプとサンプル（時折浮上、極めて希少、来歴必要）。アシュリーとメアリー・ケイト・オルセン個人作品（来歴確認されれば、美術館レベルコレクタビリティ）。",
@@ -2180,8 +2570,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Margaux", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Structured minimalist tote - cashmere-lined icon",
+        name:"Margaux",        brief:"Structured minimalist tote - cashmere-lined icon",
         briefJp:"構造的ミニマリストトート - カシミア裏地アイコン",
         desc:"THE Row's ultimate bag. Structured minimalist tote. CASHMERE-LINED interior. Five-figure price. Worth it. If you know, you know.",
         descJp:"The Rowの究極バッグ。構造的ミニマリストトート。カシミア裏地インテリア。5桁価格。価値あり。知ってる人は知ってる。",
@@ -2198,8 +2587,7 @@ const BRAND_DATA = {
         tipJp:"マルゴー = 静かなラグジュアリー。ロゴなし。驚異的職人技。カシミア裏地。$5,000+。アイコン。"
       },
       {
-        name:"Half Moon", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Crescent crossbody - architectural minimalism",
+        name:"Half Moon",        brief:"Crescent crossbody - architectural minimalism",
         briefJp:"三日月クロスボディ - 建築的ミニマリズム",
         desc:"Crescent-shaped crossbody. Architectural minimalism. No logos, clean lines. Sells out constantly. Modern icon.",
         descJp:"三日月形クロスボディ。建築的ミニマリズム。ロゴなし、クリーンライン。常に完売。現代アイコン。",
@@ -2215,8 +2603,7 @@ const BRAND_DATA = {
         tipJp:"ハーフムーン = 建築的曲線。ロゴなし。完売。見たら、買うべき。"
       },
       {
-        name:"Sofia", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Slouchy hobo - soft minimalist luxury",
+        name:"Sofia",        brief:"Slouchy hobo - soft minimalist luxury",
         briefJp:"たるんだホーボー - 柔らかいミニマリストラグジュアリー",
         desc:"Soft slouchy hobo. Supple leather. Minimalist design. Limited production. The Row's softer side.",
         descJp:"柔らかいたるんだホーボー。しなやかなレザー。ミニマリストデザイン。限定生産。The Rowの柔らかい側。",
@@ -2236,9 +2623,7 @@ const BRAND_DATA = {
     name:"Stella McCartney", year:2001, country:"UK",
     categories:["handbags"],
     desc:"Pioneering luxury brand that proves fashion can be beautiful without harm—100% vegan with no leather, fur, or animal skin. Famous for the Falabella bag with signature chain trim. Stella McCartney (Paul McCartney's daughter) revolutionized sustainable luxury. Represents conscious fashion without compromising on style or quality.",
-    descJp:"ファッションが害なく美しくあり得ることを証明する先駆的高級ブランド—レザー、ファー、動物スキンなしの100%ヴィーガン。シグネチャーチェーントリム付きファラベラバッグで有名。ステラ・マッカートニー（ポール・マッカートニーの娘）はサステナブルラグジュアリーに革命をもたらしました。スタイルや品質を妥協しない意識的ファッションを表しています。",
-    imageUrl:"https://logo.clearbit.com/stellamccartney.com",
-    auth:"'STELLA McCARTNEY' logo. Made in Italy. Vegan - NO LEATHER. Uses sustainable materials.",
+    descJp:"ファッションが害なく美しくあり得ることを証明する先駆的高級ブランド—レザー、ファー、動物スキンなしの100%ヴィーガン。シグネチャーチェーントリム付きファラベラバッグで有名。ステラ・マッカートニー（ポール・マッカートニーの娘）はサステナブルラグジュアリーに革命をもたらしました。スタイルや品質を妥協しない意識的ファッションを表しています。",    auth:"'STELLA McCARTNEY' logo. Made in Italy. Vegan - NO LEATHER. Uses sustainable materials.",
     authJp:"「STELLA McCARTNEY」ロゴ。イタリア製。ヴィーガン - レザーなし。持続可能な素材使用。",
     rare:"Falabella Bag original 2009 launch (first vegan luxury bag to gain mainstream traction, chain-trimmed tote, icon). Falabella Tiny (micro version, charm-sized, sold out limited runs). Falabella GO backpack (convertible design, sustainable innovation). Beatles legacy provenance (Paul McCartney's daughter, music royalty connection adds collectibility). Early collections 2001-2005 (when sustainable luxury was radical, rare finds). Limited edition sustainable innovations: mushroom leather (Mylo), ocean plastic recycled materials (experimental fabrics, future collectibles). Collaboration pieces: Adidas Stan Smith vegan sneaker bags (2005+, crossover appeal). Rainbow chain Falabella (multicolor chain detail, playful limited editions). Stella Logo tote original designs (before logo fatigue). Vintage Chloé era pieces (Stella designed for Chloé 1997-2001 before own brand, extremely rare, pre-vegan mandate). Fur-Free-Fur bags (innovative faux fur, early sustainable luxury statement).",
     rareJp:"ファラベラバッグ オリジナル2009年発売（主流トラクション獲得最初のヴィーガンラグジュアリーバッグ、チェーントリムトート、アイコン）。ファラベラ タイニー（マイクロバージョン、チャームサイズ、完売限定ラン）。ファラベラ GO バックパック（コンバーチブルデザイン、サステナブルイノベーション）。ビートルズ遺産来歴（ポール・マッカートニーの娘、音楽王族コネクションがコレクタビリティ追加）。初期コレクション2001-2005（サステナブルラグジュアリーが過激だった時、希少発見）。限定版サステナブルイノベーション：マッシュルームレザー（Mylo）、海洋プラスチックリサイクル素材（実験的生地、未来のコレクタブル）。コラボ作品：アディダス スタンスミス ヴィーガンスニーカーバッグ（2005+、クロスオーバー魅力）。レインボーチェーン ファラベラ（マルチカラーチェーンディテール、遊び心限定版）。ステラロゴトート オリジナルデザイン（ロゴ疲労前）。ヴィンテージ クロエ時代作品（ステラは自身のブランド前1997-2001にクロエのためにデザイン、極めて希少、ヴィーガン義務前）。ファーフリーファーバッグ（革新的フェイクファー、初期サステナブルラグジュアリーステートメント）。",
@@ -2253,8 +2638,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Falabella", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Chain-trimmed tote - vegan icon",
+        name:"Falabella",        brief:"Chain-trimmed tote - vegan icon",
         briefJp:"チェーントリムトート - ヴィーガンアイコン",
         desc:"THE Stella bag. Chain-trimmed tote. NO LEATHER - 100% vegan. Icon of sustainable luxury. Changed the game.",
         descJp:"THE ステラバッグ。チェーントリムトート。レザーなし - 100%ヴィーガン。サステナブルラグジュアリーアイコン。ゲームを変えた。",
@@ -2273,8 +2657,7 @@ const BRAND_DATA = {
         tipJp:"ファラベラ = レザーなし。あのチェーントリム = 即座にステラ。ヴィーガンラグジュアリーアイコン。"
       },
       {
-        name:"Stella Logo Tote", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Perforated logo tote - sustainable statement",
+        name:"Stella Logo Tote",        brief:"Perforated logo tote - sustainable statement",
         briefJp:"パーフォレーテッドロゴトート - サステナブルステートメント",
         desc:"Large tote with perforated Stella logo. Vegan leather. Practical, sustainable, statement. For eco-conscious style.",
         descJp:"パーフォレーテッド ステラロゴ付き大型トート。ヴィーガンレザー。実用的、サステナブル、ステートメント。エコ意識スタイル向け。",
@@ -2294,9 +2677,7 @@ const BRAND_DATA = {
     name:"Proenza Schouler", year:2002, country:"USA",
     categories:["handbags"],
     desc:"Contemporary American luxury brand famous for the PS1 satchel—THE It bag of the early 2010s. Known for modern, structured designs with downtown NYC cool. The PS1 with its distinctive buckles and PS11 box bag are highly collectible. Represents intelligent, grown-up style for the modern woman. New York sophistication.",
-    descJp:"PS1サッチェルで有名なコンテンポラリーアメリカ高級ブランド—2010年代初期のTHE Itバッグ。ダウンタウンNYCクールを持つモダンで構造的なデザインで知られています。特徴的なバックル付きPS1とPS11ボックスバッグは高コレクタブル。現代女性のための知的で大人のスタイルを表しています。ニューヨーク洗練。",
-    imageUrl:"https://logo.clearbit.com/proenzaschouler.com",
-    auth:"'PROENZA SCHOULER' label. Made in Italy or China. PS logo hardware. Contemporary luxury.",
+    descJp:"PS1サッチェルで有名なコンテンポラリーアメリカ高級ブランド—2010年代初期のTHE Itバッグ。ダウンタウンNYCクールを持つモダンで構造的なデザインで知られています。特徴的なバックル付きPS1とPS11ボックスバッグは高コレクタブル。現代女性のための知的で大人のスタイルを表しています。ニューヨーク洗練。",    auth:"'PROENZA SCHOULER' label. Made in Italy or China. PS logo hardware. Contemporary luxury.",
     authJp:"「PROENZA SCHOULER」ラベル。イタリアまたは中国製。PS金具ロゴ。コンテンポラリーラグジュアリー。",
     rare:"PS1 Satchel original 2008 launch (THE It bag of early 2010s, distinctive buckles and flap, various sizes, highly collectible). PS11 Box Bag (2010+, structured box shape, architectural minimalism, sold out colors). PS Courier Bag (messenger-style crossbody, downtown NYC vibe, discontinued). Keep All weekender bag (travel duffel, limited production). Lunch Bag (novelty clutch shaped like lunch bag, whimsical limited edition). Hex Bucket Bag (geometric bucket shape, short run). Early collections 2002-2007 (before PS1 fame, rare founder-era pieces). Limited edition exotic leathers and metallics (python, ostrich, mirror finishes). Tie-dye PS1 (hand-dyed limited editions, bohemian twist). Mini PS1 charm versions (bag charm sized, collectible accessories). Collaboration capsules (artist collaborations, sold out). Barneys New York exclusives (special colorways for Barneys, before bankruptcy, rare).",
     rareJp:"PS1サッチェル オリジナル2008年発売（2010年代初期のTHE Itバッグ、特徴的なバックルとフラップ、様々なサイズ、高コレクタブル）。PS11ボックスバッグ（2010+、構造的ボックス形状、建築的ミニマリズム、完売カラー）。PSクーリエバッグ（メッセンジャースタイルクロスボディ、ダウンタウンNYCバイブ、廃盤）。キープオールウィークエンダーバッグ（トラベルダッフル、限定生産）。ランチバッグ（ランチバッグ型ノベルティクラッチ、気まぐれ限定版）。ヘックスバケットバッグ（幾何学バケット形状、短期ラン）。初期コレクション2002-2007（PS1名声前、希少創設者時代作品）。限定版エキゾチックレザーとメタリック（パイソン、オーストリッチ、ミラー仕上げ）。タイダイPS1（手染め限定版、ボヘミアンツイスト）。ミニPS1チャームバージョン（バッグチャームサイズ、コレクタブルアクセサリー）。コラボカプセル（アーティストコラボ、完売）。バーニーズニューヨーク限定（バーニーズ用特別カラーウェイ、破産前、希少）。",
@@ -2311,8 +2692,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"PS1", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Buckle satchel - THE It bag of 2010s",
+        name:"PS1",        brief:"Buckle satchel - THE It bag of 2010s",
         briefJp:"バックルサッチェル - 2010年代のTHE Itバッグ",
         desc:"THE Proenza Schouler bag. Structured satchel with distinctive buckles. The It bag of early 2010s. Modern classic.",
         descJp:"THE プロエンザ・スクーラーバッグ。特徴的なバックル付き構造的サッチェル。2010年代初期のItバッグ。モダンクラシック。",
@@ -2330,8 +2710,7 @@ const BRAND_DATA = {
         tipJp:"PS1 = 2010年代のTHE Itバッグ。あのバックル = 即座に認識。モダンNYCクール。"
       },
       {
-        name:"PS11", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Box bag - architectural minimalism",
+        name:"PS11",        brief:"Box bag - architectural minimalism",
         briefJp:"ボックスバッグ - 建築的ミニマリズム",
         desc:"Structured box bag. Clean architectural lines. PS logo closure. Modern, minimal, sophisticated. Downtown chic.",
         descJp:"構造的ボックスバッグ。クリーン建築的ライン。PSロゴクロージャー。モダン、ミニマル、洗練。ダウンタウンシック。",
@@ -2352,9 +2731,7 @@ const BRAND_DATA = {
     name:"Balmain", year:1945, country:"France",
     categories:["handbags"],
     desc:"Historic French couture house reimagined by Olivier Rousteing into modern warrior-princess luxury. Famous for military-inspired designs with bold buttons, chains, and structured silhouettes. The B-Buzz and BBag showcase Balmain's fierce, unapologetic glamour. Vintage Pierre Balmain pieces are collectible. Represents bold, empowered femininity.",
-    descJp:"オリヴィエ・ルスタンによって現代戦士プリンセスラグジュアリーに再構想された歴史的フランスクチュールハウス。大胆なボタン、チェーン、構造的シルエットを持つミリタリー風デザインで有名。B-バズとBバッグはバルマンの激しく謝罪しないグラマーを示しています。ヴィンテージ ピエール・バルマン作品はコレクタブル。大胆で力を与えられた女性らしさを表しています。",
-    imageUrl:"https://logo.clearbit.com/balmain.com",
-    auth:"'BALMAIN PARIS' logo. Made in Italy. Military-inspired hardware (buttons, chains). Bold embellishments.",
+    descJp:"オリヴィエ・ルスタンによって現代戦士プリンセスラグジュアリーに再構想された歴史的フランスクチュールハウス。大胆なボタン、チェーン、構造的シルエットを持つミリタリー風デザインで有名。B-バズとBバッグはバルマンの激しく謝罪しないグラマーを示しています。ヴィンテージ ピエール・バルマン作品はコレクタブル。大胆で力を与えられた女性らしさを表しています。",    auth:"'BALMAIN PARIS' logo. Made in Italy. Military-inspired hardware (buttons, chains). Bold embellishments.",
     authJp:"「BALMAIN PARIS」ロゴ。イタリア製。ミリタリー風金具（ボタン、チェーン）。大胆な装飾。",
     rare:"Vintage Pierre Balmain 1945-1980s (founder era couture, museum pieces, extremely rare). Olivier Rousteing era bags (2011+, military glamour revitalization, social media celebrity status). B-Buzz Bag (quilted leather with chain strap, B logo hardware, modern icon). BBag structured tote (architectural lines, bold buttons). Renaissance Bag original 2014 (shoulder bag with warrior chains). H&M collaboration 2015 (sold out in hours, accessible Balmain, secondary market premium). Limited edition embellished bags (crystal buttons, embroidery, hand-beading). Balmain x Puma collaboration (athletic-luxury crossover, limited capsules). Festival edition bags (Coachella/music festival exclusives, sold out). Baroque print bags (ornate gold patterns, limited production). Box bags with military closures (structured evening bags, brass hardware). Vintage Oscar de la Renta for Balmain era (1993-2002, pre-Rousteing, rare transitional pieces).",
     rareJp:"ヴィンテージ ピエール・バルマン1945-1980年代（創設者時代クチュール、美術館作品、極めて希少）。オリヴィエ・ルスタン時代バッグ（2011+、ミリタリーグラマー復活、ソーシャルメディアセレブステータス）。B-バズバッグ（チェーンストラップ付きキルティングレザー、Bロゴ金具、モダンアイコン）。Bバッグ構造的トート（建築的ライン、大胆なボタン）。ルネッサンスバッグ オリジナル2014（戦士チェーン付きショルダーバッグ）。H&Mコラボ2015（数時間で完売、アクセス可能バルマン、二次市場プレミアム）。限定版装飾バッグ（クリスタルボタン、刺繍、手ビーズ）。バルマン x プーマ コラボ（アスレチックラグジュアリークロスオーバー、限定カプセル）。フェスティバル版バッグ（コーチェラ/音楽フェスティバル限定、完売）。バロックプリントバッグ（華麗なゴールドパターン、限定生産）。ミリタリークロージャー付きボックスバッグ（構造的イブニングバッグ、真鍮金具）。ヴィンテージ オスカー・デ・ラ・レンタ for バルマン時代（1993-2002、ルスタン前、希少移行作品）。",
@@ -2369,8 +2746,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"B-Buzz", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Quilted chain bag - military glamour",
+        name:"B-Buzz",        brief:"Quilted chain bag - military glamour",
         briefJp:"キルティングチェーンバッグ - ミリタリーグラマー",
         desc:"Balmain's modern icon. Quilted leather with chain strap. B logo hardware. Military meets glamour. Olivier Rousteing era signature.",
         descJp:"バルマンのモダンアイコン。チェーンストラップ付きキルティングレザー。Bロゴ金具。ミリタリーとグラマーの融合。オリヴィエ・ルスタン時代シグネチャー。",
@@ -2386,8 +2762,7 @@ const BRAND_DATA = {
         tipJp:"B-バズ = バルマン モダンアイコン。キルティング + チェーン + Bロゴ = 戦士プリンセスグラマー。"
       },
       {
-        name:"BBag", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Structured tote - bold buttons",
+        name:"BBag",        brief:"Structured tote - bold buttons",
         briefJp:"構造的トート - 大胆なボタン",
         desc:"Structured tote. Bold Balmain buttons on front. Military-inspired hardware. Architectural glamour.",
         descJp:"構造的トート。前面に大胆なバルマンボタン。ミリタリー風金具。建築的グラマー。",
@@ -2407,9 +2782,7 @@ const BRAND_DATA = {
     name:"Alexander Wang", year:2005, country:"USA",
     categories:["handbags"],
     desc:"Downtown NYC luxury with edgy streetwear attitude. Famous for the Rocco bag covered in studs and zippers—the epitome of model-off-duty style. Black leather, hardware, and urban cool define the aesthetic. Early 2010s pieces capture peak NYC fashion moment. For those who make cool look effortless.",
-    descJp:"エッジーなストリートウェア態度を持つダウンタウンNYCラグジュアリー。スタッズとジッパーで覆われたロッコバッグで有名—オフデューティモデルスタイルの縮図。ブラックレザー、金具、アーバンクールが美学を定義。2010年代初期作品はピークNYCファッション瞬間を捉えています。クールを楽に見せる人向け。",
-    imageUrl:"https://logo.clearbit.com/alexanderwang.com",
-    auth:"'ALEXANDER WANG' logo or AW tag. Made in China or Italy. Edgy hardware (studs, chains).",
+    descJp:"エッジーなストリートウェア態度を持つダウンタウンNYCラグジュアリー。スタッズとジッパーで覆われたロッコバッグで有名—オフデューティモデルスタイルの縮図。ブラックレザー、金具、アーバンクールが美学を定義。2010年代初期作品はピークNYCファッション瞬間を捉えています。クールを楽に見せる人向け。",    auth:"'ALEXANDER WANG' logo or AW tag. Made in China or Italy. Edgy hardware (studs, chains).",
     authJp:"「ALEXANDER WANG」ロゴまたはAWタグ。中国またはイタリア製。エッジーな金具（スタッズ、チェーン）。",
     rare:"Rocco Bag original 2009 launch (peak model-off-duty era, full stud and zipper coverage, black leather, THE Alexander Wang bag). Lia Bag (mini messenger, chain strap, discontinued). Marti Backpack (studded backpack, downtown commute vibe, limited production). Pelican Satchel (box bag with convertible straps, architectural). Dumbo Bag (slouchy hobo, soft leather, rare design). Lovie crossbody (mini bag with studs). Balenciaga-era pieces (Wang designed for Balenciaga 2012-2015, not his own label but collectible context). T by Alexander Wang (diffusion line bags, lower price, still collectible). Early collections 2005-2010 (before Rocco fame, rare emerging designer pieces). Prisma Skeletal tote (geometric cutout design, limited edition). Limited edition colors and finishes (rose gold hardware, neon accents, sold out runs). Adidas collaboration bags (athletic-luxury crossover, 2017+, limited capsules).",
     rareJp:"ロッコバッグ オリジナル2009年発売（ピークモデルオフデューティ時代、フルスタッドとジッパーカバレッジ、ブラックレザー、THE アレキサンダー・ワンバッグ）。リアバッグ（ミニメッセンジャー、チェーンストラップ、廃盤）。マルティバックパック（スタッズバックパック、ダウンタウン通勤雰囲気、限定生産）。ペリカンサッチェル（コンバーチブルストラップ付きボックスバッグ、建築的）。ダンボバッグ（たるんだホーボー、柔らかいレザー、希少デザイン）。ラビークロスボディ（スタッズ付きミニバッグ）。バレンシアガ時代作品（ワンは2012-2015にバレンシアガのためにデザイン、自身のレーベルではないがコレクタブルコンテキスト）。T by Alexander Wang（ディフュージョンラインバッグ、低価格、依然コレクタブル）。初期コレクション2005-2010（ロッコ名声前、希少新興デザイナー作品）。プリズマ スケレタルトート（幾何学カットアウトデザイン、限定版）。限定版カラーと仕上げ（ローズゴールド金具、ネオンアクセント、完売ラン）。アディダスコラボバッグ（アスレチックラグジュアリークロスオーバー、2017+、限定カプセル）。",
@@ -2424,8 +2797,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Rocco", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Studded satchel - model-off-duty icon",
+        name:"Rocco",        brief:"Studded satchel - model-off-duty icon",
         briefJp:"スタッズサッチェル - オフデューティモデルアイコン",
         desc:"THE Alexander Wang bag. Satchel covered in studs and zippers. Model-off-duty essential. 2010s NYC icon.",
         descJp:"THE アレキサンダー・ワンバッグ。スタッズとジッパーで覆われたサッチェル。オフデューティモデル必需品。2010年代NYCアイコン。",
@@ -2442,8 +2814,7 @@ const BRAND_DATA = {
         tipJp:"ロッコ = THE ワンバッグ。スタッズ + ジッパー どこでも。2010年代オフデューティモデルアイコン。"
       },
       {
-        name:"Prisma Skeletal", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Geometric cutout tote - architectural edge",
+        name:"Prisma Skeletal",        brief:"Geometric cutout tote - architectural edge",
         briefJp:"幾何学カットアウトトート - 建築的エッジ",
         desc:"Geometric cutout design. Architectural leather tote. Limited edition. Wang's edgy minimalism.",
         descJp:"幾何学カットアウトデザイン。建築的レザートート。限定版。ワンのエッジーミニマリズム。",
@@ -2463,9 +2834,7 @@ const BRAND_DATA = {
     name:"Lanvin", year:1889, country:"France",
     categories:["handbags"],
     desc:"The oldest French fashion house still in operation, embodying Parisian elegance since 1889. The Alber Elbaz era (2001-2015) is legendary—Happy bag with woven chain handles became iconic. Represents timeless French femininity and sophisticated craftsmanship. Vintage Lanvin pieces are highly prized by collectors. Heritage meets modern romance.",
-    descJp:"1889年以来パリジャンエレガンスを体現する、現在も営業中の最古のフランスファッションハウス。アルベール・エルバズ時代（2001-2015）は伝説的—編みチェーンハンドル付きハッピーバッグは象徴的になりました。時代を超えたフランスの女性らしさと洗練された職人技を表しています。ヴィンテージランバン作品はコレクターに高く評価されています。遺産が現代ロマンスと出会う。",
-    imageUrl:"https://logo.clearbit.com/lanvin.com",
-    auth:"'LANVIN PARIS' logo. Made in Italy. Oldest French fashion house still operating.",
+    descJp:"1889年以来パリジャンエレガンスを体現する、現在も営業中の最古のフランスファッションハウス。アルベール・エルバズ時代（2001-2015）は伝説的—編みチェーンハンドル付きハッピーバッグは象徴的になりました。時代を超えたフランスの女性らしさと洗練された職人技を表しています。ヴィンテージランバン作品はコレクターに高く評価されています。遺産が現代ロマンスと出会う。",    auth:"'LANVIN PARIS' logo. Made in Italy. Oldest French fashion house still operating.",
     authJp:"「LANVIN PARIS」ロゴ。イタリア製。現在も営業中の最古のフランスファッションハウス。",
     rare:"Alber Elbaz era bags (2001-2015, golden age, romantic feminine designs, grail status among collectors). Happy Bag (woven chain handle, 2012+, iconic Elbaz creation, sold out colors). Cabas Tote original designs (soft leather shopper, Elbaz minimalism). Amalia Bag (chain shoulder bag, elegant evening piece). Vintage Jeanne Lanvin 1920s-30s pieces (founder era Art Deco, museum quality, extremely rare). Vintage 1950s-60s couture bags (mid-century elegance, rare finds). Pre-Elbaz pieces 1990s (Ocimar Versolato, Dominique Morlotti eras, transitional period, collectible context). Limited edition embellished bags (bows, ruffles, beading, Elbaz signature romance). Collaboration pieces with H&M 2010 (sold out instantly, affordable Lanvin, secondary market premium). Sugar Bag (quilted shoulder bag, limited production). Me Bag (convertible backpack-tote, functional luxury, discontinued).",
     rareJp:"アルベール・エルバズ時代バッグ（2001-2015、黄金時代、ロマンティック女性的デザイン、コレクター間で聖杯ステータス）。ハッピーバッグ（編みチェーンハンドル、2012+、象徴的エルバズ創作、完売カラー）。カバトート オリジナルデザイン（ソフトレザーショッパー、エルバズミニマリズム）。アマリアバッグ（チェーンショルダーバッグ、エレガントイブニングピース）。ヴィンテージ ジャンヌ・ランバン1920-30年代作品（創設者時代アールデコ、美術館品質、極めて希少）。ヴィンテージ1950-60年代クチュールバッグ（世紀半ばエレガンス、希少発見）。エルバズ前作品1990年代（オシマール・ヴェルソラート、ドミニク・モルロッティ時代、移行期間、コレクタブルコンテキスト）。限定版装飾バッグ（蝶結び、フリル、ビーズ、エルバズシグネチャーロマンス）。H&Mコラボ2010（即完売、手頃なランバン、二次市場プレミアム）。シュガーバッグ（キルティングショルダーバッグ、限定生産）。ミーバッグ（コンバーチブルバックパック・トート、機能的ラグジュアリー、廃盤）。",
@@ -2480,8 +2849,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Happy", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Woven chain tote - Elbaz era icon",
+        name:"Happy",        brief:"Woven chain tote - Elbaz era icon",
         briefJp:"編みチェーントート - エルバズ時代アイコン",
         desc:"THE Lanvin bag. Woven chain handles. Alber Elbaz's iconic creation. Romantic, elegant, collectible. 2012+ icon.",
         descJp:"THE ランバンバッグ。編みチェーンハンドル。アルベール・エルバズの象徴的創作。ロマンティック、エレガント、コレクタブル。2012+アイコン。",
@@ -2497,8 +2865,7 @@ const BRAND_DATA = {
         tipJp:"ハッピー = 編みチェーンハンドル。アルベール・エルバズアイコン。ロマンティックランバン。コレクタブル エルバズ時代。"
       },
       {
-        name:"Amalia", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Chain shoulder bag - elegant evening",
+        name:"Amalia",        brief:"Chain shoulder bag - elegant evening",
         briefJp:"チェーンショルダーバッグ - エレガントイブニング",
         desc:"Chain shoulder bag. Elegant evening piece. Soft leather. Elbaz era romantic sophistication.",
         descJp:"チェーンショルダーバッグ。エレガントイブニングピース。柔らかいレザー。エルバズ時代ロマンティック洗練。",
@@ -2518,9 +2885,7 @@ const BRAND_DATA = {
     name:"Jil Sander", year:1968, country:"Germany",
     categories:["handbags"],
     desc:"The queen of minimalism, pioneering 'less is more' luxury with architectural precision and zero logos. Famous for the Tangle bag with sculptural knotted handles and Cannolo bag. Clean lines, premium materials, intellectual sophistication. Vintage 1990s pieces and Phoebe Philo collaborations are collector's items. For purists who value substance over flash.",
-    descJp:"建築的精度とロゴゼロで「少ない方が多い」ラグジュアリーを先駆けた、ミニマリズムの女王。彫刻的な結び目ハンドル付きタングルバッグとカンノーロバッグで有名。クリーンライン、プレミアム素材、知的洗練。1990年代ヴィンテージ作品とフィービー・ファイロコラボはコレクターアイテム。フラッシュより実質を評価する純粋主義者向け。",
-    imageUrl:"https://logo.clearbit.com/jilsander.com",
-    auth:"'JIL SANDER' discreet label. Made in Italy. Minimalist - clean lines, no logos. Premium materials.",
+    descJp:"建築的精度とロゴゼロで「少ない方が多い」ラグジュアリーを先駆けた、ミニマリズムの女王。彫刻的な結び目ハンドル付きタングルバッグとカンノーロバッグで有名。クリーンライン、プレミアム素材、知的洗練。1990年代ヴィンテージ作品とフィービー・ファイロコラボはコレクターアイテム。フラッシュより実質を評価する純粋主義者向け。",    auth:"'JIL SANDER' discreet label. Made in Italy. Minimalist - clean lines, no logos. Premium materials.",
     authJp:"「JIL SANDER」控えめラベル。イタリア製。ミニマリスト - クリーンライン、ロゴなし。プレミアム素材。",
     rare:"Vintage Jil Sander original era 1968-1990s (founder Jil Sander designs, minimalist revolution, museum pieces). Tangle Bag (sculptural knotted handle, 2019+, architectural icon). Cannolo Bag (cylindrical shape, unique construction, limited production). Goji Bag (frame bag, structured minimalism, discontinued). Xiao Bag (mini minimalist crossbody, compact icon). Phoebe Philo collaborations unofficial (Philo was influenced by Sander, no official collab but aesthetic connection, collectible context). Raf Simons era bags (2005-2012, co-creative director, modernist designs). Uniqlo +J collaboration bags (2009-2011, 2020-2021, accessible minimalism, sold out, collectible). Vintage 1990s nylon bags (utilitarian minimalism, pre-luxury nylon trend, rare). Padded bags original designs (quilted minimalism, limited editions). Drawstring bags architectural (sculptural construction, geometric forms). Bauhaus-inspired vintage pieces (architectural minimalism roots, 1980s-90s, collector's items).",
     rareJp:"ヴィンテージ ジル・サンダー オリジナル時代1968-1990年代（創設者ジル・サンダーデザイン、ミニマリスト革命、美術館作品）。タングルバッグ（彫刻的結び目ハンドル、2019+、建築的アイコン）。カンノーロバッグ（円筒形状、ユニーク構造、限定生産）。ゴジバッグ（フレームバッグ、構造的ミニマリズム、廃盤）。シャオバッグ（ミニミニマリストクロスボディ、コンパクトアイコン）。フィービー・ファイロコラボ 非公式（ファイロはサンダーに影響を受けた、公式コラボなしだが美学的つながり、コレクタブルコンテキスト）。ラフ・シモンズ時代バッグ（2005-2012、共同クリエイティブディレクター、モダニストデザイン）。ユニクロ +J コラボバッグ（2009-2011、2020-2021、アクセス可能ミニマリズム、完売、コレクタブル）。ヴィンテージ1990年代ナイロンバッグ（実用的ミニマリズム、高級ナイロントレンド前、希少）。パディッドバッグ オリジナルデザイン（キルティングミニマリズム、限定版）。ドローストリングバッグ 建築的（彫刻的構造、幾何学形態）。バウハウス風ヴィンテージ作品（建築的ミニマリズムルーツ、1980-90年代、コレクターアイテム）。",
@@ -2535,8 +2900,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Tangle", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Sculptural knotted tote - minimalist icon",
+        name:"Tangle",        brief:"Sculptural knotted tote - minimalist icon",
         briefJp:"彫刻的結び目トート - ミニマリストアイコン",
         desc:"Jil Sander's modern icon. Sculptural KNOTTED handles. Architectural minimalism. No logos. Pure form.",
         descJp:"ジル・サンダーのモダンアイコン。彫刻的結び目ハンドル。建築的ミニマリズム。ロゴなし。純粋な形。",
@@ -2553,8 +2917,7 @@ const BRAND_DATA = {
         tipJp:"タングル = あの結び目ハンドル。純粋ミニマリズム。ロゴなし。建築的完璧。"
       },
       {
-        name:"Cannolo", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Cylindrical bag - unique minimalist shape",
+        name:"Cannolo",        brief:"Cylindrical bag - unique minimalist shape",
         briefJp:"円筒形バッグ - ユニークミニマリスト形状",
         desc:"Unique cylindrical shape. Minimalist construction. Jil Sander architectural sophistication. Limited production.",
         descJp:"ユニーク円筒形状。ミニマリスト構造。ジル・サンダー建築的洗練。限定生産。",
@@ -2574,9 +2937,7 @@ const BRAND_DATA = {
     name:"Goyard", year:1853, country:"France",
     categories:["handbags"],
     desc:"The ultimate exclusive luxury—NO online sales, only available in boutiques worldwide. Famous for hand-painted Goyardine canvas with signature Y pattern and personalized monogramming. The St. Louis tote is reversible and iconic. No serial numbers, no advertising, pure heritage craftsmanship since 1853. If you know Goyard, you're in the elite club.",
-    descJp:"究極の独占的ラグジュアリー—オンライン販売なし、世界中のブティックのみで入手可能。シグネチャーYパターンとパーソナライズドモノグラムを持つ手描きゴヤールディーヌキャンバスで有名。サンルイトートはリバーシブルで象徴的。シリアル番号なし、広告なし、1853年以来の純粋な遺産職人技。ゴヤールを知っているなら、あなたはエリートクラブの一員。",
-    imageUrl:"https://logo.clearbit.com/goyard.com",
-    auth:"Hand-painted Y pattern (Goyardine canvas). No serial numbers. Heat stamp with owner initials. Made in France.",
+    descJp:"究極の独占的ラグジュアリー—オンライン販売なし、世界中のブティックのみで入手可能。シグネチャーYパターンとパーソナライズドモノグラムを持つ手描きゴヤールディーヌキャンバスで有名。サンルイトートはリバーシブルで象徴的。シリアル番号なし、広告なし、1853年以来の純粋な遺産職人技。ゴヤールを知っているなら、あなたはエリートクラブの一員。",    auth:"Hand-painted Y pattern (Goyardine canvas). No serial numbers. Heat stamp with owner initials. Made in France.",
     authJp:"手描きYパターン（ゴヤールディーヌキャンバス）。シリアル番号なし。所有者イニシャルの刻印。フランス製。",
     rare:"Vintage Goyard pre-1950s (extremely rare, hand-crafted heritage pieces, museum quality). St. Louis Tote with personalized monogram (hand-painted initials add value, provenance). Special colors limited releases: white, yellow, pink, burgundy (not always available, boutique waitlists, rare). Vintage trunk luggage 1800s-early 1900s (original Goyard specialty, travel heritage, extremely valuable). Saigon Tote discontinued colorways (vintage production, harder to find). Artois Tote original designs (structured alternative to St. Louis, less common). Cap-Vert Tote (beach/travel tote, limited seasonal releases). Pet carriers Goyard (luxury dog carriers, niche collectible). Bellechasse PM in special colors (mini size harder to find in rare hues). Vintage pieces with leather bottom (older construction method, adds durability and value). Pre-LVMH ownership pieces (Goyard remained independent until 1998, earlier pieces rarer). Suitcases and travel trunks vintage (original Goyard trunk-making heritage 1853+, museum pieces).",
     rareJp:"ヴィンテージゴヤール 1950年以前（極めて希少、手作り遺産作品、美術館品質）。パーソナライズドモノグラム付きサンルイトート（手描きイニシャルが価値追加、来歴）。スペシャルカラー限定リリース：ホワイト、イエロー、ピンク、バーガンディ（常に入手可能でない、ブティックウェイトリスト、希少）。ヴィンテージトランクラゲッジ1800年代〜1900年代初期（オリジナルゴヤール専門、トラベル遺産、極めて価値が高い）。サイゴントート 廃盤カラーウェイ（ヴィンテージ生産、発見困難）。アルトワトート オリジナルデザイン（サンルイの構造的代替、一般的でない）。カップヴェールトート（ビーチ/トラベルトート、限定季節リリース）。ペットキャリアゴヤール（高級犬キャリア、ニッチコレクタブル）。ベルシャスPM スペシャルカラー（ミニサイズは希少色で発見困難）。レザーボトム付きヴィンテージ作品（古い構造方法、耐久性と価値追加）。LVMH所有権前作品（ゴヤールは1998年まで独立維持、初期作品はより希少）。スーツケースとトラベルトランク ヴィンテージ（オリジナルゴヤールトランク製造遺産1853+、美術館作品）。",
@@ -2638,9 +2999,7 @@ const BRAND_DATA = {
     name:"Delvaux", year:1829, country:"Belgium",
     categories:["handbags"],
     desc:"The world's oldest fine leather goods house, predating even Louis Vuitton by 25 years. Belgian royal warrant holder known for the architectural Brillant bag with distinctive D-shaped clasp. Represents refined European craftsmanship and understated luxury. Each bag is a testament to nearly 200 years of leather mastery. True connoisseur's choice.",
-    descJp:"世界最古の高級レザーグッズハウスで、ルイ・ヴィトンより25年先行。特徴的なD型クラスプを持つ建築的ブリヤンバッグで知られるベルギー王室御用達。洗練されたヨーロッパ職人技と控えめなラグジュアリーを表しています。各バッグは約200年のレザー熟練の証。真の鑑定家の選択。",
-    imageUrl:"https://logo.clearbit.com/delvaux.com",
-    auth:"'DELVAUX BRUXELLES' stamp. Made in Belgium or France. D logo clasp. Oldest fine leather goods house.",
+    descJp:"世界最古の高級レザーグッズハウスで、ルイ・ヴィトンより25年先行。特徴的なD型クラスプを持つ建築的ブリヤンバッグで知られるベルギー王室御用達。洗練されたヨーロッパ職人技と控えめなラグジュアリーを表しています。各バッグは約200年のレザー熟練の証。真の鑑定家の選択。",    auth:"'DELVAUX BRUXELLES' stamp. Made in Belgium or France. D logo clasp. Oldest fine leather goods house.",
     authJp:"「DELVAUX BRUXELLES」刻印。ベルギーまたはフランス製。Dロゴクラスプ。最古の高級レザーグッズハウス。",
     rare:"Vintage Delvaux 1829-1920s (founder era, extremely rare, museum pieces, pre-modern production). Brillant Bag original 1958 design (iconic D-clasp, architectural structure, collectible vintage versions). Tempête Bag (bucket bag, Belgian minimalism, limited production). Pin Bag (small crossbody, modern icon). Cool Box limited editions (box bag, rare colorways). Belgian Royal Warrant pieces (supplied to Belgian royal family, provenance premium). Pre-WWII vintage trunks and luggage (travel heritage, extremely rare). Le Grand Chic bag vintage 1960s (elegant shoulder bag, discontinued). Vintage pieces Made in Belgium (earlier production before some Italy manufacturing, rarer). Limited edition art collaborations (artist capsules, sold out). Exotic leather versions: crocodile, ostrich, lizard (expensive, limited special orders). Numbered limited edition pieces (small production runs, collectible markers).",
     rareJp:"ヴィンテージデルヴォー1829-1920年代（創設者時代、極めて希少、美術館作品、モダン生産前）。ブリヤンバッグ オリジナル1958年デザイン（象徴的Dクラスプ、建築的構造、コレクタブルヴィンテージバージョン）。タンペットバッグ（バケットバッグ、ベルギーミニマリズム、限定生産）。ピンバッグ（小さなクロスボディ、モダンアイコン）。クールボックス限定版（ボックスバッグ、希少カラーウェイ）。ベルギー王室御用達作品（ベルギー王室に供給、来歴プレミアム）。第二次世界大戦前ヴィンテージトランクとラゲッジ（トラベル遺産、極めて希少）。ル・グラン・シックバッグ ヴィンテージ1960年代（エレガントショルダーバッグ、廃盤）。ヴィンテージ作品 ベルギー製（一部イタリア製造前の初期生産、より希少）。限定版アートコラボ（アーティストカプセル、完売）。エキゾチックレザーバージョン：クロコダイル、オーストリッチ、リザード（高価、限定特別注文）。番号付き限定版作品（小規模生産ラン、コレクタブルマーカー）。",
@@ -2655,8 +3014,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Brillant", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"D-clasp box bag - 1958 architectural icon",
+        name:"Brillant",        brief:"D-clasp box bag - 1958 architectural icon",
         briefJp:"Dクラスプボックスバッグ - 1958建築的アイコン",
         desc:"THE Delvaux bag. Structured box with iconic D-shaped clasp. 1958 design. Belgian perfection. 200 years of leather mastery.",
         descJp:"THE デルヴォーバッグ。象徴的なD型クラスプ付き構造的ボックス。1958年デザイン。ベルギー完璧。200年のレザー熟練。",
@@ -2673,8 +3031,7 @@ const BRAND_DATA = {
         tipJp:"ブリヤン = あのDクラスプ。1958年アイコン。ルイ・ヴィトンより古い。ベルギー王室承認。"
       },
       {
-        name:"Pin", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Mini crossbody - modern Belgian minimal",
+        name:"Pin",        brief:"Mini crossbody - modern Belgian minimal",
         briefJp:"ミニクロスボディ - モダンベルギーミニマル",
         desc:"Small crossbody. Modern Delvaux icon. Belgian minimalism. Compact sophistication.",
         descJp:"小さなクロスボディ。モダンデルヴォーアイコン。ベルギーミニマリズム。コンパクト洗練。",
@@ -2694,9 +3051,7 @@ const BRAND_DATA = {
     name:"Judith Leiber", year:1963, country:"USA",
     categories:["handbags"],
     desc:"Legendary American luxury brand famous for whimsical crystal minaudière clutches shaped like animals, fruits, and objects. A red-carpet staple carried by First Ladies and celebrities for decades. Each crystal-encrusted piece is handcrafted art. Vintage pieces from 1960s-1980s are highly collectible. Represents playful, unapologetic glamour.",
-    descJp:"動物、果物、オブジェクトの形をした気まぐれなクリスタルミノディエールクラッチで有名な伝説的アメリカ高級ブランド。何十年もファーストレディとセレブが持つレッドカーペット定番。各クリスタル装飾作品は手作りアート。1960-1980年代ヴィンテージ作品は高コレクタブル。遊び心があり謝罪しないグラマーを表しています。",
-    imageUrl:"https://logo.clearbit.com/judithleiberny.com",
-    auth:"'JUDITH LEIBER' signature. Made in USA or Italy. Crystal minaudières (evening bags). Serial number.",
+    descJp:"動物、果物、オブジェクトの形をした気まぐれなクリスタルミノディエールクラッチで有名な伝説的アメリカ高級ブランド。何十年もファーストレディとセレブが持つレッドカーペット定番。各クリスタル装飾作品は手作りアート。1960-1980年代ヴィンテージ作品は高コレクタブル。遊び心があり謝罪しないグラマーを表しています。",    auth:"'JUDITH LEIBER' signature. Made in USA or Italy. Crystal minaudières (evening bags). Serial number.",
     authJp:"「JUDITH LEIBER」署名。米国またはイタリア製。クリスタルミノディエール（イブニングバッグ）。シリアル番号。",
     rare:"Vintage Judith Leiber 1960s-1980s (founder era, handcrafted in USA, superior quality, collectible). Crystal minaudière animal shapes (dogs, cats, birds, frogs - whimsical collectibles, each unique). First Ladies' bags (provenance from presidential events, museum pieces, extremely valuable). Custom commission pieces (bespoke designs for celebrities, one-of-a-kind, provenance required). Swarovski crystal full-pavé bags (entirely covered in crystals, thousands of stones hand-applied, expensive). Vintage food-shaped clutches: strawberries, cupcakes, champagne bottles (novelty icons, sought by collectors). Egg-shaped minaudières (Fabergé-inspired, ornate). Numbered limited editions (small production runs, special occasions). Red carpet documented bags (worn at Oscars, Met Gala - photo provenance adds value). Vintage snakeskin and exotic bases (python, karung - before full crystal coverage became standard). Judith Leiber Couture vs JISP Collection (main line more valuable than diffusion). Estate sale pieces with original boxes and documentation (complete sets premium).",
     rareJp:"ヴィンテージ ジュディス・リーバー1960-1980年代（創設者時代、米国で手作り、優れた品質、コレクタブル）。クリスタルミノディエール 動物形状（犬、猫、鳥、カエル - 気まぐれコレクタブル、各ユニーク）。ファーストレディのバッグ（大統領イベントからの来歴、美術館作品、極めて価値が高い）。カスタム委託作品（セレブ用ビスポークデザイン、一点もの、来歴必要）。スワロフスキークリスタル フルパヴェバッグ（完全にクリスタルで覆われている、何千もの石を手作業で適用、高価）。ヴィンテージ食べ物型クラッチ：イチゴ、カップケーキ、シャンパンボトル（ノベルティアイコン、コレクターに求められる）。卵型ミノディエール（ファベルジェ風、華麗）。番号付き限定版（小規模生産ラン、特別な機会）。レッドカーペット記録バッグ（オスカー、メットガラで着用 - 写真来歴が価値追加）。ヴィンテージスネークスキンとエキゾチックベース（パイソン、カルン - フルクリスタルカバレッジが標準になる前）。ジュディス・リーバー クチュール vs JISPコレクション（メインラインはディフュージョンより価値が高い）。オリジナルボックスと書類付き遺品販売作品（完全セットプレミアム）。",
@@ -2711,8 +3066,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Animal Minaudière", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Crystal animal clutch - whimsical luxury",
+        name:"Animal Minaudière",        brief:"Crystal animal clutch - whimsical luxury",
         briefJp:"クリスタル動物クラッチ - 気まぐれラグジュアリー",
         desc:"THE Judith Leiber piece. Crystal-covered animal shapes. Dogs, cats, birds, frogs. Whimsical red-carpet icon. Hand-applied crystals.",
         descJp:"THE ジュディス・リーバー作品。クリスタルで覆われた動物形状。犬、猫、鳥、カエル。気まぐれレッドカーペットアイコン。手作業適用クリスタル。",
@@ -2727,8 +3081,7 @@ const BRAND_DATA = {
         tipJp:"動物ミノディエール = 気まぐれラグジュアリー。レッドカーペット定番。何千もの手作業適用クリスタル。"
       },
       {
-        name:"Food Minaudière", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Crystal food clutch - playful icon",
+        name:"Food Minaudière",        brief:"Crystal food clutch - playful icon",
         briefJp:"クリスタル食べ物クラッチ - 遊び心アイコン",
         desc:"Shaped like food. Strawberries, cupcakes, champagne bottles. Crystal-covered novelty luxury. Playful glamour.",
         descJp:"食べ物型。イチゴ、カップケーキ、シャンパンボトル。クリスタル覆われたノベルティラグジュアリー。遊び心グラマー。",
@@ -2748,9 +3101,7 @@ const BRAND_DATA = {
     name:"Mark Cross", year:1845, country:"USA",
     categories:["handbags"],
     desc:"Historic American luxury house famously carried by Grace Kelly, Princess of Monaco. The Grace Box bag named in her honor epitomizes timeless elegance. Known for structured silhouettes, Saffiano leather, and classic American sophistication. Vintage 1950s-1960s pieces are collector's treasures. Royalty-approved American luxury.",
-    descJp:"モナコ公妃グレース・ケリーが持ったことで有名な歴史的アメリカ高級ハウス。彼女に敬意を表して名付けられたグレースボックスバッグは時代を超えたエレガンスを体現。構造的シルエット、サフィアーノレザー、クラシックアメリカン洗練で知られています。1950-1960年代ヴィンテージ作品はコレクターの宝。王室承認アメリカンラグジュアリー。",
-    imageUrl:"https://logo.clearbit.com/markcross.com",
-    auth:"'MARK CROSS' logo. Made in Italy. Grace Kelly carried one. Structured, classic American luxury.",
+    descJp:"モナコ公妃グレース・ケリーが持ったことで有名な歴史的アメリカ高級ハウス。彼女に敬意を表して名付けられたグレースボックスバッグは時代を超えたエレガンスを体現。構造的シルエット、サフィアーノレザー、クラシックアメリカン洗練で知られています。1950-1960年代ヴィンテージ作品はコレクターの宝。王室承認アメリカンラグジュアリー。",    auth:"'MARK CROSS' logo. Made in Italy. Grace Kelly carried one. Structured, classic American luxury.",
     authJp:"「MARK CROSS」ロゴ。イタリア製。グレース・ケリーが持った。構造的、クラシックアメリカンラグジュアリー。",
     rare:"Vintage Mark Cross 1845-1960s (19th century founder era, American heritage, museum pieces, extremely rare). Grace Box Bag original 1950s-60s (Grace Kelly carried it, provenance from Monaco royalty era, high collectibility). Vintage train cases and luggage 1920s-40s (luxury travel heritage, Art Deco designs, rare finds). Scottie dog logo vintage pieces (signature terrier emblem, classic Americana). Made in USA pieces pre-1990s (before offshore production, superior craftsmanship, rare). Saffiano leather vintage bags (original Italian leather, ages beautifully, classic). Benchley briefcases vintage (men's leather goods, professional heritage). Fitzgerald bucket bags (structured bucket, limited production). Limited edition Grace Box colors (non-standard hues, special releases). Collaboration pieces and capsule collections (artist collabs, sold out). Exotic leather versions: crocodile, lizard, ostrich (expensive special orders). Estate pieces with Grace Kelly connection (if provenance documented, museum-level value).",
     rareJp:"ヴィンテージ マーク・クロス1845-1960年代（19世紀創設者時代、アメリカ遺産、美術館作品、極めて希少）。グレースボックスバッグ オリジナル1950-60年代（グレース・ケリーが持った、モナコ王室時代からの来歴、高コレクタビリティ）。ヴィンテージトレインケースとラゲッジ1920-40年代（高級トラベル遺産、アールデコデザイン、希少発見）。スコッティー犬ロゴ ヴィンテージ作品（シグネチャー テリアエンブレム、クラシックアメリカーナ）。米国製作品 1990年代以前（オフショア生産前、優れた職人技、希少）。サフィアーノレザー ヴィンテージバッグ（オリジナルイタリアンレザー、美しく経年変化、クラシック）。ベンチリーブリーフケース ヴィンテージ（メンズレザーグッズ、プロフェッショナル遺産）。フィッツジェラルドバケットバッグ（構造的バケット、限定生産）。限定版グレースボックスカラー（非標準色合い、特別リリース）。コラボ作品とカプセルコレクション（アーティストコラボ、完売）。エキゾチックレザーバージョン：クロコダイル、リザード、オーストリッチ（高価特別注文）。グレース・ケリーつながり遺品（来歴記録されていれば、美術館レベル価値）。",
@@ -2765,8 +3116,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Grace Box", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Structured box - Grace Kelly icon",
+        name:"Grace Box",        brief:"Structured box - Grace Kelly icon",
         briefJp:"構造的ボックス - グレース・ケリーアイコン",
         desc:"Named for Grace Kelly. Structured Saffiano box bag. Princess of Monaco carried it. American royalty-approved luxury.",
         descJp:"グレース・ケリーに命名。構造的サフィアーノボックスバッグ。モナコ公妃が持った。アメリカ王室承認ラグジュアリー。",
@@ -2782,8 +3132,7 @@ const BRAND_DATA = {
         tipJp:"グレース ボックス = グレース・ケリーが持った。それが物語。王室承認。"
       },
       {
-        name:"Fitzgerald", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Structured bucket - classic American",
+        name:"Fitzgerald",        brief:"Structured bucket - classic American",
         briefJp:"構造的バケット - クラシックアメリカン",
         desc:"Structured bucket bag. Classic American lines. Limited production. Mark Cross heritage sophistication.",
         descJp:"構造的バケットバッグ。クラシックアメリカンライン。限定生産。マーク・クロス遺産洗練。",
@@ -2803,9 +3152,7 @@ const BRAND_DATA = {
     name:"Mulberry", year:1971, country:"UK",
     categories:["handbags"],
     desc:"British luxury brand renowned for exceptional leather craftsmanship and the iconic postman's lock closure. The Bayswater tote is a British classic, while the Alexa bag (named after style icon Alexa Chung) became THE It bag of 2010. Vintage UK-made pieces from the Somerset factory are highly collectible. Known for Oak leather that ages beautifully and develops character. Represents timeless British heritage and quality.",
-    descJp:"卓越したレザー職人技と象徴的な郵便屋ロッククロージャーで有名な英国高級ブランド。ベイズウォータートートは英国クラシック、アレクサバッグ（スタイルアイコン アレクサ・チャンにちなむ）は2010年のTHE Itバッグになりました。サマセット工場からのヴィンテージ英国製作品は高コレクタブル。美しく経年変化し個性を発展させるオークレザーで知られています。時代を超えた英国遺産と品質を表しています。",
-    imageUrl:"https://logo.clearbit.com/mulberry.com",
-    auth:"'MULBERRY' stamp. Made in UK (premium) or China. Postman's lock (signature). Tree logo.",
+    descJp:"卓越したレザー職人技と象徴的な郵便屋ロッククロージャーで有名な英国高級ブランド。ベイズウォータートートは英国クラシック、アレクサバッグ（スタイルアイコン アレクサ・チャンにちなむ）は2010年のTHE Itバッグになりました。サマセット工場からのヴィンテージ英国製作品は高コレクタブル。美しく経年変化し個性を発展させるオークレザーで知られています。時代を超えた英国遺産と品質を表しています。",    auth:"'MULBERRY' stamp. Made in UK (premium) or China. Postman's lock (signature). Tree logo.",
     authJp:"「MULBERRY」刻印。英国製（プレミアム）または中国製。郵便屋ロック（シグネチャー）。木のロゴ。",
     rare:"Vintage Mulberry UK-made 1970s-1990s (Somerset factory, superior craftsmanship, highly collectible). Bayswater original 2003 launch (early versions before mass popularity, collectible). Alexa Bag 2010-2012 first releases (Alexa Chung collaboration peak era, IT bag status, sold out colors). Darwin Leather vintage bags (vegetable-tanned leather that ages beautifully, patina develops character). Vintage Scotchgrain leather (textured finish, 1980s-90s, durable). Roger Saul era bags (founder period 1971-2002, before sale to Singapore investors, heritage pieces). Antony Messenger Bag vintage 1980s-90s (men's crossbody, functional classic). Vintage Binocular Bag (unique shape, 1980s, rare). Vintage Congo leather bags (exotic embossed texture, discontinued). Limited edition artist collaborations (Mulberry x designers, sold out capsules). Primrose Hill Bag vintage (shoulder bag, 1990s, discontinued). Del Rey Bag Lana Del Rey collaboration (2012, celebrity capsule, sold out). Tree logo vintage variations (earlier logo designs, collectible markers).",
     rareJp:"ヴィンテージマルベリー 英国製1970-1990年代（サマセット工場、優れた職人技、高コレクタブル）。ベイズウォーター オリジナル2003年発売（大衆人気前の初期バージョン、コレクタブル）。アレクサバッグ2010-2012初リリース（アレクサ・チャンコラボピーク時代、ITバッグステータス、完売カラー）。ダーウィンレザー ヴィンテージバッグ（美しく経年変化する植物なめしレザー、パティナが個性発展）。ヴィンテージスコッチグレインレザー（テクスチャード仕上げ、1980-90年代、耐久性）。ロジャー・ソール時代バッグ（創設者期間1971-2002、シンガポール投資家への売却前、遺産作品）。アントニー メッセンジャーバッグ ヴィンテージ1980-90年代（メンズクロスボディ、機能的クラシック）。ヴィンテージ双眼鏡バッグ（ユニーク形状、1980年代、希少）。ヴィンテージコンゴレザーバッグ（エキゾチックエンボステクスチャ、廃盤）。限定版アーティストコラボ（Mulberry xデザイナー、完売カプセル）。プリムローズヒルバッグ ヴィンテージ（ショルダーバッグ、1990年代、廃盤）。デル・レイバッグ ラナ・デル・レイコラボ（2012、セレブカプセル、完売）。木ロゴ ヴィンテージバリエーション（初期ロゴデザイン、コレクタブルマーカー）。",
@@ -2867,9 +3214,7 @@ const BRAND_DATA = {
     name:"Coach", year:1941, country:"USA",
     categories:["handbags"],
     desc:"Classic American brand with two distinct eras: vintage USA-made bags (1960s-1990s) are collectible treasures, while modern Coach offers accessible luxury. Vintage Bonnie Cashin designs and Willis bags are highly prized. Known for quality leather, practical designs, and the signature turnlock hardware. Represents American craftsmanship heritage.",
-    descJp:"2つの異なる時代を持つクラシックアメリカンブランド：ヴィンテージ米国製バッグ（1960-1990年代）はコレクタブル宝物、モダンコーチはアクセシブルラグジュアリーを提供。ヴィンテージ ボニー・カシンデザインとウィリスバッグは高く評価されています。品質レザー、実用的デザイン、シグネチャー ターンロック金具で知られています。アメリカ職人技遺産を表しています。",
-    imageUrl:"https://logo.clearbit.com/coach.com",
-    auth:"'COACH' logo. Made in USA (vintage) or China/Vietnam (modern). Creed patch inside with serial.",
+    descJp:"2つの異なる時代を持つクラシックアメリカンブランド：ヴィンテージ米国製バッグ（1960-1990年代）はコレクタブル宝物、モダンコーチはアクセシブルラグジュアリーを提供。ヴィンテージ ボニー・カシンデザインとウィリスバッグは高く評価されています。品質レザー、実用的デザイン、シグネチャー ターンロック金具で知られています。アメリカ職人技遺産を表しています。",    auth:"'COACH' logo. Made in USA (vintage) or China/Vietnam (modern). Creed patch inside with serial.",
     authJp:"「COACH」ロゴ。米国製（ヴィンテージ）または中国/ベトナム製（モダン）。内側にシリアル付きクリードパッチ。",
     rare:"Vintage Coach USA-made 1960s-1990s (NYC factory production, superior quality, highly collectible, values increasing). Bonnie Cashin era bags 1960s-1970s (founder designer, innovative turnlock hardware, museum pieces, extremely rare). Willis Bag original 1980s-90s (crossbody with front pockets, vintage icon). Vintage Duffle Sac shoulder bags (slouchy bucket, 1970s-80s, rare). Station Bag vintage (structured tote, 1970s, classic). Pre-creed serial number bags (very early vintage, before serial system, extremely rare). Made in NYC stamped bags (original factory, superior leather, collectible). Stewardess Bag vintage 1970s (flight attendant carry-all, functional icon). Bonnie Cashin Cashin-Carr line (separate luxury line, 1960s-70s, museum pieces). Legacy Leather Collection (2000s heritage revival, limited). 1941 Collection (anniversary collection, modern vintage aesthetic). Vintage brass hardware (original turnlocks, patina adds character). Rogue Bag original 2015 (modern Coach icon, Stuart Vevers era).",
     rareJp:"ヴィンテージコーチ 米国製1960-1990年代（NYC工場生産、優れた品質、高コレクタブル、価値上昇中）。ボニー・カシン時代バッグ1960-70年代（創設者デザイナー、革新的ターンロック金具、美術館作品、極めて希少）。ウィリスバッグ オリジナル1980-90年代（フロントポケット付きクロスボディ、ヴィンテージアイコン）。ヴィンテージダッフルサックショルダーバッグ（たるんだバケット、1970-80年代、希少）。ステーションバッグ ヴィンテージ（構造的トート、1970年代、クラシック）。クリードシリアル番号前バッグ（非常に初期ヴィンテージ、シリアルシステム前、極めて希少）。Made in NYCスタンプバッグ（オリジナル工場、優れたレザー、コレクタブル）。スチュワーデスバッグ ヴィンテージ1970年代（客室乗務員キャリーオール、機能的アイコン）。ボニー・カシン キャシン・カールライン（個別高級ライン、1960-70年代、美術館作品）。レガシーレザーコレクション（2000年代遺産復活、限定）。1941コレクション（記念日コレクション、モダンヴィンテージ美学）。ヴィンテージブラス金具（オリジナルターンロック、パティナが個性追加）。ローグバッグ オリジナル2015（モダンコーチアイコン、スチュアート・ヴィーバース時代）。",
@@ -2884,8 +3229,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Willis", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Crossbody with pockets - vintage icon",
+        name:"Willis",        brief:"Crossbody with pockets - vintage icon",
         briefJp:"ポケット付きクロスボディ - ヴィンテージアイコン",
         desc:"Vintage Coach icon. Crossbody with front pockets. 1980s-90s USA-made collectible. Brass turnlock hardware. American heritage.",
         descJp:"ヴィンテージコーチアイコン。フロントポケット付きクロスボディ。1980-90年代米国製コレクタブル。真鍮ターンロック金具。アメリカ遺産。",
@@ -2900,8 +3244,7 @@ const BRAND_DATA = {
         tipJp:"ウィリス = ヴィンテージゴールド。米国製 = 価値あり。あのフロントポケット + ターンロック = コーチアイコン。"
       },
       {
-        name:"Rogue", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Modern structured satchel - 2015 revival",
+        name:"Rogue",        brief:"Modern structured satchel - 2015 revival",
         briefJp:"モダン構造的サッチェル - 2015年復活",
         desc:"Modern Coach icon from Stuart Vevers era. Structured satchel. Heritage details meet contemporary design. Coach revival piece.",
         descJp:"スチュアート・ヴィーバース時代のモダンコーチアイコン。構造的サッチェル。遺産ディテールが現代デザインと出会う。コーチ復活作品。",
@@ -2922,9 +3265,7 @@ const BRAND_DATA = {
     name:"Jacquemus", year:2009, country:"France",
     categories:["handbags"],
     desc:"Modern French brand that broke Instagram with Le Chiquito—the comically tiny bag too small for a phone. Known for playful proportions, from micro-mini to oversized XL bags, in vibrant colors. Represents irreverent, joyful luxury that doesn't take itself too seriously. Perfect for making a statement and getting likes.",
-    descJp:"電話も入らない滑稽なほど小さいバッグ、ル・シキートでInstagramを席巻したモダンフランスブランド。マイクロミニから特大XLバッグまでの遊び心ある比率と鮮やかな色で知られています。自分自身を真剣に受け止めない不遜で楽しいラグジュアリーを表しています。ステートメントを作りいいねを得るのに最適。",
-    imageUrl:"https://logo.clearbit.com/jacquemus.com",
-    auth:"'JACQUEMUS' logo. Made in Portugal or Italy. Known for TINY micro bags and oversized XL bags.",
+    descJp:"電話も入らない滑稽なほど小さいバッグ、ル・シキートでInstagramを席巻したモダンフランスブランド。マイクロミニから特大XLバッグまでの遊び心ある比率と鮮やかな色で知られています。自分自身を真剣に受け止めない不遜で楽しいラグジュアリーを表しています。ステートメントを作りいいねを得るのに最適。",    auth:"'JACQUEMUS' logo. Made in Portugal or Italy. Known for TINY micro bags and oversized XL bags.",
     authJp:"「JACQUEMUS」ロゴ。ポルトガルまたはイタリア製。超小型マイクロバッグと特大XLバッグで知られる。",
     rare:"Le Chiquito original 2018 launch (Instagram viral moment, micro-mini bag too small for phone, sold out instantly, collectible statement piece). Le Grand Bambino XXL (oversized version, playful contrast to mini, limited production). Le Bambino first seasons 2017-2019 (early Simon Porte Jacquemus designs, before mainstream). Limited edition seasonal colors (wheat yellow, sky blue, sunset orange - Provence-inspired palettes, limited runs). Collaboration pieces (special capsules, sold out). Le Chaussures Vallena mules bags (matching bags to iconic shoes, rare crossover). Le Chapeau hats with matching bags (coordinated sets, fashion week pieces). Runway samples (fashion show pieces, one-of-a-kind, extremely rare). First collections 2009-2015 (emerging designer era, pre-Instagram fame, rare finds). Amina Muaddi collaboration bags (2020+, sold out quickly). Le Gadjo bag structured designs (architectural minimalism, limited). Emoji and novelty shapes (watermelon slice, lemon - whimsical limited editions).",
     rareJp:"ル・シキート オリジナル2018年発売（Instagram バイラルモーメント、電話も入らないマイクロミニバッグ、即完売、コレクタブルステートメントピース）。ル・グラン・バンビーノXXL（特大バージョン、ミニへの遊び心のあるコントラスト、限定生産）。ル・バンビーノ 初シーズン2017-2019（主流前の初期シモン・ポルト・ジャックムスデザイン）。限定版季節カラー（ウィートイエロー、スカイブルー、サンセットオレンジ - プロヴァンス風パレット、限定ラン）。コラボ作品（特別カプセル、完売）。ル・ショシュール ヴァレナミュールバッグ（象徴的靴とマッチングバッグ、希少クロスオーバー）。ル・シャポー帽子とマッチングバッグ（コーディネートセット、ファッションウィーク作品）。ランウェイサンプル（ファッションショー作品、一点もの、極めて希少）。初コレクション2009-2015（新興デザイナー時代、Instagram名声前、希少発見）。アミナ・ムアディコラボバッグ（2020+、急速完売）。ル・ガジョバッグ構造デザイン（建築的ミニマリズム、限定）。絵文字とノベルティ形状（スイカスライス、レモン - 気まぐれ限定版）。",
@@ -2939,8 +3280,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Le Chiquito", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Micro-mini bag - Instagram viral icon",
+        name:"Le Chiquito",        brief:"Micro-mini bag - Instagram viral icon",
         briefJp:"マイクロミニバッグ - Instagram バイラルアイコン",
         desc:"THE Jacquemus bag. Comically TINY - too small for a phone! Instagram viral sensation. It's art, not utility. Statement piece.",
         descJp:"THE ジャックムスバッグ。滑稽なほど超小型 - 電話も入らない！Instagram バイラルセンセーション。実用性ではなくアート。ステートメントピース。",
@@ -2955,8 +3295,7 @@ const BRAND_DATA = {
         tipJp:"ル・シキート = 何にも小さすぎる！Instagram有名。純粋アート。実用性でなくいいねを得る。"
       },
       {
-        name:"Le Bambino", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Small top-handle - playful proportion",
+        name:"Le Bambino",        brief:"Small top-handle - playful proportion",
         briefJp:"小さなトップハンドル - 遊び心ある比率",
         desc:"Larger than Le Chiquito but still small. Actually holds things! Playful Jacquemus proportions. Modern French chic.",
         descJp:"ル・シキートより大きいがまだ小さい。実際に物が入る！遊び心のあるジャックムス比率。モダンフレンチシック。",
@@ -2976,9 +3315,7 @@ const BRAND_DATA = {
     name:"Chrome Hearts", year:1988, country:"USA",
     categories:["handbags"],
     desc:"Legendary rock-and-roll luxury brand born from motorcycle culture, famous for sterling silver crosses, daggers, and gothic motifs. Each piece is handcrafted in Los Angeles with heavy silver hardware. No mass production, no compromises. Cult favorite of celebrities and rockstars. Represents rebellious, unapologetic luxury with substance.",
-    descJp:"モーターサイクル文化から生まれたスターリングシルバークロス、短剣、ゴシックモチーフで有名な伝説的ロックンロールラグジュアリーブランド。各ピースはロサンゼルスで重いシルバー金具で手作りされています。大量生産なし、妥協なし。セレブとロックスターのカルトお気に入り。実質のある反抗的で謝罪しないラグジュアリーを表しています。",
-    imageUrl:"https://logo.clearbit.com/chromeheartsofficial.com",
-    auth:"Cross logo. 'CHROME HEARTS' stamp. Made in USA. Sterling silver hardware. Gothic aesthetic.",
+    descJp:"モーターサイクル文化から生まれたスターリングシルバークロス、短剣、ゴシックモチーフで有名な伝説的ロックンロールラグジュアリーブランド。各ピースはロサンゼルスで重いシルバー金具で手作りされています。大量生産なし、妥協なし。セレブとロックスターのカルトお気に入り。実質のある反抗的で謝罪しないラグジュアリーを表しています。",    auth:"Cross logo. 'CHROME HEARTS' stamp. Made in USA. Sterling silver hardware. Gothic aesthetic.",
     authJp:"クロスロゴ。「CHROME HEARTS」刻印。米国製。スターリングシルバー金具。ゴシック美学。",
     rare:"Vintage Chrome Hearts 1988-2000s (founder Richard Stark era, early LA production, extremely rare and valuable). Custom bespoke pieces (one-of-a-kind commissions for celebrities, provenance required, museum-level). Sterling silver hardware bags (heavy silver crosses, daggers, floral motifs - signature craftsmanship). Leather bags fully studded with silver (entirely covered in silver hardware, extremely heavy, expensive). Collaborations: Off-White Virgil Abloh (limited capsule, sold out, collectible), Rick Owens (gothic luxury crossover, rare), Comme des Garçons (Japanese avant-garde collab, limited). Cemetery Cross collection (gothic cemetery motifs, limited production). Dagger hardware bags (knife and dagger silver details, edgy). Floral Cross jewelry bags (intricate silver flower crosses, feminine gothic). Vintage eyewear cases with silver (small leather goods, cult collectible). Made in USA stamped pieces (LA workshop, superior craftsmanship, all CH is USA-made). Celebrity-owned pieces with provenance (rockstar/celebrity ownership documented, premium).",
     rareJp:"ヴィンテージ クロムハーツ1988-2000年代（創設者リチャード・スターク時代、初期LA生産、極めて希少で価値が高い）。カスタムビスポーク作品（セレブ用一点もの委託、来歴必要、美術館レベル）。スターリングシルバー金具バッグ（重いシルバークロス、短剣、花モチーフ - シグネチャー職人技）。シルバーで完全にスタッズされたレザーバッグ（完全にシルバー金具で覆われている、極めて重い、高価）。コラボ：オフホワイト ヴァージル・アブロー（限定カプセル、完売、コレクタブル）、リック・オウエンス（ゴシックラグジュアリークロスオーバー、希少）、コム・デ・ギャルソン（日本アバンギャルドコラボ、限定）。セメタリークロスコレクション（ゴシック墓地モチーフ、限定生産）。ダガー金具バッグ（ナイフと短剣シルバーディテール、エッジー）。フローラルクロスジュエリーバッグ（複雑なシルバーフラワークロス、女性的ゴシック）。シルバー付きヴィンテージアイウェアケース（小物レザーグッズ、カルトコレクタブル）。Made in USAスタンプ作品（LAワークショップ、優れた職人技、すべてのCHは米国製）。来歴付きセレブ所有作品（ロックスター/セレブ所有記録、プレミアム）。",
@@ -2993,8 +3330,7 @@ const BRAND_DATA = {
     ],
     models:[
       {
-        name:"Cross Hardware Bag", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Sterling silver cross bag - gothic luxury",
+        name:"Cross Hardware Bag",        brief:"Sterling silver cross bag - gothic luxury",
         briefJp:"スターリングシルバークロスバッグ - ゴシックラグジュアリー",
         desc:"Chrome Hearts signature. Black leather with heavy STERLING SILVER crosses. Handcrafted in LA. Rock 'n' roll luxury. Cult status.",
         descJp:"クロムハーツシグネチャー。重いスターリングシルバークロス付きブラックレザー。LA手作り。ロックンロールラグジュアリー。カルトステータス。",
@@ -3009,8 +3345,7 @@ const BRAND_DATA = {
         tipJp:"クロムハーツ = 重いシルバークロス。ゴシックバイカーラグジュアリー。カルトステータス。LA製。"
       },
       {
-        name:"Dagger Hardware Bag", imageUrl:"https://images.unsplash.com/photo-placeholder",
-        brief:"Silver dagger details - edgy rock luxury",
+        name:"Dagger Hardware Bag",        brief:"Silver dagger details - edgy rock luxury",
         briefJp:"シルバーダガーディテール - エッジーロックラグジュアリー",
         desc:"Sterling silver DAGGERS and knives. Gothic warrior luxury. Chrome Hearts edge. Pure rebellion.",
         descJp:"スターリングシルバーダガーとナイフ。ゴシック戦士ラグジュアリー。クロムハーツエッジ。純粋な反抗。",
@@ -3030,9 +3365,7 @@ const BRAND_DATA = {
     name:"Chopard", year:1860, country:"Switzerland",
     categories:["jewelry"],
     desc:"Swiss luxury jeweler famous for Happy Diamonds—innovative design where diamonds move freely between sapphire crystals. Official jeweler of the Cannes Film Festival, creating red-carpet masterpieces. The Ice Cube collection showcases modern geometric design. Represents playful Swiss precision and high jewelry artistry. Where innovation meets timeless luxury.",
-    descJp:"サファイアクリスタル間でダイヤモンドが自由に動く革新的デザインのハッピーダイヤモンドで有名なスイス高級宝石商。カンヌ映画祭の公式宝石商で、レッドカーペット傑作を創作。アイスキューブコレクションは現代幾何学的デザインを示しています。遊び心のあるスイス精密とハイジュエリー芸術性を表しています。革新が時代を超えたラグジュアリーと出会う場所。",
-    imageUrl:"https://logo.clearbit.com/chopard.com",
-    auth:"'CHOPARD' stamp. Swiss hallmarks. Serial number. High jewelry and watches.",
+    descJp:"サファイアクリスタル間でダイヤモンドが自由に動く革新的デザインのハッピーダイヤモンドで有名なスイス高級宝石商。カンヌ映画祭の公式宝石商で、レッドカーペット傑作を創作。アイスキューブコレクションは現代幾何学的デザインを示しています。遊び心のあるスイス精密とハイジュエリー芸術性を表しています。革新が時代を超えたラグジュアリーと出会う場所。",    auth:"'CHOPARD' stamp. Swiss hallmarks. Serial number. High jewelry and watches.",
     authJp:"「CHOPARD」刻印。スイスホールマーク。シリアル番号。ハイジュエリーと時計。",
     rare:"Happy Diamonds original 1976 launch (revolutionary moving diamonds design, vintage pieces highly collectible). Cannes Film Festival jewelry (official jeweler since 1998, red-carpet pieces worn by celebrities, photo provenance adds value). Ice Cube Collection limited editions (modern geometric design, special colorways, pavé diamond versions). Imperial Collection high jewelry (exceptional gemstones, museum-quality pieces, extremely expensive). Mille Miglia racing watches vintage (motorsport heritage, chronographs from 1980s-90s, collectible). Animal World jewelry (playful animal motifs, diamonds and gemstones, whimsical luxury). Happy Sport watches original 1990s (sports watch with moving diamonds, innovative design). Vintage L.U.C watches (haute horlogerie, in-house movements, limited production). Red Carpet Collection annual pieces (Cannes special editions, one-of-a-kind for events). Ethical gold jewelry (Fairmined certified, sustainable luxury, limited special pieces). High jewelry tiaras (worn by royalty and celebrities, museum pieces, extremely rare).",
     rareJp:"ハッピーダイヤモンド オリジナル1976年発売（革命的な動くダイヤモンドデザイン、ヴィンテージ作品は高コレクタブル）。カンヌ映画祭ジュエリー（1998年以降公式宝石商、セレブが着用したレッドカーペット作品、写真来歴が価値追加）。アイスキューブコレクション限定版（現代幾何学的デザイン、特別カラーウェイ、パヴェダイヤモンドバージョン）。インペリアルコレクション ハイジュエリー（卓越した宝石、美術館品質作品、極めて高価）。ミッレミリア レーシングウォッチ ヴィンテージ（モータースポーツ遺産、1980-90年代クロノグラフ、コレクタブル）。アニマルワールドジュエリー（遊び心のある動物モチーフ、ダイヤモンドと宝石、気まぐれラグジュアリー）。ハッピースポーツウォッチ オリジナル1990年代（動くダイヤモンド付きスポーツウォッチ、革新的デザイン）。ヴィンテージL.U.Cウォッチ（オートオルロジュリー、社内ムーブメント、限定生産）。レッドカーペットコレクション 年次作品（カンヌ特別版、イベント用一点もの）。エシカルゴールドジュエリー（Fairmined認証、サステナブルラグジュアリー、限定特別作品）。ハイジュエリーティアラ（王室とセレブが着用、美術館作品、極めて希少）。",
@@ -3094,9 +3427,9 @@ const BRAND_DATA = {
   },
   pomellato: {
     name:"Pomellato", year:1967, country:"Italy",
-    categories:["jewelry"],
-    imageUrl:"https://logo.clearbit.com/pomellato.com",
-    auth:"'POMELLATO' stamp. Made in Italy. Known for colorful gemstones. Cabochon cuts.",
+    desc:"Italian fine jewelry house founded in Milan in 1967, renowned for bold cabochon gemstones and signature 18k rose gold. Pomellato pioneered 'prêt-à-porter' fine jewelry—luxurious pieces designed for everyday wear, not just special occasions. The iconic Nudo ring with its oversized smooth cabochon stone is instantly recognizable. Italian women's confidence and love of color, expressed in wearable jewelry.",
+    descJp:"1967年にミラノで創設されたイタリアのファインジュエリーハウス。大胆なカボション宝石とシグネチャーの18金ローズゴールドで知られる。ポメラートは「プレタポルテ」ファインジュエリーを開拓—特別な機会だけでなく毎日着けるための豪華なピース。特大の滑らかなカボションを使ったアイコニックなヌードリングは一目でわかる。イタリア女性の自信と色彩への情熱を、身につけられるジュエリーで表現。",
+    categories:["jewelry"],    auth:"'POMELLATO' stamp. Made in Italy. Known for colorful gemstones. Cabochon cuts.",
     authJp:"「POMELLATO」刻印。イタリア製。カラフルな宝石で知られる。カボションカット。",
     rare:"Vintage Pomellato 1967-1980s (founder era, early Italian bold jewelry, collectible). Nudo Collection original 1990s launch (oversized cabochon rings, early versions more valuable). Rare gemstone Nudo versions: Mandarin garnet, tanzanite, Paraiba tourmaline (unusual colors, limited, expensive). Iconica Collection full diamond pavé (entirely covered in diamonds, high luxury). M'ama non M'ama collection (daisy petal designs, whimsical, limited editions). Sabbia collection (sand-textured gold, unique finish, 2000s). Capri collection vintage (colorful gemstone mixes, Mediterranean inspiration, limited). Tango collection (two-stone combinations, colorful pairings, discontinued). Vintage signed pieces by founder Pino Rabolini (1967-1990s, museum pieces, rare). Limited edition collaborations and capsules (artist partnerships, sold out). High jewelry one-of-a-kind pieces (bespoke commissions, exceptional gemstones, museum-quality).",
     rareJp:"ヴィンテージポメラート1967-1980年代（創設者時代、初期イタリアン大胆ジュエリー、コレクタブル）。ヌードコレクション オリジナル1990年代発売（特大カボションリング、初期バージョンはより価値が高い）。希少宝石ヌードバージョン：マンダリンガーネット、タンザナイト、パライバトルマリン（珍しい色、限定、高価）。アイコニカコレクション フルダイヤモンドパヴェ（完全にダイヤモンドで覆われている、高級）。M'ama non M'amaコレクション（デイジー花びらデザイン、気まぐれ、限定版）。サッビアコレクション（砂テクスチャゴールド、ユニーク仕上げ、2000年代）。カプリコレクション ヴィンテージ（カラフルな宝石ミックス、地中海インスピレーション、限定）。タンゴコレクション（2ストーン組み合わせ、カラフルペアリング、廃盤）。創設者ピノ・ラボリーニサイン入りヴィンテージ作品（1967-1990年代、美術館作品、希少）。限定版コラボとカプセル（アーティストパートナーシップ、完売）。ハイジュエリー一点もの作品（ビスポーク委託、卓越した宝石、美術館品質）。",
@@ -3158,9 +3491,7 @@ const BRAND_DATA = {
     name:"Mikimoto", year:1893, country:"Japan",
     categories:["jewelry"],
     desc:"The inventor of cultured pearls and the world's foremost pearl authority. Founded by Kokichi Mikimoto who revolutionized the jewelry industry in 1893. Famous for flawless Akoya pearls with legendary luster and perfectly matched strands. Each pearl is graded to the highest standards. Represents Japanese precision, timeless elegance, and pearl perfection.",
-    descJp:"養殖真珠の発明者であり世界最高の真珠権威。1893年にジュエリー業界に革命をもたらした御木本幸吉によって創業。伝説的な光沢と完璧にマッチしたストランドを持つ完璧なアコヤ真珠で有名。各真珠は最高基準に格付けされています。日本の精密、時代を超えたエレガンス、真珠の完璧を表しています。",
-    imageUrl:"https://logo.clearbit.com/mikimotoamerica.com",
-    auth:"'MIKIMOTO' stamp. Akoya pearls (signature). Serial number on clasp. Japanese cultured pearls.",
+    descJp:"養殖真珠の発明者であり世界最高の真珠権威。1893年にジュエリー業界に革命をもたらした御木本幸吉によって創業。伝説的な光沢と完璧にマッチしたストランドを持つ完璧なアコヤ真珠で有名。各真珠は最高基準に格付けされています。日本の精密、時代を超えたエレガンス、真珠の完璧を表しています。",    auth:"'MIKIMOTO' stamp. Akoya pearls (signature). Serial number on clasp. Japanese cultured pearls.",
     authJp:"「MIKIMOTO」刻印。アコヤ真珠（シグネチャー）。クラスプにシリアル番号。日本養殖真珠。",
     rare:"Vintage Mikimoto 1893-1950s (founder Kokichi Mikimoto era, early cultured pearl production, museum pieces, extremely rare and valuable). AAA+ grade Akoya pearls (highest quality, perfect luster, round shape, rare). Blue-silver overtone Akoya (rarest color variation, premium pricing). Vintage ornate clasps designs (Art Nouveau, Art Deco 1920s-40s, intricate metalwork, collectible). Perfectly matched pearl strands (uniform size, color, luster - meticulous grading, expensive). Golden South Sea pearl necklaces (large 12mm+ pearls, rare, expensive). Black Tahitian pearl strands (peacock green overtone, perfectly matched, rare). Mikimoto Crown collection (tiara and high jewelry, worn by royalty, museum pieces). Vintage brooches 1950s-70s (pearl and diamond combinations, mid-century elegance). Limited edition anniversary pieces (centennial collections, special releases). Baroque pearl designs (irregular shapes, artistic, limited). Original Mikimoto boxes and certificates (complete vintage sets, provenance adds value).",
     rareJp:"ヴィンテージミキモト1893-1950年代（創設者御木本幸吉時代、初期養殖真珠生産、美術館作品、極めて希少で価値が高い）。AAA+グレード アコヤ真珠（最高品質、完璧な光沢、丸形、希少）。ブルーシルバーオーバートーン アコヤ（最も希少な色バリエーション、プレミアム価格）。ヴィンテージ華麗なクラスプデザイン（アールヌーボー、1920-40年代アールデコ、複雑な金属細工、コレクタブル）。完璧にマッチした真珠ストランド（均一サイズ、色、光沢 - 細心の格付け、高価）。ゴールデン南洋真珠ネックレス（大きな12mm+真珠、希少、高価）。ブラックタヒチアン真珠ストランド（ピーコックグリーンオーバートーン、完璧にマッチ、希少）。ミキモトクラウンコレクション（ティアラとハイジュエリー、王室が着用、美術館作品）。ヴィンテージブローチ1950-70年代（真珠とダイヤモンド組み合わせ、世紀半ばエレガンス）。限定版記念日作品（百周年コレクション、特別リリース）。バロック真珠デザイン（不規則形状、芸術的、限定）。オリジナルミキモトボックスと証明書（完全ヴィンテージセット、来歴が価値追加）。",
@@ -3224,7 +3555,7 @@ const BRAND_DATA = {
   }
 };
 
-/* ═══ PROFESSIONAL VOCABULARY ===
+/* ═══ PROFESSIONAL VOCABULARY === */
 const VOCAB_CATS = [
   { cat:"Condition Grading (Essential Terms)", items:[
     {e:"Mint",j:"ミント",def:"Perfect, flawless condition - appears never used or touched",defJp:"完璧、傷なし状態 - 未使用または未触に見える",category:"ecommerce",emoji:"💎"},
@@ -3670,7 +4001,7 @@ export default function App() {
         id: "vocab",
         icon: "📖",
         label: "Vocabulary",
-        page: 5
+        page: "vocab"
       },
       {
         id: "practice",
@@ -3803,7 +4134,7 @@ export default function App() {
         id: "vocab",
         icon: "📖",
         label: "用語集",
-        page: 5
+        page: "vocab"
       },
       {
         id: "practice",
@@ -4052,7 +4383,10 @@ export default function App() {
               {section.page !== undefined ? (
                 // Simple link (like Home)
                 <button
-                  onClick={() => setPage(section.page)}
+                  onClick={() => {
+                    console.log("Clicked:", section.label, "Page value:", section.page);
+                    setPage(section.page);
+                  }}
                   style={{
                     width:"100%",
                     minHeight:48,
@@ -4284,7 +4618,10 @@ export default function App() {
             if (page === 4 || page === "policy") return <PolicyP lang={lang} />;
 
             // Vocabulary
-            if (page === 5 || pageStr.startsWith("vocab-")) return <EnglishP lang={lang} />;
+            if (page === "vocab" || pageStr.startsWith("vocab-")) {
+              console.log("Rendering Vocabulary page! lang:", lang);
+              return <EnglishP lang={lang} />;
+            }
 
             // Practice Games
             if (page === 6 || pageStr.startsWith("game-")) return <PracticeP lang={lang} onXpEarned={handleXpEarned} />;
@@ -5250,9 +5587,9 @@ function BrandKnowledgeLandingPage({ lang, onBrandSelect }) {
                 >
                   {/* Brand Logo - Fallback to colored initial */}
                   <div style={{ height: 40, marginBottom: 16, display: "flex", alignItems: "center" }}>
-                    {brand.imageUrl ? (
+                    {getBrandLogoUrl(result.brandKey) ? (
                       <img
-                        src={brand.imageUrl}
+                        src={getBrandLogoUrl(result.brandKey)}
                         alt={brand.name}
                         style={{ maxHeight: 40, maxWidth: "100%", objectFit: "contain" }}
                         onError={(e) => {
@@ -5503,6 +5840,11 @@ function FashionP({ lang, initialBrand }) {
         <div style={{ marginBottom:32 }}>
           <div style={{ fontSize:14, color:"#6b7280", marginBottom:4 }}>{brand.name}</div>
           <div style={{ fontSize:36, fontWeight:800, color:"#1a1a2e", marginBottom:12 }}>{model.name}</div>
+          {model.imageUrl && (
+            <div style={{ marginBottom:16 }}>
+              <img src={model.imageUrl} alt={model.name} style={{ width:"100%", maxWidth:400, height:"auto", borderRadius:12, boxShadow:"0 4px 6px rgba(0,0,0,0.1)" }} />
+            </div>
+          )}
           <div style={{ fontSize:16, color:"#4B5563", lineHeight:1.6, marginBottom:16 }}>
             {lang==="en"?model.desc:model.descJp}
           </div>
@@ -5615,9 +5957,9 @@ function FashionP({ lang, initialBrand }) {
         </button>
 
         <div style={{ flex:1, display:"flex", alignItems:"center", gap:16 }}>
-          {brand.imageUrl ? (
+          {getBrandLogoUrl(selectedBrand) ? (
             <img
-              src={brand.imageUrl}
+              src={getBrandLogoUrl(selectedBrand)}
               alt={brand.name}
               style={{ height:50, objectFit:"contain", maxWidth: 200 }}
               onError={(e) => {
@@ -5740,11 +6082,16 @@ function FashionP({ lang, initialBrand }) {
             </div>
             <div style={{ display:"grid", gap:12 }}>
               {brand.models.map((m,i)=>(
-                <button key={i} onClick={()=>setSelModel(i)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", cursor:"pointer", textAlign:"left", transition:"all 0.2s", fontFamily:"inherit" }}
+                <button key={i} onClick={()=>setSelModel(i)} style={{ background:"#FFFFFF", border:"2px solid #E5E7EB", borderRadius:12, padding:"16px 20px", cursor:"pointer", textAlign:"left", transition:"all 0.2s", fontFamily:"inherit", display:"flex", alignItems:"center", gap:16 }}
                   onMouseEnter={e=>{e.currentTarget.style.borderColor="#3665F3"; e.currentTarget.style.transform="translateY(-2px)";}}
                   onMouseLeave={e=>{e.currentTarget.style.borderColor="#E5E7EB"; e.currentTarget.style.transform="translateY(0)";}}>
-                  <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{m.name}</div>
-                  <div style={{ fontSize:14, color:"#4B5563" }}>{lang==="en"?m.brief:m.briefJp}</div>
+                  {m.imageUrl && (
+                    <img src={m.imageUrl} alt={m.name} style={{ width:80, height:80, objectFit:"cover", borderRadius:8, flexShrink:0 }} />
+                  )}
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontSize:18, fontWeight:700, color:"#191919", marginBottom:4 }}>{m.name}</div>
+                    <div style={{ fontSize:14, color:"#4B5563" }}>{lang==="en"?m.brief:m.briefJp}</div>
+                  </div>
                 </button>
               ))}
             </div>
@@ -6303,11 +6650,6 @@ function EnglishP({ lang }) {
           )}
         </div>
       ))}
-
-      {/* Comprehensive Condition Vocabulary */}
-      <div style={{ marginTop:48 }}>
-        <ConditionVocabularyViewer lang={lang} />
-      </div>
 
       {/* Condition Training Section */}
       <div style={{ marginTop:48 }}>

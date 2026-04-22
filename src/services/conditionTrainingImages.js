@@ -274,6 +274,77 @@ export async function generatePracticeScenario(scenarioType) {
 }
 
 /**
+ * Generate Vocabulary term visual examples
+ * For eBay Live Vocabulary page
+ */
+export async function generateVocabularyImages() {
+  const vocabularyTerms = {
+    cornerWear: {
+      prompt: 'Extreme closeup macro photography of luxury leather handbag bottom corner, moderate scuffing and wear marks clearly visible, detailed leather texture, educational reference for eBay sellers, white background, professional lighting',
+      description: 'Corner wear on luxury handbag'
+    },
+    patina: {
+      prompt: 'Closeup macro photography of Louis Vuitton vachetta leather handle, beautiful honey-brown patina naturally developed, aged leather texture detail, warm golden tones, educational reference, white background',
+      description: 'Vachetta leather patina - natural aging'
+    },
+    hardwareTarnish: {
+      prompt: 'Macro closeup of luxury handbag brass hardware zipper pull and clasp, visible tarnishing and oxidation on metal surface, detailed patina texture, educational reference for condition assessment, white background',
+      description: 'Hardware tarnishing - metal oxidation'
+    },
+    stitching: {
+      prompt: 'Extreme macro closeup of luxury handbag precision stitching detail, neat thread work holding leather panels together, clear stitch pattern, educational reference showing quality craftsmanship, white background',
+      description: 'Stitching detail on luxury handbag'
+    },
+    interiorStain: {
+      prompt: 'Top-down view of luxury handbag interior lining, moderate stain visible on light fabric, educational reference for condition disclosure, clear lighting, white background',
+      description: 'Interior stain example'
+    },
+    leatherCracking: {
+      prompt: 'Closeup of aged leather handbag surface, moderate cracking in leather clearly visible, detailed texture showing natural aging and wear pattern, educational reference, white background',
+      description: 'Leather cracking detail'
+    },
+    waterStain: {
+      prompt: 'Closeup of vachetta leather showing water stain marks, darker spots visible on natural leather, educational reference for condition assessment, white background',
+      description: 'Water stain on leather'
+    },
+    surfaceScratches: {
+      prompt: 'Macro closeup of luxury handbag leather surface, light surface scratches visible from normal use, detailed texture, educational reference, white background, professional lighting',
+      description: 'Surface scratches on leather'
+    },
+    colorTransfer: {
+      prompt: 'Closeup of light-colored luxury leather handbag with denim color transfer, blue dye marks clearly visible on white/cream leather surface, educational reference for condition disclosure, white background',
+      description: 'Color transfer - denim dye on leather'
+    },
+    looseStitching: {
+      prompt: 'Macro closeup of luxury handbag stitching, loose thread visible coming apart from seam, detailed view of stitching issue, educational reference, white background',
+      description: 'Loose stitching - thread coming apart'
+    }
+  };
+
+  const results = {};
+
+  for (const [key, term] of Object.entries(vocabularyTerms)) {
+    try {
+      const imageData = await generateWithGemini(term.prompt);
+      results[key] = {
+        url: imageData,
+        description: term.description,
+        prompt: term.prompt
+      };
+    } catch (error) {
+      console.error(`Error generating ${key}:`, error);
+      results[key] = {
+        url: createEnhancedPlaceholder(term.prompt),
+        description: term.description,
+        prompt: term.prompt
+      };
+    }
+  }
+
+  return results;
+}
+
+/**
  * Core Gemini API call with retry logic
  */
 async function generateWithGemini(prompt) {
@@ -283,18 +354,14 @@ async function generateWithGemini(prompt) {
   }
 
   try {
-    // Use Gemini's text-to-image generation API
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:generate?key=${GEMINI_API_KEY}`,
+      `${GEMINI_API}/models/gemini-2.5-flash-image:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          prompt: prompt,
-          number_of_images: 1,
-          aspect_ratio: "4:3",
-          safety_filter_level: "block_some",
-          person_generation: "allow_adult"
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { responseModalities: ['IMAGE', 'TEXT'] }
         })
       }
     );
@@ -307,9 +374,12 @@ async function generateWithGemini(prompt) {
 
     const data = await response.json();
 
-    // Check for generated images in the response
-    if (data.generated_images && data.generated_images[0]?.image?.image_bytes) {
-      return `data:image/png;base64,${data.generated_images[0].image.image_bytes}`;
+    if (data.candidates?.[0]?.content?.parts) {
+      for (const part of data.candidates[0].content.parts) {
+        if (part.inlineData?.data) {
+          return `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+        }
+      }
     }
 
     console.warn('No image in Gemini response:', data);
