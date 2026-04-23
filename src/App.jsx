@@ -698,7 +698,7 @@ const BRAND_DATA = {
         tip:"This is the 'entry' Hermès bag. No waitlist. You can actually BUY this one. Perfect for buyers who want H without $10K.",
         tipJp:"これは「エントリー」エルメスバッグ。ウェイトリストなし。実際に買える。1万ドルなしでHが欲しいバイヤーに最適。"
       },
-      { name:"Garden Party", imageUrl:"https://images.vestiairecollective.com/images/resized/w=1246,q=75,f=auto,/produit/pink-cloth-garden-party-hermes-handbag-60329489-1_2.jpg", brief:"Canvas tote - casual luxury", briefJp:"キャンバストート - カジュアルラグジュアリー",        desc:"Hermès' casual tote in canvas or leather. Open-top, simple design. More relaxed than Birkin but still unmistakably Hermès.",
+      { name:"Garden Party", imageUrl:"https://product-images.therealreal.com/HER597624_1_enlarged.jpg", brief:"Canvas tote - casual luxury", briefJp:"キャンバストート - カジュアルラグジュアリー",        desc:"Hermès' casual tote in canvas or leather. Open-top, simple design. More relaxed than Birkin but still unmistakably Hermès.",
         descJp:"キャンバスまたはレザーのエルメスのカジュアルトート。オープントップ、シンプルデザイン。バーキンよりリラックスしているが間違いなくエルメス。",
         shape:"Simple tote with double handles. Open top (no closure). Canvas body with leather trim.",
         shapeJp:"ダブルハンドルのシンプルトート。オープントップ（クロージャーなし）。レザートリム付きキャンバスボディ。",
@@ -800,7 +800,7 @@ const BRAND_DATA = {
         tip:"The horsebit is from Gucci's saddle-making roots. Heritage piece. Collectors love the history.",
         tipJp:"ホースビットはグッチのサドル製造ルーツから。伝統作品。コレクターは歴史を愛する。"
       },
-      { name:"Dionysus", imageUrl:"https://cdn-images.farfetch-contents.com/15/35/99/79/15359979_53139015_1000.jpg", brief:"Tiger head closure - symbol of power", briefJp:"タイガーヘッドクロージャー - 力のシンボル",        desc:"Shoulder bag with distinctive tiger head spur closure. Named after the Greek god Dionysus. Launched by Alessandro Michele in 2015.",
+      { name:"Dionysus", imageUrl:"https://product-images.therealreal.com/GUC1304874_1_enlarged.jpg", brief:"Tiger head closure - symbol of power", briefJp:"タイガーヘッドクロージャー - 力のシンボル",        desc:"Shoulder bag with distinctive tiger head spur closure. Named after the Greek god Dionysus. Launched by Alessandro Michele in 2015.",
         descJp:"特徴的なタイガーヘッドスパークロージャー付きショルダーバッグ。ギリシャの神ディオニュソスにちなんで命名。2015年にアレッサンドロ・ミケーレが発売。",
         shape:"Structured shoulder bag. Tiger head hardware closure. Sliding chain strap. GG Supreme canvas or leather.",
         shapeJp:"構造的ショルダーバッグ。タイガーヘッド金具クロージャー。スライディングチェーンストラップ。GGスプリームキャンバスまたはレザー。",
@@ -873,7 +873,7 @@ const BRAND_DATA = {
         tip:"It looks like a vintage leather book. That unique shape makes it stand out. Very Instagram-worthy.",
         tipJp:"ヴィンテージレザー本のよう。そのユニークな形が目立たせる。とてもインスタ映え。"
       },
-      { name:"Re-Edition 2005", imageUrl:"https://cdn-images.farfetch-contents.com/19/66/19/46/19661946_43929832_1000.jpg", brief:"Nylon shoulder bag - Y2K icon", briefJp:"ナイロンショルダーバッグ - Y2Kアイコン",        desc:"Re-release of Prada's bestselling bag from 2000. Nylon shoulder bag with Saffiano leather triangle logo. Became hugely popular in 2019+ for Y2K nostalgia.",
+      { name:"Re-Edition 2005", imageUrl:"https://product-images.therealreal.com/PRA772299_2_enlarged.jpg", brief:"Nylon shoulder bag - Y2K icon", briefJp:"ナイロンショルダーバッグ - Y2Kアイコン",        desc:"Re-release of Prada's bestselling bag from 2000. Nylon shoulder bag with Saffiano leather triangle logo. Became hugely popular in 2019+ for Y2K nostalgia.",
         descJp:"2000年のプラダのベストセラーバッグの復刻版。サフィアーノレザー三角ロゴ付きナイロンショルダーバッグ。Y2Kノスタルジアで2019年以降大人気に。",
         shape:"Compact shoulder bag. Iconic tessuto nylon. Saffiano leather triangle logo. Zip-top closure.",
         shapeJp:"コンパクトショルダーバッグ。象徴的なテスートナイロン。サフィアーノレザー三角ロゴ。ジップトップクロージャー。",
@@ -1415,7 +1415,7 @@ const BRAND_DATA = {
       {name:"Pink/Blush", hex:"#FFB6C1", nameJp:"ピンク/ブラッシュ", desc:"Feminine and playful. Limited editions.", descJp:"女性的で遊び心。限定版。"}
     ],
     models:[
-      { name:"Baguette", imageUrl:"https://valuecreationuae.com/uploads/frontend/products/7356/conversions/fendi-black-ff-embossed-leather-chain-baguette-bag_imageGallery2-resize_images.webp", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
+      { name:"Baguette", imageUrl:"https://a.1stdibscdn.com/fendi-black-leather-baguette-shoulder-bag-for-sale/v_13101/v_186930121678779953253/v_18693012_1678779953843_bg_processed.jpg?width=768", brief:"Compact underarm clutch - 90s icon", briefJp:"コンパクト脇下クラッチ - 90年代アイコン",        desc:"THE It bag of the late 90s. Compact, fits under your arm like a French baguette. Sex and the City made it famous.",
         descJp:"90年代後半のTHE Itバッグ。コンパクト、フランスのバゲットのように脇の下に収まる。セックス・アンド・ザ・シティで有名に。",
         shape:"Small rectangular bag. Flap closure. Short shoulder strap. Fits snugly under arm.",
         shapeJp:"小さな長方形バッグ。フラップクロージャー。短いショルダーストラップ。脇の下にぴったり収まる。",
